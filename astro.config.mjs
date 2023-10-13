@@ -5,7 +5,14 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'Orbit Docs',
+			logo: {
+				light: './src/assets/light-orbit.svg',
+				dark: './src/assets/dark-orbit.svg',
+			  },
+			components: {
+				Hero: './src/components/OrbitHero.astro'
+			},
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
