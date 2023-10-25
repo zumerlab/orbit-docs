@@ -1,0 +1,85 @@
+---
+const { htmlpath  } = Astro.props
+
+
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/playground-elements@0.18.1/themes/material-palenight.css"
+      type="text/css"
+    />
+    <script>
+      
+    
+      function CopyToClipboard(id) {
+        var r = document.createRange()
+        r.selectNode(document.getElementById(id))
+        window.getSelection().removeAllRanges()
+        window.getSelection().addRange(r)
+        document.execCommand('copy')
+        window.getSelection().removeAllRanges()
+      }
+      
+     
+      
+      const dd = document.querySelector('playground-preview')
+      const kk = 'http://' + window.location.host + '/examples/container/index.html'
+      dd.setAttribute('html-file','http://' + window.location.host + '/examples/container/index.html')
+      console.log(window.location.host)
+      const ff = document.querySelector('playground-project')
+      ff.config = {files:{'/examples/container/index.html': {}}}
+     
+    </script>
+    <script type="module">
+      import playgroundElements from 'https://cdn.jsdelivr.net/npm/playground-elements@0.18.1/+esm'
+     
+    </script>
+    <style is:global>
+      .example {
+        box-sizing: border-box;
+        width: 100%;
+        border: 1px solid #ccc;
+        overflow: hidden;
+        border-radius: 10px;
+      }
+      .example > playground-preview * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .example.code {
+        background-color: rgb(41, 45, 62);
+      }
+      .example.code > playground-file-editor {
+        margin: 8px;
+        height: fit-content;
+      }
+      .example > ::part(preview-toolbar) {
+        display: none;
+      }
+    </style>
+  </head>
+ 
+  
+  <playground-project id="project1" >
+  </playground-project>
+  <div class="example">
+    <playground-preview project="project1">
+    </playground-preview>
+  </div>
+  <br />
+  <div class="example code">
+    <playground-file-editor
+    id="mycode"
+      project="project1"
+      class="playground-theme-material-palenight"></playground-file-editor>
+  </div>
+  <button onclick="
+  CopyToClipboard('mycode'); return false;
+">Copy text</button>
+
+</html>
