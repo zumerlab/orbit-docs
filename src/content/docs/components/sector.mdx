@@ -1,0 +1,25 @@
+---
+title: o-sector
+---
+import Snippet from '../../../components/CodePlayground.astro'
+
+If orbits resemble rows, the `sector` class can be thought of as columns in the Zumer radial grid. An `sector` is a radial segment that serves as the background support for radial designs, but also may work standalone as buttons for instance. It offers customizable options, allowing you to fine-tune its appearance to suit your specific needs.
+
+With the `sector` class, you can customize properties such as width, gap, offset, sector length, border curvature, and more. This level of control enables you to create visually stunning and unique radial layouts.
+
+By experimenting with different configurations, you can achieve a wide range of design aesthetics, whether you prefer a sleek and minimalistic look or a more intricate and expressive pattern.
+
+```html
+    <div class="pod">
+      <div class="orbit-1 orbiters-3">
+        <div class="sector"></div>
+        <div class="sector"></div>
+        <div class="sector"></div>
+      </div>
+    </div>
+```
+
+In this example, three sectors are placed in a orbit. To draw three sectors that cover the entire orbit, you need to include the `orbiters-3` class in the orbit element. Additionally, you can utilize other parent options to customize the start angle and sector length.
+
+- Use the `offset-*` class to specify the starting angle of the sectors within the orbit.
+- Employ the `limit-*` class to define the length of the orbit sector covered by the sectors.

@@ -1,0 +1,21 @@
+---
+title: o-orbiter
+---
+import Snippet from '../../../components/CodePlayground.astro'
+
+The `orbiter` class is used to position and contain content within the Zumer radial grid. It offers various customization options, including different sizes (`xxs`, `xs`, `s`, `m`, `l`, `xl`, `xxl`), shapes (`line`, `circle`, `box`, `rounded`, `blob`), orbital position (`stationary`), and relative orbit positions (`middle`, `upper`, `lower`).
+
+One of the notable features of Zumer is the ability to nest `orbiter` elements, allowing for complex and layered radial designs.
+
+```html
+<div class="orbit-2 orbiters-2">
+  <div class="orbiter box xl">
+    <div class="orbit-3 orbiters-3">
+      <div class="orbiter rounded xxs"></div>
+      <div class="orbiter box xxs"></div>
+      <div class="orbiter xxs"></div>
+    </div>
+  </div>
+  <div class="orbiter l"></div>
+</div>
+```
