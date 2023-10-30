@@ -2,12 +2,16 @@
 title: Launch Orbit
 ---
 ## Quick start
+Add Orbit to Your Page
+You can add Orbit to your page via the free jsDelivr CDN. Just add the following <link> element into your page's <head>, before your project's stylesheets.
 
-1. Clone the repository.
-2. Go to `examples` folder and open index.html with a browser. That's all. Server is not required because this examples are very simple and static.
-3. For development, we recommend using Visual Studio Code with the Live Sass Compile and Live Server extensions. This setup will provide a seamless experience until we have [devbox available as standalone tool](https://github.com/zumerlab/devbox).
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/Orbitcss@3.0.0/build/Orbit-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+Alternatively, check out other CDNs that host Orbit or you can install Orbit via a package manager.
 
-## Barebone template
+## Playground code
+
+
+## Minimal template
 
 Folllowing code set a container and inside it a radial layout with three circles.
 
