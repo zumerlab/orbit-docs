@@ -1,0 +1,155 @@
+---
+title: CSS radial Layout
+---
+
+import Snippet from '../../../components/CodePlayground.astro'
+
+
+The CSS radial layout is a versatile method for arranging elements in a circular pattern using only CSS. This approach allows you to design circular user interfaces without the need for JavaScript. With Orbit, you can easily customize the number of orbits, orbiters, sectors, and their dimensions, offsets, directions, and angle limits to achieve your desired circular layout.
+
+Below, we provide a concise overview of the key classes that define the CSS radial layout.
+
+## `.o-container` Class
+
+The `.o-container` class is where Orbit resides. Inside this container, orbit elements are centered.
+
+### Multiple Orbit Instances
+
+You can use as many `.o-container` instances as you need on the same page without any issues.
+
+### Responsive Options
+
+The `.o-container` class is viewport responsive by default. However, if you have multiple `.o-container` elements, you can designate a parent element as its "viewport." This way, Orbit will adapt to the width of the parent element.
+
+Responsive to viewport:
+```html
+<div class="o-container">
+  <!-- Your Orbit app goes here -->
+</div>
+```
+
+Responsive to parent element:
+```html
+<div class="o-container-query-enabled">
+  <!-- 👆 Responsive to parent element -->
+  <div class="o-container">
+    <!-- Your Orbit app goes here -->
+  </div>
+</div>
+```
+<Snippet name="container" path='/examples/layout/container.html' hideCode="true" />
+For more details on the `.o-container` class, refer to the documentation.
+
+## `.o-orbit` Class
+
+The key class driving the CSS Radial Layout is `.o-orbit`. This class serves as the anchor for arranging orbiters or sectors in a circular layout. By adding this class to your HTML element, you establish the foundation for creating circular UI designs. Orbit supports up to six orbits, each with its own diameter. Orbit dimensions are calculated automatically, but you can override this default behavior by adding `.o-orbit-size-*` (1-6) classes.
+
+Inside each orbit, orbiters or sectors are placed. By default, these elements start at angle 0 and are distributed evenly along their orbit according to their number. However, you can set offset and angle limits to customize the layout as per your design requirements. Orbits can also be nested, with child orbits acting as parents.
+
+```html
+<div class="o-orbit">
+  <!-- Orbit content goes here -->
+</div>
+```
+
+:::tip
+Nested orbits are supported!
+This way sub orbits will share same diameter as their parent orbit.
+:::
+
+```html
+<div class="o-orbit"> <!-- Parent orbit -->
+  <div class="o-orbit">  <!-- Child nested orbit -->
+    <div class="o-orbiter">sub 1</div>
+    <div class="o-orbiter">sub 2</div>
+    <div class="o-orbiter">sub 3</div>
+  </div>
+  <div class="o-orbit">  <!-- Child nested orbit -->
+    <div class="o-sector">sub 1</div>
+    <div class="o-sector">sub 2</div>
+    <div class="o-sector">sub 3</div>
+  </div>
+</div>
+```
+<Snippet name="orbit" path='/examples/layout/orbit.html' />
+
+Learn more about `.o-orbit` here.
+
+## `o-orbiter` Class
+
+Orbiters are elements positioned around their respective orbits and are useful to display content. Orbit supports up to 24 orbiters per orbit, distributed evenly along the orbit's diameter. However, you can define offset, angle limits, and direction within the orbit element.
+
+```html
+<div class="o-orbit">
+  <!-- Orbiters distributed evenly -->
+  <div class="o-orbiter">1</div>
+  <div class="o-orbiter">2</div>
+  <div class="o-orbiter">3</div>
+</div>
+```
+
+:::tip
+Nested orbiters are also supported!
+:::
+
+```html
+<div class="o-orbit">
+  <div class="o-orbiter">1</div>
+  <div class="o-orbiter">
+    <div class="o-orbit">
+      <div class="o-orbiter">1A</div>
+      <div class="o-orbiter">1B</div>
+    </div>
+  </div>
+  <div class="o-orbiter">3</div>
+</div>
+```
+<Snippet name="orbiter" path='/examples/layout/orbiter.html' />
+
+Learn more about `.o-orbiter` here.
+
+## `o-sector` class
+
+Sector are elements placed around their orbits and function as another way to display content. Think of them as radial slices. Orbit support 24 sectors per orbit that are distributed regularly along the orbit diameter. However, offset, angle limits, and direction could the defined in the orbit element. 
+
+```html
+<div class="o-orbit">
+  <div class="o-sector">Play</div>
+  <div class="o-sector">Pause</div>
+  <div class="o-sector">Stop</div>
+</div>
+```
+<Snippet name="sector" path='/examples/layout/sector.html' />
+
+Learn more about `.o-sector` here.
+
+## Customization with Offset, Direction, and Angle Limits
+
+Orbit provides flexibility in customizing the layout with the following options:
+
+### Offset Classes (`o-offset-*`)
+
+You can set the offset for orbiters and sectors to control their initial positions. This allows you to create compact or spacious radial layouts, depending on your design preferences.
+
+- Offset classes: `o-offset-45`, `o-offset-90`, `o-offset-135`, `o-offset-180`, `o-offset-225`, `o-offset-270`
+
+### Direction (`o-ccw`)
+
+By specifying the direction, you can control whether the orbiters move clockwise or counterclockwise around the orbit. By default, orbiters and sectors move clockwise, but adding `o-ccw` makes them move counterclockwise.
+
+### Angle Limits (`o-limit-*`)
+
+Orbit lets you set angle limits for the orbiters, restricting their movement within a specified angle range. This enables you to create unique and controlled circular layouts.
+
+- Angle limit classes: `o-limit-45`, `o-limit-90`, `o-limit-135`, `o-limit-180`, `o-limit-225`, `o-limit-270`
+
+```html
+<div class="o-orbit o-offset-45 o-limit-90 o-ccw">
+  <!-- Orbiters start at 45 degrees and move within a 90-degree range -->
+  <div class="o-orbiter">1</div>
+  <div class="o-orbiter">2</div>
+  <div class="o-orbiter">3</div>
+</div>
+```
+
+<Snippet name="customization" path='/examples/layout/customization.html' />
