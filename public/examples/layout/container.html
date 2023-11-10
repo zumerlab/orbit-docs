@@ -1,175 +1,205 @@
 <!-- playground-hide -->
 <!doctype html>
+
 <head>
-<style>
-@import url("http://localhost:5500/assets/css/orbit.min.css");
-html, body {
-  height: 100%; /* important */
-}
-body {
-margin: 0;
-padding: 0;
-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-.parent {
-  text-align: center;
-  height: 100%;
-}
-.o-orbit {
-border: 2px dashed var(--o-accent-color);;
-transition: border-color 0.2s, width 0.2s, height 0.2s;
-}
+  <style>
+    @import url("http://localhost:5500/assets/css/orbit.min.css");
 
-.o-container {
-border: 5px solid var(--o-accent-color);
-background-color: var(--o-tertiary-color);
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      border: 2px dashed var(--o-cyan-dark);
+    }
 
-width: 400px
+    .parent {
+      text-align: center;
+      height: 295px;
+      border: 2px dashed transparent;
+      box-sizing: content-box;
+    }
 
-}
-.viewport, .parentport {
-  cursor: pointer;
-}
-.viewport {
-  background-color: var(--o-accent-color);
-}
-.parentport {
-  background-color: var(--o-secondary-color);
-}
-.o-container-query-enabled {
-box-sizing: border-box;
-width: 400px
-}
-.hide {
-  display: none !important;
-}
-.indicator {
-  text-align: center;
-}
-.overlay-text {
-  font-weight: bold;
-  display: grid;
-  place-items: center;
-    position: fixed; /* Posición fija en la pantalla */
-    top: 0px; /* 10px desde el top de la pantalla */
-    left: 0px; /* 10px desde el lado derecho de la pantalla */
-    width: 400px;
-    height: 40px;
-    text-align: center;
-    background-color: var(--o-accent-color);
-    color: white;
-    z-index: 1000; /* Asegura que el checkbox estará sobre otros elementos */
-  }
+    .o-orbit {
+      border: 2px dashed var(--o-blue-light);
+      transition: border-color 0.2s, width 0.2s, height 0.2s;
+    }
 
-  .tooltip {
-    overflow: visible !important;
-  position: relative;
-  display: inline-block;
+    .o-container {
+      background-color: var(--o-blue-white);
 
-}
+      width: 400px;
+      height: 295px;
+    }
 
-.tooltip .tooltiptext {
-  font-size:smaller;
-  visibility: hidden;
-  width: 100px;
-  background-color: var(--o-tertiary-color);
-  color: var(--o-text-color);
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
+    .viewport,
+    .parentport {
+      cursor: pointer;
+    }
 
-  /* Position the tooltip */
-  position: absolute;
-  top: calc(var(--o-size) + 8px);
-  z-index: 1;
-}
+    .viewport {
+      background-color: var(--o-purple);
+    }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-</style>
+    .viewport path  {
+      stroke: var(--o-purple-darker)
+    }
+
+    .parentport {
+      background-color: var(--o-indigo);
+    }
+    .parentport path  {
+      stroke: var(--o-indigo-darker)
+    }
+
+    .o-container-query-enabled {
+      
+      width: 400px
+    }
+
+    .hide {
+      display: none !important;
+    }
+
+    .indicator {
+      text-align: center;
+      color: var(--o-blue-dark);
+    }
+
+    .overlay-text {
+      font-weight: 500;
+      display: grid;
+      place-items: center;
+      position: fixed;
+      top: 2px;
+      left: 2px;
+      width: 400px;
+      height: 40px;
+      text-align: center;
+      color: var(--o-purple-dark);
+      z-index: 1000;
+    }
+
+    .tooltip {
+      overflow: visible !important;
+      position: relative;
+      display: inline-block;
+
+    }
+
+    .tooltip .tooltiptext {
+      font-size: smaller;
+      visibility: hidden;
+      width: 100px;
+      background-color: var(--o-purple-lighter);
+      color: var(--o-purple-dark);
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+
+      /* Position the tooltip */
+      position: absolute;
+      top: calc(var(--o-size) + 8px);
+      z-index: 1;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    
+  </style>
 </head>
+
 <body>
-<!-- playground-hide-end -->
-<div class="parent">
-  <section class="o-container">
-    <div class="o-orbit o-size-2 o-limit-45">
-      <!-- playground-hide -->
-      <div class="o-orbiter o-sm o-upper viewport">
-        <div class="o-content tooltip hide">
-          <span class="tooltiptext">Switch viewport</span>
-      </div>
-        <div class="o-content icon">
-          <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </div>
-        
-      </div>
-      <div class="o-orbiter o-sm o-upper parentport">
-        <div class="o-content tooltip">
-          <span class="tooltiptext">Switch parent size</span>
-        </div>
-        <div class="o-content icon hide">
-          <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M4 12.6111L8.92308 17.5L20 6.5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        </div>
-      </div>
-      <span  class="o-content indicator"></span>
-    <!-- playground-hide-end -->
-    </div>
-    <div class="overlay-text"></div>
-  </section>
- 
-</div>
-<!-- playground-hide -->
-<script>
-  let viewport = document.querySelector('.viewport');
-  let parentport = document.querySelector('.parentport');
-  let viewportContent = document.querySelector('.viewport > .o-content.icon');
-  let parentportContent = document.querySelector('.parentport  > .o-content.icon');
-  let viewportTooltip = document.querySelector('.viewport > .o-content.tooltip');
-  let parentportTooltip = document.querySelector('.parentport  > .o-content.tooltip');
-  let parent = document.querySelector('.parent');
-  let orbit = document.querySelector('.o-orbit');
-  var container = document.querySelector('.o-container');
-  let indicator = document.querySelector('.indicator')
-  let overlay = document.querySelector('.overlay-text')
-  
-  function reportWindowSize() {
-    indicator.innerHTML = 'Orbit radius ' + getComputedStyle(container).getPropertyValue('--o-radius');
-    overlay.innerHTML = parent.classList.contains('o-container-query-enabled') ? 'Now Orbit is responsive to its parent element size ' : 'By default Orbit is responsive to viewport size'
-}
+  <!-- playground-hide-end -->
+  <div class="parent">
+   
+    <section class="o-container">
+      <div class="o-orbit o-size-2 o-limit-45">
+        <!-- playground-hide -->
+        <div class="o-orbiter o-sm  viewport">
+          <div class="o-content tooltip hide">
+            <span class="tooltiptext">Switch viewport</span>
+          </div>
+          <div class="o-content icon">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12.6111L8.92308 17.5L20 6.5"  stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
 
-  reportWindowSize();
+        </div>
+        <div class="o-orbiter o-sm  parentport">
+          <div class="o-content tooltip">
+            <span class="tooltiptext">Switch parent size</span>
+          </div>
+          <div class="o-content icon hide">
+            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 12.6111L8.92308 17.5L20 6.5"  stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </div>
+        <span class="o-content indicator"></span>
+        <!-- playground-hide-end -->
+      </div>
+      <div class="overlay-text"></div>
+    </section>
 
-  // Función para hacer toggle a la clase
-  function removeQuery() {
-    parent.classList.remove('o-container-query-enabled');
-    viewportContent.classList.remove('hide')
-    parentportContent.classList.add('hide')
-    viewportTooltip.classList.add('hide')
-    parentportTooltip.classList.remove('hide')
-    container.style.borderColor = 'var(--o-accent-color)'
-    overlay.style.backgroundColor = 'var(--o-accent-color)'
-    orbit.style.borderColor = 'var(--o-accent-color)'
-    reportWindowSize();
-  }
-  function addQuery() {
-    parent.classList.add('o-container-query-enabled');
-    viewportContent.classList.add('hide')
-    parentportContent.classList.remove('hide')
-    viewportTooltip.classList.remove('hide')
-    parentportTooltip.classList.add('hide')
-    container.style.borderColor = 'var(--o-secondary-color)'
-    overlay.style.backgroundColor = 'var(--o-secondary-color)'
-    orbit.style.borderColor = 'var(--o-secondary-color)'
+  </div>
+  <!-- playground-hide -->
+  <script>
+    let viewport = document.querySelector('.viewport');
+    let parentport = document.querySelector('.parentport');
+    let viewportContent = document.querySelector('.viewport > .o-content.icon');
+    let parentportContent = document.querySelector('.parentport  > .o-content.icon');
+    let viewportTooltip = document.querySelector('.viewport > .o-content.tooltip');
+    let parentportTooltip = document.querySelector('.parentport  > .o-content.tooltip');
+    let parent = document.querySelector('.parent');
+    let orbit = document.querySelector('.o-orbit');
+    var container = document.querySelector('.o-container');
+    let indicator = document.querySelector('.indicator')
+    let overlay = document.querySelector('.overlay-text')
+    let body =  document.querySelector('body')
+
+    function reportWindowSize() {
+      indicator.innerHTML = 'Orbit radius ' + getComputedStyle(container).getPropertyValue('--o-radius');
+      overlay.innerHTML = parent.classList.contains('o-container-query-enabled') ? 'Responsive to parent element size ' : 'Responsive to viewport size'
+    }
 
     reportWindowSize();
-  }
 
-  // Event listener para el cambio del checkbox
-  viewport.addEventListener('click', removeQuery);
-  parentport.addEventListener('click', addQuery);
-window.onresize = reportWindowSize;
+    // Función para hacer toggle a la clase
+    function removeQuery() {
+      parent.classList.remove('o-container-query-enabled');
+      viewportContent.classList.remove('hide')
+      parentportContent.classList.add('hide')
+      viewportTooltip.classList.add('hide')
+      parentportTooltip.classList.remove('hide')
+      body.style.borderColor = 'var(--o-purple)'
+    overlay.style.color = 'var(--o-purple-dark)'
+     parent.style.borderColor = 'transparent'
+      reportWindowSize();
+    }
+    function addQuery() {
+      parent.classList.add('o-container-query-enabled');
+      viewportContent.classList.add('hide')
+      parentportContent.classList.remove('hide')
+      viewportTooltip.classList.remove('hide')
+      parentportTooltip.classList.add('hide')
+      parent.style.borderColor = 'var(--o-indigo)'
+     overlay.style.color = 'var(--o-indigo-dark)'
+     // .style.borderColor = 'var(--o-warning)'
+     body.style.borderColor = 'transparent'
 
-</script>
+      reportWindowSize();
+    }
+
+    // Event listener para el cambio del checkbox
+    viewport.addEventListener('click', removeQuery);
+    parentport.addEventListener('click', addQuery);
+    window.onresize = reportWindowSize;
+
+  </script>
 </body>
+
 </html>

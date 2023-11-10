@@ -11,11 +11,15 @@ margin: 0;
 padding: 0;
 }
 .o-orbiter {
-border: 7px solid mediumaquamarine
+background-color:hsl(258, 65%, 16%)
 }
-.o-container {
-border: 8px solid gray;
+.o-xs {
+background-color:hsl(180 70% 70%)
 }
+.o-xxs {
+background-color:hsl(108, 70%, 70%)
+}
+
 .o-container-query-enabled {
 box-sizing: border-box;
 resize: both;
@@ -31,7 +35,21 @@ overflow: auto;
     <div class="o-orbiter"></div>
     <div class="o-orbiter"></div>
     <div class="o-orbiter"></div>
-    <div class="o-orbiter"></div>
+    <div class="o-orbiter">
+      <div  class="o-orbit">
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs">
+          <div  class="o-orbit">
+            <div class="o-orbiter o-xxs"></div>
+            <div class="o-orbiter o-xxs"></div>
+            <div class="o-orbiter o-xxs"></div>
+            </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- playground-hide -->

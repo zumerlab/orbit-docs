@@ -14,6 +14,7 @@
     "@astrojs/starlight": "^0.11.0",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^3.4.0",
+    "playground-elements": "^0.18.1",
     "sharp": "^0.32.5"
   }
 }
