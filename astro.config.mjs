@@ -3,9 +3,10 @@ import starlight from '@astrojs/starlight'
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://zumerlab.github.io/docs',
   integrations: [
     starlight({
-      title: 'Orbit Docs',
+      title: 'Orbit',
       logo: {
         light: './src/assets/light-orbit.svg',
         dark: './src/assets/dark-orbit.svg',
