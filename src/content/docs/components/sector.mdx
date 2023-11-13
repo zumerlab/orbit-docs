@@ -23,3 +23,19 @@ In this example, three sectors are placed in a orbit. To draw three sectors that
 
 - Use the `offset-*` class to specify the starting angle of the sectors within the orbit.
 - Employ the `limit-*` class to define the length of the orbit sector covered by the sectors.
+
+
+## `o-sector` class
+
+Sector are elements placed around their orbits and function as another way to display content. Think of them as radial slices. Orbit support 24 sectors per orbit that are distributed regularly along the orbit diameter. However, offset, angle limits, and direction could the defined in the orbit element. 
+
+```html
+<div class="o-orbit">
+  <div class="o-sector">Play</div>
+  <div class="o-sector">Pause</div>
+  <div class="o-sector">Stop</div>
+</div>
+```
+<Snippet name="sector" path='/examples/layout/sector.html' />
+
+Learn more about `.o-sector` here.

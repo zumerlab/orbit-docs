@@ -20,105 +20,115 @@ const imageAttrs = {
 	
   <canvas
     id="canvas"
-    style="z-index:1; position: absolute; top:0; left: 0;overflow: hidden; width: 100%; height: 500px;"
+    style="background-color: trasnparent; z-index:1; position: absolute; top:0; left: 0;overflow: hidden; width: 100%; height: 500px;"
   ></canvas>
   <script>
-    const canvas = document.getElementById("canvas");
-    const c = canvas.getContext("2d");
-	//c.fillStyle = "rgba(0,0,0,0,0.3)";
+    var c = document.getElementById('canvas');
+c.width = window.innerWidth;
+c.height = window.innerHeight;
 
-    let w;
-    let h;
+var ctx = c.getContext('2d');
+var id;
+var x_off;
+var y_off;
 
-    const setCanvasExtents = () => {
-      w = document.body.clientWidth;
-      h = document.body.clientHeight;
-      canvas.width = w;
-      canvas.height = h;
-    };
+var min_dist = 0;
+var max_dist = 32;
+var d = 150;
+var n_stars = 50;
 
-    setCanvasExtents();
+var Point = {
+  x: 0,
+  y: 0
+};
 
-    window.onresize = () => {
-      setCanvasExtents();
-    };
+var elements = [];
 
-    const makeStars = count => {
-      const out = [];
-      for (let i = 0; i < count; i++) {
-        const s = {
-          x: Math.random() * 1600 - 800,
-          y: Math.random() * 900 - 450,
-          z: Math.random() * 1000
-        };
-        out.push(s);
-      }
-      return out;
-    };
+function project2d(point, dist) {
+  var p = Object.create(Point);
+  p.x = Math.round(d * point.x / (dist));
+  p.y = Math.round(d * point.y / (dist));
+  return p;
+}
 
-    let stars = makeStars(100);
+var StarElement = {
+  p1: null,
+  width: 3,
+  dist: 0,
 
-    const clear = () => {
-     c.fillStyle = "black";
-      c.fillRect(0, 0, canvas.width, canvas.height);
-    };
+  draw: function() {
 
-    const putPixel = (x, y, brightness) => {
-      const intensity = brightness * 255;
-      const rgb = "rgb(" + intensity + "," + intensity + "," + intensity + ")";
-      c.fillStyle = rgb;
-      c.fillRect(x, y, 3, 3);
-    };
+    var p2 = project2d(this.p1, this.dist);
 
-    const moveStars = distance => {
-      const count = stars.length;
-      for (var i = 0; i < count; i++) {
-        const s = stars[i];
-        s.z -= distance;
-        while (s.z <= 1) {
-          s.z += 1000;
-        }
-      }
-    };
+    if (p2.x + x_off <= 0 || p2.x + x_off > c.width || p2.y + y_off <= 0 || p2.y + y_off > c.height) {
+      this.dist = max_dist;
+    } else {
+      
+      var percent = (1- this.dist / max_dist);
 
-    let prevTime;
-    const init = time => {
-      prevTime = time;
-      requestAnimationFrame(tick);
-    };
+      ctx.beginPath();
+      ctx.strokeStyle = 'hsl(195,100%,' + (percent * 100) + '%)';
 
-    const tick = time => {
-      let elapsed = time - prevTime;
-      prevTime = time;
+      this.width = percent * 3;
+      ctx.rect(p2.x + x_off, p2.y + y_off, this.width, this.width);
 
-      moveStars(elapsed * 0.1);
+      ctx.stroke();
+      ctx.closePath();
+    }
+  }
+};
 
-      clear();
+function createElements() {
 
-      const cx = w / 2;
-      const cy = h / 2;
+  for (var i = 0; i < n_stars; i++) {
 
-      const count = stars.length;
-      for (var i = 0; i < count; i++) {
-        const star = stars[i];
+    var elem = Object.create(StarElement);
+    elem.p1 = Object.create(Point);
+    elem.p1.x = randomRange(-50, 50);
+    elem.p1.y = randomRange(-50, 50);
+    elem.dist = randomRange(0, max_dist);
+    elements.push(elem);
+  }
+}
 
-        const x = cx + star.x / (star.z * 0.001);
-        const y = cy + star.y / (star.z * 0.001);
+function update() {
 
-        if (x < 0 || x >= w || y < 0 || y >= h) {
-          continue;
-        }
+  ctx.clearRect(0, 0, c.width, c.height);
 
-        const d = star.z / 1000.0;
-        const b = 1 - d * d;
+  elements.forEach(function(elem, i, arr) {
+    elem.dist = elem.dist - 0.2;
+    elem.draw();
+  });
 
-        putPixel(x, y, b);
-      }
+}
 
-      requestAnimationFrame(tick);
-    };
+function restart() {
+  ctx.clearRect(0, 0, c.width, c.height);
+  ctx.lineWidth = 2;
+  ctx.moveTo(0, 0);
 
-    requestAnimationFrame(init);
+  x_off = c.width / 2;
+  y_off = c.height / 2;
+
+  elements = [];
+  createElements();
+  id = setInterval(update, 30);
+}
+
+restart();
+
+window.onresize = function() {
+
+  c.width = this.innerWidth;
+  c.height = this.innerHeight;
+
+  clearInterval(id);
+  restart();
+};
+
+function randomRange(minVal, maxVal) {
+  return Math.floor(Math.random() * (maxVal - minVal - 1)) + minVal;
+}
   </script>
 
 	{

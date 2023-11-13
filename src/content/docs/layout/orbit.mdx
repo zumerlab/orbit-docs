@@ -1,0 +1,78 @@
+---
+title: o-orbit
+---
+import Snippet from '../../../components/CodePlayground.astro'
+
+The `orbit-*` classes act as guides for positioning other elements within the Zumer radial grid. Think of them as rows in the grid structure. They play an important role in organizing and aligning elements within the circular layout of Zumer.
+
+Currently, there are six predefined orbit levels available (`orbit-1`, `orbit-2`, `orbit-3`...). Each orbit level is separated by a distance of 50px, creating a visually pleasing spacing between elements. However, you have the flexibility to adjust the distance as needed by utilizing CSS variables.
+
+By leveraging the `orbit-*` classes, you can easily position and arrange elements within the Zumer radial grid, achieving harmonious and visually appealing circular designs.
+
+It is possible to use multiple same level `orbit-*` to stack differente elements.
+
+
+
+## `.o-orbit` Class
+
+The key class driving the CSS Radial Layout is `.o-orbit`. This class serves as the anchor for arranging orbiters or sectors in a circular layout. By adding this class to your HTML element, you establish the foundation for creating circular UI designs. Orbit supports up to six orbits, each with its own diameter. Orbit dimensions are calculated automatically, but you can override this default behavior by adding `.o-orbit-size-*` (1-6) classes.
+
+Inside each orbit, orbiters or sectors are placed. By default, these elements start at angle 0 and are distributed evenly along their orbit according to their number. However, you can set offset and angle limits to customize the layout as per your design requirements. Orbits can also be nested, with child orbits acting as parents.
+
+```html
+<div class="o-orbit">
+  <!-- Orbit content goes here -->
+</div>
+```
+
+:::tip
+Nested orbits are supported!
+This way sub orbits will share same diameter as their parent orbit.
+:::
+
+```html
+<div class="o-orbit"> <!-- Parent orbit -->
+  <div class="o-orbit">  <!-- Child nested orbit -->
+    <div class="o-orbiter">sub 1</div>
+    <div class="o-orbiter">sub 2</div>
+    <div class="o-orbiter">sub 3</div>
+  </div>
+  <div class="o-orbit">  <!-- Child nested orbit -->
+    <div class="o-sector">sub 1</div>
+    <div class="o-sector">sub 2</div>
+    <div class="o-sector">sub 3</div>
+  </div>
+</div>
+```
+<Snippet name="orbit" path='/examples/layout/orbit.html' />
+
+## Customization with Offset, Direction, and Angle Limits
+
+Orbit provides flexibility in customizing the layout with the following options:
+
+### Offset Classes (`o-offset-*`)
+
+You can set the offset for orbiters and sectors to control their initial positions. This allows you to create compact or spacious radial layouts, depending on your design preferences.
+
+- Offset classes: `o-offset-45`, `o-offset-90`, `o-offset-135`, `o-offset-180`, `o-offset-225`, `o-offset-270`
+
+### Direction (`o-ccw`)
+
+By specifying the direction, you can control whether the orbiters move clockwise or counterclockwise around the orbit. By default, orbiters and sectors move clockwise, but adding `o-ccw` makes them move counterclockwise.
+
+### Angle Limits (`o-limit-*`)
+
+Orbit lets you set angle limits for the orbiters, restricting their movement within a specified angle range. This enables you to create unique and controlled circular layouts.
+
+- Angle limit classes: `o-limit-45`, `o-limit-90`, `o-limit-135`, `o-limit-180`, `o-limit-225`, `o-limit-270`
+
+```html
+<div class="o-orbit o-offset-45 o-limit-90 o-ccw">
+  <!-- Orbiters start at 45 degrees and move within a 90-degree range -->
+  <div class="o-orbiter">1</div>
+  <div class="o-orbiter">2</div>
+  <div class="o-orbiter">3</div>
+</div>
+```
+
+<Snippet name="customization" path='/examples/layout/customization.html' />

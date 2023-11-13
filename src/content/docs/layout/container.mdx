@@ -1,0 +1,46 @@
+---
+title: o-container
+---
+
+import Snippet from '../../../components/CodePlayground.astro'
+
+The `o-container` serves as the root element to scaffold Zumer. It encapsulates the entire Zumer framework and defines the boundaries for its usage. Multiple `o-container` elements can coexist on the same page, allowing for modular and flexible implementation.
+
+At the `o-container` level, major CSS variables are defined, providing a centralized and customizable approach to styling and theming Zumer components. These variables can be easily modified within each `o-container` instance, ensuorbit consistency and flexibility across different sections of your application.
+
+```html
+```
+
+
+
+## `.o-container` Class
+
+The `.o-container` class is where Orbit resides. Inside this container, orbit elements are centered.
+
+### Multiple Orbit Instances
+
+You can use as many `.o-container` instances as you need on the same page without any issues.
+
+### Responsive Options
+
+The `.o-container` class is viewport responsive by default. However, if you have multiple `.o-container` elements, you can designate a parent element as its "viewport." This way, Orbit will adapt to the width of the parent element.
+
+Responsive to viewport:
+```html
+<div class="o-container">
+  <!-- Your Orbit app goes here -->
+</div>
+```
+
+Responsive to parent element:
+```html
+<div class="o-container-query-enabled">
+  <!-- 👆 Responsive to parent element -->
+  <div class="o-container">
+    <!-- Your Orbit app goes here -->
+  </div>
+</div>
+```
+<Snippet name="container" path='/examples/layout/container.html' hideCode="true" />
+For more details on the `.o-container` class, refer to the documentation.
+

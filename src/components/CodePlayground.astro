@@ -19,8 +19,11 @@
 }
 const { path, name, hideCode=false, hidePreview=false } = Astro.props
 
-const xurl = 'https://zumerlab.github.io/docs' + path
-
+// Depending on environment Dev or Prod url will take different values
+const isDev = import.meta.env.DEV;
+const xurl = isDev ? 
+Astro.url.protocol + '//' + Astro.url.host + path : 
+import.meta.env.SITE + path
 
 ---
 <head>
@@ -104,6 +107,7 @@ const xurl = 'https://zumerlab.github.io/docs' + path
 </style>
 <script type="module">
 // eslint-disable-next-line no-use-before-define
+// meterlo local antes de prod
 import playgroundElements from 'https://cdn.jsdelivr.net/npm/playground-elements@0.18.1/+esm'
 </script>
 <playground-project id={name}></playground-project>
@@ -165,9 +169,11 @@ generateConfig(xurl).then((obj) => {
     let element = document.querySelector('#code-'+id)
     if (element.hasAttribute("readonly")) {
       element.removeAttribute("readonly")
+      element.setAttribute("contenteditable", true)
       editElement.classList.add("editable");
     } else {
       element.setAttribute("readonly", 1)
+      element.setAttribute("contenteditable", true)
       editElement.classList.remove("editable");
     }
   }

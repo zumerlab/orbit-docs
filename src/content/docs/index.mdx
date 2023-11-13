@@ -8,29 +8,52 @@ hero:
     file: ../../assets/light-orbit.svg
   actions:
     - text: Get started
-      link: /introduction/launch-orbit
+      link: /introduction/
       icon: right-arrow
       variant: primary
     - text: Github
-      link: https://github.com/zumerlab
+      link: https://github.com/zumerlab/orbit
       icon: external
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-## Next steps
+### Simplifying radial UI design
+
+Orbit is a radial CSS library designed to make circular UI designs simple and accessible. Perfect for creating everything from circular menus to intricate data visualizations, Orbit provides an easy-to-use solution for your creative needs.
+
+## Key features
 
 <CardGrid>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
+	<Card title="Simple radial design creation" icon="pencil">
+		Effortlessly craft your radial UI components.
 	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
+	<Card title="Flexible integration" icon="add-document">
+		Works standalone or alongside other CSS frameworks.
 	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
+	<Card title="User-friendly classes" icon="setting">
+		Intuitive class system for quick implementation.
 	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
+	<Card title="Pure CSS structure" icon="open-book">
+	    A JavaScript-free approach for simpler, more flexible designs.
 	</Card>
 </CardGrid>
+
+<LinkCard
+	title="Explore our examples"
+	description="Get inspired and learn to create radial designs."
+	href="/examples/"
+/>
+
+<LinkCard
+	title="Join our community"
+	description="Orbit is in Beta, and we value your feedback. Join our community, share your thoughts, and help shape the future of circular design."
+	href="https://t.me/ZumlyCommunity"
+	/>
+	
+
+
+	
+
+
+
