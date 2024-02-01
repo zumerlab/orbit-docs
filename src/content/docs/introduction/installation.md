@@ -5,7 +5,7 @@ title: Launch Orbit
 Add Orbit to Your Page
 You can add Orbit to your page via the free jsDelivr CDN. Just add the following <link> element into your page's <head>, before your project's stylesheets.
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/Orbitcss@3.0.0/build/Orbit-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+
 Alternatively, check out other CDNs that host Orbit or you can install Orbit via a package manager.
 
 ## Playground code

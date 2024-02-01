@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/lit": "^3.0.2",
-    "@astrojs/starlight": "^0.12.0",
+    "@astrojs/lit": "^4.0.1",
+    "@astrojs/starlight": "^0.17.0",
     "@webcomponents/template-shadowroot": "^0.2.1",
-    "astro": "^3.4.0",
+    "astro": "^4.2.6",
     "playground-elements": "^0.18.1",
     "sharp": "^0.32.5"
   }

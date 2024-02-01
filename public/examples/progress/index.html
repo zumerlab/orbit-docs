@@ -3,6 +3,7 @@
 <head>
 <style>
 @import url("http://localhost:4321/css/orbit.min.css");
+
 html, body {
   height: 100%; /* important */
 }
@@ -35,15 +36,25 @@ border: 1px dashed var(--o-green) !important
 <body>
 <div class="o-container-query-enabled">
 <!-- playground-hide-end -->
-<section class="o-container" style="--o-radius: 30px">
+<section class="o-container" style="--o-radius: 40px">
   <!-- Try change values of --o-radius -->
-  <div  class="o-orbit"></div>
-  <div  class="o-orbit">
-    <div  class="o-orbit"></div>
-     <!--Nested orbits keep parent radius (sub-orbit is dotted) -->
-  </div>
-  <div  class="o-orbit"></div>
-  <div  class="o-orbit o-size-5"></div>
+    <div  class="o-orbit o-size-3">
+        <div class="o-orbiter">
+            <div class="o-orbit">
+                <div class="o-progress" style="--o-percentage: 75; --o-base: transparent; --o-progress: red; --o-base-progress: gray "></div>
+
+            </div>
+        </div>
+        <div class="o-orbiter">
+            <div class="o-orbit">
+                <div class="o-progress" style="--o-percentage: 75; --o-base: white; --o-progress: red; --o-base-progress: gray "></div>
+
+            </div>
+        </div>
+      
+  
+      </div>
+  
    <!--Manually set orbit radius o-size-* (1 to 6) -->
 </section>
 
