@@ -3,7 +3,7 @@ import starlight from '@astrojs/starlight'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://zumerlab.github.io/docs',
+  site: 'https://zumerlab.github.io/orbit-docs',
   integrations: [
     starlight({
       title: 'Orbit',
@@ -15,7 +15,7 @@ export default defineConfig({
         Hero: './src/components/OrbitHero.astro',
       },
       social: {
-        github: 'https://github.com/zumerlab/orbit',
+        github: 'https://github.com/zumerlab/orbit-orbit',
       },
       sidebar: [
         {
