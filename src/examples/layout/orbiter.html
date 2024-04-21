@@ -1,0 +1,58 @@
+<!-- playground-hide -->
+<!doctype html>
+<head>
+<style>
+@import url("http://localhost:4321/css/orbit.min.css");
+
+html, body {
+  height: 100%; /* important */
+}
+body {
+margin: 0;
+padding: 0;
+}
+.o-orbiter {
+background-color:hsl(258, 65%, 16%)
+}
+.o-xs {
+background-color:hsl(180 70% 70%)
+}
+.o-xxs {
+background-color:hsl(108, 70%, 70%)
+}
+
+.o-container-query-enabled {
+box-sizing: border-box;
+resize: both;
+overflow: auto;
+}
+</style>
+</head>
+<body>
+<!-- playground-hide-end -->
+<section class="o-container">
+  <div  class="o-orbit">
+    <div class="o-orbiter"></div>
+    <div class="o-orbiter"></div>
+    <div class="o-orbiter"></div>
+    <div class="o-orbiter"></div>
+    <div class="o-orbiter">
+      <div  class="o-orbit">
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs"></div>
+        <div class="o-orbiter o-xs">
+          <div  class="o-orbit">
+            <div class="o-orbiter o-xxs"></div>
+            <div class="o-orbiter o-xxs"></div>
+            <div class="o-orbiter o-xxs"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- playground-hide -->
+</body>
+</html>

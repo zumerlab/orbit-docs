@@ -2,173 +2,396 @@
 import { Image } from 'astro:assets';
 const PAGE_TITLE_ID = '_top';
 import type { Props } from '@astrojs/starlight/props';
-import CallToAction from '@astrojs/starlight/components/CallToAction.astro';
 
+import '../assets/css/orbit.min.css';
 const { data } = Astro.props.entry;
 const { title = data.title, tagline, image, actions = [] } = data.hero || {};
 
 const imageAttrs = {
 	loading: 'eager' as const,
 	decoding: 'async' as const,
-	width: 600,
-	height: 600,
+	width: 340,
+	height: 340,
 	alt: image?.alt || '',
 };
 ---
 
-<div class="hero" style="">
-	
-  <canvas
+<div class="hero">
+<div class="hero-logo">
+	<div class="o-container" style="min-height: unset;">
+		<div class="o-core">
+			<img  src={image.file.src} {...imageAttrs} style='z-index:3; transform: translate(-50%, -50%); ' />
+			<!-- <canvas
     id="canvas"
-    style="background-color: trasnparent; z-index:1; position: absolute; top:0; left: 0;overflow: hidden; width: 100%; height: 500px;"
-  ></canvas>
-  <script>
-    var c = document.getElementById('canvas');
-c.width = window.innerWidth;
-c.height = window.innerHeight;
-
-var ctx = c.getContext('2d');
-var id;
-var x_off;
-var y_off;
-
-var min_dist = 0;
-var max_dist = 32;
-var d = 150;
-var n_stars = 50;
-
-var Point = {
-  x: 0,
-  y: 0
-};
-
-var elements = [];
-
-function project2d(point, dist) {
-  var p = Object.create(Point);
-  p.x = Math.round(d * point.x / (dist));
-  p.y = Math.round(d * point.y / (dist));
-  return p;
-}
-
-var StarElement = {
-  p1: null,
-  width: 3,
-  dist: 0,
-
-  draw: function() {
-
-    var p2 = project2d(this.p1, this.dist);
-
-    if (p2.x + x_off <= 0 || p2.x + x_off > c.width || p2.y + y_off <= 0 || p2.y + y_off > c.height) {
-      this.dist = max_dist;
-    } else {
-      
-      var percent = (1- this.dist / max_dist);
-
-      ctx.beginPath();
-      ctx.strokeStyle = 'hsl(195,100%,' + (percent * 100) + '%)';
-
-      this.width = percent * 3;
-      ctx.rect(p2.x + x_off, p2.y + y_off, this.width, this.width);
-
-      ctx.stroke();
-      ctx.closePath();
-    }
-  }
-};
-
-function createElements() {
-
-  for (var i = 0; i < n_stars; i++) {
-
-    var elem = Object.create(StarElement);
-    elem.p1 = Object.create(Point);
-    elem.p1.x = randomRange(-50, 50);
-    elem.p1.y = randomRange(-50, 50);
-    elem.dist = randomRange(0, max_dist);
-    elements.push(elem);
-  }
-}
-
-function update() {
-
-  ctx.clearRect(0, 0, c.width, c.height);
-
-  elements.forEach(function(elem, i, arr) {
-    elem.dist = elem.dist - 0.2;
-    elem.draw();
-  });
-
-}
-
-function restart() {
-  ctx.clearRect(0, 0, c.width, c.height);
-  ctx.lineWidth = 2;
-  ctx.moveTo(0, 0);
-
-  x_off = c.width / 2;
-  y_off = c.height / 2;
-
-  elements = [];
-  createElements();
-  id = setInterval(update, 30);
-}
-
-restart();
-
-window.onresize = function() {
-
-  c.width = this.innerWidth;
-  c.height = this.innerHeight;
-
-  clearInterval(id);
-  restart();
-};
-
-function randomRange(minVal, maxVal) {
-  return Math.floor(Math.random() * (maxVal - minVal - 1)) + minVal;
-}
-  </script>
-
-	{
-		image?.file ? (
-			image.file.format === 'svg' ? (
-				<img  src={image.file.src} {...imageAttrs} style='z-index:3;' />
-			) : (
-				<Image src={image.file} {...imageAttrs} style='z-index:3;' />
-			)
-		) : (
-			image?.html && <div class="hero-html sl-flex" style="z-index:3; " set:html={image.html} />
-		)
-	}
-	<div class="sl-flex stack " style="z-index:3;">
-		<div class="sl-flex copy">
-			<h1 id={PAGE_TITLE_ID} data-page-title set:html={title} />
-			{tagline && <div class="tagline" set:html={tagline} />}
+    style="background-color: trasnparent; z-index:1; position: absolute; transform: translate(-50%, -50%);width: 100%; height: 100%;"
+  ></canvas> -->
 		</div>
-		{
-			actions.length > 0 && (
-				<div class="sl-flex actions">
-					{actions.map(({ text, ...attrs }) => (
-						<CallToAction {...attrs} set:html={text} />
-					))}
+		<div class="o-orbit one " >
+		</div>
+		<div class="o-orbit two" >
+			
+		</div>
+		<div class="o-orbit three ">
+			<div class="o-orbit  o-offset-270">
+				
+				<div class="o-orbiter o-xs planet "  style="background-color: black; --init-deg: 240deg">
+				
+						<div class="o-container">
+							<div class="o-orbit"></div>
+							<div class="o-orbit">
+								<!-- <hr class="line"> -->
+								<div class="o-orbiter letter" style="--init-deg: 220deg">R</div>
+								<div class="o-orbiter o-xxs circle" style="background-color: black; --init-deg: 20deg">
+								
+								</div>
+							</div>
+						</div>
 				</div>
-			)
-		}
+			</div>
+			
+		</div>
+		<div class="o-orbit four" >
+			<div class="o-orbit  ">
+				<div class="o-orbiter o-xs"  style="background-color: black;">
+						<div class="o-container">
+							<div class="o-orbit  o-offset-45">
+								<div class="o-orbiter o-xxs letter o-upper " style="background-color: black; --init-deg: 220deg"></div>
+							</div>
+							<div class="o-orbit">
+								<div class="o-orbiter  o-xs letter o-upper">B</div>
+								<div id="ring" class="o-orbiter o-xxs circle o-lower" style="border: 2px solid black; --init-deg: 120deg"></div>
+								
+							</div>
+						</div>
+				</div>
+			</div>
+			<div class="o-orbit o-offset-135 ">
+				<div class="o-orbiter o-xs planet" style="background-color: black; --init-deg: -300deg"> 	
+					<div class="o-container">
+						<div class="o-orbit">
+							<div class="o-orbiter o-xxs circle o-upper" style="border: 2px solid black; --init-deg: 180deg"></div>
+						</div>
+						<div class="o-orbit">
+							<div class="o-orbiter circle">iT</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="o-orbit five ">
+			<div class="o-orbit o-offset-90">
+				<div class="o-orbiter o-xs o-upper circle o-stationary" style="color: black"> 
+					<div class="o-content" style="rotate: 270deg">▲</div>   
+				</div>		
+			</div>
+		</div>
+		<div class="o-orbit six">
+			<div class="o-orbiter o-xxs " style="background-color: black"></div>
+		</div>
 	</div>
+</div>
+<div class="sl-flex stack " style="z-index:3;">
+	<h1>Orbit</h1>
+	<h2>CSS radial library</h2>
+	
+	<a href="/introduction">Get started ➔</a>
+	<a href="https://github.com/zumerlab/orbit" target="_blank">Github ➔</a>
+	</p>
+</div>
+</div>
+<script>
+	const hero = document.querySelector('.six')
+	var circle = document.querySelectorAll('.circle');
+	circle = Array.prototype.slice.call(circle);
+
+	var letter = document.querySelectorAll('.letter');
+	letter = Array.prototype.slice.call(letter);
+
+	var planet = document.querySelectorAll('.planet');
+	planet = Array.prototype.slice.call(planet);
+
+	circle.forEach(function(el, i, ra) {
+		el.animate(
+			[{'--o-rotate': 'calc(var(--init-deg) + 0deg)'},
+			{'--o-rotate': 'calc(var(--init-deg) + 360deg)' }],
+			{
+				duration: 10000,
+				iterations: Infinity,
+				easing: 'ease-in-out'
+			}
+		);
+	})
+	
+	letter.forEach(function(el, i, ra) {
+		el.animate(
+		[{'--o-rotate': 'calc(var(--init-deg) + 0deg)'},
+			{'--o-rotate': 'calc(var(--init-deg) + 360deg)' }],
+			{
+				duration: 20000,
+				iterations: Infinity
+			}
+		);
+	})
+	
+	planet.forEach(function(el, i, ra) {
+		el.animate(
+			[{'--o-rotate': 'calc(var(--init-deg) + 0deg)'},
+			{'--o-rotate': 'calc(var(--init-deg) + 90deg)' }],
+			{
+				duration: 60000,
+				iterations: Infinity,
+				direction: 'alternate',
+
+			}
+		);
+	})
+	
+	/* var five = document.querySelector('.five');
+
+	five.animate(
+			[{transform: 'rotate(-360deg)'}],
+			{
+				duration: 90000,
+				iterations: Infinity,
+
+			}
+		);
+
+	
+
+	var six = document.querySelector('.six');
+	six.animate(
+			[{transform: 'rotate(360deg)'}],
+			{
+				duration: 120000,
+				iterations: Infinity,
+
+			}
+		);
+   */
+  const rotationsPlay = () => {
+	
+	var players = document.getAnimations()
+	players.forEach(function(player, i, ra) {
+      player.play()
+	  
+	})
+  }
+  const rotationsPause = () => {
+	
+	var players = document.getAnimations()
+	players.forEach(function(player, i, ra) {
+      player.pause()
+	  
+	})
+  }
+  hero.addEventListener("mouseover", () => rotationsPlay(), false);
+  hero.addEventListener("mouseout", () => rotationsPause(), false);
+</script>	
+  <!-- <script>
+var c = document.getElementById('canvas');
+	c.width = window.innerWidth;
+	c.height = window.innerHeight;
+
+	var ctx = c.getContext('2d');
+	var id;
+	var x_off;
+	var y_off;
+	var max_dist = 32;
+	var d = 100;
+	var n_stars = 11;
+
+	var elements = [];
+
+	function project2d(point, dist) {
+	return { x: Math.round(d * point.x / (dist)), y: Math.round(d * point.y / (dist)) };
+	}
+
+	var StarElement = {
+		p1: {},
+		width: 1,
+		dist: 0,
+		draw() {
+			var p2 = project2d(this.p1, this.dist);
+			if (p2.x + x_off <= 0 || p2.x + x_off > c.width || p2.y + y_off <= 0 || p2.y + y_off > c.height) {
+			this.dist = max_dist;
+			} else {
+			var percent = (1- this.dist / max_dist);
+			ctx.beginPath();
+			ctx.strokeStyle = 'hsl(195,100%,' + (percent * 100) + '%)';
+			this.width = percent * 0.5;
+			ctx.rect(p2.x + x_off, p2.y + y_off, this.width, this.width);
+			ctx.stroke();
+			ctx.closePath();
+			}
+		}
+	};
+
+	function createElements() {
+		for (var i = 0; i < n_stars; i++) {
+			var elem = Object.assign({}, StarElement);
+			elem.p1 = { x: randomRange(-50, 50), y: randomRange(-50, 50) };
+			elem.dist = randomRange(0, max_dist);
+			elements.push(elem);
+		}
+	}
+
+	function update() {
+		ctx.clearRect(0, 0, c.width, c.height);
+		elements.forEach(elem => {
+			elem.dist = elem.dist - 0.2;
+			elem.draw();
+		});
+	}
+
+	function restart() {
+		ctx.clearRect(0, 0, c.width, c.height);
+		ctx.lineWidth = 2;
+		ctx.moveTo(0, 0);
+		x_off = c.width / 2;
+		y_off = c.height / 2;
+		elements = [];
+		createElements();
+		id = setInterval(update, 30);
+	}
+
+	//restart();
+
+	window.onresize = function() {
+		c.width = this.innerWidth;
+		c.height = this.innerHeight;
+		clearInterval(id);
+		//restart();
+	};
+
+	function randomRange(minVal, maxVal) {
+	return Math.floor(Math.random() * (maxVal - minVal - 1)) + minVal;
+	}
+
+  </script> -->
 </div>
 
 <style>
+	:root{
+		--sl-color-bg: #f6f6f6;
+		--init-deg: 0deg
+	}
+	.hero-logo {
+		display: grid;
+		height: 500px;
+		place-content: center;
+	}
+	
+	
+	@media (min-width: 50rem) {
+		.hero {
+			gap: 14% !important
+		}
+	}
+
+	@media (max-width: 799px) {
+		.hero {
+			align-items: unset;
+			place-content: center;
+			overflow: hidden;
+		}
+		.hero-logo {
+			height: 341px;
+		}
+	.six {
+		display: none;
+	}
+	.o-container {
+		position: relative;
+		top: -50px;
+		--o-radius: 42px
+	}
+	.o-orbiter>.o-container {
+		--o-radius: 13px;
+		position:static;
+		top: unset
+	}
+}
+@media (min-width: 800px) {
+	.o-container {
+		
+		--o-radius: 60px
+	}
+	.o-orbiter>.o-container {
+		--o-radius: 14px
+	}
+}
+
+	.o-container {
+		pointer-events: none;
+		width: unset !important;
+		min-height: unset !important;
+		padding: 0;
+	}
+	
+	
+	.o-orbit, .o-orbiter{
+		pointer-events: none;
+  		
+		
+	}
+	
+	.one {
+		border: none;
+	}
+	.two {
+		border: none;
+	}
+	
+	.five, .six {
+		border: none
+	}
+	.planet, .circle, .letter {
+		will-change: transform;
+	}
+	.six {
+		will-change: transform;
+		--o-radius-6: 620px;
+		border: 1px dashed rgba(0, 0, 0, 0.448);
+		
+		pointer-events: auto;
+	}
+	.six:hover {
+		border-color: black;
+	}
+	.five {
+		will-change: transform;
+		border: 1px dashed rgba(0, 0, 0, 0.146);
+		
+	}
+	
+	.line {
+		transform: translate(50%, 0%); 
+		rotate: 90deg; 
+		height: 0px;
+		width: 80%;
+		border-width:0;
+		border: none;
+		border-bottom: 1px dashed rgba(0, 0, 0, 0.42);
+	}
+	
+@property --o-rotate {
+	initial-value: 0deg;
+	inherits: true;
+	syntax: '<angle>';
+}
+canvas {
+	contain: paint;
+	backface-visibility: hidden;
+}
+
 	.hero {
 		display: grid;
 		align-items: center;
 		gap: 1rem;
 		padding-bottom: 1rem;
 	}
-
-	.hero > img,
-	.hero > .hero-html {
+	.hero > img {
 		object-fit: contain;
 		width: min(70%, 20rem);
 		height: auto;
@@ -211,7 +434,7 @@ function randomRange(minVal, maxVal) {
 
 	@media (min-width: 50rem) {
 		.hero {
-			grid-template-columns: 4fr 7fr;
+			grid-template-columns: 485px 8fr;
 			gap: 3%;
 			padding-block: clamp(2.5rem, calc(1rem + 10vmin), 10rem);
 		}

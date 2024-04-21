@@ -1,0 +1,318 @@
+<!-- playground-hide -->
+<!doctype html>
+
+<head>
+  <style>
+    @import url("http://localhost:4321/css/orbit.min.css");
+
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+  
+    .colores {
+        width: 750px;
+     
+    }
+    .box {
+        list-style-type: none
+    }
+    .colores .box {
+      width: 90px;
+      height: 50px;
+      float: left;
+      margin-left: 8px;
+      
+    }
+    .o-sector{
+        --o-width: 0px
+    }
+    .o-content {
+        color: inherit !important
+    }
+  </style>
+</head>
+
+<body>
+  <!-- playground-hide-end -->
+ 
+   
+<!--    <div class="colores">
+        <ul class="">
+          <li class="box" style=" background-color: var(--o-red-black); color: var(--o-red-lighter);">red</li>
+          <li class="box" style="background-color: var(--o-red-darker); color: var(--o-red-lighter);">red</li>
+          <li class="box" style="background-color: var(--o-red-dark); color: var(--o-red-lighter);">red</li>
+          <li class="box" style="background-color: var(--o-red); color: var(--o-red-darker);">red</li>
+          <li class="box" style="background-color: var(--o-red-light); color: var(--o-red-dark);">red</li>
+          <li class="box" style="background-color: var(--o-red-lighter); color: var(--o-red-dark);">red</li>
+          <li class="box" style="background-color: var(--o-red-white); color: var(--o-red-dark);">red</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-orange-black); color: var(--o-orange-lighter);">orange</li>
+          <li class="box" style="background-color: var(--o-orange-darker); color: var(--o-orange-lighter);">orange</li>
+          <li class="box" style="background-color: var(--o-orange-dark); color: var(--o-orange-lighter);">orange</li>
+          <li class="box" style="background-color: var(--o-orange); color: var(--o-orange-darker);">orange</li>
+          <li class="box" style="background-color: var(--o-orange-light); color: var(--o-orange-dark);">orange</li>
+          <li class="box" style="background-color: var(--o-orange-lighter); color: var(--o-orange-dark);">orange</li>
+          <li class="box" style="background-color: var(--o-orange-white); color: var(--o-orange-dark);">orange</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-yellow-black); color: var(--o-yellow-lighter);">yellow</li>
+          <li class="box" style="background-color: var(--o-yellow-darker); color: var(--o-yellow-lighter);">yellow</li>
+          <li class="box" style="background-color: var(--o-yellow-dark); color: var(--o-yellow-lighter);">yellow</li>
+          <li class="box" style="background-color: var(--o-yellow); color: var(--o-yellow-darker);">yellow</li>
+          <li class="box" style="background-color: var(--o-yellow-light); color: var(--o-yellow-dark);">yellow</li>
+          <li class="box" style="background-color: var(--o-yellow-lighter); color: var(--o-yellow-dark);">yellow</li>
+          <li class="box" style="background-color: var(--o-yellow-white); color: var(--o-yellow-dark);">yellow</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-green-black); color: var(--o-green-lighter);">green</li>
+          <li class="box" style="background-color: var(--o-green-darker); color: var(--o-green-lighter);">green</li>
+          <li class="box" style="background-color: var(--o-green-dark); color: var(--o-green-lighter);">green</li>
+          <li class="box" style="background-color: var(--o-green); color: var(--o-green-darker);">green</li>
+          <li class="box" style="background-color: var(--o-green-light); color: var(--o-green-dark);">green</li>
+          <li class="box" style="background-color: var(--o-green-lighter); color: var(--o-green-dark);">green</li>
+          <li class="box" style="background-color: var(--o-green-white); color: var(--o-green-dark);">green</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-cyan-black); color: var(--o-cyan-lighter);">cyan</li>
+          <li class="box" style="background-color: var(--o-cyan-darker); color: var(--o-cyan-lighter);">cyan</li>
+          <li class="box" style="background-color: var(--o-cyan-dark); color: var(--o-cyan-lighter);">cyan</li>
+          <li class="box" style="background-color: var(--o-cyan); color: var(--o-cyan-darker);">cyan</li>
+          <li class="box" style="background-color: var(--o-cyan-light); color: var(--o-cyan-dark);">cyan</li>
+          <li class="box" style="background-color: var(--o-cyan-lighter); color: var(--o-cyan-dark);">cyan</li>
+          <li class="box" style="background-color: var(--o-cyan-white); color: var(--o-cyan-dark);">cyan</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-blue-black); color: var(--o-blue-lighter);">blue</li>
+          <li class="box" style="background-color: var(--o-blue-darker); color: var(--o-blue-lighter);">blue</li>
+          <li class="box" style="background-color: var(--o-blue-dark); color: var(--o-blue-lighter);">blue</li>
+          <li class="box" style="background-color: var(--o-blue); color: var(--o-blue-darker);">blue</li>
+          <li class="box" style="background-color: var(--o-blue-light); color: var(--o-blue-dark);">blue</li>
+          <li class="box" style="background-color: var(--o-blue-lighter); color: var(--o-blue-dark);">blue</li>
+          <li class="box" style="background-color: var(--o-blue-white); color: var(--o-blue-dark);">blue</li>
+
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-indigo-black); color: var(--o-indigo-lighter);">indigo</li>
+          <li class="box" style="background-color: var(--o-indigo-darker); color: var(--o-indigo-lighter);">indigo</li>
+          <li class="box" style="background-color: var(--o-indigo-dark); color: var(--o-indigo-lighter);">indigo</li>
+          <li class="box" style="background-color: var(--o-indigo); color: var(--o-indigo-darker);">indigo</li>
+          <li class="box" style="background-color: var(--o-indigo-light); color: var(--o-indigo-dark);">indigo</li>
+          <li class="box" style="background-color: var(--o-indigo-lighter); color: var(--o-indigo-dark);">indigo</li>
+          <li class="box" style="background-color: var(--o-indigo-white); color: var(--o-indigo-dark);">indigo</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-purple-black); color: var(--o-purple-lighter);">purple</li>
+          <li class="box" style="background-color: var(--o-purple-darker); color: var(--o-purple-lighter);">purple</li>
+          <li class="box" style="background-color: var(--o-purple-dark); color: var(--o-purple-lighter);">purple</li>
+          <li class="box" style="background-color: var(--o-purple); color: var(--o-purple-darker);">purple</li>
+          <li class="box" style="background-color: var(--o-purple-light); color: var(--o-purple-dark);">purple</li>
+          <li class="box" style="background-color: var(--o-purple-lighter); color: var(--o-purple-dark);">purple</li>
+          <li class="box" style="background-color: var(--o-purple-white); color: var(--o-purple-dark);">purple</li>
+
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-pink-black); color: var(--o-pink-lighter);">pink</li>
+          <li class="box" style="background-color: var(--o-pink-darker); color: var(--o-pink-lighter);">pink</li>
+          <li class="box" style="background-color: var(--o-pink-dark); color: var(--o-pink-lighter);">pink</li>
+          <li class="box" style="background-color: var(--o-pink); color: var(--o-pink-darker);">pink</li>
+          <li class="box" style="background-color: var(--o-pink-light); color: var(--o-pink-dark);">pink</li>
+          <li class="box" style="background-color: var(--o-pink-lighter); color: var(--o-pink-dark);">pink</li>
+          <li class="box" style="background-color: var(--o-pink-white); color: var(--o-pink-dark);">pink</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-gray-black); color: var(--o-gray-lighter);">gray</li>
+          <li class="box" style="background-color: var(--o-gray-darker); color: var(--o-gray-lighter);">gray</li>
+          <li class="box" style="background-color: var(--o-gray-dark); color: var(--o-gray-lighter);">gray</li>
+          <li class="box" style="background-color: var(--o-gray); color: var(--o-gray-darker);">gray</li>
+          <li class="box" style="background-color: var(--o-gray-light); color: var(--o-gray-dark);">gray</li>
+          <li class="box" style="background-color: var(--o-gray-lighter); color: var(--o-gray-dark);">gray</li>
+          <li class="box" style="background-color: var(--o-gray-white); color: var(--o-gray-dark);">gray</li>
+        </ul>
+        <ul class="">
+          <li class="box" style="background-color: var(--o-color-black); color: var(--o-color-lighter);">color</li>
+          <li class="box" style="background-color: var(--o-color-darker); color: var(--o-color-lighter);">color</li>
+          <li class="box" style="background-color: var(--o-color-dark); color: var(--o-color-lighter);">color</li>
+          <li class="box" style="background-color: var(--o-color); color: var(--o-color-darker);">color</li>
+          <li class="box" style="background-color: var(--o-color-light); color: var(--o-color-dark);">color</li>
+          <li class="box" style="background-color: var(--o-color-lighter); color: var(--o-color-dark);">color</li>
+          <li class="box" style="background-color: var(--o-color-white); color: var(--o-color-dark);">color</li>
+
+
+        
+
+          
+        </ul>
+      </div>  -->
+
+      <div class="colores " style="width: 960px">
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red-black); color: var(--o-red-lighter);">red-black</li>
+          <li class="box " style="background-color: var(--o-orange-black); color: var(--o-orange-lighter);">orange-black</li>
+          <li class="box " style="background-color: var(--o-yellow-black); color: var(--o-yellow-lighter);">yellow-black</li>
+          <li class="box " style="background-color: var(--o-green-black); color: var(--o-green-lighter);">green-black</li>
+          <li class="box " style="background-color: var(--o-cyan-black); color: var(--o-cyan-lighter);">cyan-black</li>
+          <li class="box " style="background-color: var(--o-blue-black); color: var(--o-blue-lighter);">blue-black</li>
+          <li class="box " style="background-color: var(--o-indigo-black); color: var(--o-indigo-lighter);">indigo-black</li>
+          <li class="box " style="background-color: var(--o-purple-black); color: var(--o-purple-lighter);">purple-black</li>
+          <li class="box " style="background-color: var(--o-pink-black); color: var(--o-pink-lighter);">pink-black</li>
+        </ul>
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red-darker); color: var(--o-red-lighter);">red-darker</li>
+          <li class="box " style="background-color: var(--o-orange-darker); color: var(--o-orange-lighter);">orange-darker</li>
+          <li class="box " style="background-color: var(--o-yellow-darker); color: var(--o-yellow-lighter);">yellow-darker</li>
+          <li class="box " style="background-color: var(--o-green-darker); color: var(--o-green-lighter);">green-darker</li>
+          <li class="box " style="background-color: var(--o-cyan-darker); color: var(--o-cyan-lighter);">cyan-darker</li>
+          <li class="box " style="background-color: var(--o-blue-darker); color: var(--o-blue-lighter);">blue-darker</li>
+          <li class="box " style="background-color: var(--o-indigo-darker); color: var(--o-indigo-lighter);">indigo-darker</li>
+          <li class="box " style="background-color: var(--o-purple-darker); color: var(--o-purple-lighter);">purple-darker</li>
+          <li class="box " style="background-color: var(--o-pink-darker); color: var(--o-pink-lighter);">pink-darker</li>
+        </ul>
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red-dark); color: var(--o-red-lighter);">red-dark</li>
+          <li class="box " style="background-color: var(--o-orange-dark); color: var(--o-orange-lighter);">orange-dark</li>
+          <li class="box " style="background-color: var(--o-yellow-dark); color: var(--o-yellow-lighter);">yellow-dark</li>
+          <li class="box " style="background-color: var(--o-green-dark); color: var(--o-green-lighter);">green-dark</li>
+          <li class="box " style="background-color: var(--o-cyan-dark); color: var(--o-cyan-lighter);">cyan-dark</li>
+          <li class="box " style="background-color: var(--o-blue-dark); color: var(--o-blue-lighter);">blue-dark</li>
+          <li class="box " style="background-color: var(--o-indigo-dark); color: var(--o-indigo-lighter);">indigo-dark</li>
+          <li class="box " style="background-color: var(--o-purple-dark); color: var(--o-purple-lighter);">purple-dark</li>
+          <li class="box " style="background-color: var(--o-pink-dark); color: var(--o-pink-lighter);">pink-dark</li>
+        </ul>
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red); color: var(--o-red-darker);">red</li>
+          <li class="box " style="background-color: var(--o-orange); color: var(--o-orange-darker);">orange</li>
+          <li class="box " style="background-color: var(--o-yellow); color: var(--o-yellow-darker);">yellow</li>
+          <li class="box " style="background-color: var(--o-green); color: var(--o-green-darker);">green</li>
+          <li class="box " style="background-color: var(--o-cyan); color: var(--o-cyan-darker);">cyan</li>
+          <li class="box " style="background-color: var(--o-blue); color: var(--o-blue-darker);">blue</li>
+          <li class="box " style="background-color: var(--o-indigo); color: var(--o-indigo-darker);">indigo</li>
+          <li class="box " style="background-color: var(--o-purple); color: var(--o-purple-darker);">purple</li>
+          <li class="box " style="background-color: var(--o-pink); color: var(--o-pink-darker);">pink</li>
+        </ul>
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red-light); color: var(--o-red-dark);">red-light</li>
+          <li class="box " style="background-color: var(--o-orange-light); color: var(--o-orange-dark);">orange-light</li>
+          <li class="box " style="background-color: var(--o-yellow-light); color: var(--o-yellow-dark);">yellow-light</li>
+          <li class="box " style="background-color: var(--o-green-light); color: var(--o-green-dark);">green-light</li>
+          <li class="box " style="background-color: var(--o-cyan-light); color: var(--o-cyan-dark);">cyan-light</li>
+          <li class="box " style="background-color: var(--o-blue-light); color: var(--o-blue-dark);">blue-light</li>
+          <li class="box " style="background-color: var(--o-indigo-light); color: var(--o-indigo-dark);">indigo-light</li>
+          <li class="box " style="background-color: var(--o-purple-light); color: var(--o-purple-dark);">purple-light</li>
+          <li class="box " style="background-color: var(--o-pink-light); color: var(--o-pink-dark);">pink-light</li>
+        </ul>
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red-lighter); color: var(--o-red-dark);">red-lighter</li>
+          <li class="box " style="background-color: var(--o-orange-lighter); color: var(--o-orange-dark);">orange-lighter</li>
+          <li class="box " style="background-color: var(--o-yellow-lighter); color: var(--o-yellow-dark);">yellow-lighter</li>
+          <li class="box " style="background-color: var(--o-green-lighter); color: var(--o-green-dark);">green-lighter</li>
+          <li class="box " style="background-color: var(--o-cyan-lighter); color: var(--o-cyan-dark);">cyan-lighter</li>
+          <li class="box " style="background-color: var(--o-blue-lighter); color: var(--o-blue-dark);">blue-lighter</li>
+          <li class="box " style="background-color: var(--o-indigo-lighter); color: var(--o-indigo-dark);">indigo-lighter</li>
+          <li class="box " style="background-color: var(--o-purple-lighter); color: var(--o-purple-dark);">purple-lighter</li>
+          <li class="box " style="background-color: var(--o-pink-lighter); color: var(--o-pink-dark);">pink-lighter</li>
+        </ul>
+        <ul class="">
+          <li class="box " style="background-color: var(--o-red-white); color: var(--o-red-dark);">red-white</li>
+          <li class="box " style="background-color: var(--o-orange-white); color: var(--o-orange-dark);">orange-white</li>
+          <li class="box " style="background-color: var(--o-yellow-white); color: var(--o-yellow-dark);">yellow-white</li>
+          <li class="box " style="background-color: var(--o-green-white); color: var(--o-green-dark);">green-white</li>
+          <li class="box " style="background-color: var(--o-cyan-white); color: var(--o-cyan-dark);">cyan-white</li>
+          <li class="box " style="background-color: var(--o-blue-white); color: var(--o-blue-dark);">blue-white</li>
+          <li class="box " style="background-color: var(--o-indigo-white); color: var(--o-indigo-dark);">indigo-white</li>
+          <li class="box " style="background-color: var(--o-purple-white); color: var(--o-purple-dark);">purple-white</li>
+          <li class="box" style="background-color: var(--o-pink-white); color: var(--o-pink-dark);">pink-white</li>
+        </ul>
+      </div>
+
+
+      <div class=" o-container">
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red-black); color: var(--o-red-lighter);">red-black</li>
+          <li class="box o-sector" style="background-color: var(--o-orange-black); color: var(--o-orange-lighter);">orange-black</li>
+          <li class="box o-sector" style="background-color: var(--o-yellow-black); color: var(--o-yellow-lighter);">yellow-black</li>
+          <li class="box o-sector" style="background-color: var(--o-green-black); color: var(--o-green-lighter);">green-black</li>
+          <li class="box o-sector" style="background-color: var(--o-cyan-black); color: var(--o-cyan-lighter);">cyan-black</li>
+          <li class="box o-sector" style="background-color: var(--o-blue-black); color: var(--o-blue-lighter);">blue-black</li>
+          <li class="box o-sector" style="background-color: var(--o-indigo-black); color: var(--o-indigo-lighter);">indigo-black</li>
+          <li class="box o-sector" style="background-color: var(--o-purple-black); color: var(--o-purple-lighter);">purple-black</li>
+          <li class="box o-sector" style="background-color: var(--o-pink-black); color: var(--o-pink-lighter);"><span class="o-content">pink-black</span></li>
+        </ul>
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red-darker); color: var(--o-red-lighter);">red-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-orange-darker); color: var(--o-orange-lighter);">orange-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-yellow-darker); color: var(--o-yellow-lighter);">yellow-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-green-darker); color: var(--o-green-lighter);">green-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-cyan-darker); color: var(--o-cyan-lighter);">cyan-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-blue-darker); color: var(--o-blue-lighter);">blue-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-indigo-darker); color: var(--o-indigo-lighter);">indigo-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-purple-darker); color: var(--o-purple-lighter);">purple-darker</li>
+          <li class="box o-sector" style="background-color: var(--o-pink-darker); color: var(--o-pink-lighter);">pink-darker</li>
+        </ul>
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red-dark); color: var(--o-red-lighter);">red-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-orange-dark); color: var(--o-orange-lighter);">orange-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-yellow-dark); color: var(--o-yellow-lighter);">yellow-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-green-dark); color: var(--o-green-lighter);">green-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-cyan-dark); color: var(--o-cyan-lighter);">cyan-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-blue-dark); color: var(--o-blue-lighter);">blue-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-indigo-dark); color: var(--o-indigo-lighter);">indigo-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-purple-dark); color: var(--o-purple-lighter);">purple-dark</li>
+          <li class="box o-sector" style="background-color: var(--o-pink-dark); color: var(--o-pink-lighter);">pink-dark</li>
+        </ul>
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red); color: var(--o-red-darker);">red</li>
+          <li class="box o-sector" style="background-color: var(--o-orange); color: var(--o-orange-darker);">orange</li>
+          <li class="box o-sector" style="background-color: var(--o-yellow); color: var(--o-yellow-darker);">yellow</li>
+          <li class="box o-sector" style="background-color: var(--o-green); color: var(--o-green-darker);">green</li>
+          <li class="box o-sector" style="background-color: var(--o-cyan); color: var(--o-cyan-darker);">cyan</li>
+          <li class="box o-sector" style="background-color: var(--o-blue); color: var(--o-blue-darker);">blue</li>
+          <li class="box o-sector" style="background-color: var(--o-indigo); color: var(--o-indigo-darker);">indigo</li>
+          <li class="box o-sector" style="background-color: var(--o-purple); color: var(--o-purple-darker);">purple</li>
+          <li class="box o-sector" style="background-color: var(--o-pink); color: var(--o-pink-darker);">pink</li>
+        </ul>
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red-light); color: var(--o-red-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-orange-light); color: var(--o-orange-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-yellow-light); color: var(--o-yellow-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-green-light); color: var(--o-green-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-cyan-light); color: var(--o-cyan-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-blue-light); color: var(--o-blue-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-indigo-light); color: var(--o-indigo-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-purple-light); color: var(--o-purple-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-pink-light); color: var(--o-pink-dark);"><div class="o-content"><span>pink-white</span></div></li>
+        </ul>
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red-lighter); color: var(--o-red-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-orange-lighter); color: var(--o-orange-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-yellow-lighter); color: var(--o-yellow-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-green-lighter); color: var(--o-green-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-cyan-lighter); color: var(--o-cyan-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-blue-lighter); color: var(--o-blue-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-indigo-lighter); color: var(--o-indigo-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-purple-lighter); color: var(--o-purple-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-pink-lighter); color: var(--o-pink-dark);"><div class="o-content"><span>pink-white</span></div></li>
+        </ul>
+        <ul class="o-orbit">
+          <li class="box o-sector" style="background-color: var(--o-red-white); color: var(--o-red-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-orange-white); color: var(--o-orange-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-yellow-white); color: var(--o-yellow-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-green-white); color: var(--o-green-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-cyan-white); color: var(--o-cyan-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-blue-white); color: var(--o-blue-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-indigo-white); color: var(--o-indigo-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-purple-white); color: var(--o-purple-dark);"><div class="o-content"><span>pink-white</span></div></li>
+          <li class="box o-sector" style="background-color: var(--o-pink-white); color: var(--o-pink-dark);"><div class="o-content"><span>pink-white</span></div></li>
+        </ul>
+      </div>
+      
+   
+
+  
+</body>
+
+</html>

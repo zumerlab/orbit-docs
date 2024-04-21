@@ -1,0 +1,171 @@
+---
+import hcode from '/src/examples/layout/orbit.html?raw'
+import csscode from '/src/examples/layout/custom.css?raw'
+import orbit from '/src/assets/css/orbit.min.css?raw'
+
+/* import javascript from 'highlight.js/lib/languages/javascript';
+import html from 'highlight.js/lib/languages/html';
+import css from 'highlight.js/lib/languages/css';
+
+// Then register the languages you need
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('html', html);
+hljs.registerLanguage('css', css);
+ */
+---
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Sandbox</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+<script  is:inline src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script is:inline>hljs.highlightAll()</script>
+  <style>
+    .sandbox .orbit {
+      display: none;
+    }
+    .sandbox iframe {
+      width: 100%;
+    }
+    .sandbox .codeview {
+      height: 200px;
+      overflow: auto;
+    }
+  </style>
+  <script  is:inline>
+      function openCity(evt, cityName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " w3-red";
+}
+
+  </script>
+</head>
+<body>
+
+  <div class="sandbox">
+   
+    <div class="codeview">
+      <div class="w3-bar w3-black">
+        <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'HTML')">HTML</button>
+        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'CSS')">CSS</button>
+        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'JS')">JS</button>
+      </div>
+      <div id="HTML" class="w3-container w3-border city">
+        <pre style="display: none;"><code class="orbit">{orbit}</code></pre>
+        <pre ><code class="html">{hcode}</code></pre>
+      </div>
+      <div id="CSS" class="w3-container w3-border city" style="display:none">
+        <pre ><code class="css">{csscode}</code></pre>
+      </div>
+      <div id="JS" class="w3-container w3-border city" style="display:none">
+      <pre ><code class="js" /></pre>
+      </div>
+    </div>
+    <div class="preview">
+      <iframe>
+        <!doctype html> <html> <head> <meta charset="utf-8">
+          <style>${orbit}</style>
+          <style>${css}</style>
+        </head> <body> ${html} <script>${js}</script> </body> </html>
+      </iframe>
+    </div>
+   
+  </div>
+  <script type="module">
+  
+
+    const sandbox = (options = {}) => {
+      const BOX = options.box || document.querySelector('.sandbox')
+      const EDITABLE = options.editable || false
+      const TEMPLATE = BOX.querySelector('iframe').textContent
+
+      sandbox.update(BOX, TEMPLATE)
+
+      if (EDITABLE !== false) {
+        BOX.querySelectorAll('pre code').forEach((codebox) => {
+          let editor = document.createElement('div')
+          let textarea = document.createElement('textarea')
+          let timeoutID
+
+          editor.classList.add('sandbox-editor')
+
+          textarea.setAttribute('rows', '1')
+          textarea.setAttribute('spellcheck', 'false')
+          textarea.setAttribute('autocorrect', 'off')
+          textarea.setAttribute('autocomplete', 'off')
+          textarea.setAttribute('autocapitalize', 'off')
+          textarea.setAttribute('translate', 'no')
+          textarea.setAttribute('title', codebox.getAttribute('title'))
+          textarea.setAttribute('aria-label', codebox.getAttribute('title'))
+          textarea.innerHTML = codebox.textContent
+
+          codebox.parentElement.insertAdjacentElement('beforebegin', editor)
+          editor.appendChild(codebox.parentElement)
+          editor.appendChild(textarea)
+
+          textarea.addEventListener('input', (e) => {
+            codebox.textContent = e.target.value
+
+            clearTimeout(timeoutID)
+            timeoutID = setTimeout(() => {
+              sandbox.update(BOX, TEMPLATE)
+            }, 400)
+          })
+        })
+      }
+
+      return BOX
+    }
+
+    sandbox.update = (box, template) => {
+      let input = [...template.matchAll(/\$\{([\w-]+)\}/g)].reduce(
+        (tag, language) => {
+          return {
+            ...tag,
+            [language[1]]: box.querySelector(`code[class*="${language[1]}"]`)
+              .textContent,
+          }
+        },
+        {}
+      )
+      let output = box.querySelector('iframe')
+      let languages = Object.keys(input)
+      let code = Object.values(input)
+      let render = new Function(...languages, `return \`${template}\`;`)(
+        ...code
+      )
+
+      output.src = URL.createObjectURL(
+        new Blob([render], { type: 'text/html' })
+      )
+    }
+
+    const SANDBOX_SHEET = new CSSStyleSheet()
+    SANDBOX_SHEET.insertRule(
+      '.sandbox-editor { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; height: 100%; }'
+    )
+    SANDBOX_SHEET.insertRule(
+      '.sandbox-editor pre, .sandbox-editor textarea { font-family: monospace; font-size: .875rem; line-height: 1.5rem; grid-area: 1 / 1 / 2 / 2; padding: 1em !important; margin: 0 !important; overflow: hidden; border: none; }'
+    )
+    SANDBOX_SHEET.insertRule(
+      '.sandbox-editor textarea { caret-color: white; background-color: transparent; color: transparent; resize: none; appearance: none; }'
+    )
+    SANDBOX_SHEET.insertRule(
+      '.sandbox-editor code { word-wrap: break-word; white-space: pre-wrap; overflow-wrap: anywhere; overflow: hidden; }'
+    )
+    document.adoptedStyleSheets = [SANDBOX_SHEET]
+
+    sandbox({ box: document.querySelector('#sandbox'), editable: true })
+  </script>
+</body>
