@@ -1,171 +1,368 @@
 ---
-import hcode from '/src/examples/layout/orbit.html?raw'
+//import hcode from '/src/examples/layout/orbit.html?raw'
 import csscode from '/src/examples/layout/custom.css?raw'
-import orbit from '/src/assets/css/orbit.min.css?raw'
+import orbitCode from '/src/assets/css/orbit.min.css?raw'
 
-/* import javascript from 'highlight.js/lib/languages/javascript';
-import html from 'highlight.js/lib/languages/html';
-import css from 'highlight.js/lib/languages/css';
+interface Props {
+  name?: string
+  htmlCode?: string
+  cssPath?: string
+  jsPath?: string
+  hideCode?: boolean
+}
+const { htmlCode = 'No HTML provided', cssPath, jsPath, name, hideCode = false,  } = Astro.props
 
-// Then register the languages you need
-hljs.registerLanguage('javascript', javascript);
-hljs.registerLanguage('html', html);
-hljs.registerLanguage('css', css);
- */
+
+const hcode = htmlCode
+
 ---
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Code Sandbox</title>
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark-dimmed.min.css">
-<script  is:inline src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-<script is:inline>hljs.highlightAll()</script>
+<head>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/atom-one-dark.min.css"
+  />
+  <script
+    is:inline
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+  ></script>
+
+  <script is:inline>
+    hljs.highlightAll()
+  </script>
   <style>
-    .sandbox .orbit {
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+    .options,
+    .toolbar,
+    .settings {
+      height: 50px;
+      display: flex;
+      margin-bottom: 0;
+    }
+    .options {
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: space-between;
+    }
+    .options button,
+    .toolbar button,
+    .settings button {
+      margin-top: 0 !important;
+      height: 50px;
+    }
+    .tab {
+      padding: 10px 20px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #abb2bf !important;
+    }
+    .tab:hover,
+    .tab.active:hover {
+      color: #3e4147 !important;
+      border: none;
+      cursor: pointer;
+    }
+    .tab:hover {
+      border-bottom: 4px solid rgba(1, 12, 25, 0.459);
+    }
+    .tab.active:hover {
+      border-bottom: 4px solid rgb(0, 115, 255);
+    }
+
+    .tab.active {
+      background-color: transparent;
+      color: #3e4147 !important;
+      border: none;
+      border-bottom: 4px solid rgb(0, 115, 255);
+    }
+    .tabPanel {
       display: none;
+      border: none;
+      color: #abb2bf !important;
+      background-color: #111317 !important;
+      margin-top: 0 !important;
     }
-    .sandbox iframe {
+    .tabPanel.active {
+      display: block;
+      outline: none;
+    }
+   
+    .tabContent pre {
+      border: none !important;
+    }
+    pre code.hljs {
+      padding: 0 !important;
+    }
+    .grid {
+      display: flex;
+    }
+    .preview,
+    .settings,
+    .options {
+      margin-top: 0 !important;
+    }
+    .editor {
+      position: relative;
+      max-height: 300px; /* Set the maximum height */
+      flex: 1;
       width: 100%;
+      font-size: 13px !important;
     }
-    .sandbox .codeview {
-      height: 200px;
-      overflow: auto;
+    .editor * {
+      font-size: 13px !important;
+    }
+    .copy {
+      position: absolute;
+      top: 0;
+      right: 0%;
+      padding: 10px 20px;
+      color: #abb2bf !important;
+      background-color: transparent;
+      cursor: pointer;
+      border: none!important;
+    }
+
+    .codeRenderer {
+      width: 100%;
+      flex: 1;
+
+      margin-top: 0 !important;
+      background-color: white;
+    }
+    .columns {
+      flex-direction: column;
+    }
+    .columns-reverse {
+      flex-direction: column-reverse;
+    }
+    .columns,
+    .columns-reverse {
+      .preview {
+        width: 100%;
+      }
+      .editor {
+        width: 100%;
+      }
+    }
+    /* Use as rows */
+    .rows {
+      flex-direction: row;
+    }
+    .rows-reverse {
+      flex-direction: row-reverse;
+    }
+    .rows,
+    .rows-reverse {
+      flex-direction: row;
+      .preview {
+        width: 50%;
+      }
+      .editor {
+        width: 50%;
+      }
+    }
+    .tabContent {
+      max-height: 250px; /* Set the maximum height */
+      overflow-y: auto; /* Add vertical scrolling */
+      margin-top: 0 !important;
     }
   </style>
-  <script  is:inline>
-      function openCity(evt, cityName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("city");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-red", "");
-  }
-  document.getElementById(cityName).style.display = "block";
-  evt.currentTarget.className += " w3-red";
-}
-
-  </script>
 </head>
 <body>
-
-  <div class="sandbox">
-   
-    <div class="codeview">
-      <div class="w3-bar w3-black">
-        <button class="w3-bar-item w3-button tablink w3-red" onclick="openCity(event,'HTML')">HTML</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'CSS')">CSS</button>
-        <button class="w3-bar-item w3-button tablink" onclick="openCity(event,'JS')">JS</button>
+  <div class="container">
+    <div class="grid columns-reverse">
+      <div class="editor">
+        <button class=" copy">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+              <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
+            </svg>
+        </button>
+        <div class="tabContent">
+          
+          <div class="tabPanel active" contenteditable="true">
+            <pre><code class="language-html">{hcode}</code></pre>
+          </div>
+          <div class="tabPanel" contenteditable="true">
+            <pre><code class="language-css">{csscode}</code></pre>
+          </div>
+          <div class="tabPanel" contenteditable="true">
+            <!-- Content for JavaScript Tab -->
+          </div>
+        </div>
       </div>
-      <div id="HTML" class="w3-container w3-border city">
-        <pre style="display: none;"><code class="orbit">{orbit}</code></pre>
-        <pre ><code class="html">{hcode}</code></pre>
-      </div>
-      <div id="CSS" class="w3-container w3-border city" style="display:none">
-        <pre ><code class="css">{csscode}</code></pre>
-      </div>
-      <div id="JS" class="w3-container w3-border city" style="display:none">
-      <pre ><code class="js" /></pre>
+      <div class="preview">
+        
+        <div class="codeRenderer">
+          <!-- The iframe for rendering code will be inserted here -->
+        </div>
+        <div class="options">
+          <div class="toolbar">
+            <div class="buttons">
+              <button class="tab active">HTML</button>
+              <button class="tab">CSS</button>
+              <button class="tab">JavaScript</button>
+            </div>
+          </div>
+          <div class="settings">
+            <button class="tab active code">hide code</button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="preview">
-      <iframe>
-        <!doctype html> <html> <head> <meta charset="utf-8">
-          <style>${orbit}</style>
-          <style>${css}</style>
-        </head> <body> ${html} <script>${js}</script> </body> </html>
-      </iframe>
-    </div>
-   
   </div>
-  <script type="module">
-  
+  <script is:inline define:vars={{ orbitCode, hideCode }}>
+    // Add event listeners to each tab's content area
+    document.querySelectorAll('.tabPanel').forEach((panel, index) => {
+      panel.addEventListener('input', () => {
+        // Update the iframe when content changes
+        updateIframe()
+      })
+    })
+    document.querySelectorAll('.buttons > .tab').forEach((panel, index) => {
+      panel.addEventListener('click', () => {
+        // Update the iframe when content changes
+        showTab(index)
+      })
+    })
 
-    const sandbox = (options = {}) => {
-      const BOX = options.box || document.querySelector('.sandbox')
-      const EDITABLE = options.editable || false
-      const TEMPLATE = BOX.querySelector('iframe').textContent
+    // Function to show tab content and update iframe
+    function showTab(tabIndex) {
+      // Get all tab buttons and panels
+      const tabs = document.querySelectorAll('.tab')
+      const panels = document.querySelectorAll('.tabPanel')
 
-      sandbox.update(BOX, TEMPLATE)
+      // Hide all panels
+      panels.forEach((panel) => panel.classList.remove('active'))
 
-      if (EDITABLE !== false) {
-        BOX.querySelectorAll('pre code').forEach((codebox) => {
-          let editor = document.createElement('div')
-          let textarea = document.createElement('textarea')
-          let timeoutID
+      // Show the selected panel
+      panels[tabIndex].classList.add('active')
 
-          editor.classList.add('sandbox-editor')
+      // Deactivate all tabs
+      tabs.forEach((tab) => tab.classList.remove('active'))
 
-          textarea.setAttribute('rows', '1')
-          textarea.setAttribute('spellcheck', 'false')
-          textarea.setAttribute('autocorrect', 'off')
-          textarea.setAttribute('autocomplete', 'off')
-          textarea.setAttribute('autocapitalize', 'off')
-          textarea.setAttribute('translate', 'no')
-          textarea.setAttribute('title', codebox.getAttribute('title'))
-          textarea.setAttribute('aria-label', codebox.getAttribute('title'))
-          textarea.innerHTML = codebox.textContent
+      // Activate the selected tab
+      tabs[tabIndex].classList.add('active')
 
-          codebox.parentElement.insertAdjacentElement('beforebegin', editor)
-          editor.appendChild(codebox.parentElement)
-          editor.appendChild(textarea)
+      // Update the iframe content
+      updateIframe()
+    }
 
-          textarea.addEventListener('input', (e) => {
-            codebox.textContent = e.target.value
+    // Function to update the iframe with current tab content
+    function updateIframe() {
+      // Get the content of all tab panels
+      const htmlCode = document.querySelectorAll('.tabPanel')[0].textContent
+      const cssCode = document.querySelectorAll('.tabPanel')[1].textContent
+      const jsCode = document.querySelectorAll('.tabPanel')[2].textContent
 
-            clearTimeout(timeoutID)
-            timeoutID = setTimeout(() => {
-              sandbox.update(BOX, TEMPLATE)
-            }, 400)
-          })
-        })
+      // Render the code in the iframe
+      renderCodeInIframe(htmlCode, cssCode, jsCode)
+    }
+
+    // Function to render code in the iframe
+    function renderCodeInIframe(htmlCode, cssCode, jsCode) {
+      const iframeContent = `
+  <html>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <style>${orbitCode}${cssCode}</style>
+    </head>
+    <body>
+      ${htmlCode}
+      <scr${'ipt'}>
+        ${jsCode}
+      </scr${'ipt'}>
+    </body>
+  </html>
+`
+      const iframe = document.createElement('iframe')
+      iframe.setAttribute('srcdoc', iframeContent)
+      iframe.style.width = '100%'
+      iframe.style.border = 'none'
+      iframe.style.height = '300px' // Adjust height as needed
+
+      // Replace the existing iframe with the updated one
+      const codeRenderer = document.querySelector('.codeRenderer')
+      codeRenderer.innerHTML = ''
+      codeRenderer.appendChild(iframe)
+    }
+
+    // Initially render the code of the active tabs
+    updateIframe()
+    // Add event listener to the "show code" button
+    const showCodeButton = document.querySelector('.code')
+    const toolbar = document.querySelector('.toolbar > .buttons')
+    const activeTabContent = document.querySelector('.tabPanel.active')
+    if (hideCode) {
+       activeTabContent.classList.remove('active')
+        toolbar.style.display = 'none'
+        showCodeButton.textContent = 'show code'
+    }
+    showCodeButton.addEventListener('click', function () {
+      // Toggle the active class on the show code button
+      showCodeButton.classList.toggle('active')
+
+      
+      if (toolbar.style.display === 'none') {
+        toolbar.style.display = 'block'
+        showTab(0)
+        showCodeButton.textContent = 'hide code'
+      } else {
+        activeTabContent.classList.remove('active')
+        toolbar.style.display = 'none'
+        showCodeButton.textContent = 'show code'
       }
+    })
 
-      return BOX
-    }
+    // Add event listener to the "copy code" SVG button
+    const copyCodeButton = document.querySelector('.copy')
+    const copyicon = copyCodeButton.querySelector('svg path')
+    const defaulticon = copyicon.getAttribute('d')
 
-    sandbox.update = (box, template) => {
-      let input = [...template.matchAll(/\$\{([\w-]+)\}/g)].reduce(
-        (tag, language) => {
-          return {
-            ...tag,
-            [language[1]]: box.querySelector(`code[class*="${language[1]}"]`)
-              .textContent,
-          }
-        },
-        {}
-      )
-      let output = box.querySelector('iframe')
-      let languages = Object.keys(input)
-      let code = Object.values(input)
-      let render = new Function(...languages, `return \`${template}\`;`)(
-        ...code
-      )
+    copyCodeButton.addEventListener('click', function () {
+      // Get the content of the active tab
+      const activeTabContent =
+        document.querySelector('.tabPanel.active').textContent
 
-      output.src = URL.createObjectURL(
-        new Blob([render], { type: 'text/html' })
-      )
-    }
+      // Copy the content to the clipboard
+      navigator.clipboard
+        .writeText(activeTabContent)
+        .then(() => {
 
-    const SANDBOX_SHEET = new CSSStyleSheet()
-    SANDBOX_SHEET.insertRule(
-      '.sandbox-editor { display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; gap: 0; height: 100%; }'
-    )
-    SANDBOX_SHEET.insertRule(
-      '.sandbox-editor pre, .sandbox-editor textarea { font-family: monospace; font-size: .875rem; line-height: 1.5rem; grid-area: 1 / 1 / 2 / 2; padding: 1em !important; margin: 0 !important; overflow: hidden; border: none; }'
-    )
-    SANDBOX_SHEET.insertRule(
-      '.sandbox-editor textarea { caret-color: white; background-color: transparent; color: transparent; resize: none; appearance: none; }'
-    )
-    SANDBOX_SHEET.insertRule(
-      '.sandbox-editor code { word-wrap: break-word; white-space: pre-wrap; overflow-wrap: anywhere; overflow: hidden; }'
-    )
-    document.adoptedStyleSheets = [SANDBOX_SHEET]
-
-    sandbox({ box: document.querySelector('#sandbox'), editable: true })
+          // Optionally, you can provide feedback to the user
+          copyicon.style.fill = "green"
+          copyicon.setAttribute('d', 'm424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z')
+          
+         
+          setTimeout(() => {
+            copyicon.style.fill = "currentColor"
+            copyicon.setAttribute('d', defaulticon)
+          
+          }, 2000);
+          
+          
+        })
+        .catch((error) => {
+          copyicon.style.fill = "red"
+          copyicon.setAttribute('d', 'M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z')
+          setTimeout(() => {
+            copyicon.style.fill = "currentColor"
+            copyicon.setAttribute('d', defaulticon)
+          
+          }, 2000);
+          console.error('Unable to copy code: ', error)
+        })
+    })
   </script>
 </body>
