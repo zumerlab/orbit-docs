@@ -272,10 +272,66 @@ var c = document.getElementById('canvas');
 </div>
 
 <style>
-	:root{
-		--sl-color-bg: #f6f6f6;
-		--init-deg: 0deg
-	}
+		/* Dark mode colors. */
+:root {
+	--init-deg: 0deg;
+	--sl-color-accent-low: #094067;
+	--sl-color-accent-high: #ef4565;
+	--sl-color-accent: #3da9fc;
+	--sl-color-black: #041d2f;
+	--sl-color-gray-1: #d8eefe;
+	--sl-color-gray-2: #d8eefe;
+	--sl-color-gray-3: #d8eefe;
+	--sl-color-gray-4: #d8eefe;
+	--sl-color-gray-5: #094067;
+	--sl-color-gray-6: #d8eefe;
+	--sl-color-white: #3da9fc;
+}
+:global(:root) {
+	--ec-frm-trmBg: #e1f2ffa1 !important;
+	--ec-frm-edBg: #e1f2ffa1 !important;
+	--ec-frm-trmTtbBg: #e1f2ffa1 !important; 
+	--ec-brdCol: #094067 !important;
+}
+
+:global(.expressive-code .frame) {
+	box-shadow: none !important;
+	border-radius: 8px !important;
+}
+:global(.expressive-code *) {
+	border: none !important;
+}
+
+:global(.expressive-code pre) {
+	border-radius: 8px !important;
+}
+
+
+
+:global(.default) {
+	--sl-color-border-badge: #094067 !important;
+
+	
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+	--init-deg: 0deg;
+	--sl-color-accent-low: #90b4ce;
+	--sl-color-accent-high: #ef4565;
+	--sl-color-accent: #3da9fc;
+	--sl-color-white: #094067;
+	--sl-color-gray-1: #5f6c7b;
+	--sl-color-gray-2: #5f6c7b;
+	--sl-color-gray-3: #5f6c7b;
+	--sl-color-gray-4: #5f6c7b;
+	--sl-color-gray-5: #353841;
+	--sl-color-gray-6: #d8eefe;
+	--sl-color-black: #fffffe;
+
+	
+}
+
+	
 	.hero-logo {
 		display: grid;
 		height: 500px;

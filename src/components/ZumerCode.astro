@@ -1,24 +1,22 @@
 ---
 //import hcode from '/src/examples/layout/orbit.html?raw'
-import csscode from '/src/examples/layout/custom.css?raw'
+import cssFile from '/src/examples/layout/custom.css?raw'
 import orbitCode from '/src/assets/css/orbit.min.css?raw'
 
 interface Props {
   name?: string
   htmlCode?: string
-  cssPath?: string
-  jsPath?: string
+  cssCode?: string
+  jsCode?: string
   hideCode?: boolean
 }
-const { htmlCode = 'No HTML provided', cssPath, jsPath, name, hideCode = false,  } = Astro.props
-
+const { htmlCode = 'No HTML provided', cssCode, jsCode, name, hideCode = false,  } = Astro.props
 
 const hcode = htmlCode
+const csscode = cssCode || cssFile
+const jscode = jsCode || false
 
 ---
-
-<head>
-
   <link
     rel="stylesheet"
     href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/atom-one-dark.min.css"
@@ -178,8 +176,7 @@ const hcode = htmlCode
       margin-top: 0 !important;
     }
   </style>
-</head>
-<body>
+
   <div class="container">
     <div class="grid columns-reverse">
       <div class="editor">
@@ -209,9 +206,9 @@ const hcode = htmlCode
         <div class="options">
           <div class="toolbar">
             <div class="buttons">
-              <button class="tab active">HTML</button>
-              <button class="tab">CSS</button>
-              <button class="tab">JavaScript</button>
+              {hcode && <button class="tab active">HTML</button>}
+              {csscode && <button class="tab active">CSS</button>}
+              {jscode && <button class="tab active">JS</button>}
             </div>
           </div>
           <div class="settings">
@@ -339,19 +336,13 @@ const hcode = htmlCode
       navigator.clipboard
         .writeText(activeTabContent)
         .then(() => {
-
-          // Optionally, you can provide feedback to the user
           copyicon.style.fill = "green"
           copyicon.setAttribute('d', 'm424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z')
-          
-         
           setTimeout(() => {
             copyicon.style.fill = "currentColor"
             copyicon.setAttribute('d', defaulticon)
           
           }, 2000);
-          
-          
         })
         .catch((error) => {
           copyicon.style.fill = "red"
