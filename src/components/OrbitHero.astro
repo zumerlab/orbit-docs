@@ -288,22 +288,25 @@ var c = document.getElementById('canvas');
 	--sl-color-white: #3da9fc;
 }
 :global(:root) {
-	--ec-frm-trmBg: #e1f2ffa1 !important;
-	--ec-frm-edBg: #e1f2ffa1 !important;
-	--ec-frm-trmTtbBg: #e1f2ffa1 !important; 
+	--ec-frm-trmBg: #e1f2ff !important;
+	--ec-frm-edBg: #e1f2ff !important;
+	--ec-frm-trmTtbBg: #e1f2ff !important; 
 	--ec-brdCol: #094067 !important;
 }
 
 :global(.expressive-code .frame) {
 	box-shadow: none !important;
-	border-radius: 8px !important;
+	
 }
 :global(.expressive-code *) {
 	border: none !important;
 }
 
 :global(.expressive-code pre) {
-	border-radius: 8px !important;
+	border-top-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
 }
 
 

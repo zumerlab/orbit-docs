@@ -29,59 +29,69 @@ export default defineConfig({
       items: [{
         label: 'About Orbit',
         link: '/introduction/',
-        badge: 'New'
       }, {
         label: 'Installation',
         link: '/introduction/installation/'
+      }, {
+        label: 'Quick start',
+        link: '/introduction/start/'
       }]
     }, {
       label: 'Layout',
       items: [{
-        label: 'CSS radial grid',
+        label: 'Radial grid',
         link: '/layout/'
-      }, {
-        label: 'o-container',
-        link: '/layout/container/'
-      }, {
-        label: 'o-orbit',
-        link: '/layout/orbit/'
-      }, {
-        label: 'o-core',
-        link: '/layout/core/'
       }]
     }, {
-      label: 'Components',
+      label: 'Elements',
       items: [{
-        label: 'o-orbiter',
-        link: '/components/orbiter/',
-        badge: 'New'
+        label: 'orbit-zone',
+        link: '/elements/orbit-zone/',
       }, {
+        label: 'orbit',
+        link: '/elements/orbit/'
+      }, {
+        label: 'satellite',
+        link: '/elements/satellite/'
+      }, {
+        label: 'spoke',
+        link: '/elements/spoke/'
+      }, {
+        label: 'segment',
+        link: '/elements/segment/'
+      },{
         label: 'o-sector',
-        link: '/components/sector/'
+        link: '/elements/sector/'
       }, {
         label: 'o-progress',
-        link: '/components/progress/'
-      }, {
-        label: 'o-svg-progress',
-        link: '/components/svg-progress/'
-      }, {
-        label: 'o-svg-markers',
-        link: '/components/svg-markers/'
+        link: '/elements/progress/'
       }, {
         label: 'o-label',
-        link: '/components/label/'
-      }, {
-        label: 'o-tooltip',
-        link: '/components/tooltip/'
+        link: '/elements/label/'
       }]
-    }, {
-      label: 'Theming',
+    },{
+      label: 'Utilities',
       items: [{
-        label: 'Colors',
-        link: '/theme/colors/',
-        badge: 'New'
+        label: 'CSS utilities',
+        link: '/utilities/',
+      
+      },{
+        label: 'Capsule',
+        link: '/utilities/capsule/',
+        
       }]
-    }, {
+    },{
+      label: 'Tools',
+      items: [{
+        label: 'Visual Aids',
+        link: '/tools/visual-aids/',
+      
+      },{
+        label: 'Auto resize',
+        link: '/tools/resize/',
+       
+      }]
+    },{
       label: 'Examples',
       autogenerate: {
         directory: 'examples'
