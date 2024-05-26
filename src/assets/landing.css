@@ -1,0 +1,227 @@
+@property --spoke-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 180deg;
+}
+
+body .o-container a {
+  text-decoration: none;
+  color: unset;
+}
+
+o-sector path:hover {
+  stroke: unset;
+  cursor: unset;
+}
+.orbit-zone {
+  font-family: Roboto, 'Open Sans', sans-serif;
+}
+.orbit,
+[class*='orbit-']:not(.orbit-zone) {
+  border-color: transparent;
+}
+.solid {
+  border: 1px solid var(--primary-color) !important;
+}
+.dashed {
+  border: 1px dashed var(--primary-color) !important;
+}
+.orbit-3,
+.text {
+  border: 0px dashed var(--main-color) !important;
+}
+.satellite {
+  border: 1px solid var(--background-color);
+  background-color: var(--background-color);
+}
+.orbit-5 > .shapes {
+  border: 1px solid var(--background-color);
+  outline: 10px solid var(--background-color);
+  background-color: var(--background-color);
+}
+
+.big {
+  border: 16px solid var(--main-color);
+  background-color: var(--background-color);
+}
+.small {
+  border: 8px solid transparent;
+  background-color: var(--tertiary-color);
+}
+.medium-orbit {
+  border: none !important;
+}
+.circle,
+.box {
+  border: 2px solid var(--primary-color) !important;
+  outline: 9px solid var(--background-color);
+}
+.triangle > .segment {
+  border: 1px solid var(--primary-color) !important;
+}
+
+.text {
+  font-size: 34px;
+  color: var(--main-color);
+}
+.small {
+  text-align: center;
+  font-size: 14px;
+  color: rgb(255, 255, 255);
+  transition: color 200ms;
+}
+
+.small:hover {
+  color: var(--primary-color) !important;
+  cursor: pointer;
+}
+
+.vector {
+  background-color: var(--primary-color);
+}
+
+.o-container {
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-delay: 200ms;
+  animation: show 200ms;
+  animation-fill-mode: forwards;
+  overflow: hidden;
+}
+@keyframes tail {
+  0% {
+    --spoke-angle: var(--start);
+    opacity: 0;
+  }
+  100% {
+    --spoke-angle: var(--end);
+    opacity: 1;
+  }
+}
+@keyframes move {
+  0% {
+    --spoke-angle: var(--start);
+  }
+  100% {
+    --spoke-angle: var(--end);
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sector-animation-top {
+  --start: 360deg;
+  --end: 330deg;
+  --pure-angle: var(--spoke-angle);
+  --o-angle-composite: calc(var(--pure-angle) - 90deg) !important;
+  animation: move 2s;
+
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+.github-animation {
+  --start: 80deg;
+  --end: 17deg;
+  --pure-angle: var(--spoke-angle);
+  --o-angle-composite: calc(var(--pure-angle) - 90deg) !important;
+  animation: move 2s;
+
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+.sector-animation-bottom {
+  --start: 90deg;
+  --end: 30deg;
+  --pure-angle: var(--spoke-angle);
+  --o-angle-composite: calc(var(--pure-angle) - 90deg) !important;
+  animation: move 2s;
+
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+.spoke-animation {
+  --start: 180deg;
+  --end: 120deg;
+  --pure-angle: var(--spoke-angle);
+  --o-angle-composite: calc(var(--pure-angle) - 90deg) !important;
+  animation: move 2s;
+
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+.object-animation {
+  --start: 63deg;
+  --end: 217deg;
+  --pure-angle: var(--spoke-angle);
+  --o-range: var(--pure-angle) !important;
+  animation: move 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-delay: 2100ms;
+}
+.shape-three-animation {
+  opacity: 0;
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-delay: 2100ms;
+}
+.shape-two-animation {
+  opacity: 0;
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-delay: 2050ms;
+}
+.shape-one-animation {
+  opacity: 0;
+  animation: show 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-delay: 2s;
+}
+.shape-four-animation {
+  --start: 0deg;
+  --end: 45deg;
+  --pure-angle: var(--spoke-angle);
+  --o-angle-composite: calc(var(--pure-angle) - 90deg) !important;
+  animation: tail 2s;
+
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+.curved-text {
+  opacity: 0;
+  animation: show 1000ms;
+  animation-delay: 680ms;
+  animation-fill-mode: forwards;
+}
+
+@media (max-width: 400px)  {
+  .buttons {
+    --o-from: 180deg !important;
+    --o-orbit-number: 8;
+  }
+  .large-spokes-and-curved-text {
+    opacity: 0;
+  }
+  .buttons > .github {
+    opacity: 0;
+  }
+  .circle, .box {
+    opacity: 0 !important;
+  }
+}

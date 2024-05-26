@@ -14,7 +14,7 @@ const { hasSidebar, labels } = Astro.props;
     }
 	
 	{
-		hasSidebar && (
+		!isHomepage && hasSidebar && (
 			<nav class="sidebar" aria-label={labels['sidebarNav.accessibleLabel']}>
 				
 				<div id="starlight__sidebar" class="sidebar-pane">
@@ -35,10 +35,13 @@ const { hasSidebar, labels } = Astro.props;
 		--sl-color-bg-sidebar: transparent;
 
 	}
+	body:has(.o-container) {
+		background-color: var(--background-color);
+	}
 	
 	.page {
 		flex-direction: column;
-		min-height: 100vh;
+		
 	}
 
 	.header {
@@ -57,6 +60,9 @@ const { hasSidebar, labels } = Astro.props;
 
 	:global(.content-panel) {
     border-top: 1px solid rgba(0, 0, 0, 0) !important;
+	}
+	:global(.content-panel):has(.o-container) {
+    padding: 0;
 	}
 	:global(.right-sidebar) {
 	 border-inline-start: 1px solid rgba(0, 0, 0, 0) !important;
@@ -106,7 +112,7 @@ const { hasSidebar, labels } = Astro.props;
 	}
 
 	.main-frame {
-		padding-top: 0;
+		padding: 0;
 		padding-inline-start: 0;
 	}
 

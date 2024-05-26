@@ -33,8 +33,8 @@ export default defineConfig({
         label: 'Installation',
         link: '/introduction/installation/'
       }, {
-        label: 'Quick start',
-        link: '/introduction/start/'
+        label: 'Initial setup',
+        link: '/introduction/settings/'
       }]
     }, {
       label: 'Layout',
@@ -73,7 +73,7 @@ export default defineConfig({
       label: 'Utilities',
       items: [{
         label: 'CSS utilities',
-        link: '/utilities/',
+        link: '/utilities/utilities/',
       
       },{
         label: 'Capsule',
@@ -84,11 +84,11 @@ export default defineConfig({
       label: 'Tools',
       items: [{
         label: 'Visual Aids',
-        link: '/tools/visual-aids/',
+        link: '/tools/support/',
       
       },{
         label: 'Auto resize',
-        link: '/tools/resize/',
+        link: '/tools/orbit-resize/',
        
       }]
     },{
