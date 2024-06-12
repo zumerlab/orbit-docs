@@ -3,7 +3,43 @@
   inherits: false;
   initial-value: 180deg;
 }
-
+/* .orbit-zone  aligment utilities */
+.at-top-left {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+.at-top {
+  align-items: flex-start !important;
+  justify-content: center !important;
+}
+.at-top-right {
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
+}
+.at-bottom-left {
+  align-items: flex-end !important;
+  justify-content: flex-start !important;
+}
+.at-bottom {
+  align-items: flex-end !important;
+  justify-content: center !important;
+}
+.at-bottom-right {
+  align-items: flex-end !important;
+  justify-content: flex-end !important;
+}
+.at-center-left {
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+.at-center {
+  align-items: center !important;
+  justify-content: center !important;
+}
+.at-center-right {
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
 body .o-container a {
   text-decoration: none;
   color: unset;
@@ -67,12 +103,13 @@ o-sector path:hover {
 .small {
   text-align: center;
   font-size: 14px;
+  font-weight: bold;
   color: rgb(255, 255, 255);
   transition: color 200ms;
 }
 
 .small:hover {
-  color: var(--primary-color) !important;
+  color: var(--background-color) !important;
   cursor: pointer;
 }
 
@@ -84,7 +121,7 @@ o-sector path:hover {
   margin: 0;
   padding: 0;
   opacity: 0;
-  height: 60vh;
+  height: 500px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -121,6 +158,7 @@ o-sector path:hover {
     opacity: 1;
   }
 }
+
 .sector-animation-top {
   --start: 360deg;
   --end: 330deg;
@@ -130,6 +168,7 @@ o-sector path:hover {
 
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+  will-change: transform;
 }
 .github-animation {
   --start: 80deg;
@@ -140,6 +179,7 @@ o-sector path:hover {
 
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+  will-change: transform;
 }
 .sector-animation-bottom {
   --start: 90deg;
@@ -150,6 +190,7 @@ o-sector path:hover {
 
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+  will-change: transform;
 }
 .spoke-animation {
   --start: 180deg;
@@ -160,6 +201,7 @@ o-sector path:hover {
 
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+  will-change: transform;
 }
 .object-animation {
   --start: 63deg;
@@ -170,6 +212,7 @@ o-sector path:hover {
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
   animation-delay: 2100ms;
+  will-change: transform;
 }
 .shape-three-animation {
   opacity: 0;
@@ -177,6 +220,7 @@ o-sector path:hover {
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
   animation-delay: 2100ms;
+  will-change: transform;
 }
 .shape-two-animation {
   opacity: 0;
@@ -184,6 +228,7 @@ o-sector path:hover {
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
   animation-delay: 2050ms;
+  will-change: transform;
 }
 .shape-one-animation {
   opacity: 0;
@@ -191,6 +236,7 @@ o-sector path:hover {
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
   animation-delay: 2s;
+  will-change: transform;
 }
 .shape-four-animation {
   --start: 0deg;
@@ -201,6 +247,7 @@ o-sector path:hover {
 
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+  will-change: transform;
 }
 
 .curved-text {
@@ -208,6 +255,11 @@ o-sector path:hover {
   animation: show 1000ms;
   animation-delay: 680ms;
   animation-fill-mode: forwards;
+  will-change: transform;
+}
+
+.indicator {
+  border: 1px solid var(--tertiary-color) !important;
 }
 
 @media (max-width: 400px)  {
