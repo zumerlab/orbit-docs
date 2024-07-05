@@ -3,44 +3,7 @@
   inherits: false;
   initial-value: 180deg;
 }
-/* .orbit-zone  aligment utilities */
-.at-top-left {
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-}
-.at-top {
-  align-items: flex-start !important;
-  justify-content: center !important;
-}
-.at-top-right {
-  align-items: flex-start !important;
-  justify-content: flex-end !important;
-}
-.at-bottom-left {
-  align-items: flex-end !important;
-  justify-content: flex-start !important;
-}
-.at-bottom {
-  align-items: flex-end !important;
-  justify-content: center !important;
-}
-.at-bottom-right {
-  align-items: flex-end !important;
-  justify-content: flex-end !important;
-}
-.at-center-left {
-  align-items: center !important;
-  justify-content: flex-start !important;
-}
-.at-center {
-  align-items: center !important;
-  justify-content: center !important;
-}
-.at-center-right {
-  align-items: center !important;
-  justify-content: flex-end !important;
-}
-body .o-container a {
+body .orbitron a {
   text-decoration: none;
   color: unset;
 }
@@ -120,7 +83,7 @@ o-sector path:hover {
 .o-container {
   margin: 0;
   padding: 0;
-  opacity: 0;
+  
   height: 500px;
   width: 100%;
   display: flex;
@@ -134,7 +97,7 @@ o-sector path:hover {
 @keyframes tail {
   0% {
     --spoke-angle: var(--start);
-    opacity: 0;
+    
   }
   100% {
     --spoke-angle: var(--end);
@@ -152,7 +115,7 @@ o-sector path:hover {
 
 @keyframes show {
   0% {
-    opacity: 0;
+    
   }
   100% {
     opacity: 1;
@@ -215,7 +178,7 @@ o-sector path:hover {
   will-change: transform;
 }
 .shape-three-animation {
-  opacity: 0;
+  
   animation: show 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
@@ -223,7 +186,7 @@ o-sector path:hover {
   will-change: transform;
 }
 .shape-two-animation {
-  opacity: 0;
+  
   animation: show 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
@@ -231,7 +194,7 @@ o-sector path:hover {
   will-change: transform;
 }
 .shape-one-animation {
-  opacity: 0;
+  
   animation: show 1s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
@@ -251,7 +214,7 @@ o-sector path:hover {
 }
 
 .curved-text {
-  opacity: 0;
+  
   animation: show 1000ms;
   animation-delay: 680ms;
   animation-fill-mode: forwards;
@@ -268,10 +231,10 @@ o-sector path:hover {
     --o-orbit-number: 8;
   }
   .large-spokes-and-curved-text {
-    opacity: 0;
+    
   }
   .buttons > .github {
-    opacity: 0;
+    
   }
   .circle, .box {
     opacity: 0 !important;
