@@ -40,7 +40,7 @@ o-sector path:hover {
 }
 
 .big {
-  border: 16px solid var(--main-color);
+  border: 32px solid var(--main-color);
   background-color: var(--background-color);
 }
 .small {
@@ -221,20 +221,4 @@ o-sector path:hover {
 
 .indicator {
   border: 1px solid var(--tertiary-color) !important;
-}
-
-@media (max-width: 400px)  {
-  .buttons {
-    --o-from: 180deg !important;
-    --o-orbit-number: 8;
-  }
-  .large-spokes-and-curved-text {
-    
-  }
-  .buttons > .github {
-    
-  }
-  .circle, .box {
-    opacity: 0 !important;
-  }
 }

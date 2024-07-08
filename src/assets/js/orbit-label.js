@@ -107,7 +107,7 @@ createTextPath(pathId, path) {
 
   const { labelColor, fitRange, textAnchor} = this.getAttributes()
   textPath.setAttribute('href', `#${pathId}`);
-  textPath.setAttribute('color', labelColor);;
+  textPath.setAttribute('color', labelColor);
   textPath.setAttribute('alignment-baseline', 'middle');
   
   if (textAnchor === 'start') {
@@ -126,7 +126,7 @@ createTextPath(pathId, path) {
   if (fitRange) {
     text.setAttribute('textLength', path.getTotalLength());
   }
- 
+  text.setAttribute('style', 'font-size: inherit;');
   textPath.textContent = this.textContent; 
 
   text.appendChild(textPath);

@@ -22,69 +22,248 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <!-- <div class="satellite logo-ball"></div> -->
       </div>
       <div class="small-orbit orbit-5 dashed"></div>
-      <div class="small-orbit orbit-7 dashed"></div>
-      <div class="small-orbit orbit-9 dashed"></div>
-      <div class="small-orbit orbit-11 dashed"></div>
-      <div class="small-orbit orbit-11 dashed" style="--o-orbit-number: 13"></div>
+      <div class="small-orbit orbit-7 dashed">
+        <div class="satellite angle-180">
+          <div class="capsule" style="width: 500px; font-size: 50px; color: white; text-align: center;">ORBIT</div>
+        </div>
+      </div>
+      <div class="small-orbit orbit-9 dashed">
+        <div class="satellite grow-1x angle-50" style="border: 4px solid var(--primary-color)"></div>
+      </div>
+      <div class="small-orbit orbit-11 dashed">
+        <div class="satellite reduce-10 angle-70" style="background-color: var(--primary-color)"></div>
+        <div class="satellite reduce-10 angle-290" style="background-color: var(--primary-color)"></div>
+       
+        <div class="satellite angle-180">
+          <div class="capsule" style="width: 500px; font-size: 30px; color: white; text-align: center;">The CSS radial composer</div>
+        </div>
+      </div>
+      <div class="small-orbit orbit-11 dashed" style="--o-orbit-number: 13">
+       
+      </div>
       <div class="logo orbit-0 gooey-fx ">
-        <div class="satellite grow-3x big">
+        <div class="satellite grow-4x big">
           <div class="orbit-zone">
-            <div class="orbit-3 reduce-10">
+            <div class="orbit-4 reduce-10">
               <div class="satellite big quarter-outer-orbit angle-299" style="--o-size-ratio: 2.5;"></div>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+<!-- CTA -->
 <section class="features action" >
-  <div class="o-container" style="height: 500px">
+  <div class="o-container" style="height: 504px">
     <div class="orbit-zone">
+      <div class="orbit-12">
+        <div class="satellite angle-50" style="border: 4px solid var(--primary-color)"></div>
+        <div class="satellite angle-100" style="background-color: var(--primary-color)"></div>
+        <div class="satellite angle-140 grow-1x" style="border: 3px solid var(--primary-color)"></div>
+      </div>
+      <div class="orbit-12" style="--o-orbit-number: 15">
+        <div class="satellite reduce-30 angle-50" style="background-color: var(--primary-color)"></div>
+       
+      </div>
+      <div class="orbit-12" style="--o-orbit-number: 13">
+        <div class="satellite angle-80" style="border: 4px solid var(--primary-color)"></div>
+      </div>
       <div class="orbit-9 range-180 from-0">
         <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
       </div>
-      <div class="orbit-10">
-        <div class="satellite grow-6x angle-270" style="border: 2px dashed var(--primary-color)">
-          <div class="orbit-zone">
-            <div class="orbit-6 range-180 from-0">
-              <o-sector  sector-color="var(--primary-color)"  class="grow-1x"></o-sector>
-            </div>
-          </div>
-        </div>
+      <div class="orbit-6 range-90 from-270">
+        <o-sector  sector-color="var(--primary-color)"  class="grow-x"></o-sector>
       </div>
-      <div class="buttons orbit-11 gooey-fx-max from-90">
-        <div class="satellite grow-4x small">
+      
+      <div class="buttons orbit-0 gooey-fx-max from-0">
+        <div class="satellite grow-3x small">
           <div class="capsule button">
             <a href="/introduction">Get <br> started</a>
           </div>
+
         </div>
-        <div class="github satellite small angle-80 quarter-inner-orbit github-animation" style="--o-size-ratio: 2.5; --o-angle-composite: 80deg">
-          <div class="capsule button" >
-            <a href="https://github.com/zumerlab/orbit" target="_blank">Github</a>
+        <div class="satellite">
+          <div class="orbit-zone">
+            <div class="orbit-10">
+              <div class="satellite grow-6x angle-270" style="background: transparent;border: 0px dashed var(--primary-color)">
+                <div class="orbit-zone">
+                  <div class="orbit-10">
+                    <div class="github satellite small inner-orbit github-animatiovn angle-120 grow-2x " style="">
+                      <div class="capsule button" >
+                        <a href="https://github.com/zumerlab/orbit" target="_blank">Github</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</section>
+<!-- TEXT -->
+<section class="features component-text">
+  <div class="o-container dev" style="height: 500px">
+    <div class="orbit-zone">
+      <div class="orbit-11 range-90 from-270" style="--o-orbit-number: 15">
+        <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+      </div>
+      <div class="orbit-10">
+        <div class="satellite angle-0">
+          <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;">
+            Create radial interfaces using only CSS
+          </div>
+        </div>
+      </div>
+      <div class="orbit-6">
+        <div class="satellite angle-0">
+          <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;">
+            Discover how to transform your design <br>with innovative radial elements
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<section class="features component-text">
-  <div class="o-container" style="height: 500px">
-    <div class="orbit-zone">
-      <div class="orbit-12 range-90 from-270" style="--o-orbit-number: 15">
-        <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- 1ST COMPONENT CURVE -->
 <section class="features components-1" style="">
-  <div class="o-container" style="height: 0px">
+  <div class="o-container" style="height: 300px">
     <div class="orbit-zone">
       <div class="orbit-4">
         <div class="satellite angle-270" style="border: 0.2px dashed var(--primary-color)">
           <div class="orbit-zone">
             <div class="orbit-12 range-170 from-351">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
+            </div>
+            
+            <div class="orbit-12 range-170 from-351">
+              
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
+                  </div>
+                  <div class="orbit-5">
+                    <div class="satellite angle-180">
+                      orbits
+                    </div>
+                  </div>
+                  <div class="orbit-4" >
+                    <div class="satellite  inner-orbit angle-35 reduce-50 connector"></div>
+                    <div class="spoke grow-2x outer-orbit angle-35 connector"></div>  
+                  </div>
+                  <div class="orbit-9">
+                    <div class="satellite angle-35" style="background:transparent; width:500px; font-size: 20px; color: white; text-align: center;">
+                      COMPONENTS
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit" ></div>
+                    <div class="orbit-5" >
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    </div>
+                    <div class="orbit-11">
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                      <div class="satellite grow-2x" style="border: 0.1px dashed var(--secondary-color)"></div>
+                    </div>
+                  </div>
+                  <div class="orbit-4">
+                    <div class="satellite angle-180">
+                      satellites
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit-4">
+                      <o-sector class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1"></o-sector>
+                      <o-sector class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1 grow-3x"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                    </div>
+                    <div class="orbit-11">
+                      <o-sector class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1 grow-3x"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                    </div>
+                  </div>
+                  <div class="orbit-4">
+                    <div class="satellite angle-180">
+                      sector
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit-7">
+                      <o-progress value="40"/> 
+                    </div>
+                    <div class="orbit-9">
+                      <o-progress value="60"/> 
+                    </div>
+                    <div class="orbit-11">
+                      <o-progress value="80"/> 
+                    </div>
+                  </div>
+                  <div class="orbit-4">
+                    <div class="satellite angle-180">
+                      progress
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            <div class="orbit-0">
+              <div class="satellite" style="background:transparent; width: 500px; font-size: 20px; color: white; text-align: center;">
+                TO COMPOSE
+              </div>
             </div>
           </div>
         </div>
@@ -93,13 +272,84 @@ import htmlCode from '../examples/layout/orbit.html?raw'
   </div>
 </section>
 <section class="features components-2" style="">
-  <div class="o-container" style="height: 930px">
+  <div class="o-container" style="height: 647px">
     <div class="orbit-zone">
       <div class="orbit-4">
         <div class="satellite angle-90" style="border: 0.2px dashed var(--primary-color)">
           <div class="orbit-zone">
-            <div class="orbit-12 range-140 from-200">
+            <div class="orbit-12 range-150 from-190">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
+            </div>
+            <div class="orbit-0">
+              <div class="satellite" style="background:transparent; width: 500px; font-size: 20px; color: white; text-align: center;">
+                COMPLEX RADIAL THINGS
+              </div>
+            </div>
+            <div class="orbit-12 range-140 from-240">
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit-11">
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                      <div class="spoke" style="background-color: white"></div>
+                    </div>
+                  </div>
+                  <div class="orbit-4">
+                    <div class="satellite angle-180">
+                      spokes
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit-11">
+                      <div class="segment"></div>
+                      <div class="segment"></div>
+                      <div class="segment"></div>
+                      <div class="segment"></div>
+                      <div class="segment"></div>
+                      <div class="segment"></div>
+                    </div>
+                    <div class="orbit-11 from-90">
+                      <div class="segment grow-2x"></div>
+                      <div class="segment"></div>
+                      <div class="segment"></div>
+                      
+                    </div>
+                  </div>
+                  <div class="orbit-4">
+                    <div class="satellite angle-180">
+                      segments
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+                <div class="orbit-zone">
+                  <div class="orbit-zone" style="--o-lenght: 100px">
+                    <div class="orbit-10">
+                      <o-label class="component-label">curved text  -  curved text  - </o-label>
+                    </div>
+                  </div>
+                  <div class="orbit-4">
+                    <div class="satellite angle-180">
+                      labels
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -108,74 +358,687 @@ import htmlCode from '../examples/layout/orbit.html?raw'
   </div>
 </section>
 <section class="features example" style="">
-  <div class="o-container" style="height: 0px">
+  <div class="o-container" style="height: 292px">
     <div class="orbit-zone">
-      <div class="orbit-4">
-        <div class="satellite angle-270" style="border: 0.2px dashed var(--primary-color)">
+      <div class="orbit-0">
+        <div class="satellite angle-90" style="border: 0.2px dashed var(--primary-color)">
           <div class="orbit-zone">
-            <div class="orbit-12 range-170 from-19">
+            <div class="orbit-11 range-230 from-10">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
             </div>
+
+            
+          </div>
+        </div>
+      </div>
+      <!-- clock -->
+      <div class="orbit-zone" style="--o-lenght: 250px">
+  
+        <div class="orbit-12  range-90 from-315 fit-range">
+          <div class="satellite grow-2x outer-orbit transparent">
+            
+          </div>
+          <div class="satellite grow-2x  outer-orbit transparent ">
+            
+          </div>
+    
+        </div>
+        <!-- curved text -->
+        <div class="orbit-11 from-270 range-180">
+          <o-label label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved" >ALARM 7:00AM</o-label>
+          <o-label label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved digital-clock"></o-label>
+        </div>
+        <div class="orbit-11 from-160 range-40 ">
+          <o-label flip   text-anchor="middle" label-color="rgb(163,163,163)" class="demo-curved">500 • 30 • 12</o-label>
+        </div>
+    
+        <div class="calendar orbit-11 from-215 range-30">
+          <o-label flip bg-color="rgb(57,57,57)" label-color="rgb(163,163,163)" text-anchor="middle"
+            class="gap-3 rounded previous">22</o-label>
+          <o-label flip bg-color="rgb(163,163,163)" text-anchor="middle" class="current gap-3 rounded">23</o-label>
+          <o-label flip bg-color="rgb(57,57,57)" label-color="rgb(163,163,163)" text-anchor="middle"
+            class="gap-3 rounded next">24</o-label>
+        </div>
+        <div class="orbit-12 from-227 range-12 ">
+          <o-label flip label-color="white" text-anchor="middle" class="outer-orbit day-name"></o-label>
+        </div>
+    
+        <!-- big clock ticks -->
+        <div class="orbit-10 white-smoke-spot">
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+          <div class="spoke inner-orbit big-needle"></div>
+        </div>
+        <div class="orbit-10">
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+          <div class="spoke reduce-50 inner-orbit medium"></div>
+    
+        </div>
+        <div class="orbit-10 from-3">
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+          <div class="spoke reduce-70 inner-orbit medium"></div>
+    
+    
+        </div>
+        <!-- big clock hours -->
+        <div class="orbit-8">
+          <div class="satellite hours">12</div>
+          <div class="satellite hours">1</div>
+          <div class="satellite hours">2</div>
+          <div class="satellite hours">3</div>
+          <div class="satellite hours">4</div>
+          <div class="satellite hours">5</div>
+          <div class="satellite hours">6</div>
+          <div class="satellite hours">7</div>
+          <div class="satellite hours">8</div>
+          <div class="satellite hours">9</div>
+          <div class="satellite hours">10</div>
+          <div class="satellite hours">11</div>
+        </div>
+        <!-- center black core -->
+        <div class="orbit-7 black-spot"></div>
+        <div class="orbit-4">
+          <!-- brand -->
+          <div class="satellite grow-5x transparent">
+            <div class="capsule" style="color: rgb(229,229,229);">ORBIT</div>
+          </div>
+          <!-- small clocks -->
+          <div class="small-clock satellite transparent">
+            <div class="orbit-zone" style="--o-lenght: 250px">
+              <div class="small orbit-2 reduce-20 white-spot">
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+              </div>
+              <div class="medium orbit-2 reduce-20 ">
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+              </div>
+              <div class="hours orbit-1">
+                <div class="satellite">30</div>
+                <div class="satellite">05</div>
+                <div class="satellite">10</div>
+                <div class="satellite">15</div>
+                <div class="satellite">20</div>
+                <div class="satellite">25</div>
+              </div>
+              <div class="orbit-0">
+                <div class="spoke outer-orbit grow-1x angle-0 needle "></div>
+                <div class="satellite at-center reduce-80 needle-center"></div>
+              </div>
+            </div>
+          </div>
+          <div class="small-clock satellite transparent">
+            <div class="orbit-zone" style="--o-lenght: 250px">
+              <div class="small orbit-2 reduce-20 white-spot">
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+    
+    
+              </div>
+              <div class="medium orbit-2 reduce-20 ">
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+              </div>
+              <div class="hours orbit-1">
+                <div class="satellite">60</div>
+                <div class="satellite">15</div>
+                <div class="satellite">30</div>
+                <div class="satellite">45</div>
+              </div>
+              <div class="orbit-0">
+                <div class="spoke outer-orbit grow-1x needle xs"></div>
+                <div class="satellite at-center reduce-80 needle-center"></div>
+              </div>
+            </div>
+          </div>
+          <div class="small-clock satellite transparent">
+            <div class="orbit-zone" style="--o-lenght: 250px">
+              <div class="small orbit-2 reduce-20 white-spot">
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+                <div class="spoke reduce-80 inner-orbit"></div>
+    
+    
+              </div>
+              <div class="medium orbit-2 reduce-20 ">
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+                <div class="spoke inner-orbit reduce-70"></div>
+              </div>
+              <div class="hours orbit-1">
+                <div class="satellite">12</div>
+                <div class="satellite">3</div>
+                <div class="satellite">6</div>
+                <div class="satellite">9</div>
+              </div>
+              <div class="orbit-0">
+                <div class="spoke outer-orbit grow-1x angle-0 needle "></div>
+                <div class="satellite at-center reduce-80 needle-center"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- big clock -->
+        <div class="orbit-0 clock">
+          <div class="spoke outer-orbit minute xm">
+            <!-- <img src="../assets/minutes.png" width="132"> -->
+          </div>
+          <div class="spoke outer-orbit hour xh">
+            <!-- <img src="../assets/hours.png" width="78"> -->
+          </div>
+          <div class="satellite at-center center">
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 <section class="features" style="">
-  <div class="o-container" style="height: 500px">
+  <div class="o-container" style="height: 700px">
     <div class="orbit-zone">
-            <div class="orbit-12 range-90 from-180" style="--o-orbit-number: 15">
+      <div class="orbit-10">
+        <div class="satellite angle-0" style="background:transparent; width:500px; font-size: 20px; color: white; text-align: center;">
+          FEATURES
+        </div>
+      </div>
+            
+            <div class="orbit-12 range-60 from-120" style="--o-orbit-number: 13">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
             </div>
+            <div class="orbit-9">
+              <div class="satellite grow-7x angle-270">
+                
+                <div class="orbit-zone">
+                  <div class="orbit-6 range-200 from-170 fit-range">
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                    <div class="spoke reduce-70 vector"></div>
+                  </div>
+                 
+                  
+                  <div class="orbit-4 from-0 range-180" >
+                    <o-sector sector-color="var(--primary-color)" class="gap-2 reduce-70 selector-innovative-sector"></o-sector>
+                    <o-sector sector-color="var(--primary-color)" class="gap-2 reduce-70 selector-easy-sector"></o-sector>
+                    <o-sector sector-color="var(--primary-color)" class="gap-2 reduce-70 selector-seamless-sector"></o-sector>
+                  </div>
+                 
+                 
+                  <div class="orbit-0" >
+                    <div class="satellite angle-0 grow-3x" style="border: 2px solid var(--primary-color)">
+                      
+                    </div>
+                  </div>
+                  <div class="orbit-2 range-180" >
+                    <div class="satellite sync-rotation angle-30 selector-arrow">
+                      <div class="orbit-zone">
+                        <div class="orbit reduce-30  range-360 " style="rotate: 180deg">    
+                          <div class="segment indicator"></div>
+                          <div class="segment indicator"></div>
+                          <div class="segment indicator"></div>
+                        </div>
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <div class="orbit-7 from-30 range-180 " >
+                    
+                    <div class="satellite outer-orbit selector-innovative-frame" >
+                      <div class="orbit-zone connect-lines">
+                        <div class="orbit-0">
+                          <div class="spoke outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
+                          <div class="spoke outer-orbit grow-1x angle-215 " style="background-color: var(--secondary-color)">
+                          </div>
+                        </div>
+                        <div class="orbit-2">
+                          <div class="satellite inner-orbit reduce-50 angle-215" style="background-color: var(--secondary-color)"></div>
+                        </div>
+                        <div class="orbit-3">
+                          <div class="satellite outer-orbit selector-innovative-frame angle-90 at-center-left" >
+                            <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
+                              <h3 class="title">Innovative Radial Layout</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                     
+                    <div class="satellite outer-orbit selector-easy-frame">
+                      <div class="orbit-zone connect-lines">
+                        <div class="orbit-0">
+                          <div class="spoke outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
+                          <div class="spoke outer-orbit grow-1x angle-270 " style="background-color: var(--secondary-color)">
+                          </div>
+                        </div>
+                        <div class="orbit-2">
+                          <div class="satellite inner-orbit reduce-50 angle-270" style="background-color: var(--secondary-color)"></div>
+                        </div>
+                        <div class="orbit-3">
+                          <div class="satellite outer-orbit selector-innovative-frame angle-90 at-center-left" >
+                            <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
+                              <h3 class="title">Easy to use</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="satellite outer-orbit selector-seamless-frame">
+                      <div class="orbit-zone connect-lines">
+                        <div class="orbit-0">
+                          <div class="spoke outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
+                          <div class="spoke outer-orbit grow-1x angle-330 " style="background-color: var(--secondary-color)">
+                          </div>
+                        </div>
+                        <div class="orbit-2">
+                          <div class="satellite inner-orbit reduce-50 angle-330" style="background-color: var(--secondary-color)"></div>
+                        </div>
+                        <div class="orbit-3">
+                          <div class="satellite outer-orbit selector-innovative-frame angle-90 at-center-left">
+                            <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
+                              <h3 class="title">Seamless integration</h3>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
     </div>
   </div>
 </section>
+
 <section class="features" style="">
-  <div class="o-container" style="height: 742px">
+  <div class="o-container" style="height: 254px">
     <div class="orbit-zone">
-            <div class="orbit-12 range-60 from-0" style="--o-orbit-number: 15">
+      <div class="orbit-7">
+        <div class="satellite angle-0" style="background:transparent; width:300px; font-size: 20px; color: white; text-align: center;">
+          <div class="capsule">TRANSFORM YOUR <br> PROJECT TODAY!</div>
+        </div>
+      </div>
+            <div class="orbit-10 range-230 from-130">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
             </div>
-            <div class="orbit-12 range-60 from-120" style="--o-orbit-number: 15">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
-            </div>
-            <div class="orbit-10">
-              <div class="satellite grow-6x angle-270" style="border: 2px dashed var(--primary-color)">
-                <div class="orbit-zone">
-                  <div class="orbit-6 range-180 from-0">
-                    <o-sector  sector-color="var(--primary-color)"  class="grow-1x"></o-sector>
+            <div class="orbit-zone">
+             
+              <div class="orbit-6 range-90 from-90">
+                <o-sector  sector-color="var(--primary-color)"  class="grow-x"></o-sector>
+              </div>
+              
+              <div class="buttons orbit-0 gooey-fx-max from-0">
+                <div class="satellite grow-3x small">
+                  <div class="capsule button">
+                    <a href="/introduction">Get <br> started</a>
+                  </div>
+        
+                </div>
+                <div class="satellite">
+                  <div class="orbit-zone">
+                    <div class="orbit-10">
+                      <div class="satellite grow-6x angle-270" style="background: transparent;border: 0px dashed var(--primary-color)">
+                        <div class="orbit-zone">
+                          <div class="orbit-10">
+                            <div class="github satellite small inner-orbit github-animatiovn angle-120 grow-2x " style="">
+                              <div class="capsule button" >
+                                <a href="https://github.com/zumerlab/orbit" target="_blank">Github</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
                   </div>
                 </div>
+                
+        
+                
               </div>
             </div>
     </div>
   </div>
 </section>
-
-<section class="features" style="">
-  <div class="o-container" style="height: 292px">
-    <div class="orbit-zone">
-            <div class="orbit-10 range-230 from-130">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
-            </div>
-    </div>
-  </div>
-</section>
-<section class="features" style="margin-top: 100px !important;">guides</section>
+<section class="features" style="margin-top: 220px !important;">guides</section>
 <section class="features" style="">copyright</section>
 </div>
 <script src="../assets/orbit.js"></script>
 
 <style>
-  section {
-    border: 1px double greenyellow;
-  }
-  .o-container {
-    border: 1px dashed white;
-  }
+
   .orbit-zone{
     border: 1px dashed yellowgreen !important;
+    --o-size-ratio: 1; //reset
   }
   
    .black-spot {
@@ -258,12 +1121,16 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       font-weight: 700 !important;
     }
 
-    o-label textpath {
-      font-size: 3.9px;
+   .component-label   {
+      font-size: 25px;
       font-weight: 500
     }
+    .demo-curved {
+      font-size: 5px;
+      font-weight: bold;
+    }
 
-    .calendar o-label textpath {
+    .calendar {
       font-size: 3.5px;
       font-weight: bold;
     }
