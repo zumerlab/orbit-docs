@@ -12,7 +12,7 @@ import Sanpack from '../components/ZumerCode.astro'
 import htmlCode from '../examples/layout/orbit.html?raw'
 ---
 <script src="../assets/orbit.js"></script>
-<div class="orbitron paused-animations ">
+<div class="orbitron  ">
 <!-- logo -->
 <section class="features logo" >
   <div class="o-container" style="height: 500px">
@@ -75,7 +75,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite action-ball"></div>
       </div>
-      <div class="orbit-6 range-90 from-270">
+      <div class="orbit-6 range-90 from-270 action-sector">
         <o-sector  sector-color="var(--primary-color)"  class="grow-x"></o-sector>
       </div>
       
@@ -91,8 +91,8 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             <div class="orbit-10">
               <div class="satellite grow-6x angle-270" style="background: transparent;border: 0px dashed var(--primary-color)">
                 <div class="orbit-zone">
-                  <div class="orbit-10">
-                    <div class="github satellite small inner-orbit github-animatiovn angle-120 grow-2x " style="">
+                  <div class="orbit-10 github-animation">
+                    <div class="github satellite small inner-orbit angle-120 grow-2x " style="">
                       <div class="capsule button" >
                         <a href="https://github.com/zumerlab/orbit" target="_blank">Github</a>
                       </div>
@@ -151,7 +151,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             
             <div class="orbit-12 range-170 from-351">
               
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x orbits noactivecomponent" style="">
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
@@ -168,7 +168,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                     <div class="orbit" style="border: 0.1px dashed var(--secondary-color)"></div>
                   </div>
                   <div class="orbit-5">
-                    <div class="satellite angle-180">
+                    <div class="satellite angle-180 ">
                       orbits
                     </div>
                   </div>
@@ -183,7 +183,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                   </div>
                 </div>
               </div>
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x satellites noactivecomponent">
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit" ></div>
@@ -216,7 +216,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                   </div>
                 </div>
               </div>
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x sectors noactivecomponent">
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit-4">
@@ -243,7 +243,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                   </div>
                 </div>
               </div>
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x progresss noactivecomponent" >
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit-7">
@@ -293,7 +293,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
               </div>
             </div>
             <div class="orbit-12 range-140 from-240">
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x spokes noactivecomponent">
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit-11">
@@ -318,7 +318,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                   </div>
                 </div>
               </div>
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x segments noactivecomponent" >
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit-11">
@@ -343,7 +343,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                   </div>
                 </div>
               </div>
-              <div class="satellite grow-3x" style="border: 4px solid var(--primary-color); color: var(--primary-color);">
+              <div class="satellite grow-3x curved-text noactivecomponent">
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit-10">
@@ -1343,6 +1343,7 @@ h1 {
 	// Función para pausar todas las animaciones
 	function pauseAllAnimations() {
 	  document.documentElement.style.setProperty('--animation-play-state', 'paused');
+    document.documentElement.style.setProperty('--animation-play-state', 'paused');
 	}
 	
 	// Función para reanudar todas las animaciones
@@ -1355,6 +1356,9 @@ h1 {
 	
 	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
 	window.addEventListener('DOMContentLoaded', (event) => {
+    const orbitron = document.querySelector('.orbitron');
+
+
     // define vars
     const logoBall = document.querySelector('.logo-ball');
     const actionBall = document.querySelector('.action-ball');
@@ -1362,6 +1366,14 @@ h1 {
     const textBall = document.querySelector('.text-ball');
     const componentBall = document.querySelector('.component-ball');
     const lastactionBall = document.querySelector('.lastaction-ball');
+    const orbits =  document.querySelector('.orbits');
+    const satellites =  document.querySelector('.satellites');
+    const sectors =  document.querySelector('.sectors');
+    const progresss =  document.querySelector('.progresss');
+    const curvedText =  document.querySelector('.curved-text');
+    const segments =  document.querySelector('.segments');
+    const spokes =  document.querySelector('.spokes');
+
     // set default styles
     logoBall.style.opacity = 0;
     actionBall.style.opacity = 0;
@@ -1402,13 +1414,37 @@ h1 {
       // asure next ball is hidden
       actionBall.style.opacity = 0
       lastactionBall.style.opacity = 0
+      //orbitron.classList.remove("paused-animations");
+      resumeAllAnimations();
+      
       // do magic
       let scroll2Deg = (-180 * scroll / 801) - 180 * 1;
       textBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
       textBall.style.opacity = (scroll > 801 && scroll <= 1196) ? 1 : 0;
       
     }
+    if (scroll >= 1265) {
+      orbits?.classList.add('activecomponent')
+    }
+    if (scroll >= 1330) {
+      satellites?.classList.add('activecomponent')
+    }
+    if (scroll >= 1458) {
+      sectors?.classList.add('activecomponent')
+    }
+    if (scroll >= 1608) {
+      progresss?.classList.add('activecomponent')
+    }
 
+    if (scroll >= 1790) {
+      curvedText?.classList.add('activecomponent')
+    }
+    if (scroll >= 1955) {
+      segments?.classList.add('activecomponent')
+    }
+    if (scroll >= 2131) {
+      spokes?.classList.add('activecomponent')
+    }
     if (scroll >= 2400 && scroll <= 3000) {
       // asure next ball is hidden
       textBall.style.opacity = 0
@@ -1440,7 +1476,7 @@ h1 {
       ticking = true;
     }
   });
-	  resumeAllAnimations();
+	 
 
 	});
 

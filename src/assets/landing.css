@@ -3,6 +3,12 @@
   inherits: false;
   initial-value: 180deg;
 }
+.noactivecomponent {
+  border: 4px solid var(--primary-color) !important; color: var(--primary-color) !important;
+}
+.activecomponent {
+  border: 4px solid var(--tertiary-color) !important; color: var(--tertiary-color) !important;
+}
 body .orbitron a {
   text-decoration: none;
   color: unset;
@@ -120,6 +126,23 @@ o-sector path:hover {
   }
 }
 
+@keyframes rotate {
+  0% {
+    transform: rotate(90deg)
+  }
+  100% {
+    transform: rotate(0deg)
+  }
+}
+@keyframes rotategit {
+  0% {
+    transform:  scale(0) rotate(-40deg)
+  }
+  100% {
+    transform: scale(1) rotate(0deg) 
+  }
+}
+
 .sector-animation-top {
   --start: 360deg;
   --end: 330deg;
@@ -132,11 +155,16 @@ o-sector path:hover {
   will-change: transform;
 }
 .github-animation {
-  --start: 80deg;
-  --end: 17deg;
-  --pure-angle: var(--spoke-angle);
-  --o-angle-composite: calc(var(--pure-angle) - 90deg) !important;
-  animation: move 2s;
+  
+  animation: rotategit 1s;
+
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  will-change: transform;
+}
+.action-sector {
+  
+  animation: rotate 1s;
 
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
