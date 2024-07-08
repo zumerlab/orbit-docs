@@ -11,20 +11,20 @@ const { title = data.title, tagline, image, actions = [] } = data.hero || {};
 import Sanpack from '../components/ZumerCode.astro'
 import htmlCode from '../examples/layout/orbit.html?raw'
 ---
-
-<div class="orbitron paused-animations">
+<script src="../assets/orbit.js"></script>
+<div class="orbitron paused-animations ">
 <!-- logo -->
 <section class="features logo" >
   <div class="o-container" style="height: 500px">
     <div class="orbit-zone">
       <div class="orbit-12 range-90 from-180" style="--o-orbit-number: 15">
         <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
-        <!-- <div class="satellite logo-ball"></div> -->
+        <div class="satellite logo-ball"></div>
       </div>
       <div class="small-orbit orbit-5 dashed"></div>
       <div class="small-orbit orbit-7 dashed">
         <div class="satellite angle-180">
-          <div class="capsule" style="width: 500px; font-size: 50px; color: white; text-align: center;">ORBIT</div>
+          <div class="capsule" style="width: 500px; font-size: 50px; color: white; text-align: center;"><h1 style="font-family: 'Noto Sans'">ORBIT</h1></div>
         </div>
       </div>
       <div class="small-orbit orbit-9 dashed">
@@ -65,6 +65,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       </div>
       <div class="orbit-12" style="--o-orbit-number: 15">
         <div class="satellite reduce-30 angle-50" style="background-color: var(--primary-color)"></div>
+
        
       </div>
       <div class="orbit-12" style="--o-orbit-number: 13">
@@ -72,6 +73,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       </div>
       <div class="orbit-9 range-180 from-0">
         <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270">
         <o-sector  sector-color="var(--primary-color)"  class="grow-x"></o-sector>
@@ -111,10 +113,11 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 </section>
 <!-- TEXT -->
 <section class="features component-text">
-  <div class="o-container dev" style="height: 500px">
+  <div class="o-container " style="height: 500px">
     <div class="orbit-zone">
       <div class="orbit-11 range-90 from-270" style="--o-orbit-number: 15">
         <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <div class="satellite text-ball"></div>
       </div>
       <div class="orbit-10">
         <div class="satellite angle-0">
@@ -137,11 +140,13 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 <section class="features components-1" style="">
   <div class="o-container" style="height: 300px">
     <div class="orbit-zone">
+     
       <div class="orbit-4">
         <div class="satellite angle-270" style="border: 0.2px dashed var(--primary-color)">
           <div class="orbit-zone">
             <div class="orbit-12 range-170 from-351">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
+              <div class="satellite component-ball"></div>
             </div>
             
             <div class="orbit-12 range-170 from-351">
@@ -274,11 +279,13 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 <section class="features components-2" style="">
   <div class="o-container" style="height: 647px">
     <div class="orbit-zone">
+      
       <div class="orbit-4">
         <div class="satellite angle-90" style="border: 0.2px dashed var(--primary-color)">
           <div class="orbit-zone">
             <div class="orbit-12 range-150 from-190">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
+
             </div>
             <div class="orbit-0">
               <div class="satellite" style="background:transparent; width: 500px; font-size: 20px; color: white; text-align: center;">
@@ -360,6 +367,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 <section class="features example" style="">
   <div class="o-container" style="height: 292px">
     <div class="orbit-zone">
+      
       <div class="orbit-0">
         <div class="satellite angle-90" style="border: 0.2px dashed var(--primary-color)">
           <div class="orbit-zone">
@@ -841,6 +849,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             
             <div class="orbit-12 range-60 from-120" style="--o-orbit-number: 13">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
+              <div class="satellite feature-ball"></div>
             </div>
             <div class="orbit-9">
               <div class="satellite grow-7x angle-270">
@@ -989,6 +998,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       </div>
             <div class="orbit-10 range-230 from-130">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
+              <div class="satellite lastaction-ball"></div>
             </div>
             <div class="orbit-zone">
              
@@ -1029,15 +1039,26 @@ import htmlCode from '../examples/layout/orbit.html?raw'
     </div>
   </div>
 </section>
-<section class="features" style="margin-top: 220px !important;">guides</section>
+<section class="features" style="margin-top: 220px !important; height: 500px">guides</section>
 <section class="features" style="">copyright</section>
 </div>
-<script src="../assets/orbit.js"></script>
 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+  body {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+  </style>
 <style>
 
   .orbit-zone{
-    border: 1px dashed yellowgreen !important;
+    //border: 1px dashed yellowgreen !important;
     --o-size-ratio: 1; //reset
   }
   
@@ -1161,7 +1182,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
   html {
   scroll-behavior: smooth;
 }
-  .logo-ball, .feature-ball, .why-ball, .component-ball {
+  .logo-ball, .feature-ball, .action-ball, .text-ball, .component-ball,.lastaction-ball {
     background-color: var(--tertiary-color);
     will-change: transform;
     
@@ -1334,6 +1355,93 @@ h1 {
 	
 	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
 	window.addEventListener('DOMContentLoaded', (event) => {
+    // define vars
+    const logoBall = document.querySelector('.logo-ball');
+    const actionBall = document.querySelector('.action-ball');
+    const featureBall = document.querySelector('.feature-ball');
+    const textBall = document.querySelector('.text-ball');
+    const componentBall = document.querySelector('.component-ball');
+    const lastactionBall = document.querySelector('.lastaction-ball');
+    // set default styles
+    logoBall.style.opacity = 0;
+    actionBall.style.opacity = 0;
+    featureBall.style.opacity = 0;
+    textBall.style.opacity = 0;
+    componentBall.style.opacity = 0;
+    lastactionBall.style.opacity = 0;
+  
+  let ticking = false;
+  
+  const scrollBall = () => {
+    let scroll = document.documentElement.scrollTop;
+    console.log(scroll)
+
+    if (scroll >= 0 && scroll <= 480) {
+      // asure next ball is hidden
+      actionBall.style.opacity = 0
+      // do magic
+      let scroll2Deg = (-90 * scroll / 480)  * 1;
+      logoBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
+      logoBall.style.opacity = (scroll > 0 && scroll <= 470) ? 1 : 0;
+      
+    }
+
+    if (scroll >= 481 && scroll <= 800) {
+      // asure next ball is hidden
+      logoBall.style.opacity = 0
+      actionBall.style.opacity = 0
+      textBall.style.opacity = 0
+      // do magic
+      let scroll2Deg = ( 180 * scroll / 400) + 90 * 1;
+      actionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
+      actionBall.style.opacity = (scroll > 481 && scroll <= 800) ? 1 : 0;
+      
+    }
+
+    if (scroll >= 801 && scroll <= 1196) {
+      // asure next ball is hidden
+      actionBall.style.opacity = 0
+      lastactionBall.style.opacity = 0
+      // do magic
+      let scroll2Deg = (-180 * scroll / 801) - 180 * 1;
+      textBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
+      textBall.style.opacity = (scroll > 801 && scroll <= 1196) ? 1 : 0;
+      
+    }
+
+    if (scroll >= 2400 && scroll <= 3000) {
+      // asure next ball is hidden
+      textBall.style.opacity = 0
+      lastactionBall.style.opacity = 0
+      // do magic
+      let scroll2Deg = ( 180 * scroll / 2400) + 90 * 1;
+      featureBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
+      featureBall.style.opacity = (scroll > 2400 && scroll <= 3000) ? 1 : 0;
+      
+    }
+
+    if (scroll >= 3001 && scroll <= 3420) {
+      // asure next ball is hidden
+      featureBall.style.opacity = 0
+      // do magic
+      let scroll2Deg = ( -230 * scroll / 416) * 1;
+      lastactionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
+      lastactionBall.style.opacity = (scroll > 3001 && scroll <= 3420) ? 1 : 0;
+      
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        scrollBall();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
 	  resumeAllAnimations();
+
 	});
+
 </script>
