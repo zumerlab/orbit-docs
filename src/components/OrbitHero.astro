@@ -374,6 +374,16 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             <div class="orbit-11 range-230 from-10">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
             </div>
+            <div class="orbit-9">
+              <o-sector class="gap-1 sectors-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 progress-sector" sector-color="var(--secondary-color)"></o-sector>
+              <o-sector class="gap-1 labels-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 segments-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 spokes-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 orbits-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 satellites-sector" sector-color="var(--background-color)"></o-sector>
+            </div>
+            
 
             
           </div>
@@ -834,6 +844,15 @@ import htmlCode from '../examples/layout/orbit.html?raw'
           </div>
         </div>
       </div>
+
+      <div class="orbit-9 demo-progress-container">
+        <div class="satellite at-center grow-9x">
+          <div class="capsule turn-left demo-progress">
+
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -932,9 +951,9 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                           <div class="satellite inner-orbit reduce-50 angle-215" style="background-color: var(--secondary-color)"></div>
                         </div>
                         <div class="orbit-3">
-                          <div class="satellite outer-orbit selector-innovative-frame angle-90 at-center-left" >
+                          <div class="satellite outer-orbit angle-90 at-center-left" >
                             <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
-                              <h3 class="title">Innovative Radial Layout</h3>
+                              <h3 class="title">Innovative CSS Radial Layout</h3>
                             </div>
                           </div>
                         </div>
@@ -952,15 +971,15 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                           <div class="satellite inner-orbit reduce-50 angle-270" style="background-color: var(--secondary-color)"></div>
                         </div>
                         <div class="orbit-3">
-                          <div class="satellite outer-orbit selector-innovative-frame angle-90 at-center-left" >
+                          <div class="satellite outer-orbit angle-90 at-center-left" >
                             <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
-                              <h3 class="title">Easy to use</h3>
+                              <h3 class="title">Easy to learn, easy to use</h3>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                    <div class="satellite outer-orbit selector-seamless-frame">
+                    <div class="satellite outer-orbit selector-integration-frame">
                       <div class="orbit-zone connect-lines">
                         <div class="orbit-0">
                           <div class="spoke outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
@@ -971,9 +990,9 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                           <div class="satellite inner-orbit reduce-50 angle-330" style="background-color: var(--secondary-color)"></div>
                         </div>
                         <div class="orbit-3">
-                          <div class="satellite outer-orbit selector-innovative-frame angle-90 at-center-left">
+                          <div class="satellite outer-orbit  angle-90 at-center-left">
                             <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
-                              <h3 class="title">Seamless integration</h3>
+                              <h3 class="title">Works with other CSS frameworks</h3>
                             </div>
                           </div>
                         </div>
@@ -1366,6 +1385,7 @@ h1 {
     const textBall = document.querySelector('.text-ball');
     const componentBall = document.querySelector('.component-ball');
     const lastactionBall = document.querySelector('.lastaction-ball');
+    // components
     const orbits =  document.querySelector('.orbits');
     const satellites =  document.querySelector('.satellites');
     const sectors =  document.querySelector('.sectors');
@@ -1373,6 +1393,23 @@ h1 {
     const curvedText =  document.querySelector('.curved-text');
     const segments =  document.querySelector('.segments');
     const spokes =  document.querySelector('.spokes');
+    // demo progress
+    const orbitsSector =  document.querySelector('.orbits-sector');
+    const satellitesSector =  document.querySelector('.satellites-sector');
+    const sectorsSector =  document.querySelector('.sectors-sector');
+    const progressSector =  document.querySelector('.progress-sector');
+    const labelsSector =  document.querySelector('.labels-sector');
+    const segmentsSector =  document.querySelector('.segments-sector');
+    const spokesSector =  document.querySelector('.spokes-sector');
+    const demoText = document.querySelector('.demo-progress');
+    const demoContainer = document.querySelector('.demo-progress-container');
+    // selector features
+    const arrowSelector =  document.querySelector('.selector-arrow');
+    const innovative =  document.querySelector('.selector-innovative-frame');
+    const easy =  document.querySelector('.selector-easy-frame');
+    const integration =  document.querySelector('.selector-integration-frame');
+    
+
 
     // set default styles
     logoBall.style.opacity = 0;
@@ -1381,6 +1418,9 @@ h1 {
     textBall.style.opacity = 0;
     componentBall.style.opacity = 0;
     lastactionBall.style.opacity = 0;
+    innovative.style.opacity = 0;
+    easy.style.opacity = 0;
+    integration.style.opacity = 0;
   
   let ticking = false;
   
@@ -1425,25 +1465,64 @@ h1 {
     }
     if (scroll >= 1265) {
       orbits?.classList.add('activecomponent')
+      orbitsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 12%'
+    } else {
+      orbits?.classList.remove('activecomponent')
+      orbitsSector?.setAttribute('sector-color', 'var(--background-color)')
+      demoText.innerHTML = 'Composing demo 22%'
     }
     if (scroll >= 1330) {
       satellites?.classList.add('activecomponent')
+      satellitesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 34%'
+    } else {
+      satellites?.classList.remove('activecomponent')
+      satellitesSector?.setAttribute('sector-color', 'var(--background-color)')
+      demoText.innerHTML = 'Composing demo 12%'
     }
     if (scroll >= 1458) {
       sectors?.classList.add('activecomponent')
+      sectorsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 44%'
+    } else {
+      sectors?.classList.remove('activecomponent')
+      sectorsSector?.setAttribute('sector-color', 'var(--background-color)')
     }
     if (scroll >= 1608) {
       progresss?.classList.add('activecomponent')
+      progressSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 55'
+    } else {
+      progresss?.classList.remove('activecomponent')
+      progressSector?.setAttribute('sector-color', 'var(--background-color)')
     }
 
     if (scroll >= 1790) {
       curvedText?.classList.add('activecomponent')
+      labelsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 87%'
+    } else {
+      curvedText?.classList.remove('activecomponent')
+      labelsSector?.setAttribute('sector-color', 'var(--background-color)')
     }
     if (scroll >= 1955) {
       segments?.classList.add('activecomponent')
+      segmentsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 91%'
+    }else {
+      segments?.classList.remove('activecomponent')
+      segmentsSector?.setAttribute('sector-color', 'var(--background-color)')
     }
     if (scroll >= 2131) {
       spokes?.classList.add('activecomponent')
+      spokesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing demo 100%'
+      demoContainer.style.opacity = 0
+    } else {
+      spokes?.classList.remove('activecomponent')
+      spokesSector?.setAttribute('sector-color', 'var(--background-color)')
+      demoContainer.style.opacity = 1
     }
     if (scroll >= 2400 && scroll <= 3000) {
       // asure next ball is hidden
@@ -1453,6 +1532,30 @@ h1 {
       let scroll2Deg = ( 180 * scroll / 2400) + 90 * 1;
       featureBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
       featureBall.style.opacity = (scroll > 2400 && scroll <= 3000) ? 1 : 0;
+      // festures section
+      
+      if (scroll >= 2625) {
+        arrowSelector?.classList.remove('angle-90', 'angle-150', 'angle-30')
+        arrowSelector?.classList.add('angle-30')
+        innovative.style.opacity = 1
+        easy.style.opacity = 0
+        integration.style.opacity = 0
+      }
+      if (scroll >= 2762) {
+        arrowSelector?.classList.remove('angle-30', 'angle-150')
+        arrowSelector?.classList.add('angle-90')
+        innovative.style.opacity = 0
+        easy.style.opacity = 1
+        integration.style.opacity = 0
+      }
+
+      if (scroll >= 2950) {
+        arrowSelector?.classList.remove('angle-30', 'angle-90')
+        arrowSelector?.classList.add('angle-150')
+        innovative.style.opacity = 0
+        easy.style.opacity = 0
+        integration.style.opacity = 1
+      }
       
     }
 
