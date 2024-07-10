@@ -138,11 +138,11 @@ o-sector path:hover {
 }
 @keyframes rotategit {
   0% {
-    transform:  scale(0) rotate(-40deg)
+    transform:  scale(0) 
   }
   100% {
-    transform: scale(1) rotate(0deg) 
-  }
+    transform: scale(1) 
+}
 }
 
 .sector-animation-top {

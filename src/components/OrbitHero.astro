@@ -12,7 +12,7 @@ import Sanpack from '../components/ZumerCode.astro'
 import htmlCode from '../examples/layout/orbit.html?raw'
 ---
 <script src="../assets/orbit.js"></script>
-<div class="orbitron  ">
+<div class="orbitron paused-animations ">
 <!-- logo -->
 <section class="features logo" >
   <div class="o-container" style="height: 500px">
@@ -374,7 +374,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             <div class="orbit-11 range-230 from-10">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
             </div>
-            <div class="orbit-9">
+            <div class="orbit-9 from-180">
               <o-sector class="gap-1 sectors-sector" sector-color="var(--background-color)"></o-sector>
               <o-sector class="gap-1 progress-sector" sector-color="var(--secondary-color)"></o-sector>
               <o-sector class="gap-1 labels-sector" sector-color="var(--background-color)"></o-sector>
@@ -845,7 +845,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         </div>
       </div>
 
-      <div class="orbit-9 demo-progress-container">
+      <div class="orbit-9 demo-progress-container ">
         <div class="satellite at-center grow-9x">
           <div class="capsule turn-left demo-progress">
 
@@ -1184,10 +1184,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       font-weight: bold;
     }
  
-  .paused-animations * {
-  animation-play-state: paused !important;
-  -webkit-animation: none !important;
-}
+  
 
   .orbit-zone {
     width: 0px !important
@@ -1354,65 +1351,53 @@ h1 {
 		justify-content: center;
 	}
 }
-* {
-  animation-play-state: var(--animation-play-state, running) !important;
+
+.paused-animations * {
+  animation-play-state: paused !important;
+  
+}
+.run-animations * {
+  animation-play-state: running !important;
+  
 }
 </style>
 <script>
-	// Función para pausar todas las animaciones
-	function pauseAllAnimations() {
-	  document.documentElement.style.setProperty('--animation-play-state', 'paused');
-    document.documentElement.style.setProperty('--animation-play-state', 'paused');
-	}
-	
-	// Función para reanudar todas las animaciones
-	function resumeAllAnimations() {
-	  document.documentElement.style.setProperty('--animation-play-state', 'running');
-	}
-	
-	// Pausar todas las animaciones al cargar el script
-	pauseAllAnimations();
-	
-	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
-	window.addEventListener('DOMContentLoaded', (event) => {
-    const orbitron = document.querySelector('.orbitron');
+	    const orbitron = document.querySelector('.orbitron');
 
 
-    // define vars
-    const logoBall = document.querySelector('.logo-ball');
-    const actionBall = document.querySelector('.action-ball');
-    const featureBall = document.querySelector('.feature-ball');
-    const textBall = document.querySelector('.text-ball');
-    const componentBall = document.querySelector('.component-ball');
-    const lastactionBall = document.querySelector('.lastaction-ball');
-    // components
-    const orbits =  document.querySelector('.orbits');
-    const satellites =  document.querySelector('.satellites');
-    const sectors =  document.querySelector('.sectors');
-    const progresss =  document.querySelector('.progresss');
-    const curvedText =  document.querySelector('.curved-text');
-    const segments =  document.querySelector('.segments');
-    const spokes =  document.querySelector('.spokes');
-    // demo progress
-    const orbitsSector =  document.querySelector('.orbits-sector');
-    const satellitesSector =  document.querySelector('.satellites-sector');
-    const sectorsSector =  document.querySelector('.sectors-sector');
-    const progressSector =  document.querySelector('.progress-sector');
-    const labelsSector =  document.querySelector('.labels-sector');
-    const segmentsSector =  document.querySelector('.segments-sector');
-    const spokesSector =  document.querySelector('.spokes-sector');
-    const demoText = document.querySelector('.demo-progress');
-    const demoContainer = document.querySelector('.demo-progress-container');
-    // selector features
-    const arrowSelector =  document.querySelector('.selector-arrow');
-    const innovative =  document.querySelector('.selector-innovative-frame');
-    const easy =  document.querySelector('.selector-easy-frame');
-    const integration =  document.querySelector('.selector-integration-frame');
-    
+// define vars
+const logoBall = document.querySelector('.logo-ball');
+const actionBall = document.querySelector('.action-ball');
+const featureBall = document.querySelector('.feature-ball');
+const textBall = document.querySelector('.text-ball');
+const componentBall = document.querySelector('.component-ball');
+const lastactionBall = document.querySelector('.lastaction-ball');
+// components
+const orbits =  document.querySelector('.orbits');
+const satellites =  document.querySelector('.satellites');
+const sectors =  document.querySelector('.sectors');
+const progresss =  document.querySelector('.progresss');
+const curvedText =  document.querySelector('.curved-text');
+const segments =  document.querySelector('.segments');
+const spokes =  document.querySelector('.spokes');
+// demo progress
+const orbitsSector =  document.querySelector('.orbits-sector');
+const satellitesSector =  document.querySelector('.satellites-sector');
+const sectorsSector =  document.querySelector('.sectors-sector');
+const progressSector =  document.querySelector('.progress-sector');
+const labelsSector =  document.querySelector('.labels-sector');
+const segmentsSector =  document.querySelector('.segments-sector');
+const spokesSector =  document.querySelector('.spokes-sector');
+const demoText = document.querySelector('.demo-progress');
+const demoContainer = document.querySelector('.demo-progress-container');
+// selector features
+const arrowSelector =  document.querySelector('.selector-arrow');
+const innovative =  document.querySelector('.selector-innovative-frame');
+const easy =  document.querySelector('.selector-easy-frame');
+const integration =  document.querySelector('.selector-integration-frame');
 
-
-    // set default styles
-    logoBall.style.opacity = 0;
+ // set default styles
+ logoBall.style.opacity = 0;
     actionBall.style.opacity = 0;
     featureBall.style.opacity = 0;
     textBall.style.opacity = 0;
@@ -1421,6 +1406,13 @@ h1 {
     innovative.style.opacity = 0;
     easy.style.opacity = 0;
     integration.style.opacity = 0;
+	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
+	window.addEventListener('DOMContentLoaded', (event) => {
+
+    
+
+
+   
   
   let ticking = false;
   
@@ -1428,7 +1420,7 @@ h1 {
     let scroll = document.documentElement.scrollTop;
     console.log(scroll)
 
-    if (scroll >= 0 && scroll <= 480) {
+    if (scroll >= 0 && scroll <= 470) {
       // asure next ball is hidden
       actionBall.style.opacity = 0
       // do magic
@@ -1438,92 +1430,100 @@ h1 {
       
     }
 
-    if (scroll >= 481 && scroll <= 800) {
+    if (scroll >= 472 && scroll <= 828) {
       // asure next ball is hidden
       logoBall.style.opacity = 0
       actionBall.style.opacity = 0
       textBall.style.opacity = 0
       // do magic
-      let scroll2Deg = ( 180 * scroll / 400) + 90 * 1;
+      let scroll2Deg = ( 180 * scroll / 375) + 45 * 1;
       actionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      actionBall.style.opacity = (scroll > 481 && scroll <= 800) ? 1 : 0;
+      actionBall.style.opacity = (scroll > 472 && scroll <= 828) ? 1 : 0;
+      //
+      orbitron.classList.remove("paused-animations");
+      orbitron.classList.add("run-animations");
       
     }
 
-    if (scroll >= 801 && scroll <= 1196) {
+    if (scroll >= 829 && scroll <= 1038) {
       // asure next ball is hidden
       actionBall.style.opacity = 0
       lastactionBall.style.opacity = 0
-      //orbitron.classList.remove("paused-animations");
-      resumeAllAnimations();
       
       // do magic
-      let scroll2Deg = (-180 * scroll / 801) - 180 * 1;
+      let scroll2Deg = (-180 * scroll / 416) - 1;
       textBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      textBall.style.opacity = (scroll > 801 && scroll <= 1196) ? 1 : 0;
+      textBall.style.opacity = (scroll > 829 && scroll <= 1038) ? 1 : 0;
       
     }
-    if (scroll >= 1265) {
+    if (scroll >= 1070 && scroll <= 1100) {
       orbits?.classList.add('activecomponent')
       orbitsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 12%'
-    } else {
+    } /* else {
       orbits?.classList.remove('activecomponent')
       orbitsSector?.setAttribute('sector-color', 'var(--background-color)')
       demoText.innerHTML = 'Composing demo 22%'
-    }
-    if (scroll >= 1330) {
+    } */
+    if (scroll >= 1120 && scroll <= 1160) {
       satellites?.classList.add('activecomponent')
       satellitesSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 34%'
-    } else {
+    } /* else {
       satellites?.classList.remove('activecomponent')
       satellitesSector?.setAttribute('sector-color', 'var(--background-color)')
       demoText.innerHTML = 'Composing demo 12%'
-    }
-    if (scroll >= 1458) {
+    } */
+    if (scroll >= 1205 && scroll <= 1260) {
       sectors?.classList.add('activecomponent')
       sectorsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 44%'
-    } else {
+    } /* else {
       sectors?.classList.remove('activecomponent')
       sectorsSector?.setAttribute('sector-color', 'var(--background-color)')
-    }
-    if (scroll >= 1608) {
+    } */
+    if (scroll >= 1400 && scroll <= 1480) {
       progresss?.classList.add('activecomponent')
       progressSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 55'
-    } else {
+    } /* else {
       progresss?.classList.remove('activecomponent')
       progressSector?.setAttribute('sector-color', 'var(--background-color)')
-    }
+    } */
 
-    if (scroll >= 1790) {
+    if (scroll >= 1540 && scroll <= 1600) {
       curvedText?.classList.add('activecomponent')
       labelsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 87%'
-    } else {
+    } /* else {
       curvedText?.classList.remove('activecomponent')
       labelsSector?.setAttribute('sector-color', 'var(--background-color)')
-    }
-    if (scroll >= 1955) {
+    } */
+    if (scroll >= 1700 && scroll <= 1780) {
       segments?.classList.add('activecomponent')
       segmentsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 91%'
-    }else {
+    }/* else {
       segments?.classList.remove('activecomponent')
       segmentsSector?.setAttribute('sector-color', 'var(--background-color)')
-    }
-    if (scroll >= 2131) {
+    } */
+    if (scroll >= 1860 && scroll <= 1900) {
       spokes?.classList.add('activecomponent')
-      spokesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      
       demoText.innerHTML = 'Composing demo 100%'
+      
+    } 
+    if (scroll >= 1920 && scroll <= 2000) {
+     
+      spokesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+     
       demoContainer.style.opacity = 0
-    } else {
+    } 
+    /* else {
       spokes?.classList.remove('activecomponent')
       spokesSector?.setAttribute('sector-color', 'var(--background-color)')
       demoContainer.style.opacity = 1
-    }
+    } */
     if (scroll >= 2400 && scroll <= 3000) {
       // asure next ball is hidden
       textBall.style.opacity = 0
@@ -1534,14 +1534,14 @@ h1 {
       featureBall.style.opacity = (scroll > 2400 && scroll <= 3000) ? 1 : 0;
       // festures section
       
-      if (scroll >= 2625) {
+      if (scroll >= 2530 && scroll <= 2690) {
         arrowSelector?.classList.remove('angle-90', 'angle-150', 'angle-30')
         arrowSelector?.classList.add('angle-30')
         innovative.style.opacity = 1
         easy.style.opacity = 0
         integration.style.opacity = 0
       }
-      if (scroll >= 2762) {
+      if (scroll >= 2700  && scroll <= 2830) {
         arrowSelector?.classList.remove('angle-30', 'angle-150')
         arrowSelector?.classList.add('angle-90')
         innovative.style.opacity = 0
@@ -1549,7 +1549,7 @@ h1 {
         integration.style.opacity = 0
       }
 
-      if (scroll >= 2950) {
+      if (scroll >= 2850  && scroll <= 2950) {
         arrowSelector?.classList.remove('angle-30', 'angle-90')
         arrowSelector?.classList.add('angle-150')
         innovative.style.opacity = 0
@@ -1559,26 +1559,30 @@ h1 {
       
     }
 
-    if (scroll >= 3001 && scroll <= 3420) {
+    if (scroll >= 3001 && scroll <= 3417) {
       // asure next ball is hidden
       featureBall.style.opacity = 0
       // do magic
       let scroll2Deg = ( -230 * scroll / 416) * 1;
       lastactionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      lastactionBall.style.opacity = (scroll > 3001 && scroll <= 3420) ? 1 : 0;
+      lastactionBall.style.opacity = (scroll > 3001 && scroll <= 3417) ? 1 : 0;
       
     }
   }
 
-  window.addEventListener('scroll', () => {
+
+  window.addEventListener('scroll', onScroll, {passive: true});
+
+function onScroll() {
     if (!ticking) {
-      window.requestAnimationFrame(() => {
-        scrollBall();
-        ticking = false;
-      });
-      ticking = true;
+        window.requestAnimationFrame(() => {
+            scrollBall();
+            ticking = false;
+        });
+
+        ticking = true;
     }
-  });
+}
 	 
 
 	});
