@@ -31,7 +31,7 @@ o-sector path:hover {
   border: 1px solid var(--primary-color) !important;
 }
 .dashed {
-  border: 1px dashed var(--primary-color) !important;
+  border: 1px solid var(--primary-color) !important;
 }
 .orbit-3,
 .text {
@@ -98,7 +98,7 @@ o-sector path:hover {
   animation-delay: 200ms;
   animation: show 200ms;
   animation-fill-mode: forwards;
-  overflow: hidden;
+  overflow: visible;
 }
 @keyframes tail {
   0% {

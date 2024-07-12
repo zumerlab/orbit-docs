@@ -5,13 +5,18 @@ import type { Props } from '@astrojs/starlight/props';
 
 import '../assets/css/orbit.min.css';
 import '../assets/landing.css';
+//import o-sector from '../components/OrbitSector.astro'
+
 
 const { data } = Astro.props.entry;
 const { title = data.title, tagline, image, actions = [] } = data.hero || {};
 import Sanpack from '../components/ZumerCode.astro'
 import htmlCode from '../examples/layout/orbit.html?raw'
 ---
-<script src="../assets/orbit.js"></script>
+<head>
+<script src='../assets/orbit.js'></script>
+</head>
+
 <div class="orbitron paused-animations ">
 <!-- logo -->
 <section class="features logo" >
@@ -27,10 +32,10 @@ import htmlCode from '../examples/layout/orbit.html?raw'
           <div class="capsule" style="width: 500px; font-size: 50px; color: white; text-align: center;"><h1 style="font-family: 'Noto Sans'">ORBIT</h1></div>
         </div>
       </div>
-      <div class="small-orbit orbit-9 dashed">
+      <div class="small-orbit orbit-9 ">
         <div class="satellite grow-1x angle-50" style="border: 4px solid var(--primary-color)"></div>
       </div>
-      <div class="small-orbit orbit-11 dashed">
+      <div class="small-orbit orbit-11 ">
         <div class="satellite reduce-10 angle-70" style="background-color: var(--primary-color)"></div>
         <div class="satellite reduce-10 angle-290" style="background-color: var(--primary-color)"></div>
        
@@ -38,7 +43,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
           <div class="capsule" style="width: 500px; font-size: 30px; color: white; text-align: center;">The CSS radial composer</div>
         </div>
       </div>
-      <div class="small-orbit orbit-11 dashed" style="--o-orbit-number: 13">
+      <div class="small-orbit orbit-11 " style="--o-orbit-number: 13">
        
       </div>
       <div class="logo orbit-0 gooey-fx ">
@@ -76,7 +81,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270 action-sector">
-        <o-sector  sector-color="var(--primary-color)"  class="grow-x"></o-sector>
+        <o-sector shape="arrow" sector-color="var(--primary-color)"  class="grow-x"></o-sector>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -374,7 +379,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             <div class="orbit-11 range-230 from-10">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
             </div>
-            <div class="orbit-9 from-180">
+            <div class="orbit-9 from-180 ring">
               <o-sector class="gap-1 sectors-sector" sector-color="var(--background-color)"></o-sector>
               <o-sector class="gap-1 progress-sector" sector-color="var(--secondary-color)"></o-sector>
               <o-sector class="gap-1 labels-sector" sector-color="var(--background-color)"></o-sector>
@@ -390,7 +395,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         </div>
       </div>
       <!-- clock -->
-      <div class="orbit-zone" style="--o-lenght: 250px">
+      <div class="orbit-zone" style="--o-lenght: 350px">
   
         <div class="orbit-12  range-90 from-315 fit-range">
           <div class="satellite grow-2x outer-orbit transparent">
@@ -589,7 +594,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
           </div>
           <!-- small clocks -->
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 250px">
+            <div class="orbit-zone" style="--o-lenght: 350px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -645,7 +650,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             </div>
           </div>
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 250px">
+            <div class="orbit-zone" style="--o-lenght: 350px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -738,7 +743,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             </div>
           </div>
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 250px">
+            <div class="orbit-zone" style="--o-lenght: 350px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -1363,6 +1368,7 @@ h1 {
 </style>
 <script>
 	    const orbitron = document.querySelector('.orbitron');
+      orbitron.style.opacity = 0;
 
 
 // define vars
@@ -1397,7 +1403,16 @@ const easy =  document.querySelector('.selector-easy-frame');
 const integration =  document.querySelector('.selector-integration-frame');
 
  // set default styles
- logoBall.style.opacity = 0;
+ logoBall.style.willChange = 'opacity';
+    actionBall.style.willChange = 'opacity';
+    featureBall.style.willChange = 'opacity';
+    textBall.style.willChange = 'opacity';
+    componentBall.style.willChange = 'opacity';
+    lastactionBall.style.willChange = 'opacity';
+    innovative.style.willChange = 'opacity';
+    easy.style.willChange = 'opacity';
+    integration.style.willChange = 'opacity';
+    logoBall.style.opacity = 0;
     actionBall.style.opacity = 0;
     featureBall.style.opacity = 0;
     textBall.style.opacity = 0;
@@ -1408,7 +1423,7 @@ const integration =  document.querySelector('.selector-integration-frame');
     integration.style.opacity = 0;
 	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
 	window.addEventListener('DOMContentLoaded', (event) => {
-
+    orbitron.style.opacity = 1;
     
 
 
@@ -1418,112 +1433,158 @@ const integration =  document.querySelector('.selector-integration-frame');
   
   const scrollBall = () => {
     let scroll = document.documentElement.scrollTop;
-    console.log(scroll)
+    //console.log(scroll)
 
-    if (scroll >= 0 && scroll <= 470) {
+    if (scroll >= 0 && scroll <= 368) {
       // asure next ball is hidden
       actionBall.style.opacity = 0
       // do magic
-      let scroll2Deg = (-90 * scroll / 480)  * 1;
+      let scroll2Deg = (-90 * scroll / 375)  * 1;
       logoBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      logoBall.style.opacity = (scroll > 0 && scroll <= 470) ? 1 : 0;
+      logoBall.style.opacity = (scroll > 0 && scroll <= 368) ? 1 : 0;
       
     }
-
-    if (scroll >= 472 && scroll <= 828) {
-      // asure next ball is hidden
+    let checkcta = false
+    if (scroll >= 369 && scroll <= 744) {
+      if (!checkcta) {
+        // asure next ball is hidden
       logoBall.style.opacity = 0
       actionBall.style.opacity = 0
       textBall.style.opacity = 0
       // do magic
-      let scroll2Deg = ( 180 * scroll / 375) + 45 * 1;
+      let scroll2Deg = ( 180 * scroll / 375) + 90 * 1;
       actionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      actionBall.style.opacity = (scroll > 472 && scroll <= 828) ? 1 : 0;
+      actionBall.style.opacity = (scroll > 369 && scroll <= 744) ? 1 : 0;
       //
       orbitron.classList.remove("paused-animations");
       orbitron.classList.add("run-animations");
+      } 
+      checkcta = true
+      
       
     }
 
-    if (scroll >= 829 && scroll <= 1038) {
+    if (scroll >= 745 && scroll <= 934) {
       // asure next ball is hidden
       actionBall.style.opacity = 0
       lastactionBall.style.opacity = 0
       
       // do magic
-      let scroll2Deg = (-180 * scroll / 416) - 1;
+      let scroll2Deg = (-180 * scroll / 416) - 45;
       textBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      textBall.style.opacity = (scroll > 829 && scroll <= 1038) ? 1 : 0;
+      textBall.style.opacity = (scroll > 745 && scroll <= 934) ? 1 : 0;
       
     }
-    if (scroll >= 1070 && scroll <= 1100) {
-      orbits?.classList.add('activecomponent')
-      orbitsSector?.setAttribute('sector-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing demo 12%'
+
+    if (scroll >=950 && scroll <= 2200) {
+
+   
+    let checkorbits = false
+    if (scroll >= 950 ) {
+      if (!checkorbits) {
+        orbits?.classList.add('activecomponent')
+        orbitsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+        demoText.innerHTML = 'Composing demo 12%'
+      }
+      checkorbits = true
+      
     } /* else {
       orbits?.classList.remove('activecomponent')
       orbitsSector?.setAttribute('sector-color', 'var(--background-color)')
       demoText.innerHTML = 'Composing demo 22%'
     } */
-    if (scroll >= 1120 && scroll <= 1160) {
+   let checksatellites = false
+    if (scroll >= 1101 ) {
+      if (!checksatellites) {
       satellites?.classList.add('activecomponent')
       satellitesSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 34%'
+      }
+      checksatellites = true
     } /* else {
       satellites?.classList.remove('activecomponent')
       satellitesSector?.setAttribute('sector-color', 'var(--background-color)')
       demoText.innerHTML = 'Composing demo 12%'
     } */
-    if (scroll >= 1205 && scroll <= 1260) {
-      sectors?.classList.add('activecomponent')
+    let checksectors = false
+    if (scroll >= 1190 ) {
+      if (!checksectors) {
+        sectors?.classList.add('activecomponent')
       sectorsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 44%'
+      } 
+      checksectors = true
+      
     } /* else {
       sectors?.classList.remove('activecomponent')
       sectorsSector?.setAttribute('sector-color', 'var(--background-color)')
     } */
-    if (scroll >= 1400 && scroll <= 1480) {
-      progresss?.classList.add('activecomponent')
+    let checkprogress = false
+    if (scroll >= 1300 ) {
+      if (!checkprogress) {
+        progresss?.classList.add('activecomponent')
       progressSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 55'
+      }
+      checkprogress = true
+      
     } /* else {
       progresss?.classList.remove('activecomponent')
       progressSector?.setAttribute('sector-color', 'var(--background-color)')
     } */
-
-    if (scroll >= 1540 && scroll <= 1600) {
-      curvedText?.classList.add('activecomponent')
+    let checklabel = false
+    if (scroll >= 1500 ) {
+      if (!checklabel) {
+        curvedText?.classList.add('activecomponent')
       labelsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 87%'
+      }
+      
+      checklabel = true
     } /* else {
       curvedText?.classList.remove('activecomponent')
       labelsSector?.setAttribute('sector-color', 'var(--background-color)')
     } */
-    if (scroll >= 1700 && scroll <= 1780) {
-      segments?.classList.add('activecomponent')
+    let checksegment = false
+    if (scroll >= 1700 ) {
+      if (!checksegment){
+        segments?.classList.add('activecomponent')
       segmentsSector?.setAttribute('sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing demo 91%'
+      }
+      checksegment = true
+      
     }/* else {
       segments?.classList.remove('activecomponent')
       segmentsSector?.setAttribute('sector-color', 'var(--background-color)')
     } */
-    if (scroll >= 1860 && scroll <= 1900) {
-      spokes?.classList.add('activecomponent')
+    let checkspokes = false
+    if (scroll >= 1850) {
+      if (!checkspokes) {
+        spokes?.classList.add('activecomponent')
       
       demoText.innerHTML = 'Composing demo 100%'
+      }
+      
+      checkspokes = true
       
     } 
-    if (scroll >= 1920 && scroll <= 2000) {
-     
-      spokesSector?.setAttribute('sector-color', 'var(--secondary-color)')
-     
-      demoContainer.style.opacity = 0
+    let checkdemo = false
+    if (scroll >= 1920 ) {
+      if (!checkdemo) {
+        spokesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+        demoContainer.style.opacity = 0
+      }
+      checkdemo = true
     } 
     /* else {
       spokes?.classList.remove('activecomponent')
       spokesSector?.setAttribute('sector-color', 'var(--background-color)')
       demoContainer.style.opacity = 1
     } */
+
+  }
+
     if (scroll >= 2400 && scroll <= 3000) {
       // asure next ball is hidden
       textBall.style.opacity = 0
