@@ -1,17 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-const PAGE_TITLE_ID = '_top';
 import type { Props } from '@astrojs/starlight/props';
 
 import '../assets/css/orbit.min.css';
 import '../assets/landing.css';
-//import o-sector from '../components/OrbitSector.astro'
-
 
 const { data } = Astro.props.entry;
-const { title = data.title, tagline, image, actions = [] } = data.hero || {};
-import Sanpack from '../components/ZumerCode.astro'
-import htmlCode from '../examples/layout/orbit.html?raw'
 ---
 <head>
 <script src='../assets/orbit.js'></script>
@@ -29,7 +22,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       <div class="small-orbit orbit-5 dashed"></div>
       <div class="small-orbit orbit-7 dashed">
         <div class="satellite angle-180">
-          <div class="capsule" style="width: 500px; font-size: 50px; color: white; text-align: center;"><h1 style="font-family: 'Noto Sans'">ORBIT</h1></div>
+          <div class="capsule" style="width: 500px; font-size: 50px; font-weight: bold; color: white; text-align: center;"><h1 style="color: white;">ORBIT</h1></div>
         </div>
       </div>
       <div class="small-orbit orbit-9 ">
@@ -39,8 +32,8 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <div class="satellite reduce-10 angle-70" style="background-color: var(--primary-color)"></div>
         <div class="satellite reduce-10 angle-290" style="background-color: var(--primary-color)"></div>
        
-        <div class="satellite angle-180">
-          <div class="capsule" style="width: 500px; font-size: 30px; color: white; text-align: center;">The CSS radial composer</div>
+        <div class="satellite inner-orbit angle-180">
+          <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;"><h2>The CSS radial composer</h2></div>
         </div>
       </div>
       <div class="small-orbit orbit-11 " style="--o-orbit-number: 13">
@@ -50,7 +43,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <div class="satellite grow-4x big">
           <div class="orbit-zone">
             <div class="orbit-4 reduce-10">
-              <div class="satellite big quarter-outer-orbit angle-299" style="--o-size-ratio: 2.5;"></div>
+              <div class="satellite tiny quarter-outer-orbit angle-299" style="--o-size-ratio: 3.3"></div>
             </div>
           </div>
         </div>
@@ -80,8 +73,8 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite action-ball"></div>
       </div>
-      <div class="orbit-6 range-90 from-270 action-sector">
-        <o-sector shape="arrow" sector-color="var(--primary-color)"  class="grow-x"></o-sector>
+      <div class="orbit-6 range-90 from-270 action-sector ">
+        <o-sector shape="circle" sector-color="var(--primary-color)" ></o-sector>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -127,14 +120,14 @@ import htmlCode from '../examples/layout/orbit.html?raw'
       <div class="orbit-10">
         <div class="satellite angle-0">
           <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;">
-            Create radial interfaces using only CSS
+            <h4>Create radial interfaces using only CSS.</h4>
           </div>
         </div>
       </div>
       <div class="orbit-6">
         <div class="satellite angle-0">
           <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;">
-            Discover how to transform your design <br>with innovative radial elements
+            <h4>Transform your design <br>with innovative radial elements.</h4>
           </div>
         </div>
       </div>
@@ -147,7 +140,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
     <div class="orbit-zone">
      
       <div class="orbit-4">
-        <div class="satellite angle-270" style="border: 0.2px dashed var(--primary-color)">
+        <div class="satellite angle-270" >
           <div class="orbit-zone">
             <div class="orbit-12 range-170 from-351">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
@@ -183,7 +176,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                   </div>
                   <div class="orbit-9">
                     <div class="satellite angle-35" style="background:transparent; width:500px; font-size: 20px; color: white; text-align: center;">
-                      COMPONENTS
+                     <div class="capsule"><h2>COMPONENTS</h2></div>
                     </div>
                   </div>
                 </div>
@@ -270,11 +263,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
               </div>
               
             </div>
-            <div class="orbit-0">
-              <div class="satellite" style="background:transparent; width: 500px; font-size: 20px; color: white; text-align: center;">
-                TO COMPOSE
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -286,15 +275,16 @@ import htmlCode from '../examples/layout/orbit.html?raw'
     <div class="orbit-zone">
       
       <div class="orbit-4">
-        <div class="satellite angle-90" style="border: 0.2px dashed var(--primary-color)">
+        <div class="satellite angle-90" >
           <div class="orbit-zone">
             <div class="orbit-12 range-150 from-190">
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
 
             </div>
             <div class="orbit-0">
-              <div class="satellite" style="background:transparent; width: 500px; font-size: 20px; color: white; text-align: center;">
-                COMPLEX RADIAL THINGS
+              <div class="satellite" style="background:transparent; border:none; width: 500px; font-size: 20px; color: white; text-align: center;">
+                <div class="capsule"><h4>Save time <br> composing complex radial <br> creations
+                by combining <br> ORBIT components.</h4></div>
               </div>
             </div>
             <div class="orbit-12 range-140 from-240">
@@ -352,7 +342,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                 <div class="orbit-zone">
                   <div class="orbit-zone" style="--o-lenght: 100px">
                     <div class="orbit-10">
-                      <o-label class="component-label">curved text  -  curved text  - </o-label>
+                      <o-label class="component-label"> curved text  -  curved text  - </o-label>
                     </div>
                   </div>
                   <div class="orbit-4">
@@ -380,13 +370,13 @@ import htmlCode from '../examples/layout/orbit.html?raw'
               <o-sector  sector-color="var(--primary-color)"  class="reduce-50"></o-sector>
             </div>
             <div class="orbit-9 from-180 ring">
-              <o-sector class="gap-1 sectors-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 progress-sector" sector-color="var(--secondary-color)"></o-sector>
-              <o-sector class="gap-1 labels-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 segments-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 spokes-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 orbits-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 satellites-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 sectors-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 progress-sector" sector-color="var(--secondary-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 labels-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 segments-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 spokes-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 orbits-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-70 satellites-sector" sector-color="var(--background-color)"></o-sector>
             </div>
             
 
@@ -395,17 +385,9 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         </div>
       </div>
       <!-- clock -->
-      <div class="orbit-zone" style="--o-lenght: 350px">
+      <div class="orbit-zone" style="--o-lenght: 320px">
   
-        <div class="orbit-12  range-90 from-315 fit-range">
-          <div class="satellite grow-2x outer-orbit transparent">
-            
-          </div>
-          <div class="satellite grow-2x  outer-orbit transparent ">
-            
-          </div>
-    
-        </div>
+       
         <!-- curved text -->
         <div class="orbit-11 from-270 range-180">
           <o-label label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved" >ALARM 7:00AM</o-label>
@@ -589,12 +571,12 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <div class="orbit-7 black-spot"></div>
         <div class="orbit-4">
           <!-- brand -->
-          <div class="satellite grow-5x transparent">
+          <div class="satellite grow-5x transparent" style="border-color: transparent">
             <div class="capsule" style="color: rgb(229,229,229);">ORBIT</div>
           </div>
           <!-- small clocks -->
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 350px">
+            <div class="orbit-zone" style="--o-lenght: 320px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -650,7 +632,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             </div>
           </div>
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 350px">
+            <div class="orbit-zone" style="--o-lenght: 320px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -743,7 +725,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             </div>
           </div>
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 350px">
+            <div class="orbit-zone" style="--o-lenght: 320px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -840,10 +822,10 @@ import htmlCode from '../examples/layout/orbit.html?raw'
         <!-- big clock -->
         <div class="orbit-0 clock">
           <div class="spoke outer-orbit minute xm">
-            <!-- <img src="../assets/minutes.png" width="132"> -->
+           <img src="/images/minutes.png" width="132">
           </div>
           <div class="spoke outer-orbit hour xh">
-            <!-- <img src="../assets/hours.png" width="78"> -->
+            <img src="/images/hours.png" width="78"> 
           </div>
           <div class="satellite at-center center">
           </div>
@@ -852,7 +834,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 
       <div class="orbit-9 demo-progress-container ">
         <div class="satellite at-center grow-9x">
-          <div class="capsule turn-left demo-progress">
+          <div class="capsule turn-left demo-progress" style="color: white; font-size: 20px">
 
           </div>
         </div>
@@ -867,7 +849,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
     <div class="orbit-zone">
       <div class="orbit-10">
         <div class="satellite angle-0" style="background:transparent; width:500px; font-size: 20px; color: white; text-align: center;">
-          FEATURES
+          <div class="capsule"><h2>FEATURES</h2></div>
         </div>
       </div>
             
@@ -957,7 +939,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                         </div>
                         <div class="orbit-3">
                           <div class="satellite outer-orbit angle-90 at-center-left" >
-                            <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
+                            <div class="capsule at-center-left" style="background-color: var(--background-color);border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
                               <h3 class="title">Innovative CSS Radial Layout</h3>
                             </div>
                           </div>
@@ -977,7 +959,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                         </div>
                         <div class="orbit-3">
                           <div class="satellite outer-orbit angle-90 at-center-left" >
-                            <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
+                            <div class="capsule at-center-left" style="background-color: var(--background-color); border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
                               <h3 class="title">Easy to learn, easy to use</h3>
                             </div>
                           </div>
@@ -996,7 +978,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
                         </div>
                         <div class="orbit-3">
                           <div class="satellite outer-orbit  angle-90 at-center-left">
-                            <div class="capsule at-center-left" style="border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
+                            <div class="capsule at-center-left" style="background-color: var(--background-color); border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
                               <h3 class="title">Works with other CSS frameworks</h3>
                             </div>
                           </div>
@@ -1016,8 +998,8 @@ import htmlCode from '../examples/layout/orbit.html?raw'
   <div class="o-container" style="height: 254px">
     <div class="orbit-zone">
       <div class="orbit-7">
-        <div class="satellite angle-0" style="background:transparent; width:300px; font-size: 20px; color: white; text-align: center;">
-          <div class="capsule">TRANSFORM YOUR <br> PROJECT TODAY!</div>
+        <div class="satellite angle-0" style="background:transparent; width:300px; font-size: 16px; color: white; text-align: center;">
+          <div class="capsule"><h2>Transform  <br> your project today!</h2></div>
         </div>
       </div>
             <div class="orbit-10 range-230 from-130">
@@ -1027,7 +1009,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
             <div class="orbit-zone">
              
               <div class="orbit-6 range-90 from-90">
-                <o-sector  sector-color="var(--primary-color)"  class="grow-x"></o-sector>
+                <o-sector  sector-color="var(--primary-color)"  shape="circle" class="grow-x"></o-sector>
               </div>
               
               <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -1082,10 +1064,13 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 <style>
 
   .orbit-zone{
-    //border: 1px dashed yellowgreen !important;
+  
     --o-size-ratio: 1; //reset
   }
   
+  .orbits,.satellites,.sectors,.progresss,.segments,.spokes,.curved-text, .demo-progress-container {
+    background-color: var(--background-color);
+  }
    .black-spot {
       background-color: black;
     }
@@ -1185,6 +1170,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
     }
 
     .day-name {
+      font-size: 3.5px;
       text-transform: uppercase;
       font-weight: bold;
     }
@@ -1211,7 +1197,7 @@ import htmlCode from '../examples/layout/orbit.html?raw'
 
   .title {
     width: 150px; 
-    color: var(--secondary-color);
+    color:  white;
     transition: color 300ms;
   }
 
@@ -1648,4 +1634,60 @@ function onScroll() {
 
 	});
 
+</script>
+<script>
+  function analogWatch() {
+    // Get the current time
+    const now = new Date()
+    // Get the current hour, minute, and second
+    const hour = now.getHours()
+    const minute = now.getMinutes()
+    const second = now.getSeconds()
+    const today = now.getDate();
+    const pastDate = new Date();
+    pastDate.setDate(today - 1);
+    const pastDay = pastDate.getDate();
+    // Future today (1 today later)
+    const futureDate = new Date();
+    futureDate.setDate(today + 1);
+    const futureDay = futureDate.getDate();
+    const currentDayName = now.toLocaleString('en', { weekday: 'short' });
+    const shortDayName = currentDayName.slice(0, 3);
+
+    // Calculate the angles of the hour, minute, and second hands
+    const hourAngle = (hour % 12) * 30 + minute / 2
+    const minuteAngle = minute * 6
+    const secondAngle = second * 6
+    const hourPercentage = (hourAngle / 360) * 100
+    const minutePercentage = (minuteAngle / 360) * 100
+    const secondPercentage = (secondAngle / 360) * 100
+
+    // Get the hour, minute, and second hand elements
+    const hourHand = document.querySelector('.xh')
+    const minuteHand = document.querySelector('.xm')
+    const secondHand = document.querySelector('.xs')
+
+    const curvedText = document.querySelector('.digital-clock')
+
+    const current = document.querySelector('.calendar .current ')
+    const previous = document.querySelector('.calendar .previous ')
+    const next = document.querySelector('.calendar .next ')
+    const dayName = document.querySelector('.day-name ')
+
+    // Set the transform style of each hand element with angle correction
+    hourHand.style.setProperty('--o-angle-composite', hourAngle - 90 + 'deg')
+    minuteHand.style.setProperty('--o-angle-composite', minuteAngle - 90 + 'deg')
+    secondHand.style.setProperty('--o-angle-composite', secondAngle - 90 + 'deg')
+   
+    if (curvedText.innerHTML === '' || hour === 0 ) {
+      current.innerHTML = `${today}`
+      previous.innerHTML = `${futureDay}`
+      next.innerHTML = `${pastDay}`
+      dayName.innerHTML = `${shortDayName}`
+    }
+    
+     if (curvedText.innerHTML === '' || second === 0 ) curvedText.innerHTML = `${hour}:${minute}, ${hour}H ${minute}M`
+  }
+  // Call the analogWatch function every second
+  setInterval(analogWatch, 1000)
 </script>

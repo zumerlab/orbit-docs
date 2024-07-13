@@ -45,51 +45,61 @@ export class OrbitLabel extends HTMLElement {
       <svg viewBox="0 0 100 100" width="100%" height="100%">
         <path id="orbitPath" fill="none" vector-effect="non-scaling-stroke"></path>
         <text>
-          <textPath href="#orbitPath" alignment-baseline="middle"></textPath>
+          <textPath id="orbitTextPath" href="#orbitPath" dominant-baseline="middle">
+            
+          </textPath>
         </text>
       </svg>
       <style>
-      svg {
-      overflow: visible;
-      }
+        svg {
+          overflow: visible;
+        }
         :host {
           display: inline-block;
           width: 100%;
           height: 100%;
-          
         }
         text {
           font-size: inherit;
         }
       </style>
     `;
-
     this.shadowRoot.appendChild(template.content.cloneNode(true));
   }
 
   connectedCallback() {
     this.update();
 
-    const observer = new MutationObserver((mutations) => {
+    // Observe changes to attributes
+    this.attributeObserver = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.type === 'attributes') {
+       // if (mutation.type === 'attributes') {
           this.update();
-        }
+      //  }
       });
     });
 
-    observer.observe(this, { attributes: true });
+    this.attributeObserver.observe(this, { attributes: true, childList: true  });
+  }
 
-    const slot = this.shadowRoot.querySelector('textPath');
-    slot.addEventListener('slotchange', () => {
-      this.update();
-    });
+  disconnectedCallback() {
+ 
+    if (this.attributeObserver) {
+      this.attributeObserver.disconnect();
+    }
+  }
+
+  handleSlotChange() {
+    const textPath = this.shadowRoot.querySelector('textPath');
+   
+      textPath.textContent = this.textContent.trim();
+     // console.log('Slot content updated:', nodes);
+   
   }
 
   update() {
     const path = this.shadowRoot.getElementById('orbitPath');
     const textPath = this.shadowRoot.querySelector('textPath');
-
     const { d, strokeWidth, labelBgColor, lineCap } = this.getPathAttributes();
     path.setAttribute('d', d);
     path.setAttribute('stroke', labelBgColor);
@@ -97,7 +107,7 @@ export class OrbitLabel extends HTMLElement {
     path.setAttribute('stroke-linecap', lineCap);
 
     const { labelColor, textAnchor, fitRange } = this.getTextAttributes();
-    textPath.setAttribute('color', labelColor);
+    textPath.setAttribute('fill', labelColor);
 
     if (textAnchor === 'start') {
       textPath.setAttribute('startOffset', '0%');
@@ -113,8 +123,9 @@ export class OrbitLabel extends HTMLElement {
     if (fitRange) {
       textPath.parentElement.setAttribute('textLength', path.getTotalLength());
     }
-
-    textPath.textContent = this.textContent.trim();
+    
+    // Update the text content from the slot
+    this.handleSlotChange();
   }
 
   getPathAttributes() {
@@ -130,16 +141,16 @@ export class OrbitLabel extends HTMLElement {
   }
 
   getAttributes() {
-    const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue('r') || 0);
+    const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue('r')) || 0;
     const flip = this.hasAttribute('flip');
     const fitRange = this.hasAttribute('fit-range');
     const lineCap = getComputedStyle(this).getPropertyValue('--o-linecap') || 'butt';
-    const gap = parseFloat(getComputedStyle(this).getPropertyValue('--o-gap') || 0.001);
+    const gap = parseFloat(getComputedStyle(this).getPropertyValue('--o-gap')) || 0.001;
     const labelColor = this.getAttribute('label-color') || 'black';
     const textAnchor = this.getAttribute('text-anchor') || 'start';
     const labelBgColor = this.getAttribute('bg-color') || 'none';
     const rawAngle = getComputedStyle(this).getPropertyValue('--o-angle');
-    const strokeWidth = parseFloat(getComputedStyle(this).getPropertyValue('stroke-width') || 1);
+    const strokeWidth = parseFloat(getComputedStyle(this).getPropertyValue('stroke-width')) || 1;
 
     let strokeWithPercentage = ((strokeWidth / 2) * 100) / orbitRadius / 2;
     let innerOuter = strokeWithPercentage;
@@ -175,7 +186,7 @@ export class OrbitLabel extends HTMLElement {
 
   calculateAngle() {
     const { labelAngle, gap } = this.getAttributes();
-    return labelAngle - gap;
+    return Math.max(0, Math.min(360, labelAngle - gap));
   }
 
   calculateArcParameters(angle, realRadius, gap, flip) {
@@ -203,6 +214,7 @@ export class OrbitLabel extends HTMLElement {
 }
 
 function calcularExpresionCSS(cssExpression) {
+  if (!cssExpression) return 0;
   const match = cssExpression.match(/calc\(\s*([\d.]+)deg\s*\/\s*\(\s*(\d+)\s*-\s*(\d+)\s*\)\s*\)/);
   if (match) {
     const value = parseFloat(match[1]);
@@ -211,6 +223,5 @@ function calcularExpresionCSS(cssExpression) {
       return value / divisor;
     }
   }
+  return 0;  // Default fallback if the CSS expression does not match
 }
-
-//customElements.define('orbit-label', OrbitLabel);
