@@ -32,9 +32,6 @@ export default defineConfig({
       }, {
         label: 'Installation',
         link: '/introduction/installation/'
-      }, {
-        label: 'Initial setup',
-        link: '/introduction/settings/'
       }]
     }, {
       label: 'Layout',

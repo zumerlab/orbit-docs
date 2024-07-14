@@ -1,94 +1,93 @@
 ---
-title: Launch Orbit
+title: Installation & quick start
 ---
 
-## Installation
+Get ready to explore the innovative approach of radial design with Orbit! This guide will help you quickly get started and install everything you need.
 
-### Download or Include via CDN:
-Download the library files from our repository or include them directly from a CDN in your HTML file:
+### Step 1: Include Orbit stylesheet
 
-```html
-<link rel="stylesheet" href="path/to/orbit.css">
-```
+To start using Orbit, include its CSS in your HTML file. You have two options:
 
-### Install via Package Manager:
-If you are using a package manager like npm or yarn, install the library by running:
+1. **Download or Import the CSS file**:
+   - **Download**: Download the CSS file from [Orbit's repository](#) and link it in your HTML file:
+     ```html
+     <head>
+       <link rel="stylesheet" href="path/to/orbit.css">
+     </head>
+     ```
+   - **Import**: Add the following to your stylesheet:
+     ```css
+     @import url('path/to/orbit.css');
+     ```
 
-```bash
-npm install @zumerlab/orbit
-```
+2. **Include via CDN**:
+   - Add this to your HTML file:
+     ```html
+     <head>
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zumerlab/orbit/orbit.css">
+     </head>
+     ```
 
-or
+### Step 2: Include Orbit JavaScript (Recommended)
 
-```bash
-yarn add  @zumerlab/orbit
-```
+If you plan to use additional features like radial progress bars, curved text, and sectors, include Orbit's JavaScript. You can do this in two ways:
 
-## Basic Usage
+1. **Download the JavaScript file**:
+   - Download from [Orbit's repository](#).
+   - Link it in your HTML file:
+     ```html
+     <head>
+       <script src="path/to/orbit.js" defer></script>
+     </head>
+     ```
 
-### Include Styles:
-Link the library styles in the `<head>` section of your HTML file.
+2. **Include via CDN**:
+   - Add this to your HTML file:
+     ```html
+     <head>
+       <script src="https://cdn.jsdelivr.net/npm/@zumerlab/orbit/orbit.js" defer></script>
+     </head>
+     ```
 
-```html
-<head>
-  <link rel="stylesheet" href="path/to/orbit.css">
-</head>
-```
-or 
+### Step 3: Set up Orbit layout
 
-```html
-<style>
-  @import url('path/to/orbit.css');
-</style>
-```
-
-### Apply Orbit Classes:
-Utilize predefined classes in your HTML elements to benefit from Orbit features. Folllowing code set a container and inside it a radial layout with three circles.
-
-```html
-<div class="container">
-  <div class="orbit">
-    <div class="orbiter"></div>
-    <div class="orbiter"></div>
-    <div class="orbiter"></div>
-  </div>
-</div>
-```
-Congratulations! You've successfully integrated and started using Orbit. Follow next steps for more advanced options and customization possibilities. If you encounter any issues, feel free to reach out to our support community for assistance.
-
-Happy coding!
-
-
-## Quick start
-Add Orbit to Your Page
-You can add Orbit to your page via the free jsDelivr CDN. Just add the following <link> element into your page's <head>, before your project's stylesheets.
-
-
-Alternatively, check out other CDNs that host Orbit or you can install Orbit via a package manager.
-
-## Playground code
-
-
-## Minimal template
-
-Folllowing code set a container and inside it a radial layout with three circles.
+Now, create a container with the `orbit-zone` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add elements with the `satellite` class. Here’s a minimal working example:
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../assets/css/index.css" type="text/css" defer/>
-    <title>Orbit Rocks!</title>
+    <link rel="stylesheet" href="/path/to/orbit.css" />
+    <script src="/path/to/orbit.js" defer></script> <!-- Only if using additional features -->
+    <title>Orbit Quick Start</title>
   </head>
   <body>
-    <div class="o-conatiner">
+    <div class="orbit-zone">
       <div class="orbit">
-        <div class="orbiter"></div>
-        <div class="orbiter"></div>
-        <div class="orbiter"></div>
+        <div class="satellite">1</div>
+        <div class="satellite">2</div>
+        <div class="satellite">3</div>
+      </div>
+      <div class="orbit">
+        <o-label>Curved text</o-label>
       </div>
     </div>
   </body>
 </html>
 ```
+
+### Step 4: Install via Package Manager (Optional)
+
+You can also install Orbit using npm or yarn for easier management in your project:
+
+```sh
+npm install @zumerlab/orbit
+```
+
+## Next steps
+
+Congratulations! You have successfully integrated Orbit into your project. Now, you can explore more advanced features and customization options. Check out the full documentation for detailed guides and examples. 
+
+Happy coding!
+
