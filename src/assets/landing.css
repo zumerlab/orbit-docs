@@ -1,10 +1,13 @@
 
+.button {
+  font-size: 18px;
+}
 .noactivecomponent {
   border: 4px solid transparent !important; color: var(--primary-color) !important;
   transition: all 120ms;
 }
 .activecomponent {
-  border: 4px solid var(--secondary-color) !important; color: var(--secondary-color) !important;
+  border: 4px solid var(--primary-color) !important; color: var(--secondary-color) !important;
   transition: all 120ms;
 }
 body .orbitron a {
