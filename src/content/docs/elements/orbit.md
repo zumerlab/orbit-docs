@@ -1,16 +1,32 @@
 ---
-title: orbit 
+title: orbit CSS class
 ---
+### CSS Class: `.orbit`
 
-`.orbit` or `.orbit-*` renders a circumsference inside an .orbit-zone. Inside `.orbit` can be placed many elements, such as satellites, sectors, progress, spokes, segments, and labels.
-By default there are 12 orbits. The number can be modify with `$max-orbits` var at `_variables.scss`.
+The `.orbit` CSS class, along with variations from `.orbit-0` to `.orbit-12`, defines a circular perimeter inside an `.orbit-zone`. Within the `.orbit` element, various Orbit components such as `satellites`, `sectors`, `progress`, `spokes`, `segments`, and `labels` can be positioned.
 
-**Important:** .orbit or .orbit-* is a direct child element of .orbit-zone.
+By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. Notably, the zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
 
-### Stack order
-Orbits stack order is same as any html element. First orbit is below second one. 
+It's important to note that multiple `orbits` can be nested within an `orbit-zone`. When no specific size is defined, there can be up to 12 orbits. However, when a size is defined, there is no limit to the number of `orbits` that can be rendered, including duplicate sizes (e.g., multiple `.orbit-5`). In such cases, the stacking order follows standard HTML rules, with later `orbits` appearing above earlier ones.
 
-### Usage: 
+`.orbit-12` extends to match the size of its parent `.orbit-zone`, while `.orbit-0` has no extension beyond its own boundary. `Orbits` numbered from 1 to 11 represent a percentage of the parent `.orbit-zone` extension, positioned in between these two extremes.
+
+### Customization
+
+- **Granular Orbit size:** Each `.orbit` can be finely adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the orbit to shrink by a specified percentage.
+  
+- **Look and feel:** Orbits are initially invisible but can be customized by adding border and background properties.
+
+- **Adjust radial layout:** Various CSS utility classes can modify the radial layout of children within `.orbits`:
+  - **`.range-*`:** Set arbitrary orbit range from 0 to 360 length. If custom range is defined, `.fit-range` could be added to justify children distribution.
+  - **`.from-*`:** Set starting point angle from 0 to 360 degrees.
+  - **`.ccw`:** Invert orbit child arragement to counter clock wise direction.
+  - **`.gooey-fx-*`:** This CSS utility enhances the appearance of grouped and sticky child elements within the orbit. Possible values are `.gooey-fx`, `.gooey-fx-medium`, and `.gooey-fx-max`
+
+- **Turn Orbits into ellipses:** Two CSS variables (`--o-ellipse-x` and `--o-ellipse-y`) can transform `.orbit` or `.orbit-*` into an ellipse shape. This transformation affects the orbit and its children, excluding `<o-sector>`, `<o-progress>`, and `<o-label>` web components, which remain hidden when the orbit is elliptical. Values for these variables range from 0 to 1. A CSS utlity could be added in a future.
+
+
+### Usage
 
 - Basic example that renders two orbits
   ```html
@@ -48,34 +64,14 @@ Orbits stack order is same as any html element. First orbit is below second one.
     </div>
   </div>
   ```
-  
-### Customization:
 
-It has some special attributes and css variables to customize it or its children elements:
-
-  - Utility class `.reduce-*`: To decrease size according an orbit fracction percentage. Default 1.
-  - Utility class `.goey-fx`: This utility allows orbit child elements to look grouped and sticky. Try it!
-
-  - CSS styles. User can customize `.orbit` by adding CSS properties.
-
-Besides css properties that user can change according his needs, there two css variables to turn `.orbit`or `.orbit-*` into 
-an ellipse (`--o-ellipse-x`, and `--o-ellipse-y`). This will affect orbit and its children, with an excepcion of `<o-sector>`, `<o-progress>`, and `<o-label>` web components that will be hiden when orbit is an ellipse. Values range from 0 to 1.
-
-```html
-<div class="orbit-zone" style="--o-ellipse-x: 0.6">
-  <div class="orbit">
-    <div class="satellite">
-      <div class="orbit-zone">
-        <div class="orbit"></div>
-        <div class="orbit"></div>
-      </div>
+  - This example renders one orbit with cusotm range and starting point for its satellites
+  ```html
+  <div class="orbit-zone">
+    <div class="orbit-9 from-90 range-180 fit-range">
+      <div class="satellite"></div>
+      <div class="satellite"></div>
+      <div class="satellite"></div>
     </div>
   </div>
-</div>
-```
-
-There are some utility classes that are set on `.orbit` element and affect its child radial layout (`.from-*`, `.range-*`, etc).  Please see [**Radial Layout section**].
-
-
-
-**Source:** [_orbit-class.scss](https://github.com/zumerlab/orbit/blob/main/src/scss/_orbit-class.scss)
+  ```

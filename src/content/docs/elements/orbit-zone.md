@@ -1,26 +1,30 @@
 ---
-title: orbit-zone
+title: orbit-zone CSS class
 ---
+### CSS Class: `.orbit-zone`
 
-Orbit-zone is a container class that groups `.orbit` classes. It serves as a container with a size defined once by `--o-length` when the Orbit app is initialized.
-~~When orbit-zone is nested into a `.satellite`, its length will depend on the `.satellite`'s `.orbit` diameter.~~
+The `.orbit-zone` CSS class serves as a container for organizing Orbit elements within a radial layout. It is fundamental in every Orbit project, acting as the parent container for all other Orbit elements.
+
+### Nested Structure
+
+`.orbit-zone` can be nested within `.satellite` elements or even within another `.orbit-zone`, allowing for the creation of intricate radial layouts.
 
 ### Customization
 
-  - Aligment class utilities: `.center`, `center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`,  `.bottom-right`. Default `.center`
+- **Extension Length:** By default, `.orbit-zone` extends 500px, influencing its child elements' dimensions. For instance, `.orbit-12` will have a 500px diameter. To adjust this, utilize utility classes like `.diameter-50` to `.diameter-2000`, or directly modify the `--o-size` CSS custom variable either inline or through custom CSS classes. It's important to note that each usage of `.orbit-zone` resets to default values, so modify the `--o-size` property within the `.orbit-zone` class for persistent changes.
 
-**Note:** Orbit is 100% CSS, but in case user needs Orbit be responsive there is an optional tiny JS script that modifies `--o-length` when a parent element of `.orbit-zone` is resized. See how to use in Orbit.resize docs
+  **Note:** For responsive designs, consider using the optional `Orbit.resize()` JavaScript function, which adjusts `--o-length` dynamically when the parent element of `.orbit-zone` is resized.
 
-**Important:** The `orbit-zone` class can only be nested into a `.satellite`.
+- **Alignment Utilities:** By default, child `.orbit-zone` elements align at the center. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
 
-### Usage
+### Example Usage
 
 ```html
-<div class="orbit-zone">
+<div class="orbit-zone diameter-400">
   <div class="orbit"></div>
   <div class="orbit">
     <div class="satellite">
-      <div class="orbit-zone"> <!-- nested -->
+      <div class="orbit-zone diameter-400"> <!-- Nested example -->
         <div class="orbit"></div>
       </div>
     </div>
@@ -28,6 +32,4 @@ Orbit-zone is a container class that groups `.orbit` classes. It serves as a con
 </div>
 ```
 
-
-
-**Source:** [_orbit-zone.scss](https://github.com/zumerlab/orbit/blob/main/src/scss/_orbit-zone.scss)
+This structure illustrates how `.orbit-zone` can be utilized and nested to create complex radial layouts in an Orbit project.

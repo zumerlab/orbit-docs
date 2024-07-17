@@ -1,23 +1,22 @@
 ---
-title: spoke
+title: spoke CSS class
 ---
+### CSS Class: `.spoke`
 
-This class renders a perpendicular dash line along an orbit. By default there are 24 spokes per orbit. The number can be modify with `$max-orbiters` var at `_variables.scss`.
-  
+Elements with `.spoke` are placed along an `.orbit` or `.orbit-*` path serving as content place and/or to nest `.orbits` using `.orbit-zone`.  By default, up to 60 spokes can be placed in an orbit. 
+
 ### Customization
 
-It has some special classes and css variables to customize it:
+- **Granular Satellite size:** Each `.spke` can be finely adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the spoke to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the satellite to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+  
+- **Look and feel:** Css background color property can be used.
 
-  - Utility class `.range-*`: Default '360deg'
-  - Utility class `.from-*`: Default '0deg'
-  - Utility class `.grow-*x`: To increase size according number of orbits. Default 1.
-  - Utility class `.reduce-*`: To decrease size according an orbit fracction percentage. Default 1.
-  - Utility class `.inner-orbit`: To place `.spoke` just below its orbit
-  - Utility class `.outer-orbit`: To place `.spoke` just above its orbit
-  - Utility class `.quarter-inner-orbit`: To place `.spoke` a 25% into its orbit.
-  - Utility class `.quarter-outer-orbit`: To place `.spoke` a 25% outer its orbit.
-
-  - CSS styles. User can customize `.spoke` by adding CSS properties to it. 
+- **Adjust radial layout:**
+  - **`.angle-*`:** Set arbitrary spoke angle from 0 to 360 degrees, overrriding automatic radial arragement.
+  - **`.inner-orbit`:** To place an`.spoke` just below its orbit.
+  - **`.outer-orbit`:** To place `.spoke` just above its orbit.
+  - **`.quarter-inner-orbit`:** To place `.spoke` a 25% into its orbit.
+  - **`.quarter-outer-orbit`:** To place `.satellite` a 25% outer its orbit.
 
 ### Usage 
 
@@ -32,6 +31,3 @@ It has some special classes and css variables to customize it:
 
 **Important:** `.spoke` can only be placed into a parent `.orbit` or `.orbit-*`
 
-
-
-**Source:** [_spoke.scss](https://github.com/zumerlab/orbit/blob/main/src/scss/_spoke.scss)

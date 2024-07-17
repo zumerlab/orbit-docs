@@ -34,9 +34,9 @@ export default defineConfig({
         link: '/introduction/installation/'
       }]
     }, {
-      label: 'Layout',
+      label: 'Guide',
       items: [{
-        label: 'Radial grid',
+        label: 'How does Orbit work?',
         link: '/layout/'
       }]
     }, {

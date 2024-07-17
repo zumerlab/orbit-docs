@@ -1,21 +1,26 @@
 ---
-title: segment
+title: segment CSS class
 ---
+### CSS Class: `.segment`
 
-This class renders a segment that if it used with other segment renders a regular polygon figure. By default there are 24 segments per orbit. The number can be modify with `$max-orbiters` var at `_variables.scss`.
-  
+This class renders a segment that if it used with other segment renders a regular polygon figure. Elements with `.segment` are placed along an `.orbit` or `.orbit-*` path serving as content place and/or to nest `.orbits` using `.orbit-zone`.  By default, up to 24 satellites can be placed in an orbit. 
+
+### Content
+
+Segment are suitable to render different content. For this, use `.capsule` element inside a `.segment`. See `capsule` reference on documentation.
+
 ### Customization
 
-It has some special classes and css variables to customize it:
+- **Granular Satellite size:** Each `.segment` can be finely adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the segment to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the segment to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+  
+- **Look and feel:** Satellites are initially invisible but can be customized by adding border and background properties. In addition, a few set of CSS shapes utilities are provided (`.circle`, `.box`, `.rounded-box`). Nevertheless, users can set any shapes using svg, images, etc.
 
-  - Class utility `.range-*`: Default '360deg'
-  - Class utility `.from-*`: Default '0deg'
-  - Class utility `.grow-*x`: To increase size according number of orbits. Default 1.
-  - Class utility `.reduce-*`: To decrease size according an orbit fracction percentage. Default 1.
-  - Class utility `.inner-orbit`: To place `.segment` just below its orbit
-  - Class utility `.outer-orbit`: To place `.segment` just above its orbit
-
-  - CSS styles. User can customize `.segment` by adding CSS properties to it. 
+- **Adjust radial layout:**
+  - **`.angle-*`:** Set arbitrary segment angle from 0 to 360 degrees, overrriding automatic radial arragement.
+  - **`.inner-orbit`:** To place an`.segment` just below its orbit.
+  - **`.outer-orbit`:** To place `.segment` just above its orbit.
+  - **`.quarter-inner-orbit`:** To place `.segment` a 25% into its orbit.
+  - **`.quarter-outer-orbit`:** To place `.segment` a 25% outer its orbit.
 
 ### Usage 
 

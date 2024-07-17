@@ -51,7 +51,7 @@ If you plan to use additional features like radial progress bars, curved text, a
 
 ### Step 3: Set up Orbit layout
 
-Now, create a container with the `orbit-zone` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add elements with the `satellite` class. Here’s a minimal working example:
+Now, create a container with the `orbit-zone` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add radial elements, such us: `satellite` class or `o-label` web component . Here’s a minimal working example:
 
 ```html
 <!DOCTYPE html>

@@ -1,81 +1,23 @@
 ---
-title: Orbit radial layout
+title: How Orbit Works
 ---
+Orbit is a CSS framework designed for creating radial layouts. It offers simplicity, effectiveness, ease of use, and tremendous versatility for crafting compelling designs.
 
-Orbit radial layout is the core of Orbit framework that offers a flexible, clean and simple way to design radial UI using just CSS and some optional vanilla web components crafted to improve dev UX.
+The Orbit CSS framework simplifies the creation of radial layouts, mimicking traditional row-based structures in a radial format. It offers extensive customization options and supports nesting for building intricate designs tailored to your requirements.
 
-### Overview
+### Step 1: Adding an Orbit Zone
+An **Orbit Zone** is a container for orbits. Each Orbit Zone has a default size of 500px but can be easily adjusted to fit your project's needs. Inside an Orbit Zone, radial elements will adhere to this size. For example, the maximum diameter of an orbit within this zone will be 500px.
 
-To create radial layouts using just CSS, it is neccesary to use CSS variables and do some maths. `.orbit` and `.orbit-*` have `--o-orbit-number` var to individualize their position according to the maximum number of orbits. Similarly, other elements such as `satellites`, `spokes`, `sectors`, and others use `--o-orbit-child-number` to be individualized.
+### Step 2: Adding Orbits
+Within the Orbit Zone container, you can add **orbits** using size classes ranging from `orbit0` to `orbit12`, creating concentric circles. Child orbit zones can also be added. Think of orbits as rows in traditional CSS frameworks.
 
-Besides that, `.orbit` and `.orbit-*` have `--o-angle` var that counts their child elements.
+### Step 3: Adding Radial Elements
+Each orbit can contain **radial elements** such as `satellites`, `sectors`, `spokes`, `labels`, `progress` indicators, and `segments`. These elements are evenly distributed along the orbit's perimeter, allowing for detailed radial designs tailored to specific needs.
 
-### Mechanism
+### Step 4: Nesting Orbit Zones
+**Orbit Zones** can be nested within `satellites`, enabling the creation of complex radial structures.
 
-The mechanism is straightforward:
-
-- `--o-orbit-number` informs where each `orbit` is placed, according to `.orbit-zone` length and maximum number of orbits. For example, with an `.orbit-zone` length of 500px and a maximum of 12 orbits, `orbit-4` will have 166.66 pixels of radius.
-
-- `--o-angle` is calculated depending on `.orbit` children number. For example, if an orbit has 3 satellites, `--o-angle` is 120deg). Finally, `--o-angle` is multiplied by `--o-orbit-child-number`. For example, satellite one will have 120deg, satellite two 240deg, and satellite three 360deg, and each satellite will be placed along its orbit at 166.66px.
-
-### Modifiers
-
-There are some modifiers to adjust orbit child distribution and make radial layout more flexible:
-
-  - Utility class `.range-*`: To define the arc lenght. Default '360deg'
-  - Utility class `.from-*`: To define starting point. Default '0deg'
-  - Utility class `.grow-*x`: To increase size according number of orbits. Default 1.
-  - Utility class `.reduce-*`: To decrease size according an orbit fracction percentage. Default 1.
-  - Utility class `.inner-orbit`: To place `.satellite` just below its orbit
-  - Utility class `.outer-orbit`: To place `.satellite` just above its orbit
-  - Utility class `.quarter-inner-orbit`: To place `.satellite` a 25% into its orbit.
-  - Utility class `.quarter-outer-orbit`: To place `.satellite` a 25% outer its orbit.
-  - Utility class `.ccw`: to invert arrange order of orbit child elements. Default clock-wise.
-  - Utility class `.fit-range`: Useful when range is inferior to 360deg to cover all range.
-
-### Layout rules
-
-Any Orbit project should be follow this simple rules:
-
-- Start with `.orbit-zone`.
-- Add as many `.orbit`or `.orbit-*` as needed.
-- Put `.satellite`, `o-sector`, `o-progress`,`o-label`,`.segment` or `.spoke` inside an `.orbit`. 
-- Orbits can be nested by adding `.orbit-zone` into `.satellite`.
-
-### Usage and Examples
-
-```html
-<!-- Example usage of Orbit Radial Layout -->
-<div class="orbit-zone">
-    <div class="orbit-3"></div>
-    <div class="orbit-4">
-        <div class="satellite"></div>
-        <div class="satellite"></div>
-        <div class="satellite"></div>
-    </div>
-</div>
-```
-
-```html
-<!-- Example usage of Orbit Radial Layout with custom range -->
-<div class="orbit range-270">
-  <o-sector>
-  <o-sector>
-  <o-sector>
-</div>
-```
-
-```html
-<!-- Example usage of Orbit Radial Layout with custom starting point -->
-<div class="orbit-3 from-90">
-  <div class="spoke"></div>
-  <div class="spoke"></div>
-  <div class="spoke"></div>
-  <div class="spoke"></div>
-  <div class="spoke"></div>
-</div>
-```
+### Step 5: Customizing
+There are numerous `CSS class utilities` to use with all Orbit elements. For instance, to distribute satellites within a range of 180 degrees, you can use the `.range-180` class on the parent orbit element. The documentation provides a full, detailed explanation of all class utilities.
 
 
-
-**Source:** [_radial-layout.scss](https://github.com/zumerlab/orbit/blob/main/src/scss/_radial-layout.scss)
