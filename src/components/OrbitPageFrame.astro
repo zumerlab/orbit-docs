@@ -31,7 +31,7 @@ const { hasSidebar, labels } = Astro.props;
 <style>
 	body {
 		
-		--sl-color-bg-nav: transparent;
+	
 		--sl-color-bg-sidebar: transparent;
 
 	}
@@ -54,8 +54,8 @@ const { hasSidebar, labels } = Astro.props;
 		border-bottom: 1px dashed rgba(0, 0, 0, 0);
 		padding: var(--sl-nav-pad-y) var(--sl-nav-pad-x);
 		padding-inline-end: var(--sl-nav-pad-x);
-		background-color: var(--sl-color-bg-nav);
-		backdrop-filter: blur(7px);
+		background-color: var(--sl-color-black);
+		
 	}
 
 	:global(.content-panel) {
@@ -123,7 +123,7 @@ const { hasSidebar, labels } = Astro.props;
 		.sidebar-pane {
 			--sl-sidebar-visibility: visible;
 			width: var(--sl-sidebar-width);
-			background-color: var(--sl-color-bg-sidebar);
+			 background-color: var(--sl-color-black);
 			border-inline-end: 1px dashed rgba(0, 0, 0, 0);
 		}
 	}

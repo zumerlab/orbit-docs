@@ -1045,11 +1045,9 @@ grid-auto-flow: column;
   <h4>Getting started</h4>
   <p><a href="/introduction/">About Orbit</a></p>
   <p><a href="/introduction/installation">Installation</a></p>
-  <p><a href="/introduction/settings">Initial setup</a></p>
-  <p><a href="/layout"> Radial grid</a></p>
 </div>
 <div>
-  <h4>Components</h4>
+  <h4>Elements</h4>
   <p><a href="/elements/orbit-zone">orbit-zone</a></p>
   <p><a href="/elements/orbit">orbit</a></p>
   <p><a href="/elements/satellite">satellite</a></p>
@@ -1058,15 +1056,11 @@ grid-auto-flow: column;
   <p><a href="/elements/sector">o-sector</a></p>
   <p><a href="/elements/progress">o-progress</a></p>
   <p><a href="/elements/label">o-label</a></p>
-</div>
-<div>
-  <h4>Utilities</h4>
-  <p><a href="/utilities/utilities">CSS utilities</a></p>
-  <p><a href="/utilities/capsule">Capsule</a></p>
+  <p><a href="/elements/capsule">capsule</a></p>
 </div>
 <div>
   <h4>Tools</h4>
-  <p><a href="/tools/support">Visual Aids</a></p>
+  <p><a href="/tools/support">Visual aids</a></p>
   <p><a href="/tools/orbit-resize">Auto resize</a></p>
 </div>
 
@@ -1219,7 +1213,7 @@ grid-auto-flow: column;
     width: 0px !important
   }
   section > .orbit-zone {
-    width: var(--o-lenght) !important;
+    width: var(--o-lenght) ;
   }
   .dev [class*='orbit-']{
  border: 1px solid #cccccc40
@@ -1309,7 +1303,7 @@ margin-top: 0 !important;
 --ec-frm-trmBg: #cde0ee !important;
 --ec-frm-edBg: #cde0ee !important;
 --ec-frm-trmTtbBg: #cde0ee !important; 
---ec-brdCol: var(--background-color); !important;
+--ec-brdCol: var(--background-color);
 }
 
 :global(.expressive-code .frame) {

@@ -65,17 +65,9 @@ export default defineConfig({
       }, {
         label: 'o-label',
         link: '/elements/label/'
-      }]
-    },{
-      label: 'Utilities',
-      items: [{
-        label: 'CSS utilities',
-        link: '/utilities/utilities/',
-      
-      },{
-        label: 'Capsule',
-        link: '/utilities/capsule/',
-        
+      }, {
+        label: 'capsule',
+        link: '/elements/capsule/'
       }]
     },{
       label: 'Tools',
@@ -88,11 +80,6 @@ export default defineConfig({
         link: '/tools/orbit-resize/',
        
       }]
-    },{
-      label: 'Examples',
-      autogenerate: {
-        directory: 'examples'
-      }
     }]
   }), react()]
 });

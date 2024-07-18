@@ -1,8 +1,8 @@
 ---
-title: Orbit resize 
+title: Orbit resize JS method
 ---
 
-Resize is currently the only JS method of Orbit. 
+Orbit provides a Orbit JS class with `resize()` method to allow `.orbit-zone` to adapt its size to a parent element. See [installation doc section](/introduction/installation)
 
 ### Usage
 
@@ -14,11 +14,7 @@ Resize is currently the only JS method of Orbit.
         </div>
     </div>
     <script scr="orbit-resize.js">
-        Orbit.resize('container');
+        Orbit.resize('container');  // Select parent element
     </script>
 </body>
 ```
-
-
-
-**Source:** [orbit-resize.js](https://github.com/zumerlab/orbit/blob/main/src/web-components/orbit-resize.js)

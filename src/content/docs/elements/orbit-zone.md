@@ -11,11 +11,11 @@ The `.orbit-zone` CSS class serves as a container for organizing Orbit elements 
 
 ### Customization
 
-- **Extension Length:** By default, `.orbit-zone` extends 500px, influencing its child elements' dimensions. For instance, `.orbit-12` will have a 500px diameter. To adjust this, utilize utility classes like `.diameter-50` to `.diameter-2000`, or directly modify the `--o-size` CSS custom variable either inline or through custom CSS classes. It's important to note that each usage of `.orbit-zone` resets to default values, so modify the `--o-size` property within the `.orbit-zone` class for persistent changes.
+- **Extension length:** By default, `.orbit-zone` extends 500px, influencing its child elements' dimensions. For instance, `.orbit-12` will have a 500px diameter. To adjust this, utilize utility classes like `.diameter-50` to `.diameter-2000`, or directly modify the `--o-size` CSS custom variable either inline or through custom CSS classes. It's important to note that each usage of `.orbit-zone` resets to default values, so modify the `--o-size` property within the `.orbit-zone` class for persistent changes.
 
   **Note:** For responsive designs, consider using the optional `Orbit.resize()` JavaScript function, which adjusts `--o-length` dynamically when the parent element of `.orbit-zone` is resized.
 
-- **Alignment Utilities:** By default, child `.orbit-zone` elements align at the center. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
+- **Alignment utilities:** By default, child `.orbit-zone` elements align at the center. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
 
 ### Example Usage
 
