@@ -5,7 +5,7 @@ title: orbit CSS class
 
 The `.orbit` CSS class, along with variations from `.orbit-0` to `.orbit-12`, defines a circular perimeter inside an `.orbit-zone`. Within the `.orbit` element, various Orbit components such as `satellites`, `sectors`, `progress`, `spokes`, `segments`, and `labels` can be positioned.
 
-By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. Notably, the zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
+By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. The zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
 
 It's important to note that multiple `orbits` can be nested within an `orbit-zone`. When no specific size is defined, there can be up to 12 orbits. However, when a size is defined, there is no limit to the number of `orbits` that can be rendered, including duplicate sizes (e.g., multiple `.orbit-5`). In such cases, the stacking order follows standard HTML rules, with later `orbits` appearing above earlier ones.
 
