@@ -3,7 +3,7 @@ title: segment CSS class
 ---
 ### CSS Class: `.segment`
 
-This class renders a segment that if used with other segments generates a regular polygon figure.  By default, up to 24 segments can be placed in an orbit. 
+This class renders a segment that if used with other segments generates a regular polygon figure.  By default, up to 60 segments can be placed in an orbit. 
 
 ### Content
 

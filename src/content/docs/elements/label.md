@@ -2,7 +2,7 @@
 title: o-label web-component
 ---
 
-`<o-label>` is a standard web-component for rendering curved text. By default there are 24 sector per orbit. 
+`<o-label>` is a standard web-component for rendering curved text. By default there are 60 sector per orbit. 
 
 ### Customization
   

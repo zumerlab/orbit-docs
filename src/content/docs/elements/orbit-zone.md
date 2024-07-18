@@ -15,7 +15,7 @@ The `.orbit-zone` CSS class serves as a container for organizing Orbit elements 
 
   **Note:** For responsive designs, consider using the optional `Orbit.resize()` JavaScript function, which adjusts `--o-length` dynamically when the parent element of `.orbit-zone` is resized.
 
-- **Alignment utilities:** By default, child `.orbit-zone` elements align at the center. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
+- **Alignment utilities:** By default, child `.orbit-zone` elements align at the center. This behavior can be altered using alignment utility classes such as `.at-center-left`, `.at-center-right`, `.at-top-left`, `.at-top-center`, `.at-top-right`, `.at-bottom-left`, `.at-bottom-center`, and `.at-bottom-right`.
 
 ### Example Usage
 

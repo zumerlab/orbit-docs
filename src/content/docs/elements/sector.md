@@ -2,7 +2,7 @@
 title: o-sector web-component
 ---
 
-`<o-sector>` is a standard web-component for rendering a radial slices or pies. By default there are 24 sector per orbit. 
+`<o-sector>` is a standard web-component for rendering a radial slices or pies. By default there are 60 sector per orbit. 
 
 ### Customization
   
