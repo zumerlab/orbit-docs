@@ -8,7 +8,7 @@ title: o-sector web-component
   
 - **o-sector size:** Each `.o-sector` can be adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the o-sector to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-sector to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
   
-- **Look and feel:** o-sector has two special attributes: `sector-color` to set its background color, and `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`
+- **Look and feel:** o-sector has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`. To change o-sector color use CSS custom var `--color` and `--hover-color` in a `o-sector` style.
 
 - **Adjust radial layout:**
   - **`.angle-*`:** Set arbitrary o-sector angle from 0 to 360 degrees, overrriding automatic radial arragement.
@@ -16,7 +16,6 @@ title: o-sector web-component
   - **`.outer-orbit`:** To place `.o-sector` just above its orbit.
   - **`.quarter-inner-orbit`:** To place `.o-sector` a 25% into its orbit.
   - **`.quarter-outer-orbit`:** To place `.o-sector` a 25% outer its orbit.
-  - **CSS styles:** User can customize `o-sector` by adding CSS properties to `o-sector path` selector.
   
 **Important:** 
   - `<o-sector>` can only be used into `.orbit` or `.orbit-*`.

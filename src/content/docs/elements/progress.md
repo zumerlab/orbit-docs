@@ -12,9 +12,8 @@ It has two elements: a progress bar and a background bar that show the max range
 - **Look and feel:** o-progress has special attributes: 
   - `value`: To set a number that represents the progress bar value.
   - `max`: To set the max allowed `value`.
-  - `bar-color`: To set a color for progress bar. Default `orange`
-  - `bg-color`: To set a color for background bar. Default `transparent`
-  - `shape`: To set a different endings looks. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`
+  - `shape`: To set a different endings looks. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`.
+  - Use following CSS custom vars to define colors: `--color` and `--hover-color` for progress bar, `--bgcolor` for background bar.
 
 - **Adjust radial layout:**
   - **`.angle-*`:** Set arbitrary o-progress angle from 0 to 360 degrees, overrriding automatic radial arragement.
@@ -22,7 +21,6 @@ It has two elements: a progress bar and a background bar that show the max range
   - **`.outer-orbit`:** To place `.o-progress` just above its orbit.
   - **`.quarter-inner-orbit`:** To place `.o-progress` a 25% into its orbit.
   - **`.quarter-outer-orbit`:** To place `.o-progress` a 25% outer its orbit.
-  - **CSS styles:** User can customize `o-progress` by adding CSS properties to `o-progress path` selector.
   
 **Important:** 
   - `<o-progress>` can only be used into `.orbit` or `.orbit-*`.
