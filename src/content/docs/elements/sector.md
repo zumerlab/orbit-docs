@@ -12,6 +12,7 @@ title: o-sector web-component
 
 - **Adjust radial layout:**
   - **`.angle-*`:** Set arbitrary o-sector angle from 0 to 360 degrees, overrriding automatic radial arragement.
+  - **`.gap-*`:** Set a gap space, ranging from 0 to 30, between `o-sectors`.
   - **`.inner-orbit`:** To place an`.o-sector` just below its orbit.
   - **`.outer-orbit`:** To place `.o-sector` just above its orbit.
   - **`.quarter-inner-orbit`:** To place `.o-sector` a 25% into its orbit.

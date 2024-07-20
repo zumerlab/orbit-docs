@@ -12,6 +12,7 @@ title: o-label web-component
 
 - **Adjust radial layout:**
   - **`.angle-*`:** Set arbitrary o-label angle from 0 to 360 degrees, overrriding automatic radial arragement.
+  - **`.gap-*`:** Set a gap space, ranging from 0 to 30, between `o-labels`.
   - **`.inner-orbit`:** To place an`.o-label` just below its orbit.
   - **`.outer-orbit`:** To place `.o-label` just above its orbit.
   - **`.quarter-inner-orbit`:** To place `.o-label` a 25% into its orbit.
