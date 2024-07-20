@@ -8,7 +8,7 @@ title: o-label web-component
   
 - **o-label size:** Each `.o-label` can be adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the o-label to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-label to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
   
-- **Look and feel:** o-label has some special attributes: `color` to set its text color, `text-anchor` (start, middle, end) to align text along path, and `bgcolor` to define background color.
+- **Look and feel:** o-label has some special attributes: `text-anchor` (start, middle, end) to align text, and `fit-range` to expand text to path length. To change o-label path color use CSS custom var `--color` and `--hover-color` in a `o-label` style. To modify font size you can set `font-size` in a `o-label` style tag or use CSS custom var `--font-size`. Nota that font-weight, font-family, etc can be set on `o-label` style tag as well.
 
 - **Adjust radial layout:**
   - **`.angle-*`:** Set arbitrary o-label angle from 0 to 360 degrees, overrriding automatic radial arragement.
