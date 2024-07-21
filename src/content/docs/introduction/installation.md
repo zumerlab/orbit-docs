@@ -82,7 +82,7 @@ Now, create a container with the `orbit-zone` class, and within it, add a radial
 You can also install Orbit using npm or yarn for easier management in your project:
 
 ```sh
-npm install @zumerlab/orbit
+npm install @zumer/orbit
 ```
 
 ## Next steps
