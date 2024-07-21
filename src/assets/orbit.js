@@ -8,9 +8,6 @@
 (() => {
   // src/js/orbit-progress.js
   var OrbitProgress = class extends HTMLElement {
-    static get observedAttributes() {
-      return ["value", "shape", "bar-color", "bg-color", "max", "width", "height"];
-    }
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
@@ -31,14 +28,14 @@
         }
         .progress-bar {
           fill: transparent;
-          stroke: var(--color, var(--o-cyan-light));
+          stroke: var(--o-progress-color);
           transition: stroke 0.3s;
         }
         .progress-bg {
-          stroke: var(--bgcolor, transparent);
+          stroke: var(--o-bg-color, transparent);
         }
         :host(:hover) .progress-bar {
-          stroke: var(--hover-color, var(--color));
+          stroke: var(--o-hover-progress-color, var(--o-progress-color));
           
         }
       </style>
@@ -51,9 +48,12 @@
     }
     connectedCallback() {
       this.update();
-    }
-    attributeChangedCallback() {
-      this.update();
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          this.update();
+        });
+      });
+      observer.observe(this, { attributes: true, childList: true });
     }
     update() {
       const { shape } = this.getAttributes();
@@ -116,7 +116,7 @@
         getComputedStyle(this).getPropertyValue("--o-progress") || this.getAttribute("value") || 0
       );
       const shape = this.getAttribute("shape") || "none";
-      const progressBarColor = this.getAttribute("bar-color") || "var(--o-cyan-light)";
+      const progressBarColor = this.getAttribute("bar-color");
       const progressBgColor = this.getAttribute("bgcolor") || "transparent";
       const strokeWidth = parseFloat(
         getComputedStyle(this).getPropertyValue("stroke-width") || 1
@@ -240,12 +240,12 @@
           pointer-events: stroke;
         }
        .sector {
-          stroke: var(--color, var(--o-cyan-light));
+          stroke: var(--o-sector-color, var(--o-cyan-light));
           transition: stroke 0.3s;
         }
         
         :host(:hover) .sector {
-          stroke: var(--hover-color, var(--color));
+          stroke: var(--o-hover-sector-color, var(--o-sector-color));
           
         }
    </style>
@@ -264,12 +264,10 @@
       this.update();
       const observer = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
-          if (mutation.type === "attributes") {
-            this.update();
-          }
+          this.update();
         });
       });
-      observer.observe(this, { attributes: true });
+      observer.observe(this, { attributes: true, childList: true });
     }
     update() {
       const { shape } = this.getAttributes();
@@ -294,7 +292,7 @@
       const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue("r") || 0);
       const gap = parseFloat(getComputedStyle(this).getPropertyValue("--o-gap") || 1e-3);
       const shape = this.getAttribute("shape") || "none";
-      const sectorColor = this.getAttribute("sector-color") || "#00ff00";
+      const sectorColor = this.getAttribute("sector-color");
       const rawAngle = getComputedStyle(this).getPropertyValue("--o-angle");
       const strokeWidth = parseFloat(getComputedStyle(this).getPropertyValue("stroke-width") || 1);
       const strokeWithPercentage = strokeWidth / 2 * 100 / orbitRadius / 2;
@@ -417,14 +415,15 @@
         svg * {
           pointer-events: stroke;
         }
+        
         path {
           fill: transparent;
-          stroke: var(--color, transparent);
+          stroke: var(--o-label-color);
           transition: stroke 0.3s;
         }
        
         :host(:hover) path {
-          stroke: var(--hover-color, var(--color));
+          stroke: var(--o-hover-label-color, var(--o-label-color));
           
         }
       

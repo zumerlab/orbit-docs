@@ -7,7 +7,7 @@
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-79816-VcLQiZRrNb99/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-84657-gwGj3rAVy3Ol/orbit/src/orbit.css */
 .orbit-zone * {
   box-sizing: border-box;
   margin: 0;
@@ -55,8 +55,6 @@
   align-items: center;
   justify-content: center;
   border: none;
-}
-.satellite > .orbit-zone {
 }
 .orbit,
 [class*=orbit-]:not(.orbit-zone) {
@@ -4837,9 +4835,6 @@ o-label.rounded {
 .gooey-fx-max {
   filter: url('data:image/svg+xml,  <svg xmlns="http://www.w3.org/2000/svg">  <filter id="fancy-goo">  <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur" />  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />  <feComposite in="SourceGraphic" in2="goo" operator="atop" />  </filter>  </svg>#fancy-goo');
 }
-.dev-orbit * {
-  border: 0.2px solid var(--o-cyan) !important;
-}
 @supports not selector(:has(a)) {
   .orbit-zone {
     border: 3px dotted red !important;
@@ -4874,7 +4869,7 @@ o-label.rounded {
   }
 }
 .orbit-zone:has(> *:not(.orbit, [class*=orbit-])) {
-  border: 3px dotted red !important;
+  border: 2px dotted red !important;
 }
 .orbit-zone:has(> *:not(.orbit, [class*=orbit-])) > * {
   filter: grayscale(1) opacity(0.2);
@@ -5002,19 +4997,109 @@ o-label.rounded {
   --o-gray-darker: color-mix(in oklab, var(--o-gray), black 40%);
   --o-gray-black: color-mix(in oklab, var(--o-gray), black 78%);
 }
+.orbit-zone {
+  background: none;
+  border: none;
+}
 .orbit,
 [class*=orbit-]:not(.orbit-zone) {
   border: 1px solid transparent;
 }
 .satellite {
-  background-color: var(--o-color-white);
-  border: 1px solid var(--o-gray);
+  background-color: transparent;
+  border: 1px solid currentcolor;
 }
 .spoke {
   border: none;
-  background: var(--o-gray-light);
+  background: currentcolor;
 }
 .segment {
   border: none;
-  background: var(--o-gray-light);
+  background: currentcolor;
+}
+o-progress {
+  --o-progress-color: currentcolor;
+  --o-hover-progress-color: currentcolor;
+  --o-bg-color: transparent;
+}
+o-sector {
+  --o-sector-color: currentcolor;
+  --o-hover-sector-color: currentcolor;
+}
+o-label {
+  --o-label-color: transparent;
+  --o-hover-label-color: transparent;
+  color: currentColor;
+}
+.dev-orbit.orbit-zone {
+  background: none;
+  border: 0.2px dashed var(--o-red-light);
+}
+.dev-orbit .orbit-zone {
+  background: none;
+  border: 0.2px dashed var(--o-red-light);
+}
+.dev-orbit .orbit,
+.dev-orbit [class*=orbit-]:not(.orbit-zone) {
+  border: 0.2px solid var(--o-red-light);
+}
+.dev-orbit .satellite {
+  background-color: transparent;
+  border: 1px solid currentColor;
+}
+.dev-orbit .spoke {
+  border: none;
+  background: currentColor;
+}
+.dev-orbit .segment {
+  border: none;
+  background: currentColor;
+}
+.dev-orbit o-progress {
+  --o-progress-color: currentColor;
+  --o-hover-progress-color: currentColor;
+  --o-bg-color: transparent;
+}
+.dev-orbit o-sector {
+  --o-sector-color: currentColor;
+  --o-hover-sector-color: currentColor;
+}
+.dev-orbit o-label {
+  --o-label-color: transparent;
+  --o-hover-label-color: transparent;
+  color: currentcolor;
+}
+.theme-cyan .orbit-zone {
+  background: none;
+  border: none;
+}
+.theme-cyan .orbit,
+.theme-cyan [class*=orbit-]:not(.orbit-zone) {
+  border: 1px solid transparent;
+}
+.theme-cyan .satellite {
+  background-color: transparent;
+  border: 1px solid var(--o-cyan);
+}
+.theme-cyan .spoke {
+  border: none;
+  background: var(--o-cyan);
+}
+.theme-cyan .segment {
+  border: none;
+  background: var(--o-cyan);
+}
+.theme-cyan o-progress {
+  --o-progress-color: var(--o-cyan);
+  --o-hover-progress-color: var(--o-cyan);
+  --o-bg-color: transparent;
+}
+.theme-cyan o-sector {
+  --o-sector-color: var(--o-cyan);
+  --o-hover-sector-color: var(--o-cyan);
+}
+.theme-cyan o-label {
+  --o-label-color: transparent;
+  --o-hover-label-color: transparent;
+  color: var(--o-cyan);
 }

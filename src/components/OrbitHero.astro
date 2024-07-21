@@ -16,7 +16,7 @@ const { data } = Astro.props.entry;
   <div class="o-container" style="height: 500px">
     <div class="orbit-zone">
       <div class="orbit-12 range-90 from-180" style="--o-orbit-number: 15">
-        <o-sector  style="--color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <o-sector  style="--o-sector-color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite logo-ball"></div>
       </div>
       <div class="small-orbit orbit-5 dashed"></div>
@@ -70,11 +70,11 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-80" style="border: 4px solid var(--primary-color)"></div>
       </div>
       <div class="orbit-9 range-180 from-0">
-        <o-sector  style="--color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <o-sector  style="--o-sector-color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270 action-sector ">
-        <o-sector shape="circle" style="--color: var(--primary-color)" ></o-sector>
+        <o-sector shape="circle" style="--o-sector-color: var(--primary-color)" ></o-sector>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -113,7 +113,7 @@ const { data } = Astro.props.entry;
   <div class="o-container " style="height: 500px">
     <div class="orbit-zone">
       <div class="orbit-11 range-90 from-270" style="--o-orbit-number: 15">
-        <o-sector  style="--color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <o-sector  style="--o-sector-color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite text-ball"></div>
       </div>
       <div class="orbit-10">
@@ -142,7 +142,7 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-270" >
           <div class="orbit-zone">
             <div class="orbit-12 range-170 from-351">
-              <o-sector  style="--color: var(--primary-color)"  class="reduce-70"></o-sector>
+              <o-sector  style="--o-sector-color: var(--primary-color)"  class="reduce-70"></o-sector>
               <div class="satellite component-ball"></div>
             </div>
             
@@ -271,7 +271,7 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-90" >
           <div class="orbit-zone">
             <div class="orbit-12 range-150 from-190">
-              <o-sector  style="--color: var(--primary-color)"  class="reduce-70"></o-sector>
+              <o-sector  style="--o-sector-color: var(--primary-color)"  class="reduce-70"></o-sector>
 
             </div>
             <div class="orbit-0">
@@ -360,16 +360,16 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-90" >
           <div class="orbit-zone">
             <div class="orbit-11 range-230 from-10">
-              <o-sector  style="--color: var(--primary-color)"  class="reduce-70"></o-sector>
+              <o-sector  style="--o-sector-color: var(--primary-color)"  class="reduce-70"></o-sector>
             </div>
             <div class="orbit-9 from-180 ring">
-              <o-sector class="gap-1 reduce-80 outer-orbit sectors-sector" style="--color: var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit progress-sector" style="--color: var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit labels-sector" style="--color: var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit segments-sector" style="--color: var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit spokes-sector" style="--color: var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit orbits-sector" style="--color: var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit satellites-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit sectors-sector" style="--o-sector-color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit progress-sector" style="--o-sector-color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit labels-sector" style="--o-sector-color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit segments-sector" style="--o-sector-color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit spokes-sector" style="--o-sector-color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit orbits-sector" style="--o-sector-color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit satellites-sector" style="--o-sector-color: var(--background-color)"></o-sector>
             </div>
             
 
@@ -388,10 +388,10 @@ const { data } = Astro.props.entry;
           <o-label flip   text-anchor="middle" label-color="rgb(163,163,163)" class="demo-curved">500 • 30 • 12</o-label>
         </div>
         <div class="calendar orbit-11 from-215 range-30">
-          <o-label flip style="--bg-color: rgb(57,57,57); --color: rgb(163,163,163); " text-anchor="middle"
+          <o-label flip style="--bg-color: rgb(57,57,57); --o-label-color: rgb(163,163,163); " text-anchor="middle"
             class="gap-3 rounded previous">22</o-label>
-          <o-label flip style="color: white;  --color: black; " text-anchor="middle" class="current gap-3 rounded">23</o-label>
-          <o-label flip style="--bg-color: rgb(57,57,57); --color: rgb(163,163,163); " text-anchor="middle"
+          <o-label flip style="color: white;  --o-label-color: black; " text-anchor="middle" class="current gap-3 rounded">23</o-label>
+          <o-label flip style="--bg-color: rgb(57,57,57); --o-label-color: rgb(163,163,163); " text-anchor="middle"
             class="gap-3 rounded next">24</o-label>
         </div>
         <div class="orbit-12 from-227 range-12 ">
@@ -842,7 +842,7 @@ const { data } = Astro.props.entry;
       </div>
             
             <div class="orbit-12 range-60 from-120" style="--o-orbit-number: 13">
-              <o-sector  style="--color: var(--primary-color)"  class="reduce-80"></o-sector>
+              <o-sector  style="--o-sector-color: var(--primary-color)"  class="reduce-80"></o-sector>
               <div class="satellite feature-ball"></div>
             </div>
             <div class="orbit-9">
@@ -890,9 +890,9 @@ const { data } = Astro.props.entry;
                  
                   
                   <div class="orbit-4 from-0 range-180" >
-                    <o-sector style="--color: var(--primary-color)" class="gap-2 reduce-70 selector-innovative-sector"></o-sector>
-                    <o-sector style="--color: var(--primary-color)" class="gap-2 reduce-70 selector-easy-sector"></o-sector>
-                    <o-sector style="--color: var(--primary-color)" class="gap-2 reduce-70 selector-seamless-sector"></o-sector>
+                    <o-sector style="--o-sector-color: var(--primary-color)" class="gap-2 reduce-70 selector-innovative-sector"></o-sector>
+                    <o-sector style="--o-sector-color: var(--primary-color)" class="gap-2 reduce-70 selector-easy-sector"></o-sector>
+                    <o-sector style="--o-sector-color: var(--primary-color)" class="gap-2 reduce-70 selector-seamless-sector"></o-sector>
                   </div>
                  
                  
@@ -991,13 +991,13 @@ const { data } = Astro.props.entry;
         </div>
       </div>
             <div class="orbit-10 range-230 from-130">
-              <o-sector  style="--color: var(--primary-color)"  class="reduce-80"></o-sector>
+              <o-sector  style="--o-sector-color: var(--primary-color)"  class="reduce-80"></o-sector>
               <div class="satellite lastaction-ball"></div>
             </div>
             <div class="orbit-zone">
              
               <div class="orbit-6 range-90 from-90">
-                <o-sector  style="--color: var(--primary-color)"  shape="circle" class="grow-x"></o-sector>
+                <o-sector  style="--o-sector-color: var(--primary-color)"  shape="circle" class="grow-x"></o-sector>
               </div>
               
               <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -1032,21 +1032,16 @@ const { data } = Astro.props.entry;
     </div>
   </div>
 </section>
-<section class="features" style="margin-top: 220px !important; height: auto; color: var(--secondary-color);
-display: grid;
-grid-auto-flow: column;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto ;
+<section class="features" style="margin: auto;max-width: 800px; margin-top: 220px !important; height: auto; color: var(--secondary-color);
+  padding: 30px !important; column-count: 3;
+  ">
 
-  grid-gap: 10px;">
-<div>
   <h2>Documentation</h2>
-
+  <br>
   <h4>Getting started</h4>
   <p><a href="/introduction/">About Orbit</a></p>
   <p><a href="/introduction/installation">Installation</a></p>
-</div>
-<div>
+  <br>
   <h4>Elements</h4>
   <p><a href="/elements/orbit-zone">orbit-zone</a></p>
   <p><a href="/elements/orbit">orbit</a></p>
@@ -1057,22 +1052,18 @@ grid-auto-flow: column;
   <p><a href="/elements/progress">o-progress</a></p>
   <p><a href="/elements/label">o-label</a></p>
   <p><a href="/elements/capsule">capsule</a></p>
-</div>
-<div>
   <h4>Tools</h4>
   <p><a href="/tools/support">Visual aids</a></p>
   <p><a href="/tools/orbit-resize">Auto resize</a></p>
-</div>
+  <br>
+  <h2>Community</h2>
+  <p><a href="https://github.com/zumerlab/orbit" target="_blank">Github</a></p>
+  <p><a href="https://t.me/ZumlyCommunity" target="_blank">Telegram</a></p>
 
-<div>
-<h2>Community</h2>
-<p><a href="https://github.com/zumerlab/orbit" target="_blank">Github</a></p>
-<p><a href="https://t.me/ZumlyCommunity" target="_blank">Telegram</a></p>
-</div>
 
 </section>
 <section class="features" style="margin-top: 50px !important; text-align: center; color: var(--secondary-color);">
- <img src="/favicon.svg" width="24" style="vertical-align: text-top;"> Orbit - Copyright (c) 2024 <a href="https://github.com/zumerlab/">ZumerLab</a> <br> Released under <a href="https://github.com/zumerlab/orbit/LICENSE">MIT license</a> - Made by Humans
+ <img src="/favicon.svg" width="24" style="vertical-align: text-top;"> Orbit - Copyright © 2024 <a href="https://github.com/zumerlab/">ZumerLab</a> <br> Released under <a href="https://github.com/zumerlab/orbit/LICENSE">MIT license</a> - Made by Humans
 </section>
 </div>
 
@@ -1090,11 +1081,6 @@ grid-auto-flow: column;
   </style>
 <style>
 
-  .orbit-zone{
-  
-    --o-size-ratio: 1; //reset
-  }
-  
   .orbits,.satellites,.sectors,.progresss,.segments,.spokes,.curved-text {
     background-color: var(--background-color);
     border: 4px solid var(--primary-color) !important; color: var(--secondary-color) !important;
@@ -1547,7 +1533,7 @@ const integration =  document.querySelector('.selector-integration-frame');
         orbitsCase.style.scale = 1;
         orbitsLabel.style.opacity = 1;
         //orbits?.classList.add('activecomponent')
-        orbitsSector.style.setProperty('--color', 'var(--secondary-color)')
+        orbitsSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
         demoText.innerHTML = 'Composing DEMO 12%'
       }
       checkorbits = true
@@ -1559,7 +1545,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checksatellites) {
         satellitesCase.style.scale = 1;
         satellitesLabel.style.opacity = 1;
-      satellitesSector.style.setProperty('--color', 'var(--secondary-color)')
+      satellitesSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 34%'
       }
       checksatellites = true
@@ -1570,7 +1556,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checksectors) {
         sectorsCase.style.scale = 1;
         sectorsLabel.style.opacity = 1;
-      sectorsSector.style.setProperty('--color', 'var(--secondary-color)')
+      sectorsSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 44%'
       } 
       checksectors = true
@@ -1582,7 +1568,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checkprogress) {
         progresssCase.style.scale = 1;
         progresssLabel.style.opacity = 1;
-      progressSector.style.setProperty('--color', 'var(--secondary-color)')
+      progressSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 55%'
       }
       checkprogress = true
@@ -1594,7 +1580,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checklabel) {
        curvedTextCase.style.scale = 1;
        curvedTextLabel.style.opacity = 1;
-      labelsSector.style.setProperty('--color', 'var(--secondary-color)')
+      labelsSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 87%'
       }
       
@@ -1607,7 +1593,7 @@ const integration =  document.querySelector('.selector-integration-frame');
        segmentsCase.style.scale = 1;
        segmentsLabel.style.opacity = 1;  
        
-      segmentsSector.style.setProperty('--color', 'var(--secondary-color)')
+      segmentsSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 91%'
       }
       checksegment = true
@@ -1629,7 +1615,7 @@ const integration =  document.querySelector('.selector-integration-frame');
     let checkdemo = false
     if (scroll >= 1920 ) {
       if (!checkdemo) {
-        spokesSector.style.setProperty('--color', 'var(--secondary-color)')
+        spokesSector.style.setProperty('--o-sector-color', 'var(--secondary-color)')
         demoContainer.style.opacity = 0
       }
       checkdemo = true
