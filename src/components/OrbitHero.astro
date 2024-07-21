@@ -1,13 +1,13 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
 
-import '../assets/css/orbit.min.css';
+import '../assets/orbit.min.css';
 import '../assets/landing.css';
 
 const { data } = Astro.props.entry;
 ---
 <head>
-<script src='../assets/orbit.js'></script>
+<script src='../assets/orbit.min.js'></script>
 </head>
 
 <div class="orbitron paused-animations ">
@@ -16,7 +16,7 @@ const { data } = Astro.props.entry;
   <div class="o-container" style="height: 500px">
     <div class="orbit-zone">
       <div class="orbit-12 range-90 from-180" style="--o-orbit-number: 15">
-        <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <o-sector  style="--color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite logo-ball"></div>
       </div>
       <div class="small-orbit orbit-5 dashed"></div>
@@ -70,11 +70,11 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-80" style="border: 4px solid var(--primary-color)"></div>
       </div>
       <div class="orbit-9 range-180 from-0">
-        <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <o-sector  style="--color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270 action-sector ">
-        <o-sector shape="circle" sector-color="var(--primary-color)" ></o-sector>
+        <o-sector shape="circle" style="--color: var(--primary-color)" ></o-sector>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -113,7 +113,7 @@ const { data } = Astro.props.entry;
   <div class="o-container " style="height: 500px">
     <div class="orbit-zone">
       <div class="orbit-11 range-90 from-270" style="--o-orbit-number: 15">
-        <o-sector  sector-color="var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
+        <o-sector  style="--color: var(--primary-color)"  class="outer-orbit reduce-80"></o-sector>
         <div class="satellite text-ball"></div>
       </div>
       <div class="orbit-10">
@@ -142,7 +142,7 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-270" >
           <div class="orbit-zone">
             <div class="orbit-12 range-170 from-351">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-70"></o-sector>
+              <o-sector  style="--color: var(--primary-color)"  class="reduce-70"></o-sector>
               <div class="satellite component-ball"></div>
             </div>
             
@@ -150,7 +150,7 @@ const { data } = Astro.props.entry;
               
               <div class="satellite grow-3x orbits noactivecomponent" style="">
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit-3" style="border: 1px solid var(--secondary-color)"></div>
                     <div class="orbit-6" style="border: 1px solid var(--secondary-color)"></div>
                     <div class="orbit-9" style="border: 1px solid var(--secondary-color)"></div>
@@ -176,7 +176,7 @@ const { data } = Astro.props.entry;
 
               <div class="satellite grow-3x satellites noactivecomponent">
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit" ></div>
                     <div class="orbit-5" >
                       <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
@@ -209,22 +209,22 @@ const { data } = Astro.props.entry;
               </div>
               <div class="satellite grow-3x sectors noactivecomponent">
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit-4">
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1"></o-sector>
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
-                      <o-sector  sector-color="var(--secondary-color)" class="gap-1"></o-sector>
-                      <o-sector  sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
-                      <o-sector  sector-color="var(--secondary-color)" class="gap-1 grow-3x"></o-sector>
-                      <o-sector  sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                      <o-sector   class="gap-1"></o-sector>
+                      <o-sector   class="gap-1 grow-2x"></o-sector>
+                      <o-sector   class="gap-1 grow-3x"></o-sector>
+                      <o-sector   class="gap-1 grow-2x"></o-sector>
                     </div>
                     <div class="orbit-11">
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1"></o-sector>
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1 grow-3x"></o-sector>
-                      <o-sector sector-color="var(--secondary-color)" class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
+                      <o-sector  class="gap-1 grow-3x"></o-sector>
+                      <o-sector  class="gap-1 grow-2x"></o-sector>
                     </div>
                   </div>
                   <div class="orbit-4  label" style="opacity: 0">
@@ -236,15 +236,15 @@ const { data } = Astro.props.entry;
               </div>
               <div class="satellite grow-3x progresss noactivecomponent" >
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit-7">
-                      <o-progress bar-color="var(--secondary-color)" value="40"/> 
+                      <o-progress  value="40"/> 
                     </div>
                     <div class="orbit-9">
-                      <o-progress bar-color="var(--secondary-color)" value="60"/> 
+                      <o-progress  value="60"/> 
                     </div>
                     <div class="orbit-11">
-                      <o-progress bar-color="var(--secondary-color)" value="80"/> 
+                      <o-progress  value="80"/> 
                     </div>
                   </div>
                   <div class="orbit-4  label" style="opacity: 0">
@@ -271,7 +271,7 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-90" >
           <div class="orbit-zone">
             <div class="orbit-12 range-150 from-190">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-70"></o-sector>
+              <o-sector  style="--color: var(--primary-color)"  class="reduce-70"></o-sector>
 
             </div>
             <div class="orbit-0">
@@ -283,7 +283,7 @@ const { data } = Astro.props.entry;
             <div class="orbit-12 range-140 from-240">
               <div class="satellite grow-3x spokes noactivecomponent">
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit-11">
                       <div class="spoke grow-1x" style="background-color: var(--secondary-color)"></div>
                       <div class="spoke grow-1x" style="background-color: var(--secondary-color)"></div>
@@ -308,7 +308,7 @@ const { data } = Astro.props.entry;
               </div>
               <div class="satellite grow-3x segments noactivecomponent" >
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit-11">
                       <div class="segment" style="background-color: var(--secondary-color)"></div>
                       <div class="segment" style="background-color: var(--secondary-color)"></div>
@@ -333,9 +333,9 @@ const { data } = Astro.props.entry;
               </div>
               <div class="satellite grow-3x curved-text noactivecomponent">
                 <div class="orbit-zone">
-                  <div class="orbit-zone case" style="--o-lenght: 100px; scale: 0">
+                  <div class="orbit-zone case" style="--o-length: 100px; scale: 0">
                     <div class="orbit-10">
-                      <o-label label-color="var(--secondary-color)" class="component-label"> curved texts  -  curved texts  - </o-label>
+                      <o-label label-color="var(--secondary-color)" fit-range class="component-label">curved texts  -  curved texts - </o-label>
                     </div>
                   </div>
                   <div class="orbit-4  label" style="opacity: 0">
@@ -360,16 +360,16 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-90" >
           <div class="orbit-zone">
             <div class="orbit-11 range-230 from-10">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-70"></o-sector>
+              <o-sector  style="--color: var(--primary-color)"  class="reduce-70"></o-sector>
             </div>
             <div class="orbit-9 from-180 ring">
-              <o-sector class="gap-1 reduce-80 outer-orbit sectors-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit progress-sector" sector-color="var(--secondary-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit labels-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit segments-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit spokes-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit orbits-sector" sector-color="var(--background-color)"></o-sector>
-              <o-sector class="gap-1 reduce-80 outer-orbit satellites-sector" sector-color="var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit sectors-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit progress-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit labels-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit segments-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit spokes-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit orbits-sector" style="--color: var(--background-color)"></o-sector>
+              <o-sector class="gap-1 reduce-80 outer-orbit satellites-sector" style="--color: var(--background-color)"></o-sector>
             </div>
             
 
@@ -378,7 +378,7 @@ const { data } = Astro.props.entry;
         </div>
       </div>
       <!-- clock -->
-      <div class="orbit-zone clock-frame" style="--o-lenght: 320px">
+      <div class="orbit-zone clock-frame" style="color: slategray; --o-length: 320px">
         <!-- curved text -->
         <div class="orbit-11 from-270 range-180">
           <o-label label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved" >ALARM 7:00AM</o-label>
@@ -388,14 +388,14 @@ const { data } = Astro.props.entry;
           <o-label flip   text-anchor="middle" label-color="rgb(163,163,163)" class="demo-curved">500 • 30 • 12</o-label>
         </div>
         <div class="calendar orbit-11 from-215 range-30">
-          <o-label flip bg-color="rgb(57,57,57)" label-color="rgb(163,163,163)" text-anchor="middle"
+          <o-label flip style="--bg-color: rgb(57,57,57); --color: rgb(163,163,163); " text-anchor="middle"
             class="gap-3 rounded previous">22</o-label>
-          <o-label flip bg-color="rgb(163,163,163)" text-anchor="middle" class="current gap-3 rounded">23</o-label>
-          <o-label flip bg-color="rgb(57,57,57)" label-color="rgb(163,163,163)" text-anchor="middle"
+          <o-label flip style="color: white;  --color: black; " text-anchor="middle" class="current gap-3 rounded">23</o-label>
+          <o-label flip style="--bg-color: rgb(57,57,57); --color: rgb(163,163,163); " text-anchor="middle"
             class="gap-3 rounded next">24</o-label>
         </div>
         <div class="orbit-12 from-227 range-12 ">
-          <o-label flip label-color="white" text-anchor="middle" class="outer-orbit day-name"></o-label>
+          <o-label flip style="color: white;" text-anchor="middle" class="outer-orbit day-name"></o-label>
         </div>
         <!-- big clock ticks -->
         <div class="orbit-10 white-smoke-spot">
@@ -565,7 +565,7 @@ const { data } = Astro.props.entry;
           </div>
           <!-- small clocks -->
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 320px">
+            <div class="orbit-zone" style="--o-length: 320px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -621,7 +621,7 @@ const { data } = Astro.props.entry;
             </div>
           </div>
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 320px">
+            <div class="orbit-zone" style="--o-length: 320px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -714,7 +714,7 @@ const { data } = Astro.props.entry;
             </div>
           </div>
           <div class="small-clock satellite transparent">
-            <div class="orbit-zone" style="--o-lenght: 320px">
+            <div class="orbit-zone" style="--o-length: 320px">
               <div class="small orbit-2 reduce-20 white-spot">
                 <div class="spoke reduce-80 inner-orbit"></div>
                 <div class="spoke reduce-80 inner-orbit"></div>
@@ -822,7 +822,7 @@ const { data } = Astro.props.entry;
 
       <div class="orbit-9 demo-progress-container ">
         <div class="satellite at-center grow-9x">
-          <div class="capsule turn-left demo-progress" style="color: white; font-size: 20px">
+          <div class="capsule demo-progress" style="color: white; font-size: 20px">
 
           </div>
         </div>
@@ -842,7 +842,7 @@ const { data } = Astro.props.entry;
       </div>
             
             <div class="orbit-12 range-60 from-120" style="--o-orbit-number: 13">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
+              <o-sector  style="--color: var(--primary-color)"  class="reduce-80"></o-sector>
               <div class="satellite feature-ball"></div>
             </div>
             <div class="orbit-9">
@@ -890,9 +890,9 @@ const { data } = Astro.props.entry;
                  
                   
                   <div class="orbit-4 from-0 range-180" >
-                    <o-sector sector-color="var(--primary-color)" class="gap-2 reduce-70 selector-innovative-sector"></o-sector>
-                    <o-sector sector-color="var(--primary-color)" class="gap-2 reduce-70 selector-easy-sector"></o-sector>
-                    <o-sector sector-color="var(--primary-color)" class="gap-2 reduce-70 selector-seamless-sector"></o-sector>
+                    <o-sector style="--color: var(--primary-color)" class="gap-2 reduce-70 selector-innovative-sector"></o-sector>
+                    <o-sector style="--color: var(--primary-color)" class="gap-2 reduce-70 selector-easy-sector"></o-sector>
+                    <o-sector style="--color: var(--primary-color)" class="gap-2 reduce-70 selector-seamless-sector"></o-sector>
                   </div>
                  
                  
@@ -991,13 +991,13 @@ const { data } = Astro.props.entry;
         </div>
       </div>
             <div class="orbit-10 range-230 from-130">
-              <o-sector  sector-color="var(--primary-color)"  class="reduce-80"></o-sector>
+              <o-sector  style="--color: var(--primary-color)"  class="reduce-80"></o-sector>
               <div class="satellite lastaction-ball"></div>
             </div>
             <div class="orbit-zone">
              
               <div class="orbit-6 range-90 from-90">
-                <o-sector  sector-color="var(--primary-color)"  shape="circle" class="grow-x"></o-sector>
+                <o-sector  style="--color: var(--primary-color)"  shape="circle" class="grow-x"></o-sector>
               </div>
               
               <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -1184,16 +1184,16 @@ grid-auto-flow: column;
     }
 
    .component-label   {
-      font-size: 25px;
+      font-size: 16px;
       font-weight: 500
     }
     .demo-curved {
-      font-size: 5px;
+      font-size: 15px;
       font-weight: bold;
     }
 
     .calendar {
-      font-size: 3.5px;
+      font-size: 15px;
       font-weight: bold;
     }
 
@@ -1202,7 +1202,7 @@ grid-auto-flow: column;
     }
 
     .day-name {
-      font-size: 3.5px;
+      font-size: 15px;
       text-transform: uppercase;
       font-weight: bold;
     }
@@ -1213,7 +1213,7 @@ grid-auto-flow: column;
     width: 0px !important
   }
   section > .orbit-zone {
-    width: var(--o-lenght) ;
+    width: var(--o-length) ;
   }
   .dev [class*='orbit-']{
  border: 1px solid #cccccc40
@@ -1547,7 +1547,7 @@ const integration =  document.querySelector('.selector-integration-frame');
         orbitsCase.style.scale = 1;
         orbitsLabel.style.opacity = 1;
         //orbits?.classList.add('activecomponent')
-        orbitsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+        orbitsSector.style.setProperty('--color', 'var(--secondary-color)')
         demoText.innerHTML = 'Composing DEMO 12%'
       }
       checkorbits = true
@@ -1559,7 +1559,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checksatellites) {
         satellitesCase.style.scale = 1;
         satellitesLabel.style.opacity = 1;
-      satellitesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      satellitesSector.style.setProperty('--color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 34%'
       }
       checksatellites = true
@@ -1570,7 +1570,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checksectors) {
         sectorsCase.style.scale = 1;
         sectorsLabel.style.opacity = 1;
-      sectorsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      sectorsSector.style.setProperty('--color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 44%'
       } 
       checksectors = true
@@ -1582,8 +1582,8 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checkprogress) {
         progresssCase.style.scale = 1;
         progresssLabel.style.opacity = 1;
-      progressSector?.setAttribute('sector-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing DEMO 55'
+      progressSector.style.setProperty('--color', 'var(--secondary-color)')
+      demoText.innerHTML = 'Composing DEMO 55%'
       }
       checkprogress = true
       
@@ -1594,7 +1594,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checklabel) {
        curvedTextCase.style.scale = 1;
        curvedTextLabel.style.opacity = 1;
-      labelsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      labelsSector.style.setProperty('--color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 87%'
       }
       
@@ -1607,7 +1607,7 @@ const integration =  document.querySelector('.selector-integration-frame');
        segmentsCase.style.scale = 1;
        segmentsLabel.style.opacity = 1;  
        
-      segmentsSector?.setAttribute('sector-color', 'var(--secondary-color)')
+      segmentsSector.style.setProperty('--color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 91%'
       }
       checksegment = true
@@ -1629,7 +1629,7 @@ const integration =  document.querySelector('.selector-integration-frame');
     let checkdemo = false
     if (scroll >= 1920 ) {
       if (!checkdemo) {
-        spokesSector?.setAttribute('sector-color', 'var(--secondary-color)')
+        spokesSector.style.setProperty('--color', 'var(--secondary-color)')
         demoContainer.style.opacity = 0
       }
       checkdemo = true
