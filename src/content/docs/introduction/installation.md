@@ -9,7 +9,7 @@ Get ready to explore the innovative approach of radial design with Orbit! This g
 To start using Orbit, include its CSS in your HTML file. You have two options:
 
 1. **Download or Import the CSS file**:
-   - **Download**: Download the CSS file from [Orbit's repository](#) and link it in your HTML file:
+   - **Download**: Download the CSS file from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css) and link it in your HTML file:
      ```html
      <head>
        <link rel="stylesheet" href="path/to/orbit.css">
@@ -24,7 +24,7 @@ To start using Orbit, include its CSS in your HTML file. You have two options:
    - Add this to your HTML file:
      ```html
      <head>
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@zumerlab/orbit/orbit.css">
+       <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
      </head>
      ```
 
@@ -33,7 +33,7 @@ To start using Orbit, include its CSS in your HTML file. You have two options:
 If you plan to use additional features like radial progress bars, curved text, and sectors, include Orbit's JavaScript. You can do this in two ways:
 
 1. **Download the JavaScript file**:
-   - Download from [Orbit's repository](#).
+   - Download from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js).
    - Link it in your HTML file:
      ```html
      <head>
@@ -45,7 +45,7 @@ If you plan to use additional features like radial progress bars, curved text, a
    - Add this to your HTML file:
      ```html
      <head>
-       <script src="https://cdn.jsdelivr.net/npm/@zumerlab/orbit/orbit.js" defer></script>
+       <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js" defer></script>
      </head>
      ```
 
