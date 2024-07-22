@@ -6,9 +6,6 @@ import '../assets/landing.css';
 
 const { data } = Astro.props.entry;
 ---
-<head>
-<script src='../assets/orbit.min.js'></script>
-</head>
 
 <div class="orbitron paused-animations ">
 <!-- logo -->
@@ -1066,6 +1063,7 @@ const { data } = Astro.props.entry;
  <img src="/orbit-docs/favicon.svg" width="24" style="vertical-align: text-top;"> Orbit - Copyright © 2024 <a href="https://github.com/zumerlab/">ZumerLab</a> <br> Released under <a href="https://github.com/zumerlab/orbit/LICENSE">MIT license</a> - Made by Humans
 </section>
 </div>
+<script type="module" src='/orbit-docs/orbit.min.js'></script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
