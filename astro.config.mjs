@@ -26,7 +26,7 @@ export default defineConfig({
       github: 'https://github.com/zumerlab/orbit'
     },
     editLink: {
-      baseUrl: 'https://github.com/zumerlab/orbit-docs/edit/main/src/content/docs/',
+      baseUrl: 'https://github.com/zumerlab/orbit-docs/edit/main/',
     },
     sidebar: [{
       label: 'Getting started',
