@@ -23,7 +23,10 @@ export default defineConfig({
       PageFrame: './src/components/OrbitPageFrame.astro'
     },
     social: {
-      github: 'https://github.com/zumerlab/orbit-orbit'
+      github: 'https://github.com/zumerlab/orbit'
+    },
+    editLink: {
+      baseUrl: 'https://github.com/zumerlab/orbit-docs/edit/main/src/content/docs/',
     },
     sidebar: [{
       label: 'Getting started',
