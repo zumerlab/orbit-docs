@@ -12,7 +12,9 @@ export default defineConfig({
       themes: ['starlight-light'],
       useStarlightDarkModeSwitch: false
     },
-    title: 'Orbit',
+    title: 'Orbit - The CSS radial UI composer',
+    description: 'Get started building an amazing cool radial UI',
+
     disable404Route: true,
     logo: {
       light: './src/assets/light-orbit.svg',
@@ -24,7 +26,8 @@ export default defineConfig({
       Footer: './src/components/OrbitFooter.astro'
     },
     social: {
-      github: 'https://github.com/zumerlab/orbit'
+      github: 'https://github.com/zumerlab/orbit',
+      telegram: 'https://t.me/ZumlyCommunity'
     },
     editLink: {
       baseUrl: 'https://github.com/zumerlab/orbit-docs/edit/main/',
