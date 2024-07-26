@@ -12,8 +12,8 @@ export default defineConfig({
       themes: ['starlight-light'],
       useStarlightDarkModeSwitch: false
     },
-    title: 'Orbit - The CSS radial UI composer',
-    description: 'Get started building an amazing cool radial UI',
+    title: 'Orbit - Documentation',
+    description: 'Get started building an amazing cool radial UI with CSS',
 
     disable404Route: true,
     logo: {
