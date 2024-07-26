@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://zumerlab.github.io/orbit-docs',
-  // base: 'orbit-docs',
+  base: 'orbit-docs',
   integrations: [starlight({
     expressiveCode: {
       themes: ['starlight-light'],
