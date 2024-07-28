@@ -12,11 +12,11 @@ Before implementing features reliant on the `has()` CSS rule, it's essential to 
 
 Orbit incorporates visual cues to identify and warn developers of invalid nested elements within orbit structures:
 
-- **Invalid Child elements within `.orbit-zone`:** Orbit detects and notifies developers if `.orbit-zone` contains invalid direct child elements. Only  `.orbit-zoee`, and `.orbit` or `.orbit-*` elements are permissible within `.orbit-zone`.
+- **Invalid Child elements within `.gravity-spot`:** Orbit detects and notifies developers if `.gravity-spot` contains invalid direct child elements. Only  `.orbit-zoee`, and `.orbit` or `.orbit-*` elements are permissible within `.gravity-spot`.
 
-- **Invalid Child elements within `.satellite`:** Similarly, Orbit checks for and alerts developers if `.satellite` includes invalid direct child elements. Only `.orbit-zone` elements are permitted within `.satellite`.
+- **Invalid Child elements within `.satellite`:** Similarly, Orbit checks for and alerts developers if `.satellite` includes invalid direct child elements. Only `.gravity-spot` elements are permitted within `.satellite`.
 
 
-### Usage Limitation of `o-sector`, `o-label`, and `o-progress`
+### Usage Limitation of `o-slice`, `o-text`, and `o-progress`
 
-For optimal functionality, `o-sector`, `o-label`, and `o-progress` should only be applied within circular orbits. As Orbit currently doesn't support elliptical shapes for these web-components, they will be hidden if detected within incompatible orbit shapes.
+For optimal functionality, `o-slice`, `o-text`, and `o-progress` should only be applied within circular orbits. As Orbit currently doesn't support elliptical shapes for these web-components, they will be hidden if detected within incompatible orbit shapes.

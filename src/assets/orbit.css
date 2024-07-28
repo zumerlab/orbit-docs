@@ -1,180 +1,42 @@
 
 /*
 * orbit
-* v.0.0.1
+* v.0.2.2
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-84657-gwGj3rAVy3Ol/orbit/src/orbit.css */
-.orbit-zone * {
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-66401-ETnkLamRUtNL/orbit/src/orbit.css */
+.gravity-spot * {
   box-sizing: border-box;
   margin: 0;
 }
-.orbit-zone * ::before,
-.orbit-zone * ::after {
+.gravity-spot * ::before,
+.gravity-spot * ::after {
   box-sizing: border-box;
 }
-.orbit-zone * input,
-.orbit-zone * button,
-.orbit-zone * textarea,
-.orbit-zone * select {
+.gravity-spot * input,
+.gravity-spot * button,
+.gravity-spot * textarea,
+.gravity-spot * select {
   font: inherit;
 }
-.orbit-zone * p,
-.orbit-zone * h1,
-.orbit-zone * h2,
-.orbit-zone * h3,
-.orbit-zone * h4,
-.orbit-zone * h5,
-.orbit-zone * h6 {
+.gravity-spot * p,
+.gravity-spot * h1,
+.gravity-spot * h2,
+.gravity-spot * h3,
+.gravity-spot * h4,
+.gravity-spot * h5,
+.gravity-spot * h6 {
   overflow-wrap: break-word;
 }
-.orbit-zone * img,
-.orbit-zone * picture,
-.orbit-zone * video,
-.orbit-zone * canvas,
-.orbit-zone * svg {
+.gravity-spot * img,
+.gravity-spot * picture,
+.gravity-spot * video,
+.gravity-spot * canvas,
+.gravity-spot * svg {
   max-width: unset;
-}
-.orbit-zone {
-  container-name: orbitzone;
-  --o-length: 500px;
-  --o-from: 0deg;
-  --o-range: 360deg;
-  --o-ellipse-x: 1;
-  --o-ellipse-y: 1;
-  --o-fit-range: 0;
-  --o-direction: 1;
-  --o-size-ratio: 1;
-  width: var(--o-length);
-  aspect-ratio: 1;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-}
-.orbit,
-[class*=orbit-]:not(.orbit-zone) {
-  container-name: orbit;
-  --o-base-diameter: var(--o-orbit-number) * var(--o-length) / 12;
-  --o-prev-diameter: (var(--o-orbit-number) - 1) * var(--o-length) / 12;
-  --o-diameter: calc(var(--o-base-diameter) - ((var(--o-base-diameter) - var(--o-prev-diameter)) * var(--o-orbit-ratio, 0)));
-  --o-radius: calc(var(--o-diameter) / 2);
-  width: calc(var(--o-diameter) / var(--o-ellipse-x));
-  height: calc(var(--o-diameter) / var(--o-ellipse-y));
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.satellite {
-  container-name: satellite;
-  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
-  --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite )) ), calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) );
-  transform: var(--o-transform);
-  width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  height: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  pointer-events: all;
-}
-.satellite.at-center {
-  --o-transform: rotate(0deg);
-}
-.satellite.circle {
-  border-radius: 50%;
-}
-.satellite.box {
-  border-radius: 0%;
-}
-.satellite.rounded-box {
-  border-radius: 8px;
-}
-.spoke {
-  container-name: spoke;
-  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
-  --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 1px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite)) ), calc( (var(--o-radius) - var(--o-aligment, 1px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) ) rotate( calc(var(--o-from) + var(--o-angle-composite)) );
-  width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  position: absolute;
-  display: flex;
-  align-items: center;
-  transform: var(--o-transform);
-  height: 1px;
-  pointer-events: none;
-  border: none;
-}
-.spoke.at-center {
-  --o-transform: rotate( calc(var(--o-from) + var(--o-angle-composite)) ) ;
-}
-.segment {
-  container-name: segment;
-  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
-  --o-y: calc(var(--o-radius) * sin(90deg - var(--o-angle) / 2));
-  --o-x: calc(var(--o-radius) * cos(90deg - var(--o-angle) / 2) * 2);
-  --o-transform: rotate( calc(var(--o-from) + var(--o-angle-composite))) translate(0, var(--o-y));
-  width: var(--o-x);
-  position: absolute;
-  padding: 0;
-  transform: var(--o-transform);
-  height: 1px;
-  pointer-events: none;
-  border: none;
-  background: black;
-}
-.segment.outer-orbit {
-  --o-y: calc(var(--o-radius));
-  width: calc(var(--o-radius) * tan(var(--o-angle)/2) * 2);
-}
-o-sector {
-  --o-angle-composite: var(--o-angle) * var(--o-orbit-child-number) * var(--o-direction, 1);
-  container-name: osector;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  position: absolute;
-  pointer-events: none;
-  width: 100%;
-  stroke-dashoffset: var(--o-angle);
-  r: var(--o-radius);
-  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
-}
-o-label {
-  --o-angle-composite: var(--o-angle) * var(--o-orbit-child-number) * var(--o-direction, 1);
-  container-name: otext;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  position: absolute;
-  pointer-events: none;
-  width: 100%;
-  fill: currentColor;
-  r: var(--o-radius);
-  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
-}
-o-progress {
-  container-name: oprogress;
-  r: var(--o-radius);
-  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  transform: rotate(var(--o-from));
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 50%;
-  pointer-events: none;
 }
 .orbit-0 {
   --o-orbit-number: 0.01;
@@ -227,1025 +89,1218 @@ o-progress {
 .orbit-12 {
   --o-orbit-number: 12;
 }
-:nth-child(1 of .segment) {
+:nth-child(13 of .orbit),
+.orbit-13 {
+  --o-orbit-number: 13;
+}
+:nth-child(14 of .orbit),
+.orbit-14 {
+  --o-orbit-number: 14;
+}
+:nth-child(15 of .orbit),
+.orbit-15 {
+  --o-orbit-number: 15;
+}
+:nth-child(16 of .orbit),
+.orbit-16 {
+  --o-orbit-number: 16;
+}
+:nth-child(17 of .orbit),
+.orbit-17 {
+  --o-orbit-number: 17;
+}
+:nth-child(18 of .orbit),
+.orbit-18 {
+  --o-orbit-number: 18;
+}
+:nth-child(19 of .orbit),
+.orbit-19 {
+  --o-orbit-number: 19;
+}
+:nth-child(20 of .orbit),
+.orbit-20 {
+  --o-orbit-number: 20;
+}
+:nth-child(21 of .orbit),
+.orbit-21 {
+  --o-orbit-number: 21;
+}
+:nth-child(22 of .orbit),
+.orbit-22 {
+  --o-orbit-number: 22;
+}
+:nth-child(23 of .orbit),
+.orbit-23 {
+  --o-orbit-number: 23;
+}
+:nth-child(24 of .orbit),
+.orbit-24 {
+  --o-orbit-number: 24;
+}
+:nth-child(1 of .side) {
   --o-orbit-child-number: -1;
 }
-:nth-child(2 of .segment) {
+:nth-child(2 of .side) {
   --o-orbit-child-number: 0;
 }
-:nth-child(3 of .segment) {
+:nth-child(3 of .side) {
   --o-orbit-child-number: 1;
 }
-:nth-child(4 of .segment) {
+:nth-child(4 of .side) {
   --o-orbit-child-number: 2;
 }
-:nth-child(5 of .segment) {
+:nth-child(5 of .side) {
   --o-orbit-child-number: 3;
 }
-:nth-child(6 of .segment) {
+:nth-child(6 of .side) {
   --o-orbit-child-number: 4;
 }
-:nth-child(7 of .segment) {
+:nth-child(7 of .side) {
   --o-orbit-child-number: 5;
 }
-:nth-child(8 of .segment) {
+:nth-child(8 of .side) {
   --o-orbit-child-number: 6;
 }
-:nth-child(9 of .segment) {
+:nth-child(9 of .side) {
   --o-orbit-child-number: 7;
 }
-:nth-child(10 of .segment) {
+:nth-child(10 of .side) {
   --o-orbit-child-number: 8;
 }
-:nth-child(11 of .segment) {
+:nth-child(11 of .side) {
   --o-orbit-child-number: 9;
 }
-:nth-child(12 of .segment) {
+:nth-child(12 of .side) {
   --o-orbit-child-number: 10;
 }
-:nth-child(13 of .segment) {
+:nth-child(13 of .side) {
   --o-orbit-child-number: 11;
 }
-:nth-child(14 of .segment) {
+:nth-child(14 of .side) {
   --o-orbit-child-number: 12;
 }
-:nth-child(15 of .segment) {
+:nth-child(15 of .side) {
   --o-orbit-child-number: 13;
 }
-:nth-child(16 of .segment) {
+:nth-child(16 of .side) {
   --o-orbit-child-number: 14;
 }
-:nth-child(17 of .segment) {
+:nth-child(17 of .side) {
   --o-orbit-child-number: 15;
 }
-:nth-child(18 of .segment) {
+:nth-child(18 of .side) {
   --o-orbit-child-number: 16;
 }
-:nth-child(19 of .segment) {
+:nth-child(19 of .side) {
   --o-orbit-child-number: 17;
 }
-:nth-child(20 of .segment) {
+:nth-child(20 of .side) {
   --o-orbit-child-number: 18;
 }
-:nth-child(21 of .segment) {
+:nth-child(21 of .side) {
   --o-orbit-child-number: 19;
 }
-:nth-child(22 of .segment) {
+:nth-child(22 of .side) {
   --o-orbit-child-number: 20;
 }
-:nth-child(23 of .segment) {
+:nth-child(23 of .side) {
   --o-orbit-child-number: 21;
 }
-:nth-child(24 of .segment) {
+:nth-child(24 of .side) {
   --o-orbit-child-number: 22;
 }
-:nth-child(25 of .segment) {
+:nth-child(25 of .side) {
   --o-orbit-child-number: 23;
 }
-:nth-child(26 of .segment) {
+:nth-child(26 of .side) {
   --o-orbit-child-number: 24;
 }
-:nth-child(27 of .segment) {
+:nth-child(27 of .side) {
   --o-orbit-child-number: 25;
 }
-:nth-child(28 of .segment) {
+:nth-child(28 of .side) {
   --o-orbit-child-number: 26;
 }
-:nth-child(29 of .segment) {
+:nth-child(29 of .side) {
   --o-orbit-child-number: 27;
 }
-:nth-child(30 of .segment) {
+:nth-child(30 of .side) {
   --o-orbit-child-number: 28;
 }
-:nth-child(31 of .segment) {
+:nth-child(31 of .side) {
   --o-orbit-child-number: 29;
 }
-:nth-child(32 of .segment) {
+:nth-child(32 of .side) {
   --o-orbit-child-number: 30;
 }
-:nth-child(33 of .segment) {
+:nth-child(33 of .side) {
   --o-orbit-child-number: 31;
 }
-:nth-child(34 of .segment) {
+:nth-child(34 of .side) {
   --o-orbit-child-number: 32;
 }
-:nth-child(35 of .segment) {
+:nth-child(35 of .side) {
   --o-orbit-child-number: 33;
 }
-:nth-child(36 of .segment) {
+:nth-child(36 of .side) {
   --o-orbit-child-number: 34;
 }
-:nth-child(37 of .segment) {
+:nth-child(37 of .side) {
   --o-orbit-child-number: 35;
 }
-:nth-child(38 of .segment) {
+:nth-child(38 of .side) {
   --o-orbit-child-number: 36;
 }
-:nth-child(39 of .segment) {
+:nth-child(39 of .side) {
   --o-orbit-child-number: 37;
 }
-:nth-child(40 of .segment) {
+:nth-child(40 of .side) {
   --o-orbit-child-number: 38;
 }
-:nth-child(41 of .segment) {
+:nth-child(41 of .side) {
   --o-orbit-child-number: 39;
 }
-:nth-child(42 of .segment) {
+:nth-child(42 of .side) {
   --o-orbit-child-number: 40;
 }
-:nth-child(43 of .segment) {
+:nth-child(43 of .side) {
   --o-orbit-child-number: 41;
 }
-:nth-child(44 of .segment) {
+:nth-child(44 of .side) {
   --o-orbit-child-number: 42;
 }
-:nth-child(45 of .segment) {
+:nth-child(45 of .side) {
   --o-orbit-child-number: 43;
 }
-:nth-child(46 of .segment) {
+:nth-child(46 of .side) {
   --o-orbit-child-number: 44;
 }
-:nth-child(47 of .segment) {
+:nth-child(47 of .side) {
   --o-orbit-child-number: 45;
 }
-:nth-child(48 of .segment) {
+:nth-child(48 of .side) {
   --o-orbit-child-number: 46;
 }
-:nth-child(49 of .segment) {
+:nth-child(49 of .side) {
   --o-orbit-child-number: 47;
 }
-:nth-child(50 of .segment) {
+:nth-child(50 of .side) {
   --o-orbit-child-number: 48;
 }
-:nth-child(51 of .segment) {
+:nth-child(51 of .side) {
   --o-orbit-child-number: 49;
 }
-:nth-child(52 of .segment) {
+:nth-child(52 of .side) {
   --o-orbit-child-number: 50;
 }
-:nth-child(53 of .segment) {
+:nth-child(53 of .side) {
   --o-orbit-child-number: 51;
 }
-:nth-child(54 of .segment) {
+:nth-child(54 of .side) {
   --o-orbit-child-number: 52;
 }
-:nth-child(55 of .segment) {
+:nth-child(55 of .side) {
   --o-orbit-child-number: 53;
 }
-:nth-child(56 of .segment) {
+:nth-child(56 of .side) {
   --o-orbit-child-number: 54;
 }
-:nth-child(57 of .segment) {
+:nth-child(57 of .side) {
   --o-orbit-child-number: 55;
 }
-:nth-child(58 of .segment) {
+:nth-child(58 of .side) {
   --o-orbit-child-number: 56;
 }
-:nth-child(59 of .segment) {
+:nth-child(59 of .side) {
   --o-orbit-child-number: 57;
 }
-:nth-child(60 of .segment) {
+:nth-child(60 of .side) {
   --o-orbit-child-number: 58;
 }
 :nth-child(1 of .satellite),
-:nth-child(1 of o-sector),
-:nth-child(1 of .spoke),
-:nth-child(1 of o-label) {
+:nth-child(1 of o-slice),
+:nth-child(1 of .vector),
+:nth-child(1 of o-text) {
   --o-orbit-child-number: 0;
 }
 :nth-child(2 of .satellite),
-:nth-child(2 of o-sector),
-:nth-child(2 of .spoke),
-:nth-child(2 of o-label) {
+:nth-child(2 of o-slice),
+:nth-child(2 of .vector),
+:nth-child(2 of o-text) {
   --o-orbit-child-number: 1;
 }
 :nth-child(3 of .satellite),
-:nth-child(3 of o-sector),
-:nth-child(3 of .spoke),
-:nth-child(3 of o-label) {
+:nth-child(3 of o-slice),
+:nth-child(3 of .vector),
+:nth-child(3 of o-text) {
   --o-orbit-child-number: 2;
 }
 :nth-child(4 of .satellite),
-:nth-child(4 of o-sector),
-:nth-child(4 of .spoke),
-:nth-child(4 of o-label) {
+:nth-child(4 of o-slice),
+:nth-child(4 of .vector),
+:nth-child(4 of o-text) {
   --o-orbit-child-number: 3;
 }
 :nth-child(5 of .satellite),
-:nth-child(5 of o-sector),
-:nth-child(5 of .spoke),
-:nth-child(5 of o-label) {
+:nth-child(5 of o-slice),
+:nth-child(5 of .vector),
+:nth-child(5 of o-text) {
   --o-orbit-child-number: 4;
 }
 :nth-child(6 of .satellite),
-:nth-child(6 of o-sector),
-:nth-child(6 of .spoke),
-:nth-child(6 of o-label) {
+:nth-child(6 of o-slice),
+:nth-child(6 of .vector),
+:nth-child(6 of o-text) {
   --o-orbit-child-number: 5;
 }
 :nth-child(7 of .satellite),
-:nth-child(7 of o-sector),
-:nth-child(7 of .spoke),
-:nth-child(7 of o-label) {
+:nth-child(7 of o-slice),
+:nth-child(7 of .vector),
+:nth-child(7 of o-text) {
   --o-orbit-child-number: 6;
 }
 :nth-child(8 of .satellite),
-:nth-child(8 of o-sector),
-:nth-child(8 of .spoke),
-:nth-child(8 of o-label) {
+:nth-child(8 of o-slice),
+:nth-child(8 of .vector),
+:nth-child(8 of o-text) {
   --o-orbit-child-number: 7;
 }
 :nth-child(9 of .satellite),
-:nth-child(9 of o-sector),
-:nth-child(9 of .spoke),
-:nth-child(9 of o-label) {
+:nth-child(9 of o-slice),
+:nth-child(9 of .vector),
+:nth-child(9 of o-text) {
   --o-orbit-child-number: 8;
 }
 :nth-child(10 of .satellite),
-:nth-child(10 of o-sector),
-:nth-child(10 of .spoke),
-:nth-child(10 of o-label) {
+:nth-child(10 of o-slice),
+:nth-child(10 of .vector),
+:nth-child(10 of o-text) {
   --o-orbit-child-number: 9;
 }
 :nth-child(11 of .satellite),
-:nth-child(11 of o-sector),
-:nth-child(11 of .spoke),
-:nth-child(11 of o-label) {
+:nth-child(11 of o-slice),
+:nth-child(11 of .vector),
+:nth-child(11 of o-text) {
   --o-orbit-child-number: 10;
 }
 :nth-child(12 of .satellite),
-:nth-child(12 of o-sector),
-:nth-child(12 of .spoke),
-:nth-child(12 of o-label) {
+:nth-child(12 of o-slice),
+:nth-child(12 of .vector),
+:nth-child(12 of o-text) {
   --o-orbit-child-number: 11;
 }
 :nth-child(13 of .satellite),
-:nth-child(13 of o-sector),
-:nth-child(13 of .spoke),
-:nth-child(13 of o-label) {
+:nth-child(13 of o-slice),
+:nth-child(13 of .vector),
+:nth-child(13 of o-text) {
   --o-orbit-child-number: 12;
 }
 :nth-child(14 of .satellite),
-:nth-child(14 of o-sector),
-:nth-child(14 of .spoke),
-:nth-child(14 of o-label) {
+:nth-child(14 of o-slice),
+:nth-child(14 of .vector),
+:nth-child(14 of o-text) {
   --o-orbit-child-number: 13;
 }
 :nth-child(15 of .satellite),
-:nth-child(15 of o-sector),
-:nth-child(15 of .spoke),
-:nth-child(15 of o-label) {
+:nth-child(15 of o-slice),
+:nth-child(15 of .vector),
+:nth-child(15 of o-text) {
   --o-orbit-child-number: 14;
 }
 :nth-child(16 of .satellite),
-:nth-child(16 of o-sector),
-:nth-child(16 of .spoke),
-:nth-child(16 of o-label) {
+:nth-child(16 of o-slice),
+:nth-child(16 of .vector),
+:nth-child(16 of o-text) {
   --o-orbit-child-number: 15;
 }
 :nth-child(17 of .satellite),
-:nth-child(17 of o-sector),
-:nth-child(17 of .spoke),
-:nth-child(17 of o-label) {
+:nth-child(17 of o-slice),
+:nth-child(17 of .vector),
+:nth-child(17 of o-text) {
   --o-orbit-child-number: 16;
 }
 :nth-child(18 of .satellite),
-:nth-child(18 of o-sector),
-:nth-child(18 of .spoke),
-:nth-child(18 of o-label) {
+:nth-child(18 of o-slice),
+:nth-child(18 of .vector),
+:nth-child(18 of o-text) {
   --o-orbit-child-number: 17;
 }
 :nth-child(19 of .satellite),
-:nth-child(19 of o-sector),
-:nth-child(19 of .spoke),
-:nth-child(19 of o-label) {
+:nth-child(19 of o-slice),
+:nth-child(19 of .vector),
+:nth-child(19 of o-text) {
   --o-orbit-child-number: 18;
 }
 :nth-child(20 of .satellite),
-:nth-child(20 of o-sector),
-:nth-child(20 of .spoke),
-:nth-child(20 of o-label) {
+:nth-child(20 of o-slice),
+:nth-child(20 of .vector),
+:nth-child(20 of o-text) {
   --o-orbit-child-number: 19;
 }
 :nth-child(21 of .satellite),
-:nth-child(21 of o-sector),
-:nth-child(21 of .spoke),
-:nth-child(21 of o-label) {
+:nth-child(21 of o-slice),
+:nth-child(21 of .vector),
+:nth-child(21 of o-text) {
   --o-orbit-child-number: 20;
 }
 :nth-child(22 of .satellite),
-:nth-child(22 of o-sector),
-:nth-child(22 of .spoke),
-:nth-child(22 of o-label) {
+:nth-child(22 of o-slice),
+:nth-child(22 of .vector),
+:nth-child(22 of o-text) {
   --o-orbit-child-number: 21;
 }
 :nth-child(23 of .satellite),
-:nth-child(23 of o-sector),
-:nth-child(23 of .spoke),
-:nth-child(23 of o-label) {
+:nth-child(23 of o-slice),
+:nth-child(23 of .vector),
+:nth-child(23 of o-text) {
   --o-orbit-child-number: 22;
 }
 :nth-child(24 of .satellite),
-:nth-child(24 of o-sector),
-:nth-child(24 of .spoke),
-:nth-child(24 of o-label) {
+:nth-child(24 of o-slice),
+:nth-child(24 of .vector),
+:nth-child(24 of o-text) {
   --o-orbit-child-number: 23;
 }
 :nth-child(25 of .satellite),
-:nth-child(25 of o-sector),
-:nth-child(25 of .spoke),
-:nth-child(25 of o-label) {
+:nth-child(25 of o-slice),
+:nth-child(25 of .vector),
+:nth-child(25 of o-text) {
   --o-orbit-child-number: 24;
 }
 :nth-child(26 of .satellite),
-:nth-child(26 of o-sector),
-:nth-child(26 of .spoke),
-:nth-child(26 of o-label) {
+:nth-child(26 of o-slice),
+:nth-child(26 of .vector),
+:nth-child(26 of o-text) {
   --o-orbit-child-number: 25;
 }
 :nth-child(27 of .satellite),
-:nth-child(27 of o-sector),
-:nth-child(27 of .spoke),
-:nth-child(27 of o-label) {
+:nth-child(27 of o-slice),
+:nth-child(27 of .vector),
+:nth-child(27 of o-text) {
   --o-orbit-child-number: 26;
 }
 :nth-child(28 of .satellite),
-:nth-child(28 of o-sector),
-:nth-child(28 of .spoke),
-:nth-child(28 of o-label) {
+:nth-child(28 of o-slice),
+:nth-child(28 of .vector),
+:nth-child(28 of o-text) {
   --o-orbit-child-number: 27;
 }
 :nth-child(29 of .satellite),
-:nth-child(29 of o-sector),
-:nth-child(29 of .spoke),
-:nth-child(29 of o-label) {
+:nth-child(29 of o-slice),
+:nth-child(29 of .vector),
+:nth-child(29 of o-text) {
   --o-orbit-child-number: 28;
 }
 :nth-child(30 of .satellite),
-:nth-child(30 of o-sector),
-:nth-child(30 of .spoke),
-:nth-child(30 of o-label) {
+:nth-child(30 of o-slice),
+:nth-child(30 of .vector),
+:nth-child(30 of o-text) {
   --o-orbit-child-number: 29;
 }
 :nth-child(31 of .satellite),
-:nth-child(31 of o-sector),
-:nth-child(31 of .spoke),
-:nth-child(31 of o-label) {
+:nth-child(31 of o-slice),
+:nth-child(31 of .vector),
+:nth-child(31 of o-text) {
   --o-orbit-child-number: 30;
 }
 :nth-child(32 of .satellite),
-:nth-child(32 of o-sector),
-:nth-child(32 of .spoke),
-:nth-child(32 of o-label) {
+:nth-child(32 of o-slice),
+:nth-child(32 of .vector),
+:nth-child(32 of o-text) {
   --o-orbit-child-number: 31;
 }
 :nth-child(33 of .satellite),
-:nth-child(33 of o-sector),
-:nth-child(33 of .spoke),
-:nth-child(33 of o-label) {
+:nth-child(33 of o-slice),
+:nth-child(33 of .vector),
+:nth-child(33 of o-text) {
   --o-orbit-child-number: 32;
 }
 :nth-child(34 of .satellite),
-:nth-child(34 of o-sector),
-:nth-child(34 of .spoke),
-:nth-child(34 of o-label) {
+:nth-child(34 of o-slice),
+:nth-child(34 of .vector),
+:nth-child(34 of o-text) {
   --o-orbit-child-number: 33;
 }
 :nth-child(35 of .satellite),
-:nth-child(35 of o-sector),
-:nth-child(35 of .spoke),
-:nth-child(35 of o-label) {
+:nth-child(35 of o-slice),
+:nth-child(35 of .vector),
+:nth-child(35 of o-text) {
   --o-orbit-child-number: 34;
 }
 :nth-child(36 of .satellite),
-:nth-child(36 of o-sector),
-:nth-child(36 of .spoke),
-:nth-child(36 of o-label) {
+:nth-child(36 of o-slice),
+:nth-child(36 of .vector),
+:nth-child(36 of o-text) {
   --o-orbit-child-number: 35;
 }
 :nth-child(37 of .satellite),
-:nth-child(37 of o-sector),
-:nth-child(37 of .spoke),
-:nth-child(37 of o-label) {
+:nth-child(37 of o-slice),
+:nth-child(37 of .vector),
+:nth-child(37 of o-text) {
   --o-orbit-child-number: 36;
 }
 :nth-child(38 of .satellite),
-:nth-child(38 of o-sector),
-:nth-child(38 of .spoke),
-:nth-child(38 of o-label) {
+:nth-child(38 of o-slice),
+:nth-child(38 of .vector),
+:nth-child(38 of o-text) {
   --o-orbit-child-number: 37;
 }
 :nth-child(39 of .satellite),
-:nth-child(39 of o-sector),
-:nth-child(39 of .spoke),
-:nth-child(39 of o-label) {
+:nth-child(39 of o-slice),
+:nth-child(39 of .vector),
+:nth-child(39 of o-text) {
   --o-orbit-child-number: 38;
 }
 :nth-child(40 of .satellite),
-:nth-child(40 of o-sector),
-:nth-child(40 of .spoke),
-:nth-child(40 of o-label) {
+:nth-child(40 of o-slice),
+:nth-child(40 of .vector),
+:nth-child(40 of o-text) {
   --o-orbit-child-number: 39;
 }
 :nth-child(41 of .satellite),
-:nth-child(41 of o-sector),
-:nth-child(41 of .spoke),
-:nth-child(41 of o-label) {
+:nth-child(41 of o-slice),
+:nth-child(41 of .vector),
+:nth-child(41 of o-text) {
   --o-orbit-child-number: 40;
 }
 :nth-child(42 of .satellite),
-:nth-child(42 of o-sector),
-:nth-child(42 of .spoke),
-:nth-child(42 of o-label) {
+:nth-child(42 of o-slice),
+:nth-child(42 of .vector),
+:nth-child(42 of o-text) {
   --o-orbit-child-number: 41;
 }
 :nth-child(43 of .satellite),
-:nth-child(43 of o-sector),
-:nth-child(43 of .spoke),
-:nth-child(43 of o-label) {
+:nth-child(43 of o-slice),
+:nth-child(43 of .vector),
+:nth-child(43 of o-text) {
   --o-orbit-child-number: 42;
 }
 :nth-child(44 of .satellite),
-:nth-child(44 of o-sector),
-:nth-child(44 of .spoke),
-:nth-child(44 of o-label) {
+:nth-child(44 of o-slice),
+:nth-child(44 of .vector),
+:nth-child(44 of o-text) {
   --o-orbit-child-number: 43;
 }
 :nth-child(45 of .satellite),
-:nth-child(45 of o-sector),
-:nth-child(45 of .spoke),
-:nth-child(45 of o-label) {
+:nth-child(45 of o-slice),
+:nth-child(45 of .vector),
+:nth-child(45 of o-text) {
   --o-orbit-child-number: 44;
 }
 :nth-child(46 of .satellite),
-:nth-child(46 of o-sector),
-:nth-child(46 of .spoke),
-:nth-child(46 of o-label) {
+:nth-child(46 of o-slice),
+:nth-child(46 of .vector),
+:nth-child(46 of o-text) {
   --o-orbit-child-number: 45;
 }
 :nth-child(47 of .satellite),
-:nth-child(47 of o-sector),
-:nth-child(47 of .spoke),
-:nth-child(47 of o-label) {
+:nth-child(47 of o-slice),
+:nth-child(47 of .vector),
+:nth-child(47 of o-text) {
   --o-orbit-child-number: 46;
 }
 :nth-child(48 of .satellite),
-:nth-child(48 of o-sector),
-:nth-child(48 of .spoke),
-:nth-child(48 of o-label) {
+:nth-child(48 of o-slice),
+:nth-child(48 of .vector),
+:nth-child(48 of o-text) {
   --o-orbit-child-number: 47;
 }
 :nth-child(49 of .satellite),
-:nth-child(49 of o-sector),
-:nth-child(49 of .spoke),
-:nth-child(49 of o-label) {
+:nth-child(49 of o-slice),
+:nth-child(49 of .vector),
+:nth-child(49 of o-text) {
   --o-orbit-child-number: 48;
 }
 :nth-child(50 of .satellite),
-:nth-child(50 of o-sector),
-:nth-child(50 of .spoke),
-:nth-child(50 of o-label) {
+:nth-child(50 of o-slice),
+:nth-child(50 of .vector),
+:nth-child(50 of o-text) {
   --o-orbit-child-number: 49;
 }
 :nth-child(51 of .satellite),
-:nth-child(51 of o-sector),
-:nth-child(51 of .spoke),
-:nth-child(51 of o-label) {
+:nth-child(51 of o-slice),
+:nth-child(51 of .vector),
+:nth-child(51 of o-text) {
   --o-orbit-child-number: 50;
 }
 :nth-child(52 of .satellite),
-:nth-child(52 of o-sector),
-:nth-child(52 of .spoke),
-:nth-child(52 of o-label) {
+:nth-child(52 of o-slice),
+:nth-child(52 of .vector),
+:nth-child(52 of o-text) {
   --o-orbit-child-number: 51;
 }
 :nth-child(53 of .satellite),
-:nth-child(53 of o-sector),
-:nth-child(53 of .spoke),
-:nth-child(53 of o-label) {
+:nth-child(53 of o-slice),
+:nth-child(53 of .vector),
+:nth-child(53 of o-text) {
   --o-orbit-child-number: 52;
 }
 :nth-child(54 of .satellite),
-:nth-child(54 of o-sector),
-:nth-child(54 of .spoke),
-:nth-child(54 of o-label) {
+:nth-child(54 of o-slice),
+:nth-child(54 of .vector),
+:nth-child(54 of o-text) {
   --o-orbit-child-number: 53;
 }
 :nth-child(55 of .satellite),
-:nth-child(55 of o-sector),
-:nth-child(55 of .spoke),
-:nth-child(55 of o-label) {
+:nth-child(55 of o-slice),
+:nth-child(55 of .vector),
+:nth-child(55 of o-text) {
   --o-orbit-child-number: 54;
 }
 :nth-child(56 of .satellite),
-:nth-child(56 of o-sector),
-:nth-child(56 of .spoke),
-:nth-child(56 of o-label) {
+:nth-child(56 of o-slice),
+:nth-child(56 of .vector),
+:nth-child(56 of o-text) {
   --o-orbit-child-number: 55;
 }
 :nth-child(57 of .satellite),
-:nth-child(57 of o-sector),
-:nth-child(57 of .spoke),
-:nth-child(57 of o-label) {
+:nth-child(57 of o-slice),
+:nth-child(57 of .vector),
+:nth-child(57 of o-text) {
   --o-orbit-child-number: 56;
 }
 :nth-child(58 of .satellite),
-:nth-child(58 of o-sector),
-:nth-child(58 of .spoke),
-:nth-child(58 of o-label) {
+:nth-child(58 of o-slice),
+:nth-child(58 of .vector),
+:nth-child(58 of o-text) {
   --o-orbit-child-number: 57;
 }
 :nth-child(59 of .satellite),
-:nth-child(59 of o-sector),
-:nth-child(59 of .spoke),
-:nth-child(59 of o-label) {
+:nth-child(59 of o-slice),
+:nth-child(59 of .vector),
+:nth-child(59 of o-text) {
   --o-orbit-child-number: 58;
 }
 :nth-child(60 of .satellite),
-:nth-child(60 of o-sector),
-:nth-child(60 of .spoke),
-:nth-child(60 of o-label) {
+:nth-child(60 of o-slice),
+:nth-child(60 of .vector),
+:nth-child(60 of o-text) {
   --o-orbit-child-number: 59;
 }
-.orbit:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-sector), > :nth-child(1 of .spoke), > :nth-child(1 of .segment), > :nth-child(1 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(1 of .satellite), > :nth-child(1 of o-sector), > :nth-child(1 of .spoke), > :nth-child(1 of .segment), > :nth-child(1 of o-label)) {
+.orbit:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-slice), > :nth-child(1 of .vector), > :nth-child(1 of .side), > :nth-child(1 of o-text)),
+[class*=orbit-]:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-slice), > :nth-child(1 of .vector), > :nth-child(1 of .side), > :nth-child(1 of o-text)) {
   --o-angle: calc(var(--o-range) / (1 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-sector), > :nth-child(2 of .spoke), > :nth-child(2 of .segment), > :nth-child(2 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(2 of .satellite), > :nth-child(2 of o-sector), > :nth-child(2 of .spoke), > :nth-child(2 of .segment), > :nth-child(2 of o-label)) {
+.orbit:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-slice), > :nth-child(2 of .vector), > :nth-child(2 of .side), > :nth-child(2 of o-text)),
+[class*=orbit-]:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-slice), > :nth-child(2 of .vector), > :nth-child(2 of .side), > :nth-child(2 of o-text)) {
   --o-angle: calc(var(--o-range) / (2 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-sector), > :nth-child(3 of .spoke), > :nth-child(3 of .segment), > :nth-child(3 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(3 of .satellite), > :nth-child(3 of o-sector), > :nth-child(3 of .spoke), > :nth-child(3 of .segment), > :nth-child(3 of o-label)) {
+.orbit:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-slice), > :nth-child(3 of .vector), > :nth-child(3 of .side), > :nth-child(3 of o-text)),
+[class*=orbit-]:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-slice), > :nth-child(3 of .vector), > :nth-child(3 of .side), > :nth-child(3 of o-text)) {
   --o-angle: calc(var(--o-range) / (3 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-sector), > :nth-child(4 of .spoke), > :nth-child(4 of .segment), > :nth-child(4 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(4 of .satellite), > :nth-child(4 of o-sector), > :nth-child(4 of .spoke), > :nth-child(4 of .segment), > :nth-child(4 of o-label)) {
+.orbit:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-slice), > :nth-child(4 of .vector), > :nth-child(4 of .side), > :nth-child(4 of o-text)),
+[class*=orbit-]:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-slice), > :nth-child(4 of .vector), > :nth-child(4 of .side), > :nth-child(4 of o-text)) {
   --o-angle: calc(var(--o-range) / (4 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-sector), > :nth-child(5 of .spoke), > :nth-child(5 of .segment), > :nth-child(5 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(5 of .satellite), > :nth-child(5 of o-sector), > :nth-child(5 of .spoke), > :nth-child(5 of .segment), > :nth-child(5 of o-label)) {
+.orbit:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-slice), > :nth-child(5 of .vector), > :nth-child(5 of .side), > :nth-child(5 of o-text)),
+[class*=orbit-]:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-slice), > :nth-child(5 of .vector), > :nth-child(5 of .side), > :nth-child(5 of o-text)) {
   --o-angle: calc(var(--o-range) / (5 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-sector), > :nth-child(6 of .spoke), > :nth-child(6 of .segment), > :nth-child(6 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(6 of .satellite), > :nth-child(6 of o-sector), > :nth-child(6 of .spoke), > :nth-child(6 of .segment), > :nth-child(6 of o-label)) {
+.orbit:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-slice), > :nth-child(6 of .vector), > :nth-child(6 of .side), > :nth-child(6 of o-text)),
+[class*=orbit-]:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-slice), > :nth-child(6 of .vector), > :nth-child(6 of .side), > :nth-child(6 of o-text)) {
   --o-angle: calc(var(--o-range) / (6 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-sector), > :nth-child(7 of .spoke), > :nth-child(7 of .segment), > :nth-child(7 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(7 of .satellite), > :nth-child(7 of o-sector), > :nth-child(7 of .spoke), > :nth-child(7 of .segment), > :nth-child(7 of o-label)) {
+.orbit:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-slice), > :nth-child(7 of .vector), > :nth-child(7 of .side), > :nth-child(7 of o-text)),
+[class*=orbit-]:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-slice), > :nth-child(7 of .vector), > :nth-child(7 of .side), > :nth-child(7 of o-text)) {
   --o-angle: calc(var(--o-range) / (7 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-sector), > :nth-child(8 of .spoke), > :nth-child(8 of .segment), > :nth-child(8 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(8 of .satellite), > :nth-child(8 of o-sector), > :nth-child(8 of .spoke), > :nth-child(8 of .segment), > :nth-child(8 of o-label)) {
+.orbit:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-slice), > :nth-child(8 of .vector), > :nth-child(8 of .side), > :nth-child(8 of o-text)),
+[class*=orbit-]:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-slice), > :nth-child(8 of .vector), > :nth-child(8 of .side), > :nth-child(8 of o-text)) {
   --o-angle: calc(var(--o-range) / (8 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-sector), > :nth-child(9 of .spoke), > :nth-child(9 of .segment), > :nth-child(9 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(9 of .satellite), > :nth-child(9 of o-sector), > :nth-child(9 of .spoke), > :nth-child(9 of .segment), > :nth-child(9 of o-label)) {
+.orbit:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-slice), > :nth-child(9 of .vector), > :nth-child(9 of .side), > :nth-child(9 of o-text)),
+[class*=orbit-]:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-slice), > :nth-child(9 of .vector), > :nth-child(9 of .side), > :nth-child(9 of o-text)) {
   --o-angle: calc(var(--o-range) / (9 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-sector), > :nth-child(10 of .spoke), > :nth-child(10 of .segment), > :nth-child(10 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(10 of .satellite), > :nth-child(10 of o-sector), > :nth-child(10 of .spoke), > :nth-child(10 of .segment), > :nth-child(10 of o-label)) {
+.orbit:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-slice), > :nth-child(10 of .vector), > :nth-child(10 of .side), > :nth-child(10 of o-text)),
+[class*=orbit-]:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-slice), > :nth-child(10 of .vector), > :nth-child(10 of .side), > :nth-child(10 of o-text)) {
   --o-angle: calc(var(--o-range) / (10 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-sector), > :nth-child(11 of .spoke), > :nth-child(11 of .segment), > :nth-child(11 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(11 of .satellite), > :nth-child(11 of o-sector), > :nth-child(11 of .spoke), > :nth-child(11 of .segment), > :nth-child(11 of o-label)) {
+.orbit:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-slice), > :nth-child(11 of .vector), > :nth-child(11 of .side), > :nth-child(11 of o-text)),
+[class*=orbit-]:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-slice), > :nth-child(11 of .vector), > :nth-child(11 of .side), > :nth-child(11 of o-text)) {
   --o-angle: calc(var(--o-range) / (11 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-sector), > :nth-child(12 of .spoke), > :nth-child(12 of .segment), > :nth-child(12 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(12 of .satellite), > :nth-child(12 of o-sector), > :nth-child(12 of .spoke), > :nth-child(12 of .segment), > :nth-child(12 of o-label)) {
+.orbit:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-slice), > :nth-child(12 of .vector), > :nth-child(12 of .side), > :nth-child(12 of o-text)),
+[class*=orbit-]:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-slice), > :nth-child(12 of .vector), > :nth-child(12 of .side), > :nth-child(12 of o-text)) {
   --o-angle: calc(var(--o-range) / (12 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-sector), > :nth-child(13 of .spoke), > :nth-child(13 of .segment), > :nth-child(13 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(13 of .satellite), > :nth-child(13 of o-sector), > :nth-child(13 of .spoke), > :nth-child(13 of .segment), > :nth-child(13 of o-label)) {
+.orbit:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-slice), > :nth-child(13 of .vector), > :nth-child(13 of .side), > :nth-child(13 of o-text)),
+[class*=orbit-]:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-slice), > :nth-child(13 of .vector), > :nth-child(13 of .side), > :nth-child(13 of o-text)) {
   --o-angle: calc(var(--o-range) / (13 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-sector), > :nth-child(14 of .spoke), > :nth-child(14 of .segment), > :nth-child(14 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(14 of .satellite), > :nth-child(14 of o-sector), > :nth-child(14 of .spoke), > :nth-child(14 of .segment), > :nth-child(14 of o-label)) {
+.orbit:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-slice), > :nth-child(14 of .vector), > :nth-child(14 of .side), > :nth-child(14 of o-text)),
+[class*=orbit-]:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-slice), > :nth-child(14 of .vector), > :nth-child(14 of .side), > :nth-child(14 of o-text)) {
   --o-angle: calc(var(--o-range) / (14 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-sector), > :nth-child(15 of .spoke), > :nth-child(15 of .segment), > :nth-child(15 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(15 of .satellite), > :nth-child(15 of o-sector), > :nth-child(15 of .spoke), > :nth-child(15 of .segment), > :nth-child(15 of o-label)) {
+.orbit:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-slice), > :nth-child(15 of .vector), > :nth-child(15 of .side), > :nth-child(15 of o-text)),
+[class*=orbit-]:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-slice), > :nth-child(15 of .vector), > :nth-child(15 of .side), > :nth-child(15 of o-text)) {
   --o-angle: calc(var(--o-range) / (15 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-sector), > :nth-child(16 of .spoke), > :nth-child(16 of .segment), > :nth-child(16 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(16 of .satellite), > :nth-child(16 of o-sector), > :nth-child(16 of .spoke), > :nth-child(16 of .segment), > :nth-child(16 of o-label)) {
+.orbit:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-slice), > :nth-child(16 of .vector), > :nth-child(16 of .side), > :nth-child(16 of o-text)),
+[class*=orbit-]:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-slice), > :nth-child(16 of .vector), > :nth-child(16 of .side), > :nth-child(16 of o-text)) {
   --o-angle: calc(var(--o-range) / (16 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-sector), > :nth-child(17 of .spoke), > :nth-child(17 of .segment), > :nth-child(17 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(17 of .satellite), > :nth-child(17 of o-sector), > :nth-child(17 of .spoke), > :nth-child(17 of .segment), > :nth-child(17 of o-label)) {
+.orbit:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-slice), > :nth-child(17 of .vector), > :nth-child(17 of .side), > :nth-child(17 of o-text)),
+[class*=orbit-]:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-slice), > :nth-child(17 of .vector), > :nth-child(17 of .side), > :nth-child(17 of o-text)) {
   --o-angle: calc(var(--o-range) / (17 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-sector), > :nth-child(18 of .spoke), > :nth-child(18 of .segment), > :nth-child(18 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(18 of .satellite), > :nth-child(18 of o-sector), > :nth-child(18 of .spoke), > :nth-child(18 of .segment), > :nth-child(18 of o-label)) {
+.orbit:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-slice), > :nth-child(18 of .vector), > :nth-child(18 of .side), > :nth-child(18 of o-text)),
+[class*=orbit-]:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-slice), > :nth-child(18 of .vector), > :nth-child(18 of .side), > :nth-child(18 of o-text)) {
   --o-angle: calc(var(--o-range) / (18 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-sector), > :nth-child(19 of .spoke), > :nth-child(19 of .segment), > :nth-child(19 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(19 of .satellite), > :nth-child(19 of o-sector), > :nth-child(19 of .spoke), > :nth-child(19 of .segment), > :nth-child(19 of o-label)) {
+.orbit:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-slice), > :nth-child(19 of .vector), > :nth-child(19 of .side), > :nth-child(19 of o-text)),
+[class*=orbit-]:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-slice), > :nth-child(19 of .vector), > :nth-child(19 of .side), > :nth-child(19 of o-text)) {
   --o-angle: calc(var(--o-range) / (19 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-sector), > :nth-child(20 of .spoke), > :nth-child(20 of .segment), > :nth-child(20 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(20 of .satellite), > :nth-child(20 of o-sector), > :nth-child(20 of .spoke), > :nth-child(20 of .segment), > :nth-child(20 of o-label)) {
+.orbit:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-slice), > :nth-child(20 of .vector), > :nth-child(20 of .side), > :nth-child(20 of o-text)),
+[class*=orbit-]:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-slice), > :nth-child(20 of .vector), > :nth-child(20 of .side), > :nth-child(20 of o-text)) {
   --o-angle: calc(var(--o-range) / (20 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-sector), > :nth-child(21 of .spoke), > :nth-child(21 of .segment), > :nth-child(21 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(21 of .satellite), > :nth-child(21 of o-sector), > :nth-child(21 of .spoke), > :nth-child(21 of .segment), > :nth-child(21 of o-label)) {
+.orbit:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-slice), > :nth-child(21 of .vector), > :nth-child(21 of .side), > :nth-child(21 of o-text)),
+[class*=orbit-]:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-slice), > :nth-child(21 of .vector), > :nth-child(21 of .side), > :nth-child(21 of o-text)) {
   --o-angle: calc(var(--o-range) / (21 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-sector), > :nth-child(22 of .spoke), > :nth-child(22 of .segment), > :nth-child(22 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(22 of .satellite), > :nth-child(22 of o-sector), > :nth-child(22 of .spoke), > :nth-child(22 of .segment), > :nth-child(22 of o-label)) {
+.orbit:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-slice), > :nth-child(22 of .vector), > :nth-child(22 of .side), > :nth-child(22 of o-text)),
+[class*=orbit-]:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-slice), > :nth-child(22 of .vector), > :nth-child(22 of .side), > :nth-child(22 of o-text)) {
   --o-angle: calc(var(--o-range) / (22 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-sector), > :nth-child(23 of .spoke), > :nth-child(23 of .segment), > :nth-child(23 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(23 of .satellite), > :nth-child(23 of o-sector), > :nth-child(23 of .spoke), > :nth-child(23 of .segment), > :nth-child(23 of o-label)) {
+.orbit:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-slice), > :nth-child(23 of .vector), > :nth-child(23 of .side), > :nth-child(23 of o-text)),
+[class*=orbit-]:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-slice), > :nth-child(23 of .vector), > :nth-child(23 of .side), > :nth-child(23 of o-text)) {
   --o-angle: calc(var(--o-range) / (23 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-sector), > :nth-child(24 of .spoke), > :nth-child(24 of .segment), > :nth-child(24 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(24 of .satellite), > :nth-child(24 of o-sector), > :nth-child(24 of .spoke), > :nth-child(24 of .segment), > :nth-child(24 of o-label)) {
+.orbit:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-slice), > :nth-child(24 of .vector), > :nth-child(24 of .side), > :nth-child(24 of o-text)),
+[class*=orbit-]:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-slice), > :nth-child(24 of .vector), > :nth-child(24 of .side), > :nth-child(24 of o-text)) {
   --o-angle: calc(var(--o-range) / (24 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-sector), > :nth-child(25 of .spoke), > :nth-child(25 of .segment), > :nth-child(25 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(25 of .satellite), > :nth-child(25 of o-sector), > :nth-child(25 of .spoke), > :nth-child(25 of .segment), > :nth-child(25 of o-label)) {
+.orbit:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-slice), > :nth-child(25 of .vector), > :nth-child(25 of .side), > :nth-child(25 of o-text)),
+[class*=orbit-]:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-slice), > :nth-child(25 of .vector), > :nth-child(25 of .side), > :nth-child(25 of o-text)) {
   --o-angle: calc(var(--o-range) / (25 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-sector), > :nth-child(26 of .spoke), > :nth-child(26 of .segment), > :nth-child(26 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(26 of .satellite), > :nth-child(26 of o-sector), > :nth-child(26 of .spoke), > :nth-child(26 of .segment), > :nth-child(26 of o-label)) {
+.orbit:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-slice), > :nth-child(26 of .vector), > :nth-child(26 of .side), > :nth-child(26 of o-text)),
+[class*=orbit-]:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-slice), > :nth-child(26 of .vector), > :nth-child(26 of .side), > :nth-child(26 of o-text)) {
   --o-angle: calc(var(--o-range) / (26 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-sector), > :nth-child(27 of .spoke), > :nth-child(27 of .segment), > :nth-child(27 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(27 of .satellite), > :nth-child(27 of o-sector), > :nth-child(27 of .spoke), > :nth-child(27 of .segment), > :nth-child(27 of o-label)) {
+.orbit:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-slice), > :nth-child(27 of .vector), > :nth-child(27 of .side), > :nth-child(27 of o-text)),
+[class*=orbit-]:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-slice), > :nth-child(27 of .vector), > :nth-child(27 of .side), > :nth-child(27 of o-text)) {
   --o-angle: calc(var(--o-range) / (27 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-sector), > :nth-child(28 of .spoke), > :nth-child(28 of .segment), > :nth-child(28 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(28 of .satellite), > :nth-child(28 of o-sector), > :nth-child(28 of .spoke), > :nth-child(28 of .segment), > :nth-child(28 of o-label)) {
+.orbit:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-slice), > :nth-child(28 of .vector), > :nth-child(28 of .side), > :nth-child(28 of o-text)),
+[class*=orbit-]:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-slice), > :nth-child(28 of .vector), > :nth-child(28 of .side), > :nth-child(28 of o-text)) {
   --o-angle: calc(var(--o-range) / (28 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-sector), > :nth-child(29 of .spoke), > :nth-child(29 of .segment), > :nth-child(29 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(29 of .satellite), > :nth-child(29 of o-sector), > :nth-child(29 of .spoke), > :nth-child(29 of .segment), > :nth-child(29 of o-label)) {
+.orbit:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-slice), > :nth-child(29 of .vector), > :nth-child(29 of .side), > :nth-child(29 of o-text)),
+[class*=orbit-]:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-slice), > :nth-child(29 of .vector), > :nth-child(29 of .side), > :nth-child(29 of o-text)) {
   --o-angle: calc(var(--o-range) / (29 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-sector), > :nth-child(30 of .spoke), > :nth-child(30 of .segment), > :nth-child(30 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(30 of .satellite), > :nth-child(30 of o-sector), > :nth-child(30 of .spoke), > :nth-child(30 of .segment), > :nth-child(30 of o-label)) {
+.orbit:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-slice), > :nth-child(30 of .vector), > :nth-child(30 of .side), > :nth-child(30 of o-text)),
+[class*=orbit-]:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-slice), > :nth-child(30 of .vector), > :nth-child(30 of .side), > :nth-child(30 of o-text)) {
   --o-angle: calc(var(--o-range) / (30 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-sector), > :nth-child(31 of .spoke), > :nth-child(31 of .segment), > :nth-child(31 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(31 of .satellite), > :nth-child(31 of o-sector), > :nth-child(31 of .spoke), > :nth-child(31 of .segment), > :nth-child(31 of o-label)) {
+.orbit:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-slice), > :nth-child(31 of .vector), > :nth-child(31 of .side), > :nth-child(31 of o-text)),
+[class*=orbit-]:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-slice), > :nth-child(31 of .vector), > :nth-child(31 of .side), > :nth-child(31 of o-text)) {
   --o-angle: calc(var(--o-range) / (31 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-sector), > :nth-child(32 of .spoke), > :nth-child(32 of .segment), > :nth-child(32 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(32 of .satellite), > :nth-child(32 of o-sector), > :nth-child(32 of .spoke), > :nth-child(32 of .segment), > :nth-child(32 of o-label)) {
+.orbit:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-slice), > :nth-child(32 of .vector), > :nth-child(32 of .side), > :nth-child(32 of o-text)),
+[class*=orbit-]:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-slice), > :nth-child(32 of .vector), > :nth-child(32 of .side), > :nth-child(32 of o-text)) {
   --o-angle: calc(var(--o-range) / (32 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-sector), > :nth-child(33 of .spoke), > :nth-child(33 of .segment), > :nth-child(33 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(33 of .satellite), > :nth-child(33 of o-sector), > :nth-child(33 of .spoke), > :nth-child(33 of .segment), > :nth-child(33 of o-label)) {
+.orbit:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-slice), > :nth-child(33 of .vector), > :nth-child(33 of .side), > :nth-child(33 of o-text)),
+[class*=orbit-]:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-slice), > :nth-child(33 of .vector), > :nth-child(33 of .side), > :nth-child(33 of o-text)) {
   --o-angle: calc(var(--o-range) / (33 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-sector), > :nth-child(34 of .spoke), > :nth-child(34 of .segment), > :nth-child(34 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(34 of .satellite), > :nth-child(34 of o-sector), > :nth-child(34 of .spoke), > :nth-child(34 of .segment), > :nth-child(34 of o-label)) {
+.orbit:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-slice), > :nth-child(34 of .vector), > :nth-child(34 of .side), > :nth-child(34 of o-text)),
+[class*=orbit-]:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-slice), > :nth-child(34 of .vector), > :nth-child(34 of .side), > :nth-child(34 of o-text)) {
   --o-angle: calc(var(--o-range) / (34 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-sector), > :nth-child(35 of .spoke), > :nth-child(35 of .segment), > :nth-child(35 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(35 of .satellite), > :nth-child(35 of o-sector), > :nth-child(35 of .spoke), > :nth-child(35 of .segment), > :nth-child(35 of o-label)) {
+.orbit:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-slice), > :nth-child(35 of .vector), > :nth-child(35 of .side), > :nth-child(35 of o-text)),
+[class*=orbit-]:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-slice), > :nth-child(35 of .vector), > :nth-child(35 of .side), > :nth-child(35 of o-text)) {
   --o-angle: calc(var(--o-range) / (35 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-sector), > :nth-child(36 of .spoke), > :nth-child(36 of .segment), > :nth-child(36 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(36 of .satellite), > :nth-child(36 of o-sector), > :nth-child(36 of .spoke), > :nth-child(36 of .segment), > :nth-child(36 of o-label)) {
+.orbit:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-slice), > :nth-child(36 of .vector), > :nth-child(36 of .side), > :nth-child(36 of o-text)),
+[class*=orbit-]:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-slice), > :nth-child(36 of .vector), > :nth-child(36 of .side), > :nth-child(36 of o-text)) {
   --o-angle: calc(var(--o-range) / (36 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-sector), > :nth-child(37 of .spoke), > :nth-child(37 of .segment), > :nth-child(37 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(37 of .satellite), > :nth-child(37 of o-sector), > :nth-child(37 of .spoke), > :nth-child(37 of .segment), > :nth-child(37 of o-label)) {
+.orbit:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-slice), > :nth-child(37 of .vector), > :nth-child(37 of .side), > :nth-child(37 of o-text)),
+[class*=orbit-]:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-slice), > :nth-child(37 of .vector), > :nth-child(37 of .side), > :nth-child(37 of o-text)) {
   --o-angle: calc(var(--o-range) / (37 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-sector), > :nth-child(38 of .spoke), > :nth-child(38 of .segment), > :nth-child(38 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(38 of .satellite), > :nth-child(38 of o-sector), > :nth-child(38 of .spoke), > :nth-child(38 of .segment), > :nth-child(38 of o-label)) {
+.orbit:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-slice), > :nth-child(38 of .vector), > :nth-child(38 of .side), > :nth-child(38 of o-text)),
+[class*=orbit-]:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-slice), > :nth-child(38 of .vector), > :nth-child(38 of .side), > :nth-child(38 of o-text)) {
   --o-angle: calc(var(--o-range) / (38 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-sector), > :nth-child(39 of .spoke), > :nth-child(39 of .segment), > :nth-child(39 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(39 of .satellite), > :nth-child(39 of o-sector), > :nth-child(39 of .spoke), > :nth-child(39 of .segment), > :nth-child(39 of o-label)) {
+.orbit:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-slice), > :nth-child(39 of .vector), > :nth-child(39 of .side), > :nth-child(39 of o-text)),
+[class*=orbit-]:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-slice), > :nth-child(39 of .vector), > :nth-child(39 of .side), > :nth-child(39 of o-text)) {
   --o-angle: calc(var(--o-range) / (39 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-sector), > :nth-child(40 of .spoke), > :nth-child(40 of .segment), > :nth-child(40 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(40 of .satellite), > :nth-child(40 of o-sector), > :nth-child(40 of .spoke), > :nth-child(40 of .segment), > :nth-child(40 of o-label)) {
+.orbit:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-slice), > :nth-child(40 of .vector), > :nth-child(40 of .side), > :nth-child(40 of o-text)),
+[class*=orbit-]:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-slice), > :nth-child(40 of .vector), > :nth-child(40 of .side), > :nth-child(40 of o-text)) {
   --o-angle: calc(var(--o-range) / (40 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-sector), > :nth-child(41 of .spoke), > :nth-child(41 of .segment), > :nth-child(41 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(41 of .satellite), > :nth-child(41 of o-sector), > :nth-child(41 of .spoke), > :nth-child(41 of .segment), > :nth-child(41 of o-label)) {
+.orbit:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-slice), > :nth-child(41 of .vector), > :nth-child(41 of .side), > :nth-child(41 of o-text)),
+[class*=orbit-]:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-slice), > :nth-child(41 of .vector), > :nth-child(41 of .side), > :nth-child(41 of o-text)) {
   --o-angle: calc(var(--o-range) / (41 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-sector), > :nth-child(42 of .spoke), > :nth-child(42 of .segment), > :nth-child(42 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(42 of .satellite), > :nth-child(42 of o-sector), > :nth-child(42 of .spoke), > :nth-child(42 of .segment), > :nth-child(42 of o-label)) {
+.orbit:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-slice), > :nth-child(42 of .vector), > :nth-child(42 of .side), > :nth-child(42 of o-text)),
+[class*=orbit-]:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-slice), > :nth-child(42 of .vector), > :nth-child(42 of .side), > :nth-child(42 of o-text)) {
   --o-angle: calc(var(--o-range) / (42 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-sector), > :nth-child(43 of .spoke), > :nth-child(43 of .segment), > :nth-child(43 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(43 of .satellite), > :nth-child(43 of o-sector), > :nth-child(43 of .spoke), > :nth-child(43 of .segment), > :nth-child(43 of o-label)) {
+.orbit:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-slice), > :nth-child(43 of .vector), > :nth-child(43 of .side), > :nth-child(43 of o-text)),
+[class*=orbit-]:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-slice), > :nth-child(43 of .vector), > :nth-child(43 of .side), > :nth-child(43 of o-text)) {
   --o-angle: calc(var(--o-range) / (43 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-sector), > :nth-child(44 of .spoke), > :nth-child(44 of .segment), > :nth-child(44 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(44 of .satellite), > :nth-child(44 of o-sector), > :nth-child(44 of .spoke), > :nth-child(44 of .segment), > :nth-child(44 of o-label)) {
+.orbit:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-slice), > :nth-child(44 of .vector), > :nth-child(44 of .side), > :nth-child(44 of o-text)),
+[class*=orbit-]:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-slice), > :nth-child(44 of .vector), > :nth-child(44 of .side), > :nth-child(44 of o-text)) {
   --o-angle: calc(var(--o-range) / (44 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-sector), > :nth-child(45 of .spoke), > :nth-child(45 of .segment), > :nth-child(45 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(45 of .satellite), > :nth-child(45 of o-sector), > :nth-child(45 of .spoke), > :nth-child(45 of .segment), > :nth-child(45 of o-label)) {
+.orbit:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-slice), > :nth-child(45 of .vector), > :nth-child(45 of .side), > :nth-child(45 of o-text)),
+[class*=orbit-]:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-slice), > :nth-child(45 of .vector), > :nth-child(45 of .side), > :nth-child(45 of o-text)) {
   --o-angle: calc(var(--o-range) / (45 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-sector), > :nth-child(46 of .spoke), > :nth-child(46 of .segment), > :nth-child(46 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(46 of .satellite), > :nth-child(46 of o-sector), > :nth-child(46 of .spoke), > :nth-child(46 of .segment), > :nth-child(46 of o-label)) {
+.orbit:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-slice), > :nth-child(46 of .vector), > :nth-child(46 of .side), > :nth-child(46 of o-text)),
+[class*=orbit-]:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-slice), > :nth-child(46 of .vector), > :nth-child(46 of .side), > :nth-child(46 of o-text)) {
   --o-angle: calc(var(--o-range) / (46 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-sector), > :nth-child(47 of .spoke), > :nth-child(47 of .segment), > :nth-child(47 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(47 of .satellite), > :nth-child(47 of o-sector), > :nth-child(47 of .spoke), > :nth-child(47 of .segment), > :nth-child(47 of o-label)) {
+.orbit:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-slice), > :nth-child(47 of .vector), > :nth-child(47 of .side), > :nth-child(47 of o-text)),
+[class*=orbit-]:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-slice), > :nth-child(47 of .vector), > :nth-child(47 of .side), > :nth-child(47 of o-text)) {
   --o-angle: calc(var(--o-range) / (47 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-sector), > :nth-child(48 of .spoke), > :nth-child(48 of .segment), > :nth-child(48 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(48 of .satellite), > :nth-child(48 of o-sector), > :nth-child(48 of .spoke), > :nth-child(48 of .segment), > :nth-child(48 of o-label)) {
+.orbit:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-slice), > :nth-child(48 of .vector), > :nth-child(48 of .side), > :nth-child(48 of o-text)),
+[class*=orbit-]:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-slice), > :nth-child(48 of .vector), > :nth-child(48 of .side), > :nth-child(48 of o-text)) {
   --o-angle: calc(var(--o-range) / (48 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-sector), > :nth-child(49 of .spoke), > :nth-child(49 of .segment), > :nth-child(49 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(49 of .satellite), > :nth-child(49 of o-sector), > :nth-child(49 of .spoke), > :nth-child(49 of .segment), > :nth-child(49 of o-label)) {
+.orbit:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-slice), > :nth-child(49 of .vector), > :nth-child(49 of .side), > :nth-child(49 of o-text)),
+[class*=orbit-]:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-slice), > :nth-child(49 of .vector), > :nth-child(49 of .side), > :nth-child(49 of o-text)) {
   --o-angle: calc(var(--o-range) / (49 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-sector), > :nth-child(50 of .spoke), > :nth-child(50 of .segment), > :nth-child(50 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(50 of .satellite), > :nth-child(50 of o-sector), > :nth-child(50 of .spoke), > :nth-child(50 of .segment), > :nth-child(50 of o-label)) {
+.orbit:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-slice), > :nth-child(50 of .vector), > :nth-child(50 of .side), > :nth-child(50 of o-text)),
+[class*=orbit-]:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-slice), > :nth-child(50 of .vector), > :nth-child(50 of .side), > :nth-child(50 of o-text)) {
   --o-angle: calc(var(--o-range) / (50 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-sector), > :nth-child(51 of .spoke), > :nth-child(51 of .segment), > :nth-child(51 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(51 of .satellite), > :nth-child(51 of o-sector), > :nth-child(51 of .spoke), > :nth-child(51 of .segment), > :nth-child(51 of o-label)) {
+.orbit:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-slice), > :nth-child(51 of .vector), > :nth-child(51 of .side), > :nth-child(51 of o-text)),
+[class*=orbit-]:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-slice), > :nth-child(51 of .vector), > :nth-child(51 of .side), > :nth-child(51 of o-text)) {
   --o-angle: calc(var(--o-range) / (51 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-sector), > :nth-child(52 of .spoke), > :nth-child(52 of .segment), > :nth-child(52 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(52 of .satellite), > :nth-child(52 of o-sector), > :nth-child(52 of .spoke), > :nth-child(52 of .segment), > :nth-child(52 of o-label)) {
+.orbit:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-slice), > :nth-child(52 of .vector), > :nth-child(52 of .side), > :nth-child(52 of o-text)),
+[class*=orbit-]:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-slice), > :nth-child(52 of .vector), > :nth-child(52 of .side), > :nth-child(52 of o-text)) {
   --o-angle: calc(var(--o-range) / (52 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-sector), > :nth-child(53 of .spoke), > :nth-child(53 of .segment), > :nth-child(53 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(53 of .satellite), > :nth-child(53 of o-sector), > :nth-child(53 of .spoke), > :nth-child(53 of .segment), > :nth-child(53 of o-label)) {
+.orbit:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-slice), > :nth-child(53 of .vector), > :nth-child(53 of .side), > :nth-child(53 of o-text)),
+[class*=orbit-]:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-slice), > :nth-child(53 of .vector), > :nth-child(53 of .side), > :nth-child(53 of o-text)) {
   --o-angle: calc(var(--o-range) / (53 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-sector), > :nth-child(54 of .spoke), > :nth-child(54 of .segment), > :nth-child(54 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(54 of .satellite), > :nth-child(54 of o-sector), > :nth-child(54 of .spoke), > :nth-child(54 of .segment), > :nth-child(54 of o-label)) {
+.orbit:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-slice), > :nth-child(54 of .vector), > :nth-child(54 of .side), > :nth-child(54 of o-text)),
+[class*=orbit-]:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-slice), > :nth-child(54 of .vector), > :nth-child(54 of .side), > :nth-child(54 of o-text)) {
   --o-angle: calc(var(--o-range) / (54 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-sector), > :nth-child(55 of .spoke), > :nth-child(55 of .segment), > :nth-child(55 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(55 of .satellite), > :nth-child(55 of o-sector), > :nth-child(55 of .spoke), > :nth-child(55 of .segment), > :nth-child(55 of o-label)) {
+.orbit:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-slice), > :nth-child(55 of .vector), > :nth-child(55 of .side), > :nth-child(55 of o-text)),
+[class*=orbit-]:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-slice), > :nth-child(55 of .vector), > :nth-child(55 of .side), > :nth-child(55 of o-text)) {
   --o-angle: calc(var(--o-range) / (55 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-sector), > :nth-child(56 of .spoke), > :nth-child(56 of .segment), > :nth-child(56 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(56 of .satellite), > :nth-child(56 of o-sector), > :nth-child(56 of .spoke), > :nth-child(56 of .segment), > :nth-child(56 of o-label)) {
+.orbit:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-slice), > :nth-child(56 of .vector), > :nth-child(56 of .side), > :nth-child(56 of o-text)),
+[class*=orbit-]:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-slice), > :nth-child(56 of .vector), > :nth-child(56 of .side), > :nth-child(56 of o-text)) {
   --o-angle: calc(var(--o-range) / (56 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-sector), > :nth-child(57 of .spoke), > :nth-child(57 of .segment), > :nth-child(57 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(57 of .satellite), > :nth-child(57 of o-sector), > :nth-child(57 of .spoke), > :nth-child(57 of .segment), > :nth-child(57 of o-label)) {
+.orbit:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-slice), > :nth-child(57 of .vector), > :nth-child(57 of .side), > :nth-child(57 of o-text)),
+[class*=orbit-]:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-slice), > :nth-child(57 of .vector), > :nth-child(57 of .side), > :nth-child(57 of o-text)) {
   --o-angle: calc(var(--o-range) / (57 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-sector), > :nth-child(58 of .spoke), > :nth-child(58 of .segment), > :nth-child(58 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(58 of .satellite), > :nth-child(58 of o-sector), > :nth-child(58 of .spoke), > :nth-child(58 of .segment), > :nth-child(58 of o-label)) {
+.orbit:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-slice), > :nth-child(58 of .vector), > :nth-child(58 of .side), > :nth-child(58 of o-text)),
+[class*=orbit-]:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-slice), > :nth-child(58 of .vector), > :nth-child(58 of .side), > :nth-child(58 of o-text)) {
   --o-angle: calc(var(--o-range) / (58 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-sector), > :nth-child(59 of .spoke), > :nth-child(59 of .segment), > :nth-child(59 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(59 of .satellite), > :nth-child(59 of o-sector), > :nth-child(59 of .spoke), > :nth-child(59 of .segment), > :nth-child(59 of o-label)) {
+.orbit:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-slice), > :nth-child(59 of .vector), > :nth-child(59 of .side), > :nth-child(59 of o-text)),
+[class*=orbit-]:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-slice), > :nth-child(59 of .vector), > :nth-child(59 of .side), > :nth-child(59 of o-text)) {
   --o-angle: calc(var(--o-range) / (59 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-sector), > :nth-child(60 of .spoke), > :nth-child(60 of .segment), > :nth-child(60 of o-label)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(60 of .satellite), > :nth-child(60 of o-sector), > :nth-child(60 of .spoke), > :nth-child(60 of .segment), > :nth-child(60 of o-label)) {
+.orbit:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-slice), > :nth-child(60 of .vector), > :nth-child(60 of .side), > :nth-child(60 of o-text)),
+[class*=orbit-]:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-slice), > :nth-child(60 of .vector), > :nth-child(60 of .side), > :nth-child(60 of o-text)) {
   --o-angle: calc(var(--o-range) / (60 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(1 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(1 of .segment)) {
+.orbit:has(> :nth-child(1 of .side)),
+[class*=orbit-]:has(> :nth-child(1 of .side)) {
   --o-angle: calc(var(--o-range) / 1);
 }
-.orbit:has(> :nth-child(2 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(2 of .segment)) {
+.orbit:has(> :nth-child(2 of .side)),
+[class*=orbit-]:has(> :nth-child(2 of .side)) {
   --o-angle: calc(var(--o-range) / 2);
 }
-.orbit:has(> :nth-child(3 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(3 of .segment)) {
+.orbit:has(> :nth-child(3 of .side)),
+[class*=orbit-]:has(> :nth-child(3 of .side)) {
   --o-angle: calc(var(--o-range) / 3);
 }
-.orbit:has(> :nth-child(4 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(4 of .segment)) {
+.orbit:has(> :nth-child(4 of .side)),
+[class*=orbit-]:has(> :nth-child(4 of .side)) {
   --o-angle: calc(var(--o-range) / 4);
 }
-.orbit:has(> :nth-child(5 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(5 of .segment)) {
+.orbit:has(> :nth-child(5 of .side)),
+[class*=orbit-]:has(> :nth-child(5 of .side)) {
   --o-angle: calc(var(--o-range) / 5);
 }
-.orbit:has(> :nth-child(6 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(6 of .segment)) {
+.orbit:has(> :nth-child(6 of .side)),
+[class*=orbit-]:has(> :nth-child(6 of .side)) {
   --o-angle: calc(var(--o-range) / 6);
 }
-.orbit:has(> :nth-child(7 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(7 of .segment)) {
+.orbit:has(> :nth-child(7 of .side)),
+[class*=orbit-]:has(> :nth-child(7 of .side)) {
   --o-angle: calc(var(--o-range) / 7);
 }
-.orbit:has(> :nth-child(8 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(8 of .segment)) {
+.orbit:has(> :nth-child(8 of .side)),
+[class*=orbit-]:has(> :nth-child(8 of .side)) {
   --o-angle: calc(var(--o-range) / 8);
 }
-.orbit:has(> :nth-child(9 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(9 of .segment)) {
+.orbit:has(> :nth-child(9 of .side)),
+[class*=orbit-]:has(> :nth-child(9 of .side)) {
   --o-angle: calc(var(--o-range) / 9);
 }
-.orbit:has(> :nth-child(10 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(10 of .segment)) {
+.orbit:has(> :nth-child(10 of .side)),
+[class*=orbit-]:has(> :nth-child(10 of .side)) {
   --o-angle: calc(var(--o-range) / 10);
 }
-.orbit:has(> :nth-child(11 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(11 of .segment)) {
+.orbit:has(> :nth-child(11 of .side)),
+[class*=orbit-]:has(> :nth-child(11 of .side)) {
   --o-angle: calc(var(--o-range) / 11);
 }
-.orbit:has(> :nth-child(12 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(12 of .segment)) {
+.orbit:has(> :nth-child(12 of .side)),
+[class*=orbit-]:has(> :nth-child(12 of .side)) {
   --o-angle: calc(var(--o-range) / 12);
 }
-.orbit:has(> :nth-child(13 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(13 of .segment)) {
+.orbit:has(> :nth-child(13 of .side)),
+[class*=orbit-]:has(> :nth-child(13 of .side)) {
   --o-angle: calc(var(--o-range) / 13);
 }
-.orbit:has(> :nth-child(14 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(14 of .segment)) {
+.orbit:has(> :nth-child(14 of .side)),
+[class*=orbit-]:has(> :nth-child(14 of .side)) {
   --o-angle: calc(var(--o-range) / 14);
 }
-.orbit:has(> :nth-child(15 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(15 of .segment)) {
+.orbit:has(> :nth-child(15 of .side)),
+[class*=orbit-]:has(> :nth-child(15 of .side)) {
   --o-angle: calc(var(--o-range) / 15);
 }
-.orbit:has(> :nth-child(16 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(16 of .segment)) {
+.orbit:has(> :nth-child(16 of .side)),
+[class*=orbit-]:has(> :nth-child(16 of .side)) {
   --o-angle: calc(var(--o-range) / 16);
 }
-.orbit:has(> :nth-child(17 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(17 of .segment)) {
+.orbit:has(> :nth-child(17 of .side)),
+[class*=orbit-]:has(> :nth-child(17 of .side)) {
   --o-angle: calc(var(--o-range) / 17);
 }
-.orbit:has(> :nth-child(18 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(18 of .segment)) {
+.orbit:has(> :nth-child(18 of .side)),
+[class*=orbit-]:has(> :nth-child(18 of .side)) {
   --o-angle: calc(var(--o-range) / 18);
 }
-.orbit:has(> :nth-child(19 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(19 of .segment)) {
+.orbit:has(> :nth-child(19 of .side)),
+[class*=orbit-]:has(> :nth-child(19 of .side)) {
   --o-angle: calc(var(--o-range) / 19);
 }
-.orbit:has(> :nth-child(20 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(20 of .segment)) {
+.orbit:has(> :nth-child(20 of .side)),
+[class*=orbit-]:has(> :nth-child(20 of .side)) {
   --o-angle: calc(var(--o-range) / 20);
 }
-.orbit:has(> :nth-child(21 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(21 of .segment)) {
+.orbit:has(> :nth-child(21 of .side)),
+[class*=orbit-]:has(> :nth-child(21 of .side)) {
   --o-angle: calc(var(--o-range) / 21);
 }
-.orbit:has(> :nth-child(22 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(22 of .segment)) {
+.orbit:has(> :nth-child(22 of .side)),
+[class*=orbit-]:has(> :nth-child(22 of .side)) {
   --o-angle: calc(var(--o-range) / 22);
 }
-.orbit:has(> :nth-child(23 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(23 of .segment)) {
+.orbit:has(> :nth-child(23 of .side)),
+[class*=orbit-]:has(> :nth-child(23 of .side)) {
   --o-angle: calc(var(--o-range) / 23);
 }
-.orbit:has(> :nth-child(24 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(24 of .segment)) {
+.orbit:has(> :nth-child(24 of .side)),
+[class*=orbit-]:has(> :nth-child(24 of .side)) {
   --o-angle: calc(var(--o-range) / 24);
 }
-.orbit:has(> :nth-child(25 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(25 of .segment)) {
+.orbit:has(> :nth-child(25 of .side)),
+[class*=orbit-]:has(> :nth-child(25 of .side)) {
   --o-angle: calc(var(--o-range) / 25);
 }
-.orbit:has(> :nth-child(26 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(26 of .segment)) {
+.orbit:has(> :nth-child(26 of .side)),
+[class*=orbit-]:has(> :nth-child(26 of .side)) {
   --o-angle: calc(var(--o-range) / 26);
 }
-.orbit:has(> :nth-child(27 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(27 of .segment)) {
+.orbit:has(> :nth-child(27 of .side)),
+[class*=orbit-]:has(> :nth-child(27 of .side)) {
   --o-angle: calc(var(--o-range) / 27);
 }
-.orbit:has(> :nth-child(28 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(28 of .segment)) {
+.orbit:has(> :nth-child(28 of .side)),
+[class*=orbit-]:has(> :nth-child(28 of .side)) {
   --o-angle: calc(var(--o-range) / 28);
 }
-.orbit:has(> :nth-child(29 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(29 of .segment)) {
+.orbit:has(> :nth-child(29 of .side)),
+[class*=orbit-]:has(> :nth-child(29 of .side)) {
   --o-angle: calc(var(--o-range) / 29);
 }
-.orbit:has(> :nth-child(30 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(30 of .segment)) {
+.orbit:has(> :nth-child(30 of .side)),
+[class*=orbit-]:has(> :nth-child(30 of .side)) {
   --o-angle: calc(var(--o-range) / 30);
 }
-.orbit:has(> :nth-child(31 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(31 of .segment)) {
+.orbit:has(> :nth-child(31 of .side)),
+[class*=orbit-]:has(> :nth-child(31 of .side)) {
   --o-angle: calc(var(--o-range) / 31);
 }
-.orbit:has(> :nth-child(32 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(32 of .segment)) {
+.orbit:has(> :nth-child(32 of .side)),
+[class*=orbit-]:has(> :nth-child(32 of .side)) {
   --o-angle: calc(var(--o-range) / 32);
 }
-.orbit:has(> :nth-child(33 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(33 of .segment)) {
+.orbit:has(> :nth-child(33 of .side)),
+[class*=orbit-]:has(> :nth-child(33 of .side)) {
   --o-angle: calc(var(--o-range) / 33);
 }
-.orbit:has(> :nth-child(34 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(34 of .segment)) {
+.orbit:has(> :nth-child(34 of .side)),
+[class*=orbit-]:has(> :nth-child(34 of .side)) {
   --o-angle: calc(var(--o-range) / 34);
 }
-.orbit:has(> :nth-child(35 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(35 of .segment)) {
+.orbit:has(> :nth-child(35 of .side)),
+[class*=orbit-]:has(> :nth-child(35 of .side)) {
   --o-angle: calc(var(--o-range) / 35);
 }
-.orbit:has(> :nth-child(36 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(36 of .segment)) {
+.orbit:has(> :nth-child(36 of .side)),
+[class*=orbit-]:has(> :nth-child(36 of .side)) {
   --o-angle: calc(var(--o-range) / 36);
 }
-.orbit:has(> :nth-child(37 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(37 of .segment)) {
+.orbit:has(> :nth-child(37 of .side)),
+[class*=orbit-]:has(> :nth-child(37 of .side)) {
   --o-angle: calc(var(--o-range) / 37);
 }
-.orbit:has(> :nth-child(38 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(38 of .segment)) {
+.orbit:has(> :nth-child(38 of .side)),
+[class*=orbit-]:has(> :nth-child(38 of .side)) {
   --o-angle: calc(var(--o-range) / 38);
 }
-.orbit:has(> :nth-child(39 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(39 of .segment)) {
+.orbit:has(> :nth-child(39 of .side)),
+[class*=orbit-]:has(> :nth-child(39 of .side)) {
   --o-angle: calc(var(--o-range) / 39);
 }
-.orbit:has(> :nth-child(40 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(40 of .segment)) {
+.orbit:has(> :nth-child(40 of .side)),
+[class*=orbit-]:has(> :nth-child(40 of .side)) {
   --o-angle: calc(var(--o-range) / 40);
 }
-.orbit:has(> :nth-child(41 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(41 of .segment)) {
+.orbit:has(> :nth-child(41 of .side)),
+[class*=orbit-]:has(> :nth-child(41 of .side)) {
   --o-angle: calc(var(--o-range) / 41);
 }
-.orbit:has(> :nth-child(42 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(42 of .segment)) {
+.orbit:has(> :nth-child(42 of .side)),
+[class*=orbit-]:has(> :nth-child(42 of .side)) {
   --o-angle: calc(var(--o-range) / 42);
 }
-.orbit:has(> :nth-child(43 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(43 of .segment)) {
+.orbit:has(> :nth-child(43 of .side)),
+[class*=orbit-]:has(> :nth-child(43 of .side)) {
   --o-angle: calc(var(--o-range) / 43);
 }
-.orbit:has(> :nth-child(44 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(44 of .segment)) {
+.orbit:has(> :nth-child(44 of .side)),
+[class*=orbit-]:has(> :nth-child(44 of .side)) {
   --o-angle: calc(var(--o-range) / 44);
 }
-.orbit:has(> :nth-child(45 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(45 of .segment)) {
+.orbit:has(> :nth-child(45 of .side)),
+[class*=orbit-]:has(> :nth-child(45 of .side)) {
   --o-angle: calc(var(--o-range) / 45);
 }
-.orbit:has(> :nth-child(46 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(46 of .segment)) {
+.orbit:has(> :nth-child(46 of .side)),
+[class*=orbit-]:has(> :nth-child(46 of .side)) {
   --o-angle: calc(var(--o-range) / 46);
 }
-.orbit:has(> :nth-child(47 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(47 of .segment)) {
+.orbit:has(> :nth-child(47 of .side)),
+[class*=orbit-]:has(> :nth-child(47 of .side)) {
   --o-angle: calc(var(--o-range) / 47);
 }
-.orbit:has(> :nth-child(48 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(48 of .segment)) {
+.orbit:has(> :nth-child(48 of .side)),
+[class*=orbit-]:has(> :nth-child(48 of .side)) {
   --o-angle: calc(var(--o-range) / 48);
 }
-.orbit:has(> :nth-child(49 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(49 of .segment)) {
+.orbit:has(> :nth-child(49 of .side)),
+[class*=orbit-]:has(> :nth-child(49 of .side)) {
   --o-angle: calc(var(--o-range) / 49);
 }
-.orbit:has(> :nth-child(50 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(50 of .segment)) {
+.orbit:has(> :nth-child(50 of .side)),
+[class*=orbit-]:has(> :nth-child(50 of .side)) {
   --o-angle: calc(var(--o-range) / 50);
 }
-.orbit:has(> :nth-child(51 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(51 of .segment)) {
+.orbit:has(> :nth-child(51 of .side)),
+[class*=orbit-]:has(> :nth-child(51 of .side)) {
   --o-angle: calc(var(--o-range) / 51);
 }
-.orbit:has(> :nth-child(52 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(52 of .segment)) {
+.orbit:has(> :nth-child(52 of .side)),
+[class*=orbit-]:has(> :nth-child(52 of .side)) {
   --o-angle: calc(var(--o-range) / 52);
 }
-.orbit:has(> :nth-child(53 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(53 of .segment)) {
+.orbit:has(> :nth-child(53 of .side)),
+[class*=orbit-]:has(> :nth-child(53 of .side)) {
   --o-angle: calc(var(--o-range) / 53);
 }
-.orbit:has(> :nth-child(54 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(54 of .segment)) {
+.orbit:has(> :nth-child(54 of .side)),
+[class*=orbit-]:has(> :nth-child(54 of .side)) {
   --o-angle: calc(var(--o-range) / 54);
 }
-.orbit:has(> :nth-child(55 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(55 of .segment)) {
+.orbit:has(> :nth-child(55 of .side)),
+[class*=orbit-]:has(> :nth-child(55 of .side)) {
   --o-angle: calc(var(--o-range) / 55);
 }
-.orbit:has(> :nth-child(56 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(56 of .segment)) {
+.orbit:has(> :nth-child(56 of .side)),
+[class*=orbit-]:has(> :nth-child(56 of .side)) {
   --o-angle: calc(var(--o-range) / 56);
 }
-.orbit:has(> :nth-child(57 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(57 of .segment)) {
+.orbit:has(> :nth-child(57 of .side)),
+[class*=orbit-]:has(> :nth-child(57 of .side)) {
   --o-angle: calc(var(--o-range) / 57);
 }
-.orbit:has(> :nth-child(58 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(58 of .segment)) {
+.orbit:has(> :nth-child(58 of .side)),
+[class*=orbit-]:has(> :nth-child(58 of .side)) {
   --o-angle: calc(var(--o-range) / 58);
 }
-.orbit:has(> :nth-child(59 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(59 of .segment)) {
+.orbit:has(> :nth-child(59 of .side)),
+[class*=orbit-]:has(> :nth-child(59 of .side)) {
   --o-angle: calc(var(--o-range) / 59);
 }
-.orbit:has(> :nth-child(60 of .segment)),
-[class*=orbit-]:not(.orbit-zone):has(> :nth-child(60 of .segment)) {
+.orbit:has(> :nth-child(60 of .side)),
+[class*=orbit-]:has(> :nth-child(60 of .side)) {
   --o-angle: calc(var(--o-range) / 60);
+}
+.bigbang {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.gravity-spot {
+  container-name: gravityspot;
+  --o-force: 500px;
+  --o-from: 0deg;
+  --o-range: 360deg;
+  --o-ellipse-x: 1;
+  --o-ellipse-y: 1;
+  --o-fit-range: 0;
+  --o-direction: 1;
+  --o-size-ratio: 1;
+  width: 0;
+  aspect-ratio: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+.orbit,
+[class*=orbit-] {
+  container-name: orbit;
+  --o-base-diameter: (var(--o-initial-orbit, 0) + var(--o-orbit-number)) * var(--o-force) / (12 + var(--o-initial-orbit, 0));
+  --o-prev-diameter: ((var(--o-initial-orbit, 0) + var(--o-orbit-number)) - 1) * var(--o-force) / (12 + var(--o-initial-orbit, 0));
+  --o-diameter: calc(var(--o-base-diameter) - ((var(--o-base-diameter) - var(--o-prev-diameter)) * var(--o-orbit-ratio, 0)));
+  --o-radius: calc(var(--o-diameter) / 2);
+  width: calc(var(--o-diameter) / var(--o-ellipse-x));
+  height: calc(var(--o-diameter) / var(--o-ellipse-y));
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.satellite {
+  container-name: satellite;
+  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
+  --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite )) ), calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) );
+  transform: var(--o-transform);
+  width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  height: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  pointer-events: all;
+}
+.satellite.at-center {
+  --o-transform: rotate(0deg);
+}
+.satellite.circle {
+  border-radius: 50%;
+}
+.satellite.box {
+  border-radius: 0%;
+}
+.satellite.rounded-box {
+  border-radius: 8px;
+}
+.vector {
+  container-name: vector;
+  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
+  --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 1px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite)) ), calc( (var(--o-radius) - var(--o-aligment, 1px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) ) rotate( calc(var(--o-from) + var(--o-angle-composite)) );
+  width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  position: absolute;
+  display: flex;
+  align-items: center;
+  transform: var(--o-transform);
+  height: 1px;
+  pointer-events: none;
+  border: none;
+}
+.vector.at-center {
+  --o-transform: rotate( calc(var(--o-from) + var(--o-angle-composite)) ) ;
+}
+.side {
+  container-name: side;
+  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
+  --o-y: calc(var(--o-radius) * sin(90deg - var(--o-angle) / 2));
+  --o-x: calc(var(--o-radius) * cos(90deg - var(--o-angle) / 2) * 2);
+  --o-transform: rotate( calc(var(--o-from) + var(--o-angle-composite))) translate(0, var(--o-y));
+  width: var(--o-x);
+  position: absolute;
+  padding: 0;
+  transform: var(--o-transform);
+  height: 1px;
+  pointer-events: none;
+  border: none;
+  background: black;
+}
+.side.outer-orbit {
+  --o-y: calc(var(--o-radius));
+  width: calc(var(--o-radius) * tan(var(--o-angle)/2) * 2);
+}
+o-slice {
+  --o-angle-composite: var(--o-angle) * var(--o-orbit-child-number) * var(--o-direction, 1);
+  container-name: oslice;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  stroke-dashoffset: var(--o-angle);
+  r: var(--o-radius);
+  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
+}
+o-text {
+  --o-angle-composite: var(--o-angle) * var(--o-orbit-child-number) * var(--o-direction, 1);
+  container-name: otext;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  width: 100%;
+  fill: currentColor;
+  r: var(--o-radius);
+  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
+}
+o-progress {
+  container-name: oprogress;
+  r: var(--o-radius);
+  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  transform: rotate(var(--o-from));
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-radius: 50%;
+  pointer-events: none;
 }
 .capsule {
   --o-angle-composite: 0deg;
@@ -1292,6 +1347,42 @@ o-progress {
 .at-center-right {
   align-items: center !important;
   justify-content: flex-end !important;
+}
+.gravity-spot.from-1x {
+  --o-initial-orbit: 1;
+}
+.gravity-spot.from-2x {
+  --o-initial-orbit: 2;
+}
+.gravity-spot.from-3x {
+  --o-initial-orbit: 3;
+}
+.gravity-spot.from-4x {
+  --o-initial-orbit: 4;
+}
+.gravity-spot.from-5x {
+  --o-initial-orbit: 5;
+}
+.gravity-spot.from-6x {
+  --o-initial-orbit: 6;
+}
+.gravity-spot.from-7x {
+  --o-initial-orbit: 7;
+}
+.gravity-spot.from-8x {
+  --o-initial-orbit: 8;
+}
+.gravity-spot.from-9x {
+  --o-initial-orbit: 9;
+}
+.gravity-spot.from-10x {
+  --o-initial-orbit: 10;
+}
+.gravity-spot.from-11x {
+  --o-initial-orbit: 11;
+}
+.gravity-spot.from-12x {
+  --o-initial-orbit: 12;
 }
 .range-0 {
   --o-range: 0deg;
@@ -4542,238 +4633,575 @@ o-progress {
 .angle-360 {
   --o-angle-composite: calc(360deg - 90deg) !important;
 }
-o-sector.gap-1,
-o-label.gap-1 {
+o-slice.gap-1,
+o-text.gap-1 {
   --o-gap: 1;
 }
-o-sector.gap-2,
-o-label.gap-2 {
+o-slice.gap-2,
+o-text.gap-2 {
   --o-gap: 2;
 }
-o-sector.gap-3,
-o-label.gap-3 {
+o-slice.gap-3,
+o-text.gap-3 {
   --o-gap: 3;
 }
-o-sector.gap-4,
-o-label.gap-4 {
+o-slice.gap-4,
+o-text.gap-4 {
   --o-gap: 4;
 }
-o-sector.gap-5,
-o-label.gap-5 {
+o-slice.gap-5,
+o-text.gap-5 {
   --o-gap: 5;
 }
-o-sector.gap-6,
-o-label.gap-6 {
+o-slice.gap-6,
+o-text.gap-6 {
   --o-gap: 6;
 }
-o-sector.gap-7,
-o-label.gap-7 {
+o-slice.gap-7,
+o-text.gap-7 {
   --o-gap: 7;
 }
-o-sector.gap-8,
-o-label.gap-8 {
+o-slice.gap-8,
+o-text.gap-8 {
   --o-gap: 8;
 }
-o-sector.gap-9,
-o-label.gap-9 {
+o-slice.gap-9,
+o-text.gap-9 {
   --o-gap: 9;
 }
-o-sector.gap-10,
-o-label.gap-10 {
+o-slice.gap-10,
+o-text.gap-10 {
   --o-gap: 10;
 }
-o-sector.gap-11,
-o-label.gap-11 {
+o-slice.gap-11,
+o-text.gap-11 {
   --o-gap: 11;
 }
-o-sector.gap-12,
-o-label.gap-12 {
+o-slice.gap-12,
+o-text.gap-12 {
   --o-gap: 12;
 }
-o-sector.gap-13,
-o-label.gap-13 {
+o-slice.gap-13,
+o-text.gap-13 {
   --o-gap: 13;
 }
-o-sector.gap-14,
-o-label.gap-14 {
+o-slice.gap-14,
+o-text.gap-14 {
   --o-gap: 14;
 }
-o-sector.gap-15,
-o-label.gap-15 {
+o-slice.gap-15,
+o-text.gap-15 {
   --o-gap: 15;
 }
-o-sector.gap-16,
-o-label.gap-16 {
+o-slice.gap-16,
+o-text.gap-16 {
   --o-gap: 16;
 }
-o-sector.gap-17,
-o-label.gap-17 {
+o-slice.gap-17,
+o-text.gap-17 {
   --o-gap: 17;
 }
-o-sector.gap-18,
-o-label.gap-18 {
+o-slice.gap-18,
+o-text.gap-18 {
   --o-gap: 18;
 }
-o-sector.gap-19,
-o-label.gap-19 {
+o-slice.gap-19,
+o-text.gap-19 {
   --o-gap: 19;
 }
-o-sector.gap-20,
-o-label.gap-20 {
+o-slice.gap-20,
+o-text.gap-20 {
   --o-gap: 20;
 }
-o-sector.gap-21,
-o-label.gap-21 {
+o-slice.gap-21,
+o-text.gap-21 {
   --o-gap: 21;
 }
-o-sector.gap-22,
-o-label.gap-22 {
+o-slice.gap-22,
+o-text.gap-22 {
   --o-gap: 22;
 }
-o-sector.gap-23,
-o-label.gap-23 {
+o-slice.gap-23,
+o-text.gap-23 {
   --o-gap: 23;
 }
-o-sector.gap-24,
-o-label.gap-24 {
+o-slice.gap-24,
+o-text.gap-24 {
   --o-gap: 24;
 }
-o-sector.gap-25,
-o-label.gap-25 {
+o-slice.gap-25,
+o-text.gap-25 {
   --o-gap: 25;
 }
-o-sector.gap-26,
-o-label.gap-26 {
+o-slice.gap-26,
+o-text.gap-26 {
   --o-gap: 26;
 }
-o-sector.gap-27,
-o-label.gap-27 {
+o-slice.gap-27,
+o-text.gap-27 {
   --o-gap: 27;
 }
-o-sector.gap-28,
-o-label.gap-28 {
+o-slice.gap-28,
+o-text.gap-28 {
   --o-gap: 28;
 }
-o-sector.gap-29,
-o-label.gap-29 {
+o-slice.gap-29,
+o-text.gap-29 {
   --o-gap: 29;
 }
-o-sector.gap-30,
-o-label.gap-30 {
+o-slice.gap-30,
+o-text.gap-30 {
   --o-gap: 30;
 }
-.orbit.reduce-0,
-[class*=orbit-]:not(.orbit-zone).reduce-0 {
-  --o-orbit-ratio: 0;
-}
-.orbit.reduce-10,
-[class*=orbit-]:not(.orbit-zone).reduce-10 {
+.orbit.shrink-10,
+[class*=orbit-].shrink-10 {
   --o-orbit-ratio: 0.1;
 }
-.orbit.reduce-20,
-[class*=orbit-]:not(.orbit-zone).reduce-20 {
+.orbit.shrink-20,
+[class*=orbit-].shrink-20 {
   --o-orbit-ratio: 0.2;
 }
-.orbit.reduce-30,
-[class*=orbit-]:not(.orbit-zone).reduce-30 {
+.orbit.shrink-30,
+[class*=orbit-].shrink-30 {
   --o-orbit-ratio: 0.3;
 }
-.orbit.reduce-40,
-[class*=orbit-]:not(.orbit-zone).reduce-40 {
+.orbit.shrink-40,
+[class*=orbit-].shrink-40 {
   --o-orbit-ratio: 0.4;
 }
-.orbit.reduce-50,
-[class*=orbit-]:not(.orbit-zone).reduce-50 {
+.orbit.shrink-50,
+[class*=orbit-].shrink-50 {
   --o-orbit-ratio: 0.5;
 }
-.orbit.reduce-60,
-[class*=orbit-]:not(.orbit-zone).reduce-60 {
+.orbit.shrink-60,
+[class*=orbit-].shrink-60 {
   --o-orbit-ratio: 0.6;
 }
-.orbit.reduce-70,
-[class*=orbit-]:not(.orbit-zone).reduce-70 {
+.orbit.shrink-70,
+[class*=orbit-].shrink-70 {
   --o-orbit-ratio: 0.7;
 }
-.orbit.reduce-80,
-[class*=orbit-]:not(.orbit-zone).reduce-80 {
+.orbit.shrink-80,
+[class*=orbit-].shrink-80 {
   --o-orbit-ratio: 0.8;
 }
-.orbit.reduce-90,
-[class*=orbit-]:not(.orbit-zone).reduce-90 {
+.orbit.shrink-90,
+[class*=orbit-].shrink-90 {
   --o-orbit-ratio: 0.9;
 }
-.orbit.reduce-100,
-[class*=orbit-]:not(.orbit-zone).reduce-100 {
-  --o-orbit-ratio: 1;
+.shrink-10 {
+  --o-size-ratio: 0.9 !important;
 }
-.reduce-0 {
-  --o-size-ratio: 1;
+.shrink-20 {
+  --o-size-ratio: 0.8 !important;
 }
-.reduce-10 {
-  --o-size-ratio: 0.9;
+.shrink-30 {
+  --o-size-ratio: 0.7 !important;
 }
-.reduce-20 {
-  --o-size-ratio: 0.8;
+.shrink-40 {
+  --o-size-ratio: 0.6 !important;
 }
-.reduce-30 {
-  --o-size-ratio: 0.7;
+.shrink-50 {
+  --o-size-ratio: 0.5 !important;
 }
-.reduce-40 {
-  --o-size-ratio: 0.6;
+.shrink-60 {
+  --o-size-ratio: 0.4 !important;
 }
-.reduce-50 {
-  --o-size-ratio: 0.5;
+.shrink-70 {
+  --o-size-ratio: 0.3 !important;
 }
-.reduce-60 {
-  --o-size-ratio: 0.4;
+.shrink-80 {
+  --o-size-ratio: 0.2 !important;
 }
-.reduce-70 {
-  --o-size-ratio: 0.3;
+.shrink-90 {
+  --o-size-ratio: 0.1 !important;
 }
-.reduce-80 {
-  --o-size-ratio: 0.2;
+.grow-0\.1x {
+  --o-size-ratio: 1.1 !important;
 }
-.reduce-90 {
-  --o-size-ratio: 0.1;
+.grow-0\.2x {
+  --o-size-ratio: 1.2 !important;
 }
-.reduce-100 {
-  --o-size-ratio: 0;
+.grow-0\.3x {
+  --o-size-ratio: 1.3 !important;
+}
+.grow-0\.4x {
+  --o-size-ratio: 1.4 !important;
+}
+.grow-0\.5x {
+  --o-size-ratio: 1.5 !important;
+}
+.grow-0\.6x {
+  --o-size-ratio: 1.6 !important;
+}
+.grow-0\.7x {
+  --o-size-ratio: 1.7 !important;
+}
+.grow-0\.8x {
+  --o-size-ratio: 1.8 !important;
+}
+.grow-0\.9x {
+  --o-size-ratio: 1.9 !important;
 }
 .grow-1x {
-  --o-size-ratio: 2;
+  --o-size-ratio: 2 !important;
+}
+.grow-1\.1x {
+  --o-size-ratio: 2.1 !important;
+}
+.grow-1\.2x {
+  --o-size-ratio: 2.2 !important;
+}
+.grow-1\.3x {
+  --o-size-ratio: 2.3 !important;
+}
+.grow-1\.4x {
+  --o-size-ratio: 2.4 !important;
+}
+.grow-1\.5x {
+  --o-size-ratio: 2.5 !important;
+}
+.grow-1\.6x {
+  --o-size-ratio: 2.6 !important;
+}
+.grow-1\.7x {
+  --o-size-ratio: 2.7 !important;
+}
+.grow-1\.8x {
+  --o-size-ratio: 2.8 !important;
+}
+.grow-1\.9x {
+  --o-size-ratio: 2.9 !important;
 }
 .grow-2x {
-  --o-size-ratio: 4;
+  --o-size-ratio: 4 !important;
+}
+.grow-2\.1x {
+  --o-size-ratio: 4.1 !important;
+}
+.grow-2\.2x {
+  --o-size-ratio: 4.2 !important;
+}
+.grow-2\.3x {
+  --o-size-ratio: 4.3 !important;
+}
+.grow-2\.4x {
+  --o-size-ratio: 4.4 !important;
+}
+.grow-2\.5x {
+  --o-size-ratio: 4.5 !important;
+}
+.grow-2\.6x {
+  --o-size-ratio: 4.6 !important;
+}
+.grow-2\.7x {
+  --o-size-ratio: 4.7 !important;
+}
+.grow-2\.8x {
+  --o-size-ratio: 4.8 !important;
+}
+.grow-2\.9x {
+  --o-size-ratio: 4.9 !important;
 }
 .grow-3x {
-  --o-size-ratio: 6;
+  --o-size-ratio: 6 !important;
+}
+.grow-3\.1x {
+  --o-size-ratio: 6.1 !important;
+}
+.grow-3\.2x {
+  --o-size-ratio: 6.2 !important;
+}
+.grow-3\.3x {
+  --o-size-ratio: 6.3 !important;
+}
+.grow-3\.4x {
+  --o-size-ratio: 6.4 !important;
+}
+.grow-3\.5x {
+  --o-size-ratio: 6.5 !important;
+}
+.grow-3\.6x {
+  --o-size-ratio: 6.6 !important;
+}
+.grow-3\.7x {
+  --o-size-ratio: 6.7 !important;
+}
+.grow-3\.8x {
+  --o-size-ratio: 6.8 !important;
+}
+.grow-3\.9x {
+  --o-size-ratio: 6.9 !important;
 }
 .grow-4x {
-  --o-size-ratio: 8;
+  --o-size-ratio: 8 !important;
+}
+.grow-4\.1x {
+  --o-size-ratio: 8.1 !important;
+}
+.grow-4\.2x {
+  --o-size-ratio: 8.2 !important;
+}
+.grow-4\.3x {
+  --o-size-ratio: 8.3 !important;
+}
+.grow-4\.4x {
+  --o-size-ratio: 8.4 !important;
+}
+.grow-4\.5x {
+  --o-size-ratio: 8.5 !important;
+}
+.grow-4\.6x {
+  --o-size-ratio: 8.6 !important;
+}
+.grow-4\.7x {
+  --o-size-ratio: 8.7 !important;
+}
+.grow-4\.8x {
+  --o-size-ratio: 8.8 !important;
+}
+.grow-4\.9x {
+  --o-size-ratio: 8.9 !important;
 }
 .grow-5x {
-  --o-size-ratio: 10;
+  --o-size-ratio: 10 !important;
+}
+.grow-5\.1x {
+  --o-size-ratio: 10.1 !important;
+}
+.grow-5\.2x {
+  --o-size-ratio: 10.2 !important;
+}
+.grow-5\.3x {
+  --o-size-ratio: 10.3 !important;
+}
+.grow-5\.4x {
+  --o-size-ratio: 10.4 !important;
+}
+.grow-5\.5x {
+  --o-size-ratio: 10.5 !important;
+}
+.grow-5\.6x {
+  --o-size-ratio: 10.6 !important;
+}
+.grow-5\.7x {
+  --o-size-ratio: 10.7 !important;
+}
+.grow-5\.8x {
+  --o-size-ratio: 10.8 !important;
+}
+.grow-5\.9x {
+  --o-size-ratio: 10.9 !important;
 }
 .grow-6x {
-  --o-size-ratio: 12;
+  --o-size-ratio: 12 !important;
+}
+.grow-6\.1x {
+  --o-size-ratio: 12.1 !important;
+}
+.grow-6\.2x {
+  --o-size-ratio: 12.2 !important;
+}
+.grow-6\.3x {
+  --o-size-ratio: 12.3 !important;
+}
+.grow-6\.4x {
+  --o-size-ratio: 12.4 !important;
+}
+.grow-6\.5x {
+  --o-size-ratio: 12.5 !important;
+}
+.grow-6\.6x {
+  --o-size-ratio: 12.6 !important;
+}
+.grow-6\.7x {
+  --o-size-ratio: 12.7 !important;
+}
+.grow-6\.8x {
+  --o-size-ratio: 12.8 !important;
+}
+.grow-6\.9x {
+  --o-size-ratio: 12.9 !important;
 }
 .grow-7x {
-  --o-size-ratio: 14;
+  --o-size-ratio: 14 !important;
+}
+.grow-7\.1x {
+  --o-size-ratio: 14.1 !important;
+}
+.grow-7\.2x {
+  --o-size-ratio: 14.2 !important;
+}
+.grow-7\.3x {
+  --o-size-ratio: 14.3 !important;
+}
+.grow-7\.4x {
+  --o-size-ratio: 14.4 !important;
+}
+.grow-7\.5x {
+  --o-size-ratio: 14.5 !important;
+}
+.grow-7\.6x {
+  --o-size-ratio: 14.6 !important;
+}
+.grow-7\.7x {
+  --o-size-ratio: 14.7 !important;
+}
+.grow-7\.8x {
+  --o-size-ratio: 14.8 !important;
+}
+.grow-7\.9x {
+  --o-size-ratio: 14.9 !important;
 }
 .grow-8x {
-  --o-size-ratio: 16;
+  --o-size-ratio: 16 !important;
+}
+.grow-8\.1x {
+  --o-size-ratio: 16.1 !important;
+}
+.grow-8\.2x {
+  --o-size-ratio: 16.2 !important;
+}
+.grow-8\.3x {
+  --o-size-ratio: 16.3 !important;
+}
+.grow-8\.4x {
+  --o-size-ratio: 16.4 !important;
+}
+.grow-8\.5x {
+  --o-size-ratio: 16.5 !important;
+}
+.grow-8\.6x {
+  --o-size-ratio: 16.6 !important;
+}
+.grow-8\.7x {
+  --o-size-ratio: 16.7 !important;
+}
+.grow-8\.8x {
+  --o-size-ratio: 16.8 !important;
+}
+.grow-8\.9x {
+  --o-size-ratio: 16.9 !important;
 }
 .grow-9x {
-  --o-size-ratio: 18;
+  --o-size-ratio: 18 !important;
+}
+.grow-9\.1x {
+  --o-size-ratio: 18.1 !important;
+}
+.grow-9\.2x {
+  --o-size-ratio: 18.2 !important;
+}
+.grow-9\.3x {
+  --o-size-ratio: 18.3 !important;
+}
+.grow-9\.4x {
+  --o-size-ratio: 18.4 !important;
+}
+.grow-9\.5x {
+  --o-size-ratio: 18.5 !important;
+}
+.grow-9\.6x {
+  --o-size-ratio: 18.6 !important;
+}
+.grow-9\.7x {
+  --o-size-ratio: 18.7 !important;
+}
+.grow-9\.8x {
+  --o-size-ratio: 18.8 !important;
+}
+.grow-9\.9x {
+  --o-size-ratio: 18.9 !important;
 }
 .grow-10x {
-  --o-size-ratio: 20;
+  --o-size-ratio: 20 !important;
+}
+.grow-10\.1x {
+  --o-size-ratio: 20.1 !important;
+}
+.grow-10\.2x {
+  --o-size-ratio: 20.2 !important;
+}
+.grow-10\.3x {
+  --o-size-ratio: 20.3 !important;
+}
+.grow-10\.4x {
+  --o-size-ratio: 20.4 !important;
+}
+.grow-10\.5x {
+  --o-size-ratio: 20.5 !important;
+}
+.grow-10\.6x {
+  --o-size-ratio: 20.6 !important;
+}
+.grow-10\.7x {
+  --o-size-ratio: 20.7 !important;
+}
+.grow-10\.8x {
+  --o-size-ratio: 20.8 !important;
+}
+.grow-10\.9x {
+  --o-size-ratio: 20.9 !important;
 }
 .grow-11x {
-  --o-size-ratio: 22;
+  --o-size-ratio: 22 !important;
+}
+.grow-11\.1x {
+  --o-size-ratio: 22.1 !important;
+}
+.grow-11\.2x {
+  --o-size-ratio: 22.2 !important;
+}
+.grow-11\.3x {
+  --o-size-ratio: 22.3 !important;
+}
+.grow-11\.4x {
+  --o-size-ratio: 22.4 !important;
+}
+.grow-11\.5x {
+  --o-size-ratio: 22.5 !important;
+}
+.grow-11\.6x {
+  --o-size-ratio: 22.6 !important;
+}
+.grow-11\.7x {
+  --o-size-ratio: 22.7 !important;
+}
+.grow-11\.8x {
+  --o-size-ratio: 22.8 !important;
+}
+.grow-11\.9x {
+  --o-size-ratio: 22.9 !important;
 }
 .grow-12x {
-  --o-size-ratio: 24;
+  --o-size-ratio: 24 !important;
+}
+.grow-12\.1x {
+  --o-size-ratio: 24.1 !important;
+}
+.grow-12\.2x {
+  --o-size-ratio: 24.2 !important;
+}
+.grow-12\.3x {
+  --o-size-ratio: 24.3 !important;
+}
+.grow-12\.4x {
+  --o-size-ratio: 24.4 !important;
+}
+.grow-12\.5x {
+  --o-size-ratio: 24.5 !important;
+}
+.grow-12\.6x {
+  --o-size-ratio: 24.6 !important;
+}
+.grow-12\.7x {
+  --o-size-ratio: 24.7 !important;
+}
+.grow-12\.8x {
+  --o-size-ratio: 24.8 !important;
+}
+.grow-12\.9x {
+  --o-size-ratio: 24.9 !important;
 }
 .inner-orbit {
   --o-aligment: calc( var(--o-radius) / var(--o-orbit-number, 1) * var(--o-size-ratio, 1) ) / 2;
@@ -4788,11 +5216,11 @@ o-label.gap-30 {
   --o-aligment: calc( var(--o-radius) / var(--o-orbit-number, 1) * var(--o-size-ratio, 1) ) / -2;
 }
 .ccw {
-  --o-direction: -1;
-  --o-offset: - -90deg ;
+  --o-direction: -1 !important;
+  --o-offset: - -90deg !important;
 }
 .fit-range {
-  --o-fit-range: 1;
+  --o-fit-range: 1 !important;
 }
 .capsule.flip {
   --o-angle-composite: 180deg !important;
@@ -4822,7 +5250,7 @@ o-label.gap-30 {
   transform: var(--o-transform) rotate(calc(var(--o-angle-composite)));
 }
 o-progress.rounded,
-o-label.rounded {
+o-text.rounded {
   --o-linecap: round;
 }
 .gooey-fx-light,
@@ -4836,13 +5264,13 @@ o-label.rounded {
   filter: url('data:image/svg+xml,  <svg xmlns="http://www.w3.org/2000/svg">  <filter id="fancy-goo">  <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur" />  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />  <feComposite in="SourceGraphic" in2="goo" operator="atop" />  </filter>  </svg>#fancy-goo');
 }
 @supports not selector(:has(a)) {
-  .orbit-zone {
+  .gravity-spot {
     border: 3px dotted red !important;
   }
-  .orbit-zone > * {
+  .gravity-spot > * {
     display: none;
   }
-  .orbit-zone::before {
+  .gravity-spot::before {
     content: "Update  \1f98a  Firefox to use Orbit";
     font-size: 18px;
     padding: 10px;
@@ -4854,27 +5282,45 @@ o-label.rounded {
     display: none;
   }
 }
-@container osector not style(--o-ellipse-x: 1) {
-  o-sector,
+@container oslice not style(--o-ellipse-x: 1) {
+  o-slice,
   o-progress,
-  o-label {
+  o-text {
     display: none;
   }
 }
-@container osector not style(--o-ellipse-y: 1) {
-  o-sector,
+@container oslice not style(--o-ellipse-y: 1) {
+  o-slice,
   o-progress,
-  o-label {
+  o-text {
     display: none;
   }
 }
-.orbit-zone:has(> *:not(.orbit, [class*=orbit-])) {
+.bigbangt:has(> *:not(.gravity-spot)) {
   border: 2px dotted red !important;
+  width: var(--o-force) !important;
+  border-radius: 50%;
 }
-.orbit-zone:has(> *:not(.orbit, [class*=orbit-])) > * {
+.bigbangt:has(> *:not(.gravity-spot)) > * {
   filter: grayscale(1) opacity(0.2);
 }
-.orbit-zone:has(> *:not(.orbit, [class*=orbit-]))::after {
+.bigbangt:has(> *:not(.gravity-spot))::after {
+  content: "\26a0\fe0f";
+  font-size: 130%;
+  animation: pulse 1.5s infinite;
+  z-index: 99;
+  filter: drop-shadow(3px 3px 8px #fffefe);
+  position: absolute;
+}
+.gravity-spot:has(> *:not(.orbit, [class*=orbit-], .gravity-spot)) {
+  border: 2px dotted red !important;
+  width: var(--o-force) !important;
+  border-radius: 50%;
+}
+.gravity-spot:has(> *:not(.orbit, [class*=orbit-], .gravity-spot)) > * {
+  filter: grayscale(1) opacity(0.2);
+}
+.gravity-spot:has(> *:not(.orbit, [class*=orbit-], .gravity-spot))::after {
   content: "\26a0\fe0f";
   font-size: 130%;
   animation: pulse 1.5s infinite;
@@ -4883,18 +5329,18 @@ o-label.rounded {
   position: absolute;
 }
 .orbit:has(> *:is(.orbit, [class*=orbit-])),
-[class*=orbit-]:not(.orbit-zone):has(> *:is(.orbit, [class*=orbit-])),
-.satellite:has(> *:not(.orbit-zone, .capsule)) {
+[class*=orbit-]:has(> *:is(.orbit, [class*=orbit-])),
+.satellite:has(> *:not(.gravity-spot, .capsule)) {
   border: 2px dotted #ff5100 !important;
 }
 .orbit:has(> *:is(.orbit, [class*=orbit-])) > *,
-[class*=orbit-]:not(.orbit-zone):has(> *:is(.orbit, [class*=orbit-])) > *,
-.satellite:has(> *:not(.orbit-zone, .capsule)) > * {
+[class*=orbit-]:has(> *:is(.orbit, [class*=orbit-])) > *,
+.satellite:has(> *:not(.gravity-spot, .capsule)) > * {
   opacity: 0.4;
 }
 .orbit:has(> *:is(.orbit, [class*=orbit-]))::after,
-[class*=orbit-]:not(.orbit-zone):has(> *:is(.orbit, [class*=orbit-]))::after,
-.satellite:has(> *:not(.orbit-zone, .capsule))::after {
+[class*=orbit-]:has(> *:is(.orbit, [class*=orbit-]))::after,
+.satellite:has(> *:not(.gravity-spot, .capsule))::after {
   content: "\26a0\fe0f";
   animation: pulse 1.5s infinite;
   z-index: 999;
@@ -4997,23 +5443,23 @@ o-label.rounded {
   --o-gray-darker: color-mix(in oklab, var(--o-gray), black 40%);
   --o-gray-black: color-mix(in oklab, var(--o-gray), black 78%);
 }
-.orbit-zone {
+.gravity-spot {
   background: none;
   border: none;
 }
 .orbit,
-[class*=orbit-]:not(.orbit-zone) {
+[class*=orbit-] {
   border: 1px solid transparent;
 }
 .satellite {
   background-color: transparent;
   border: 1px solid currentcolor;
 }
-.spoke {
+.vector {
   border: none;
   background: currentcolor;
 }
-.segment {
+.side {
   border: none;
   background: currentcolor;
 }
@@ -5022,36 +5468,36 @@ o-progress {
   --o-hover-progress-color: currentcolor;
   --o-bg-color: transparent;
 }
-o-sector {
-  --o-sector-color: currentcolor;
+o-slice {
+  --o-slice-color: currentcolor;
   --o-hover-sector-color: currentcolor;
 }
-o-label {
-  --o-label-color: transparent;
+o-text {
+  --o-text-color: transparent;
   --o-hover-label-color: transparent;
   color: currentColor;
 }
-.dev-orbit.orbit-zone {
+.dev-orbit.gravity-spot {
   background: none;
   border: 0.2px dashed var(--o-red-light);
 }
-.dev-orbit .orbit-zone {
+.dev-orbit .gravity-spot {
   background: none;
   border: 0.2px dashed var(--o-red-light);
 }
 .dev-orbit .orbit,
-.dev-orbit [class*=orbit-]:not(.orbit-zone) {
+.dev-orbit [class*=orbit-] {
   border: 0.2px solid var(--o-red-light);
 }
 .dev-orbit .satellite {
   background-color: transparent;
   border: 1px solid currentColor;
 }
-.dev-orbit .spoke {
+.dev-orbit .vector {
   border: none;
   background: currentColor;
 }
-.dev-orbit .segment {
+.dev-orbit .side {
   border: none;
   background: currentColor;
 }
@@ -5060,32 +5506,32 @@ o-label {
   --o-hover-progress-color: currentColor;
   --o-bg-color: transparent;
 }
-.dev-orbit o-sector {
-  --o-sector-color: currentColor;
+.dev-orbit o-slice {
+  --o-slice-color: currentColor;
   --o-hover-sector-color: currentColor;
 }
-.dev-orbit o-label {
-  --o-label-color: transparent;
+.dev-orbit o-text {
+  --o-text-color: transparent;
   --o-hover-label-color: transparent;
   color: currentcolor;
 }
-.theme-cyan .orbit-zone {
+.theme-cyan .gravity-spot {
   background: none;
   border: none;
 }
 .theme-cyan .orbit,
-.theme-cyan [class*=orbit-]:not(.orbit-zone) {
+.theme-cyan [class*=orbit-] {
   border: 1px solid transparent;
 }
 .theme-cyan .satellite {
   background-color: transparent;
   border: 1px solid var(--o-cyan);
 }
-.theme-cyan .spoke {
+.theme-cyan .vector {
   border: none;
   background: var(--o-cyan);
 }
-.theme-cyan .segment {
+.theme-cyan .side {
   border: none;
   background: var(--o-cyan);
 }
@@ -5094,12 +5540,12 @@ o-label {
   --o-hover-progress-color: var(--o-cyan);
   --o-bg-color: transparent;
 }
-.theme-cyan o-sector {
-  --o-sector-color: var(--o-cyan);
+.theme-cyan o-slice {
+  --o-slice-color: var(--o-cyan);
   --o-hover-sector-color: var(--o-cyan);
 }
-.theme-cyan o-label {
-  --o-label-color: transparent;
+.theme-cyan o-text {
+  --o-text-color: transparent;
   --o-hover-label-color: transparent;
   color: var(--o-cyan);
 }

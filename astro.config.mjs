@@ -50,8 +50,12 @@ export default defineConfig({
     }, {
       label: 'Elements',
       items: [{
-        label: 'orbit-zone',
-        link: '/elements/orbit-zone/',
+        label: 'bigbang',
+        link: '/elements/bigbang/',
+      },
+        {
+        label: 'gravity-spot',
+        link: '/elements/gravity-spot/',
       }, {
         label: 'orbit',
         link: '/elements/orbit/'
@@ -59,20 +63,20 @@ export default defineConfig({
         label: 'satellite',
         link: '/elements/satellite/'
       }, {
-        label: 'spoke',
-        link: '/elements/spoke/'
+        label: 'vector',
+        link: '/elements/vector/'
       }, {
-        label: 'segment',
-        link: '/elements/segment/'
+        label: 'side',
+        link: '/elements/side/'
       },{
-        label: 'o-sector',
-        link: '/elements/sector/'
+        label: 'o-slice',
+        link: '/elements/slice/'
       }, {
         label: 'o-progress',
         link: '/elements/progress/'
       }, {
-        label: 'o-label',
-        link: '/elements/label/'
+        label: 'o-text',
+        link: '/elements/text/'
       }, {
         label: 'capsule',
         link: '/elements/capsule/'

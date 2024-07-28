@@ -30,7 +30,7 @@ To start using Orbit, include its CSS in your HTML file. You have two options:
 
 ### Step 2: Include Orbit JavaScript (Recommended)
 
-If you plan to use additional features like radial progress bars, curved text, and sectors, include Orbit's JavaScript. You can do this in two ways:
+If you plan to use additional features like radial progress bars, curved text, and slices, include Orbit's JavaScript. You can do this in two ways:
 
 1. **Download the JavaScript file**:
    - Download from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js).
@@ -51,7 +51,7 @@ If you plan to use additional features like radial progress bars, curved text, a
 
 ### Step 3: Set up Orbit layout
 
-Now, create a container with the `orbit-zone` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add radial elements, such us: `satellite` class or `o-label` web component . Here’s a minimal working example:
+Now, create a container with the `gravity-spot` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add radial elements, such us: `satellite` class or `o-text` web component . Here’s a minimal working example:
 
 ```html
 <!DOCTYPE html>
@@ -63,14 +63,14 @@ Now, create a container with the `orbit-zone` class, and within it, add a radial
     <title>Orbit Quick Start</title>
   </head>
   <body>
-    <div class="orbit-zone">
+    <div class="gravity-spot">
       <div class="orbit">
         <div class="satellite">1</div>
         <div class="satellite">2</div>
         <div class="satellite">3</div>
       </div>
       <div class="orbit">
-        <o-label>Curved text</o-label>
+        <o-text>Curved text</o-text>
       </div>
     </div>
   </body>

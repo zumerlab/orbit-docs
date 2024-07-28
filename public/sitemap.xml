@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/introduction/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/introduction/installation/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/orbit-zone/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/orbit/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/satellite/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/spoke/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/segment/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/sector/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/progress/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/label/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/elements/capsule/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/tools/support/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/tools/orbit-resize/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zumerlab.github.io/orbit-docs/layout/</loc>
+  <lastmod>2024-07-26T20:22:38+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>

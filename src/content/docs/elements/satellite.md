@@ -3,7 +3,7 @@ title: satellite CSS class
 ---
 ### CSS Class: `.satellite`
 
-Elements with `.satellite` are placed along an `.orbit` or `.orbit-*` path serving as content place and/or to nest `.orbits` using `.orbit-zone`.  By default, up to 60 satellites can be placed in an orbit. 
+Elements with `.satellite` are placed along an `.orbit` or `.orbit-*` path serving as content place and/or to nest `.orbits` using `.gravity-spot`.  By default, up to 60 satellites can be placed in an orbit. 
 
 ### Content
 
@@ -40,12 +40,12 @@ Satellites are suitable to render different content. If other contant than chara
 </div>
 ```
 
-- This renders two satellites. One of which nests `.orbit-zone` with some orbits
+- This renders two satellites. One of which nests `.gravity-spot` with some orbits
 ```html
 <div class="orbit">
   <div class="satellite"></div>
   <div class="satellite">
-    <div class="orbit-zone">
+    <div class="gravity-spot">
       <div class="orbit"></div>
       <div class="orbit"></div>
       <div class="orbit"></div>

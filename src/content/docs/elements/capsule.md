@@ -4,11 +4,11 @@ title: capsule CSS Class
 
 ### CSS Class: `.capsule`
 
-`Capsule` is a class to put text or another content. Currently, it can be used into `satellites` and `segments`.
+`Capsule` is a class to put text or another content. Currently, it can be used into `satellites` and `sides`.
 
 ### Customization
 
-- **Alignment:** By default, `capsule` is placed at center of `satellite` or `segment`. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
+- **Alignment:** By default, `capsule` is placed at center of `satellite` or `side`. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
 
 Besides that, to stablish `capsule` position following CSS classes can be set:
   - `stable`: to mantain content always horizontal. 

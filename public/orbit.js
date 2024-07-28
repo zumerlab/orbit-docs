@@ -1,7 +1,7 @@
 
 /*
 * orbit
-* v.0.0.1
+* v.0.2.2
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
@@ -223,7 +223,7 @@
     }
   };
 
-  // src/js/orbit-sector.js
+  // src/js/orbit-slice.js
   var template = document.createElement("template");
   template.innerHTML = `
    <style>
@@ -239,22 +239,22 @@
        svg * {
           pointer-events: stroke;
         }
-       .sector {
-          stroke: var(--o-sector-color, var(--o-cyan-light));
+       .slice {
+          stroke: var(--o-slice-color, var(--o-cyan-light));
           transition: stroke 0.3s;
         }
         
-        :host(:hover) .sector {
-          stroke: var(--o-hover-sector-color, var(--o-sector-color));
+        :host(:hover) .slice {
+          stroke: var(--o-hover-slice-color, var(--o-slice-color));
           
         }
    </style>
    <svg viewBox="0 0 100 100">
      <defs></defs>
-     <path class="sector" vector-effect="non-scaling-stroke" fill="transparent"></path>
+     <path class="slice" vector-effect="non-scaling-stroke" fill="transparent"></path>
    </svg>
  `;
-  var OrbitSector = class extends HTMLElement {
+  var OrbitSlice = class extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
@@ -281,18 +281,18 @@
         path.setAttribute("marker-end", "url(#head)");
         path.setAttribute("marker-start", "url(#tail)");
       }
-      const { strokeWidth, realRadius, sectorColor, gap } = this.getAttributes();
+      const { strokeWidth, realRadius, sliceColor, gap } = this.getAttributes();
       const angle = this.calculateAngle();
       const { d } = this.calculateArcParameters(angle, realRadius, gap);
       path.setAttribute("d", d);
-      path.setAttribute("stroke", sectorColor);
+      path.setAttribute("stroke", sliceColor);
       path.setAttribute("stroke-width", strokeWidth);
     }
     getAttributes() {
       const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue("r") || 0);
       const gap = parseFloat(getComputedStyle(this).getPropertyValue("--o-gap") || 1e-3);
       const shape = this.getAttribute("shape") || "none";
-      const sectorColor = this.getAttribute("sector-color");
+      const sliceColor = this.getAttribute("slice-color");
       const rawAngle = getComputedStyle(this).getPropertyValue("--o-angle");
       const strokeWidth = parseFloat(getComputedStyle(this).getPropertyValue("stroke-width") || 1);
       const strokeWithPercentage = strokeWidth / 2 * 100 / orbitRadius / 2;
@@ -310,20 +310,20 @@
         innerOuter = strokeWithPercentage * 0.75;
       }
       const realRadius = 50 + innerOuter - strokeWithPercentage;
-      const sectorAngle = calcularExpresionCSS(rawAngle);
+      const sliceAngle = calcularExpresionCSS(rawAngle);
       return {
         orbitRadius,
         strokeWidth,
         realRadius,
-        sectorColor,
+        sliceColor,
         gap,
-        sectorAngle,
+        sliceAngle,
         shape
       };
     }
     calculateAngle() {
-      const { sectorAngle, gap } = this.getAttributes();
-      return sectorAngle - gap;
+      const { sliceAngle, gap } = this.getAttributes();
+      return sliceAngle - gap;
     }
     calculateArcParameters(angle, realRadius, gap) {
       const radiusX = realRadius / 1;
@@ -387,8 +387,8 @@
     }
   }
 
-  // src/js/orbit-label.js
-  var OrbitLabel = class extends HTMLElement {
+  // src/js/orbit-text.js
+  var OrbitText = class extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: "open" });
@@ -418,12 +418,12 @@
         
         path {
           fill: transparent;
-          stroke: var(--o-label-color);
+          stroke: var(--o-text-color);
           transition: stroke 0.3s;
         }
        
         :host(:hover) path {
-          stroke: var(--o-hover-label-color, var(--o-label-color));
+          stroke: var(--o-hover-text-color, var(--o-text-color));
           
         }
       
@@ -467,10 +467,10 @@
       textPath.textContent = this.textContent.trim();
     }
     getPathAttributes() {
-      const { realRadius, gap, labelBgColor, flip, lineCap, strokeWidth } = this.getAttributes();
+      const { realRadius, gap, textBgColor, flip, lineCap, strokeWidth } = this.getAttributes();
       const angle = this.calculateAngle();
       const { d } = this.calculateArcParameters(angle, realRadius, gap, flip);
-      return { d, strokeWidth, labelBgColor, lineCap };
+      return { d, strokeWidth, textBgColor, lineCap };
     }
     getTextAttributes() {
       const { length, fontSize, textAnchor, fitRange } = this.getAttributes();
@@ -482,7 +482,7 @@
       const fitRange = this.hasAttribute("fit-range");
       const lineCap = getComputedStyle(this).getPropertyValue("--o-linecap") || "butt";
       const gap = parseFloat(getComputedStyle(this).getPropertyValue("--o-gap") || 1e-3);
-      const length = parseFloat(getComputedStyle(this).getPropertyValue("--o-length"));
+      const length = parseFloat(getComputedStyle(this).getPropertyValue("--o-force"));
       const textAnchor = this.getAttribute("text-anchor") || "start";
       const fontSize = getComputedStyle(this).getPropertyValue("font-size") || getComputedStyle(this).getPropertyValue("--font-size");
       const rawAngle = getComputedStyle(this).getPropertyValue("--o-angle");
@@ -502,7 +502,7 @@
         innerOuter = strokeWithPercentage * 0.75;
       }
       const realRadius = 50 + innerOuter - strokeWithPercentage;
-      const labelAngle = calcularExpresionCSS2(rawAngle);
+      const textAngle = calcularExpresionCSS2(rawAngle);
       return {
         orbitRadius,
         strokeWidth,
@@ -510,7 +510,7 @@
         length,
         fontSize,
         gap,
-        labelAngle,
+        textAngle,
         flip,
         textAnchor,
         lineCap,
@@ -518,8 +518,8 @@
       };
     }
     calculateAngle() {
-      const { labelAngle, gap } = this.getAttributes();
-      return labelAngle - gap;
+      const { textAngle, gap } = this.getAttributes();
+      return textAngle - gap;
     }
     calculateArcParameters(angle, realRadius, gap, flip) {
       const radiusX = realRadius / 1;
@@ -566,9 +566,9 @@
       const resizeObserver = new ResizeObserver((entries) => {
         for (let entry of entries) {
           const { width } = entry.contentRect;
-          const childElement = parentElement.querySelector(".orbit-zone");
+          const childElement = parentElement.querySelector(".gravity-spot");
           if (childElement) {
-            childElement.style.setProperty("--o-length", `${width}px`);
+            childElement.style.setProperty("--o-force", `${width}px`);
           } else {
             console.error("No se encontr\xF3 ning\xFAn elemento hijo con la clase .child-element");
           }
@@ -580,7 +580,7 @@
 
   // src/orbit.js
   customElements.define("o-progress", OrbitProgress);
-  customElements.define("o-sector", OrbitSector);
-  customElements.define("o-label", OrbitLabel);
+  customElements.define("o-slice", OrbitSlice);
+  customElements.define("o-text", OrbitText);
   window.Orbit = Orbit;
 })();
