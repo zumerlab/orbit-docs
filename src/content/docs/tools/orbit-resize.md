@@ -10,13 +10,13 @@ Orbit provides a Orbit JS class with `resize()` method to allow `.gravity-spot` 
 
 ```html
 <body>
-    <div class="container">
+    <div class="bigbang">
         <div class="gravity-spot">
             <!-- Orbit app -->
         </div>
     </div>
     <script scr="orbit.js">
-        Orbit.resize('container');  // Select parent element
+        Orbit.resize('.bigbang');  // Select parent element
     </script>
 </body>
 ```

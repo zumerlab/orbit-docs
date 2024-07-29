@@ -5,19 +5,22 @@ Orbit is a CSS framework designed for creating radial layouts. It offers simplic
 
 The Orbit CSS framework simplifies the creation of radial layouts, mimicking traditional row-based structures in a radial format. It offers extensive customization options and supports nesting for building intricate designs tailored to your requirements.
 
-### Step 1: Adding an Orbit Zone
-An **Orbit Zone** is a container for orbits. Each Orbit Zone has a default size of 500px but can be easily adjusted to fit your project's needs. Inside an Orbit Zone, radial elements will adhere to this size. For example, the maximum diameter of an orbit within this zone will be 500px.
+### Step 1: Adding a Bigbang
+**Bigbang** class is a wrapper for your Orbit project. Only one Bigbang is needed for each Orbit porject or Orbit instance if you have multiples Orbits in same page. 
 
-### Step 2: Adding Orbits
-Within the Orbit Zone container, you can add **orbits** using size classes ranging from `orbit0` to `orbit12`, creating concentric circles. Child orbit zones can also be added. Think of orbits as rows in traditional CSS frameworks.
+### Step 2: Adding a Gravity Spot
+A **Gravity Spot** is a container for orbits. Each Gravity Spot has a default size of 500px but can be easily adjusted to fit your project's needs. Inside an Gravity Spot, radial elements will adhere to this size. For example, the maximum diameter of an orbit within this zone will be 500px.
 
-### Step 3: Adding Radial Elements
+### Step 3: Adding Orbits
+Within the Gravity Spot container, you can add **orbits** using size classes ranging from `orbit0` to `orbit12`, creating concentric circles. Child Gravity Spot can also be added. Think of orbits as rows in traditional CSS frameworks.
+
+### Step 4: Adding Radial Elements
 Each orbit can contain **radial elements** such as `satellites`, `slices`, `vectors`, `texts`, `progress` indicators, and `sides`. These elements are evenly distributed along the orbit's perimeter, allowing for detailed radial designs tailored to specific needs.
 
-### Step 4: Nesting Orbit Zones
-**Orbit Zones** can be nested within `satellites`, enabling the creation of complex radial structures.
+### Step 5: Nesting Gravity Spot
+**Gravity Spot** can be nested within `satellites`, enabling the creation of complex radial structures.
 
-### Step 5: Customizing
+### Step 6: Customizing
 There are numerous `CSS class utilities` to use with all Orbit elements. For instance, to distribute satellites within a range of 180 degrees, you can use the `.range-180` class on the parent orbit element. The documentation provides a full, detailed explanation of all class utilities.
 
 
