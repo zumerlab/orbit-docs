@@ -9,11 +9,11 @@ By default, these Orbit elements are evenly distributed along the perimeter of `
 
 It's important to note that multiple `orbits` can be nested within an `gravity-spot`. When no specific size is defined, there can be up to 12 orbits. However, when a size is defined, there is no limit to the number of `orbits` that can be rendered, including duplicate sizes (e.g., multiple `.orbit-5`). In such cases, the stacking order follows standard HTML rules, with later `orbits` appearing above earlier ones.
 
-`.orbit-12` extends to match the size of its parent `.gravity-spot`, while `.orbit-0` has no extension beyond its own boundary. `Orbits` numbered from 1 to 11 represent a percentage of the parent `.gravity-spot` extension, positioned in between these two extremes.
+`.orbit-12` extends to match the size of its parent `.gravity-spot`, while `.orbit-0` has no extension beyond its own boundary. `Orbits` numbered from 1 to 11 represent a percentage of the parent `.gravity-spot` extension, positioned in between these two extremes. `Orbits` from 13 to 24 are placed outside force boundary.
 
 ### Customization
 
-- **Granular Orbit size:** Each `.orbit` can be finely adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the orbit to shrink by a specified percentage.
+- **Granular Orbit size:** Each `.orbit` can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the orbit to shrink by a specified percentage.
   
 - **Look and feel:** Orbits are initially invisible but can be customized by adding border and background properties.
 

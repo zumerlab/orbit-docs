@@ -7,7 +7,7 @@ It has two elements: a progress bar and a background bar that show the max range
 
 ### Customization
   
-- **o-progress size:** Each `.o-progress` can be adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the o-progress to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-progress to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+- **o-progress size:** Each `.o-progress` can be adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the o-progress to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-progress to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
   
 - **Look and feel:** o-progress has special attributes: 
   - `value`: To set a number that represents the progress bar value.

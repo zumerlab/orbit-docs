@@ -7,7 +7,7 @@ title: vector CSS class
 
 ### Customization
 
-- **Granular vectors size:** Each `.spke` can be adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the vector to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing vector to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+- **Granular vectors size:** Each `.spke` can be adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the vector to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing vector to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
   
 - **Look and feel:** Css background color property can be used.
 
@@ -24,7 +24,7 @@ title: vector CSS class
 <div class="orbit">
   <div class="vector"><div>
   <div class="vector grow-5x"><div> 
-  <div class="vector reduce-10"><div> 
+  <div class="vector shrink-10"><div> 
   <div class="vector"><div>
 </div>
 ```

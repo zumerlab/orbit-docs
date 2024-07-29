@@ -11,12 +11,14 @@ Satellites are suitable to render different content. If other contant than chara
 
 ### Customization
 
-- **Granular Satellite size:** Each `.satellite` can be finely adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the satellite to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the satellite to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+- **Granular Satellite size:** Each `.satellite` can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the satellite to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the satellite to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
   
 - **Look and feel:** Satellites are initially invisible but can be customized by adding border and background properties. In addition, a few set of CSS shapes utilities are provided (`.circle`, `.box`, `.rounded-box`). Nevertheless, users can set any shapes using svg, images, etc.
 
 - **Adjust radial layout:**
   - **`.angle-*`:** Set arbitrary satellite angle from 0 to 360 degrees, overrriding automatic radial arragement.
+  - **`.ccw`:** Allow satellites to be distributed counter clock wise direction.
+  - **`.sync-rotation`:** Informs satellites to point at orbit center.
   - **`.inner-orbit`:** To place an`.satellite` just below its orbit.
   - **`.outer-orbit`:** To place `.satellite` just above its orbit.
   - **`.quarter-inner-orbit`:** To place `.satellite` a 25% into its orbit.
@@ -36,7 +38,7 @@ Satellites are suitable to render different content. If other contant than chara
   <div class="satellite outer-orbit"></div>
   <div class="satellite rounded-box"></div>
   <div class="satellite grow-2x"></div>
-  <div class="satellite reduce-40"></div>
+  <div class="satellite shrink-40"></div>
 </div>
 ```
 

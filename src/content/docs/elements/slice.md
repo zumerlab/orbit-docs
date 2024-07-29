@@ -6,7 +6,7 @@ title: o-slice web-component
 
 ### Customization
   
-- **o-slice size:** Each `.o-slice` can be adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the o-slice to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-slice to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+- **o-slice size:** Each `.o-slice` can be adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the o-slice to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-slice to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
   
 - **Look and feel:** o-slice has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`. To change o-slice color use CSS custom var `--color` and `--hover-color` in a `o-slice` style.
 

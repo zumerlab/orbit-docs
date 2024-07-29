@@ -15,6 +15,9 @@ The `.gravity-spot` CSS class serves as a container for organizing Orbit element
 
   **Note:** For responsive designs, consider using the optional `Orbit.resize()` JavaScript function, which adjusts `--o-force` dynamically when the parent element of `.gravity-spot` is resized.
 
+- **Adjust radial layout:** 
+  - **`.from-*x`:** Set initial orbit size from 1x to 12x. 
+
 - **Alignment utilities:** By default, child `.gravity-spot` elements align at the center. This behavior can be altered using alignment utility classes such as `.at-center-left`, `.at-center-right`, `.at-top-left`, `.at-top-center`, `.at-top-right`, `.at-bottom-left`, `.at-bottom-center`, and `.at-bottom-right`.
 
 ### Example usage

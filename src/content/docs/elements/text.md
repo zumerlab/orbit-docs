@@ -6,7 +6,7 @@ title: o-text web-component
 
 ### Customization
   
-- **o-text size:** Each `.o-text` can be adjusted using the CSS class utility `.reduce-10` to `.reduce-90`, allowing the o-text to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-text to expand by a mutiple of `.orbit` size. Note that `reduce-*` and `.grow-*x` can't be used at same time.
+- **o-text size:** Each `.o-text` can be adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the o-text to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-text to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
   
 - **Look and feel:** o-text has some special attributes: `text-anchor` (start, middle, end) to align text, and `fit-range` to expand text to path length. To change o-text path color use CSS custom var `--color` and `--hover-color` in a `o-text` style. To modify font size you can set `font-size` in a `o-text` style tag or use CSS custom var `--font-size`. Nota that font-weight, font-family, etc can be set on `o-text` style tag as well.
 
