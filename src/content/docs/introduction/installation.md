@@ -63,14 +63,16 @@ Now, create a container with the `gravity-spot` class, and within it, add a radi
     <title>Orbit Quick Start</title>
   </head>
   <body>
-    <div class="gravity-spot">
-      <div class="orbit">
-        <div class="satellite">1</div>
-        <div class="satellite">2</div>
-        <div class="satellite">3</div>
-      </div>
-      <div class="orbit">
-        <o-text>Curved text</o-text>
+    <div class="bigbang">
+      <div class="gravity-spot">
+        <div class="orbit">
+          <div class="satellite">1</div>
+          <div class="satellite">2</div>
+          <div class="satellite">3</div>
+        </div>
+        <div class="orbit">
+          <o-text>Curved text</o-text>
+        </div>
       </div>
     </div>
   </body>
