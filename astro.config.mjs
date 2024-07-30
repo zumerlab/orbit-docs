@@ -12,7 +12,7 @@ export default defineConfig({
       themes: ['starlight-light'],
       useStarlightDarkModeSwitch: false
     },
-    title: 'Orbit - Documentation',
+    title: 'Orbit - Docs',
     description: 'Get started building an amazing cool radial UI with CSS',
 
     disable404Route: true,
