@@ -2,7 +2,7 @@
 title: o-slice web-component
 ---
 
-`<o-slice>` is a standard web-component for rendering a radial slices or pies. By default there are 60 slice per orbit. 
+`<o-slice>` is a standard web-component for rendering a radial slices or pies. By default there are up to 60 slices elements per orbit. 
 
 ### Customization
   

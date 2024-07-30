@@ -2,7 +2,7 @@
 title: o-text web-component
 ---
 
-`<o-text>` is a standard web-component for rendering curved text. By default there are 60 slice per orbit. 
+`<o-text>` is a standard web-component for rendering curved text. By default can be up to 60 o-texts elements per orbit. 
 
 ### Customization
   
