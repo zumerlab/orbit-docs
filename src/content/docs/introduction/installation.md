@@ -4,6 +4,10 @@ title: Installation & quick start
 
 Get ready to explore the innovative approach of radial design with Orbit! This guide will help you quickly get started and install everything you need.
 
+### Step 0: Try Orbit online
+
+To quickly get a taste of Orbit, you can try it directly in a [Codepen Playground Template](https://codepen.io/pen?template=KKjaoRj).
+
 ### Step 1: Include Orbit stylesheet
 
 To start using Orbit, include its CSS in your HTML file. You have two options:
