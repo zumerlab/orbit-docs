@@ -1,6 +1,6 @@
 # Welcome to Orbit docs 📚!
 
-This repo contains documentation source of Orbit official documentation site. Orbit documentation is powered by (Starlight Astro)[https://starlight.astro.build/].
+This repo contains documentation source of Orbit official documentation site. Orbit documentation site is powered by [Starlight Astro](https://starlight.astro.build/).
 
 👉 Checkout these links:
 
