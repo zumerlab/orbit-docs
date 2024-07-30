@@ -1277,10 +1277,14 @@ margin-top: 0 !important;
 
 }
 
+:global(button[data-open-modal]) {
+        color: #373b40;
+}
+
 :global(:root) {
---ec-frm-trmBg: #cde0ee !important;
---ec-frm-edBg: #cde0ee !important;
---ec-frm-trmTtbBg: #cde0ee !important; 
+--ec-frm-trmBg: #ededed !important;
+--ec-frm-edBg: #ededed !important;
+--ec-frm-trmTtbBg: #ededed !important; 
 --ec-brdCol: var(--background-color);
 }
 
@@ -1288,26 +1292,41 @@ margin-top: 0 !important;
 box-shadow: none !important;
 
 }
+
+:global(expressive-code .frame.is-terminal .header) {
+  display: none !important;
+}
 :global(.expressive-code *) {
 border: none !important;
 }
 
 :global(.expressive-code pre) {
-border-top-left-radius: 0px !important;
-border-top-right-radius: 0px !important;
+border-top-left-radius: 8px !important;
+border-top-right-radius: 8px !important;
 border-bottom-right-radius: 8px !important;
 border-bottom-left-radius: 8px !important;
 }
 
-
-
 :global(.default) {
 --sl-color-border-badge: #094067 !important;
+}
 
+:global(.site-title) {
+color: var(--tertiary-color) !important;
+}
 
+:global([aria-current=page]){
+  color: white !important;
+}
+
+:global(nav){
+  background-color:var(--sl-color-black) !important;
 }
 
 
+:global(.starlight-aside--caution) {
+ color: var(--sl-color-orange-high) !important;
+}
 
 
 
