@@ -1,6 +1,8 @@
-# Welcome to Orbit docs!
+# Welcome to Orbit docs 📚!
 
-This repo contains documentation source of Orbit a CSS radial composer framework. Orbit documentation is powered by Astro.
+This repo contains documentation source of Orbit official documentation site. Orbit documentation is powered by (Starlight Astro)[https://starlight.astro.build/].
+
+👉 Checkout these links:
 
 - **Orbit doc website:** https://zumerlab.github.io/orbit-docs
 - **Orbit code repo:** https://github.com/zumerlab/orbit
