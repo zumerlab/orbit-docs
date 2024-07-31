@@ -1,7 +1,7 @@
 
 /*
 * orbit
-* v.0.2.2
+* v.0.2.7
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
@@ -15,7 +15,6 @@
       <style>
         :host {
           display: block;
-
         }
         svg {
           width: 100%;
@@ -241,6 +240,7 @@
         }
        .slice {
           stroke: var(--o-slice-color, var(--o-cyan-light));
+          stroke-width:  calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
           transition: stroke 0.3s;
         }
         
@@ -281,12 +281,11 @@
         path.setAttribute("marker-end", "url(#head)");
         path.setAttribute("marker-start", "url(#tail)");
       }
-      const { strokeWidth, realRadius, sliceColor, gap } = this.getAttributes();
+      const { realRadius, sliceColor, gap } = this.getAttributes();
       const angle = this.calculateAngle();
       const { d } = this.calculateArcParameters(angle, realRadius, gap);
       path.setAttribute("d", d);
       path.setAttribute("stroke", sliceColor);
-      path.setAttribute("stroke-width", strokeWidth);
     }
     getAttributes() {
       const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue("r") || 0);
@@ -325,7 +324,7 @@
       const { sliceAngle, gap } = this.getAttributes();
       return sliceAngle - gap;
     }
-    calculateArcParameters(angle, realRadius, gap) {
+    calculateArcParameters(angle, realRadius) {
       const radiusX = realRadius / 1;
       const radiusY = realRadius / 1;
       const startX = 50 + radiusX * Math.cos(-Math.PI / 2);

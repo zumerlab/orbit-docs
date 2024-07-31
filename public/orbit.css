@@ -1,13 +1,13 @@
 
 /*
 * orbit
-* v.0.2.2
+* v.0.2.7
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-66401-ETnkLamRUtNL/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-2563-rlOJS4UH7iWr/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -39,7 +39,7 @@
   max-width: unset;
 }
 .orbit-0 {
-  --o-orbit-number: 0.01;
+  --o-orbit-number: 0.00001;
 }
 :nth-child(1 of .orbit),
 .orbit-1 {
@@ -1174,6 +1174,7 @@
   --o-fit-range: 0;
   --o-direction: 1;
   --o-size-ratio: 1;
+  --o-initial-orbit: 0;
   width: 0;
   aspect-ratio: 1;
   position: relative;
@@ -1181,6 +1182,9 @@
   align-items: center;
   justify-content: center;
   border: none;
+}
+.bigbang > .gravity-spot {
+  height: var(--o-force) !important;
 }
 .orbit,
 [class*=orbit-] {
@@ -1203,8 +1207,8 @@
   --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
   --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite )) ), calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) );
   transform: var(--o-transform);
-  width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-  height: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
+  height: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   position: absolute;
   display: flex;
   justify-content: center;
@@ -1228,7 +1232,7 @@
   container-name: vector;
   --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
   --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 1px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite)) ), calc( (var(--o-radius) - var(--o-aligment, 1px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) ) rotate( calc(var(--o-from) + var(--o-angle-composite)) );
-  width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   position: absolute;
   display: flex;
   align-items: center;
@@ -1269,9 +1273,8 @@ o-slice {
   position: absolute;
   pointer-events: none;
   width: 100%;
-  stroke-dashoffset: var(--o-angle);
   r: var(--o-radius);
-  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  stroke-width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
 }
 o-text {
@@ -1286,13 +1289,13 @@ o-text {
   width: 100%;
   fill: currentColor;
   r: var(--o-radius);
-  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  stroke-width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
 }
 o-progress {
   container-name: oprogress;
   r: var(--o-radius);
-  stroke-width: calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+  stroke-width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   transform: rotate(var(--o-from));
   position: absolute;
   display: flex;
@@ -1311,6 +1314,33 @@ o-progress {
   align-items: center;
   justify-content: center;
   rotate: calc(var(--o-angle-composite));
+}
+.bigbang.at-center > .gravity-spot {
+  transform: translate(0%, 0%);
+}
+.bigbang.at-center-left > .gravity-spot {
+  transform: translate(-50%, 0%);
+}
+.bigbang.at-center-right > .gravity-spot {
+  transform: translate(50%, 0%);
+}
+.bigbang.at-bottom > .gravity-spot {
+  transform: translate(0%, 50%);
+}
+.bigbang.at-bottom-left > .gravity-spot {
+  transform: translate(-50%, 50%);
+}
+.bigbang.at-bottom-right > .gravity-spot {
+  transform: translate(50%, 50%);
+}
+.bigbang.at-top > .gravity-spot {
+  transform: translate(0%, -50%);
+}
+.bigbang.at-top-left > .gravity-spot {
+  transform: translate(-50%, -50%);
+}
+.bigbang.at-top-right > .gravity-spot {
+  transform: translate(50%, -50%);
 }
 .at-top-left {
   align-items: flex-start !important;
@@ -5204,16 +5234,16 @@ o-text.gap-30 {
   --o-size-ratio: 24.9 !important;
 }
 .inner-orbit {
-  --o-aligment: calc( var(--o-radius) / var(--o-orbit-number, 1) * var(--o-size-ratio, 1) ) / 2;
+  --o-aligment: calc( var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1) ) / 2;
 }
 .quarter-inner-orbit {
-  --o-aligment: calc( var(--o-radius) / var(--o-orbit-number, 1) * var(--o-size-ratio, 1) ) / 3.75;
+  --o-aligment: calc( var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1) ) / 3.75;
 }
 .quarter-outer-orbit {
-  --o-aligment: calc( var(--o-radius) / var(--o-orbit-number, 1) * var(--o-size-ratio, 1) ) / -3.75;
+  --o-aligment: calc( var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1) ) / -3.75;
 }
 .outer-orbit {
-  --o-aligment: calc( var(--o-radius) / var(--o-orbit-number, 1) * var(--o-size-ratio, 1) ) / -2;
+  --o-aligment: calc( var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1) ) / -2;
 }
 .ccw {
   --o-direction: -1 !important;
@@ -5264,16 +5294,38 @@ o-text.rounded {
   filter: url('data:image/svg+xml,  <svg xmlns="http://www.w3.org/2000/svg">  <filter id="fancy-goo">  <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur" />  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />  <feComposite in="SourceGraphic" in2="goo" operator="atop" />  </filter>  </svg>#fancy-goo');
 }
 @supports not selector(:has(a)) {
-  .gravity-spot {
-    border: 3px dotted red !important;
+  .bigbang {
+    background-color: #ff00004f;
+    border: 2px dotted red !important;
+    height: 100px !important;
+    width: 250px !important;
   }
-  .gravity-spot > * {
+  .bigbang > * {
     display: none;
   }
-  .gravity-spot::before {
-    content: "Update  \1f98a  Firefox to use Orbit";
+  .bigbang::before {
+    content: ":has() selector not supported. Update this browser to use Orbit";
     font-size: 18px;
     padding: 10px;
+    text-align: center;
+    color: red;
+  }
+}
+@supports not (left:calc(cos(45deg) * 1px)) {
+  .bigbang {
+    background-color: #ff00004f;
+    border: 2px dotted red !important;
+    height: 100px !important;
+    width: 250px !important;
+  }
+  .bigbang > * {
+    display: none;
+  }
+  .bigbang::before {
+    content: "Trigometric functions not supported. Update this browser to use Orbit";
+    font-size: 18px;
+    padding: 10px;
+    color: red;
     text-align: center;
   }
 }
