@@ -1090,11 +1090,11 @@ const { data } = Astro.props.entry;
 @supports not selector(:has(a)) or not (left: calc(cos(45deg) * 1px)){	
   
   .features {
-    display: none;
+    display: none !important;
   }
 
   .o-alert {
-    display: block;
+    display: block !important;
   }
 
 }
