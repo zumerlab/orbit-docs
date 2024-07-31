@@ -1083,21 +1083,32 @@ const { data } = Astro.props.entry;
 }
   </style>
 <style>
+  @layer alert;
+
   .o-alert {
     display: none;
   }
-/* Check browser has() support */
-@supports not selector(:has(a)) or not (left: calc(cos(45deg) * 1px)){	
-  
-  .features {
-    display: none !important;
+@layer alert {
+  /* Check browser support */
+  @supports not selector(:has(a)){	
+    .features {
+      display: none !important;
+    }
+    .o-alert {
+      display: block !important;
+    }
   }
-
-  .o-alert {
-    display: block !important;
+  /* Check browser support */
+  @supports not (left: calc(cos(45deg) * 1px)){	
+    .features {
+      display: none !important;
+    }
+    .o-alert {
+      display: block !important;
+    }
   }
-
 }
+
 
   .orbits,.satellites,.sectors,.progresss,.segments,.spokes,.curved-text {
     background-color: var(--background-color);
