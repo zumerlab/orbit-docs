@@ -9,7 +9,7 @@ export default defineConfig({
   base: 'orbit-docs',
   integrations: [starlight({
     expressiveCode: {
-      themes: ['starlight-light'],
+      themes: ['github-light'],
       useStarlightDarkModeSwitch: false
     },
     title: 'Orbit - Docs',

@@ -14,19 +14,19 @@ To start using Orbit, include its CSS in your HTML file. You have two options:
 
 1. **Download or Import the CSS file**:
    - **Download**: Download the CSS file from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css) and link it in your HTML file:
-     ```html
+     ```html  wrap
      <head>
        <link rel="stylesheet" href="path/to/orbit.css">
      </head>
      ```
    - **Import**: Add the following to your stylesheet:
-     ```css
+     ```css wrap
      @import url('path/to/orbit.css');
      ```
 
 2. **Include via CDN**:
    - Add this to your HTML file:
-     ```html
+     ```html wrap
      <head>
        <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
      </head>
@@ -39,7 +39,7 @@ If you plan to use additional features like radial progress bars, curved text, a
 1. **Download the JavaScript file**:
    - Download from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js).
    - Link it in your HTML file:
-     ```html
+     ```html  wrap
      <head>
        <script src="path/to/orbit.js" defer></script>
      </head>
@@ -47,7 +47,7 @@ If you plan to use additional features like radial progress bars, curved text, a
 
 2. **Include via CDN**:
    - Add this to your HTML file:
-     ```html
+     ```html wrap
      <head>
        <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js" defer></script>
      </head>
@@ -57,7 +57,7 @@ If you plan to use additional features like radial progress bars, curved text, a
 
 Now, create a container with the `gravity-spot` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add radial elements, such us: `satellite` class or `o-text` web component . Here’s a minimal working example:
 
-```html
+```html wrap
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,7 +87,7 @@ Now, create a container with the `gravity-spot` class, and within it, add a radi
 
 You can also install Orbit using npm or yarn for easier management in your project:
 
-```sh
+```sh 
 npm install @zumer/orbit
 ```
 

@@ -1,13 +1,13 @@
 
 /*
 * orbit
-* v.0.2.7
+* v.0.2.9
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-2563-rlOJS4UH7iWr/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-20305-QmMDIUEDFuCQ/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -1164,6 +1164,9 @@
   width: 100%;
   height: 100%;
 }
+body > .bigbang {
+  height: 100vh;
+}
 .gravity-spot {
   container-name: gravityspot;
   --o-force: 500px;
@@ -1182,9 +1185,6 @@
   align-items: center;
   justify-content: center;
   border: none;
-}
-.bigbang > .gravity-spot {
-  height: var(--o-force) !important;
 }
 .orbit,
 [class*=orbit-] {
@@ -1314,33 +1314,6 @@ o-progress {
   align-items: center;
   justify-content: center;
   rotate: calc(var(--o-angle-composite));
-}
-.bigbang.at-center > .gravity-spot {
-  transform: translate(0%, 0%);
-}
-.bigbang.at-center-left > .gravity-spot {
-  transform: translate(-50%, 0%);
-}
-.bigbang.at-center-right > .gravity-spot {
-  transform: translate(50%, 0%);
-}
-.bigbang.at-bottom > .gravity-spot {
-  transform: translate(0%, 50%);
-}
-.bigbang.at-bottom-left > .gravity-spot {
-  transform: translate(-50%, 50%);
-}
-.bigbang.at-bottom-right > .gravity-spot {
-  transform: translate(50%, 50%);
-}
-.bigbang.at-top > .gravity-spot {
-  transform: translate(0%, -50%);
-}
-.bigbang.at-top-left > .gravity-spot {
-  transform: translate(-50%, -50%);
-}
-.bigbang.at-top-right > .gravity-spot {
-  transform: translate(50%, -50%);
 }
 .at-top-left {
   align-items: flex-start !important;

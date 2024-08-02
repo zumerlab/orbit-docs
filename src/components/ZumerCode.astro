@@ -1,7 +1,10 @@
 ---
 //import hcode from '/src/examples/layout/orbit.html?raw'
+import { Code } from 'astro:components'
 import cssFile from '/src/examples/layout/custom.css?raw'
-import orbitCode from '/src/assets/css/orbit.min.css?raw'
+import orbitCode from '/src/assets/orbit.min.css?raw'
+import orbitJS from '/src/assets/orbit.min.js?raw'
+
 
 interface Props {
   name?: string
@@ -10,26 +13,16 @@ interface Props {
   jsCode?: string
   hideCode?: boolean
 }
-const { htmlCode = 'No HTML provided', cssCode, jsCode, name, hideCode = false,  } = Astro.props
+const { htmlCode = 'No HTML provided', cssCode, jsCode, name, hideCode = false, } = Astro.props
 
 const hcode = htmlCode
 const csscode = cssCode || cssFile
 const jscode = jsCode || false
 
 ---
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/atom-one-dark.min.css"
-  />
-  <script
-    is:inline
-    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
-  ></script>
 
-  <script is:inline>
-    hljs.highlightAll()
-  </script>
   <style>
+    
     .container {
       max-width: 100%;
       margin: 0 auto;
@@ -108,7 +101,9 @@ const jscode = jsCode || false
     .preview,
     .settings,
     .options {
-      margin-top: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      overflow: hidden
     }
     .editor {
       position: relative;
@@ -134,9 +129,10 @@ const jscode = jsCode || false
     .codeRenderer {
       width: 100%;
       flex: 1;
-
-      margin-top: 0 !important;
+      padding: 0 !important;
+      margin: 0 !important;
       background-color: transparent;
+      overflow: hidden;
     }
     .columns {
       flex-direction: column;
@@ -177,21 +173,31 @@ const jscode = jsCode || false
     }
   </style>
 
+
   <div class="container">
     <div class="grid columns-reverse">
       <div class="editor">
-        <button class=" copy">
+        <!-- <button class="copy">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
               <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
             </svg>
-        </button>
+        </button> -->
         <div class="tabContent">
           
-          <div class="tabPanel active" contenteditable="true">
-            <pre><code class="language-html">{hcode}</code></pre>
+         
+            {!hideCode && 
+             <div class="tabPanel active" contenteditable="true">
+              <Code code={hcode} lang="html" wrap></Code>
+             </div>
+            
+            } 
+            {hideCode && 
+              <div class="tabPanel " contenteditable="true">{hcode}</div>
+            }
+
           </div>
           <div class="tabPanel" contenteditable="true">
-            <pre><code class="language-css">{csscode}</code></pre>
+            <pre><code class="zp language-css">{csscode}</code></pre>
           </div>
           <div class="tabPanel" contenteditable="true">
             <!-- Content for JavaScript Tab -->
@@ -203,6 +209,7 @@ const jscode = jsCode || false
         <div class="codeRenderer">
           <!-- The iframe for rendering code will be inserted here -->
         </div>
+        {!hideCode && 
         <div class="options">
           <div class="toolbar">
             <div class="buttons">
@@ -211,14 +218,24 @@ const jscode = jsCode || false
               {jscode && <button class="tab active">JS</button>}
             </div>
           </div>
+          
           <div class="settings">
             <button class="tab active code">hide code</button>
           </div>
+         
         </div>
+         }
       </div>
     </div>
   </div>
-  <script is:inline define:vars={{ orbitCode, hideCode }}>
+  <script type="module" is:inline define:vars={{ orbitCode, orbitJS, hideCode }}>
+/* import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/highlight.min.js';
+//hljs.highlightAll() */
+window.addEventListener('DOMContentLoaded', (event) => {
+ // document.querySelectorAll('pre code.zp').forEach(el => {
+  // then highlight each
+//  hljs.highlightElement(el);
+//}); */
     // Add event listeners to each tab's content area
     document.querySelectorAll('.tabPanel').forEach((panel, index) => {
       panel.addEventListener('input', () => {
@@ -257,6 +274,7 @@ const jscode = jsCode || false
 
     // Function to update the iframe with current tab content
     function updateIframe() {
+     
       // Get the content of all tab panels
       const htmlCode = document.querySelectorAll('.tabPanel')[0].textContent
       const cssCode = document.querySelectorAll('.tabPanel')[1].textContent
@@ -269,14 +287,28 @@ const jscode = jsCode || false
     // Function to render code in the iframe
     function renderCodeInIframe(htmlCode, cssCode, jsCode) {
       const iframeContent = `
-  <html>
+  <html style=" margin: 0 !important; padding: 0 !important">
     <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <style>${orbitCode}${cssCode}</style>
+      
+      <style>
+         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+        ${orbitCode}${cssCode}
+        </style>
     </head>
-    <body>
+    <body class="theme-cyan" style="background-color: #fbfafa !important; margin: 0 !important; padding: 0 !important; overflow: hidden">
       ${htmlCode}
+      <scr${'ipt'}>
+        ${orbitJS}
+      </scr${'ipt'}>
       <scr${'ipt'}>
         ${jsCode}
       </scr${'ipt'}>
@@ -287,6 +319,8 @@ const jscode = jsCode || false
       iframe.setAttribute('srcdoc', iframeContent)
       iframe.style.width = '100%'
       iframe.style.border = 'none'
+      iframe.style.margin = '0'
+      iframe.style.padding = '0'
       iframe.style.height = '300px' // Adjust height as needed
 
       // Replace the existing iframe with the updated one
@@ -309,8 +343,6 @@ const jscode = jsCode || false
     showCodeButton.addEventListener('click', function () {
       // Toggle the active class on the show code button
       showCodeButton.classList.toggle('active')
-
-      
       if (toolbar.style.display === 'none') {
         toolbar.style.display = 'block'
         showTab(0)
@@ -323,11 +355,11 @@ const jscode = jsCode || false
     })
 
     // Add event listener to the "copy code" SVG button
-    const copyCodeButton = document.querySelector('.copy')
-    const copyicon = copyCodeButton.querySelector('svg path')
-    const defaulticon = copyicon.getAttribute('d')
+    // const copyCodeButton = document.querySelector('.copy')
+    // const copyicon = copyCodeButton.querySelector('svg path')
+    // const defaulticon = 'M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z'
 
-    copyCodeButton.addEventListener('click', function () {
+    /* copyCodeButton.addEventListener('click', function () {
       // Get the content of the active tab
       const activeTabContent =
         document.querySelector('.tabPanel.active').textContent
@@ -354,6 +386,6 @@ const jscode = jsCode || false
           }, 2000);
           console.error('Unable to copy code: ', error)
         })
-    })
+    }) */
+  })
   </script>
-</body>

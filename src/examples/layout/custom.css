@@ -1,25 +1,3 @@
-html,
 body {
-  height: 100%; /* important */
-}
-body {
-  margin: 0;
-  padding: 0;
-  background-color: transparent !important;
-}
-.o-container {
-  padding: 0;
-}
-
-.o-orbit {
-  border: 1px solid var(--o-indigo);
-}
-
-.o-orbit > .o-orbit {
-  box-sizing: border-box;
-  border: 1px dashed var(--o-green) !important;
-}
-.o-container-query-enabled {
-  width: 100%;
-  overflow: hidden;
+  
 }

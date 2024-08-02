@@ -1,7 +1,7 @@
 
 /*
 * orbit
-* v.0.2.7
+* v.0.2.9
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
@@ -27,11 +27,13 @@
         }
         .progress-bar {
           fill: transparent;
+          stroke-width:  calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
           stroke: var(--o-progress-color);
           transition: stroke 0.3s;
         }
         .progress-bg {
           stroke: var(--o-bg-color, transparent);
+          stroke-width:  calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
         }
         :host(:hover) .progress-bar {
           stroke: var(--o-hover-progress-color, var(--o-progress-color));
@@ -95,7 +97,6 @@
         arc.setAttribute("marker-end", "url(#head)");
         arc.setAttribute("marker-start", "url(#tail)");
       }
-      arc.setAttribute("stroke-width", strokeWidth);
       arc.setAttribute("vector-effect", "non-scaling-stroke");
     }
     getAttributes() {

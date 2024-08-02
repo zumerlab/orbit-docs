@@ -1,26 +1,226 @@
 ---
 title: How Orbit Works
 ---
-Orbit is a CSS framework designed for creating radial layouts. It offers simplicity, effectiveness, ease of use, and tremendous versatility for crafting compelling designs.
 
-The Orbit CSS framework simplifies the creation of radial layouts, mimicking traditional row-based structures in a radial format. It offers extensive customization options and supports nesting for building intricate designs tailored to your requirements.
+import ZumerPlay from '/src/components/ZumerCode.astro'
+
+export const knobCSS = `
+.capsule {
+    color: var(--o-cyan-darker) !important;  
+}
+.vector, .side {
+    background-color: var(--o-cyan);
+    height: 2px;
+}
+.orbit-5 {
+    border: 2px solid var(--o-cyan-dark) !important;  
+}
+.control-name, .control-selector {
+    border: none !important
+}
+`;
+export const knobHTML = `<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit">
+             <div class="satellite at-center control-name ">
+                <div class="capsule">volume</div>
+             </div>
+        </div>
+        <div class="orbit-4">
+            <div class="satellite control-selector">
+                <div class="gravity-spot">
+                    <div class="orbit-1 orbit-1 shrink-30 from-90 ">
+                        <div class="side"></div>
+                        <div class="side"></div>
+                        <div class="side"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="orbit-5"></div>
+        <div class="orbit-6 shrink-80 from-215 range-290 fit-range">
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+        </div>
+        <div class="orbit-6 orbit-6 from-215 range-290">
+            <o-progress value="50" shape="circle" class="shrink-60 outer-orbit"></o-progress>
+        </div>
+    </div>
+</div>` ;
+
+Orbit is a CSS framework designed for creating radial layouts. It offers simplicity, effectiveness, ease of use, and tremendous versatility for crafting compelling designs. It offers extensive customization options and supports nesting for building intricate designs tailored to your requirements.
 
 ### Step 1: Adding a Bigbang
-**Bigbang** class is a wrapper for your Orbit project. Only one Bigbang is needed for each Orbit porject or Orbit instance if you have multiples Orbits in same page. 
+**[Bigbang](/orbit-docs/elements/bigbang)** class is a wrapper for your Orbit project. Only one Bigbang is needed for each Orbit porject, or Orbit instance if you have multiples Orbits in same page. 
+
+```html wrap
+<div class="bigbang">
+    
+</div>
+```
 
 ### Step 2: Adding a Gravity Spot
-A **Gravity Spot** is a container for orbits. Each Gravity Spot has a default size of 500px but can be easily adjusted to fit your project's needs. Inside an Gravity Spot, radial elements will adhere to this size. For example, the maximum diameter of an orbit within this zone will be 500px.
+A **[Gravity Spot](/orbit-docs/elements/gravity-spot)** is a container for orbits. Each Gravity Spot has a default size of 500px but can be easily adjusted to fit your project's needs. Inside an Gravity Spot, radial elements will adhere to this size. For example, the maximum diameter of an orbit within this spot will be 500px.
+
+Metaphorically, a gravity spot is a gravitational center, and its size (500px), refers to its max gravitational force. 
+
+```html wrap
+<div class="bigbang">
+    <div class="gravity-spot">
+    </div>
+</div>
+```
 
 ### Step 3: Adding Orbits
-Within the Gravity Spot container, you can add **orbits** using size classes ranging from `orbit0` to `orbit12`, creating concentric circles. Child Gravity Spot can also be added. Think of orbits as rows in traditional CSS frameworks.
+Within the Gravity Spot container, there are three ways to add **[orbits](/orbit-docs/elements/orbit)**: 1. Manually set orbit radius ranging from `orbit0` to `orbit12`; 2. Leave Orbit determine orbits sizes using `.orbit`; 3. By mixing 1 and 2.
+
+
+```html wrap
+<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit-6"></div>
+    </div>
+</div>
+```
 
 ### Step 4: Adding Radial Elements
-Each orbit can contain **radial elements** such as `satellites`, `slices`, `vectors`, `texts`, `progress` indicators, and `sides`. These elements are evenly distributed along the orbit's perimeter, allowing for detailed radial designs tailored to specific needs.
+Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/elements/satellite),[ `slices`](/orbit-docs/elements/slice), [`vectors`](/orbit-docs/elements/vector), [`curved texts`](/orbit-docs/elements/text),[ `progress`](/orbit-docs/elements/progress) indicators, and [`sides`](/orbit-docs/elements/side). These elements are evenly distributed along the orbit's perimeter, allowing for detailed radial designs tailored to specific needs.
+
+```html wrap
+<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit">
+             <div class="satellite">
+                <div class="capsule">volume</div>
+             </div>
+        </div>
+        <div class="orbit-4"></div>
+        <div class="orbit-5">
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+        </div>
+        <div class="orbit-6"></div>
+        <div class="orbit-6">
+            <o-progress value="50"></o-progress>
+        </div>
+    </div>
+</div>
+```
 
 ### Step 5: Nesting Gravity Spot
 **Gravity Spot** can be nested within `satellites`, enabling the creation of complex radial structures.
 
+```html wrap
+<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit">
+             <div class="satellite"></div>
+        </div>
+        <div class="orbit-4">
+            <div class="satellite">
+                <div class="gravity-spot">
+                    <div class="orbit-1">
+                        <div class="side"></div>
+                        <div class="side"></div>
+                        <div class="side"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="orbit-5">
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+        </div>
+        <div class="orbit-6"></div>
+        <div class="orbit-6">
+            <o-progress value="50"></o-progress>
+        </div>
+    </div>
+</div>
+```
+
+
 ### Step 6: Customizing
-There are numerous `CSS class utilities` to use with all Orbit elements. For instance, to distribute satellites within a range of 180 degrees, you can use the `.range-180` class on the parent orbit element. The documentation provides a full, detailed explanation of all class utilities.
+There are numerous `CSS class utilities` to use with all Orbit elements. For instance, to distribute satellites within a range of 180 degrees, you can use the `.range-180` class on the parent orbit element. 
+
+In the example below, we used these CSS Utilities: `.at-center`, `.shrink-*`, `.from-*`, `.range-*`, and `.outer-orbit`
+
+The documentation provides a full, detailed explanation of all class utilities for each radial element.
+
+
+
+<ZumerPlay hideCode htmlCode={knobHTML}  cssCode={knobCSS} />
+
+
+```html wrap
+<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit">
+             <div class="satellite at-center ">
+                <div class="capsule">volume</div>
+             </div>
+        </div>
+        <div class="orbit-4">
+            <div class="satellite">
+                <div class="gravity-spot">
+                    <div class="orbit-1 orbit-1 shrink-30 from-90">
+                        <div class="side"></div>
+                        <div class="side"></div>
+                        <div class="side"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="orbit-5"></div>
+        <div class="orbit-6 shrink-80 from-215 range-290 fit-range">
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+            <div class="vector shrink-40 outer-orbit"></div>
+        </div>
+        <div class="orbit-6 orbit-6 from-215 range-290">
+            <o-progress value="50" shape="circle" class="shrink-60 outer-orbit"></o-progress>
+        </div>
+    </div>
+</div>
+```
 
 
