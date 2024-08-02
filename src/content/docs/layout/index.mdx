@@ -29,7 +29,7 @@ export const knobHTML = `<div class="bigbang">
         <div class="orbit-4">
             <div class="satellite control-selector">
                 <div class="gravity-spot">
-                    <div class="orbit-1 orbit-1 shrink-30 from-90 ">
+                    <div class="orbit-1 shrink-30 from-90 ">
                         <div class="side"></div>
                         <div class="side"></div>
                         <div class="side"></div>
@@ -81,7 +81,7 @@ Metaphorically, a gravity spot is a gravitational center, and its size (500px), 
 ```
 
 ### Step 3: Adding Orbits
-Within the Gravity Spot container, there are three ways to add **[orbits](/orbit-docs/elements/orbit)**: 1. Manually set orbit radius ranging from `orbit0` to `orbit12`; 2. Leave Orbit determine orbits sizes using `.orbit`; 3. By mixing 1 and 2.
+Within the Gravity Spot container, there are three ways to add **[orbits](/orbit-docs/elements/orbit)**: 1. Manually set orbit radius ranging from `orbit0` to `orbit-12`; 2. Leave Orbit determine orbits sizes using `.orbit`; 3. By mixing 1 and 2.
 
 
 ```html wrap
@@ -108,7 +108,8 @@ Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/el
              </div>
         </div>
         <div class="orbit-4"></div>
-        <div class="orbit-5">
+        <div class="orbit-5"></div>
+        <div class="orbit-6">
             <div class="vector"></div>
             <div class="vector"></div>
             <div class="vector"></div>
@@ -121,7 +122,6 @@ Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/el
             <div class="vector"></div>
             <div class="vector"></div>
         </div>
-        <div class="orbit-6"></div>
         <div class="orbit-6">
             <o-progress value="50"></o-progress>
         </div>
@@ -149,7 +149,8 @@ Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/el
                 </div>
             </div>
         </div>
-        <div class="orbit-5">
+        <div class="orbit-5"></div>
+        <div class="orbit-6">
             <div class="vector"></div>
             <div class="vector"></div>
             <div class="vector"></div>
@@ -162,7 +163,6 @@ Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/el
             <div class="vector"></div>
             <div class="vector"></div>
         </div>
-        <div class="orbit-6"></div>
         <div class="orbit-6">
             <o-progress value="50"></o-progress>
         </div>
@@ -194,7 +194,7 @@ The documentation provides a full, detailed explanation of all class utilities f
         <div class="orbit-4">
             <div class="satellite">
                 <div class="gravity-spot">
-                    <div class="orbit-1 orbit-1 shrink-30 from-90">
+                    <div class="orbit-1 shrink-30 from-90">
                         <div class="side"></div>
                         <div class="side"></div>
                         <div class="side"></div>
