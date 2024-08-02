@@ -6,7 +6,9 @@ Get ready to explore the innovative approach of radial design with Orbit! This g
 
 ### Step 0: Try Orbit online
 
-To quickly get a taste of Orbit, you can try it directly in a [Codepen Playground Template](https://codepen.io/pen?template=KKjaoRj).
+To quickly get a taste of Orbit, you can try it directly in a <a href="https://codepen.io/pen?template=KKjaoRj" target="_blank">Ortbi Codepen Template</a>.
+
+
 
 ### Step 1: Include Orbit stylesheet
 
