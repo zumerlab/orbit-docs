@@ -27,8 +27,8 @@ title: o-slice web-component
 ```html
 <div class="orbit range-180"> 
   <o-slice />
-  <o-slice shape="zigzag" class="gap-5" />
-  <o-slice slice-color="green" class="gap-10" />
-  <o-slice class="gap-5" />
+  <o-slice shape="zigzag" class="gap-5"></o-slice>
+  <o-slice slice-color="green" class="gap-10"></o-slice>
+  <o-slice class="gap-5"></o-slice>
 </div>
 ```

@@ -30,6 +30,6 @@ It has two elements: a progress bar and a background bar that show the max range
 
 ```html
 <div class="orbit"> 
-  <o-progress value="75" max="100" shape="circle" />
+  <o-progress value="75" max="100" shape="circle"></o-progress>
 </div>
 ```
