@@ -51,7 +51,7 @@ const jscode = jsCode || false
             <pre><code class="zp language-css">{csscode}</code></pre>
           </div>
           <div class="tabPanel" contenteditable="true">
-            <!-- Content for JavaScript Tab -->
+            <pre><code class="zp language-js">{jscode}</code></pre>
           </div>
         </div>
     </div>
@@ -157,10 +157,10 @@ window.addEventListener('DOMContentLoaded', (event) => {
     </head>
     <body class="${theme}" style="">
       ${htmlCode}
-      <scr${'ipt'}>
+      <scr${'ipt'} is:inline>
         ${orbitJS}
       </scr${'ipt'}>
-      <scr${'ipt'}>
+      <scr${'ipt'} is:inline>
         ${jsCode}
       </scr${'ipt'}>
     </body>
