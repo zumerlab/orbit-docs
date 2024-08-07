@@ -92,6 +92,10 @@ export default defineConfig({
         link: '/tools/orbit-resize/',
        
       }]
+    }, {
+      label: 'Examples',
+      link: '/examples/',
+      
     }]
   }), react()]
 });

@@ -71,8 +71,7 @@ Orbit is a CSS framework designed for creating radial layouts. It offers simplic
 **[Bigbang](/orbit-docs/elements/bigbang)** class is a wrapper for your Orbit project. Only one Bigbang is needed for each Orbit porject, or Orbit instance if you have multiples Orbits in same page. 
 
 ```html wrap
-<div class="bigbang">
-    
+<div class="bigbang"> <!-- This element is invisible -->
 </div>
 ```
 
@@ -83,7 +82,7 @@ Metaphorically, a gravity spot is a gravitational center, and its size (500px), 
 
 ```html wrap
 <div class="bigbang">
-    <div class="gravity-spot">
+    <div class="gravity-spot"> <!-- This element is invisible as well -->
     </div>
 </div>
 ```
@@ -91,6 +90,15 @@ Metaphorically, a gravity spot is a gravitational center, and its size (500px), 
 ### Step 3: Adding Orbits
 Within the Gravity Spot container, there are three ways to add **[orbits](/orbit-docs/elements/orbit)**: 1. Manually set orbit radius ranging from `orbit0` to `orbit-12`; 2. Leave Orbit determine orbits sizes using `.orbit`; 3. By mixing 1 and 2.
 
+<ZumerPlay hideCode name={'step-3'} htmlCode={`<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit-6"></div>
+    </div>
+</div>`}  cssCode={`.orbit, [class*='orbit-'] {border: 1px dashed var(--o-cyan) !important}`}  theme="theme-cyan"/>
 
 ```html wrap
 <div class="bigbang">
@@ -106,6 +114,35 @@ Within the Gravity Spot container, there are three ways to add **[orbits](/orbit
 
 ### Step 4: Adding Radial Elements
 Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/elements/satellite),[ `slices`](/orbit-docs/elements/slice), [`vectors`](/orbit-docs/elements/vector), [`curved texts`](/orbit-docs/elements/text),[ `progress`](/orbit-docs/elements/progress) indicators, and [`sides`](/orbit-docs/elements/side). These elements are evenly distributed along the orbit's perimeter, allowing for detailed radial designs tailored to specific needs.
+
+<ZumerPlay hideCode name={'step-4'} htmlCode={`<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit">
+             <div class="satellite">
+                <div class="capsule">volume</div>
+             </div>
+        </div>
+        <div class="orbit-4"></div>
+        <div class="orbit-5"></div>
+        <div class="orbit-6">
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+        </div>
+        <div class="orbit-6">
+            <o-progress value="50"></o-progress>
+        </div>
+    </div>
+</div>`}  cssCode={`.orbit, [class*='orbit-'] {border: 1px dashed var(--o-cyan) !important}  ${knobCSS}`}  theme="theme-cyan"/>
+
 
 ```html wrap
 <div class="bigbang">
@@ -139,6 +176,44 @@ Each orbit can contain **radial elements** such as [`satellites`](/orbit-docs/el
 
 ### Step 5: Nesting Gravity Spot
 **Gravity Spot** can be nested within `satellites`, enabling the creation of complex radial structures.
+
+<ZumerPlay hideCode name={'step-5'} htmlCode={`<div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit">
+            <div class="satellite">
+                <div class="capsule">volume</div>
+             </div>
+        </div>
+        <div class="orbit-4">
+            <div class="satellite">
+                <div class="gravity-spot">
+                    <div class="orbit-1">
+                        <div class="side"></div>
+                        <div class="side"></div>
+                        <div class="side"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="orbit-5"></div>
+        <div class="orbit-6">
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+            <div class="vector"></div>
+        </div>
+        <div class="orbit-6">
+            <o-progress value="50"></o-progress>
+        </div>
+    </div>
+</div>`}  cssCode={`.orbit, [class*='orbit-'] {border: 1px dashed var(--o-cyan) !important} ${knobCSS}`}  theme="theme-cyan"/>
 
 ```html wrap
 <div class="bigbang">
@@ -188,7 +263,7 @@ The documentation provides a full, detailed explanation of all class utilities f
 
 
 
-<ZumerPlay hideCode htmlCode={knobHTML}  cssCode={knobCSS} />
+<ZumerPlay hideCode name={'step-6'} htmlCode={knobHTML}  cssCode={knobCSS}  theme="theme-cyan"/>
 
 
 ```html wrap
