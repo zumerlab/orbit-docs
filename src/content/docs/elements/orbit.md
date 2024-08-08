@@ -36,7 +36,7 @@ It's important to note that multiple `orbits` can be nested within an `gravity-s
   </div>
   ```
 
-- Basic example that renders two orbits of same radius the latter one is abowe the former.
+- Basic example that renders two orbits of same radius the latter one is above the former.
   ```html
   <div class="gravity-spot">
     <div class="orbit-10"></div>
