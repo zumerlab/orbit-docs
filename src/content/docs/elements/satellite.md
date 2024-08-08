@@ -7,7 +7,7 @@ Elements with `.satellite` are placed along an `.orbit` or `.orbit-*` path servi
 
 ### Content
 
-Satellites are suitable to render different content. If other contant than characters is used, it is desirable to use `.capsule` element inside a `.satellite`. See `capsule` reference on documentation.
+Satellites are suitable to render different content. If other content than characters is used, it is desirable to use `.capsule` element inside a `.satellite`. See `capsule` reference on documentation.
 
 ### Customization
 
