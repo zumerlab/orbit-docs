@@ -3,6 +3,7 @@ import starlight from '@astrojs/starlight';
 
 import react from "@astrojs/react";
 
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://zumerlab.github.io/orbit-docs',
@@ -45,7 +46,7 @@ export default defineConfig({
       label: 'Guide',
       items: [{
         label: 'How does Orbit work?',
-        link: '/layout/'
+        link: '/guide/'
       }]
     }, {
       label: 'Elements',
@@ -97,5 +98,6 @@ export default defineConfig({
       link: '/examples/',
       
     }]
-  }), react()]
+  }), 
+  react()]
 });
