@@ -74,6 +74,86 @@ border-style: dotted
   </TabItem>
 </Tabs>
 
+## Orbit size
+
+Each `.orbit` has a fraction size of `.gravity-spot` force. For example, `.orbit-6` (or `.orbit` child number 6), represents 50% of `.gravity-spot` force.
+Here is the complete list:
+
+|.orbit number|fraction size|
+|---|---|
+|`.orbit-0`|0%|
+|`.orbit-1` or `.orbit` child 1|~8%|
+|`.orbit-2` or `.orbit` child 2|~16%|
+|`.orbit-3` or `.orbit` child 3|25%|
+|`.orbit-4` or `.orbit` child 4|~33%|
+|`.orbit-5` or `.orbit` child 5|~42%|
+|`.orbit-6` or `.orbit` child 6|50%|
+|`.orbit-7` or `.orbit` child 7|~58%|
+|`.orbit-8` or `.orbit` child 8|~66%|
+|`.orbit-9` or `.orbit` child 9|~75%|
+|`.orbit-10` or `.orbit` child 10|~83%|
+|`.orbit-11` or `.orbit` child 11|~91%|
+|`.orbit-12` or `.orbit` child 12|100%|
+|`.orbit-13` or `.orbit` child 13|~108%|
+|`.orbit-14` or `.orbit` child 14|~116%|
+|`.orbit-15` or `.orbit` child 15|125%|
+|`.orbit-16` or `.orbit` child 16|~133%|
+|`.orbit-17` or `.orbit` child 17|~142%|
+|`.orbit-18` or `.orbit` child 18|150%|
+|`.orbit-19` or `.orbit` child 19|~158%|
+|`.orbit-20` or `.orbit` child 20|~166%|
+|`.orbit-21` or `.orbit` child 21|~175%|
+|`.orbit-22` or `.orbit` child 22|~183%|
+|`.orbit-23` or `.orbit` child 23|~191%|
+|`.orbit-24` or `.orbit` child 24|200%|
+
+### Adjust orbit size
+Each `.orbit` or `.orbit-*` can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the orbit to shrink by a specified percentage.
+
+export const orbitSize = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:300px">
+    <div class="orbit-10"></div>
+    <div class="orbit-10 shrink-10"></div>
+    <div class="orbit-10 shrink-30"></div>
+    <div class="orbit-10 shrink-50"></div>
+    <div class="orbit-10 shrink-70"></div>
+    <div class="orbit-10 shrink-90"></div>
+  </div>
+</div>
+`;
+export const orbitSizeCSS = `
+.orbit-10 {
+border-color: var(--o-cyan);
+}
+.shrink-10 {
+border-color: var(--o-purple);
+}
+.shrink-30 {
+border-color: var(--o-green);
+}
+.shrink-50 {
+border-color: var(--o-orange);
+}
+.shrink-70 {
+border-color: var(--o-blue);
+}
+.shrink-90 {
+border-color: var(--o-yellow);
+}
+`;
+
+<ZumerPlay name={'orbitSize'} hideCode htmlCode={orbitSize} cssCode={orbitSizeCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={orbitSize} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={orbitSizeCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
 ## Orbit stacking order
 
 Stacking order follows standard HTML rules. In the example below, the latter `orbit` is abowe the former one. 
@@ -117,7 +197,6 @@ By default, these Orbit elements are evenly distributed along the perimeter of `
 
 ### Customization
 
-- **Granular Orbit size:** Each `.orbit` can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the orbit to shrink by a specified percentage.
   
 - **Look and feel:** Orbits are initially invisible but can be customized by adding border and background properties.
 
@@ -275,3 +354,5 @@ export const fiveCSS = `
 </Tabs>
 
 This example shows how to set CSS utlities on orbit to define range and starting angles for its satellites.
+
+
