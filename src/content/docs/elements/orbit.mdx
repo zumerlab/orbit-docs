@@ -73,8 +73,7 @@ border-style: dotted
 
 ## Orbit stacking order
 
-Stacking order follows standard HTML rules, with later `orbits` appearing above earlier ones. 
-It's important to note that multiple `orbits` can be placed inside an `gravity-spot`. When no specific size is defined, there can be up to 12 orbits. However, when a size is defined, there is no limit to the number of `orbits` that can be rendered, including duplicate sizes (e.g., multiple `.orbit-5`). In such cases, the stacking order follows standard HTML rules, with later `orbits` appearing above earlier ones.
+Stacking order follows standard HTML rules. In the example below, the latter `orbit` is abowe the former one. 
 
 export const stacking = `
 <div class="bigbang">
@@ -110,8 +109,6 @@ border-width: 3px;
 
 ## Distribution of orbit children elements
 By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. The zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
-
-
 
 
 
@@ -165,11 +162,10 @@ export const oneCSS = `
 In the example, two `orbits` are placed inside `gravity-spot`. When no orbit size is set, the size of each orbit is automatically calculated. 
 
 
-#### Rendering two orbits of same radius.  
 
 
 
-In the example, it can be observed that the latter orbit is abowe the former one. That shows the standard HTML stacking order, that allow use multiple orbits with same size. Also, custom CSS var `--o-force` is used to define the maximum 'gravitational force' of `.gravity-spot`
+
 
 #### Rendering orbits with custom size.
 
@@ -276,21 +272,3 @@ export const fiveCSS = `
 </Tabs>
 
 This example shows how to set CSS utlities on orbit to define range and starting angles for its satellites.
-
-## properties
-
-
-
-| Propiedad | Descripción |
-| --- | --- |
-| `.orbit` | Define un perímetro circular dentro de un `.gravity-spot`. |
-| `.orbit-0` a `.orbit-12` | Variaciones de `.orbit` que definen diferentes tamaños de órbita. |
-| `.shrink-10` a `.shrink-90` | Utilidades CSS para ajustar el tamaño de la órbita. |
-| `border` y `background` | Propiedades CSS para personalizar la apariencia de la órbita. |
-| `.range-*` | Utilidades CSS para definir un rango arbitrario de órbita. |
-| `.from-*` | Utilidades CSS para definir el punto de partida del ángulo de órbita. |
-| `.ccw` | Utilidad CSS para invertir la disposición de los elementos hijos en sentido contrario a las agujas del reloj. |
-| `.gooey-fx-*` | Utilidades CSS para mejorar la apariencia de los elementos hijos agrupados y pegajosos dentro de la órbita. |
-| `--o-ellipse-x` y `--o-ellipse-y` | Variables CSS para transformar la órbita en una forma elíptica. |
-
-
