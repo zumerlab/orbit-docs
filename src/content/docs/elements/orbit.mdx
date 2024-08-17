@@ -10,6 +10,51 @@ import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 The `.orbit` CSS class, along with variations from `.orbit-0` to `.orbit-24`, defines a circular path around a `.gravity-spot`. Within  `.orbit` element, various **Orbit** elements such as `satellites`, `o-slices`, `o-progress`, `vectors`, `sides`, and `o-texts` can be positioned.
 
+## Look and feel
+
+Orbits are initially invisible but can be customized by adding CSS border and background properties.
+
+
+export const look = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:300px">
+    <div class="orbit-9"></div>
+    <div class="orbit-6"></div>
+    <div class="orbit-3"></div>
+    
+  </div>
+</div>
+`;
+export const lookCSS = `
+.orbit-9 {
+background: linear-gradient(white, white) padding-box, linear-gradient(to right, darkblue, darkorchid) border-box;
+border: 4px solid transparent;
+}
+
+.orbit-6 {
+border: 3px dotted var(--o-purple);
+}
+
+.orbit-3 {
+border: 3px dashed var(--o-cyan);
+background-color: var(--o-cyan-lighter)
+}
+`;
+
+<ZumerPlay name={'look'} hideCode htmlCode={look} cssCode={lookCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={look} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={lookCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
+
+
 ## Number of orbits
 
 **Orbit** supports 25 `orbits`. Orbits from **0** to **12** are placed whitin `.gravity-spot` force, while orbits from **13** to **24** extend beyond `.gravity-spot` force boundary. 
@@ -114,10 +159,7 @@ export const orbitSize = `
 <div class="bigbang">
   <div class="gravity-spot" style="--o-force:300px">
     <div class="orbit-10"></div>
-    <div class="orbit-10 shrink-10"></div>
-    <div class="orbit-10 shrink-30"></div>
-    <div class="orbit-10 shrink-50"></div>
-    <div class="orbit-10 shrink-70"></div>
+    <div class="orbit-10 shrink-40"></div>
     <div class="orbit-10 shrink-90"></div>
   </div>
 </div>
@@ -126,20 +168,11 @@ export const orbitSizeCSS = `
 .orbit-10 {
 border-color: var(--o-cyan);
 }
-.shrink-10 {
+.shrink-40 {
 border-color: var(--o-purple);
 }
-.shrink-30 {
-border-color: var(--o-green);
-}
-.shrink-50 {
-border-color: var(--o-orange);
-}
-.shrink-70 {
-border-color: var(--o-blue);
-}
 .shrink-90 {
-border-color: var(--o-yellow);
+border-color: var(--o-orange);
 }
 `;
 
@@ -190,23 +223,195 @@ border-width: 3px;
   </TabItem>
 </Tabs>
 
+## Elliptical orbits
+Turn Orbits into ellipses: Two CSS variables (`--o-ellipse-x` and `--o-ellipse-y`) can transform `.orbit` or `.orbit-*` into an ellipse shape. This transformation affects the orbit and its children, excluding `o-slice`, `o-progress`, and `o-text` web components, which remain hidden when the orbit is elliptical. Values for these variables range from 0 to 1. A CSS utlity could be added in a future.
+
+Both CSS variable can be used in the same orbit.
+
+export const ellipse = `
+<div class="bigbang">
+  <div class="gravity-spot at-center-left" style="--o-force:100px">
+    <div class="orbit-10" style="--o-ellipse-x: 0"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.1"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.2"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.3"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.4"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.5; --o-ellipse-y: 0.3"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.6"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.7"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.8"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 0.9"></div>
+    <div class="orbit-10" style="--o-ellipse-x: 1"></div>
+  </div>
+</div>
+`;
+export const ellipseCSS = `
+
+.orbit-10 {
+border-color: var(--o-cyan);
+border-width: 1px;
+}
+`;
+
+<ZumerPlay name={'ellipse'} hideCode htmlCode={ellipse} cssCode={ellipseCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={ellipse} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={ellipseCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Orbits aligment
+By default, orbits are aligned at `.gravity-spot` center but remember there are some CSS utilities class to change aligment. You can use `.at-center` (default), `.at-center-left`, `.at-center-right`, `.at-top`, `.at-top-left`, `.at-top-right`, `.at-bottom`,  `.at-bottom-left`, `.at-bottom-right`.
+
+export const align = `
+<div class="bigbang">
+  <div class="gravity-spot at-center-left" style="--o-force:300px">
+   <div class="orbit"></div>
+   <div class="orbit"></div>
+   <div class="orbit"></div>
+   <div class="orbit"></div>
+  </div>
+  <div class="gravity-spot at-center-right" style="--o-force:300px">
+   <div class="orbit"></div>
+   <div class="orbit"></div>
+   <div class="orbit"></div>
+   <div class="orbit"></div>
+  </div>
+  <div class="gravity-spot at-bottom" style="--o-force:300px">
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+  </div>
+    <div class="gravity-spot at-top" style="--o-force:300px">
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+  </div>
+</div>
+`;
+export const alignCSS = `
+
+.orbit {
+border-color: var(--o-cyan);
+border-width: 1px;
+}
+`;
+
+<ZumerPlay name={'align'} hideCode htmlCode={align} cssCode={alignCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={align} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={alignCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Nesting orbits
+This example shows how to nest `orbits` to created complex radial designs. 
+
+export const four = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <div class="satellite">
+        <div class="gravity-spot">
+          <div class="orbit"></div>
+          <div class="orbit"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+export const fourCSS = `
+.orbit, [class*='orbit-']{
+  border-color: var(--o-cyan)
+}
+.satellite {
+  border: none;
+  background-color: var(--o-cyan)
+}
+`;
+
+<ZumerPlay name={'four'} hideCode htmlCode={four} cssCode={fourCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={four} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={fourCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
 ## Distribution of orbit children elements
 By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. The zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
+
+export const distribution = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:220px">
+    
+    <div class="orbit-12">
+      <div class="satellite">0º</div>
+      <div class="satellite">72º</div>
+      <div class="satellite">144º</div>
+      <div class="satellite">216º</div>
+      <div class="satellite">288º</div>
+    </div>
+    <div class="orbit-10">
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+    </div>
+  </div>
+</div>
+`;
+export const distributionCSS = `
+.satellite {
+border: none;
+}
+.orbit-10 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-10 > .satellite {
+background-color: var(--o-cyan)
+}
+.orbit-12 {
+font-size: 10px
+}
+`;
+
+<ZumerPlay name={'distribution'} hideCode htmlCode={distribution} cssCode={distributionCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={distribution} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={distributionCSS} lang="css" />
+  </TabItem>
+</Tabs>
 
 
 
 ### Customization
-
-  
-- **Look and feel:** Orbits are initially invisible but can be customized by adding border and background properties.
 
 - **Adjust radial layout:** Various CSS utility classes can modify the radial layout of children within `.orbits`:
   - **`.range-*`:** Set arbitrary orbit range from 0 to 360 length. If custom range is defined, `.fit-range` could be added to justify children distribution.
   - **`.from-*`:** Set starting point angle from 0 to 360 degrees.
   - **`.ccw`:** Invert orbit child arragement to counter clock wise direction.
   - **`.gooey-fx-*`:** This CSS utility enhances the appearance of grouped and sticky child elements within the orbit. Possible values are `.gooey-fx`, `.gooey-fx-medium`, and `.gooey-fx-max`
-
-- **Turn Orbits into ellipses:** Two CSS variables (`--o-ellipse-x` and `--o-ellipse-y`) can transform `.orbit` or `.orbit-*` into an ellipse shape. This transformation affects the orbit and its children, excluding `<o-slice>`, `<o-progress>`, and `<o-text>` web components, which remain hidden when the orbit is elliptical. Values for these variables range from 0 to 1. A CSS utlity could be added in a future.
 
 
 ### Usage
@@ -279,44 +484,6 @@ export const threeCSS = `
 
 In the example, it can be observed that the latter orbit is abowe the former one. That shows the standard HTML stacking order, that allow use multiple orbits with same size.
 
-### Rendering nested orbits around a satellite
-
-export const four = `
-<div class="bigbang">
-  <div class="gravity-spot">
-    <div class="orbit-4">
-      <div class="satellite">
-        <div class="gravity-spot">
-          <div class="orbit"></div>
-          <div class="orbit"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-export const fourCSS = `
-.orbit, [class*='orbit-']{
-  border-color: var(--o-cyan)
-}
-.satellite {
-  border: none;
-  background-color: var(--o-cyan)
-}
-`;
-
-<ZumerPlay name={'four'} hideCode htmlCode={four} cssCode={fourCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={four} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={fourCSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-This example shows how to nest `orbits` to created comples radial designs. 
 
 
 ### Customized distribution of satellites 
@@ -354,5 +521,3 @@ export const fiveCSS = `
 </Tabs>
 
 This example shows how to set CSS utlities on orbit to define range and starting angles for its satellites.
-
-
