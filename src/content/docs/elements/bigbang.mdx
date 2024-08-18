@@ -1,0 +1,184 @@
+---
+title: ".bigbang CSS class"
+#banner: 
+#  content: |
+#   Documentaton on this page is being updated.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+The `.bigbang` CSS class is a container for Orbit Apps, serving as a foundation for your project. By default, it occupies all available space and centers its content. However, you can use CSS utilities to adjust the alignment as needed. This class is recommended as the starting point for every Orbit project.
+
+For more control, wrap `.bigbang` in a parent element with defined width and height. 
+
+### Bigbang extension
+
+By default, `.bigbang` extends to 100% of available space. To restrict its extension, wrap it in a parent element with a defined width and height.
+
+:::note
+When `.bigbang`  is used as a direct child of `body`, its height is set to `100vh`, becasuse `body` initial height is 0. Otherwise, when `.bigbang` is child of a wrapper element, it taked parent height. 
+:::
+
+#### Bigbang as direct child of \<body\>.
+export const bg = `
+<div class="bigbang">
+</div>
+`;
+export const bgCSS = `
+.bigbang {
+background-color: var(--o-cyan-lighter)
+}
+`;
+
+<ZumerPlay name={'bg'} hideCode htmlCode={bg} cssCode={bgCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={bg} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={bgCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
+
+#### Bigbang within a wrapper element.
+export const bg1 = `
+<div class="wrapper">
+  <div class="bigbang">
+  </div>
+</div>
+`;
+export const bg1CSS = `
+
+.wrapper {
+border: 3px dotted var(--o-purple);
+height: 200px;
+width: 200px;
+}
+
+.bigbang {
+background-color: var(--o-cyan-lighter)
+}
+`;
+
+<ZumerPlay name={'bg1'} hideCode htmlCode={bg1} cssCode={bg1CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={bg1} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={bg1CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+### Bigbang inner aligment.
+
+`.bigbang` place its children element at center. This behavior can be altered using alignment utility classes such as `.at-center` (default), `.at-center-left`, `.at-center-right`, `.at-top`, `.at-top-left`, `.at-top-right`, `.at-bottom`, `.at-bottom-left`, and `.at-bottom-right`.
+
+export const bg2 = `
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-center-left">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-center-right">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-top-left">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-top">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-top-right">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-bottom-left">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-bottom">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang at-bottom-right">
+    <div class="gravity-spot">
+      <div class="orbit"></div>
+      <div class="orbit"></div>
+    </div>
+  </div>
+</div>
+`;
+export const bg2CSS = `
+
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 100px;
+width: 100px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+
+.bigbang {
+background-color: var(--o-cyan-lighter)
+}
+.orbit {
+border: 1px dotted var(--o-cyan)
+}
+`;
+
+<ZumerPlay name={'bg2'} hideCode htmlCode={bg2} cssCode={bg2CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={bg2} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={bg2CSS} lang="css" />
+  </TabItem>
+</Tabs>
