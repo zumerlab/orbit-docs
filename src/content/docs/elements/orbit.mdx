@@ -1,8 +1,8 @@
 ---
 title: ".orbit CSS class"
-banner: 
-  content: |
-   Documentaton on this page is being updated.
+#banner: 
+#  content: |
+#   Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -411,23 +411,225 @@ font-size: 10px
 
 ## Adjusting radial layout
 
-### Range
+### Range.
 
-- **Adjust radial layout:** Various CSS utility classes can modify the radial layout of children within `.orbits`:
-  - **`.range-*`:** Set arbitrary orbit range from 0 to 360 length. If custom range is defined, `.fit-range` could be added to justify children distribution.
+**`.range-*`:** Set arbitrary orbit range from 0 to 360 length. If custom range is defined, `.fit-range` could be added to justify children distribution.
+
+:::note
+`.range-*` affects `.satellite`, `.vector`, `.side`, `o-slice`, and `o-text`.  
+:::
+
+export const range = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:220px">
+    <div class="orbit-10 range-180 ">
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+    </div>
+  </div>
+</div>
+`;
+export const rangeCSS = `
+.satellite {
+border: none;
+}
+.orbit-10 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-10 > .satellite {
+background-color: var(--o-cyan)
+}
+.orbit-12 {
+font-size: 10px
+}
+`;
+
+<ZumerPlay name={'range'} hideCode htmlCode={range} cssCode={rangeCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={range} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={rangeCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+export const fit = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:220px">
+    <div class="orbit-10 range-180 fit-range ">
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+    </div>
+  </div>
+</div>
+`;
+export const fitCSS = `
+.satellite {
+border: none;
+}
+.orbit-10 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-10 > .satellite {
+background-color: var(--o-cyan)
+}
+.orbit-12 {
+font-size: 10px
+}
+`;
+
+<ZumerPlay name={'fit'} hideCode htmlCode={fit} cssCode={fitCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={fit} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={fitCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
 ### Starting angle.
 
-  - **`.from-*`:** Set starting point angle from 0 to 360 degrees.
+**`.from-*`:** Set starting point angle from 0 to 360 degrees.
+
+
+
+export const from = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:220px">
+    <div class="orbit-10 range-180 from-90 fit-range">
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+      <div class="satellite grow-0.8x"></div>
+    </div>
+  </div>
+</div>
+`;
+export const fromCSS = `
+.satellite {
+border: none;
+}
+.orbit-10 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-10 > .satellite {
+background-color: var(--o-cyan)
+}
+.orbit-12 {
+font-size: 10px
+}
+`;
+
+<ZumerPlay name={'from'} hideCode htmlCode={from} cssCode={fromCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={from} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={fromCSS} lang="css" />
+  </TabItem>
+</Tabs>
 
 ### Invert direction
-  - **`.ccw`:** Invert orbit child arragement to counter clock wise direction.
+**`.ccw`:** Invert orbit child arragement to counter clock wise direction.
+
+export const ccw = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:220px">
+    <div class="orbit-10 range-180 fit-range ccw ">
+      <div class="satellite grow-0.8x">1</div>
+      <div class="satellite grow-0.8x">2</div>
+      <div class="satellite grow-0.8x">3</div>
+      <div class="satellite grow-0.8x">4</div>
+      <div class="satellite grow-0.8x">5</div>
+    </div>
+  </div>
+</div>
+`;
+export const ccwCSS = `
+.satellite {
+border: none;
+}
+.orbit-10 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-10 > .satellite {
+background-color: var(--o-cyan)
+}
+.orbit-12 {
+font-size: 10px
+}
+`;
+
+<ZumerPlay name={'ccw'} hideCode htmlCode={ccw} cssCode={ccwCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={ccw} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={ccwCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
 
 ### Add gooey effect.
 
-  - **`.gooey-fx-*`:** This CSS utility enhances the appearance of grouped and sticky child elements within the orbit. Possible values are `.gooey-fx`, `.gooey-fx-medium`, and `.gooey-fx-max`
+**`.gooey-fx-*`:** This CSS utility enhances the appearance of grouped and sticky child elements within the orbit. Possible values are `.gooey-fx`, `.gooey-fx-medium`, and `.gooey-fx-max`
 
 :::note
 Gooey effect does not work on Safari browser. 
 :::
+
+export const gooey = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force:220px">
+    <div class="orbit-10 range-90 gooey-fx ">
+      <div class="satellite grow-3x"></div>
+      <div class="satellite grow-3x"></div>
+      <div class="satellite grow-3x"></div>
+    </div>
+  </div>
+</div>
+`;
+export const gooeyCSS = `
+.satellite {
+border: none;
+}
+.orbit-10 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-10 > .satellite {
+background-color: var(--o-cyan)
+}
+.orbit-12 {
+font-size: 10px
+}
+`;
+
+<ZumerPlay name={'gooey'} hideCode htmlCode={gooey} cssCode={gooeyCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={gooey} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={gooeyCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
 
 
