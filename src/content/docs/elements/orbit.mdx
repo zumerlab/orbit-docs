@@ -356,6 +356,10 @@ export const fourCSS = `
 ## Distribution of orbit children elements
 By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. The zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
 
+:::note
+Orbit children elements include `.satellite`, `.vector`, `.side`, `o-slice`, and `o-text`.  
+:::
+
 export const distribution = `
 <div class="bigbang">
   <div class="gravity-spot" style="--o-force:220px">
@@ -405,119 +409,25 @@ font-size: 10px
 
 
 
-### Customization
+## Adjusting radial layout
+
+### Range
 
 - **Adjust radial layout:** Various CSS utility classes can modify the radial layout of children within `.orbits`:
   - **`.range-*`:** Set arbitrary orbit range from 0 to 360 length. If custom range is defined, `.fit-range` could be added to justify children distribution.
+### Starting angle.
+
   - **`.from-*`:** Set starting point angle from 0 to 360 degrees.
+
+### Invert direction
   - **`.ccw`:** Invert orbit child arragement to counter clock wise direction.
+
+### Add gooey effect.
+
   - **`.gooey-fx-*`:** This CSS utility enhances the appearance of grouped and sticky child elements within the orbit. Possible values are `.gooey-fx`, `.gooey-fx-medium`, and `.gooey-fx-max`
 
-
-### Usage
-
-Below there are some examples to get an idea on how `orbits` work.
-
-#### Rendering two orbits
-
-export const one = `
-<div class="bigbang">
-  <div class="gravity-spot">
-    <div class="orbit"></div>
-    <div class="orbit"></div>
-  </div>
-</div>
-`;
-export const oneCSS = `
-.orbit {
-  border-color: var(--o-cyan)
-}
-`;
-
-<ZumerPlay name={'one'} hideCode htmlCode={one} cssCode={oneCSS} theme={'cyan-theme'} height={'200px'} />
+:::note
+Gooey effect does not work on Safari browser. 
+:::
 
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={one} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={oneCSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-In the example, two `orbits` are placed inside `gravity-spot`. When no orbit size is set, the size of each orbit is automatically calculated. 
-
-
-
-
-
-
-
-#### Rendering orbits with custom size.
-
-export const three = `
-<div class="bigbang">
-  <div class="gravity-spot" style="--o-force:300px">
-    <div class="orbit-2"></div>
-    <div class="orbit-9"></div>
-    <div class="orbit-12"></div>
-  </div>
-</div>
-`;
-export const threeCSS = `
-[class*='orbit-'] {
-  border-color: var(--o-cyan)
-}
-`;
-
-<ZumerPlay name={'three'} hideCode htmlCode={three} cssCode={threeCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={three} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={threeCSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-In the example, it can be observed that the latter orbit is abowe the former one. That shows the standard HTML stacking order, that allow use multiple orbits with same size.
-
-
-
-### Customized distribution of satellites 
-
-export const five = `
-<div class="bigbang">
-  <div class="gravity-spot">
-    <div class="orbit-4 from-90 range-45 fit-range">
-      <div class="satellite"></div>
-      <div class="satellite"></div>
-      <div class="satellite"></div>
-    </div>
-  </div>
-</div>
-`;
-export const fiveCSS = `
-.orbit-4 {
-  border-color: var(--o-cyan)
-}
-.satellite {
-  border: none;
-  background-color: var(--o-cyan)
-}
-`;
-
-<ZumerPlay name={'five'} hideCode htmlCode={five} cssCode={fiveCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={five} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={fiveCSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-This example shows how to set CSS utlities on orbit to define range and starting angles for its satellites.
