@@ -12,8 +12,8 @@ interface Props {
 
 import { Code } from 'astro:components'
 import cssFile from '/src/examples/layout/custom.css?raw'
-//import orbitCode from '/src/assets/orbit.min.css?raw'
-//import orbitJS from '/src/assets/orbit.min.js?raw'
+import orbitCode from '/src/assets/orbit.min.css?raw'
+import orbitJS from '/src/assets/orbit.min.js?raw'
 
 
 
@@ -78,7 +78,7 @@ const jscode = jsCode || false
          }
     </div>
   </div>
-  <script is:inline define:vars={{hideCode, theme, name }}>
+  <script is:inline define:vars={{hideCode, theme, name, orbitCode, orbitJS }}>
 /* import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/highlight.min.js';
 //hljs.highlightAll() */
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -143,24 +143,24 @@ window.addEventListener('DOMContentLoaded', (event) => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       
       <style>
-        @import url('https://unpkg.com/@zumer/orbit@latest/dist/orbit.css');
-         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-        body {
-    font-family: "Noto Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
-    background-color: #fbfafa !important; margin: 0 !important; padding: 0 !important; overflow: hidden
-}
+        //@import url('https://unpkg.com/@zumer/orbit@latest/dist/orbit.css');
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+       ${orbitCode}
+       body {
+          font-family: "Noto Sans", sans-serif;
+          font-optical-sizing: auto;
+          font-weight: 500;
+          font-style: normal;
+          font-variation-settings: "wdth" 100;
+          background-color: #fbfafa !important; margin: 0 !important; padding: 0 !important; overflow: hidden
+        }
        ${cssCode}
         </style>
     </head>
     <body class="${theme}" style="">
       ${htmlCode}
-      <scr${'ipt'} is:inline src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js">
-        
+      <scr${'ipt'}>
+        ${orbitJS}
       </scr${'ipt'}>
       <scr${'ipt'} is:inline>
         ${jsCode}
