@@ -13,8 +13,8 @@ export default defineConfig({
       themes: ['github-light'],
       useStarlightDarkModeSwitch: false
     },
-    title: 'Orbit - Docs',
-    description: 'Get started building an amazing cool radial UI with CSS',
+    title: 'Orbit CSS Radial Framework',
+    description: 'Get started building an amazing cool radial UI with Orbit CSS Framework',
 
     disable404Route: true,
     logo: {
