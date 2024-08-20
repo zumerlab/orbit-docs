@@ -14,7 +14,7 @@ export default defineConfig({
       useStarlightDarkModeSwitch: false
     },
     title: 'Orbit CSS Radial Framework',
-    description: 'Get started building an amazing cool radial UI with Orbit CSS Framework',
+    description: 'Get started building an amazing cool radial UI with Orbit CSS Radial Framework',
 
     disable404Route: true,
     logo: {
