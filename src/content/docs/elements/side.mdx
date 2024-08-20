@@ -1,0 +1,228 @@
+---
+title: ".side CSS class"
+#banner: 
+#  content: |
+#   Documentaton on this page is being updated.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+`Sides` render a side that if used with other sides generates a regular polygon figure.  By default, up to 60 sides can be placed in an orbit. 
+
+export const vector = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+    </div>
+  </div>
+</div>
+`;
+export const vectorCSS = `
+.satellite {
+background-color: var(--o-indigo);
+border: none;
+}
+.one {
+background-color: var(--o-orange);
+border: none;
+}
+.two {
+background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,249,67,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
+border: none;
+}
+.three {
+background-color: var(--o-blue-lighter);
+border: 2px solid var(--o-blue);
+}
+.four {
+background-color: transparent;
+border: 2px dashed var(--o-indigo);
+}
+.five {
+background-color: var(--o-pink);
+
+}
+`;
+
+<ZumerPlay name={'vector'} hideCode htmlCode={vector} cssCode={vectorCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={vector} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={vectorCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Look and feel
+
+Sides can be customized by adding CSS border and background properties. 
+
+export const feel = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="side one"></div>
+      <div class="side two"></div>
+      <div class="side three"></div>
+      <div class="side four"></div>
+      <div class="side five"></div>
+    </div>
+  </div>
+</div>
+`;
+export const feelCSS = `
+.satellite {
+background-color: var(--o-indigo);
+border: none;
+}
+.one {
+background-color: var(--o-orange);
+border: none;
+}
+.two {
+background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,249,67,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
+border: none;
+}
+.three {
+background-color: var(--o-blue-lighter);
+border: 2px solid var(--o-blue);
+}
+.four {
+background-color: transparent;
+border: 2px dashed var(--o-indigo);
+}
+.five {
+background-color: var(--o-pink);
+
+}
+`;
+
+<ZumerPlay name={'feel'} hideCode htmlCode={feel} cssCode={feelCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={feel} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={feelCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Adjusting radial layout
+
+:::note
+Remember that `.orbit` [properties](/orbit-docs/elements/orbit/#distribution-of-orbit-children-elements) affect `.side` radial layout. 
+:::
+
+### Arbitrary side angle.
+
+**`.angle-*`:** Set starting point angle from 0 to 360 degrees, overrriding automatic radial arragement.
+
+export const angle = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="side angle-315"></div>
+      <div class="side angle-15"></div>
+      <div class="side angle-185"></div>
+    </div>
+  </div>
+</div>
+`;
+export const angleCSS = `
+.satellite {
+border: none;
+}
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+.orbit-5 > .vector {
+background-color: var(--o-cyan)
+}
+`;
+
+<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={angle} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={angleCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+### Relative side orbital position
+
+By default, `.side` is positioned in the middle of orbit path. To change that, there some CSS utilities:
+
+**`.inner-orbit`:** To place an`.side` just below its orbit.
+
+**`.outer-orbit`:** To place `.side` just above its orbit.
+
+
+export const inner = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-5">
+        <div class="side outer-orbit "></div>
+        <div class="side outer-orbit"></div>
+        <div class="side outer-orbit"></div>
+        <div class="side outer-orbit"></div>
+      </div>
+      <div class="orbit-5">
+        <div class="side inner-orbit "></div>
+        <div class="side inner-orbit"></div>
+        <div class="side inner-orbit"></div>
+        <div class="side inner-orbit"></div>
+      </div>
+     
+
+    </div>
+  </div>
+
+`;
+export const innerCSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 250px;
+width: 250px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+
+
+.satellite {
+border: none;
+background-color: var(--o-pink)
+}
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+
+`;
+
+<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={inner} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={innerCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
+
