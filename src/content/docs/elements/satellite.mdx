@@ -244,7 +244,7 @@ export const fourCSS = `
 ## Adjusting radial layout
 
 
-### Arbit satellite angle.
+### Arbitrary satellite angle.
 
 **`.angle-*`:** Set starting point angle from 0 to 360 degrees, overrriding automatic radial arragement.
 
@@ -312,8 +312,8 @@ export const sync = `
 export const syncCSS = `
 .wrapper {
 border: 1px dotted var(--o-purple);
-height: 250px;
-width: 250px;
+height: 180px;
+width: 180px;
 float: left;
 overflow: hidden;
 margin: 5px;
@@ -413,7 +413,7 @@ export const nocapsule = `
       <div class="orbit-5">
         <div class="satellite grow-1x">Add</div>
         <div class="satellite grow-1x">text</div>
-        <div class="satellite grow-1x">content</div>
+        <div class="satellite grow-1.8x">content</div>
        
       </div>
     </div>
@@ -433,7 +433,8 @@ margin: 5px;
 
 .satellite {
 border: none;
-background-color: var(--o-pink)
+background-color: var(--o-pink);
+color: white;
 }
 .orbit-5 {
 border: 1px dashed var(--o-cyan);

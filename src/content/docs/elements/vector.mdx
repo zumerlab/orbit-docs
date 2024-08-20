@@ -1,0 +1,99 @@
+---
+title: ".vector CSS class"
+#banner: 
+#  content: |
+#   Documentaton on this page is being updated.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+`vectors` are perpendicular lines rendered across `orbits`. They resemble minute marks in an analog watch, but can be adapted to create connector lines, for instance. Elements with `.vector` are placed along an `.orbit` or `.orbit-*` path.  By default, up to 60 vectors can be placed in an orbit. 
+
+export const vector = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+    </div>
+  </div>
+</div>
+`;
+export const vectorCSS = `
+.satellite {
+background-color: var(--o-indigo);
+border: none;
+}
+.one {
+background-color: var(--o-orange);
+border: none;
+}
+.two {
+background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,249,67,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
+border: none;
+}
+.three {
+background-color: var(--o-blue-lighter);
+border: 2px solid var(--o-blue);
+}
+.four {
+background-color: transparent;
+border: 2px dashed var(--o-indigo);
+}
+.five {
+background-color: var(--o-pink);
+
+}
+`;
+
+<ZumerPlay name={'vector'} hideCode htmlCode={vector} cssCode={vectorCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={vector} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={vectorCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
+
+### Customization
+
+- **Granular vectors size:** Each `.vector` can be adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the vector to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing vector to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
+  
+- **Look and feel:** Css background color property can be used.
+
+- **Adjust radial layout:**
+  - **`.angle-*`:** Set arbitrary vector angle from 0 to 360 degrees, overrriding automatic radial arragement.
+  - **`.inner-orbit`:** To place an`.vector` just below its orbit.
+  - **`.outer-orbit`:** To place `.vector` just above its orbit.
+  - **`.quarter-inner-orbit`:** To place `.vector` a 25% into its orbit.
+  - **`.quarter-outer-orbit`:** To place `.satellite` a 25% outer its orbit.
+
+### Usage 
+
+```html
+<div class="orbit">
+  <div class="vector"><div>
+  <div class="vector grow-5x"><div> 
+  <div class="vector shrink-10"><div> 
+  <div class="vector"><div>
+</div>
+```
+
+**Important:** `.vector` can only be placed into a parent `.orbit` or `.orbit-*`
+
