@@ -3,12 +3,29 @@ import starlight from '@astrojs/starlight';
 
 import react from "@astrojs/react";
 
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://zumerlab.github.io/orbit-docs',
   base: 'orbit-docs',
   integrations: [starlight({
+    head: [
+      // Example: add Fathom analytics script tag.
+      {
+        tag: 'script',
+        attrs: {
+          async: true,
+          src: 'https://www.googletagmanager.com/gtag/js?id=G-XL52CBETDH',
+          
+        }
+      },
+      {
+        tag: 'script',
+        content: `window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XL52CBETDH');`
+      },
+    ],
     expressiveCode: {
       themes: ['github-light'],
       useStarlightDarkModeSwitch: false
