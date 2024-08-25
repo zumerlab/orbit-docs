@@ -263,7 +263,7 @@ export const inner = `
 
   <div class="bigbang">
     <div class="gravity-spot">
-      <div class="orbit-3">
+      <div class="orbit-4">
         <o-text class="outer-orbit ">outer</o-text>
         <o-text class="quarter-outer-orbit">25% outer</o-text>
         <o-text class="quarter-inner-orbit">inner</o-text>
@@ -274,18 +274,12 @@ export const inner = `
 
 `;
 export const innerCSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 250px;
-width: 250px;
-float: left;
-overflow: hidden;
-margin: 5px;
+o-text {
+color: var(--o-cyan-dark)
 }
 
-o-slice {
---o-slice-color: var(--o-pink);
---o-gap: 1; /* This will be added as default soon*/
+.orbit-4 {
+border: 1px dashed var(--o-cyan-light)
 }
 
 
