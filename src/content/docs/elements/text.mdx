@@ -1,8 +1,8 @@
 ---
 title: "o-text Custom Element"
-banner: 
-  content: |
-    Documentaton on this page is being updated.
+#banner: 
+#  content: |
+#    Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -11,28 +11,295 @@ import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 `<o-text>` is a standard web-component for rendering curved text. By default can be up to 60 o-texts elements per orbit. 
 
-### Customization
-  
-- **o-text size:** Each `.o-text` can be adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the o-text to shrink by a specified percentage. On opposite way, the CSS class utility `.grow-1x` to `.grow-12x`, allowing the o-text to expand by a mutiple of `.orbit` size. Note that `shrink-*` and `.grow-*x` can't be used at same time.
-  
-- **Look and feel:** o-text has some special attributes: `text-anchor` (start, middle, end) to align text, and `fit-range` to expand text to path length. To change o-text path color use CSS custom var `--color` and `--hover-color` in a `o-text` style. To modify font size you can set `font-size` in a `o-text` style tag or use CSS custom var `--font-size`. Nota that font-weight, font-family, etc can be set on `o-text` style tag as well.
-
-- **Adjust radial layout:**
-  - **`.angle-*`:** Set arbitrary o-text angle from 0 to 360 degrees, overrriding automatic radial arragement.
-  - **`.gap-*`:** Set a gap space, ranging from 0 to 30, between `o-texts`.
-  - **`.inner-orbit`:** To place an`.o-text` just below its orbit.
-  - **`.outer-orbit`:** To place `.o-text` just above its orbit.
-  - **`.quarter-inner-orbit`:** To place `.o-text` a 25% into its orbit.
-  - **`.quarter-outer-orbit`:** To place `.o-text` a 25% outer its orbit.
-  
-**Important:** 
-  - `<o-text>` can only be used into `.orbit` or `.orbit-*`.
-  - `<o-text>` doesn't support ellipse shape. See `.orbit` section for more information.
-
-### Usage
-
-```html
-<div class="orbit"> 
-  <o-text>Hello World!</o-text>
+export const otext = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <o-text text-anchor="middle">o-text Custom Element allows</o-text>
+      <o-text text-anchor="middle">render curved text content</o-text>
+    </div>
+  </div>
 </div>
-```
+`;
+
+<ZumerPlay name={'otext'} hideCode htmlCode={otext}  theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={otext} lang="html" />
+  </TabItem>
+  
+</Tabs>
+
+## Look and feel
+
+
+### Changing o-text colors
+
+#### Font colors, size and other font properties
+To change o-text any CSS font properties just added in a `o-slice` style or class.
+
+export const otext1 = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-text class="cyan">This text is cyan and bold</o-text>
+      <o-text class="purple">This text is purple and capitalized</o-text>
+      
+    </div>
+  </div>
+</div>
+`;
+export const otext1CSS = `
+o-text.cyan {
+color: var(--o-cyan);
+font-weight: bold
+}
+o-text.purple {
+color: var(--o-purple);
+text-transform: uppercase;
+}
+
+
+`;
+
+<ZumerPlay name={'otext1'} hideCode htmlCode={otext1} cssCode={otext1CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={otext1} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={otext1CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+#### Background colors
+To change o-text background color use CSS custom var `--o-text-color` and `-o--hover-text-color` in a `o-slice` style.
+
+export const slice = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-text class="cyan">This text is cyan</o-text>
+      <o-text class="purple">This text is purple</o-text>
+      
+    </div>
+  </div>
+</div>
+`;
+export const sliceCSS = `
+o-text.cyan {
+--o-text-color: var(--o-cyan-light);
+--o-hover-text-color: var(--o-cyan)
+}
+o-text.purple {
+--o-text-color: var(--o-purple-light);
+--o-hover-text-color: var(--o-purple)
+}
+o-text:hover{
+cursor: pointer
+}
+o-text {
+--o-gap: 1; /* This will be added as default soon*/
+}
+
+`;
+
+<ZumerPlay name={'slice'} hideCode htmlCode={slice} cssCode={sliceCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={slice} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={sliceCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+### Changing text justification
+
+#### Use text-anchor attribute
+
+`o-text` has one special attribute: `text-anchor` to arrange its content. You can choose between `start`, `middle`, and `end` values. 
+
+
+export const otext2 = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-text text-anchor="start" class="purple">This text starts at begining</o-text>
+      <o-text text-anchor="middle" class="purple">This text starts at middle</o-text>
+      <o-text text-anchor="end" class="purple">This text is at end</o-text>
+    </div>
+  </div>
+</div>
+`;
+export const otext2CSS = `
+
+o-text.purple {
+--o-text-color: var(--o-purple-light);
+--o-hover-text-color: var(--o-purple)
+}
+o-text:hover{
+cursor: pointer
+}
+o-text {
+--o-gap: 1; /* This will be added as default soon*/
+color: var(--o-purple-dark);
+}
+`;
+
+<ZumerPlay name={'otext2'} hideCode htmlCode={otext2} cssCode={otext2CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={otext2} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={otext2CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+#### Use fit-range attribute
+
+`o-text` allow distribute its content to fill text-length using `fit-range` attribute.
+
+
+export const otext3 = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-text fit-range class="orange">This text is along all text path- ||| -</o-text>
+      
+    </div>
+  </div>
+</div>
+`;
+export const otext3CSS = `
+
+o-text.orange {
+--o-text-color: var(--o-orange-light);
+--o-hover-text-color: var(--o-orange)
+}
+o-text:hover{
+cursor: pointer
+}
+o-text {
+color: var(--o-orange-dark);
+}
+`;
+
+<ZumerPlay name={'otext3'} hideCode htmlCode={otext3} cssCode={otext3CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={otext3} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={otext3CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Adjust o-text length path size and gaps
+
+Please, see `o-slice` [reference](/orbit-docs/elements/slice/#adjust-o-slice-size).
+
+
+
+## Adjusting radial layout
+
+:::note
+Remember that `.orbit` [properties](/orbit-docs/elements/orbit/#distribution-of-orbit-children-elements) affect `o-text` radial layout. 
+:::
+
+### Arbitrary o-text angle.
+
+**`.angle-*`:** Set starting point angle from 0 to 360 degrees, overrriding automatic radial arragement.
+
+export const angle = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5 ">
+      <o-text class=" angle-115" >Text at 115º</o-text>
+    </div>
+  </div>
+</div>
+`;
+export const angleCSS = `
+
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+o-slice {
+--o-slice-color: var(--o-purple);
+}
+`;
+
+<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={angle} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={angleCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+### Relative o-text orbital position
+
+By default, `o-text` is positioned in the middle of orbit path. To change that, there some CSS utilities:
+
+**`.inner-orbit`:** To place an`o-text` just below its orbit.
+
+**`.outer-orbit`:** To place `o-text` just above its orbit.
+
+**`.quarter-inner-orbit`:** To place `o-text` a 25% into its orbit.
+
+**`.quarter-outer-orbit`:** To place `o-text` a 25% outer its orbit.
+
+export const inner = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-text class="outer-orbit ">outer</o-text>
+        <o-text class="quarter-outer-orbit">25% outer</o-text>
+        <o-text class="quarter-inner-orbit">inner</o-text>
+        <o-text class="inner-orbit">25% inner</o-text>
+      </div>
+     
+  </div>
+
+`;
+export const innerCSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 250px;
+width: 250px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+
+o-slice {
+--o-slice-color: var(--o-pink);
+--o-gap: 1; /* This will be added as default soon*/
+}
+
+
+
+`;
+
+<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={inner} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={innerCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
