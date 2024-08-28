@@ -1,8 +1,8 @@
 ---
 title: "Orbit.resize()"
-banner: 
-  content: |
-    Documentaton on this page is being updated.
+#banner: 
+#  content: |
+#    Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -10,19 +10,55 @@ import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 Orbit provides a Orbit JS class with `resize()` method to allow `.gravity-spot` to adapt its size to a parent element. See [installation doc section](/introduction/installation)
 
-- **Important:** Currently resize() only works on initial `.gravity-spot`. Does not affect child `gravity-spots`.
+:::note
+Currently resize() only works on initial `.gravity-spot`. Does not affect child `gravity-spots`.
+:::
 
-### Usage
-
-```html
-<body>
+export const four = `
+<div class="wrapper">
     <div class="bigbang">
-        <div class="gravity-spot">
-            <!-- Orbit app -->
+    <div class="gravity-spot">
+        <div class="orbit-4">
+        <div class="satellite">
+        </div>
         </div>
     </div>
-    <script scr="orbit.js">
-        Orbit.resize('.bigbang');  // Select parent element
-    </script>
-</body>
-```
+    </div>
+</div>
+`;
+export const fourCSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 200px;
+width: 280px;
+margin: 5px;
+resize: both;
+overflow: auto;
+}
+.orbit, [class*='orbit-']{
+  border-color: var(--o-cyan)
+}
+.satellite {
+  border: none;
+  background-color: var(--o-cyan)
+}
+`;
+export const fourJS = `
+Orbit.resize('.wrapper')
+`;
+
+<ZumerPlay name={'four'} hideCode htmlCode={four} cssCode={fourCSS} jsCode={fourJS}  theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={four} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={fourCSS} lang="css" />
+  </TabItem>
+  <TabItem label="JS" icon="seti:js">
+    <Code code={fourJS} lang="js" />
+  </TabItem>
+</Tabs>
+
+

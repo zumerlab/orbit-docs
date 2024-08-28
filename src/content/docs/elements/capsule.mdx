@@ -1,18 +1,15 @@
 ---
 title: ".capsule CSS Class"
-banner: 
-  content: |
-    Documentaton on this page is being updated.
+#banner: 
+#  content: |
+#    Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-### CSS Class: `.capsule`
 
-`Capsule` is a class to put text or another content. Currently, it can be used into `satellites` and `sides`.
-
-### Customization
+`.capsule` is a class to put text or another content. Currently, it can be used into `satellites` and `sides`.
 
 - **Alignment:** By default, `capsule` is placed at center of `satellite` or `side`. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
 
@@ -24,12 +21,146 @@ Besides that, to stablish `capsule` position following CSS classes can be set:
 
 - **Look and feel:** Capsules are initially invisible but can be customized by adding border and background properties.
 
-### Usage
+## satellites with capsule
 
-```html
-<div class="satellite">
-  <div class="capsule stable">
-    Some text here.
+export const capsule = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-5">
+        <div class="satellite grow-2x rounded-box">
+          <div class="capsule">
+            <span style="color:  var(--o-blue); font-size:13px; ">
+             Add html tags
+            </span>
+          </div>
+        </div>
+        <div class="satellite grow-2x"> 
+          <div class="capsule ">
+            <img src="/orbit-docs/favicon.svg" width="100"/>
+          </div>
+        </div>
+        <div class="satellite sync-rotation">
+         <div class="capsule title flip">
+          Inside capsule you can put any content
+      
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div> 
-```
+
+`;
+export const capsuleCSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 250px;
+width: 250px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+
+
+.satellite {
+border: none;
+background-color: var(--o-blue-lighter)
+}
+.satellite:last-child {
+background-color: transparent
+}
+.title {
+width: 150px;
+border: 1px solid var(--o-green);
+color:  var(--o-green-dark);
+background-color: var(--o-green-lighter);
+}
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+
+`;
+
+<ZumerPlay name={'capsule'} hideCode htmlCode={capsule} cssCode={capsuleCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={capsule} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={capsuleCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Sides with capsule
+
+export const capsule1 = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-5">
+        <div class="side grow-2x rounded-box">
+          <div class="capsule flip">
+            <span style="color:  var(--o-blue); font-size:13px; ">
+             Add html tags
+            </span>
+          </div>
+        </div>
+        <div class="side grow-2x"> 
+          <div class="capsule stable">
+            <img src="/orbit-docs/favicon.svg" width="100"/>
+          </div>
+        </div>
+        <div class="side ">
+         <div class="capsule title ">
+          Inside capsule you can put any content
+      
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+`;
+export const capsule1CSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 250px;
+width: 250px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+
+
+.satellite {
+border: none;
+background-color: var(--o-blue-lighter)
+}
+.satellite:last-child {
+background-color: transparent
+}
+.title {
+width: 150px;
+border: 1px solid var(--o-green);
+color:  var(--o-green-dark);
+background-color: var(--o-green-lighter);
+}
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+
+`;
+
+<ZumerPlay name={'capsule1'} hideCode htmlCode={capsule1} cssCode={capsule1CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={capsule1} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={capsule1CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+

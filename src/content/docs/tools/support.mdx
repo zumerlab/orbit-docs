@@ -1,8 +1,8 @@
 ---
 title: "CSS visual aids"
-banner: 
-  content: |
-    Documentaton on this page is being updated.
+#banner: 
+#  content: |
+#    Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -10,23 +10,99 @@ import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 Orbit provides a comprehensive set of rules and visual aids in CSS to assist developers in enhancing user experience. These guidelines ensure adherence to best practices and optimize the utilization of Orbit's features.
 
-### Checking browser support for `has()` CSS Rule
+:::note
+Support and checks are performed with CSS only! Using advance CSS feartures such as `@support` and `@container`
+:::
+
+## Checking browser support 
+
+### `has()` CSS Rule
 
 Before implementing features reliant on the `has()` CSS rule, it's essential to confirm browser compatibility. Orbit includes checks to verify support for this rule, alerting users if it's unavailable in the targeted browser environment.
 
-### Checking browser support for `cos()` and  `sin()` trigonometric CSS functions
+### `cos()` and  `sin()` trigonometric CSS functions
 
 Orbit includes checks to verify support for these functions, alerting users if there are unavailable in the targeted browser environment.
 
-### Visual Warning for Invalid Nested Elements
+## Visual Warning for Invalid Nested Elements
 
 Orbit incorporates visual cues to identify and warn developers of invalid nested elements within orbit structures:
 
-- **Invalid Child elements within `.gravity-spot`:** Orbit detects and notifies developers if `.gravity-spot` contains invalid direct child elements. Only  `.orbit-zoee`, and `.orbit` or `.orbit-*` elements are permissible within `.gravity-spot`.
+###  Invalid Child elements within `.gravity-spot`
 
-- **Invalid Child elements within `.satellite`:** Similarly, Orbit checks for and alerts developers if `.satellite` includes invalid direct child elements. Only `.gravity-spot` elements are permitted within `.satellite`.
+Orbit detects and notifies developers if `.gravity-spot` contains invalid direct child elements. Only  `.orbit-zoee`, and `.orbit` or `.orbit-*` elements are permissible within `.gravity-spot`.
+
+export const gs = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+        <!-- Orbit detects that gravity-spot > satellite is not valid -->
+        <div class="satellite">
+        </div>
+  </div>
+
+`;
+export const gsCSS = `
+.gravity-spot {
+--o-force: 200px
+}
+.satellite {
+border: 1px solid black
+}
+
+`;
+
+<ZumerPlay name={'gs'} hideCode htmlCode={gs} cssCode={gsCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={gs} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={gsCSS} lang="css" />
+  </TabItem>
+</Tabs>
 
 
-### Usage Limitation of `o-slice`, `o-text`, and `o-progress`
+### Invalid Child elements within `.satellite`
+Similarly, Orbit checks for and alerts developers if `.satellite` includes invalid direct child elements. Only `.gravity-spot` elements are permitted within `.satellite`.
+
+
+export const gs1 = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+        <div class="orbit-5">
+          <div class="satellite at-center">
+              <!-- Orbit detects that satellite > orbit is not valid -->
+             <div class="orbit-10"></div>
+          </div>
+        </div>
+  </div>
+
+`;
+export const gs1CSS = `
+.gravity-spot {
+--o-force: 200px
+}
+.satellite {
+border: 1px solid black
+}
+
+`;
+
+<ZumerPlay name={'gs1'} hideCode htmlCode={gs1} cssCode={gs1CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={gs1} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={gs1CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
+## Usage Limitation of `o-slice`, `o-text`, and `o-progress`
 
 For optimal functionality, `o-slice`, `o-text`, and `o-progress` should only be applied within circular orbits. As Orbit currently doesn't support elliptical shapes for these web-components, they will be hidden if detected within incompatible orbit shapes.
