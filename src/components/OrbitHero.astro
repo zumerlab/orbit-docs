@@ -1,8 +1,9 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
 
-import '../assets/orbit.min.css';
+import '../assets/dist/orbit.min.css';
 import '../assets/landing.css';
+import orbitJS from '../assets/dist/orbit.min.js?url';
 
 const { data } = Astro.props.entry;
 ---
@@ -72,11 +73,11 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-80" style="border: 4px solid var(--primary-color)"></div>
       </div>
       <div class="orbit-9 range-180 from-0 ">
-        <o-slice  style="--o-slice-color: var(--primary-color)"  class="outer-orbit shrink-80"></o-slice>
+        <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-slice>
         <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270 action-sector ">
-        <o-slice shape="circle" style="--o-slice-color: var(--primary-color)" ></o-slice>
+        <o-slice shape="circle" style="--o-slice-color: var(--primary-color); --o-gap: 0;" ></o-slice>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -115,7 +116,7 @@ const { data } = Astro.props.entry;
   <div class="bigbang " style="height: 500px">
     <div class="gravity-spot">
       <div class="orbit-15 range-90 from-270">
-        <o-slice  style="--o-slice-color: var(--primary-color)"  class="outer-orbit shrink-80"></o-slice>
+        <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-slice>
         <div class="satellite text-ball"></div>
       </div>
       <div class="orbit-10">
@@ -844,7 +845,7 @@ const { data } = Astro.props.entry;
       </div>
             
             <div class="orbit-13 range-60 from-120">
-              <o-slice  style="--o-slice-color: var(--primary-color)"  class="shrink-80"></o-slice>
+              <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-slice>
               <div class="satellite feature-ball"></div>
             </div>
             <div class="orbit-9">
@@ -993,13 +994,13 @@ const { data } = Astro.props.entry;
         </div>
       </div>
             <div class="orbit-10 range-230 from-130">
-              <o-slice  style="--o-slice-color: var(--primary-color)"  class="shrink-80"></o-slice>
+              <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-slice>
               <div class="satellite lastaction-ball"></div>
             </div>
             <div class="gravity-spot">
              
               <div class="orbit-6 range-90 from-90">
-                <o-slice  style="--o-slice-color: var(--primary-color)"  shape="circle" class="grow-x"></o-slice>
+                <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  shape="circle" class="grow-x"></o-slice>
               </div>
               
               <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -1069,7 +1070,7 @@ const { data } = Astro.props.entry;
  <img src="/orbit-docs/favicon.svg" width="24" style="vertical-align: text-top;"> Orbit - Copyright © 2024 <a href="https://github.com/zumerlab/">ZumerLab</a> <br> Released under <a href="https://github.com/zumerlab/orbit/blob/main/LICENSE">MIT license</a> - Made by Humans
 </section>
 </div>
-<script type="module" src='/orbit-docs/orbit.min.js'></script>
+<script type="module" src={orbitJS}></script>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
