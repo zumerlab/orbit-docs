@@ -41,7 +41,8 @@ export default defineConfig({
     components: {
       Hero: './src/components/OrbitHero.astro',
       PageFrame: './src/components/OrbitPageFrame.astro',
-      Footer: './src/components/OrbitFooter.astro'
+      Footer: './src/components/OrbitFooter.astro',
+      Pagination: "./src/components/CustomPagination.astro"
     },
     social: {
       github: 'https://github.com/zumerlab/orbit',

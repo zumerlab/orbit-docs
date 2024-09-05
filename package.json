@@ -19,6 +19,7 @@
     "@types/react-dom": "^18.2.25",
     "@webcomponents/template-shadowroot": "^0.2.1",
     "astro": "^4.12.2",
+    "astro-feelback": "^0.3.4",
     "astro-live-code": "^0.0.2",
     "codemirror": "^6.0.1",
     "highlight.js": "^11.9.0",
