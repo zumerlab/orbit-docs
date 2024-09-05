@@ -7,6 +7,474 @@ title: Examples
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
+export const solarCSS =`body {
+  background-color: black;
+}
+
+[class*="orbit-"] {
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+}
+.sun:before,
+.surface:before {
+  content: "";
+  position: absolute;
+  top: 1%;
+  left: 5%;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 0px,
+    yellow,
+    rgba(255, 255, 255, 0) 58%
+  );
+  -webkit-filter: blur(5px);
+  z-index: 2;
+}
+.sun:after,
+.surface:after {
+  content: "";
+  position: absolute;
+  border-radius: 100%;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(245, 237, 48, 0),
+    rgba(200, 190, 20, 0.2) 50%,
+    #575300 100%
+  );
+}
+
+.asteroid-belt {
+  border: 10px solid rgba(255, 255, 255, 0.01);
+}
+
+.bigbang {
+ perspective: 150px;
+  perspective-origin: 50% 100%;
+  
+}
+.gravity-spot {
+  transform: rotateX(10deg);
+   transform-style: preserve-3d;
+}
+
+.orbit-0 {
+  border: none;
+  transform: rotateX(-5deg);
+}
+.asteroid-belt {
+  animation: rotate var(--t, 80s) linear reverse infinite;
+}
+.asteroid-belt > .satellite {
+  background-color: hsl(0, 0%, 50%);
+}
+
+.sun {
+  box-shadow: 0px 0px 24px 3px rgba(255, 245, 46, 0.55);
+  background: url("https://soho.nascom.nasa.gov/data/LATEST/current_eit_284small.gif");
+  background-size: auto 100%;
+  --o-transform: rotate(0deg) rotateX(15deg) !important;
+}
+
+.satellite {
+  border: none;
+}
+.capsule {
+  animation: rotate var(--t, 20s) linear infinite;
+}
+.surface {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.mercury {
+  --t: 2105.26ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.mercury .surface {
+  background: url("https://raw.githubusercontent.com/cookieMonsterDev/solar-system-threejs/master/public/assets/mercury-map.jpg");
+  background-size: auto 100%;
+}
+.venus {
+  --t: 4210.53ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.venus .surface {
+  background: url("https://raw.githubusercontent.com/cookieMonsterDev/solar-system-threejs/master/public/assets/venus-map.jpg");
+  background-size: auto 100%;
+}
+
+.earth {
+  --t: 6315.79ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.earth .surface {
+  background: url("https://media.tenor.com/0we9sWcmUtYAAAAi/wingedratsecrettag-earth.gif");
+  background-size: auto 100%;
+}
+.earth .moon {
+  background-color: white;
+  animation: rotate 10s reverse linear infinite;
+}
+.moon {
+  background-color: white;
+  opacity: 0.5;
+  animation: rotate 10s reverse linear infinite;
+}
+.mars {
+  --t: 8421.05ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.mars .surface {
+  background: url("https://raw.githubusercontent.com/cookieMonsterDev/solar-system-threejs/master/public/assets/mars-map.jpg");
+  background-size: auto 100%;
+}
+.jupiter {
+  --t: 12631.58ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.jupiter .surface {
+  background: url("https://media1.tenor.com/m/9OygS0jeB6oAAAAd/nasa-nasa-gifs.gif");
+  background-size: auto 100%;
+}
+.saturn {
+  --t: 14736.84ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.saturn .surface {
+  background: url("https://raw.githubusercontent.com/cookieMonsterDev/solar-system-threejs/master/public/assets/saturn-map.jpg");
+  background-size: auto 100%;
+}
+.saturn .ring {
+  rotate: 15deg;
+  transform: rotateX(75deg);
+  animation: rotate var(--t, 20s) linear infinite;
+}
+.uranus {
+  --t: 10526.32ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.uranus .surface {
+  background: url("https://raw.githubusercontent.com/cookieMonsterDev/solar-system-threejs/master/public/assets/uranus-map.jpg");
+  background-size: auto 100%;
+}
+.neptune {
+  --t: 20000ms;
+  animation: rotate var(--t, 20s) linear reverse infinite;
+}
+.neptune .surface {
+  background: url("https://raw.githubusercontent.com/cookieMonsterDev/solar-system-threejs/master/public/assets/neptune-map.jpg");
+  background-size: auto 100%;
+}
+.neptune .ring {
+  rotate: 85deg;
+  transform: rotateX(75deg);
+  animation: rotate var(--t, 20s) linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    rotate: 360deg;
+  }
+}
+`;
+
+export const solarHTML = `<!-- Visit https://github.com/zumerlab/orbit -->
+
+<div class="bigbang">
+  <div class="gravity-spot from-3x">
+    <div class="orbit-0">
+      <div class="satellite sun  grow-3x">
+      </div>
+    </div>
+    <div class="orbit-1">
+      <div class="satellite mercury shrink-60">
+        <div class="capsule">
+          <div class="surface"></div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-2">
+      <div class="satellite venus shrink-10">
+        <div class="capsule">
+          <div class="surface"></div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-3">
+      <div class="satellite earth">
+        <div class="capsule ">
+          <div class="surface"></div>
+        </div>
+        <div class="gravity-spot">
+          <div class="orbit-1 shrink-30 " style="border:none; transform: rotateX(45deg);">
+            <div class="satellite shrink-70 moon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-4">
+      <div class="satellite mars shrink-40">
+        <div class="capsule">
+          <div class="surface"></div>
+        </div>
+        <div class="gravity-spot">
+          <div class="orbit-1 shrink-30 range-270" style="border:none; transform: rotateX(45deg);">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="orbit-6 asteroid-belt">
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+    </div>
+    <div class="orbit-6 from-20 shrink-20 asteroid-belt">
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+    </div>
+    <div class="orbit-6 from-40 shrink-40 asteroid-belt">
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+    </div>
+    <div class="orbit-6 from-10 shrink-60 asteroid-belt">
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-90"></div>
+      <div class="satellite shrink-90"></div>
+    </div>
+
+    <div class="orbit-8">
+      <div class="satellite jupiter grow-0.9x">
+        <div class="capsule">
+          <div class="surface"></div>
+        </div>
+        <div class="gravity-spot">
+          <div class="orbit-1 shrink-10 " style="border:none; transform: rotateX(35deg);">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+
+          </div>
+          <div class="orbit-1 shrink-10 " style="border:none; transform: rotateX(45deg);">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+
+          </div>
+          <div class="orbit-2 shrink-90 " style="border:none; rotate: 55deg;">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-10">
+      <div class="satellite saturn grow-0.3x">
+
+        <div class="gravity-spot ring">
+          <div class="orbit-2 shrink-80" style=" border:3px solid rgba(255,255,255,0.2); "></div>
+          <div class="orbit-2 shrink-90" style=" border:1px solid rgba(255,255,255,0.2); "></div>
+          <div class="orbit-1" style=" border:3px solid rgba(255,255,255,0.4); "></div>
+        </div>
+        <div class="gravity-spot">
+            <div class="orbit-2 shrink-80 " style="border:none; transform: rotateX(45deg);">
+              <div class="satellite shrink-90 moon"></div>
+              <div class="satellite shrink-90 moon"></div>
+              <div class="satellite shrink-90 moon"></div>
+              <div class="satellite shrink-90 moon"></div>
+              <div class="satellite shrink-90 moon"></div>
+            </div>
+          </div>
+        <div class="capsule">
+          <div class="surface"></div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-12">
+      <div class="satellite uranus grow-0.1x">
+        <div class="capsule">
+          <div class="surface"></div>
+        </div>
+        <div class="gravity-spot">
+          <div class="orbit-1 shrink-10 " style="border:none; transform: rotateX(35deg);">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+
+          </div>
+          <div class="orbit-1 shrink-20 " style="transform: rotateX(45deg);border:none;">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-14">
+      <div class="satellite neptune grow-0.1x">
+
+        <div class="gravity-spot ring">
+          <div class="orbit-1 shrink-30" style=" border:1px solid white; "></div>
+        </div>
+        <div class="capsule">
+          <div class="surface"></div>
+
+        </div>
+        <div class="gravity-spot">
+          <div class="orbit-1 shrink-10 " style="border:none; transform: rotateX(35deg);">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+
+          </div>
+          <div class="orbit-1 shrink-20 " style="border:none; rotate: 45deg;">
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+            <div class="satellite shrink-90 moon"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>`;
 
 export const dashboardCSS = `
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
@@ -982,6 +1450,11 @@ export const watchJS = `function analogWatch() {
 <ZumerPlay name={'watch'} hideCode htmlCode={watchHTML}  cssCode={watchCSS} jsCode={watchJS}  height={'450px'} />
 
 **Credits**: This example is inspired on <a href="https://amazfitwatchfaces.com/gts/view/5067" target="_blank">Amazfitwatchfaces</a>
+
+### The Solar System
+
+<ZumerPlay name={'solar'} hideCode htmlCode={solarHTML}  cssCode={solarCSS} jsCode={watchJS}  height={'450px'} />
+
 
 
 
