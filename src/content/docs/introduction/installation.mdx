@@ -5,71 +5,100 @@ title: Installation & quick start
 import { PackageManagers } from 'starlight-package-managers'
 
 
-
 Get ready to explore the innovative approach of radial design with Orbit! This guide will help you quickly get started and install everything you need.
 
-### Step 0: Try Orbit online
+## 🚀 Try Orbit now!
 
-To quickly get a taste of Orbit, you can try it directly in a <a href="https://codepen.io/pen?template=KKjaoRj" target="_blank">Orbit Codepen Template</a>.
+To quickly get a taste of Orbit, you can try it directly in a [Orbit Codepen template](https://codepen.io/pen?template=KKjaoRj).
+
+## Installation
+
+Orbit comes with just two files: `orbit.css` (or `orbit.min.css`), and `orbit.js` (or `orbit.min.js`).
+
+### Getting the Orbit files:
+
+You have three ways to get **Orbit** files: 
+
+#### 1. Download the Orbit files
+
+- Get the **Orbit CSS file**: [orbit.css](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css) or [orbit.min.css (minified)](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.css) 
+
+- Get the **Orbit JS file**: [orbit.js](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js) or [orbit.min.js (minified)](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.js) 
 
 
+#### 2. Use Orbit via CDN (content delivery network)
 
-### Step 1: Include Orbit stylesheet
+- For latest version of **Orbit CSS file**: 
 
-To start using Orbit, include its CSS in your HTML file. You have two options:
+  Uncompressed version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.css](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css)
 
-1. **Download or Import the CSS file**:
-   - **Download**: Download the CSS file from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css) and link it in your HTML file:
-     ```html  wrap
-     <head>
-       <link rel="stylesheet" href="path/to/orbit.css">
-     </head>
-     ```
-   - **Import**: Add the following to your stylesheet:
-     ```css wrap
-     @import url('path/to/orbit.css');
-     ```
+  Minified version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.css](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.css)
 
-2. **Include via CDN**:
-   - Add this to your HTML file:
-     ```html wrap
-     <head>
-       <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
-     </head>
-     ```
+- For latest version of **Orbit JS file**: 
 
-### Step 2: Include Orbit JavaScript (Recommended)
+  Uncompressed version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.js](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js)
 
-If you plan to use additional features like radial progress bars, curved text, and slices, include Orbit's JavaScript. You can do this in two ways:
+  Minified version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.js](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.js)
 
-1. **Download the JavaScript file**:
-   - Download from [here](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js).
-   - Link it in your HTML file:
-     ```html  wrap
-     <head>
-       <script src="path/to/orbit.js" defer></script>
-     </head>
-     ```
 
-2. **Include via CDN**:
-   - Add this to your HTML file:
-     ```html wrap
-     <head>
-       <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js" defer></script>
-     </head>
-     ```
+#### 3. Install Orbit via a Package Manager
 
-### Step 3: Set up Orbit layout
+You can also install Orbit using **npm**, **yarn** or **pnpm**:
 
-Now, create a container with the `gravity-spot` class, and within it, add a radial layout using the `orbit` class. Inside the `orbit`, add radial elements, such us: `satellite` class or `o-text` web component . Here’s a minimal working example:
+ <PackageManagers pkg="@zumer/orbit" />
 
-```html wrap
+### Setting up Orbit in your project:
+
+After install Orbit, follow this simple steps to get Orbit working.
+
+#### Link Orbit files or CDN in your HTML file:
+
+If you have downloaded them just use `<link> tag ` for the CSS file, and `<script> tag` for the JS file within the `<head>` section:
+
+In case you have downloaded the files:
+
+```html
+<head>
+  <link rel="stylesheet" href="path/to/orbit.css">
+  <script src="path/to/orbit.js"></script>
+</head>
+```
+
+In case you are using CDN:
+
+```html
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
+  <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+</head>
+```
+
+:::tip 
+**Tip for CSS file**: You can use `@import` CSS rule in your `<style> tag` to import the **CSS file**:
+
+Downloaded file:
+```css
+@import url('path/to/orbit.css');
+```
+Or via CDN:
+```css
+@import url('https://unpkg.com/@zumer/orbit@latest/dist/orbit.css');
+```
+:::
+
+## 🏁 Quick start
+
+### Basic Orbit layout
+
+Just add `.bigbang` CSS class in a HTML element like `<div>`. Then use `.gravity-spot` class, and within it, add another element with `.orbit` class. Finally, inside `.orbit` element, add radial elements, such us: `.satellite`, `.vector`, `.side`, or `<o-text>`, `<o-slice>`, `<o-progress>` web components . Here’s a minimal working example:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/path/to/orbit.css" />
-    <script src="/path/to/orbit.js" defer></script> <!-- Only if using additional features -->
+    <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css" />
+    <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js" defer></script>
     <title>Orbit Quick Start</title>
   </head>
   <body>
@@ -89,11 +118,6 @@ Now, create a container with the `gravity-spot` class, and within it, add a radi
 </html>
 ```
 
-### Step 4: Install via Package Manager (Optional)
-
-You can also install Orbit using npm or yarn for easier management in your project:
-
-<PackageManagers pkg="@zumer/orbit" />
 
 
 ## Next steps
