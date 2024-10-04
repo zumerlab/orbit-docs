@@ -19,7 +19,7 @@ const { data } = Astro.props.entry;
   <div class="bigbang" style="height: 500px">
     <div class="gravity-spot">
       <div class="orbit-15 range-90 from-180">
-        <o-slice  style="--o-slice-color: var(--primary-color)"  class="outer-orbit shrink-80"></o-slice>
+        <o-arc  style="--o-arc-color: var(--primary-color)"  class="outer-orbit shrink-80"></o-arc>
         <div class="satellite logo-ball"></div>
       </div>
       <div class="small-orbit orbit-5 dashed"></div>
@@ -73,11 +73,11 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-80" style="border: 4px solid var(--primary-color)"></div>
       </div>
       <div class="orbit-9 range-180 from-0 ">
-        <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-slice>
+        <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-arc>
         <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270 action-sector ">
-        <o-slice shape="circle" style="--o-slice-color: var(--primary-color); --o-gap: 0;" ></o-slice>
+        <o-arc shape="circle" style="--o-arc-color: var(--primary-color); --o-gap: 0;" ></o-arc>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -116,7 +116,7 @@ const { data } = Astro.props.entry;
   <div class="bigbang " style="height: 500px">
     <div class="gravity-spot">
       <div class="orbit-15 range-90 from-270">
-        <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-slice>
+        <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-arc>
         <div class="satellite text-ball"></div>
       </div>
       <div class="orbit-10">
@@ -145,7 +145,7 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-270" >
           <div class="gravity-spot">
             <div class="orbit-12 range-170 from-351">
-              <o-slice  style="--o-slice-color: var(--primary-color)"  class="shrink-70"></o-slice>
+              <o-arc  style="--o-arc-color: var(--primary-color)"  class="shrink-70"></o-arc>
               <div class="satellite component-ball"></div>
             </div>
             
@@ -214,25 +214,25 @@ const { data } = Astro.props.entry;
                 <div class="gravity-spot">
                   <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
                     <div class="orbit-4">
-                      <o-slice  class="gap-1 grow-2x"></o-slice>
-                      <o-slice  class="gap-1"></o-slice>
-                      <o-slice  class="gap-1 grow-2x"></o-slice>
-                      <o-slice   class="gap-1"></o-slice>
-                      <o-slice   class="gap-1 grow-2x"></o-slice>
-                      <o-slice   class="gap-1 grow-3x"></o-slice>
-                      <o-slice   class="gap-1 grow-2x"></o-slice>
+                      <o-arc  class="gap-1 grow-2x"></o-arc>
+                      <o-arc  class="gap-1"></o-arc>
+                      <o-arc  class="gap-1 grow-2x"></o-arc>
+                      <o-arc   class="gap-1"></o-arc>
+                      <o-arc   class="gap-1 grow-2x"></o-arc>
+                      <o-arc   class="gap-1 grow-3x"></o-arc>
+                      <o-arc   class="gap-1 grow-2x"></o-arc>
                     </div>
                     <div class="orbit-11">
-                      <o-slice  class="gap-1 grow-2x"></o-slice>
-                      <o-slice  class="gap-1"></o-slice>
-                      <o-slice  class="gap-1 grow-2x"></o-slice>
-                      <o-slice  class="gap-1 grow-3x"></o-slice>
-                      <o-slice  class="gap-1 grow-2x"></o-slice>
+                      <o-arc  class="gap-1 grow-2x"></o-arc>
+                      <o-arc  class="gap-1"></o-arc>
+                      <o-arc  class="gap-1 grow-2x"></o-arc>
+                      <o-arc  class="gap-1 grow-3x"></o-arc>
+                      <o-arc  class="gap-1 grow-2x"></o-arc>
                     </div>
                   </div>
                   <div class="orbit-4  label" style="opacity: 0">
                     <div class="satellite angle-180 button">
-                      slices
+                      arcs
                     </div>
                   </div>
                 </div>
@@ -274,7 +274,7 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-90" >
           <div class="gravity-spot">
             <div class="orbit-12 range-150 from-190">
-              <o-slice  style="--o-slice-color: var(--primary-color)"  class="shrink-70"></o-slice>
+              <o-arc  style="--o-arc-color: var(--primary-color)"  class="shrink-70"></o-arc>
 
             </div>
             <div class="orbit-0">
@@ -363,16 +363,16 @@ const { data } = Astro.props.entry;
         <div class="satellite angle-90" >
           <div class="gravity-spot">
             <div class="orbit-11 range-230 from-10">
-              <o-slice  style="--o-slice-color: var(--primary-color)"  class="shrink-70"></o-slice>
+              <o-arc  style="--o-arc-color: var(--primary-color)"  class="shrink-70"></o-arc>
             </div>
             <div class="orbit-9 from-180 ring">
-              <o-slice class="gap-1 shrink-80 outer-orbit sectors-sector" style="--o-slice-color: var(--background-color)"></o-slice>
-              <o-slice class="gap-1 shrink-80 outer-orbit progress-sector" style="--o-slice-color: var(--background-color)"></o-slice>
-              <o-slice class="gap-1 shrink-80 outer-orbit labels-sector" style="--o-slice-color: var(--background-color)"></o-slice>
-              <o-slice class="gap-1 shrink-80 outer-orbit segments-sector" style="--o-slice-color: var(--background-color)"></o-slice>
-              <o-slice class="gap-1 shrink-80 outer-orbit spokes-sector" style="--o-slice-color: var(--background-color)"></o-slice>
-              <o-slice class="gap-1 shrink-80 outer-orbit orbits-sector" style="--o-slice-color: var(--background-color)"></o-slice>
-              <o-slice class="gap-1 shrink-80 outer-orbit satellites-sector" style="--o-slice-color: var(--background-color)"></o-slice>
+              <o-arc class="gap-1 shrink-80 outer-orbit sectors-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+              <o-arc class="gap-1 shrink-80 outer-orbit progress-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+              <o-arc class="gap-1 shrink-80 outer-orbit labels-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+              <o-arc class="gap-1 shrink-80 outer-orbit segments-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+              <o-arc class="gap-1 shrink-80 outer-orbit spokes-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+              <o-arc class="gap-1 shrink-80 outer-orbit orbits-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+              <o-arc class="gap-1 shrink-80 outer-orbit satellites-sector" style="--o-arc-color: var(--background-color)"></o-arc>
             </div>
             
 
@@ -845,7 +845,7 @@ const { data } = Astro.props.entry;
       </div>
             
             <div class="orbit-13 range-60 from-120">
-              <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-slice>
+              <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-arc>
               <div class="satellite feature-ball"></div>
             </div>
             <div class="orbit-9">
@@ -893,9 +893,9 @@ const { data } = Astro.props.entry;
                  
                   
                   <div class="orbit-4 from-0 range-180" >
-                    <o-slice style="--o-slice-color: var(--primary-color)" class="gap-2 shrink-70 selector-innovative-sector"></o-slice>
-                    <o-slice style="--o-slice-color: var(--primary-color)" class="gap-2 shrink-70 selector-easy-sector"></o-slice>
-                    <o-slice style="--o-slice-color: var(--primary-color)" class="gap-2 shrink-70 selector-seamless-sector"></o-slice>
+                    <o-arc style="--o-arc-color: var(--primary-color)" class="gap-2 shrink-70 selector-innovative-sector"></o-arc>
+                    <o-arc style="--o-arc-color: var(--primary-color)" class="gap-2 shrink-70 selector-easy-sector"></o-arc>
+                    <o-arc style="--o-arc-color: var(--primary-color)" class="gap-2 shrink-70 selector-seamless-sector"></o-arc>
                   </div>
                  
                  
@@ -994,13 +994,13 @@ const { data } = Astro.props.entry;
         </div>
       </div>
             <div class="orbit-10 range-230 from-130">
-              <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-slice>
+              <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-arc>
               <div class="satellite lastaction-ball"></div>
             </div>
             <div class="gravity-spot">
              
               <div class="orbit-6 range-90 from-90">
-                <o-slice  style="--o-slice-color: var(--primary-color); --o-gap: 0;"  shape="circle" class="grow-x"></o-slice>
+                <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  shape="circle" class="grow-x"></o-arc>
               </div>
               
               <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -1052,7 +1052,7 @@ const { data } = Astro.props.entry;
   <p><a href="/orbit-docs/elements/satellite">satellite</a></p>
   <p><a href="/orbit-docs/elements/vector">vector</a></p>
   <p><a href="/orbit-docs/elements/side">side</a></p>
-  <p><a href="/orbit-docs/elements/slice">o-slice</a></p>
+  <p><a href="/orbit-docs/elements/arc">o-arc</a></p>
   <p><a href="/orbit-docs/elements/progress">o-progress</a></p>
   <p><a href="/orbit-docs/elements/text">o-text</a></p>
   <p><a href="/orbit-docs/elements/capsule">capsule</a></p>
@@ -1577,7 +1577,7 @@ const integration =  document.querySelector('.selector-integration-frame');
         orbitsCase.style.scale = 1;
         orbitsLabel.style.opacity = 1;
         //orbits?.classList.add('activecomponent')
-        orbitsSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+        orbitsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
         demoText.innerHTML = 'Composing DEMO 12%'
       }
       checkorbits = true
@@ -1589,7 +1589,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checksatellites) {
         satellitesCase.style.scale = 1;
         satellitesLabel.style.opacity = 1;
-      satellitesSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+      satellitesSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 34%'
       }
       checksatellites = true
@@ -1600,7 +1600,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checksectors) {
         sectorsCase.style.scale = 1;
         sectorsLabel.style.opacity = 1;
-      sectorsSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+      sectorsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 44%'
       } 
       checksectors = true
@@ -1612,7 +1612,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checkprogress) {
         progresssCase.style.scale = 1;
         progresssLabel.style.opacity = 1;
-      progressSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+      progressSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 55%'
       }
       checkprogress = true
@@ -1624,7 +1624,7 @@ const integration =  document.querySelector('.selector-integration-frame');
       if (!checklabel) {
        curvedTextCase.style.scale = 1;
        curvedTextLabel.style.opacity = 1;
-      labelsSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+      labelsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 87%'
       }
       
@@ -1637,7 +1637,7 @@ const integration =  document.querySelector('.selector-integration-frame');
        segmentsCase.style.scale = 1;
        segmentsLabel.style.opacity = 1;  
        
-      segmentsSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+      segmentsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
       demoText.innerHTML = 'Composing DEMO 91%'
       }
       checksegment = true
@@ -1659,7 +1659,7 @@ const integration =  document.querySelector('.selector-integration-frame');
     let checkdemo = false
     if (scroll >= 1920 ) {
       if (!checkdemo) {
-        spokesSector.style.setProperty('--o-slice-color', 'var(--secondary-color)')
+        spokesSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
         demoContainer.style.opacity = 0
       }
       checkdemo = true

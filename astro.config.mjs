@@ -88,8 +88,8 @@ export default defineConfig({
         label: 'side',
         link: '/elements/side/'
       },{
-        label: 'o-slice',
-        link: '/elements/slice/'
+        label: 'o-arc',
+        link: '/elements/arc/'
       }, {
         label: 'o-progress',
         link: '/elements/progress/'

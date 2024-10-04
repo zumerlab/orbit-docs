@@ -8,7 +8,7 @@ title: ".orbit CSS class"
 import ZumerPlay from '/src/components/ZumerCode.astro';
 import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-The `.orbit` CSS class, along with variations from `.orbit-0` to `.orbit-24`, defines a circular path around a `.gravity-spot`. Within  `.orbit` element, various **Orbit** elements such as `satellites`, `o-slices`, `o-progress`, `vectors`, `sides`, and `o-texts` can be positioned.
+The `.orbit` CSS class, along with variations from `.orbit-0` to `.orbit-24`, defines a circular path around a `.gravity-spot`. Within  `.orbit` element, various **Orbit** elements such as `satellites`, `o-arcs`, `o-progress`, `vectors`, `sides`, and `o-texts` can be positioned.
 
 ## Look and feel
 
@@ -224,7 +224,7 @@ border-width: 3px;
 </Tabs>
 
 ## Elliptical orbits
-Turn Orbits into ellipses: Two CSS variables (`--o-ellipse-x` and `--o-ellipse-y`) can transform `.orbit` or `.orbit-*` into an ellipse shape. This transformation affects the orbit and its children, excluding `o-slice`, `o-progress`, and `o-text` web components, which remain hidden when the orbit is elliptical. Values for these variables range from 0 to 1. A CSS utlity could be added in a future.
+Turn Orbits into ellipses: Two CSS variables (`--o-ellipse-x` and `--o-ellipse-y`) can transform `.orbit` or `.orbit-*` into an ellipse shape. This transformation affects the orbit and its children, excluding `o-arc`, `o-progress`, and `o-text` web components, which remain hidden when the orbit is elliptical. Values for these variables range from 0 to 1. A CSS utlity could be added in a future.
 
 Both CSS variable can be used in the same orbit.
 
@@ -357,7 +357,7 @@ export const fourCSS = `
 By default, these Orbit elements are evenly distributed along the perimeter of `.orbit`. For instance, if there are five `satellites`, they will be spaced 72 degrees apart, covering the full 360-degree range of `.orbit`. The zero degree of Orbit is positioned similar to the 12 o'clock mark on an analog clock.
 
 :::note
-Orbit children elements include `.satellite`, `.vector`, `.side`, `o-slice`, and `o-text`.  
+Orbit children elements include `.satellite`, `.vector`, `.side`, `o-arc`, and `o-text`.  
 :::
 
 export const distribution = `
@@ -416,7 +416,7 @@ font-size: 10px
 **`.range-*`:** Set arbitrary orbit range from 0 to 360 length. If custom range is defined, `.fit-range` could be added to justify children distribution.
 
 :::note
-`.range-*` affects `.satellite`, `.vector`, `.side`, `o-slice`, and `o-text`.  
+`.range-*` affects `.satellite`, `.vector`, `.side`, `o-arc`, and `o-text`.  
 :::
 
 export const range = `

@@ -1,0 +1,412 @@
+---
+title: "o-arc Custom Element"
+banner: 
+ content: |
+   o-slice name was changed to o-arc 
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+`<o-arc>` is a standard and vanilla web-component for rendering a radial arcs or pies. By default there are up to 60 arcs elements per orbit. 
+
+## Look and feel
+
+
+### Changing arc colors
+To change o-arc color use CSS custom var `--o-arc-color` and `--o-hover-arc-color` in a `o-arc` style.
+
+export const arc = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-arc class="cyan"></o-arc>
+      <o-arc class="purple"></o-arc>
+      <o-arc class="cyan"></o-arc>
+      <o-arc class="purple"></o-arc>
+      <o-arc class="cyan"></o-arc>
+      <o-arc class="purple"></o-arc>
+      <o-arc class="cyan"></o-arc>
+      <o-arc class="purple"></o-arc>
+      <o-arc class="cyan"></o-arc>
+      <o-arc class="purple"></o-arc>
+      <o-arc class="cyan"></o-arc>
+      <o-arc class="purple"></o-arc>
+    </div>
+  </div>
+</div>
+`;
+export const arcCSS = `
+o-arc.cyan {
+--o-arc-color: var(--o-cyan-light);
+--o-hover-arc-color: var(--o-cyan)
+}
+o-arc.purple {
+--o-arc-color: var(--o-purple-light);
+--o-hover-arc-color: var(--o-purple)
+}
+o-arc:hover{
+cursor: pointer
+}
+o-arc {
+--o-gap: 1; /* This will be added as default soon*/
+}
+
+`;
+
+<ZumerPlay name={'arc'} hideCode htmlCode={arc} cssCode={arcCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={arc} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={arcCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+### Changing endings
+
+`o-arc` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`. 
+
+:::note
+Shapes don't work on Safari browsers.
+:::
+
+
+export const arc1 = `
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1x purple-light" shape="circle"></o-arc>
+        <o-arc class="grow-1x purple" shape="circle"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="circle"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1x purple-light" shape="arrow"></o-arc>
+        <o-arc class="grow-1x purple" shape="arrow"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="arrow"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1x purple-light" shape="zigzag"></o-arc>
+        <o-arc class="grow-1x purple" shape="zigzag"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="zigzag"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1x purple-light" shape="slash"></o-arc>
+        <o-arc class="grow-1x purple" shape="slash"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="slash"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1x purple-light" shape="backslash"></o-arc>
+        <o-arc class="grow-1x purple" shape="backslash"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="backslash"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+
+`;
+export const arc1CSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 100px;
+width: 100px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+.gravity-spot {
+--o-force: 300px
+}
+o-arc.purple-light {
+--o-arc-color: var(--o-purple-light);
+--o-hover-arc-color: var(--o-orange)
+}
+o-arc.purple {
+--o-arc-color: var(--o-purple);
+--o-hover-arc-color: var(--o-orange)
+}
+o-arc.purple-dark {
+--o-arc-color: var(--o-purple-dark);
+--o-hover-arc-color: var(--o-orange)
+}
+o-arc:hover{
+cursor: pointer
+}
+o-arc {
+--o-gap: 1; /* This will be added as default soon*/
+}
+
+`;
+
+<ZumerPlay name={'arc1'} hideCode htmlCode={arc1} cssCode={arc1CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={arc1} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={arc1CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+
+## Adjust o-arc size
+
+Each `o-arc` has one orbit space size, but it can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the vectors to shrink by a specified percentage. 
+
+
+export const shrink = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-arc style="--o-arc-color: var(--o-red)"></o-arc>
+      <o-arc class="shrink-90" style="--o-arc-color: var(--o-orange)"></o-arc>
+      <o-arc class="shrink-80" style="--o-arc-color: var(--o-yellow)"></o-arc>
+      <o-arc class="shrink-70" style="--o-arc-color: var(--o-color)"></o-arc>
+      <o-arc class="shrink-60" style="--o-arc-color: var(--o-green)"></o-arc>
+      <o-arc class="shrink-50" style="--o-arc-color: var(--o-cyan)"></o-arc>
+      <o-arc class="shrink-40" style="--o-arc-color: var(--o-blue)"></o-arc>
+      <o-arc class="shrink-30" style="--o-arc-color: var(--o-indigo)"></o-arc>
+      <o-arc class="shrink-20" style="--o-arc-color: var(--o-purple)"></o-arc>
+      <o-arc class="shrink-10" style="--o-arc-color: var(--o-pink)"></o-arc>
+      
+    </div>
+  </div>
+</div>
+`;
+export const shrinkCSS = `
+
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+o-arc {
+--o-gap: 1; /* This will be added as default soon*/
+}
+
+`;
+
+<ZumerPlay name={'shrink'} hideCode htmlCode={shrink} cssCode={shrinkCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={shrink} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={shrinkCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+On opposite way, the CSS class utility `.grow-0x` to `.grow-12x`, allowing vector to expand by a multiple of `.orbit` size. It is possible to use decimal fractions. For example,  `.grow-0.1x`,  `.grow-10.7x`, etc.
+
+:::note
+`shrink-*` and `.grow-*x` can't be used at same time.
+:::
+
+
+export const grow = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <o-arc class="grow-0.2x" style="--o-arc-color: var(--o-red)"></o-arc>
+      <o-arc class="grow-0.4x" style="--o-arc-color: var(--o-orange)"></o-arc>
+      <o-arc class="grow-0.6x" style="--o-arc-color: var(--o-yellow)"></o-arc>
+      <o-arc class="grow-1.2X" style="--o-arc-color: var(--o-green)"></o-arc>
+      <o-arc class="grow-2x" style="--o-arc-color: var(--o-cyan)"></o-arc>
+      <o-arc class="grow-2.5x" style="--o-arc-color: var(--o-blue)"></o-arc>
+      <o-arc class="grow-3x" style="--o-arc-color: var(--o-indigo)"></o-arc>
+      <o-arc class="grow-4x" style="--o-arc-color: var(--o-purple)"></o-arc>
+    </div>
+  </div>
+</div>
+`;
+export const growCSS = `
+.satellite {
+border: none;
+}
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+
+o-arc {
+--o-gap: 1; /* This will be added as default soon*/
+}
+`;
+
+<ZumerPlay name={'grow'} hideCode htmlCode={grow} cssCode={growCSS} theme={'cyan-theme'} height={'400px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={grow} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={growCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Adjust o-arc gaps
+**`.gap-*`:** Set a gap space between `o-arcs` ranging from 0 to 30, 
+
+
+export const grow1 = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <o-arc class="gap-0"></o-arc>
+      <o-arc class="gap-2"></o-arc>
+      <o-arc class="gap-3"></o-arc>
+      <o-arc class="gap-4"></o-arc>
+      <o-arc class="gap-5"></o-arc>
+      <o-arc class="gap-6"></o-arc>
+      <o-arc class="gap-7"></o-arc>
+      <o-arc class="gap-30"></o-arc>
+    </div>
+  </div>
+</div>
+`;
+export const grow1CSS = `
+.satellite {
+border: none;
+}
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+
+o-arc {
+--o-gap: 1; /* This will be added as default soon*/
+--o-arc-color: var(--o-indigo);
+}
+`;
+
+<ZumerPlay name={'grow1'} hideCode htmlCode={grow1} cssCode={grow1CSS} theme={'cyan-theme'} height={'400px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={grow1} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={grow1CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+## Adjusting radial layout
+
+:::note
+Remember that `.orbit` [properties](/orbit-docs/elements/orbit/#distribution-of-orbit-children-elements) affect `o-arc` radial layout. 
+:::
+
+### Arbitrary o-arc angle.
+
+**`.angle-*`:** Set starting point angle from 0 to 360 degrees, overrriding automatic radial arragement.
+
+export const angle = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5 range-90">
+      <o-arc class=" angle-115"></o-arc>
+    </div>
+  </div>
+</div>
+`;
+export const angleCSS = `
+
+.orbit-5 {
+border: 1px dashed var(--o-cyan);
+}
+o-arc {
+--o-arc-color: var(--o-purple);
+}
+`;
+
+<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={angle} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={angleCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+### Relative o-arc orbital position
+
+By default, `o-arc` is positioned in the middle of orbit path. To change that, there some CSS utilities:
+
+**`.inner-orbit`:** To place an`o-arc` just below its orbit.
+
+**`.outer-orbit`:** To place `o-arc` just above its orbit.
+
+**`.quarter-inner-orbit`:** To place `o-arc` a 25% into its orbit.
+
+**`.quarter-outer-orbit`:** To place `o-arc` a 25% outer its orbit.
+
+export const inner = `
+
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="outer-orbit "></o-arc>
+        <o-arc class="quarter-outer-orbit"></o-arc>
+        <o-arc class="quarter-inner-orbit"></o-arc>
+        <o-arc class="inner-orbit"></o-arc>
+      </div>
+     
+  </div>
+
+`;
+export const innerCSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 250px;
+width: 250px;
+float: left;
+overflow: hidden;
+margin: 5px;
+}
+
+o-arc {
+--o-arc-color: var(--o-pink);
+--o-gap: 1; /* This will be added as default soon*/
+}
+
+
+
+`;
+
+<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={inner} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={innerCSS} lang="css" />
+  </TabItem>
+</Tabs>
