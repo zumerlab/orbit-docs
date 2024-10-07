@@ -1,13 +1,13 @@
 
 /*
 * orbit
-* v.0.5.0
+* v.0.6.0
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-18467-q5Rnk5CPuqlZ/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-10372-7w2JCPb0jCLv/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -1170,6 +1170,7 @@ body > .bigbang {
 .gravity-spot {
   container-name: gravityspot;
   --o-force: 500px;
+  --o-force-ratio: 1;
   --o-from: 0deg;
   --o-range: 360deg;
   --o-ellipse-x: 1;
@@ -1189,8 +1190,8 @@ body > .bigbang {
 .orbit,
 [class*=orbit-] {
   container-name: orbit;
-  --o-base-diameter: (var(--o-initial-orbit, 0) + var(--o-orbit-number)) * var(--o-force) / (12 + var(--o-initial-orbit, 0));
-  --o-prev-diameter: ((var(--o-initial-orbit, 0) + var(--o-orbit-number)) - 1) * var(--o-force) / (12 + var(--o-initial-orbit, 0));
+  --o-base-diameter: (var(--o-initial-orbit, 0) + var(--o-orbit-number)) * (var(--o-force) * var(--o-force-ratio)) / (12 + var(--o-initial-orbit, 0));
+  --o-prev-diameter: ((var(--o-initial-orbit, 0) + var(--o-orbit-number)) - 1) * (var(--o-force) * var(--o-force-ratio)) / (12 + var(--o-initial-orbit, 0));
   --o-diameter: calc(var(--o-base-diameter) - ((var(--o-base-diameter) - var(--o-prev-diameter)) * var(--o-orbit-ratio, 0)));
   --o-radius: calc(var(--o-diameter) / 2);
   width: calc(var(--o-diameter) / var(--o-ellipse-x));
@@ -1226,7 +1227,7 @@ body > .bigbang {
   border-radius: 0%;
 }
 .satellite.rounded-box {
-  border-radius: calc(var(--o-force) * 0.015);
+  border-radius: calc(var(--o-force) * var(--o-force-ratio) * 0.015);
 }
 .vector {
   container-name: vector;

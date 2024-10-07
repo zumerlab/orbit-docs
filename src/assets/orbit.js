@@ -1,7 +1,7 @@
 
 /*
 * orbit
-* v.0.5.0
+* v.0.6.0
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
@@ -559,17 +559,22 @@
     resize: (parentElementSelector) => {
       const parentElement = document.querySelector(parentElementSelector);
       if (!parentElement) {
-        console.error(`No se encontr\xF3 ning\xFAn elemento con el selector ${parentElementSelector}`);
+        console.error(`Not found: ${parentElementSelector}`);
         return;
       }
       const resizeObserver = new ResizeObserver((entries) => {
         for (let entry of entries) {
           const { width } = entry.contentRect;
-          const childElement = parentElement.querySelector(".gravity-spot");
-          if (childElement) {
-            childElement.style.setProperty("--o-force", `${width}px`);
+          const childElements = parentElement.querySelectorAll(".gravity-spot");
+          if (childElements) {
+            childElements.forEach((childElement) => {
+              let gravityForce = getComputedStyle(childElement).getPropertyValue("--o-force");
+              let forceRatio = width / 500;
+              console.log(gravityForce, forceRatio, parseFloat(gravityForce) * forceRatio);
+              childElement.style.setProperty("--o-force-ratio", `${forceRatio}`);
+            });
           } else {
-            console.error("No se encontr\xF3 ning\xFAn elemento hijo con la clase .child-element");
+            console.error("No gravity-spot found");
           }
         }
       });
