@@ -1,7 +1,7 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
 const isHomepage = Astro.props.slug === '';
-const { hasSidebar, labels } = Astro.props;
+const { hasSidebar} = Astro.props;
 
 
 ---
@@ -15,7 +15,7 @@ const { hasSidebar, labels } = Astro.props;
 	
 	{
 		!isHomepage && hasSidebar && (
-			<nav class="sidebar" aria-label={labels['sidebarNav.accessibleLabel']}>
+			<nav class="sidebar" aria-label={Astro.locals.t('sidebarNav.accessibleLabel')}>
 				
 				<div id="starlight__sidebar" class="sidebar-pane">
 					<div class="sidebar-content sl-flex">

@@ -6,6 +6,7 @@ title: Examples
 
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 export const solarCSS =`body {
   background-color: black !important;;
@@ -1437,11 +1438,34 @@ export const watchJS = `function analogWatch() {
 
 <ZumerPlay name={'tres'} hideCode htmlCode={dashboardHTML}  cssCode={dashboardCSS} height={'400px'} />
 
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={dashboardHTML} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={dashboardCSS} lang="css" />
+  </TabItem>
+</Tabs>
+
+**Codepen**: <a href="https://codepen.io/zircle/pen/abegbaw" target="_blank">link</a> 
+
 **Credits**: This dashboard mimicks this  <a href="https://pin.it/7tpjDDAVl" target="_blank">Pinterest</a>
 
 ### An abstract orbital map
 
 <ZumerPlay name={'dps'} hideCode htmlCode={orbitalHTML}  cssCode={orbitalCSS} height={'600px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={orbitalHTML} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={orbitalCSS} lang="css" />
+  </TabItem>
+  
+</Tabs>
+
+**Codepen**: <a href="https://codepen.io/zircle/pen/eYqwYPB" target="_blank">link</a> 
 
 **Credits**: This example is inspired on <a href="https://pin.it/dP9PlNjFc" target="_blank">Pinterest</a>
 
@@ -1449,12 +1473,27 @@ export const watchJS = `function analogWatch() {
 
 <ZumerPlay name={'watch'} hideCode htmlCode={watchHTML}  cssCode={watchCSS} jsCode={watchJS}  height={'450px'} />
 
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={watchHTML} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={watchCSS} lang="css" />
+  </TabItem>
+  <TabItem label="JS" icon="seti:js">
+    <Code code={watchJS} lang="js" />
+  </TabItem>
+</Tabs>
+
+**Codepen**: <a href="https://codepen.io/zircle/pen/NWQZWEK" target="_blank">link</a> 
+
+
 **Credits**: This example is inspired on <a href="https://amazfitwatchfaces.com/gts/view/5067" target="_blank">Amazfitwatchfaces</a>
 
-### The Solar System
+{/* ### The Solar System
 
 <ZumerPlay name={'solar'} hideCode htmlCode={solarHTML}  cssCode={solarCSS} jsCode={watchJS}  height={'450px'} />
-
+ */}
 ## Show & Tell
 
 Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
