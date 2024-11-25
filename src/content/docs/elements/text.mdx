@@ -161,16 +161,101 @@ color: var(--o-purple-dark);
   </TabItem>
 </Tabs>
 
+#### Use flip attribute
+
+`o-text` allows upside down its content to using `flip` attribute. Useful to make text more legible. 
+
+
+export const otext6 = `
+<div class="wrapper">
+normal
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-4">
+        <o-text >Jan</o-text>
+        <o-text >Feb</o-text>
+        <o-text >Mar</o-text>
+        <o-text >Apr</o-text>
+        <o-text >May</o-text>
+        <o-text >Jun</o-text>
+        <o-text >Jul</o-text>
+        <o-text >Aug</o-text>
+        <o-text >Sep</o-text>
+        <o-text >Oct</o-text>
+        <o-text >Nov</o-text>
+        <o-text >Dic</o-text>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+with flip atribute
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-4">
+        <o-text >Jan</o-text>
+        <o-text >Feb</o-text>
+        <o-text >Mar</o-text>
+        <o-text  flip>Apr</o-text>
+        <o-text  flip>May</o-text>
+        <o-text  flip>Jun</o-text>
+        <o-text  flip>Jul</o-text>
+        <o-text  flip>Aug</o-text>
+        <o-text  flip>Sep</o-text>
+        <o-text >Oct</o-text>
+        <o-text >Nov</o-text>
+        <o-text >Dic</o-text>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+export const otext6CSS = `
+.wrapper {
+border: 1px dotted var(--o-purple);
+height: 200px;
+width: 200px;
+float: left;
+overflow: hidden;
+margin: 5px;
+color: var(--o-blue-dark);
+}
+.gravity-spot {
+--o-force: 400px
+}
+o-text[flip] {
+color: red
+}
+
+o-text:hover{
+cursor: pointer
+}
+o-text {
+color: var(--o-blue-dark);
+}
+`;
+
+<ZumerPlay name={'otext6'} hideCode htmlCode={otext6} cssCode={otext6CSS} theme={'cyan-theme'} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html">
+    <Code code={otext3} lang="html" />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code wrap code={otext3CSS} lang="css" />
+  </TabItem>
+</Tabs>
+
 #### Use fit-range attribute
 
-`o-text` allow distribute its content to fill text-length using `fit-range` attribute.
+`o-text` allows distribute its content to fill text-length using `fit-range` attribute.
 
 
 export const otext3 = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
-      <o-text fit-range class="orange">This text is along all text path- ||| -</o-text>
+      <o-text fit-range class="orange"> This text is along all text path </o-text>
       
     </div>
   </div>
