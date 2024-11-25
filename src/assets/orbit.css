@@ -7,7 +7,7 @@
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-10372-7w2JCPb0jCLv/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-28028-w3Twb5ufz9As/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -1293,6 +1293,9 @@ o-text {
   r: var(--o-radius);
   stroke-width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
+}
+o-text[flip] {
+  --o-angle-composite: var(--o-angle) * calc(var(--o-orbit-child-number) + 1) * var(--o-direction, 1);
 }
 o-progress {
   container-name: oprogress;
@@ -7048,11 +7051,11 @@ o-text.gap-30 {
   margin-top: 25%;
   --o-angle-composite: 270deg !important;
 }
-.capsule.stable {
+.capsule.horizontal {
   --o-gyro: calc(90deg - ( var(--o-angle) * var(--o-orbit-child-number)));
   --o-angle-composite: var(--o-gyro);
 }
-.satellite > .capsule.stable {
+.satellite > .capsule.horizontal {
   --o-gyro: calc(var(--o-angle) * var(--o-orbit-child-number));
 }
 .satellite > .capsule.turn-left {

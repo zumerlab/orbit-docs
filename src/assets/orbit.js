@@ -463,7 +463,7 @@
         textPath.parentElement.setAttribute("textLength", path.getTotalLength());
       }
       text.style.fontSize = `calc(${fontSize} * (100 / (${length}) * (12 /  var(--o-orbit-number) ))`;
-      textPath.textContent = this.textContent.trim();
+      textPath.textContent = this.textContent;
     }
     getPathAttributes() {
       const { realRadius, gap, textBgColor, flip, lineCap, strokeWidth } = this.getAttributes();
@@ -570,7 +570,6 @@
             childElements.forEach((childElement) => {
               let gravityForce = getComputedStyle(childElement).getPropertyValue("--o-force");
               let forceRatio = width / 500;
-              console.log(gravityForce, forceRatio, parseFloat(gravityForce) * forceRatio);
               childElement.style.setProperty("--o-force-ratio", `${forceRatio}`);
             });
           } else {
