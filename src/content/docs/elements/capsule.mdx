@@ -14,7 +14,7 @@ import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 - **Alignment:** By default, `capsule` is placed at center of `satellite` or `side`. This behavior can be altered using alignment utility classes such as `.center-left`, `.center-right`, `.top-left`, `.top-center`, `.top-right`, `.bottom-left`, `.bottom-center`, and `.bottom-right`.
 
 Besides that, to stablish `capsule` position following CSS classes can be set:
-  - `stable`: to mantain content always horizontal. 
+  - `horizontal`: to mantain content always horizontal. 
   - `turn-left`: to turn content 90deg left
   - `turn-right`: to turn content 90deg right
   - `flip`: to turn content upside-down.
@@ -107,7 +107,7 @@ export const capsule1 = `
           </div>
         </div>
         <div class="side grow-2x"> 
-          <div class="capsule stable">
+          <div class="capsule horizontal">
             <img src="/orbit-docs/favicon.svg" width="100"/>
           </div>
         </div>
