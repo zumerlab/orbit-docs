@@ -1,0 +1,25 @@
+[class*=orbit] {
+    border:none
+}
+.gradient-1 {
+box-shadow: inset 0px 0px 3px 2px #00000082;
+background: linear-gradient(0deg, rgb(158 155 155) 0%, rgb(236 236 236) 98%);
+}
+.gradient-2 {
+background: linear-gradient(180deg, rgb(161 161 161) 0%, rgb(255 255 255) 100%);
+}
+.indicator {
+height: 5px;
+border: none;
+background: var(--o-cyan);
+box-shadow: inset 0px 0px 0px 1px var(--o-gray-dark); 
+}
+.led-off {
+border: none;
+box-shadow: inset 0px 0px 0px 1px #00000075;
+}
+.led-on {
+border: none;
+background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,228,249,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
+box-shadow: inset 0px 0px 0px 1px var(--o-gray-dark);
+}

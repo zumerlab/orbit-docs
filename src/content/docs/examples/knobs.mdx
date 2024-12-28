@@ -1,0 +1,112 @@
+---
+title: Knobs
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+import knobcss from '/src/assets/knob.css?raw';
+
+export const knob1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit">
+      <div class="satellite at-center ">
+        <div class="capsule">volume</div>
+      </div>
+    </div>
+    <div class="orbit-2 knob-background"></div>
+    <div class="orbit-0">
+      <div class="satellite" style="border: none">
+        <div class="gravity-spot">
+          <div class="orbit-2 shrink-50 ">
+            <div class="satellite shrink-40 led"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-3 shrink-10 from-215 range-290 fit-range">
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+      <div class="vector shrink-70 outer-orbit" style="background: black;"></div>
+    </div>
+    <div class="orbit-3 shrink-60 from-215 range-290">
+      <o-progress value="50" shape="circle" class="shrink-80 outer-orbit" style="--o-color: var(--o-green)"></o-progress>
+    </div>
+  </div>
+</div>`
+export const knob1CSS = `.knob-background{
+box-shadow: 0px 0px 0px 5px #404040;
+background-color: #888;
+background-image: radial-gradient(circle, rgba(10, 10, 10, 0.5) 0, rgba(10, 10, 10, 0) 24%, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0) 100%), conic-gradient(rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.3) 5%, rgba(255, 255, 255, 0.5) 8%, rgba(255, 255, 255, 0.5) 18%, rgba(255, 255, 255, 0.1) 24%, rgba(255, 255, 255, 0.1) 32%, rgba(255, 255, 255, 0.2) 34%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0.1) 46%, rgba(255, 255, 255, 0.1) 56%, rgba(255, 255, 255, 0.3) 64%, rgba(255, 255, 255, 0.3) 69%, rgba(255, 255, 255, 0.1) 72%, rgba(255, 255, 255, 0.1) 81%, rgba(255, 255, 255, 0.2) 84%, rgba(255, 255, 255, 0.2) 86%, rgba(255, 255, 255, 0.1) 90%, rgba(255, 255, 255, 0.1) 95%, rgba(255, 255, 255, 0.3) 98%, rgba(255, 255, 255, 0.3) 100%), radial-gradient(circle, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 29%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 34.5%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 35%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 42%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 42.5%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 48%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 48.25%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 54.5%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 55%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 59%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 59.5%, rgba(255, 255, 255, 0.1) 0, rgba(255, 255, 255, 0.1) 68%, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 100%);
+}
+
+.led {
+border: none; 
+background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgb(52, 249, 72) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
+box-shadow: inset 0px 0px 0px 1px var(--o-gray-dark); }
+}`
+
+## Knob with progress bar
+
+<ZumerPlay name={'knob1'} hideCode htmlCode={knob1HTML}  cssCode={knob1CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={knob1HTML} lang="html" wrap />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={knob1CSS} lang="css" wrap />
+  </TabItem>
+</Tabs>
+
+export const knob2HTML = `
+<div class="bigbang" style="background: #d6dce0de;">
+  <div class="gravity-spot">
+    <div class="orbit-4 shrink-90 gradient-1"></div>
+    <div class="orbit-3 shrink-60 gradient-2"></div>
+    <div class="orbit-3 shrink-30">
+      <div class="vector shrink-60 angle-332 indicator"></div>
+    </div>
+    <div class="orbit-4 shrink-60 from-215 range-290 fit-range">
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+    </div>
+  </div>
+</div>`
+
+## Knob with leds
+
+<ZumerPlay name={'knob2'} hideCode htmlCode={knob2HTML}  cssCode={knobcss} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={knob2HTML} lang="html" wrap />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={knobcss} lang="css" wrap />
+  </TabItem>
+</Tabs>
+
+## Show & Tell
+
+Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
+
+

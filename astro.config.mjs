@@ -30,8 +30,8 @@ export default defineConfig({
       themes: ['github-light'],
       useStarlightDarkModeSwitch: false
     },
-    title: 'Orbit CSS Radial Framework',
-    description: 'Get started building an amazing cool radial UI with Orbit CSS Radial Framework',
+    title: 'Orbit CSS radial UI composer',
+    description: 'Get started building an amazing cool radial UI with Orbit CSS composer',
 
     disable404Route: true,
     logo: {
@@ -63,7 +63,7 @@ export default defineConfig({
     }, {
       label: 'Guide',
       items: [{
-        label: 'How does Orbit work?',
+        label: 'Steps to create a knob',
         link: '/guide/'
       }]
     }, {
@@ -99,7 +99,8 @@ export default defineConfig({
       }, {
         label: 'capsule',
         link: '/elements/capsule/'
-      }]
+      },
+    ]
     },{
       label: 'Tools',
       items: [{
@@ -109,11 +110,51 @@ export default defineConfig({
       },{
         label: 'Auto resize',
         link: '/tools/orbit-resize/',
-       
-      }]
+      },{
+        label: 'Colors',
+        link: '/tools/colors/'
+      }
+    ]
     }, {
       label: 'Examples',
-      link: '/examples/',
+      items: [{
+        label: 'Progress bars',
+        link: '/examples/progress/',
+      
+      },{
+        label: 'Charts',
+        link: '/examples/charts/',
+      },{
+        label: 'Gauges',
+        link: '/examples/gauges/'
+      },{
+        label: 'Knobs',
+        link: '/examples/knobs/'
+      },{
+        label: 'Pie menues',
+        link: '/examples/piemenu/'
+      },{
+        label: 'Watch faces',
+        link: '/examples/watches/'
+      },{
+        label: 'Scifi',
+        link: '/examples/scifi/'
+      },{
+        label: 'Chemical structures',
+        link: '/examples/chemical_structures/'
+      },{
+        label: 'Calendars & time planners',
+        link: '/examples/calendar/'
+      },{
+        label: 'Mandalas',
+        link: '/examples/mandalas/'
+      },{
+        label: 'Dashboards',
+        link: '/examples/dashboard/'
+      },{
+        label: 'Abstract orbital map',
+        link: '/examples/abstract_map/'
+      }]
       
     }]
   }), 

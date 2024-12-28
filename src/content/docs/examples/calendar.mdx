@@ -1,0 +1,267 @@
+---
+title: Calendars & time planners
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+export const calendar1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force: 250px; font-size: 11px;">
+    <div class="orbit-11" style="color: black ;background-color: white; filter: drop-shadow(0px 4px 3px gray)">
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+      <div class="vector inner-orbit shrink-50"></div>
+    </div>
+    <div class="orbit-9  from-6 gray-border">
+      <o-arc class="outer-orbit">1</o-arc>
+      <o-arc class="outer-orbit">2</o-arc>
+      <o-arc class="outer-orbit">3</o-arc>
+      <o-arc class="outer-orbit">4</o-arc>
+      <o-arc class="outer-orbit">5</o-arc>
+      <o-arc class="outer-orbit">6</o-arc>
+      <o-arc class="outer-orbit">7</o-arc>
+      <o-arc class="outer-orbit">8</o-arc>
+      <o-arc class="outer-orbit">9</o-arc>
+      <o-arc class="outer-orbit">10</o-arc>
+      <o-arc class="outer-orbit">11</o-arc>
+      <o-arc class="outer-orbit">12</o-arc>
+      <o-arc class="outer-orbit">13</o-arc>
+      <o-arc class="outer-orbit">14</o-arc>
+      <o-arc class="outer-orbit">15</o-arc>
+      <o-arc class="outer-orbit">16</o-arc>
+      <o-arc class="outer-orbit">17</o-arc>
+      <o-arc class="outer-orbit">18</o-arc>
+      <o-arc class="outer-orbit">19</o-arc>
+      <o-arc class="outer-orbit">20</o-arc>
+      <o-arc class="outer-orbit">21</o-arc>
+      <o-arc class="outer-orbit">22</o-arc>
+      <o-arc class="outer-orbit">23</o-arc>
+      <o-arc class="outer-orbit">24</o-arc>
+      <o-arc class="outer-orbit">25</o-arc>
+      <o-arc class="outer-orbit">26</o-arc>
+      <o-arc class="outer-orbit">27</o-arc>
+      <o-arc class="outer-orbit">28</o-arc>
+      <o-arc class="outer-orbit">29</o-arc>
+      <o-arc class="outer-orbit">30</o-arc>
+    </div>
+    <div class="orbit-8  from-355" style="background-color: white; filter: drop-shadow(0px 4px 3px gray)">
+    </div>
+    <div class="orbit-7 shrink-70 from-15 "  >
+      <o-arc class="">Jan</o-arc>
+      <o-arc class="">Feb</o-arc>
+      <o-arc class="">Mar</o-arc>
+      <o-arc class="" flip>Apr</o-arc>
+      <o-arc class="" flip>May</o-arc>
+      <o-arc class="" flip>Jun</o-arc>
+      <o-arc class="" flip>Jul</o-arc>
+      <o-arc class="" flip>Aug</o-arc>
+      <o-arc class="" flip>Sep</o-arc>
+      <o-arc class="">Oct</o-arc>
+      <o-arc class="" style="font-weight: bold;">Nov</o-arc>
+      <o-arc class="">Dic</o-arc>
+    </div>
+    <div class="orbit-8  " style="color: black">
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+      <div class="vector shrink-10 inner-orbit"></div>
+    </div>
+    <div class="orbit-5 gray-border from-355" style="color: black; background-color: white; filter: drop-shadow(0px 4px 3px gray)">
+      <div class="vector inner-orbit grow-1x"></div>
+      <div class="vector inner-orbit grow-1x"></div>
+      <div class="vector inner-orbit grow-1x"></div>
+      <div class="vector inner-orbit grow-1x"></div>
+    </div>
+    <div class="orbit-4">
+      <o-arc >Winter</o-arc>
+      <o-arc  >Spring</o-arc>
+      <o-arc  flip>Summer</o-arc>
+      <o-arc >Autumn</o-arc>
+    </div>
+    <div class="orbit-8  ">
+      <div class="vector inner-orbit grow-3x angle-340 month"></div>
+    </div>
+    <div class="orbit-11 ">
+      <div class="vector inner-orbit grow-4.1x angle-222 day"></div>
+    </div>
+    <div class="orbit-3 gray-border" style="background-color: white; filter: drop-shadow(0px 4px 3px gray)" >
+      <div class="satellite at-center grow-3x transparent">
+        <div class="capsule" style="font-weight: bold; font-size: 16px;">2024</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+## Year calendar
+
+<ZumerPlay name={'calendar1'} hideCode htmlCode={calendar1HTML}   height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={calendar1HTML} lang="html" wrap />
+  </TabItem>
+ 
+</Tabs>
+
+
+
+export const calendar2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2 from-180 range-90">
+      <o-arc class="inner-orbit shrink-30" style="--o-color: var(--o-gray-light); filter:  drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="inner-orbit shrink-30" style="--o-color:var(--o-gray-lighter); filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="inner-orbit shrink-30" style="--o-color:var(--o-gray-white); filter: drop-shadow(0px 0px 1px black);"></o-arc>
+    </div>
+    <div class="orbit-2">
+      <o-arc class="outer-orbit grow-0.5x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1.3x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-0.5x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1.3x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-0.5x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1.3x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-0.5x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+      <o-arc class="outer-orbit grow-1.3x" style="--o-color: white; filter: drop-shadow(0px 0px 1px black);"></o-arc>
+    </div>
+    <div class="orbit-4 shrink-60 from-7 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-10 from-37 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-5 shrink-50 from-67 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-60 from-97 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-10 from-127 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-5 shrink-60 from-157 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-60 from-187 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-10 from-217 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-5 shrink-60 from-247 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-60 from-277 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-4 shrink-10 from-307 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-5 shrink-60 from-337 range-15 fit-range">
+      <div class="vector inner-orbit shrink-80"></div>
+      <div class="vector inner-orbit shrink-60"></div>
+      <div class="vector inner-orbit shrink-80"></div>
+    </div>
+    <div class="orbit-5 shrink-40 from-270">
+      <o-progress class="shrink-90" value="25" style="--o-color: var(--o-gray-lighter)"></o-progress>
+    </div>
+    <div class="orbit-5 shrink-50">
+      <div class="satellite shrink-30" style="border: 1px solid gray; background-color: white;"></div>
+      <div class="satellite shrink-30" style="border: 1px solid gray; background-color: white;"></div>
+      <div class="satellite shrink-30" style="border: 1px solid gray; background-color: white;"></div>
+      <div class="satellite shrink-30" style="border: 1px solid gray; background-color: white;"></div>
+    </div>
+    <div class="orbit-6 shrink-50" style="font-size: 8px; color: gray">
+      <div class="satellite" style="border: none">12pm</div>
+      <div class="satellite" style="border: none">3pm</div>
+      <div class="satellite" style="border: none">6pm</div>
+      <div class="satellite" style="border: none">9pm</div>
+    </div>
+    <div class="orbit-6 shrink-80 from-60" style="font-size: 8px; color: gray">
+      <div class="satellite" style="border: none">2pm</div>
+      <div class="satellite" style="border: none">5pm</div>
+      <div class="satellite" style="border: none">8pm</div>
+      <div class="satellite" style="border: none">11am</div>
+    </div>
+    <div class="orbit-5 shrink-30 from-30" style="font-size: 8px; color: gray">
+      <div class="satellite" style="border: none">1pm</div>
+      <div class="satellite" style="border: none">4pm</div>
+      <div class="satellite" style="border: none">7pm</div>
+      <div class="satellite" style="border: none">10am</div>
+    </div>
+  </div>
+</div>`
+
+## Chronodex
+
+<ZumerPlay name={'calendar2'} hideCode htmlCode={calendar2HTML}  height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={calendar2HTML} lang="html" wrap />
+  </TabItem>
+  
+</Tabs>
+

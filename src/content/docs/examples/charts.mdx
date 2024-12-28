@@ -1,0 +1,118 @@
+---
+title: Charts
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+export const chart1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-3 ">
+      <o-arc class="grow-1x  gap-0 " value="50" style="--o-color: var(--o-red)"></o-arc>
+      <o-arc class="grow-1x gap-0  " value="25" style="--o-color: var(--o-orange);"></o-arc>
+      <o-arc class="grow-1x  gap-0 " value="15" style="--o-color: var(--o-yellow)"></o-arc>
+      <o-arc class="grow-1x  gap-0 " value="5" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="grow-1x  gap-0 " value="5" style="--o-color: var(--o-green)"></o-arc>
+    </div>
+    <div class="orbit-3 ">
+      <div class="satellite angle-90" style="font-size:15px; font-weight: bold;  color: var(--o-red-darker);">50</div>
+      <div class="satellite angle-225" style="font-size:15px; font-weight: bold;  color: var(--o-orange-darker);">25</div>
+      <div class="satellite angle-295" style="font-size:15px; font-weight: bold;  color: var(--o-yellow-darker);">15</div>
+      <div class="satellite angle-333" style="font-size:15px; font-weight: bold;  color: var(--o-blue-darker);">5</div>
+      <div class="satellite angle-350" style="font-size:15px; font-weight: bold;  color: var(--o-green-darker);">5</div>
+    </div>
+  </div>
+</div>`
+
+export const chart1CSS = `
+.satellite {
+border-color: transparent
+}
+`
+
+## Donut chart
+
+<ZumerPlay name={'chart1'} hideCode htmlCode={chart1HTML}  cssCode={chart1CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={chart1HTML} lang="html" wrap />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={chart1CSS} lang="css" wrap />
+  </TabItem>
+</Tabs>
+
+export const chart2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+      <div class="orbit-2 ">
+        <o-arc class="grow-2x gap-0" value="10" style="--o-color: var(--o-red)"></o-arc>
+        <o-arc class="grow-2x gap-0" value="35" style="--o-color: var(--o-orange);"></o-arc>
+        <o-arc class="grow-2x gap-0" value="25" style="--o-color: var(--o-yellow)"></o-arc>
+        <o-arc class="grow-2x gap-0" value="15" style="--o-color: var(--o-green)"></o-arc>
+        <o-arc class="grow-2x gap-0" value="15" style="--o-color: var(--o-indigo)"></o-arc>
+      </div>
+  </div>
+</div>`
+
+
+## Pie chart
+
+<ZumerPlay name={'chart2'} hideCode htmlCode={chart2HTML}   height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={chart2HTML} lang="html" wrap />
+  </TabItem>
+  
+</Tabs>
+
+
+export const chart3HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2  " style="font-size: 12px; color: white">
+      <o-arc class="grow-1x flip" value="55" style="--o-color: var(--o-blue)"> Apple</o-arc>
+      <o-arc class="grow-1x flip"  value="20" style="--o-color: var(--o-indigo);">Xiaomi</o-arc>
+      <o-arc class="grow-1x " value="25" style="--o-color: var(--o-pink)">Samsung</o-arc>
+    </div>
+    <div class="orbit-4 range-198 " style="font-size: 9px; color: white">
+      <o-arc class="grow-0.9x" value="33" style="--o-color: var(--o-blue-light)">Ipad</o-arc>
+      <o-arc class="grow-0.9x flip" value="37" style="--o-color: var(--o-blue-light)"> Watch</o-arc>
+      <o-arc class="grow-0.9x flip" value="23" style="--o-color: var(--o-blue-light)">Iphone</o-arc>
+      <o-arc class="grow-0.9x" value="7" style="--o-color: var(--o-blue-light)"></o-arc>
+    </div>
+    <div class="orbit-6 from-138 range-46 " style="font-size: 8px;">
+      <o-arc class="grow-1x" value="10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x flip" value="30" style="--o-color: var(--o-blue-lighter) "> 15 Pro</o-arc>
+      <o-arc class="grow-1x" value="10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="5" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="5" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="5" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="5" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="grow-1x" value="10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+    </div>
+  </div>
+</div>`
+
+## Sunburst chart
+
+<ZumerPlay name={'chart3'} hideCode htmlCode={chart3HTML}  height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={chart3HTML} lang="html" wrap />
+  </TabItem>
+  
+</Tabs>
+
+## Show & Tell
+
+Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
+
+

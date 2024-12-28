@@ -283,30 +283,32 @@ background-color: var(--o-cyan)
   </TabItem>
 </Tabs>
 
-### Sync rotation
-**`.sync-rotation`** informs satellites to follow orbital path.
+### Spin lock
+**`.spin-lock`** informs satellites to point at center of orbital path.
 
 export const sync = `
 <div class="wrapper">
+Spin-lock off (default)
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-5">
-        <div class="satellite">🔻</div>
-        <div class="satellite">🔻</div>
-        <div class="satellite">🔻</div>
-        <div class="satellite">🔻</div>
+        <div class="satellite"><</div>
+        <div class="satellite"><</div>
+        <div class="satellite"><</div>
+        <div class="satellite"><</div>
       </div>
     </div>
   </div>
 </div>
 <div class="wrapper">
+Spin-lock on
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-5">
-        <div class="satellite sync-rotation">🔻</div>
-        <div class="satellite sync-rotation">🔻</div>
-        <div class="satellite sync-rotation">🔻</div>
-        <div class="satellite sync-rotation">🔻</div>
+        <div class="satellite spin-lock"><</div>
+        <div class="satellite spin-lock"><</div>
+        <div class="satellite spin-lock"><</div>
+        <div class="satellite spin-lock"><</div>
       </div>
     </div>
   </div>
@@ -477,8 +479,8 @@ export const capsule = `
             <img src="/orbit-docs/favicon.svg" width="100"/>
           </div>
         </div>
-        <div class="satellite sync-rotation">
-         <div class="capsule title flip">
+        <div class="satellite spin-lock">
+         <div class="capsule title ">
           Inside capsule you can put any content
       
           </div>

@@ -16,68 +16,140 @@ const { data } = Astro.props.entry;
  </section>
 <!-- logo -->
 <section class="features logo" >
-  <div class="bigbang" style="height: 500px">
-    <div class="gravity-spot">
-      <div class="orbit-15 range-90 from-180">
-        <o-arc  style="--o-arc-color: var(--primary-color)"  class="outer-orbit shrink-80"></o-arc>
-        <div class="satellite logo-ball"></div>
+  
+  <div class="bigbang container-gyro" style="height: var(--o-bigbang); --o-bigbang:499px; ">
+    <div class="gravity-spot gyro" style="
+    perspective: 300px; transform-style: preserve-3d;
+    ">
+    <div class="orbit-15 range-90 from-179">
+      <o-arc  style="--o-color: var(--primary-color)"  class="outer-orbit shrink-80"></o-arc>
+      <div class="satellite logo-ball"></div>
+    </div>
+      <div class="orbit-10 range-120">
+        <o-arc style="color: var(--primary-color); font-size: 28px;" >The CSS radial composer</o-arc>
       </div>
-      <div class="small-orbit orbit-5 dashed"></div>
-      <div class="small-orbit orbit-7 dashed">
-        <div class="satellite angle-180">
-          <div class="capsule" style="width: 500px; font-size: 50px; font-weight: bold; color: white; text-align: center;"><h1 style="color: white;">ORBIT</h1></div>
-        </div>
+      <div class="orbit-10 from-120 range-240" style="transform: translateZ(-15px);">
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
+        <div class="vector shrink-10 outer-orbit dashed-small"></div>
       </div>
-      <div class="small-orbit orbit-9 ">
-        <div class="satellite grow-1x angle-50" style="border: 4px solid var(--primary-color)"></div>
+      <div class="orbit-8" style="transform: translateZ(-35px);">
+        <o-arc value="25" class="from-215 shrink-70 outer-orbit" style="--o-color: var(--tertiary-color); "></o-arc>
       </div>
-      <div class="small-orbit orbit-11 ">
-        <div class="satellite shrink-10 angle-70" style="background-color: var(--primary-color)"></div>
-        <div class="satellite shrink-10 angle-290" style="background-color: var(--primary-color)"></div>
-       
-        <div class="satellite inner-orbit angle-180">
-          <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;"><h2>The CSS radial composer</h2></div>
-        </div>
+      <div class="orbit-8 " >
+        <o-arc value="25" class="from-315 shrink-80 inner-orbit" style="--o-color: var(--primary-color)"></o-arc>
       </div>
-      <div class="small-orbit orbit-13 " >
-       
+      <div class="orbit-8  from-48 range-130">
+        <o-arc class=" shrink-40 outer-orbit" style="--o-color: var(--primary-color); opacity: .6;"></o-arc>
       </div>
-      <div class="logo orbit-0 gooey-fx ">
-        <div class="satellite grow-4x big">
-          <div class="gravity-spot">
-            <div class="orbit-4 shrink-10">
-              <div class="satellite tiny quarter-outer-orbit angle-299 " style="--o-size-ratio: 3.3"></div>
-            </div>
-          </div>
-        </div>
+      <div class="orbit-6 from-180 range-100"  >
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
+        <div class="vector shrink-40 outer-orbit dashed-big"></div>
       </div>
-
+      <div class="orbit-6" style="transform: translateZ(-45px);">
+        <o-arc value="40" class="from-10 shrink-40" style="--o-color: var(--tertiary-color)"></o-arc>
+      </div>
+      <div class="orbit-8 from-320" style="transform: translateZ(-90px);">
+        <o-arc value="40" class="shrink-40" style="--o-color: var(--primary-color);"></o-arc>
+      </div>
+      <div class="orbit-8  from-30" style="transform: translateZ(-100px);">
+        <o-arc  class="shrink-60" style="--o-color: var(--primary-color);"></o-arc>
+        <o-arc  class="shrink-60" style="--o-color: transparent"></o-arc>
+        <o-arc  class="shrink-60" style="--o-color: var(--primary-color);"></o-arc>
+        <o-arc  class="shrink-60" style="--o-color: transparent"></o-arc>
+      </div>
+      <div class="orbit-13  from-100" style="transform: translateZ(-125px);">
+        <o-arc value="40" class="shrink-90 inner-orbit" style="--o-color: var(--primary-color);"></o-arc>
+      </div>
+      <div class="orbit-7 from-185 range-80" style="transform: translateZ(-55px);">
+        <o-arc class="  grow-1.5x" style="--o-color: var(--o-cyan-dark); opacity: .6;"></o-arc>
+      </div>
+      <div class="orbit-0" style="font-size: 30px; color:white">ORBIT</div>
     </div>
   </div>
 </section>
 <!-- CTA -->
 <section class="features action" >
-  <div class="bigbang" style="height: 504px">
+  <div class="bigbang" style="height: var(--o-bigbang); --o-bigbang:546px; ">
     <div class="gravity-spot">
-      <div class="orbit-12">
-        <div class="satellite angle-50" style="border: 4px solid var(--primary-color)"></div>
-        <div class="satellite angle-100" style="background-color: var(--primary-color)"></div>
-        <div class="satellite angle-140 grow-1x" style="border: 3px solid var(--primary-color)"></div>
-      </div>
-      <div class="orbit-15" >
-        <div class="satellite shrink-30 angle-50" style="background-color: var(--primary-color)"></div>
-
-       
-      </div>
-      <div class="orbit-13">
-        <div class="satellite angle-80" style="border: 4px solid var(--primary-color)"></div>
-      </div>
-      <div class="orbit-9 range-180 from-0 ">
-        <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-arc>
+      
+      <div class="orbit-10 range-180 from-0 ">
+        <o-arc  style="--o-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-arc>
         <div class="satellite action-ball"></div>
       </div>
       <div class="orbit-6 range-90 from-270 action-sector ">
-        <o-arc shape="circle" style="--o-arc-color: var(--primary-color); --o-gap: 0;" ></o-arc>
+        <o-arc shape="circle" style="--o-color: var(--primary-color); --o-gap: 0;" ></o-arc>
       </div>
       
       <div class="buttons orbit-0 gooey-fx-max from-0">
@@ -113,23 +185,19 @@ const { data } = Astro.props.entry;
 </section>
 <!-- TEXT -->
 <section class="features component-text">
-  <div class="bigbang " style="height: 500px">
+  <div class="bigbang " style="height: var(--o-bigbang); --o-bigbang:499px; ">
     <div class="gravity-spot">
       <div class="orbit-15 range-90 from-270">
-        <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-arc>
+        <o-arc  style="--o-color: var(--primary-color); --o-gap: 0;"  class="outer-orbit shrink-80"></o-arc>
         <div class="satellite text-ball"></div>
       </div>
-      <div class="orbit-10">
-        <div class="satellite angle-0">
-          <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;">
-            <h4>Create radial interfaces using only CSS.</h4>
-          </div>
-        </div>
-      </div>
+    
       <div class="orbit-6">
         <div class="satellite angle-0">
-          <div class="capsule" style="width: 500px; font-size: 20px; color: white; text-align: center;">
-            <h4>Transform your design <br>with innovative radial elements.</h4>
+          <div class="capsule" style="flex-direction: column; width: 500px; font-size: 20px; color: white; text-align: center;">
+            <br><br> <h2>Save time and have fun <br> building radial UIs!
+             </h2><br><br>
+              <h2>Just combine Orbit CSS elements</h2>
           </div>
         </div>
       </div>
@@ -138,217 +206,202 @@ const { data } = Astro.props.entry;
 </section>
 <!-- 1ST COMPONENT CURVE -->
 <section class="features components-1" style="">
-  <div class="bigbang" style="height: 300px">
+  <div class="bigbang" style="height: var(--o-bigbang); --o-bigbang:300px; ">
     <div class="gravity-spot">
+      <div class="orbit-12 range-175 from-351">
+        <o-arc  style="--o-color: var(--primary-color)"  class="shrink-70"></o-arc>
+        <div class="satellite component-ball"></div>
+      </div>
      
-      <div class="orbit-4">
-        <div class="satellite angle-270" >
+      <div class="orbit-12">
+        
+        <div class="satellite grow-3x orbits noactivecomponent" style="">
           <div class="gravity-spot">
-            <div class="orbit-12 range-170 from-351">
-              <o-arc  style="--o-arc-color: var(--primary-color)"  class="shrink-70"></o-arc>
-              <div class="satellite component-ball"></div>
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit-3" style="border: 1px solid var(--secondary-color)"></div>
+              <div class="orbit-6" style="border: 1px solid var(--secondary-color)"></div>
+              <div class="orbit-9" style="border: 1px solid var(--secondary-color)"></div>
+              <div class="orbit-12" style="border: 1px solid var(--secondary-color)"></div>
+            
+            </div>
+            <div class="orbit-4 label" style="opacity: 0">
+              <div class="satellite angle-180 button ">
+                orbits
+              </div>
             </div>
             
-            <div class="orbit-12 range-170 from-351">
-              
-              <div class="satellite grow-3x orbits noactivecomponent" style="">
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit-3" style="border: 1px solid var(--secondary-color)"></div>
-                    <div class="orbit-6" style="border: 1px solid var(--secondary-color)"></div>
-                    <div class="orbit-9" style="border: 1px solid var(--secondary-color)"></div>
-                    <div class="orbit-12" style="border: 1px solid var(--secondary-color)"></div>
-                  
-                  </div>
-                  <div class="orbit-4 label" style="opacity: 0">
-                    <div class="satellite angle-180 button ">
-                      orbits
-                    </div>
-                  </div>
-                  <div class="orbit-4" >
-                    <div class="satellite  inner-orbit angle-35 shrink-50 connector"></div>
-                    <div class="vector grow-2x outer-orbit angle-35 connector"></div>  
-                  </div>
-                  <div class="orbit-9">
-                    <div class="satellite angle-35" style="background:transparent; width:500px; font-size: 20px; color: white; text-align: center;">
-                     <div class="capsule"><h2>COMPONENTS</h2></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="satellite grow-3x satellites noactivecomponent">
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit" ></div>
-                    <div class="orbit-5" >
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                    </div>
-                    <div class="orbit-11">
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                      <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
-                    </div>
-                  </div>
-                  <div class="orbit-4  label" style="opacity: 0">
-                    <div class="satellite angle-180 button">
-                      satellites
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="satellite grow-3x sectors noactivecomponent">
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit-4">
-                      <o-arc  class="gap-1 grow-2x"></o-arc>
-                      <o-arc  class="gap-1"></o-arc>
-                      <o-arc  class="gap-1 grow-2x"></o-arc>
-                      <o-arc   class="gap-1"></o-arc>
-                      <o-arc   class="gap-1 grow-2x"></o-arc>
-                      <o-arc   class="gap-1 grow-3x"></o-arc>
-                      <o-arc   class="gap-1 grow-2x"></o-arc>
-                    </div>
-                    <div class="orbit-11">
-                      <o-arc  class="gap-1 grow-2x"></o-arc>
-                      <o-arc  class="gap-1"></o-arc>
-                      <o-arc  class="gap-1 grow-2x"></o-arc>
-                      <o-arc  class="gap-1 grow-3x"></o-arc>
-                      <o-arc  class="gap-1 grow-2x"></o-arc>
-                    </div>
-                  </div>
-                  <div class="orbit-4  label" style="opacity: 0">
-                    <div class="satellite angle-180 button">
-                      arcs
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="satellite grow-3x progresss noactivecomponent" >
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit-7">
-                      <o-progress  value="40"/> 
-                    </div>
-                    <div class="orbit-9">
-                      <o-progress  value="60"/> 
-                    </div>
-                    <div class="orbit-11">
-                      <o-progress  value="80"/> 
-                    </div>
-                  </div>
-                  <div class="orbit-4  label" style="opacity: 0">
-                    <div class="satellite angle-180 button">
-                      progress
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </div>
             
           </div>
         </div>
+
+        <div class="satellite grow-3x satellites noactivecomponent">
+          <div class="gravity-spot">
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit" ></div>
+              <div class="orbit-5" >
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+              </div>
+              <div class="orbit-11">
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+                <div class="satellite grow-2x" style="border: 1px solid var(--secondary-color)"></div>
+              </div>
+            </div>
+            <div class="orbit-4  label" style="opacity: 0">
+              <div class="satellite angle-180 button">
+                satellites
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="satellite grow-3x sectors noactivecomponent">
+          <div class="gravity-spot"> 
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit-4">
+                <o-arc  class="gap-1 grow-2x" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-2x" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1" style ="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-2x" style ="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-3x" style ="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-2x" style ="--o-color: var(--secondary-color)"></o-arc>
+              </div>
+              <div class="orbit-11" style="--o-color: var(--secondary-color)">
+                <o-arc  class="gap-1 grow-2x" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-2x" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-3x" style="--o-color: var(--secondary-color)"></o-arc>
+                <o-arc  class="gap-1 grow-2x" style="--o-color: var(--secondary-color)"></o-arc>
+              </div>
+            </div>
+            <div class="orbit-4  label" style="opacity: 0">
+              <div class="satellite angle-180 button">
+                arcs 
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="satellite grow-3x progresss noactivecomponent" >
+          <div class="gravity-spot">
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit-7">
+                <o-progress  value="40"/> 
+              </div>
+              <div class="orbit-9">
+                <o-progress  value="60"/> 
+              </div>
+              <div class="orbit-11">
+                <o-progress  value="80"/> 
+              </div>
+            </div>
+            <div class="orbit-4  label" style="opacity: 0">
+              <div class="satellite angle-180 button">
+                progress
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="satellite grow-3x spokes noactivecomponent">
+          <div class="gravity-spot">
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit-11">
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+                <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
+              </div>
+            </div>
+            <div class="orbit-4  label" style="opacity: 0">
+              <div class="satellite angle-180 button">
+                vectors
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="satellite grow-3x segments noactivecomponent" >
+          <div class="gravity-spot">
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit-11">
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+              </div>
+              <div class="orbit-11 from-90">
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                <div class="side" style="background-color: var(--secondary-color)"></div>
+                
+              </div>
+            </div>
+            <div class="orbit-4  label" style="opacity: 0">
+              <div class="satellite angle-180 button" >
+                sides
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="satellite grow-3x curved-text noactivecomponent">
+          <div class="gravity-spot">
+            <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
+              <div class="orbit-10">
+                <o-arc label-color="var(--secondary-color)" fit-range class="component-label">curved texts  -  curved texts - </o-arc>
+              </div>
+            </div>
+            <div class="orbit-4  label" style="opacity: 0">
+              <div class="satellite angle-180 button">
+                <div class="capsule" style="width: 150px">curved texts</div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
+      
     </div>
   </div>
 </section>
 <section class="features components-2" style="">
-  <div class="bigbang" style="height: 647px">
+  <div class="bigbang" style="height: var(--o-bigbang); --o-bigbang:705px; ">
     <div class="gravity-spot">
       
       <div class="orbit-4">
         <div class="satellite angle-90" >
           <div class="gravity-spot">
-            <div class="orbit-12 range-150 from-190">
-              <o-arc  style="--o-arc-color: var(--primary-color)"  class="shrink-70"></o-arc>
-
+            <div class="orbit-12 range-164 from-190">
+              <o-arc  style="--o-color: var(--primary-color)"  class="shrink-70"></o-arc>
+              <div class="satellite amazing-ball"></div>
             </div>
             <div class="orbit-0">
               <div class="satellite" style="background:transparent; border:none; width: 500px; font-size: 20px; color: white; text-align: center;">
-                <div class="capsule"><h4>Save time <br> composing complex radial <br> creations
-                by combining <br> ORBIT components.</h4></div>
+                <div class="capsule"><h2>... to create an amazing UI, <br>like the example below</h2></div>
               </div>
             </div>
-            <div class="orbit-12 range-140 from-240">
-              <div class="satellite grow-3x spokes noactivecomponent">
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit-11">
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                      <div class="vector grow-1x" style="background-color: var(--secondary-color)"></div>
-                    </div>
-                  </div>
-                  <div class="orbit-4  label" style="opacity: 0">
-                    <div class="satellite angle-180 button">
-                      vectors
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="satellite grow-3x segments noactivecomponent" >
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit-11">
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                    </div>
-                    <div class="orbit-11 from-90">
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      <div class="side" style="background-color: var(--secondary-color)"></div>
-                      
-                    </div>
-                  </div>
-                  <div class="orbit-4  label" style="opacity: 0">
-                    <div class="satellite angle-180 button" >
-                      sides
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="satellite grow-3x curved-text noactivecomponent">
-                <div class="gravity-spot">
-                  <div class="gravity-spot case" style="--o-force: 100px; scale: 0">
-                    <div class="orbit-10">
-                      <o-text label-color="var(--secondary-color)" fit-range class="component-label">curved texts  -  curved texts - </o-text>
-                    </div>
-                  </div>
-                  <div class="orbit-4  label" style="opacity: 0">
-                    <div class="satellite angle-180 button">
-                      curved texts
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      
           </div>
         </div>
       </div>
@@ -356,658 +409,169 @@ const { data } = Astro.props.entry;
   </div>
 </section>
 <section class="features example" style="">
-  <div class="bigbang" style="height: 292px">
+  <div class="bigbang" style="height: var(--o-bigbang); --o-bigbang:235px; ">
     <div class="gravity-spot">
       
       <div class="orbit-0">
         <div class="satellite angle-90" >
           <div class="gravity-spot">
-            <div class="orbit-11 range-230 from-10">
-              <o-arc  style="--o-arc-color: var(--primary-color)"  class="shrink-70"></o-arc>
+            <div class="orbit-11 range-230 from-8">
+              <o-arc  style="--o-color: var(--primary-color)"  class="shrink-70"></o-arc>
+              <div class="satellite lastaction-ball"></div>
             </div>
-            <div class="orbit-9 from-180 ring">
-              <o-arc class="gap-1 shrink-80 outer-orbit sectors-sector" style="--o-arc-color: var(--background-color)"></o-arc>
-              <o-arc class="gap-1 shrink-80 outer-orbit progress-sector" style="--o-arc-color: var(--background-color)"></o-arc>
-              <o-arc class="gap-1 shrink-80 outer-orbit labels-sector" style="--o-arc-color: var(--background-color)"></o-arc>
-              <o-arc class="gap-1 shrink-80 outer-orbit segments-sector" style="--o-arc-color: var(--background-color)"></o-arc>
-              <o-arc class="gap-1 shrink-80 outer-orbit spokes-sector" style="--o-arc-color: var(--background-color)"></o-arc>
-              <o-arc class="gap-1 shrink-80 outer-orbit orbits-sector" style="--o-arc-color: var(--background-color)"></o-arc>
-              <o-arc class="gap-1 shrink-80 outer-orbit satellites-sector" style="--o-arc-color: var(--background-color)"></o-arc>
+            <div class="orbit-11 shrink-80 range-90 from-180">
+              <o-arc  style="--o-text-color: white; font-size: 18px"  class="flip">* Press buttons!</o-arc>
             </div>
-            
-
+           
             
           </div>
         </div>
       </div>
-      <!-- clock -->
-      <div class="gravity-spot clock-frame" style="color: slategray; --o-force: 320px">
-        <!-- curved text -->
-        <div class="orbit-11 from-270 range-180">
-          <o-text label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved" >ALARM 7:00AM</o-text>
-          <o-text label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved digital-clock"></o-text>
-        </div>
-        <div class="orbit-11 from-160 range-40 ">
-          <o-text flip   text-anchor="middle" label-color="rgb(163,163,163)" class="demo-curved">500 • 30 • 12</o-text>
-        </div>
-        <div class="calendar orbit-12 shrink-80 from-215 range-30">
-          <o-text flip style="--bg-color: rgb(57,57,57); --o-text-color: rgb(163,163,163); " text-anchor="middle"
-            class="gap-3 rounded previous grow-0.2x">22</o-text>
-          <o-text flip style="color: white;  --o-text-color: black; " text-anchor="middle" class="current gap-3 rounded grow-0.2x">23</o-text>
-          <o-text flip style="--bg-color: rgb(57,57,57); --o-text-color: rgb(163,163,163); " text-anchor="middle"
-            class="gap-3 rounded next grow-0.2x">24</o-text>
-        </div>
-        <div class="orbit-12 from-227 range-12 ">
-          <o-text flip style="color: white;" text-anchor="middle" class="outer-orbit day-name"></o-text>
-        </div>
-        <!-- big clock ticks -->
-        <div class="orbit-10 white-smoke-spot">
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-          <div class="vector inner-orbit big-needle"></div>
-        </div>
-        <div class="orbit-10">
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-          <div class="vector shrink-50 inner-orbit medium"></div>
-    
-        </div>
-        <div class="orbit-10 from-3">
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-          <div class="vector shrink-70 inner-orbit medium"></div>
-    
-    
-        </div>
-        <!-- big clock hours -->
-        <div class="orbit-8">
-          <div class="satellite hours">12</div>
-          <div class="satellite hours">1</div>
-          <div class="satellite hours">2</div>
-          <div class="satellite hours">3</div>
-          <div class="satellite hours">4</div>
-          <div class="satellite hours">5</div>
-          <div class="satellite hours">6</div>
-          <div class="satellite hours">7</div>
-          <div class="satellite hours">8</div>
-          <div class="satellite hours">9</div>
-          <div class="satellite hours">10</div>
-          <div class="satellite hours">11</div>
-        </div>
-        <!-- center black core -->
-        <div class="orbit-7 black-spot"></div>
-        <div class="orbit-4">
-          <!-- brand -->
-          <div class="satellite grow-5x transparent" style="border-color: transparent">
-            <div class="capsule" style="color: rgb(229,229,229);">ORBIT</div>
-          </div>
-          <!-- small clocks -->
-          <div class="small-clock satellite transparent">
-            <div class="gravity-spot" style="--o-force: 320px">
-              <div class="small orbit-2 shrink-20 white-spot">
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-              </div>
-              <div class="medium orbit-2 shrink-20 ">
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-              </div>
-              <div class="hours orbit-1">
-                <div class="satellite">30</div>
-                <div class="satellite">05</div>
-                <div class="satellite">10</div>
-                <div class="satellite">15</div>
-                <div class="satellite">20</div>
-                <div class="satellite">25</div>
-              </div>
-              <div class="orbit-0">
-                <div class="vector outer-orbit grow-1x angle-0 needle "></div>
-                <div class="satellite at-center shrink-80 needle-center"></div>
-              </div>
-            </div>
-          </div>
-          <div class="small-clock satellite transparent">
-            <div class="gravity-spot" style="--o-force: 320px">
-              <div class="small orbit-2 shrink-20 white-spot">
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-    
-    
-              </div>
-              <div class="medium orbit-2 shrink-20 ">
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-              </div>
-              <div class="hours orbit-1">
-                <div class="satellite">60</div>
-                <div class="satellite">15</div>
-                <div class="satellite">30</div>
-                <div class="satellite">45</div>
-              </div>
-              <div class="orbit-0">
-                <div class="vector outer-orbit grow-1x needle xs"></div>
-                <div class="satellite at-center shrink-80 needle-center"></div>
-              </div>
-            </div>
-          </div>
-          <div class="small-clock satellite transparent">
-            <div class="gravity-spot" style="--o-force: 320px">
-              <div class="small orbit-2 shrink-20 white-spot">
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-                <div class="vector shrink-80 inner-orbit"></div>
-    
-    
-              </div>
-              <div class="medium orbit-2 shrink-20 ">
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-                <div class="vector inner-orbit shrink-70"></div>
-              </div>
-              <div class="hours orbit-1">
-                <div class="satellite">12</div>
-                <div class="satellite">3</div>
-                <div class="satellite">6</div>
-                <div class="satellite">9</div>
-              </div>
-              <div class="orbit-0">
-                <div class="vector outer-orbit grow-1x angle-0 needle "></div>
-                <div class="satellite at-center shrink-80 needle-center"></div>
-              </div>
-            </div>
+      <div class="orbit-14">
+        <div class="satellite angle-180">
+          <div class="capsule display-color" style="
+            width: 300px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            padding: 8px;
+            font-weight: var(--orbit-weight, normal);
+            font-style: var(--orbit-italic, normal);
+            text-decoration: var(--orbit-underline, none);
+            justify-content: var(--orbit-align, center);
+            font-size: var(--orbit-size, medium);
+            ">Piemenu demo text</div>
+          </div>  
+      </div> 
+     
+      
+     
+
+   
+
+    </div>
+    <!-- example -->
+     
+    <div class="gravity-spot menu-example" style="--o-force: 600px">
+      <div class="orbit-6 shrink-10 colors option-color" style="pointer-events: all"></div>
+      <div class="orbit-0">
+        <div class="satellite at-center ">MENU</div>
+      </div>
+      <div class="orbit-3">
+        <o-arc class="grow-1x control-size" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('size')"></o-arc>
+        <o-arc class="grow-1x control-format" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('format')"></o-arc>
+        <o-arc class="grow-1x control-color" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('color')"></o-arc>
+      </div>
+      <div class="orbit-4 shrink-10">
+        <o-arc class="shrink-60 active-size" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+        <o-arc class="shrink-60 active-format" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+        <o-arc class="shrink-60 active-color" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+      </div>
+      <div class="orbit-3 from-60">
+        <div class="satellite " style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z"/></svg>
           </div>
         </div>
-        <!-- big clock -->
-        <div class="orbit-0 clock">
-          <div class="vector outer-orbit minute xm">
-           <img src="/orbit-docs/images/minutes.png" width="132">
+        <div class="satellite " style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M80 0v-160h800V0H80Zm140-280 210-560h100l210 560h-96l-50-144H368l-52 144h-96Zm176-224h168l-82-232h-4l-82 232Z"/></svg>
           </div>
-          <div class="vector outer-orbit hour xh">
-            <img src="/orbit-docs/images/hours.png" width="78"> 
-          </div>
-          <div class="satellite at-center center">
+        </div>
+        <div class="satellite " style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M346-140 100-386q-10-10-15-22t-5-25q0-13 5-25t15-22l230-229-106-106 62-65 400 400q10 10 14.5 22t4.5 25q0 13-4.5 25T686-386L440-140q-10 10-22 15t-25 5q-13 0-25-5t-22-15Zm47-506L179-432h428L393-646Zm399 526q-36 0-61-25.5T706-208q0-27 13.5-51t30.5-47l42-54 44 54q16 23 30 47t14 51q0 37-26 62.5T792-120Z"/></svg>
           </div>
         </div>
       </div>
-
-      <div class="orbit-9 demo-progress-container ">
-        <div class="satellite at-center grow-9x">
-          <div class="capsule demo-progress" style="color: white; font-size: 20px">
-
+      <div class="orbit-5 shrink-70 range-120 option-size">
+        <o-arc class="outer-orbit grow-1x" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-size', 'larger')"></o-arc>
+        <o-arc class="outer-orbit grow-1x" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-size', 'smaller')"></o-arc>
+        <div class="satellite outer-orbit grow-1x angle-30" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="m40-200 210-560h100l210 560h-96l-51-143H187l-51 143H40Zm176-224h168l-82-232h-4l-82 232Zm504 104v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z"/></svg>
+          </div>
+        </div>
+        <div class="satellite outer-orbit grow-1x angle-90" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="m40-200 210-560h100l210 560h-96l-51-143H187l-51 143H40Zm176-224h168l-82-232h-4l-82 232Zm384-16v-80h320v80H600Z"/></svg>
           </div>
         </div>
       </div>
-
+      <div class="orbit-5 shrink-70 from-120 range-120 option-format ">
+        <o-arc class="outer-orbit grow-1x subcontrol-align" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleClick('align', true)"></o-arc>
+        <o-arc class="outer-orbit grow-1x subcontrol-underline" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-underline', 'none', 'underline')"></o-arc>
+        <o-arc class="outer-orbit grow-1x subcontrol-italic" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-italic', 'none', 'italic')"></o-arc>
+        <o-arc class="outer-orbit grow-1x subcontrol-bold" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-weight', 'normal', 'bolder')"></o-arc>
+        <div class="satellite spin-lock outer-orbit grow-1x   angle-225" style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M272-200v-560h221q65 0 120 40t55 111q0 51-23 78.5T602-491q25 11 55.5 41t30.5 90q0 89-65 124.5T501-200H272Zm121-112h104q48 0 58.5-24.5T566-372q0-11-10.5-35.5T494-432H393v120Zm0-228h93q33 0 48-17t15-38q0-24-17-39t-44-15h-95v109Z"/></svg>
+          </div>
+        </div>
+        <div class="satellite spin-lock outer-orbit grow-1x  angle-195" style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M200-200v-100h160l120-360H320v-100h400v100H580L460-300h140v100H200Z"/></svg>
+          </div>
+        </div>
+        <div class="satellite spin-lock outer-orbit grow-1x  angle-165" style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M200-120v-80h560v80H200Zm280-160q-101 0-157-63t-56-167v-330h103v336q0 56 28 91t82 35q54 0 82-35t28-91v-336h103v330q0 104-56 167t-157 63Z"/></svg>
+          </div>
+        </div>
+        <div class="satellite spin-lock outer-orbit grow-1x angle-135" style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M120-120v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Z"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="orbit-6 shrink-10 from-120 range-30">
+        <o-arc class="shrink-60 subactive-align" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+      </div>
+      <div class="orbit-7 shrink-80 from-90 range-90 suboption-align">
+        <o-arc class="outer-orbit grow-1x" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-align', 'end')"></o-arc>
+        <o-arc class="outer-orbit grow-1x" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-align', 'center')"></o-arc>
+        <o-arc class="outer-orbit grow-1x" style="--o-color: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-align', 'start')"></o-arc>
+        <div class="satellite spin-lock outer-orbit grow-1x angle-165 " style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M120-120v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Z"/></svg>
+          </div>
+        </div>
+        <div class="satellite spin-lock outer-orbit grow-1x angle-135" style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M120-120v-80h720v80H120Zm160-160v-80h400v80H280ZM120-440v-80h720v80H120Zm160-160v-80h400v80H280ZM120-760v-80h720v80H120Z"/></svg>
+          </div>
+        </div>
+        <div class="satellite spin-lock outer-orbit grow-1x angle-105" style="pointer-events: none;">
+          <div class="capsule">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)"><path d="M120-760v-80h720v80H120Zm240 160v-80h480v80H360ZM120-440v-80h720v80H120Zm240 160v-80h480v80H360ZM120-120v-80h720v80H120Z"/></svg>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="features" style="">
-  <div class="bigbang" style="height: 700px">
-    <div class="gravity-spot">
-      <div class="orbit-10">
-        <div class="satellite angle-0" style="background:transparent; width:500px; font-size: 20px; color: white; text-align: center;">
-          <div class="capsule"><h2>FEATURES</h2></div>
-        </div>
-      </div>
-            
-            <div class="orbit-13 range-60 from-120">
-              <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-arc>
-              <div class="satellite feature-ball"></div>
-            </div>
-            <div class="orbit-9">
-              <div class="satellite grow-7x angle-270">
-                
-                <div class="gravity-spot">
-                  <div class="orbit-6 range-200 from-170 fit-range">
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                    <div class="vector shrink-70 vector"></div>
-                  </div>
-                 
-                  
-                  <div class="orbit-4 from-0 range-180" >
-                    <o-arc style="--o-arc-color: var(--primary-color)" class="gap-2 shrink-70 selector-innovative-sector"></o-arc>
-                    <o-arc style="--o-arc-color: var(--primary-color)" class="gap-2 shrink-70 selector-easy-sector"></o-arc>
-                    <o-arc style="--o-arc-color: var(--primary-color)" class="gap-2 shrink-70 selector-seamless-sector"></o-arc>
-                  </div>
-                 
-                 
-                  <div class="orbit-0" >
-                    <div class="satellite angle-0 grow-3x" style="border: 2px solid var(--primary-color)">
-                      
-                    </div>
-                  </div>
-                  <div class="orbit-2 range-180" >
-                    <div class="satellite sync-rotation angle-30 selector-arrow">
-                      <div class="gravity-spot">
-                        <div class="orbit shrink-30  range-360 " style="rotate: 180deg">    
-                          <div class="side indicator"></div>
-                          <div class="side indicator"></div>
-                          <div class="side indicator"></div>
-                        </div>
-                      </div>
-                    </div>
-                   
-                  </div>
-                  <div class="orbit-7 from-30 range-180 " >
-                    
-                    <div class="satellite outer-orbit selector-innovative-frame" >
-                      <div class="gravity-spot connect-lines">
-                        <div class="orbit-0">
-                          <div class="vector outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
-                          <div class="vector outer-orbit grow-1x angle-215 " style="background-color: var(--secondary-color)">
-                          </div>
-                        </div>
-                        <div class="orbit-2">
-                          <div class="satellite inner-orbit shrink-50 angle-215" style="background-color: var(--secondary-color)"></div>
-                        </div>
-                        <div class="orbit-3">
-                          <div class="satellite outer-orbit angle-90 at-center-left" >
-                            <div class="capsule at-center-left" style="background-color: var(--background-color);border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
-                              <h3 class="title">Innovative CSS Radial Layout</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                     
-                    <div class="satellite outer-orbit selector-easy-frame">
-                      <div class="gravity-spot connect-lines">
-                        <div class="orbit-0">
-                          <div class="vector outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
-                          <div class="vector outer-orbit grow-1x angle-270 " style="background-color: var(--secondary-color)">
-                          </div>
-                        </div>
-                        <div class="orbit-2">
-                          <div class="satellite inner-orbit shrink-50 angle-270" style="background-color: var(--secondary-color)"></div>
-                        </div>
-                        <div class="orbit-3">
-                          <div class="satellite outer-orbit angle-90 at-center-left" >
-                            <div class="capsule at-center-left" style="background-color: var(--background-color); border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
-                              <h3 class="title">Easy to learn, easy to use</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="satellite outer-orbit selector-integration-frame">
-                      <div class="gravity-spot connect-lines">
-                        <div class="orbit-0">
-                          <div class="vector outer-orbit grow-2x angle-90 " style="background-color: var(--secondary-color)"></div>
-                          <div class="vector outer-orbit grow-1x angle-330 " style="background-color: var(--secondary-color)">
-                          </div>
-                        </div>
-                        <div class="orbit-2">
-                          <div class="satellite inner-orbit shrink-50 angle-330" style="background-color: var(--secondary-color)"></div>
-                        </div>
-                        <div class="orbit-3">
-                          <div class="satellite outer-orbit  angle-90 at-center-left">
-                            <div class="capsule at-center-left" style="background-color: var(--background-color); border-radius: 10px; border: 1px solid var(--secondary-color); width: 200px; padding:8px">
-                              <h3 class="title">Works with other CSS frameworks</h3>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-    </div>
-  </div>
-</section>
 
-<section class="features" style="">
-  <div class="bigbang" style="height: 254px">
+<section class="features" style="    margin-top: 90px !important; overflow: hidden; height: 600px
+">
+  <div class="bigbang" style="height: var(--o-bigbang); --o-bigbang:754px; ">
     <div class="gravity-spot">
-      <div class="orbit-7">
+      <div class="orbit-8">
         <div class="satellite angle-0" style="background:transparent; width:300px; font-size: 16px; color: white; text-align: center;">
           <div class="capsule"><h2>Transform  <br> your project today!</h2></div>
         </div>
+        <div class="satellite angle-180 outer-orbit" style="background:transparent; width:300px; font-size: 16px; color: white; text-align: center;">
+          <div class="capsule"><br><h2>Place your ⭐ in Orbit!  </h2></div>
+        </div>
       </div>
-            <div class="orbit-10 range-230 from-130">
-              <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  class="shrink-80"></o-arc>
-              <div class="satellite lastaction-ball"></div>
-            </div>
+      
+            
             <div class="gravity-spot">
              
-              <div class="orbit-6 range-90 from-90">
-                <o-arc  style="--o-arc-color: var(--primary-color); --o-gap: 0;"  shape="circle" class="grow-x"></o-arc>
-              </div>
-              
               <div class="buttons orbit-0 gooey-fx-max from-0">
                 
                 <div class="satellite">
                   <div class="gravity-spot">
-                    <div class="orbit-10">
+                    <div class="orbit-10 color-display" >
                       <div class="satellite grow-6x angle-270" style="background: transparent;border: 0px dashed var(--primary-color)">
                         <div class="gravity-spot">
                           <div class="orbit-10">
@@ -1035,7 +599,7 @@ const { data } = Astro.props.entry;
     </div>
   </div>
 </section>
-<section class="links" style="margin: auto;max-width: 800px; margin-top: 220px !important; height: auto; color: var(--secondary-color);
+<section class="links" style="margin: auto;max-width: 800px; margin-top: 50px !important; height: auto; color: var(--secondary-color);
   padding: 30px !important; column-count: 3;
   ">
 
@@ -1044,7 +608,7 @@ const { data } = Astro.props.entry;
   <h4>Getting started</h4>
   <p><a href="/orbit-docs/introduction/">About Orbit</a></p>
   <p><a href="/orbit-docs/introduction/installation">Installation</a></p>
-  <p><a href="/orbit-docs/examples">Examples</a></p>
+  <p><a href="/orbit-docs/examples/progress">Examples</a></p>
   <br>
   <h4>Elements</h4>
   <p><a href="/orbit-docs/elements/gravity-spot">gravity-spot</a></p>
@@ -1054,11 +618,11 @@ const { data } = Astro.props.entry;
   <p><a href="/orbit-docs/elements/side">side</a></p>
   <p><a href="/orbit-docs/elements/arc">o-arc</a></p>
   <p><a href="/orbit-docs/elements/progress">o-progress</a></p>
-  <p><a href="/orbit-docs/elements/text">o-text</a></p>
   <p><a href="/orbit-docs/elements/capsule">capsule</a></p>
   <h4>Tools</h4>
   <p><a href="/orbit-docs/tools/support">Visual aids</a></p>
   <p><a href="/orbit-docs/tools/orbit-resize">Auto resize</a></p>
+  <p><a href="/orbit-docs/tools/colors">Colors</a></p>
   <br>
   <h2>Community</h2>
   <p><a href="https://github.com/zumerlab/orbit" target="_blank">GitHub</a></p>
@@ -1066,25 +630,23 @@ const { data } = Astro.props.entry;
 
 
 </section>
-<section class="features" style="margin-top: 50px !important; text-align: center; color: var(--secondary-color);">
+<section class="features" style="margin-top: 120px !important; text-align: center; color: var(--secondary-color);">
  <img src="/orbit-docs/favicon.svg" width="24" style="vertical-align: text-top;"> Orbit - Copyright © 2024 <a href="https://github.com/zumerlab/">ZumerLab</a> <br> Released under <a href="https://github.com/zumerlab/orbit/blob/main/LICENSE">MIT license</a> - Made by Humans
 </section>
 </div>
 <script type="module" src={orbitJS}></script>
 
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
   body {
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   font-variation-settings:
     "wdth" 100;
 }
-</style>
-<style>
+
   @layer alert;
 
   .o-alert {
@@ -1097,7 +659,7 @@ const { data } = Astro.props.entry;
       display: none !important;
     }
     .o-alert {
-      display: block !important;
+      display: flex !important;
     }
   }
   /* Check browser support */
@@ -1106,11 +668,53 @@ const { data } = Astro.props.entry;
       display: none !important;
     }
     .o-alert {
-      display: block !important;
+      display: flex !important;
     }
   }
 }
+.menu-example {
+  .satellite, [class*=orbit]{
+border: none
+}
+.colors {
+--light: calc(50 * 1%);
+--sat: calc(100 * 1%);
+background:
+conic-gradient(from 90deg,
+  hsl(0, var(--sat), var(--light)),
+  hsl(60, var(--sat), var(--light)),
+  hsl(120, var(--sat), var(--light)),
+  hsl(180, var(--sat), var(--light)),
+  hsl(240, var(--sat), var(--light)),
+  hsl(300, var(--sat), var(--light)),
+  hsl(360, var(--sat), var(--light))
+);
+mask-image: radial-gradient(circle, #4a5dec00 52%, #000000 53%)
+}
+.option-color, .option-size, .option-format,  .active-color, .active-size, .active-format, .suboption-align, .subactive-align {
+  display:none;
+  opacity: 0;
+  transition: opacity 1s ease-out;
+}
+o-arc {
+  cursor: pointer;
+}
+}
+h4, h2 {
+  color: white
+}
 
+.dashed-small {
+opacity: 0.4; 
+height: 2px; 
+background: var(--primary-color);
+}
+
+.dashed-big {
+opacity: 0.8; 
+height: 6px; 
+background: var(--primary-color);
+}
 
   .orbits,.satellites,.sectors,.progresss,.segments,.spokes,.curved-text {
     background-color: var(--background-color);
@@ -1120,109 +724,8 @@ const { data } = Astro.props.entry;
     background-color: var(--background-color);
     
   }
-   .black-spot {
-      background-color: black;
-    }
+  
 
-    .white-smoke-spot {
-      background-color: rgb(232, 226, 218);
-      border: 1px inset #0000002b;
-      outline: 2px solid rgb(232 226 218)
-    }
-
-    .white-spot {
-      border: 1px inset #0000002b;
-      background-color: rgb(229, 229, 229);
-      outline: 2px solid rgb(229, 229, 229);
-    }
-
-    .hours {
-      background-color: transparent;
-      border: none;
-    }
-
-    .big-needle {
-      height: 3px;
-      border-radius: 2px;
-    }
-    .mini {
-      background-color: rgb(255, 255, 255);
-      outline: 2px solid rgb(254, 254, 254);
-    }
-
-    .small-clock {
-        .small .vector {
-        height: 1px;
-        border-radius: 2px;
-        background-color: gray;
-      }
-
-      .medium .vector {
-        height: 2px;
-        border-radius: 2px;
-        background-color: rgb(0, 0, 0);
-      }
-
-      .hours .satellite {
-        font-size: x-small;
-        border: none;
-        background-color: transparent;
-        font-weight: 600;
-      }
-
-      .needle {
-        background-color: rgb(255, 64, 25);
-        height: 1.5px;
-        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.537))
-      }
-
-      .needle-center {
-        background-color: rgb(255, 64, 25);
-      }
-
-    }
-
-    .transparent {
-      background-color: transparent;
-    }
-
-    .clock>.center {
-      border: 3px solid rgb(232, 226, 218);
-      background-color: black;
-    }
-
-    .hour,
-    .minute {
-      filter: drop-shadow(4px 4px 5px black)
-    }
-
-    .hours {
-      font-weight: 700 !important;
-    }
-
-   .component-label   {
-      font-size: 16px;
-      font-weight: 500
-    }
-    .demo-curved {
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .calendar {
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .invert-color {
-      filter: invert(1);
-    }
-
-    .day-name {
-      font-size: 15px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
  
   
   
@@ -1231,8 +734,9 @@ const { data } = Astro.props.entry;
   }
   html {
   scroll-behavior: smooth;
+  overflow-x : hidden !important
 }
-  .logo-ball, .feature-ball, .action-ball, .text-ball, .component-ball,.lastaction-ball {
+  .logo-ball, .feature-ball, .action-ball, .text-ball, .component-ball, .amazing-ball,.lastaction-ball {
     background-color: var(--tertiary-color);
     will-change: transform;
     
@@ -1276,7 +780,7 @@ margin-top: 0 !important;
 :root {
 --main-color: #cececf;
 --background-doc-color: #062b45;
---background-color: #0c4974;
+--background-color: #060f16;
 --primary-color: #3da9fc;
 --tertiary-color: #ef4565;
 --secondary-color: #90b4ce;
@@ -1363,7 +867,9 @@ color: var(--tertiary-color) !important;
 
 
 
-
+:global(code) {
+max-height: 250px !important;
+}
 
 .copy {
 	flex-direction: column;
@@ -1392,34 +898,34 @@ h1 {
 	flex-wrap: wrap;
 	justify-content: center;
 }
-
 .orbitron {
-    width: unset;
+    width: 100%;
+    background: #060f16;
   }
 
-  @media (width <= 500px) {
- .sl-container {
-    min-width: unset;
-    width: 500px !important;
-  }
-	.orbitron {
-    width: 500px;
-    overflow: hidden
-  }
+body {
+  overflow-x : hidden !important
 }
-@media (width <= 400px) {
-  .sl-container {
-    min-width: unset;
-    width: 400px !important;
+
+@media (width <= 600px) {
+  .gravity-spot{
+    --o-force-ratio: 0.63;
   }
-	.orbitron {
-    position: absolute;
-  margin: auto;
-  /* Center the element horizontally */  
-  left: 0;
-  right: 0; 
-    width: 400px;
+  .bigbang {
+    height: calc(var(--o-bigbang) * 0.63) !important
   }
+
+  h2 {
+  font-size: calc(30px * 0.7);
+}
+
+h4 {
+  font-size: calc(20px * 0.7);
+}
+.button {
+  font-size: calc(18px * 0.8);
+}
+
 }
 
 .paused-animations * {
@@ -1452,9 +958,8 @@ h1 {
 // define vars
 const logoBall = document.querySelector('.logo-ball');
 const actionBall = document.querySelector('.action-ball');
-const featureBall = document.querySelector('.feature-ball');
 const textBall = document.querySelector('.text-ball');
-const componentBall = document.querySelector('.component-ball');
+const amazingBall = document.querySelector('.amazing-ball');
 const lastactionBall = document.querySelector('.lastaction-ball');
 // components
 const orbits =  document.querySelector('.orbits');
@@ -1478,41 +983,27 @@ const segmentsLabel =  segments.querySelector('.label');
 const spokes =  document.querySelector('.spokes');
 const spokesCase =  spokes.querySelector('.case');
 const spokesLabel =  spokes.querySelector('.label');
-// demo progress
-const orbitsSector =  document.querySelector('.orbits-sector');
-const satellitesSector =  document.querySelector('.satellites-sector');
-const sectorsSector =  document.querySelector('.sectors-sector');
-const progressSector =  document.querySelector('.progress-sector');
-const labelsSector =  document.querySelector('.labels-sector');
-const segmentsSector =  document.querySelector('.segments-sector');
-const spokesSector =  document.querySelector('.spokes-sector');
-const demoText = document.querySelector('.demo-progress');
-const demoContainer = document.querySelector('.demo-progress-container');
-// selector features
-const arrowSelector =  document.querySelector('.selector-arrow');
-const innovative =  document.querySelector('.selector-innovative-frame');
-const easy =  document.querySelector('.selector-easy-frame');
-const integration =  document.querySelector('.selector-integration-frame');
+
 
  // set default styles
  logoBall.style.willChange = 'opacity';
     actionBall.style.willChange = 'opacity';
-    featureBall.style.willChange = 'opacity';
+   
     textBall.style.willChange = 'opacity';
-    componentBall.style.willChange = 'opacity';
-    lastactionBall.style.willChange = 'opacity';
-    innovative.style.willChange = 'opacity';
-    easy.style.willChange = 'opacity';
-    integration.style.willChange = 'opacity';
+   
+    amazingBall.style.willChange = 'opacity';
+   
+   
     logoBall.style.opacity = 0;
     actionBall.style.opacity = 0;
-    featureBall.style.opacity = 0;
+ 
     textBall.style.opacity = 0;
-    componentBall.style.opacity = 0;
-    lastactionBall.style.opacity = 0;
-    innovative.style.opacity = 0;
-    easy.style.opacity = 0;
-    integration.style.opacity = 0;
+  
+    amazingBall.style.opacity = 1;
+
+    lastactionBall.style.opacity = 1;
+   
+    
 	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
 	window.addEventListener('DOMContentLoaded', (event) => {
     orbitron.style.opacity = 1;
@@ -1526,197 +1017,159 @@ const integration =  document.querySelector('.selector-integration-frame');
   const scrollBall = () => {
     let scroll = document.documentElement.scrollTop;
     //console.log(scroll)
+   
+   
+    let end = window.innerWidth <= 600 ? 105 : 361
+    let start = 0
+   
+    if (scroll >= start && scroll <= end) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start;
+      const rangeLength = end - start;
+      const scrollPercent = rangeScroll / rangeLength;
 
-    if (scroll >= 0 && scroll <= 368) {
-      // asure next ball is hidden
-      actionBall.style.opacity = 0
-      // do magic
-      let scroll2Deg = (-90 * scroll / 375)  * 1;
-      logoBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      logoBall.style.opacity = (scroll > 0 && scroll <= 368) ? 1 : 0;
-      
+      // Calcula el ángulo para esta bola
+      const degrees = -90 * scrollPercent;
+
+      // Aplica el ángulo y muestra la bola
+      logoBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      logoBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      logoBall.style.opacity = 0;
     }
-    let checkcta = false
-    if (scroll >= 369 && scroll <= 744) {
-      if (!checkcta) {
-        // asure next ball is hidden
-      logoBall.style.opacity = 0
-      actionBall.style.opacity = 0
-      textBall.style.opacity = 0
-      // do magic
-      let scroll2Deg = ( 180 * scroll / 375) + 90 * 1;
-      actionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      actionBall.style.opacity = (scroll > 369 && scroll <= 744) ? 1 : 0;
-      //
+
+    let end1 = window.innerWidth <= 600 ? 200 : 451
+    let start1 = end + 1
+   
+    if (scroll >= start1 && scroll <= end1) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start1;
+      const rangeLength = end1 - start1;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = 180 * scrollPercent - 90;
+
+      // Aplica el ángulo y muestra la bola
+      actionBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      actionBall.style.opacity = 1;
       orbitron.classList.remove("paused-animations");
       orbitron.classList.add("run-animations");
-      } 
-      checkcta = true
-      
-      
+    } else {
+      // Oculta la bola si está fuera de su rango
+      actionBall.style.opacity = 0;
     }
 
-    if (scroll >= 745 && scroll <= 934) {
-      // asure next ball is hidden
-      actionBall.style.opacity = 0
-      lastactionBall.style.opacity = 0
-      
-      // do magic
-      let scroll2Deg = (-180 * scroll / 416) - 45;
-      textBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      textBall.style.opacity = (scroll > 745 && scroll <= 934) ? 1 : 0;
-      
-    }
-
-    if (scroll >=950 && scroll <= 2200) {
-
+    let end2 = window.innerWidth <= 600 ? 433 : 934
+    let start2 = end1 + 1
    
-    let checkorbits = false
-    if (scroll >= 950 ) {
-      if (!checkorbits) {
-        orbitsCase.style.scale = 1;
-        orbitsLabel.style.opacity = 1;
-        //orbits?.classList.add('activecomponent')
-        orbitsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-        demoText.innerHTML = 'Composing DEMO 12%'
-      }
-      checkorbits = true
-      
-    } 
+    if (scroll >= start2 && scroll <= end2) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start2;
+      const rangeLength = end2 - start2;
+      const scrollPercent = rangeScroll / rangeLength;
 
-   let checksatellites = false
-    if (scroll >= 1101 ) {
-      if (!checksatellites) {
-        satellitesCase.style.scale = 1;
-        satellitesLabel.style.opacity = 1;
-      satellitesSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing DEMO 34%'
-      }
-      checksatellites = true
-    } 
-    
-    let checksectors = false
-    if (scroll >= 1190 ) {
-      if (!checksectors) {
-        sectorsCase.style.scale = 1;
-        sectorsLabel.style.opacity = 1;
-      sectorsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing DEMO 44%'
-      } 
-      checksectors = true
-      
-    } 
-    
-    let checkprogress = false
-    if (scroll >= 1300 ) {
-      if (!checkprogress) {
-        progresssCase.style.scale = 1;
-        progresssLabel.style.opacity = 1;
-      progressSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing DEMO 55%'
-      }
-      checkprogress = true
-      
-    } 
-    
-    let checklabel = false
-    if (scroll >= 1500 ) {
-      if (!checklabel) {
-       curvedTextCase.style.scale = 1;
-       curvedTextLabel.style.opacity = 1;
-      labelsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing DEMO 87%'
-      }
-      
-      checklabel = true
-    } 
-    
-    let checksegment = false
-    if (scroll >= 1700 ) {
-      if (!checksegment){ 
-       segmentsCase.style.scale = 1;
-       segmentsLabel.style.opacity = 1;  
-       
-      segmentsSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-      demoText.innerHTML = 'Composing DEMO 91%'
-      }
-      checksegment = true
-      
+      // Calcula el ángulo para esta bola
+      const degrees = -90 * scrollPercent ;
+
+      // Aplica el ángulo y muestra la bola
+      textBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      textBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      textBall.style.opacity = 0;
     }
-    
-    let checkspokes = false
-    if (scroll >= 1850) {
-      if (!checkspokes) {
-       spokesCase.style.scale = 1;
-       spokesLabel.style.opacity = 1;
-      
-      demoText.innerHTML = 'Composing DEMO 100%'
-      }
-      
-      checkspokes = true
-      
-    } 
-    let checkdemo = false
-    if (scroll >= 1920 ) {
-      if (!checkdemo) {
-        spokesSector.style.setProperty('--o-arc-color', 'var(--secondary-color)')
-        demoContainer.style.opacity = 0
-      }
-      checkdemo = true
-    } 
-    /* else {
-      spokes?.classList.remove('activecomponent')
-      spokesSector?.setAttribute('sector-color', 'var(--background-color)')
-      demoContainer.style.opacity = 1
-    } */
 
+    let end3 = window.innerWidth <= 600 ? 1056 : 2075
+    let start3 = window.innerWidth <= 600 ? 807 : 1559
+   
+    if (scroll >= start3 && scroll <= end3) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start3;
+      const rangeLength = end3 - start3;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = -160 * scrollPercent + 70;
+
+      // Aplica el ángulo y muestra la bola
+      amazingBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      amazingBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      amazingBall.style.opacity = 0;
+    }
+
+    let end4 = window.innerWidth <= 600 ? 1375 : 2423
+    let start4 = end3 + 1
+   
+    if (scroll >= start4 && scroll <= end4) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start4;
+      const rangeLength = end4 - start4;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = 230 * scrollPercent - 90 ;
+
+      // Aplica el ángulo y muestra la bola
+      lastactionBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      lastactionBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      lastactionBall.style.opacity = 0;
+    }
+
+let ancho3 = window.innerWidth <= 600 ? 450 : 950
+let checkorbits = false
+if (scroll >= ancho3 ) {
+  textBall.style.opacity = 0
+  if (!checkorbits) {
+    orbitsCase.style.scale = 1;
+    orbitsLabel.style.opacity = 1;
+    
   }
+  checkorbits = true
+} 
+let ancho4 = window.innerWidth <= 600 ? 550 : 1101
+let checksatellites = false
+if (scroll >= ancho4 ) {
+  if (!checksatellites) {
+    satellitesCase.style.scale = 1;
+    satellitesLabel.style.opacity = 1;
+   curvedTextCase.style.scale = 1;
+   curvedTextLabel.style.opacity = 1;
+   checksatellites = true
+} 
+}
+let checksectors = false
+let ancho5 = window.innerWidth <= 600 ? 650 : 1190
+if (scroll >= ancho5 ) {
+  if (!checksectors) {
+    sectorsCase.style.scale = 1;
+    sectorsLabel.style.opacity = 1;
+    segmentsCase.style.scale = 1;
+   segmentsLabel.style.opacity = 1; 
+  } 
+  checksectors = true
+  
+} 
 
-    if (scroll >= 2400 && scroll <= 3000) {
-      // asure next ball is hidden
-      textBall.style.opacity = 0
-      lastactionBall.style.opacity = 0
-      // do magic
-      let scroll2Deg = ( 180 * scroll / 2400) + 90 * 1;
-      featureBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      featureBall.style.opacity = (scroll > 2400 && scroll <= 3000) ? 1 : 0;
-      // festures section
-      
-      if (scroll >= 2530 && scroll <= 2690) {
-        arrowSelector?.classList.remove('angle-90', 'angle-150', 'angle-30')
-        arrowSelector?.classList.add('angle-30')
-        innovative.style.opacity = 1
-        easy.style.opacity = 0
-        integration.style.opacity = 0
-      }
-      if (scroll >= 2700  && scroll <= 2830) {
-        arrowSelector?.classList.remove('angle-30', 'angle-150')
-        arrowSelector?.classList.add('angle-90')
-        innovative.style.opacity = 0
-        easy.style.opacity = 1
-        integration.style.opacity = 0
-      }
-
-      if (scroll >= 2850  && scroll <= 2950) {
-        arrowSelector?.classList.remove('angle-30', 'angle-90')
-        arrowSelector?.classList.add('angle-150')
-        innovative.style.opacity = 0
-        easy.style.opacity = 0
-        integration.style.opacity = 1
-      }
-      
-    }
-
-    if (scroll >= 3001 && scroll <= 3417) {
-      // asure next ball is hidden
-      featureBall.style.opacity = 0
-      // do magic
-      let scroll2Deg = ( -230 * scroll / 416) * 1;
-      lastactionBall.style.setProperty('--o-angle-composite', scroll2Deg + 'deg');
-      lastactionBall.style.opacity = (scroll > 3001 && scroll <= 3417) ? 1 : 0;
-      
-    }
+let checkprogress = false
+var ancho6 = window.innerWidth <= 600 ? 650 : 1300
+if (scroll >= ancho6 ) {
+  if (!checkprogress) {
+    progresssCase.style.scale = 1;
+    progresssLabel.style.opacity = 1;
+    spokesCase.style.scale = 1;
+   spokesLabel.style.opacity = 1;
+  
   }
+  checkprogress = true
+  
+  } 
+}
 
 
   window.addEventListener('scroll', onScroll, {passive: true});
@@ -1736,59 +1189,157 @@ function onScroll() {
 	});
 
 </script>
+
 <script is:inline>
-  function analogWatch() {
-    // Get the current time
-    const now = new Date()
-    // Get the current hour, minute, and second
-    const hour = now.getHours()
-    const minute = now.getMinutes()
-    const second = now.getSeconds()
-    const today = now.getDate();
-    const pastDate = new Date();
-    pastDate.setDate(today - 1);
-    const pastDay = pastDate.getDate();
-    // Future today (1 today later)
-    const futureDate = new Date();
-    futureDate.setDate(today + 1);
-    const futureDay = futureDate.getDate();
-    const currentDayName = now.toLocaleString('en', { weekday: 'short' });
-    const shortDayName = currentDayName.slice(0, 3);
-
-    // Calculate the angles of the hour, minute, and second hands
-    const hourAngle = (hour % 12) * 30 + minute / 2
-    const minuteAngle = minute * 6
-    const secondAngle = second * 6
-    const hourPercentage = (hourAngle / 360) * 100
-    const minutePercentage = (minuteAngle / 360) * 100
-    const secondPercentage = (secondAngle / 360) * 100
-
-    // Get the hour, minute, and second hand elements
-    const hourHand = document.querySelector('.xh')
-    const minuteHand = document.querySelector('.xm')
-    const secondHand = document.querySelector('.xs')
-
-    const curvedText = document.querySelector('.digital-clock')
-
-    const current = document.querySelector('.calendar .current ')
-    const previous = document.querySelector('.calendar .previous ')
-    const next = document.querySelector('.calendar .next ')
-    const dayName = document.querySelector('.day-name ')
-
-    // Set the transform style of each hand element with angle correction
-    hourHand.style.setProperty('--o-angle-composite', hourAngle - 90 + 'deg')
-    minuteHand.style.setProperty('--o-angle-composite', minuteAngle - 90 + 'deg')
-    secondHand.style.setProperty('--o-angle-composite', secondAngle - 90 + 'deg')
+  function handleClick(button, subcontrol = false) {
    
-    if (curvedText.innerHTML === '' || hour === 0 ) {
-      current.innerHTML = `${today}`
-      previous.innerHTML = `${futureDay}`
-      next.innerHTML = `${pastDay}`
-      dayName.innerHTML = `${shortDayName}`
+      if (!subcontrol) {
+          let otherButtons = document.querySelectorAll('[class*=option-]')
+          let otherButtons1 = document.querySelectorAll('[class*=suboption-]')
+          let otherActive = document.querySelectorAll('[class*=active-]')
+          let otherActive1 = document.querySelectorAll('[class*=subactive-]')
+          let group = [...otherButtons, ...otherButtons1, ...otherActive, ...otherActive1]
+          group.forEach(b => {
+              b.style.display = 'none'
+              b.style.opacity = 0
+          })
+  
+          let control = document.querySelector(`.option-${button}`)
+          let active = document.querySelector(`.active-${button}`)
+  
+          if (control.classList.contains('active')) {
+              control.style.display = 'none'
+              control.style.opacity = 0;
+              control.classList.remove('active')
+              active.style.display = 'none'
+              active.style.opacity = 0;
+          } else {
+              control.style.display = 'flex'
+              control.style.opacity = 1;
+              control.classList.add('active')
+              active.style.display = 'flex'
+              active.style.opacity = 1;
+          }
+      } else {
+          let otherButtons1 = document.querySelectorAll('[class*=suboption-]')
+          let otherActive1 = document.querySelectorAll('[class*=subactive-]')
+          let group = [...otherButtons1, ...otherActive1]
+          group.forEach(b => {
+              b.style.display = 'none'
+              b.style.opacity = 0
+          })
+          let subcontrol = document.querySelector(`.suboption-${button}`)
+          let subactive = document.querySelector(`.subactive-${button}`)
+        if (subcontrol && subactive) {
+              subcontrol.style.display = 'flex'
+              subcontrol.style.opacity = 1;
+              subactive.style.display = 'flex'
+              subactive.style.opacity = 1;
+         }
+      }
+  }
+  
+
+  </script>
+  <script is:inline>
+    // Función para manejar la selección de color
+    function handleColorSelection(event) {
+      if (event.type === 'touchmove') {
+      event.preventDefault(); // Prevenir el scroll predeterminado
+    }
+      // Asegurarse de que .option-color esté visible antes de procesar
+      const colorOption = document.querySelector('.option-color');
+      if (!colorOption || colorOption.style.display === 'none') return;
+  
+      // Detectar la posición del mouse o el toque
+let clientX, clientY;
+if (event.type === 'mousemove') {
+  clientX = event.clientX; // Para el mouse
+  clientY = event.clientY;
+} else if (event.type === 'touchmove') {
+  clientX = event.touches[0].clientX; // Para el toque
+  clientY = event.touches[0].clientY;
+}
+
+// Obtener la posición y el tamaño del contenedor .option-color
+const rect = colorOption.getBoundingClientRect();
+const { left, top, width, height } = rect;
+
+// Calcular el centro del contenedor
+const centerX = left + width / 2;
+const centerY = top + height / 2;
+
+// Calcular la posición del mouse/touch respecto al centro
+const x = clientX - centerX;
+const y = clientY - centerY;
+
+// Calcular el ángulo en radianes y convertirlo a grados
+let angle = Math.atan2(y, x) * (180 / Math.PI);
+
+// Normalizar el ángulo para que esté en el rango [0, 360]
+if (angle < 0) {
+  angle += 360;
+}
+
+// El ángulo corresponde directamente al valor de tono (hue)
+const hue = angle;
+
+  
+      // Calcular el color en HSL
+      const hslColor = `hsl(${hue}, 100%, 50%)`;
+  
+      // Actualizar el color de la visualización en .display-color
+      const colorDisplay = document.querySelector('.display-color');
+      if (colorDisplay) {
+        colorDisplay.style.color = hslColor;
+        colorDisplay.style.borderColor = hslColor;
+      }
+    }
+  
+    // Asignar los eventos de movimiento de mouse y toque a .option-color
+    const colorOption = document.querySelector('.option-color');
+    if (colorOption) {
+      // Detectar movimiento del mouse
+      colorOption.addEventListener('mousemove', handleColorSelection);
+  
+      // Detectar movimiento táctil (móviles)
+      colorOption.addEventListener('touchmove', handleColorSelection), { passive: false };
+    }
+  </script>
+
+<script is:inline>
+  // Función para manejar la selección de color
+  function handleButton(cssVar, value1, value2 = false)  {
+
+    // Asegurarse de que .option-color esté visible antes de procesar
+    const element = document.querySelector('.display-color');
+
+    if (cssVar === '--orbit-weight') handleClick('bold', true)
+    if (cssVar === '--orbit-italic') handleClick('italic', true)
+    if (cssVar === '--orbit-underline') handleClick('underline', true)
+
+    let state = getComputedStyle(element).getPropertyValue(cssVar)
+    if (value2) {
+      if (state === value1) {
+      element.style.setProperty(
+          cssVar,
+          value2
+        )
+    } else {
+      element.style.setProperty(
+          cssVar,
+          value1
+        )
+    }
+    } else {
+      element.style.setProperty(
+          cssVar,
+          value1
+        )
     }
     
-     if (curvedText.innerHTML === '' || second === 0 ) curvedText.innerHTML = `${hour}:${minute}, ${hour}H ${minute}M`
   }
-  // Call the analogWatch function every second
-  setInterval(analogWatch, 1000)
+   
 </script>
+  
+  

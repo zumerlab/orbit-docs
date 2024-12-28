@@ -1,0 +1,166 @@
+---
+title: Progress bar
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+
+
+export const progress1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 gray-border">
+      <o-arc class="gap-10" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue-light)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="gap-10" style="--o-color: var(--o-blue-lighter)"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="capsule" style="font-size:30px; font-weight: bold; color: var(--o-blue-darker)">60</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const progress1CSS = `
+.satellite{
+border-color: transparent
+}`
+
+## Dashed progress bar
+
+<ZumerPlay name={'progress1'} hideCode htmlCode={progress1HTML}  cssCode={progress1CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={progress1HTML} lang="html" wrap />
+  </TabItem>
+  <TabItem label="CSS"  wrap icon="seti:css">
+    <Code code={progress1CSS} lang="css" wrap />
+  </TabItem>
+</Tabs>
+
+
+
+export const progress2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 gray-border">
+      <o-progress value="60" shape="circle"
+        style="--o-background-color: var(--o-purple-darker); --o-color: var(--o-purple)"></o-progress>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="capsule" style="font-size:30px; font-weight: bold; color: var(--o-purple-darker)">60</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const progress2CSS = `
+.satellite{
+border-color: transparent
+}`
+
+## Basic progress with background
+
+<ZumerPlay name={'progress2'} hideCode htmlCode={progress2HTML}  cssCode={progress2CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={progress2HTML} lang="html" wrap />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={progress2CSS} lang="css"  wrap />
+  </TabItem>
+</Tabs>
+
+
+
+export const progress3HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 gray-border">
+      <o-progress value="60" shape="circle" class="shrink-60"
+        style="--o-background-color: var(--o-cyan-darker); --o-color: var(--o-cyan)"></o-progress>
+      <div class="satellite angle-225" style="background-color: var(--o-cyan);"></div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="capsule" style="font-size:30px; font-weight: bold; color: var(--o-cyan-darker)">60</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const progress3CSS = `
+.satellite{
+border-color: transparent
+}`
+
+## Basic progress bar with circular indicator
+
+<ZumerPlay name={'progress3'} hideCode htmlCode={progress3HTML}  cssCode={progress3CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={progress3HTML} lang="html" wrap  />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={progress3CSS} lang="css" wrap />
+  </TabItem>
+</Tabs>
+
+
+
+export const progress4HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2 gray-border">
+      <o-progress class="shrink-10" style="--o-color:  var(--o-cyan); " value="50" shape="circle"></o-progress>
+    </div>
+    <div class="orbit-3 gray-border">
+      <o-progress class="shrink-10" style="--o-color:  hsl(146.02deg 100% 51%);" value="60" shape="circle"></o-progress>
+    </div>
+    <div class="orbit-4 gray-border">
+      <o-progress class="shrink-10" style="font-size:30px; font-weight: bold; color: hsl(0deg 100% 60%);" value="70"
+        shape="circle"></o-progress>
+    </div>
+  </div>
+</div>`
+
+export const progress4CSS = `
+.bigbang {
+background: black
+}
+.satellite{
+border-color: transparent
+}`
+
+## Multiple progress bars
+
+<ZumerPlay name={'progress4'} hideCode htmlCode={progress4HTML}  cssCode={progress4CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={progress4HTML} lang="html"wrap />
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css">
+    <Code code={progress4CSS} lang="css" wrap/>
+  </TabItem>
+</Tabs>
+
+## Show & Tell
+
+Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
+
+

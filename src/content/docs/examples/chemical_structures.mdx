@@ -1,0 +1,113 @@
+---
+title: Chemical structure
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+export const chemical1HTML = `
+<div class="bigbang" style="background: white">
+  <div class="gravity-spot">
+    <div class="orbit-0">
+      <div class="satellite  at-center ">
+        <div class="gravity-spot">
+          <div class="orbit-2 ">
+            <div class="vector grow-0.7x outer-orbit angle-0"
+              style="height: 7px; background: transparent; border-top: 1px solid currentColor;border-bottom: 1px solid currentColor;">
+            </div>
+            <div class="vector grow-0.7x outer-orbit angle-180"></div>
+            <div class="vector grow-0.7x outer-orbit angle-240"
+              style="height: 7px; background: transparent; border-top: 1px solid currentColor;border-bottom: 1px solid currentColor;">
+            </div>
+            <div class="vector grow-0.7x outer-orbit angle-300"></div>
+          </div>
+          <div class="orbit-2 ">
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+          </div>
+          <div class="orbit-2 ">
+            <div class="satellite angle-180" style="background: white;">N</div>
+            <div class="satellite angle-300" style="background: white;">N</div>
+          </div>
+          <div class="orbit-4 range-180 ccw fit-range">
+            <div class="satellite inner-orbit" style="background: white;">O</div>
+            <div class="satellite " style="background: white;">
+             <div class="capsule">H<sub>3</sub>C</div>
+            </div>
+            <div class="satellite" style="background: white;">O</div>
+            <div class="satellite " style="background: white;">
+             <div class="capsule">CH<sub>3</sub></div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-4 shrink-90 ">
+      <div class="satellite angle-90 ">
+        <div class="gravity-spot">
+          <div class="orbit-2  shrink-30 ">
+            <div class="vector grow-0.7x outer-orbit angle-18"></div>
+          </div>
+          <div class="orbit-2 shrink-60 from-36">
+            <div class="side" style="background: transparent;">
+            </div>
+            <div class="side">
+            </div>
+            <div class="side" style="background: transparent;">
+            </div>
+            <div class="side">
+            </div>
+            <div class="side" style="background: transparent;">
+            </div>
+          </div>
+          <div class="orbit-2 shrink-30 from-36">
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+          </div>
+          <div class="orbit-2 shrink-30">
+            <div class="satellite angle-18" style="background: white;">N</div>
+            <div class="satellite angle-165" style="background: white;">N</div>
+          </div>
+          <div class="orbit-4 shrink-30">
+            <div class="satellite angle-18" style="background: white;">
+            <div class="capsule">CH<sub>3</sub></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`
+
+export const chemical1CSS = `
+.satellite {
+  border: none
+}`
+
+## Caffeine 
+
+<ZumerPlay name={'chemical1'} hideCode htmlCode={chemical1HTML}  cssCode={chemical1CSS} height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={chemical1HTML} lang="html" wrap/>
+  </TabItem>
+  <TabItem label="CSS" icon="seti:css" >
+    <Code code={chemical1CSS} lang="css" wrap/>
+  </TabItem>
+</Tabs>
+
+## Show & Tell
+
+Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
+
+

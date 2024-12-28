@@ -1,13 +1,13 @@
 
 /*
 * orbit
-* v.0.6.0
+* v.1.0.0
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-28028-w3Twb5ufz9As/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-71826-jluxOtrlBV0O/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -319,602 +319,542 @@
 }
 :nth-child(1 of .satellite),
 :nth-child(1 of o-arc),
-:nth-child(1 of .vector),
-:nth-child(1 of o-text) {
+:nth-child(1 of .vector) {
   --o-orbit-child-number: 0;
 }
 :nth-child(2 of .satellite),
 :nth-child(2 of o-arc),
-:nth-child(2 of .vector),
-:nth-child(2 of o-text) {
+:nth-child(2 of .vector) {
   --o-orbit-child-number: 1;
 }
 :nth-child(3 of .satellite),
 :nth-child(3 of o-arc),
-:nth-child(3 of .vector),
-:nth-child(3 of o-text) {
+:nth-child(3 of .vector) {
   --o-orbit-child-number: 2;
 }
 :nth-child(4 of .satellite),
 :nth-child(4 of o-arc),
-:nth-child(4 of .vector),
-:nth-child(4 of o-text) {
+:nth-child(4 of .vector) {
   --o-orbit-child-number: 3;
 }
 :nth-child(5 of .satellite),
 :nth-child(5 of o-arc),
-:nth-child(5 of .vector),
-:nth-child(5 of o-text) {
+:nth-child(5 of .vector) {
   --o-orbit-child-number: 4;
 }
 :nth-child(6 of .satellite),
 :nth-child(6 of o-arc),
-:nth-child(6 of .vector),
-:nth-child(6 of o-text) {
+:nth-child(6 of .vector) {
   --o-orbit-child-number: 5;
 }
 :nth-child(7 of .satellite),
 :nth-child(7 of o-arc),
-:nth-child(7 of .vector),
-:nth-child(7 of o-text) {
+:nth-child(7 of .vector) {
   --o-orbit-child-number: 6;
 }
 :nth-child(8 of .satellite),
 :nth-child(8 of o-arc),
-:nth-child(8 of .vector),
-:nth-child(8 of o-text) {
+:nth-child(8 of .vector) {
   --o-orbit-child-number: 7;
 }
 :nth-child(9 of .satellite),
 :nth-child(9 of o-arc),
-:nth-child(9 of .vector),
-:nth-child(9 of o-text) {
+:nth-child(9 of .vector) {
   --o-orbit-child-number: 8;
 }
 :nth-child(10 of .satellite),
 :nth-child(10 of o-arc),
-:nth-child(10 of .vector),
-:nth-child(10 of o-text) {
+:nth-child(10 of .vector) {
   --o-orbit-child-number: 9;
 }
 :nth-child(11 of .satellite),
 :nth-child(11 of o-arc),
-:nth-child(11 of .vector),
-:nth-child(11 of o-text) {
+:nth-child(11 of .vector) {
   --o-orbit-child-number: 10;
 }
 :nth-child(12 of .satellite),
 :nth-child(12 of o-arc),
-:nth-child(12 of .vector),
-:nth-child(12 of o-text) {
+:nth-child(12 of .vector) {
   --o-orbit-child-number: 11;
 }
 :nth-child(13 of .satellite),
 :nth-child(13 of o-arc),
-:nth-child(13 of .vector),
-:nth-child(13 of o-text) {
+:nth-child(13 of .vector) {
   --o-orbit-child-number: 12;
 }
 :nth-child(14 of .satellite),
 :nth-child(14 of o-arc),
-:nth-child(14 of .vector),
-:nth-child(14 of o-text) {
+:nth-child(14 of .vector) {
   --o-orbit-child-number: 13;
 }
 :nth-child(15 of .satellite),
 :nth-child(15 of o-arc),
-:nth-child(15 of .vector),
-:nth-child(15 of o-text) {
+:nth-child(15 of .vector) {
   --o-orbit-child-number: 14;
 }
 :nth-child(16 of .satellite),
 :nth-child(16 of o-arc),
-:nth-child(16 of .vector),
-:nth-child(16 of o-text) {
+:nth-child(16 of .vector) {
   --o-orbit-child-number: 15;
 }
 :nth-child(17 of .satellite),
 :nth-child(17 of o-arc),
-:nth-child(17 of .vector),
-:nth-child(17 of o-text) {
+:nth-child(17 of .vector) {
   --o-orbit-child-number: 16;
 }
 :nth-child(18 of .satellite),
 :nth-child(18 of o-arc),
-:nth-child(18 of .vector),
-:nth-child(18 of o-text) {
+:nth-child(18 of .vector) {
   --o-orbit-child-number: 17;
 }
 :nth-child(19 of .satellite),
 :nth-child(19 of o-arc),
-:nth-child(19 of .vector),
-:nth-child(19 of o-text) {
+:nth-child(19 of .vector) {
   --o-orbit-child-number: 18;
 }
 :nth-child(20 of .satellite),
 :nth-child(20 of o-arc),
-:nth-child(20 of .vector),
-:nth-child(20 of o-text) {
+:nth-child(20 of .vector) {
   --o-orbit-child-number: 19;
 }
 :nth-child(21 of .satellite),
 :nth-child(21 of o-arc),
-:nth-child(21 of .vector),
-:nth-child(21 of o-text) {
+:nth-child(21 of .vector) {
   --o-orbit-child-number: 20;
 }
 :nth-child(22 of .satellite),
 :nth-child(22 of o-arc),
-:nth-child(22 of .vector),
-:nth-child(22 of o-text) {
+:nth-child(22 of .vector) {
   --o-orbit-child-number: 21;
 }
 :nth-child(23 of .satellite),
 :nth-child(23 of o-arc),
-:nth-child(23 of .vector),
-:nth-child(23 of o-text) {
+:nth-child(23 of .vector) {
   --o-orbit-child-number: 22;
 }
 :nth-child(24 of .satellite),
 :nth-child(24 of o-arc),
-:nth-child(24 of .vector),
-:nth-child(24 of o-text) {
+:nth-child(24 of .vector) {
   --o-orbit-child-number: 23;
 }
 :nth-child(25 of .satellite),
 :nth-child(25 of o-arc),
-:nth-child(25 of .vector),
-:nth-child(25 of o-text) {
+:nth-child(25 of .vector) {
   --o-orbit-child-number: 24;
 }
 :nth-child(26 of .satellite),
 :nth-child(26 of o-arc),
-:nth-child(26 of .vector),
-:nth-child(26 of o-text) {
+:nth-child(26 of .vector) {
   --o-orbit-child-number: 25;
 }
 :nth-child(27 of .satellite),
 :nth-child(27 of o-arc),
-:nth-child(27 of .vector),
-:nth-child(27 of o-text) {
+:nth-child(27 of .vector) {
   --o-orbit-child-number: 26;
 }
 :nth-child(28 of .satellite),
 :nth-child(28 of o-arc),
-:nth-child(28 of .vector),
-:nth-child(28 of o-text) {
+:nth-child(28 of .vector) {
   --o-orbit-child-number: 27;
 }
 :nth-child(29 of .satellite),
 :nth-child(29 of o-arc),
-:nth-child(29 of .vector),
-:nth-child(29 of o-text) {
+:nth-child(29 of .vector) {
   --o-orbit-child-number: 28;
 }
 :nth-child(30 of .satellite),
 :nth-child(30 of o-arc),
-:nth-child(30 of .vector),
-:nth-child(30 of o-text) {
+:nth-child(30 of .vector) {
   --o-orbit-child-number: 29;
 }
 :nth-child(31 of .satellite),
 :nth-child(31 of o-arc),
-:nth-child(31 of .vector),
-:nth-child(31 of o-text) {
+:nth-child(31 of .vector) {
   --o-orbit-child-number: 30;
 }
 :nth-child(32 of .satellite),
 :nth-child(32 of o-arc),
-:nth-child(32 of .vector),
-:nth-child(32 of o-text) {
+:nth-child(32 of .vector) {
   --o-orbit-child-number: 31;
 }
 :nth-child(33 of .satellite),
 :nth-child(33 of o-arc),
-:nth-child(33 of .vector),
-:nth-child(33 of o-text) {
+:nth-child(33 of .vector) {
   --o-orbit-child-number: 32;
 }
 :nth-child(34 of .satellite),
 :nth-child(34 of o-arc),
-:nth-child(34 of .vector),
-:nth-child(34 of o-text) {
+:nth-child(34 of .vector) {
   --o-orbit-child-number: 33;
 }
 :nth-child(35 of .satellite),
 :nth-child(35 of o-arc),
-:nth-child(35 of .vector),
-:nth-child(35 of o-text) {
+:nth-child(35 of .vector) {
   --o-orbit-child-number: 34;
 }
 :nth-child(36 of .satellite),
 :nth-child(36 of o-arc),
-:nth-child(36 of .vector),
-:nth-child(36 of o-text) {
+:nth-child(36 of .vector) {
   --o-orbit-child-number: 35;
 }
 :nth-child(37 of .satellite),
 :nth-child(37 of o-arc),
-:nth-child(37 of .vector),
-:nth-child(37 of o-text) {
+:nth-child(37 of .vector) {
   --o-orbit-child-number: 36;
 }
 :nth-child(38 of .satellite),
 :nth-child(38 of o-arc),
-:nth-child(38 of .vector),
-:nth-child(38 of o-text) {
+:nth-child(38 of .vector) {
   --o-orbit-child-number: 37;
 }
 :nth-child(39 of .satellite),
 :nth-child(39 of o-arc),
-:nth-child(39 of .vector),
-:nth-child(39 of o-text) {
+:nth-child(39 of .vector) {
   --o-orbit-child-number: 38;
 }
 :nth-child(40 of .satellite),
 :nth-child(40 of o-arc),
-:nth-child(40 of .vector),
-:nth-child(40 of o-text) {
+:nth-child(40 of .vector) {
   --o-orbit-child-number: 39;
 }
 :nth-child(41 of .satellite),
 :nth-child(41 of o-arc),
-:nth-child(41 of .vector),
-:nth-child(41 of o-text) {
+:nth-child(41 of .vector) {
   --o-orbit-child-number: 40;
 }
 :nth-child(42 of .satellite),
 :nth-child(42 of o-arc),
-:nth-child(42 of .vector),
-:nth-child(42 of o-text) {
+:nth-child(42 of .vector) {
   --o-orbit-child-number: 41;
 }
 :nth-child(43 of .satellite),
 :nth-child(43 of o-arc),
-:nth-child(43 of .vector),
-:nth-child(43 of o-text) {
+:nth-child(43 of .vector) {
   --o-orbit-child-number: 42;
 }
 :nth-child(44 of .satellite),
 :nth-child(44 of o-arc),
-:nth-child(44 of .vector),
-:nth-child(44 of o-text) {
+:nth-child(44 of .vector) {
   --o-orbit-child-number: 43;
 }
 :nth-child(45 of .satellite),
 :nth-child(45 of o-arc),
-:nth-child(45 of .vector),
-:nth-child(45 of o-text) {
+:nth-child(45 of .vector) {
   --o-orbit-child-number: 44;
 }
 :nth-child(46 of .satellite),
 :nth-child(46 of o-arc),
-:nth-child(46 of .vector),
-:nth-child(46 of o-text) {
+:nth-child(46 of .vector) {
   --o-orbit-child-number: 45;
 }
 :nth-child(47 of .satellite),
 :nth-child(47 of o-arc),
-:nth-child(47 of .vector),
-:nth-child(47 of o-text) {
+:nth-child(47 of .vector) {
   --o-orbit-child-number: 46;
 }
 :nth-child(48 of .satellite),
 :nth-child(48 of o-arc),
-:nth-child(48 of .vector),
-:nth-child(48 of o-text) {
+:nth-child(48 of .vector) {
   --o-orbit-child-number: 47;
 }
 :nth-child(49 of .satellite),
 :nth-child(49 of o-arc),
-:nth-child(49 of .vector),
-:nth-child(49 of o-text) {
+:nth-child(49 of .vector) {
   --o-orbit-child-number: 48;
 }
 :nth-child(50 of .satellite),
 :nth-child(50 of o-arc),
-:nth-child(50 of .vector),
-:nth-child(50 of o-text) {
+:nth-child(50 of .vector) {
   --o-orbit-child-number: 49;
 }
 :nth-child(51 of .satellite),
 :nth-child(51 of o-arc),
-:nth-child(51 of .vector),
-:nth-child(51 of o-text) {
+:nth-child(51 of .vector) {
   --o-orbit-child-number: 50;
 }
 :nth-child(52 of .satellite),
 :nth-child(52 of o-arc),
-:nth-child(52 of .vector),
-:nth-child(52 of o-text) {
+:nth-child(52 of .vector) {
   --o-orbit-child-number: 51;
 }
 :nth-child(53 of .satellite),
 :nth-child(53 of o-arc),
-:nth-child(53 of .vector),
-:nth-child(53 of o-text) {
+:nth-child(53 of .vector) {
   --o-orbit-child-number: 52;
 }
 :nth-child(54 of .satellite),
 :nth-child(54 of o-arc),
-:nth-child(54 of .vector),
-:nth-child(54 of o-text) {
+:nth-child(54 of .vector) {
   --o-orbit-child-number: 53;
 }
 :nth-child(55 of .satellite),
 :nth-child(55 of o-arc),
-:nth-child(55 of .vector),
-:nth-child(55 of o-text) {
+:nth-child(55 of .vector) {
   --o-orbit-child-number: 54;
 }
 :nth-child(56 of .satellite),
 :nth-child(56 of o-arc),
-:nth-child(56 of .vector),
-:nth-child(56 of o-text) {
+:nth-child(56 of .vector) {
   --o-orbit-child-number: 55;
 }
 :nth-child(57 of .satellite),
 :nth-child(57 of o-arc),
-:nth-child(57 of .vector),
-:nth-child(57 of o-text) {
+:nth-child(57 of .vector) {
   --o-orbit-child-number: 56;
 }
 :nth-child(58 of .satellite),
 :nth-child(58 of o-arc),
-:nth-child(58 of .vector),
-:nth-child(58 of o-text) {
+:nth-child(58 of .vector) {
   --o-orbit-child-number: 57;
 }
 :nth-child(59 of .satellite),
 :nth-child(59 of o-arc),
-:nth-child(59 of .vector),
-:nth-child(59 of o-text) {
+:nth-child(59 of .vector) {
   --o-orbit-child-number: 58;
 }
 :nth-child(60 of .satellite),
 :nth-child(60 of o-arc),
-:nth-child(60 of .vector),
-:nth-child(60 of o-text) {
+:nth-child(60 of .vector) {
   --o-orbit-child-number: 59;
 }
-.orbit:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-arc), > :nth-child(1 of .vector), > :nth-child(1 of .side), > :nth-child(1 of o-text)),
-[class*=orbit-]:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-arc), > :nth-child(1 of .vector), > :nth-child(1 of .side), > :nth-child(1 of o-text)) {
+.orbit:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-arc), > :nth-child(1 of .vector), > :nth-child(1 of .side)),
+[class*=orbit-]:has(> :nth-child(1 of .satellite), > :nth-child(1 of o-arc), > :nth-child(1 of .vector), > :nth-child(1 of .side)) {
   --o-angle: calc(var(--o-range) / (1 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-arc), > :nth-child(2 of .vector), > :nth-child(2 of .side), > :nth-child(2 of o-text)),
-[class*=orbit-]:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-arc), > :nth-child(2 of .vector), > :nth-child(2 of .side), > :nth-child(2 of o-text)) {
+.orbit:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-arc), > :nth-child(2 of .vector), > :nth-child(2 of .side)),
+[class*=orbit-]:has(> :nth-child(2 of .satellite), > :nth-child(2 of o-arc), > :nth-child(2 of .vector), > :nth-child(2 of .side)) {
   --o-angle: calc(var(--o-range) / (2 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-arc), > :nth-child(3 of .vector), > :nth-child(3 of .side), > :nth-child(3 of o-text)),
-[class*=orbit-]:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-arc), > :nth-child(3 of .vector), > :nth-child(3 of .side), > :nth-child(3 of o-text)) {
+.orbit:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-arc), > :nth-child(3 of .vector), > :nth-child(3 of .side)),
+[class*=orbit-]:has(> :nth-child(3 of .satellite), > :nth-child(3 of o-arc), > :nth-child(3 of .vector), > :nth-child(3 of .side)) {
   --o-angle: calc(var(--o-range) / (3 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-arc), > :nth-child(4 of .vector), > :nth-child(4 of .side), > :nth-child(4 of o-text)),
-[class*=orbit-]:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-arc), > :nth-child(4 of .vector), > :nth-child(4 of .side), > :nth-child(4 of o-text)) {
+.orbit:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-arc), > :nth-child(4 of .vector), > :nth-child(4 of .side)),
+[class*=orbit-]:has(> :nth-child(4 of .satellite), > :nth-child(4 of o-arc), > :nth-child(4 of .vector), > :nth-child(4 of .side)) {
   --o-angle: calc(var(--o-range) / (4 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-arc), > :nth-child(5 of .vector), > :nth-child(5 of .side), > :nth-child(5 of o-text)),
-[class*=orbit-]:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-arc), > :nth-child(5 of .vector), > :nth-child(5 of .side), > :nth-child(5 of o-text)) {
+.orbit:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-arc), > :nth-child(5 of .vector), > :nth-child(5 of .side)),
+[class*=orbit-]:has(> :nth-child(5 of .satellite), > :nth-child(5 of o-arc), > :nth-child(5 of .vector), > :nth-child(5 of .side)) {
   --o-angle: calc(var(--o-range) / (5 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-arc), > :nth-child(6 of .vector), > :nth-child(6 of .side), > :nth-child(6 of o-text)),
-[class*=orbit-]:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-arc), > :nth-child(6 of .vector), > :nth-child(6 of .side), > :nth-child(6 of o-text)) {
+.orbit:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-arc), > :nth-child(6 of .vector), > :nth-child(6 of .side)),
+[class*=orbit-]:has(> :nth-child(6 of .satellite), > :nth-child(6 of o-arc), > :nth-child(6 of .vector), > :nth-child(6 of .side)) {
   --o-angle: calc(var(--o-range) / (6 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-arc), > :nth-child(7 of .vector), > :nth-child(7 of .side), > :nth-child(7 of o-text)),
-[class*=orbit-]:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-arc), > :nth-child(7 of .vector), > :nth-child(7 of .side), > :nth-child(7 of o-text)) {
+.orbit:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-arc), > :nth-child(7 of .vector), > :nth-child(7 of .side)),
+[class*=orbit-]:has(> :nth-child(7 of .satellite), > :nth-child(7 of o-arc), > :nth-child(7 of .vector), > :nth-child(7 of .side)) {
   --o-angle: calc(var(--o-range) / (7 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-arc), > :nth-child(8 of .vector), > :nth-child(8 of .side), > :nth-child(8 of o-text)),
-[class*=orbit-]:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-arc), > :nth-child(8 of .vector), > :nth-child(8 of .side), > :nth-child(8 of o-text)) {
+.orbit:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-arc), > :nth-child(8 of .vector), > :nth-child(8 of .side)),
+[class*=orbit-]:has(> :nth-child(8 of .satellite), > :nth-child(8 of o-arc), > :nth-child(8 of .vector), > :nth-child(8 of .side)) {
   --o-angle: calc(var(--o-range) / (8 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-arc), > :nth-child(9 of .vector), > :nth-child(9 of .side), > :nth-child(9 of o-text)),
-[class*=orbit-]:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-arc), > :nth-child(9 of .vector), > :nth-child(9 of .side), > :nth-child(9 of o-text)) {
+.orbit:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-arc), > :nth-child(9 of .vector), > :nth-child(9 of .side)),
+[class*=orbit-]:has(> :nth-child(9 of .satellite), > :nth-child(9 of o-arc), > :nth-child(9 of .vector), > :nth-child(9 of .side)) {
   --o-angle: calc(var(--o-range) / (9 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-arc), > :nth-child(10 of .vector), > :nth-child(10 of .side), > :nth-child(10 of o-text)),
-[class*=orbit-]:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-arc), > :nth-child(10 of .vector), > :nth-child(10 of .side), > :nth-child(10 of o-text)) {
+.orbit:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-arc), > :nth-child(10 of .vector), > :nth-child(10 of .side)),
+[class*=orbit-]:has(> :nth-child(10 of .satellite), > :nth-child(10 of o-arc), > :nth-child(10 of .vector), > :nth-child(10 of .side)) {
   --o-angle: calc(var(--o-range) / (10 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-arc), > :nth-child(11 of .vector), > :nth-child(11 of .side), > :nth-child(11 of o-text)),
-[class*=orbit-]:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-arc), > :nth-child(11 of .vector), > :nth-child(11 of .side), > :nth-child(11 of o-text)) {
+.orbit:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-arc), > :nth-child(11 of .vector), > :nth-child(11 of .side)),
+[class*=orbit-]:has(> :nth-child(11 of .satellite), > :nth-child(11 of o-arc), > :nth-child(11 of .vector), > :nth-child(11 of .side)) {
   --o-angle: calc(var(--o-range) / (11 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-arc), > :nth-child(12 of .vector), > :nth-child(12 of .side), > :nth-child(12 of o-text)),
-[class*=orbit-]:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-arc), > :nth-child(12 of .vector), > :nth-child(12 of .side), > :nth-child(12 of o-text)) {
+.orbit:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-arc), > :nth-child(12 of .vector), > :nth-child(12 of .side)),
+[class*=orbit-]:has(> :nth-child(12 of .satellite), > :nth-child(12 of o-arc), > :nth-child(12 of .vector), > :nth-child(12 of .side)) {
   --o-angle: calc(var(--o-range) / (12 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-arc), > :nth-child(13 of .vector), > :nth-child(13 of .side), > :nth-child(13 of o-text)),
-[class*=orbit-]:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-arc), > :nth-child(13 of .vector), > :nth-child(13 of .side), > :nth-child(13 of o-text)) {
+.orbit:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-arc), > :nth-child(13 of .vector), > :nth-child(13 of .side)),
+[class*=orbit-]:has(> :nth-child(13 of .satellite), > :nth-child(13 of o-arc), > :nth-child(13 of .vector), > :nth-child(13 of .side)) {
   --o-angle: calc(var(--o-range) / (13 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-arc), > :nth-child(14 of .vector), > :nth-child(14 of .side), > :nth-child(14 of o-text)),
-[class*=orbit-]:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-arc), > :nth-child(14 of .vector), > :nth-child(14 of .side), > :nth-child(14 of o-text)) {
+.orbit:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-arc), > :nth-child(14 of .vector), > :nth-child(14 of .side)),
+[class*=orbit-]:has(> :nth-child(14 of .satellite), > :nth-child(14 of o-arc), > :nth-child(14 of .vector), > :nth-child(14 of .side)) {
   --o-angle: calc(var(--o-range) / (14 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-arc), > :nth-child(15 of .vector), > :nth-child(15 of .side), > :nth-child(15 of o-text)),
-[class*=orbit-]:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-arc), > :nth-child(15 of .vector), > :nth-child(15 of .side), > :nth-child(15 of o-text)) {
+.orbit:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-arc), > :nth-child(15 of .vector), > :nth-child(15 of .side)),
+[class*=orbit-]:has(> :nth-child(15 of .satellite), > :nth-child(15 of o-arc), > :nth-child(15 of .vector), > :nth-child(15 of .side)) {
   --o-angle: calc(var(--o-range) / (15 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-arc), > :nth-child(16 of .vector), > :nth-child(16 of .side), > :nth-child(16 of o-text)),
-[class*=orbit-]:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-arc), > :nth-child(16 of .vector), > :nth-child(16 of .side), > :nth-child(16 of o-text)) {
+.orbit:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-arc), > :nth-child(16 of .vector), > :nth-child(16 of .side)),
+[class*=orbit-]:has(> :nth-child(16 of .satellite), > :nth-child(16 of o-arc), > :nth-child(16 of .vector), > :nth-child(16 of .side)) {
   --o-angle: calc(var(--o-range) / (16 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-arc), > :nth-child(17 of .vector), > :nth-child(17 of .side), > :nth-child(17 of o-text)),
-[class*=orbit-]:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-arc), > :nth-child(17 of .vector), > :nth-child(17 of .side), > :nth-child(17 of o-text)) {
+.orbit:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-arc), > :nth-child(17 of .vector), > :nth-child(17 of .side)),
+[class*=orbit-]:has(> :nth-child(17 of .satellite), > :nth-child(17 of o-arc), > :nth-child(17 of .vector), > :nth-child(17 of .side)) {
   --o-angle: calc(var(--o-range) / (17 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-arc), > :nth-child(18 of .vector), > :nth-child(18 of .side), > :nth-child(18 of o-text)),
-[class*=orbit-]:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-arc), > :nth-child(18 of .vector), > :nth-child(18 of .side), > :nth-child(18 of o-text)) {
+.orbit:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-arc), > :nth-child(18 of .vector), > :nth-child(18 of .side)),
+[class*=orbit-]:has(> :nth-child(18 of .satellite), > :nth-child(18 of o-arc), > :nth-child(18 of .vector), > :nth-child(18 of .side)) {
   --o-angle: calc(var(--o-range) / (18 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-arc), > :nth-child(19 of .vector), > :nth-child(19 of .side), > :nth-child(19 of o-text)),
-[class*=orbit-]:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-arc), > :nth-child(19 of .vector), > :nth-child(19 of .side), > :nth-child(19 of o-text)) {
+.orbit:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-arc), > :nth-child(19 of .vector), > :nth-child(19 of .side)),
+[class*=orbit-]:has(> :nth-child(19 of .satellite), > :nth-child(19 of o-arc), > :nth-child(19 of .vector), > :nth-child(19 of .side)) {
   --o-angle: calc(var(--o-range) / (19 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-arc), > :nth-child(20 of .vector), > :nth-child(20 of .side), > :nth-child(20 of o-text)),
-[class*=orbit-]:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-arc), > :nth-child(20 of .vector), > :nth-child(20 of .side), > :nth-child(20 of o-text)) {
+.orbit:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-arc), > :nth-child(20 of .vector), > :nth-child(20 of .side)),
+[class*=orbit-]:has(> :nth-child(20 of .satellite), > :nth-child(20 of o-arc), > :nth-child(20 of .vector), > :nth-child(20 of .side)) {
   --o-angle: calc(var(--o-range) / (20 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-arc), > :nth-child(21 of .vector), > :nth-child(21 of .side), > :nth-child(21 of o-text)),
-[class*=orbit-]:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-arc), > :nth-child(21 of .vector), > :nth-child(21 of .side), > :nth-child(21 of o-text)) {
+.orbit:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-arc), > :nth-child(21 of .vector), > :nth-child(21 of .side)),
+[class*=orbit-]:has(> :nth-child(21 of .satellite), > :nth-child(21 of o-arc), > :nth-child(21 of .vector), > :nth-child(21 of .side)) {
   --o-angle: calc(var(--o-range) / (21 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-arc), > :nth-child(22 of .vector), > :nth-child(22 of .side), > :nth-child(22 of o-text)),
-[class*=orbit-]:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-arc), > :nth-child(22 of .vector), > :nth-child(22 of .side), > :nth-child(22 of o-text)) {
+.orbit:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-arc), > :nth-child(22 of .vector), > :nth-child(22 of .side)),
+[class*=orbit-]:has(> :nth-child(22 of .satellite), > :nth-child(22 of o-arc), > :nth-child(22 of .vector), > :nth-child(22 of .side)) {
   --o-angle: calc(var(--o-range) / (22 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-arc), > :nth-child(23 of .vector), > :nth-child(23 of .side), > :nth-child(23 of o-text)),
-[class*=orbit-]:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-arc), > :nth-child(23 of .vector), > :nth-child(23 of .side), > :nth-child(23 of o-text)) {
+.orbit:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-arc), > :nth-child(23 of .vector), > :nth-child(23 of .side)),
+[class*=orbit-]:has(> :nth-child(23 of .satellite), > :nth-child(23 of o-arc), > :nth-child(23 of .vector), > :nth-child(23 of .side)) {
   --o-angle: calc(var(--o-range) / (23 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-arc), > :nth-child(24 of .vector), > :nth-child(24 of .side), > :nth-child(24 of o-text)),
-[class*=orbit-]:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-arc), > :nth-child(24 of .vector), > :nth-child(24 of .side), > :nth-child(24 of o-text)) {
+.orbit:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-arc), > :nth-child(24 of .vector), > :nth-child(24 of .side)),
+[class*=orbit-]:has(> :nth-child(24 of .satellite), > :nth-child(24 of o-arc), > :nth-child(24 of .vector), > :nth-child(24 of .side)) {
   --o-angle: calc(var(--o-range) / (24 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-arc), > :nth-child(25 of .vector), > :nth-child(25 of .side), > :nth-child(25 of o-text)),
-[class*=orbit-]:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-arc), > :nth-child(25 of .vector), > :nth-child(25 of .side), > :nth-child(25 of o-text)) {
+.orbit:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-arc), > :nth-child(25 of .vector), > :nth-child(25 of .side)),
+[class*=orbit-]:has(> :nth-child(25 of .satellite), > :nth-child(25 of o-arc), > :nth-child(25 of .vector), > :nth-child(25 of .side)) {
   --o-angle: calc(var(--o-range) / (25 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-arc), > :nth-child(26 of .vector), > :nth-child(26 of .side), > :nth-child(26 of o-text)),
-[class*=orbit-]:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-arc), > :nth-child(26 of .vector), > :nth-child(26 of .side), > :nth-child(26 of o-text)) {
+.orbit:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-arc), > :nth-child(26 of .vector), > :nth-child(26 of .side)),
+[class*=orbit-]:has(> :nth-child(26 of .satellite), > :nth-child(26 of o-arc), > :nth-child(26 of .vector), > :nth-child(26 of .side)) {
   --o-angle: calc(var(--o-range) / (26 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-arc), > :nth-child(27 of .vector), > :nth-child(27 of .side), > :nth-child(27 of o-text)),
-[class*=orbit-]:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-arc), > :nth-child(27 of .vector), > :nth-child(27 of .side), > :nth-child(27 of o-text)) {
+.orbit:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-arc), > :nth-child(27 of .vector), > :nth-child(27 of .side)),
+[class*=orbit-]:has(> :nth-child(27 of .satellite), > :nth-child(27 of o-arc), > :nth-child(27 of .vector), > :nth-child(27 of .side)) {
   --o-angle: calc(var(--o-range) / (27 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-arc), > :nth-child(28 of .vector), > :nth-child(28 of .side), > :nth-child(28 of o-text)),
-[class*=orbit-]:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-arc), > :nth-child(28 of .vector), > :nth-child(28 of .side), > :nth-child(28 of o-text)) {
+.orbit:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-arc), > :nth-child(28 of .vector), > :nth-child(28 of .side)),
+[class*=orbit-]:has(> :nth-child(28 of .satellite), > :nth-child(28 of o-arc), > :nth-child(28 of .vector), > :nth-child(28 of .side)) {
   --o-angle: calc(var(--o-range) / (28 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-arc), > :nth-child(29 of .vector), > :nth-child(29 of .side), > :nth-child(29 of o-text)),
-[class*=orbit-]:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-arc), > :nth-child(29 of .vector), > :nth-child(29 of .side), > :nth-child(29 of o-text)) {
+.orbit:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-arc), > :nth-child(29 of .vector), > :nth-child(29 of .side)),
+[class*=orbit-]:has(> :nth-child(29 of .satellite), > :nth-child(29 of o-arc), > :nth-child(29 of .vector), > :nth-child(29 of .side)) {
   --o-angle: calc(var(--o-range) / (29 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-arc), > :nth-child(30 of .vector), > :nth-child(30 of .side), > :nth-child(30 of o-text)),
-[class*=orbit-]:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-arc), > :nth-child(30 of .vector), > :nth-child(30 of .side), > :nth-child(30 of o-text)) {
+.orbit:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-arc), > :nth-child(30 of .vector), > :nth-child(30 of .side)),
+[class*=orbit-]:has(> :nth-child(30 of .satellite), > :nth-child(30 of o-arc), > :nth-child(30 of .vector), > :nth-child(30 of .side)) {
   --o-angle: calc(var(--o-range) / (30 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-arc), > :nth-child(31 of .vector), > :nth-child(31 of .side), > :nth-child(31 of o-text)),
-[class*=orbit-]:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-arc), > :nth-child(31 of .vector), > :nth-child(31 of .side), > :nth-child(31 of o-text)) {
+.orbit:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-arc), > :nth-child(31 of .vector), > :nth-child(31 of .side)),
+[class*=orbit-]:has(> :nth-child(31 of .satellite), > :nth-child(31 of o-arc), > :nth-child(31 of .vector), > :nth-child(31 of .side)) {
   --o-angle: calc(var(--o-range) / (31 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-arc), > :nth-child(32 of .vector), > :nth-child(32 of .side), > :nth-child(32 of o-text)),
-[class*=orbit-]:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-arc), > :nth-child(32 of .vector), > :nth-child(32 of .side), > :nth-child(32 of o-text)) {
+.orbit:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-arc), > :nth-child(32 of .vector), > :nth-child(32 of .side)),
+[class*=orbit-]:has(> :nth-child(32 of .satellite), > :nth-child(32 of o-arc), > :nth-child(32 of .vector), > :nth-child(32 of .side)) {
   --o-angle: calc(var(--o-range) / (32 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-arc), > :nth-child(33 of .vector), > :nth-child(33 of .side), > :nth-child(33 of o-text)),
-[class*=orbit-]:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-arc), > :nth-child(33 of .vector), > :nth-child(33 of .side), > :nth-child(33 of o-text)) {
+.orbit:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-arc), > :nth-child(33 of .vector), > :nth-child(33 of .side)),
+[class*=orbit-]:has(> :nth-child(33 of .satellite), > :nth-child(33 of o-arc), > :nth-child(33 of .vector), > :nth-child(33 of .side)) {
   --o-angle: calc(var(--o-range) / (33 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-arc), > :nth-child(34 of .vector), > :nth-child(34 of .side), > :nth-child(34 of o-text)),
-[class*=orbit-]:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-arc), > :nth-child(34 of .vector), > :nth-child(34 of .side), > :nth-child(34 of o-text)) {
+.orbit:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-arc), > :nth-child(34 of .vector), > :nth-child(34 of .side)),
+[class*=orbit-]:has(> :nth-child(34 of .satellite), > :nth-child(34 of o-arc), > :nth-child(34 of .vector), > :nth-child(34 of .side)) {
   --o-angle: calc(var(--o-range) / (34 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-arc), > :nth-child(35 of .vector), > :nth-child(35 of .side), > :nth-child(35 of o-text)),
-[class*=orbit-]:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-arc), > :nth-child(35 of .vector), > :nth-child(35 of .side), > :nth-child(35 of o-text)) {
+.orbit:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-arc), > :nth-child(35 of .vector), > :nth-child(35 of .side)),
+[class*=orbit-]:has(> :nth-child(35 of .satellite), > :nth-child(35 of o-arc), > :nth-child(35 of .vector), > :nth-child(35 of .side)) {
   --o-angle: calc(var(--o-range) / (35 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-arc), > :nth-child(36 of .vector), > :nth-child(36 of .side), > :nth-child(36 of o-text)),
-[class*=orbit-]:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-arc), > :nth-child(36 of .vector), > :nth-child(36 of .side), > :nth-child(36 of o-text)) {
+.orbit:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-arc), > :nth-child(36 of .vector), > :nth-child(36 of .side)),
+[class*=orbit-]:has(> :nth-child(36 of .satellite), > :nth-child(36 of o-arc), > :nth-child(36 of .vector), > :nth-child(36 of .side)) {
   --o-angle: calc(var(--o-range) / (36 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-arc), > :nth-child(37 of .vector), > :nth-child(37 of .side), > :nth-child(37 of o-text)),
-[class*=orbit-]:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-arc), > :nth-child(37 of .vector), > :nth-child(37 of .side), > :nth-child(37 of o-text)) {
+.orbit:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-arc), > :nth-child(37 of .vector), > :nth-child(37 of .side)),
+[class*=orbit-]:has(> :nth-child(37 of .satellite), > :nth-child(37 of o-arc), > :nth-child(37 of .vector), > :nth-child(37 of .side)) {
   --o-angle: calc(var(--o-range) / (37 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-arc), > :nth-child(38 of .vector), > :nth-child(38 of .side), > :nth-child(38 of o-text)),
-[class*=orbit-]:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-arc), > :nth-child(38 of .vector), > :nth-child(38 of .side), > :nth-child(38 of o-text)) {
+.orbit:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-arc), > :nth-child(38 of .vector), > :nth-child(38 of .side)),
+[class*=orbit-]:has(> :nth-child(38 of .satellite), > :nth-child(38 of o-arc), > :nth-child(38 of .vector), > :nth-child(38 of .side)) {
   --o-angle: calc(var(--o-range) / (38 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-arc), > :nth-child(39 of .vector), > :nth-child(39 of .side), > :nth-child(39 of o-text)),
-[class*=orbit-]:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-arc), > :nth-child(39 of .vector), > :nth-child(39 of .side), > :nth-child(39 of o-text)) {
+.orbit:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-arc), > :nth-child(39 of .vector), > :nth-child(39 of .side)),
+[class*=orbit-]:has(> :nth-child(39 of .satellite), > :nth-child(39 of o-arc), > :nth-child(39 of .vector), > :nth-child(39 of .side)) {
   --o-angle: calc(var(--o-range) / (39 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-arc), > :nth-child(40 of .vector), > :nth-child(40 of .side), > :nth-child(40 of o-text)),
-[class*=orbit-]:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-arc), > :nth-child(40 of .vector), > :nth-child(40 of .side), > :nth-child(40 of o-text)) {
+.orbit:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-arc), > :nth-child(40 of .vector), > :nth-child(40 of .side)),
+[class*=orbit-]:has(> :nth-child(40 of .satellite), > :nth-child(40 of o-arc), > :nth-child(40 of .vector), > :nth-child(40 of .side)) {
   --o-angle: calc(var(--o-range) / (40 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-arc), > :nth-child(41 of .vector), > :nth-child(41 of .side), > :nth-child(41 of o-text)),
-[class*=orbit-]:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-arc), > :nth-child(41 of .vector), > :nth-child(41 of .side), > :nth-child(41 of o-text)) {
+.orbit:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-arc), > :nth-child(41 of .vector), > :nth-child(41 of .side)),
+[class*=orbit-]:has(> :nth-child(41 of .satellite), > :nth-child(41 of o-arc), > :nth-child(41 of .vector), > :nth-child(41 of .side)) {
   --o-angle: calc(var(--o-range) / (41 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-arc), > :nth-child(42 of .vector), > :nth-child(42 of .side), > :nth-child(42 of o-text)),
-[class*=orbit-]:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-arc), > :nth-child(42 of .vector), > :nth-child(42 of .side), > :nth-child(42 of o-text)) {
+.orbit:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-arc), > :nth-child(42 of .vector), > :nth-child(42 of .side)),
+[class*=orbit-]:has(> :nth-child(42 of .satellite), > :nth-child(42 of o-arc), > :nth-child(42 of .vector), > :nth-child(42 of .side)) {
   --o-angle: calc(var(--o-range) / (42 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-arc), > :nth-child(43 of .vector), > :nth-child(43 of .side), > :nth-child(43 of o-text)),
-[class*=orbit-]:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-arc), > :nth-child(43 of .vector), > :nth-child(43 of .side), > :nth-child(43 of o-text)) {
+.orbit:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-arc), > :nth-child(43 of .vector), > :nth-child(43 of .side)),
+[class*=orbit-]:has(> :nth-child(43 of .satellite), > :nth-child(43 of o-arc), > :nth-child(43 of .vector), > :nth-child(43 of .side)) {
   --o-angle: calc(var(--o-range) / (43 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-arc), > :nth-child(44 of .vector), > :nth-child(44 of .side), > :nth-child(44 of o-text)),
-[class*=orbit-]:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-arc), > :nth-child(44 of .vector), > :nth-child(44 of .side), > :nth-child(44 of o-text)) {
+.orbit:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-arc), > :nth-child(44 of .vector), > :nth-child(44 of .side)),
+[class*=orbit-]:has(> :nth-child(44 of .satellite), > :nth-child(44 of o-arc), > :nth-child(44 of .vector), > :nth-child(44 of .side)) {
   --o-angle: calc(var(--o-range) / (44 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-arc), > :nth-child(45 of .vector), > :nth-child(45 of .side), > :nth-child(45 of o-text)),
-[class*=orbit-]:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-arc), > :nth-child(45 of .vector), > :nth-child(45 of .side), > :nth-child(45 of o-text)) {
+.orbit:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-arc), > :nth-child(45 of .vector), > :nth-child(45 of .side)),
+[class*=orbit-]:has(> :nth-child(45 of .satellite), > :nth-child(45 of o-arc), > :nth-child(45 of .vector), > :nth-child(45 of .side)) {
   --o-angle: calc(var(--o-range) / (45 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-arc), > :nth-child(46 of .vector), > :nth-child(46 of .side), > :nth-child(46 of o-text)),
-[class*=orbit-]:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-arc), > :nth-child(46 of .vector), > :nth-child(46 of .side), > :nth-child(46 of o-text)) {
+.orbit:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-arc), > :nth-child(46 of .vector), > :nth-child(46 of .side)),
+[class*=orbit-]:has(> :nth-child(46 of .satellite), > :nth-child(46 of o-arc), > :nth-child(46 of .vector), > :nth-child(46 of .side)) {
   --o-angle: calc(var(--o-range) / (46 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-arc), > :nth-child(47 of .vector), > :nth-child(47 of .side), > :nth-child(47 of o-text)),
-[class*=orbit-]:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-arc), > :nth-child(47 of .vector), > :nth-child(47 of .side), > :nth-child(47 of o-text)) {
+.orbit:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-arc), > :nth-child(47 of .vector), > :nth-child(47 of .side)),
+[class*=orbit-]:has(> :nth-child(47 of .satellite), > :nth-child(47 of o-arc), > :nth-child(47 of .vector), > :nth-child(47 of .side)) {
   --o-angle: calc(var(--o-range) / (47 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-arc), > :nth-child(48 of .vector), > :nth-child(48 of .side), > :nth-child(48 of o-text)),
-[class*=orbit-]:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-arc), > :nth-child(48 of .vector), > :nth-child(48 of .side), > :nth-child(48 of o-text)) {
+.orbit:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-arc), > :nth-child(48 of .vector), > :nth-child(48 of .side)),
+[class*=orbit-]:has(> :nth-child(48 of .satellite), > :nth-child(48 of o-arc), > :nth-child(48 of .vector), > :nth-child(48 of .side)) {
   --o-angle: calc(var(--o-range) / (48 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-arc), > :nth-child(49 of .vector), > :nth-child(49 of .side), > :nth-child(49 of o-text)),
-[class*=orbit-]:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-arc), > :nth-child(49 of .vector), > :nth-child(49 of .side), > :nth-child(49 of o-text)) {
+.orbit:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-arc), > :nth-child(49 of .vector), > :nth-child(49 of .side)),
+[class*=orbit-]:has(> :nth-child(49 of .satellite), > :nth-child(49 of o-arc), > :nth-child(49 of .vector), > :nth-child(49 of .side)) {
   --o-angle: calc(var(--o-range) / (49 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-arc), > :nth-child(50 of .vector), > :nth-child(50 of .side), > :nth-child(50 of o-text)),
-[class*=orbit-]:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-arc), > :nth-child(50 of .vector), > :nth-child(50 of .side), > :nth-child(50 of o-text)) {
+.orbit:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-arc), > :nth-child(50 of .vector), > :nth-child(50 of .side)),
+[class*=orbit-]:has(> :nth-child(50 of .satellite), > :nth-child(50 of o-arc), > :nth-child(50 of .vector), > :nth-child(50 of .side)) {
   --o-angle: calc(var(--o-range) / (50 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-arc), > :nth-child(51 of .vector), > :nth-child(51 of .side), > :nth-child(51 of o-text)),
-[class*=orbit-]:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-arc), > :nth-child(51 of .vector), > :nth-child(51 of .side), > :nth-child(51 of o-text)) {
+.orbit:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-arc), > :nth-child(51 of .vector), > :nth-child(51 of .side)),
+[class*=orbit-]:has(> :nth-child(51 of .satellite), > :nth-child(51 of o-arc), > :nth-child(51 of .vector), > :nth-child(51 of .side)) {
   --o-angle: calc(var(--o-range) / (51 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-arc), > :nth-child(52 of .vector), > :nth-child(52 of .side), > :nth-child(52 of o-text)),
-[class*=orbit-]:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-arc), > :nth-child(52 of .vector), > :nth-child(52 of .side), > :nth-child(52 of o-text)) {
+.orbit:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-arc), > :nth-child(52 of .vector), > :nth-child(52 of .side)),
+[class*=orbit-]:has(> :nth-child(52 of .satellite), > :nth-child(52 of o-arc), > :nth-child(52 of .vector), > :nth-child(52 of .side)) {
   --o-angle: calc(var(--o-range) / (52 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-arc), > :nth-child(53 of .vector), > :nth-child(53 of .side), > :nth-child(53 of o-text)),
-[class*=orbit-]:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-arc), > :nth-child(53 of .vector), > :nth-child(53 of .side), > :nth-child(53 of o-text)) {
+.orbit:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-arc), > :nth-child(53 of .vector), > :nth-child(53 of .side)),
+[class*=orbit-]:has(> :nth-child(53 of .satellite), > :nth-child(53 of o-arc), > :nth-child(53 of .vector), > :nth-child(53 of .side)) {
   --o-angle: calc(var(--o-range) / (53 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-arc), > :nth-child(54 of .vector), > :nth-child(54 of .side), > :nth-child(54 of o-text)),
-[class*=orbit-]:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-arc), > :nth-child(54 of .vector), > :nth-child(54 of .side), > :nth-child(54 of o-text)) {
+.orbit:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-arc), > :nth-child(54 of .vector), > :nth-child(54 of .side)),
+[class*=orbit-]:has(> :nth-child(54 of .satellite), > :nth-child(54 of o-arc), > :nth-child(54 of .vector), > :nth-child(54 of .side)) {
   --o-angle: calc(var(--o-range) / (54 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-arc), > :nth-child(55 of .vector), > :nth-child(55 of .side), > :nth-child(55 of o-text)),
-[class*=orbit-]:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-arc), > :nth-child(55 of .vector), > :nth-child(55 of .side), > :nth-child(55 of o-text)) {
+.orbit:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-arc), > :nth-child(55 of .vector), > :nth-child(55 of .side)),
+[class*=orbit-]:has(> :nth-child(55 of .satellite), > :nth-child(55 of o-arc), > :nth-child(55 of .vector), > :nth-child(55 of .side)) {
   --o-angle: calc(var(--o-range) / (55 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-arc), > :nth-child(56 of .vector), > :nth-child(56 of .side), > :nth-child(56 of o-text)),
-[class*=orbit-]:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-arc), > :nth-child(56 of .vector), > :nth-child(56 of .side), > :nth-child(56 of o-text)) {
+.orbit:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-arc), > :nth-child(56 of .vector), > :nth-child(56 of .side)),
+[class*=orbit-]:has(> :nth-child(56 of .satellite), > :nth-child(56 of o-arc), > :nth-child(56 of .vector), > :nth-child(56 of .side)) {
   --o-angle: calc(var(--o-range) / (56 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-arc), > :nth-child(57 of .vector), > :nth-child(57 of .side), > :nth-child(57 of o-text)),
-[class*=orbit-]:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-arc), > :nth-child(57 of .vector), > :nth-child(57 of .side), > :nth-child(57 of o-text)) {
+.orbit:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-arc), > :nth-child(57 of .vector), > :nth-child(57 of .side)),
+[class*=orbit-]:has(> :nth-child(57 of .satellite), > :nth-child(57 of o-arc), > :nth-child(57 of .vector), > :nth-child(57 of .side)) {
   --o-angle: calc(var(--o-range) / (57 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-arc), > :nth-child(58 of .vector), > :nth-child(58 of .side), > :nth-child(58 of o-text)),
-[class*=orbit-]:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-arc), > :nth-child(58 of .vector), > :nth-child(58 of .side), > :nth-child(58 of o-text)) {
+.orbit:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-arc), > :nth-child(58 of .vector), > :nth-child(58 of .side)),
+[class*=orbit-]:has(> :nth-child(58 of .satellite), > :nth-child(58 of o-arc), > :nth-child(58 of .vector), > :nth-child(58 of .side)) {
   --o-angle: calc(var(--o-range) / (58 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-arc), > :nth-child(59 of .vector), > :nth-child(59 of .side), > :nth-child(59 of o-text)),
-[class*=orbit-]:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-arc), > :nth-child(59 of .vector), > :nth-child(59 of .side), > :nth-child(59 of o-text)) {
+.orbit:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-arc), > :nth-child(59 of .vector), > :nth-child(59 of .side)),
+[class*=orbit-]:has(> :nth-child(59 of .satellite), > :nth-child(59 of o-arc), > :nth-child(59 of .vector), > :nth-child(59 of .side)) {
   --o-angle: calc(var(--o-range) / (59 - var(--o-fit-range, 0)));
 }
-.orbit:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-arc), > :nth-child(60 of .vector), > :nth-child(60 of .side), > :nth-child(60 of o-text)),
-[class*=orbit-]:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-arc), > :nth-child(60 of .vector), > :nth-child(60 of .side), > :nth-child(60 of o-text)) {
+.orbit:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-arc), > :nth-child(60 of .vector), > :nth-child(60 of .side)),
+[class*=orbit-]:has(> :nth-child(60 of .satellite), > :nth-child(60 of o-arc), > :nth-child(60 of .vector), > :nth-child(60 of .side)) {
   --o-angle: calc(var(--o-range) / (60 - var(--o-fit-range, 0)));
 }
 .orbit:has(> :nth-child(1 of .side)),
@@ -1205,6 +1145,7 @@ body > .bigbang {
 }
 .satellite {
   container-name: satellite;
+  --o-size-ratio: 1;
   --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) var(--o-offset, + 270deg)) * var(--o-direction, 1);
   --o-transform: translate( calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite )) ), calc( (var(--o-radius) - var(--o-aligment, 0px)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)) ) );
   transform: var(--o-transform) var(--o-transform-custom, rotate(0deg));
@@ -1267,6 +1208,7 @@ body > .bigbang {
 o-arc {
   --o-angle-composite: var(--o-angle) * var(--o-orbit-child-number) * var(--o-direction, 1);
   --o-gap: 1;
+  --o_stack: 0;
   container-name: oslice;
   display: flex;
   justify-content: center;
@@ -1274,10 +1216,15 @@ o-arc {
   border-radius: 50%;
   position: absolute;
   pointer-events: none;
+  fill: currentColor;
   width: 100%;
   r: var(--o-radius);
   stroke-width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
+}
+o-arc[flip]:not([value]),
+o-arc.flip:not([value]) {
+  --o-angle-composite: var(--o-angle) * calc(var(--o-orbit-child-number) + 1) * var(--o-direction, 1);
 }
 o-text {
   --o-angle-composite: var(--o-angle) * var(--o-orbit-child-number) * var(--o-direction, 1);
@@ -1294,7 +1241,8 @@ o-text {
   stroke-width: calc(var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1));
   transform: rotate(calc(var(--o-from) + var(--o-angle-composite)));
 }
-o-text[flip] {
+o-text[flip],
+o-text.flip {
   --o-angle-composite: var(--o-angle) * calc(var(--o-orbit-child-number) + 1) * var(--o-direction, 1);
 }
 o-progress {
@@ -3559,6 +3507,9 @@ o-progress {
 .from-360 {
   --o-from: 360deg;
 }
+[class*=angle-] {
+  --o-from: 0deg !important;
+}
 .angle-0 {
   --o-angle-composite: calc(0deg - 90deg) !important;
 }
@@ -4643,1932 +4594,1540 @@ o-progress {
   --o-angle-composite: calc(360deg - 90deg) !important;
 }
 o-arc.angle-0,
-o-progress.angle-0,
-o-text.angle-0 {
+o-progress.angle-0 {
   --o-angle-composite: calc(0deg) !important;
 }
 o-arc.angle-1,
-o-progress.angle-1,
-o-text.angle-1 {
+o-progress.angle-1 {
   --o-angle-composite: calc(1deg) !important;
 }
 o-arc.angle-2,
-o-progress.angle-2,
-o-text.angle-2 {
+o-progress.angle-2 {
   --o-angle-composite: calc(2deg) !important;
 }
 o-arc.angle-3,
-o-progress.angle-3,
-o-text.angle-3 {
+o-progress.angle-3 {
   --o-angle-composite: calc(3deg) !important;
 }
 o-arc.angle-4,
-o-progress.angle-4,
-o-text.angle-4 {
+o-progress.angle-4 {
   --o-angle-composite: calc(4deg) !important;
 }
 o-arc.angle-5,
-o-progress.angle-5,
-o-text.angle-5 {
+o-progress.angle-5 {
   --o-angle-composite: calc(5deg) !important;
 }
 o-arc.angle-6,
-o-progress.angle-6,
-o-text.angle-6 {
+o-progress.angle-6 {
   --o-angle-composite: calc(6deg) !important;
 }
 o-arc.angle-7,
-o-progress.angle-7,
-o-text.angle-7 {
+o-progress.angle-7 {
   --o-angle-composite: calc(7deg) !important;
 }
 o-arc.angle-8,
-o-progress.angle-8,
-o-text.angle-8 {
+o-progress.angle-8 {
   --o-angle-composite: calc(8deg) !important;
 }
 o-arc.angle-9,
-o-progress.angle-9,
-o-text.angle-9 {
+o-progress.angle-9 {
   --o-angle-composite: calc(9deg) !important;
 }
 o-arc.angle-10,
-o-progress.angle-10,
-o-text.angle-10 {
+o-progress.angle-10 {
   --o-angle-composite: calc(10deg) !important;
 }
 o-arc.angle-11,
-o-progress.angle-11,
-o-text.angle-11 {
+o-progress.angle-11 {
   --o-angle-composite: calc(11deg) !important;
 }
 o-arc.angle-12,
-o-progress.angle-12,
-o-text.angle-12 {
+o-progress.angle-12 {
   --o-angle-composite: calc(12deg) !important;
 }
 o-arc.angle-13,
-o-progress.angle-13,
-o-text.angle-13 {
+o-progress.angle-13 {
   --o-angle-composite: calc(13deg) !important;
 }
 o-arc.angle-14,
-o-progress.angle-14,
-o-text.angle-14 {
+o-progress.angle-14 {
   --o-angle-composite: calc(14deg) !important;
 }
 o-arc.angle-15,
-o-progress.angle-15,
-o-text.angle-15 {
+o-progress.angle-15 {
   --o-angle-composite: calc(15deg) !important;
 }
 o-arc.angle-16,
-o-progress.angle-16,
-o-text.angle-16 {
+o-progress.angle-16 {
   --o-angle-composite: calc(16deg) !important;
 }
 o-arc.angle-17,
-o-progress.angle-17,
-o-text.angle-17 {
+o-progress.angle-17 {
   --o-angle-composite: calc(17deg) !important;
 }
 o-arc.angle-18,
-o-progress.angle-18,
-o-text.angle-18 {
+o-progress.angle-18 {
   --o-angle-composite: calc(18deg) !important;
 }
 o-arc.angle-19,
-o-progress.angle-19,
-o-text.angle-19 {
+o-progress.angle-19 {
   --o-angle-composite: calc(19deg) !important;
 }
 o-arc.angle-20,
-o-progress.angle-20,
-o-text.angle-20 {
+o-progress.angle-20 {
   --o-angle-composite: calc(20deg) !important;
 }
 o-arc.angle-21,
-o-progress.angle-21,
-o-text.angle-21 {
+o-progress.angle-21 {
   --o-angle-composite: calc(21deg) !important;
 }
 o-arc.angle-22,
-o-progress.angle-22,
-o-text.angle-22 {
+o-progress.angle-22 {
   --o-angle-composite: calc(22deg) !important;
 }
 o-arc.angle-23,
-o-progress.angle-23,
-o-text.angle-23 {
+o-progress.angle-23 {
   --o-angle-composite: calc(23deg) !important;
 }
 o-arc.angle-24,
-o-progress.angle-24,
-o-text.angle-24 {
+o-progress.angle-24 {
   --o-angle-composite: calc(24deg) !important;
 }
 o-arc.angle-25,
-o-progress.angle-25,
-o-text.angle-25 {
+o-progress.angle-25 {
   --o-angle-composite: calc(25deg) !important;
 }
 o-arc.angle-26,
-o-progress.angle-26,
-o-text.angle-26 {
+o-progress.angle-26 {
   --o-angle-composite: calc(26deg) !important;
 }
 o-arc.angle-27,
-o-progress.angle-27,
-o-text.angle-27 {
+o-progress.angle-27 {
   --o-angle-composite: calc(27deg) !important;
 }
 o-arc.angle-28,
-o-progress.angle-28,
-o-text.angle-28 {
+o-progress.angle-28 {
   --o-angle-composite: calc(28deg) !important;
 }
 o-arc.angle-29,
-o-progress.angle-29,
-o-text.angle-29 {
+o-progress.angle-29 {
   --o-angle-composite: calc(29deg) !important;
 }
 o-arc.angle-30,
-o-progress.angle-30,
-o-text.angle-30 {
+o-progress.angle-30 {
   --o-angle-composite: calc(30deg) !important;
 }
 o-arc.angle-31,
-o-progress.angle-31,
-o-text.angle-31 {
+o-progress.angle-31 {
   --o-angle-composite: calc(31deg) !important;
 }
 o-arc.angle-32,
-o-progress.angle-32,
-o-text.angle-32 {
+o-progress.angle-32 {
   --o-angle-composite: calc(32deg) !important;
 }
 o-arc.angle-33,
-o-progress.angle-33,
-o-text.angle-33 {
+o-progress.angle-33 {
   --o-angle-composite: calc(33deg) !important;
 }
 o-arc.angle-34,
-o-progress.angle-34,
-o-text.angle-34 {
+o-progress.angle-34 {
   --o-angle-composite: calc(34deg) !important;
 }
 o-arc.angle-35,
-o-progress.angle-35,
-o-text.angle-35 {
+o-progress.angle-35 {
   --o-angle-composite: calc(35deg) !important;
 }
 o-arc.angle-36,
-o-progress.angle-36,
-o-text.angle-36 {
+o-progress.angle-36 {
   --o-angle-composite: calc(36deg) !important;
 }
 o-arc.angle-37,
-o-progress.angle-37,
-o-text.angle-37 {
+o-progress.angle-37 {
   --o-angle-composite: calc(37deg) !important;
 }
 o-arc.angle-38,
-o-progress.angle-38,
-o-text.angle-38 {
+o-progress.angle-38 {
   --o-angle-composite: calc(38deg) !important;
 }
 o-arc.angle-39,
-o-progress.angle-39,
-o-text.angle-39 {
+o-progress.angle-39 {
   --o-angle-composite: calc(39deg) !important;
 }
 o-arc.angle-40,
-o-progress.angle-40,
-o-text.angle-40 {
+o-progress.angle-40 {
   --o-angle-composite: calc(40deg) !important;
 }
 o-arc.angle-41,
-o-progress.angle-41,
-o-text.angle-41 {
+o-progress.angle-41 {
   --o-angle-composite: calc(41deg) !important;
 }
 o-arc.angle-42,
-o-progress.angle-42,
-o-text.angle-42 {
+o-progress.angle-42 {
   --o-angle-composite: calc(42deg) !important;
 }
 o-arc.angle-43,
-o-progress.angle-43,
-o-text.angle-43 {
+o-progress.angle-43 {
   --o-angle-composite: calc(43deg) !important;
 }
 o-arc.angle-44,
-o-progress.angle-44,
-o-text.angle-44 {
+o-progress.angle-44 {
   --o-angle-composite: calc(44deg) !important;
 }
 o-arc.angle-45,
-o-progress.angle-45,
-o-text.angle-45 {
+o-progress.angle-45 {
   --o-angle-composite: calc(45deg) !important;
 }
 o-arc.angle-46,
-o-progress.angle-46,
-o-text.angle-46 {
+o-progress.angle-46 {
   --o-angle-composite: calc(46deg) !important;
 }
 o-arc.angle-47,
-o-progress.angle-47,
-o-text.angle-47 {
+o-progress.angle-47 {
   --o-angle-composite: calc(47deg) !important;
 }
 o-arc.angle-48,
-o-progress.angle-48,
-o-text.angle-48 {
+o-progress.angle-48 {
   --o-angle-composite: calc(48deg) !important;
 }
 o-arc.angle-49,
-o-progress.angle-49,
-o-text.angle-49 {
+o-progress.angle-49 {
   --o-angle-composite: calc(49deg) !important;
 }
 o-arc.angle-50,
-o-progress.angle-50,
-o-text.angle-50 {
+o-progress.angle-50 {
   --o-angle-composite: calc(50deg) !important;
 }
 o-arc.angle-51,
-o-progress.angle-51,
-o-text.angle-51 {
+o-progress.angle-51 {
   --o-angle-composite: calc(51deg) !important;
 }
 o-arc.angle-52,
-o-progress.angle-52,
-o-text.angle-52 {
+o-progress.angle-52 {
   --o-angle-composite: calc(52deg) !important;
 }
 o-arc.angle-53,
-o-progress.angle-53,
-o-text.angle-53 {
+o-progress.angle-53 {
   --o-angle-composite: calc(53deg) !important;
 }
 o-arc.angle-54,
-o-progress.angle-54,
-o-text.angle-54 {
+o-progress.angle-54 {
   --o-angle-composite: calc(54deg) !important;
 }
 o-arc.angle-55,
-o-progress.angle-55,
-o-text.angle-55 {
+o-progress.angle-55 {
   --o-angle-composite: calc(55deg) !important;
 }
 o-arc.angle-56,
-o-progress.angle-56,
-o-text.angle-56 {
+o-progress.angle-56 {
   --o-angle-composite: calc(56deg) !important;
 }
 o-arc.angle-57,
-o-progress.angle-57,
-o-text.angle-57 {
+o-progress.angle-57 {
   --o-angle-composite: calc(57deg) !important;
 }
 o-arc.angle-58,
-o-progress.angle-58,
-o-text.angle-58 {
+o-progress.angle-58 {
   --o-angle-composite: calc(58deg) !important;
 }
 o-arc.angle-59,
-o-progress.angle-59,
-o-text.angle-59 {
+o-progress.angle-59 {
   --o-angle-composite: calc(59deg) !important;
 }
 o-arc.angle-60,
-o-progress.angle-60,
-o-text.angle-60 {
+o-progress.angle-60 {
   --o-angle-composite: calc(60deg) !important;
 }
 o-arc.angle-61,
-o-progress.angle-61,
-o-text.angle-61 {
+o-progress.angle-61 {
   --o-angle-composite: calc(61deg) !important;
 }
 o-arc.angle-62,
-o-progress.angle-62,
-o-text.angle-62 {
+o-progress.angle-62 {
   --o-angle-composite: calc(62deg) !important;
 }
 o-arc.angle-63,
-o-progress.angle-63,
-o-text.angle-63 {
+o-progress.angle-63 {
   --o-angle-composite: calc(63deg) !important;
 }
 o-arc.angle-64,
-o-progress.angle-64,
-o-text.angle-64 {
+o-progress.angle-64 {
   --o-angle-composite: calc(64deg) !important;
 }
 o-arc.angle-65,
-o-progress.angle-65,
-o-text.angle-65 {
+o-progress.angle-65 {
   --o-angle-composite: calc(65deg) !important;
 }
 o-arc.angle-66,
-o-progress.angle-66,
-o-text.angle-66 {
+o-progress.angle-66 {
   --o-angle-composite: calc(66deg) !important;
 }
 o-arc.angle-67,
-o-progress.angle-67,
-o-text.angle-67 {
+o-progress.angle-67 {
   --o-angle-composite: calc(67deg) !important;
 }
 o-arc.angle-68,
-o-progress.angle-68,
-o-text.angle-68 {
+o-progress.angle-68 {
   --o-angle-composite: calc(68deg) !important;
 }
 o-arc.angle-69,
-o-progress.angle-69,
-o-text.angle-69 {
+o-progress.angle-69 {
   --o-angle-composite: calc(69deg) !important;
 }
 o-arc.angle-70,
-o-progress.angle-70,
-o-text.angle-70 {
+o-progress.angle-70 {
   --o-angle-composite: calc(70deg) !important;
 }
 o-arc.angle-71,
-o-progress.angle-71,
-o-text.angle-71 {
+o-progress.angle-71 {
   --o-angle-composite: calc(71deg) !important;
 }
 o-arc.angle-72,
-o-progress.angle-72,
-o-text.angle-72 {
+o-progress.angle-72 {
   --o-angle-composite: calc(72deg) !important;
 }
 o-arc.angle-73,
-o-progress.angle-73,
-o-text.angle-73 {
+o-progress.angle-73 {
   --o-angle-composite: calc(73deg) !important;
 }
 o-arc.angle-74,
-o-progress.angle-74,
-o-text.angle-74 {
+o-progress.angle-74 {
   --o-angle-composite: calc(74deg) !important;
 }
 o-arc.angle-75,
-o-progress.angle-75,
-o-text.angle-75 {
+o-progress.angle-75 {
   --o-angle-composite: calc(75deg) !important;
 }
 o-arc.angle-76,
-o-progress.angle-76,
-o-text.angle-76 {
+o-progress.angle-76 {
   --o-angle-composite: calc(76deg) !important;
 }
 o-arc.angle-77,
-o-progress.angle-77,
-o-text.angle-77 {
+o-progress.angle-77 {
   --o-angle-composite: calc(77deg) !important;
 }
 o-arc.angle-78,
-o-progress.angle-78,
-o-text.angle-78 {
+o-progress.angle-78 {
   --o-angle-composite: calc(78deg) !important;
 }
 o-arc.angle-79,
-o-progress.angle-79,
-o-text.angle-79 {
+o-progress.angle-79 {
   --o-angle-composite: calc(79deg) !important;
 }
 o-arc.angle-80,
-o-progress.angle-80,
-o-text.angle-80 {
+o-progress.angle-80 {
   --o-angle-composite: calc(80deg) !important;
 }
 o-arc.angle-81,
-o-progress.angle-81,
-o-text.angle-81 {
+o-progress.angle-81 {
   --o-angle-composite: calc(81deg) !important;
 }
 o-arc.angle-82,
-o-progress.angle-82,
-o-text.angle-82 {
+o-progress.angle-82 {
   --o-angle-composite: calc(82deg) !important;
 }
 o-arc.angle-83,
-o-progress.angle-83,
-o-text.angle-83 {
+o-progress.angle-83 {
   --o-angle-composite: calc(83deg) !important;
 }
 o-arc.angle-84,
-o-progress.angle-84,
-o-text.angle-84 {
+o-progress.angle-84 {
   --o-angle-composite: calc(84deg) !important;
 }
 o-arc.angle-85,
-o-progress.angle-85,
-o-text.angle-85 {
+o-progress.angle-85 {
   --o-angle-composite: calc(85deg) !important;
 }
 o-arc.angle-86,
-o-progress.angle-86,
-o-text.angle-86 {
+o-progress.angle-86 {
   --o-angle-composite: calc(86deg) !important;
 }
 o-arc.angle-87,
-o-progress.angle-87,
-o-text.angle-87 {
+o-progress.angle-87 {
   --o-angle-composite: calc(87deg) !important;
 }
 o-arc.angle-88,
-o-progress.angle-88,
-o-text.angle-88 {
+o-progress.angle-88 {
   --o-angle-composite: calc(88deg) !important;
 }
 o-arc.angle-89,
-o-progress.angle-89,
-o-text.angle-89 {
+o-progress.angle-89 {
   --o-angle-composite: calc(89deg) !important;
 }
 o-arc.angle-90,
-o-progress.angle-90,
-o-text.angle-90 {
+o-progress.angle-90 {
   --o-angle-composite: calc(90deg) !important;
 }
 o-arc.angle-91,
-o-progress.angle-91,
-o-text.angle-91 {
+o-progress.angle-91 {
   --o-angle-composite: calc(91deg) !important;
 }
 o-arc.angle-92,
-o-progress.angle-92,
-o-text.angle-92 {
+o-progress.angle-92 {
   --o-angle-composite: calc(92deg) !important;
 }
 o-arc.angle-93,
-o-progress.angle-93,
-o-text.angle-93 {
+o-progress.angle-93 {
   --o-angle-composite: calc(93deg) !important;
 }
 o-arc.angle-94,
-o-progress.angle-94,
-o-text.angle-94 {
+o-progress.angle-94 {
   --o-angle-composite: calc(94deg) !important;
 }
 o-arc.angle-95,
-o-progress.angle-95,
-o-text.angle-95 {
+o-progress.angle-95 {
   --o-angle-composite: calc(95deg) !important;
 }
 o-arc.angle-96,
-o-progress.angle-96,
-o-text.angle-96 {
+o-progress.angle-96 {
   --o-angle-composite: calc(96deg) !important;
 }
 o-arc.angle-97,
-o-progress.angle-97,
-o-text.angle-97 {
+o-progress.angle-97 {
   --o-angle-composite: calc(97deg) !important;
 }
 o-arc.angle-98,
-o-progress.angle-98,
-o-text.angle-98 {
+o-progress.angle-98 {
   --o-angle-composite: calc(98deg) !important;
 }
 o-arc.angle-99,
-o-progress.angle-99,
-o-text.angle-99 {
+o-progress.angle-99 {
   --o-angle-composite: calc(99deg) !important;
 }
 o-arc.angle-100,
-o-progress.angle-100,
-o-text.angle-100 {
+o-progress.angle-100 {
   --o-angle-composite: calc(100deg) !important;
 }
 o-arc.angle-101,
-o-progress.angle-101,
-o-text.angle-101 {
+o-progress.angle-101 {
   --o-angle-composite: calc(101deg) !important;
 }
 o-arc.angle-102,
-o-progress.angle-102,
-o-text.angle-102 {
+o-progress.angle-102 {
   --o-angle-composite: calc(102deg) !important;
 }
 o-arc.angle-103,
-o-progress.angle-103,
-o-text.angle-103 {
+o-progress.angle-103 {
   --o-angle-composite: calc(103deg) !important;
 }
 o-arc.angle-104,
-o-progress.angle-104,
-o-text.angle-104 {
+o-progress.angle-104 {
   --o-angle-composite: calc(104deg) !important;
 }
 o-arc.angle-105,
-o-progress.angle-105,
-o-text.angle-105 {
+o-progress.angle-105 {
   --o-angle-composite: calc(105deg) !important;
 }
 o-arc.angle-106,
-o-progress.angle-106,
-o-text.angle-106 {
+o-progress.angle-106 {
   --o-angle-composite: calc(106deg) !important;
 }
 o-arc.angle-107,
-o-progress.angle-107,
-o-text.angle-107 {
+o-progress.angle-107 {
   --o-angle-composite: calc(107deg) !important;
 }
 o-arc.angle-108,
-o-progress.angle-108,
-o-text.angle-108 {
+o-progress.angle-108 {
   --o-angle-composite: calc(108deg) !important;
 }
 o-arc.angle-109,
-o-progress.angle-109,
-o-text.angle-109 {
+o-progress.angle-109 {
   --o-angle-composite: calc(109deg) !important;
 }
 o-arc.angle-110,
-o-progress.angle-110,
-o-text.angle-110 {
+o-progress.angle-110 {
   --o-angle-composite: calc(110deg) !important;
 }
 o-arc.angle-111,
-o-progress.angle-111,
-o-text.angle-111 {
+o-progress.angle-111 {
   --o-angle-composite: calc(111deg) !important;
 }
 o-arc.angle-112,
-o-progress.angle-112,
-o-text.angle-112 {
+o-progress.angle-112 {
   --o-angle-composite: calc(112deg) !important;
 }
 o-arc.angle-113,
-o-progress.angle-113,
-o-text.angle-113 {
+o-progress.angle-113 {
   --o-angle-composite: calc(113deg) !important;
 }
 o-arc.angle-114,
-o-progress.angle-114,
-o-text.angle-114 {
+o-progress.angle-114 {
   --o-angle-composite: calc(114deg) !important;
 }
 o-arc.angle-115,
-o-progress.angle-115,
-o-text.angle-115 {
+o-progress.angle-115 {
   --o-angle-composite: calc(115deg) !important;
 }
 o-arc.angle-116,
-o-progress.angle-116,
-o-text.angle-116 {
+o-progress.angle-116 {
   --o-angle-composite: calc(116deg) !important;
 }
 o-arc.angle-117,
-o-progress.angle-117,
-o-text.angle-117 {
+o-progress.angle-117 {
   --o-angle-composite: calc(117deg) !important;
 }
 o-arc.angle-118,
-o-progress.angle-118,
-o-text.angle-118 {
+o-progress.angle-118 {
   --o-angle-composite: calc(118deg) !important;
 }
 o-arc.angle-119,
-o-progress.angle-119,
-o-text.angle-119 {
+o-progress.angle-119 {
   --o-angle-composite: calc(119deg) !important;
 }
 o-arc.angle-120,
-o-progress.angle-120,
-o-text.angle-120 {
+o-progress.angle-120 {
   --o-angle-composite: calc(120deg) !important;
 }
 o-arc.angle-121,
-o-progress.angle-121,
-o-text.angle-121 {
+o-progress.angle-121 {
   --o-angle-composite: calc(121deg) !important;
 }
 o-arc.angle-122,
-o-progress.angle-122,
-o-text.angle-122 {
+o-progress.angle-122 {
   --o-angle-composite: calc(122deg) !important;
 }
 o-arc.angle-123,
-o-progress.angle-123,
-o-text.angle-123 {
+o-progress.angle-123 {
   --o-angle-composite: calc(123deg) !important;
 }
 o-arc.angle-124,
-o-progress.angle-124,
-o-text.angle-124 {
+o-progress.angle-124 {
   --o-angle-composite: calc(124deg) !important;
 }
 o-arc.angle-125,
-o-progress.angle-125,
-o-text.angle-125 {
+o-progress.angle-125 {
   --o-angle-composite: calc(125deg) !important;
 }
 o-arc.angle-126,
-o-progress.angle-126,
-o-text.angle-126 {
+o-progress.angle-126 {
   --o-angle-composite: calc(126deg) !important;
 }
 o-arc.angle-127,
-o-progress.angle-127,
-o-text.angle-127 {
+o-progress.angle-127 {
   --o-angle-composite: calc(127deg) !important;
 }
 o-arc.angle-128,
-o-progress.angle-128,
-o-text.angle-128 {
+o-progress.angle-128 {
   --o-angle-composite: calc(128deg) !important;
 }
 o-arc.angle-129,
-o-progress.angle-129,
-o-text.angle-129 {
+o-progress.angle-129 {
   --o-angle-composite: calc(129deg) !important;
 }
 o-arc.angle-130,
-o-progress.angle-130,
-o-text.angle-130 {
+o-progress.angle-130 {
   --o-angle-composite: calc(130deg) !important;
 }
 o-arc.angle-131,
-o-progress.angle-131,
-o-text.angle-131 {
+o-progress.angle-131 {
   --o-angle-composite: calc(131deg) !important;
 }
 o-arc.angle-132,
-o-progress.angle-132,
-o-text.angle-132 {
+o-progress.angle-132 {
   --o-angle-composite: calc(132deg) !important;
 }
 o-arc.angle-133,
-o-progress.angle-133,
-o-text.angle-133 {
+o-progress.angle-133 {
   --o-angle-composite: calc(133deg) !important;
 }
 o-arc.angle-134,
-o-progress.angle-134,
-o-text.angle-134 {
+o-progress.angle-134 {
   --o-angle-composite: calc(134deg) !important;
 }
 o-arc.angle-135,
-o-progress.angle-135,
-o-text.angle-135 {
+o-progress.angle-135 {
   --o-angle-composite: calc(135deg) !important;
 }
 o-arc.angle-136,
-o-progress.angle-136,
-o-text.angle-136 {
+o-progress.angle-136 {
   --o-angle-composite: calc(136deg) !important;
 }
 o-arc.angle-137,
-o-progress.angle-137,
-o-text.angle-137 {
+o-progress.angle-137 {
   --o-angle-composite: calc(137deg) !important;
 }
 o-arc.angle-138,
-o-progress.angle-138,
-o-text.angle-138 {
+o-progress.angle-138 {
   --o-angle-composite: calc(138deg) !important;
 }
 o-arc.angle-139,
-o-progress.angle-139,
-o-text.angle-139 {
+o-progress.angle-139 {
   --o-angle-composite: calc(139deg) !important;
 }
 o-arc.angle-140,
-o-progress.angle-140,
-o-text.angle-140 {
+o-progress.angle-140 {
   --o-angle-composite: calc(140deg) !important;
 }
 o-arc.angle-141,
-o-progress.angle-141,
-o-text.angle-141 {
+o-progress.angle-141 {
   --o-angle-composite: calc(141deg) !important;
 }
 o-arc.angle-142,
-o-progress.angle-142,
-o-text.angle-142 {
+o-progress.angle-142 {
   --o-angle-composite: calc(142deg) !important;
 }
 o-arc.angle-143,
-o-progress.angle-143,
-o-text.angle-143 {
+o-progress.angle-143 {
   --o-angle-composite: calc(143deg) !important;
 }
 o-arc.angle-144,
-o-progress.angle-144,
-o-text.angle-144 {
+o-progress.angle-144 {
   --o-angle-composite: calc(144deg) !important;
 }
 o-arc.angle-145,
-o-progress.angle-145,
-o-text.angle-145 {
+o-progress.angle-145 {
   --o-angle-composite: calc(145deg) !important;
 }
 o-arc.angle-146,
-o-progress.angle-146,
-o-text.angle-146 {
+o-progress.angle-146 {
   --o-angle-composite: calc(146deg) !important;
 }
 o-arc.angle-147,
-o-progress.angle-147,
-o-text.angle-147 {
+o-progress.angle-147 {
   --o-angle-composite: calc(147deg) !important;
 }
 o-arc.angle-148,
-o-progress.angle-148,
-o-text.angle-148 {
+o-progress.angle-148 {
   --o-angle-composite: calc(148deg) !important;
 }
 o-arc.angle-149,
-o-progress.angle-149,
-o-text.angle-149 {
+o-progress.angle-149 {
   --o-angle-composite: calc(149deg) !important;
 }
 o-arc.angle-150,
-o-progress.angle-150,
-o-text.angle-150 {
+o-progress.angle-150 {
   --o-angle-composite: calc(150deg) !important;
 }
 o-arc.angle-151,
-o-progress.angle-151,
-o-text.angle-151 {
+o-progress.angle-151 {
   --o-angle-composite: calc(151deg) !important;
 }
 o-arc.angle-152,
-o-progress.angle-152,
-o-text.angle-152 {
+o-progress.angle-152 {
   --o-angle-composite: calc(152deg) !important;
 }
 o-arc.angle-153,
-o-progress.angle-153,
-o-text.angle-153 {
+o-progress.angle-153 {
   --o-angle-composite: calc(153deg) !important;
 }
 o-arc.angle-154,
-o-progress.angle-154,
-o-text.angle-154 {
+o-progress.angle-154 {
   --o-angle-composite: calc(154deg) !important;
 }
 o-arc.angle-155,
-o-progress.angle-155,
-o-text.angle-155 {
+o-progress.angle-155 {
   --o-angle-composite: calc(155deg) !important;
 }
 o-arc.angle-156,
-o-progress.angle-156,
-o-text.angle-156 {
+o-progress.angle-156 {
   --o-angle-composite: calc(156deg) !important;
 }
 o-arc.angle-157,
-o-progress.angle-157,
-o-text.angle-157 {
+o-progress.angle-157 {
   --o-angle-composite: calc(157deg) !important;
 }
 o-arc.angle-158,
-o-progress.angle-158,
-o-text.angle-158 {
+o-progress.angle-158 {
   --o-angle-composite: calc(158deg) !important;
 }
 o-arc.angle-159,
-o-progress.angle-159,
-o-text.angle-159 {
+o-progress.angle-159 {
   --o-angle-composite: calc(159deg) !important;
 }
 o-arc.angle-160,
-o-progress.angle-160,
-o-text.angle-160 {
+o-progress.angle-160 {
   --o-angle-composite: calc(160deg) !important;
 }
 o-arc.angle-161,
-o-progress.angle-161,
-o-text.angle-161 {
+o-progress.angle-161 {
   --o-angle-composite: calc(161deg) !important;
 }
 o-arc.angle-162,
-o-progress.angle-162,
-o-text.angle-162 {
+o-progress.angle-162 {
   --o-angle-composite: calc(162deg) !important;
 }
 o-arc.angle-163,
-o-progress.angle-163,
-o-text.angle-163 {
+o-progress.angle-163 {
   --o-angle-composite: calc(163deg) !important;
 }
 o-arc.angle-164,
-o-progress.angle-164,
-o-text.angle-164 {
+o-progress.angle-164 {
   --o-angle-composite: calc(164deg) !important;
 }
 o-arc.angle-165,
-o-progress.angle-165,
-o-text.angle-165 {
+o-progress.angle-165 {
   --o-angle-composite: calc(165deg) !important;
 }
 o-arc.angle-166,
-o-progress.angle-166,
-o-text.angle-166 {
+o-progress.angle-166 {
   --o-angle-composite: calc(166deg) !important;
 }
 o-arc.angle-167,
-o-progress.angle-167,
-o-text.angle-167 {
+o-progress.angle-167 {
   --o-angle-composite: calc(167deg) !important;
 }
 o-arc.angle-168,
-o-progress.angle-168,
-o-text.angle-168 {
+o-progress.angle-168 {
   --o-angle-composite: calc(168deg) !important;
 }
 o-arc.angle-169,
-o-progress.angle-169,
-o-text.angle-169 {
+o-progress.angle-169 {
   --o-angle-composite: calc(169deg) !important;
 }
 o-arc.angle-170,
-o-progress.angle-170,
-o-text.angle-170 {
+o-progress.angle-170 {
   --o-angle-composite: calc(170deg) !important;
 }
 o-arc.angle-171,
-o-progress.angle-171,
-o-text.angle-171 {
+o-progress.angle-171 {
   --o-angle-composite: calc(171deg) !important;
 }
 o-arc.angle-172,
-o-progress.angle-172,
-o-text.angle-172 {
+o-progress.angle-172 {
   --o-angle-composite: calc(172deg) !important;
 }
 o-arc.angle-173,
-o-progress.angle-173,
-o-text.angle-173 {
+o-progress.angle-173 {
   --o-angle-composite: calc(173deg) !important;
 }
 o-arc.angle-174,
-o-progress.angle-174,
-o-text.angle-174 {
+o-progress.angle-174 {
   --o-angle-composite: calc(174deg) !important;
 }
 o-arc.angle-175,
-o-progress.angle-175,
-o-text.angle-175 {
+o-progress.angle-175 {
   --o-angle-composite: calc(175deg) !important;
 }
 o-arc.angle-176,
-o-progress.angle-176,
-o-text.angle-176 {
+o-progress.angle-176 {
   --o-angle-composite: calc(176deg) !important;
 }
 o-arc.angle-177,
-o-progress.angle-177,
-o-text.angle-177 {
+o-progress.angle-177 {
   --o-angle-composite: calc(177deg) !important;
 }
 o-arc.angle-178,
-o-progress.angle-178,
-o-text.angle-178 {
+o-progress.angle-178 {
   --o-angle-composite: calc(178deg) !important;
 }
 o-arc.angle-179,
-o-progress.angle-179,
-o-text.angle-179 {
+o-progress.angle-179 {
   --o-angle-composite: calc(179deg) !important;
 }
 o-arc.angle-180,
-o-progress.angle-180,
-o-text.angle-180 {
+o-progress.angle-180 {
   --o-angle-composite: calc(180deg) !important;
 }
 o-arc.angle-181,
-o-progress.angle-181,
-o-text.angle-181 {
+o-progress.angle-181 {
   --o-angle-composite: calc(181deg) !important;
 }
 o-arc.angle-182,
-o-progress.angle-182,
-o-text.angle-182 {
+o-progress.angle-182 {
   --o-angle-composite: calc(182deg) !important;
 }
 o-arc.angle-183,
-o-progress.angle-183,
-o-text.angle-183 {
+o-progress.angle-183 {
   --o-angle-composite: calc(183deg) !important;
 }
 o-arc.angle-184,
-o-progress.angle-184,
-o-text.angle-184 {
+o-progress.angle-184 {
   --o-angle-composite: calc(184deg) !important;
 }
 o-arc.angle-185,
-o-progress.angle-185,
-o-text.angle-185 {
+o-progress.angle-185 {
   --o-angle-composite: calc(185deg) !important;
 }
 o-arc.angle-186,
-o-progress.angle-186,
-o-text.angle-186 {
+o-progress.angle-186 {
   --o-angle-composite: calc(186deg) !important;
 }
 o-arc.angle-187,
-o-progress.angle-187,
-o-text.angle-187 {
+o-progress.angle-187 {
   --o-angle-composite: calc(187deg) !important;
 }
 o-arc.angle-188,
-o-progress.angle-188,
-o-text.angle-188 {
+o-progress.angle-188 {
   --o-angle-composite: calc(188deg) !important;
 }
 o-arc.angle-189,
-o-progress.angle-189,
-o-text.angle-189 {
+o-progress.angle-189 {
   --o-angle-composite: calc(189deg) !important;
 }
 o-arc.angle-190,
-o-progress.angle-190,
-o-text.angle-190 {
+o-progress.angle-190 {
   --o-angle-composite: calc(190deg) !important;
 }
 o-arc.angle-191,
-o-progress.angle-191,
-o-text.angle-191 {
+o-progress.angle-191 {
   --o-angle-composite: calc(191deg) !important;
 }
 o-arc.angle-192,
-o-progress.angle-192,
-o-text.angle-192 {
+o-progress.angle-192 {
   --o-angle-composite: calc(192deg) !important;
 }
 o-arc.angle-193,
-o-progress.angle-193,
-o-text.angle-193 {
+o-progress.angle-193 {
   --o-angle-composite: calc(193deg) !important;
 }
 o-arc.angle-194,
-o-progress.angle-194,
-o-text.angle-194 {
+o-progress.angle-194 {
   --o-angle-composite: calc(194deg) !important;
 }
 o-arc.angle-195,
-o-progress.angle-195,
-o-text.angle-195 {
+o-progress.angle-195 {
   --o-angle-composite: calc(195deg) !important;
 }
 o-arc.angle-196,
-o-progress.angle-196,
-o-text.angle-196 {
+o-progress.angle-196 {
   --o-angle-composite: calc(196deg) !important;
 }
 o-arc.angle-197,
-o-progress.angle-197,
-o-text.angle-197 {
+o-progress.angle-197 {
   --o-angle-composite: calc(197deg) !important;
 }
 o-arc.angle-198,
-o-progress.angle-198,
-o-text.angle-198 {
+o-progress.angle-198 {
   --o-angle-composite: calc(198deg) !important;
 }
 o-arc.angle-199,
-o-progress.angle-199,
-o-text.angle-199 {
+o-progress.angle-199 {
   --o-angle-composite: calc(199deg) !important;
 }
 o-arc.angle-200,
-o-progress.angle-200,
-o-text.angle-200 {
+o-progress.angle-200 {
   --o-angle-composite: calc(200deg) !important;
 }
 o-arc.angle-201,
-o-progress.angle-201,
-o-text.angle-201 {
+o-progress.angle-201 {
   --o-angle-composite: calc(201deg) !important;
 }
 o-arc.angle-202,
-o-progress.angle-202,
-o-text.angle-202 {
+o-progress.angle-202 {
   --o-angle-composite: calc(202deg) !important;
 }
 o-arc.angle-203,
-o-progress.angle-203,
-o-text.angle-203 {
+o-progress.angle-203 {
   --o-angle-composite: calc(203deg) !important;
 }
 o-arc.angle-204,
-o-progress.angle-204,
-o-text.angle-204 {
+o-progress.angle-204 {
   --o-angle-composite: calc(204deg) !important;
 }
 o-arc.angle-205,
-o-progress.angle-205,
-o-text.angle-205 {
+o-progress.angle-205 {
   --o-angle-composite: calc(205deg) !important;
 }
 o-arc.angle-206,
-o-progress.angle-206,
-o-text.angle-206 {
+o-progress.angle-206 {
   --o-angle-composite: calc(206deg) !important;
 }
 o-arc.angle-207,
-o-progress.angle-207,
-o-text.angle-207 {
+o-progress.angle-207 {
   --o-angle-composite: calc(207deg) !important;
 }
 o-arc.angle-208,
-o-progress.angle-208,
-o-text.angle-208 {
+o-progress.angle-208 {
   --o-angle-composite: calc(208deg) !important;
 }
 o-arc.angle-209,
-o-progress.angle-209,
-o-text.angle-209 {
+o-progress.angle-209 {
   --o-angle-composite: calc(209deg) !important;
 }
 o-arc.angle-210,
-o-progress.angle-210,
-o-text.angle-210 {
+o-progress.angle-210 {
   --o-angle-composite: calc(210deg) !important;
 }
 o-arc.angle-211,
-o-progress.angle-211,
-o-text.angle-211 {
+o-progress.angle-211 {
   --o-angle-composite: calc(211deg) !important;
 }
 o-arc.angle-212,
-o-progress.angle-212,
-o-text.angle-212 {
+o-progress.angle-212 {
   --o-angle-composite: calc(212deg) !important;
 }
 o-arc.angle-213,
-o-progress.angle-213,
-o-text.angle-213 {
+o-progress.angle-213 {
   --o-angle-composite: calc(213deg) !important;
 }
 o-arc.angle-214,
-o-progress.angle-214,
-o-text.angle-214 {
+o-progress.angle-214 {
   --o-angle-composite: calc(214deg) !important;
 }
 o-arc.angle-215,
-o-progress.angle-215,
-o-text.angle-215 {
+o-progress.angle-215 {
   --o-angle-composite: calc(215deg) !important;
 }
 o-arc.angle-216,
-o-progress.angle-216,
-o-text.angle-216 {
+o-progress.angle-216 {
   --o-angle-composite: calc(216deg) !important;
 }
 o-arc.angle-217,
-o-progress.angle-217,
-o-text.angle-217 {
+o-progress.angle-217 {
   --o-angle-composite: calc(217deg) !important;
 }
 o-arc.angle-218,
-o-progress.angle-218,
-o-text.angle-218 {
+o-progress.angle-218 {
   --o-angle-composite: calc(218deg) !important;
 }
 o-arc.angle-219,
-o-progress.angle-219,
-o-text.angle-219 {
+o-progress.angle-219 {
   --o-angle-composite: calc(219deg) !important;
 }
 o-arc.angle-220,
-o-progress.angle-220,
-o-text.angle-220 {
+o-progress.angle-220 {
   --o-angle-composite: calc(220deg) !important;
 }
 o-arc.angle-221,
-o-progress.angle-221,
-o-text.angle-221 {
+o-progress.angle-221 {
   --o-angle-composite: calc(221deg) !important;
 }
 o-arc.angle-222,
-o-progress.angle-222,
-o-text.angle-222 {
+o-progress.angle-222 {
   --o-angle-composite: calc(222deg) !important;
 }
 o-arc.angle-223,
-o-progress.angle-223,
-o-text.angle-223 {
+o-progress.angle-223 {
   --o-angle-composite: calc(223deg) !important;
 }
 o-arc.angle-224,
-o-progress.angle-224,
-o-text.angle-224 {
+o-progress.angle-224 {
   --o-angle-composite: calc(224deg) !important;
 }
 o-arc.angle-225,
-o-progress.angle-225,
-o-text.angle-225 {
+o-progress.angle-225 {
   --o-angle-composite: calc(225deg) !important;
 }
 o-arc.angle-226,
-o-progress.angle-226,
-o-text.angle-226 {
+o-progress.angle-226 {
   --o-angle-composite: calc(226deg) !important;
 }
 o-arc.angle-227,
-o-progress.angle-227,
-o-text.angle-227 {
+o-progress.angle-227 {
   --o-angle-composite: calc(227deg) !important;
 }
 o-arc.angle-228,
-o-progress.angle-228,
-o-text.angle-228 {
+o-progress.angle-228 {
   --o-angle-composite: calc(228deg) !important;
 }
 o-arc.angle-229,
-o-progress.angle-229,
-o-text.angle-229 {
+o-progress.angle-229 {
   --o-angle-composite: calc(229deg) !important;
 }
 o-arc.angle-230,
-o-progress.angle-230,
-o-text.angle-230 {
+o-progress.angle-230 {
   --o-angle-composite: calc(230deg) !important;
 }
 o-arc.angle-231,
-o-progress.angle-231,
-o-text.angle-231 {
+o-progress.angle-231 {
   --o-angle-composite: calc(231deg) !important;
 }
 o-arc.angle-232,
-o-progress.angle-232,
-o-text.angle-232 {
+o-progress.angle-232 {
   --o-angle-composite: calc(232deg) !important;
 }
 o-arc.angle-233,
-o-progress.angle-233,
-o-text.angle-233 {
+o-progress.angle-233 {
   --o-angle-composite: calc(233deg) !important;
 }
 o-arc.angle-234,
-o-progress.angle-234,
-o-text.angle-234 {
+o-progress.angle-234 {
   --o-angle-composite: calc(234deg) !important;
 }
 o-arc.angle-235,
-o-progress.angle-235,
-o-text.angle-235 {
+o-progress.angle-235 {
   --o-angle-composite: calc(235deg) !important;
 }
 o-arc.angle-236,
-o-progress.angle-236,
-o-text.angle-236 {
+o-progress.angle-236 {
   --o-angle-composite: calc(236deg) !important;
 }
 o-arc.angle-237,
-o-progress.angle-237,
-o-text.angle-237 {
+o-progress.angle-237 {
   --o-angle-composite: calc(237deg) !important;
 }
 o-arc.angle-238,
-o-progress.angle-238,
-o-text.angle-238 {
+o-progress.angle-238 {
   --o-angle-composite: calc(238deg) !important;
 }
 o-arc.angle-239,
-o-progress.angle-239,
-o-text.angle-239 {
+o-progress.angle-239 {
   --o-angle-composite: calc(239deg) !important;
 }
 o-arc.angle-240,
-o-progress.angle-240,
-o-text.angle-240 {
+o-progress.angle-240 {
   --o-angle-composite: calc(240deg) !important;
 }
 o-arc.angle-241,
-o-progress.angle-241,
-o-text.angle-241 {
+o-progress.angle-241 {
   --o-angle-composite: calc(241deg) !important;
 }
 o-arc.angle-242,
-o-progress.angle-242,
-o-text.angle-242 {
+o-progress.angle-242 {
   --o-angle-composite: calc(242deg) !important;
 }
 o-arc.angle-243,
-o-progress.angle-243,
-o-text.angle-243 {
+o-progress.angle-243 {
   --o-angle-composite: calc(243deg) !important;
 }
 o-arc.angle-244,
-o-progress.angle-244,
-o-text.angle-244 {
+o-progress.angle-244 {
   --o-angle-composite: calc(244deg) !important;
 }
 o-arc.angle-245,
-o-progress.angle-245,
-o-text.angle-245 {
+o-progress.angle-245 {
   --o-angle-composite: calc(245deg) !important;
 }
 o-arc.angle-246,
-o-progress.angle-246,
-o-text.angle-246 {
+o-progress.angle-246 {
   --o-angle-composite: calc(246deg) !important;
 }
 o-arc.angle-247,
-o-progress.angle-247,
-o-text.angle-247 {
+o-progress.angle-247 {
   --o-angle-composite: calc(247deg) !important;
 }
 o-arc.angle-248,
-o-progress.angle-248,
-o-text.angle-248 {
+o-progress.angle-248 {
   --o-angle-composite: calc(248deg) !important;
 }
 o-arc.angle-249,
-o-progress.angle-249,
-o-text.angle-249 {
+o-progress.angle-249 {
   --o-angle-composite: calc(249deg) !important;
 }
 o-arc.angle-250,
-o-progress.angle-250,
-o-text.angle-250 {
+o-progress.angle-250 {
   --o-angle-composite: calc(250deg) !important;
 }
 o-arc.angle-251,
-o-progress.angle-251,
-o-text.angle-251 {
+o-progress.angle-251 {
   --o-angle-composite: calc(251deg) !important;
 }
 o-arc.angle-252,
-o-progress.angle-252,
-o-text.angle-252 {
+o-progress.angle-252 {
   --o-angle-composite: calc(252deg) !important;
 }
 o-arc.angle-253,
-o-progress.angle-253,
-o-text.angle-253 {
+o-progress.angle-253 {
   --o-angle-composite: calc(253deg) !important;
 }
 o-arc.angle-254,
-o-progress.angle-254,
-o-text.angle-254 {
+o-progress.angle-254 {
   --o-angle-composite: calc(254deg) !important;
 }
 o-arc.angle-255,
-o-progress.angle-255,
-o-text.angle-255 {
+o-progress.angle-255 {
   --o-angle-composite: calc(255deg) !important;
 }
 o-arc.angle-256,
-o-progress.angle-256,
-o-text.angle-256 {
+o-progress.angle-256 {
   --o-angle-composite: calc(256deg) !important;
 }
 o-arc.angle-257,
-o-progress.angle-257,
-o-text.angle-257 {
+o-progress.angle-257 {
   --o-angle-composite: calc(257deg) !important;
 }
 o-arc.angle-258,
-o-progress.angle-258,
-o-text.angle-258 {
+o-progress.angle-258 {
   --o-angle-composite: calc(258deg) !important;
 }
 o-arc.angle-259,
-o-progress.angle-259,
-o-text.angle-259 {
+o-progress.angle-259 {
   --o-angle-composite: calc(259deg) !important;
 }
 o-arc.angle-260,
-o-progress.angle-260,
-o-text.angle-260 {
+o-progress.angle-260 {
   --o-angle-composite: calc(260deg) !important;
 }
 o-arc.angle-261,
-o-progress.angle-261,
-o-text.angle-261 {
+o-progress.angle-261 {
   --o-angle-composite: calc(261deg) !important;
 }
 o-arc.angle-262,
-o-progress.angle-262,
-o-text.angle-262 {
+o-progress.angle-262 {
   --o-angle-composite: calc(262deg) !important;
 }
 o-arc.angle-263,
-o-progress.angle-263,
-o-text.angle-263 {
+o-progress.angle-263 {
   --o-angle-composite: calc(263deg) !important;
 }
 o-arc.angle-264,
-o-progress.angle-264,
-o-text.angle-264 {
+o-progress.angle-264 {
   --o-angle-composite: calc(264deg) !important;
 }
 o-arc.angle-265,
-o-progress.angle-265,
-o-text.angle-265 {
+o-progress.angle-265 {
   --o-angle-composite: calc(265deg) !important;
 }
 o-arc.angle-266,
-o-progress.angle-266,
-o-text.angle-266 {
+o-progress.angle-266 {
   --o-angle-composite: calc(266deg) !important;
 }
 o-arc.angle-267,
-o-progress.angle-267,
-o-text.angle-267 {
+o-progress.angle-267 {
   --o-angle-composite: calc(267deg) !important;
 }
 o-arc.angle-268,
-o-progress.angle-268,
-o-text.angle-268 {
+o-progress.angle-268 {
   --o-angle-composite: calc(268deg) !important;
 }
 o-arc.angle-269,
-o-progress.angle-269,
-o-text.angle-269 {
+o-progress.angle-269 {
   --o-angle-composite: calc(269deg) !important;
 }
 o-arc.angle-270,
-o-progress.angle-270,
-o-text.angle-270 {
+o-progress.angle-270 {
   --o-angle-composite: calc(270deg) !important;
 }
 o-arc.angle-271,
-o-progress.angle-271,
-o-text.angle-271 {
+o-progress.angle-271 {
   --o-angle-composite: calc(271deg) !important;
 }
 o-arc.angle-272,
-o-progress.angle-272,
-o-text.angle-272 {
+o-progress.angle-272 {
   --o-angle-composite: calc(272deg) !important;
 }
 o-arc.angle-273,
-o-progress.angle-273,
-o-text.angle-273 {
+o-progress.angle-273 {
   --o-angle-composite: calc(273deg) !important;
 }
 o-arc.angle-274,
-o-progress.angle-274,
-o-text.angle-274 {
+o-progress.angle-274 {
   --o-angle-composite: calc(274deg) !important;
 }
 o-arc.angle-275,
-o-progress.angle-275,
-o-text.angle-275 {
+o-progress.angle-275 {
   --o-angle-composite: calc(275deg) !important;
 }
 o-arc.angle-276,
-o-progress.angle-276,
-o-text.angle-276 {
+o-progress.angle-276 {
   --o-angle-composite: calc(276deg) !important;
 }
 o-arc.angle-277,
-o-progress.angle-277,
-o-text.angle-277 {
+o-progress.angle-277 {
   --o-angle-composite: calc(277deg) !important;
 }
 o-arc.angle-278,
-o-progress.angle-278,
-o-text.angle-278 {
+o-progress.angle-278 {
   --o-angle-composite: calc(278deg) !important;
 }
 o-arc.angle-279,
-o-progress.angle-279,
-o-text.angle-279 {
+o-progress.angle-279 {
   --o-angle-composite: calc(279deg) !important;
 }
 o-arc.angle-280,
-o-progress.angle-280,
-o-text.angle-280 {
+o-progress.angle-280 {
   --o-angle-composite: calc(280deg) !important;
 }
 o-arc.angle-281,
-o-progress.angle-281,
-o-text.angle-281 {
+o-progress.angle-281 {
   --o-angle-composite: calc(281deg) !important;
 }
 o-arc.angle-282,
-o-progress.angle-282,
-o-text.angle-282 {
+o-progress.angle-282 {
   --o-angle-composite: calc(282deg) !important;
 }
 o-arc.angle-283,
-o-progress.angle-283,
-o-text.angle-283 {
+o-progress.angle-283 {
   --o-angle-composite: calc(283deg) !important;
 }
 o-arc.angle-284,
-o-progress.angle-284,
-o-text.angle-284 {
+o-progress.angle-284 {
   --o-angle-composite: calc(284deg) !important;
 }
 o-arc.angle-285,
-o-progress.angle-285,
-o-text.angle-285 {
+o-progress.angle-285 {
   --o-angle-composite: calc(285deg) !important;
 }
 o-arc.angle-286,
-o-progress.angle-286,
-o-text.angle-286 {
+o-progress.angle-286 {
   --o-angle-composite: calc(286deg) !important;
 }
 o-arc.angle-287,
-o-progress.angle-287,
-o-text.angle-287 {
+o-progress.angle-287 {
   --o-angle-composite: calc(287deg) !important;
 }
 o-arc.angle-288,
-o-progress.angle-288,
-o-text.angle-288 {
+o-progress.angle-288 {
   --o-angle-composite: calc(288deg) !important;
 }
 o-arc.angle-289,
-o-progress.angle-289,
-o-text.angle-289 {
+o-progress.angle-289 {
   --o-angle-composite: calc(289deg) !important;
 }
 o-arc.angle-290,
-o-progress.angle-290,
-o-text.angle-290 {
+o-progress.angle-290 {
   --o-angle-composite: calc(290deg) !important;
 }
 o-arc.angle-291,
-o-progress.angle-291,
-o-text.angle-291 {
+o-progress.angle-291 {
   --o-angle-composite: calc(291deg) !important;
 }
 o-arc.angle-292,
-o-progress.angle-292,
-o-text.angle-292 {
+o-progress.angle-292 {
   --o-angle-composite: calc(292deg) !important;
 }
 o-arc.angle-293,
-o-progress.angle-293,
-o-text.angle-293 {
+o-progress.angle-293 {
   --o-angle-composite: calc(293deg) !important;
 }
 o-arc.angle-294,
-o-progress.angle-294,
-o-text.angle-294 {
+o-progress.angle-294 {
   --o-angle-composite: calc(294deg) !important;
 }
 o-arc.angle-295,
-o-progress.angle-295,
-o-text.angle-295 {
+o-progress.angle-295 {
   --o-angle-composite: calc(295deg) !important;
 }
 o-arc.angle-296,
-o-progress.angle-296,
-o-text.angle-296 {
+o-progress.angle-296 {
   --o-angle-composite: calc(296deg) !important;
 }
 o-arc.angle-297,
-o-progress.angle-297,
-o-text.angle-297 {
+o-progress.angle-297 {
   --o-angle-composite: calc(297deg) !important;
 }
 o-arc.angle-298,
-o-progress.angle-298,
-o-text.angle-298 {
+o-progress.angle-298 {
   --o-angle-composite: calc(298deg) !important;
 }
 o-arc.angle-299,
-o-progress.angle-299,
-o-text.angle-299 {
+o-progress.angle-299 {
   --o-angle-composite: calc(299deg) !important;
 }
 o-arc.angle-300,
-o-progress.angle-300,
-o-text.angle-300 {
+o-progress.angle-300 {
   --o-angle-composite: calc(300deg) !important;
 }
 o-arc.angle-301,
-o-progress.angle-301,
-o-text.angle-301 {
+o-progress.angle-301 {
   --o-angle-composite: calc(301deg) !important;
 }
 o-arc.angle-302,
-o-progress.angle-302,
-o-text.angle-302 {
+o-progress.angle-302 {
   --o-angle-composite: calc(302deg) !important;
 }
 o-arc.angle-303,
-o-progress.angle-303,
-o-text.angle-303 {
+o-progress.angle-303 {
   --o-angle-composite: calc(303deg) !important;
 }
 o-arc.angle-304,
-o-progress.angle-304,
-o-text.angle-304 {
+o-progress.angle-304 {
   --o-angle-composite: calc(304deg) !important;
 }
 o-arc.angle-305,
-o-progress.angle-305,
-o-text.angle-305 {
+o-progress.angle-305 {
   --o-angle-composite: calc(305deg) !important;
 }
 o-arc.angle-306,
-o-progress.angle-306,
-o-text.angle-306 {
+o-progress.angle-306 {
   --o-angle-composite: calc(306deg) !important;
 }
 o-arc.angle-307,
-o-progress.angle-307,
-o-text.angle-307 {
+o-progress.angle-307 {
   --o-angle-composite: calc(307deg) !important;
 }
 o-arc.angle-308,
-o-progress.angle-308,
-o-text.angle-308 {
+o-progress.angle-308 {
   --o-angle-composite: calc(308deg) !important;
 }
 o-arc.angle-309,
-o-progress.angle-309,
-o-text.angle-309 {
+o-progress.angle-309 {
   --o-angle-composite: calc(309deg) !important;
 }
 o-arc.angle-310,
-o-progress.angle-310,
-o-text.angle-310 {
+o-progress.angle-310 {
   --o-angle-composite: calc(310deg) !important;
 }
 o-arc.angle-311,
-o-progress.angle-311,
-o-text.angle-311 {
+o-progress.angle-311 {
   --o-angle-composite: calc(311deg) !important;
 }
 o-arc.angle-312,
-o-progress.angle-312,
-o-text.angle-312 {
+o-progress.angle-312 {
   --o-angle-composite: calc(312deg) !important;
 }
 o-arc.angle-313,
-o-progress.angle-313,
-o-text.angle-313 {
+o-progress.angle-313 {
   --o-angle-composite: calc(313deg) !important;
 }
 o-arc.angle-314,
-o-progress.angle-314,
-o-text.angle-314 {
+o-progress.angle-314 {
   --o-angle-composite: calc(314deg) !important;
 }
 o-arc.angle-315,
-o-progress.angle-315,
-o-text.angle-315 {
+o-progress.angle-315 {
   --o-angle-composite: calc(315deg) !important;
 }
 o-arc.angle-316,
-o-progress.angle-316,
-o-text.angle-316 {
+o-progress.angle-316 {
   --o-angle-composite: calc(316deg) !important;
 }
 o-arc.angle-317,
-o-progress.angle-317,
-o-text.angle-317 {
+o-progress.angle-317 {
   --o-angle-composite: calc(317deg) !important;
 }
 o-arc.angle-318,
-o-progress.angle-318,
-o-text.angle-318 {
+o-progress.angle-318 {
   --o-angle-composite: calc(318deg) !important;
 }
 o-arc.angle-319,
-o-progress.angle-319,
-o-text.angle-319 {
+o-progress.angle-319 {
   --o-angle-composite: calc(319deg) !important;
 }
 o-arc.angle-320,
-o-progress.angle-320,
-o-text.angle-320 {
+o-progress.angle-320 {
   --o-angle-composite: calc(320deg) !important;
 }
 o-arc.angle-321,
-o-progress.angle-321,
-o-text.angle-321 {
+o-progress.angle-321 {
   --o-angle-composite: calc(321deg) !important;
 }
 o-arc.angle-322,
-o-progress.angle-322,
-o-text.angle-322 {
+o-progress.angle-322 {
   --o-angle-composite: calc(322deg) !important;
 }
 o-arc.angle-323,
-o-progress.angle-323,
-o-text.angle-323 {
+o-progress.angle-323 {
   --o-angle-composite: calc(323deg) !important;
 }
 o-arc.angle-324,
-o-progress.angle-324,
-o-text.angle-324 {
+o-progress.angle-324 {
   --o-angle-composite: calc(324deg) !important;
 }
 o-arc.angle-325,
-o-progress.angle-325,
-o-text.angle-325 {
+o-progress.angle-325 {
   --o-angle-composite: calc(325deg) !important;
 }
 o-arc.angle-326,
-o-progress.angle-326,
-o-text.angle-326 {
+o-progress.angle-326 {
   --o-angle-composite: calc(326deg) !important;
 }
 o-arc.angle-327,
-o-progress.angle-327,
-o-text.angle-327 {
+o-progress.angle-327 {
   --o-angle-composite: calc(327deg) !important;
 }
 o-arc.angle-328,
-o-progress.angle-328,
-o-text.angle-328 {
+o-progress.angle-328 {
   --o-angle-composite: calc(328deg) !important;
 }
 o-arc.angle-329,
-o-progress.angle-329,
-o-text.angle-329 {
+o-progress.angle-329 {
   --o-angle-composite: calc(329deg) !important;
 }
 o-arc.angle-330,
-o-progress.angle-330,
-o-text.angle-330 {
+o-progress.angle-330 {
   --o-angle-composite: calc(330deg) !important;
 }
 o-arc.angle-331,
-o-progress.angle-331,
-o-text.angle-331 {
+o-progress.angle-331 {
   --o-angle-composite: calc(331deg) !important;
 }
 o-arc.angle-332,
-o-progress.angle-332,
-o-text.angle-332 {
+o-progress.angle-332 {
   --o-angle-composite: calc(332deg) !important;
 }
 o-arc.angle-333,
-o-progress.angle-333,
-o-text.angle-333 {
+o-progress.angle-333 {
   --o-angle-composite: calc(333deg) !important;
 }
 o-arc.angle-334,
-o-progress.angle-334,
-o-text.angle-334 {
+o-progress.angle-334 {
   --o-angle-composite: calc(334deg) !important;
 }
 o-arc.angle-335,
-o-progress.angle-335,
-o-text.angle-335 {
+o-progress.angle-335 {
   --o-angle-composite: calc(335deg) !important;
 }
 o-arc.angle-336,
-o-progress.angle-336,
-o-text.angle-336 {
+o-progress.angle-336 {
   --o-angle-composite: calc(336deg) !important;
 }
 o-arc.angle-337,
-o-progress.angle-337,
-o-text.angle-337 {
+o-progress.angle-337 {
   --o-angle-composite: calc(337deg) !important;
 }
 o-arc.angle-338,
-o-progress.angle-338,
-o-text.angle-338 {
+o-progress.angle-338 {
   --o-angle-composite: calc(338deg) !important;
 }
 o-arc.angle-339,
-o-progress.angle-339,
-o-text.angle-339 {
+o-progress.angle-339 {
   --o-angle-composite: calc(339deg) !important;
 }
 o-arc.angle-340,
-o-progress.angle-340,
-o-text.angle-340 {
+o-progress.angle-340 {
   --o-angle-composite: calc(340deg) !important;
 }
 o-arc.angle-341,
-o-progress.angle-341,
-o-text.angle-341 {
+o-progress.angle-341 {
   --o-angle-composite: calc(341deg) !important;
 }
 o-arc.angle-342,
-o-progress.angle-342,
-o-text.angle-342 {
+o-progress.angle-342 {
   --o-angle-composite: calc(342deg) !important;
 }
 o-arc.angle-343,
-o-progress.angle-343,
-o-text.angle-343 {
+o-progress.angle-343 {
   --o-angle-composite: calc(343deg) !important;
 }
 o-arc.angle-344,
-o-progress.angle-344,
-o-text.angle-344 {
+o-progress.angle-344 {
   --o-angle-composite: calc(344deg) !important;
 }
 o-arc.angle-345,
-o-progress.angle-345,
-o-text.angle-345 {
+o-progress.angle-345 {
   --o-angle-composite: calc(345deg) !important;
 }
 o-arc.angle-346,
-o-progress.angle-346,
-o-text.angle-346 {
+o-progress.angle-346 {
   --o-angle-composite: calc(346deg) !important;
 }
 o-arc.angle-347,
-o-progress.angle-347,
-o-text.angle-347 {
+o-progress.angle-347 {
   --o-angle-composite: calc(347deg) !important;
 }
 o-arc.angle-348,
-o-progress.angle-348,
-o-text.angle-348 {
+o-progress.angle-348 {
   --o-angle-composite: calc(348deg) !important;
 }
 o-arc.angle-349,
-o-progress.angle-349,
-o-text.angle-349 {
+o-progress.angle-349 {
   --o-angle-composite: calc(349deg) !important;
 }
 o-arc.angle-350,
-o-progress.angle-350,
-o-text.angle-350 {
+o-progress.angle-350 {
   --o-angle-composite: calc(350deg) !important;
 }
 o-arc.angle-351,
-o-progress.angle-351,
-o-text.angle-351 {
+o-progress.angle-351 {
   --o-angle-composite: calc(351deg) !important;
 }
 o-arc.angle-352,
-o-progress.angle-352,
-o-text.angle-352 {
+o-progress.angle-352 {
   --o-angle-composite: calc(352deg) !important;
 }
 o-arc.angle-353,
-o-progress.angle-353,
-o-text.angle-353 {
+o-progress.angle-353 {
   --o-angle-composite: calc(353deg) !important;
 }
 o-arc.angle-354,
-o-progress.angle-354,
-o-text.angle-354 {
+o-progress.angle-354 {
   --o-angle-composite: calc(354deg) !important;
 }
 o-arc.angle-355,
-o-progress.angle-355,
-o-text.angle-355 {
+o-progress.angle-355 {
   --o-angle-composite: calc(355deg) !important;
 }
 o-arc.angle-356,
-o-progress.angle-356,
-o-text.angle-356 {
+o-progress.angle-356 {
   --o-angle-composite: calc(356deg) !important;
 }
 o-arc.angle-357,
-o-progress.angle-357,
-o-text.angle-357 {
+o-progress.angle-357 {
   --o-angle-composite: calc(357deg) !important;
 }
 o-arc.angle-358,
-o-progress.angle-358,
-o-text.angle-358 {
+o-progress.angle-358 {
   --o-angle-composite: calc(358deg) !important;
 }
 o-arc.angle-359,
-o-progress.angle-359,
-o-text.angle-359 {
+o-progress.angle-359 {
   --o-angle-composite: calc(359deg) !important;
 }
 o-arc.angle-360,
-o-progress.angle-360,
-o-text.angle-360 {
+o-progress.angle-360 {
   --o-angle-composite: calc(360deg) !important;
 }
-o-arc.gap-0,
-o-text.gap-0 {
+o-arc.gap-0 {
   --o-gap: 0;
 }
-o-arc.gap-1,
-o-text.gap-1 {
+o-arc.gap-1 {
   --o-gap: 1;
 }
-o-arc.gap-2,
-o-text.gap-2 {
+o-arc.gap-2 {
   --o-gap: 2;
 }
-o-arc.gap-3,
-o-text.gap-3 {
+o-arc.gap-3 {
   --o-gap: 3;
 }
-o-arc.gap-4,
-o-text.gap-4 {
+o-arc.gap-4 {
   --o-gap: 4;
 }
-o-arc.gap-5,
-o-text.gap-5 {
+o-arc.gap-5 {
   --o-gap: 5;
 }
-o-arc.gap-6,
-o-text.gap-6 {
+o-arc.gap-6 {
   --o-gap: 6;
 }
-o-arc.gap-7,
-o-text.gap-7 {
+o-arc.gap-7 {
   --o-gap: 7;
 }
-o-arc.gap-8,
-o-text.gap-8 {
+o-arc.gap-8 {
   --o-gap: 8;
 }
-o-arc.gap-9,
-o-text.gap-9 {
+o-arc.gap-9 {
   --o-gap: 9;
 }
-o-arc.gap-10,
-o-text.gap-10 {
+o-arc.gap-10 {
   --o-gap: 10;
 }
-o-arc.gap-11,
-o-text.gap-11 {
+o-arc.gap-11 {
   --o-gap: 11;
 }
-o-arc.gap-12,
-o-text.gap-12 {
+o-arc.gap-12 {
   --o-gap: 12;
 }
-o-arc.gap-13,
-o-text.gap-13 {
+o-arc.gap-13 {
   --o-gap: 13;
 }
-o-arc.gap-14,
-o-text.gap-14 {
+o-arc.gap-14 {
   --o-gap: 14;
 }
-o-arc.gap-15,
-o-text.gap-15 {
+o-arc.gap-15 {
   --o-gap: 15;
 }
-o-arc.gap-16,
-o-text.gap-16 {
+o-arc.gap-16 {
   --o-gap: 16;
 }
-o-arc.gap-17,
-o-text.gap-17 {
+o-arc.gap-17 {
   --o-gap: 17;
 }
-o-arc.gap-18,
-o-text.gap-18 {
+o-arc.gap-18 {
   --o-gap: 18;
 }
-o-arc.gap-19,
-o-text.gap-19 {
+o-arc.gap-19 {
   --o-gap: 19;
 }
-o-arc.gap-20,
-o-text.gap-20 {
+o-arc.gap-20 {
   --o-gap: 20;
 }
-o-arc.gap-21,
-o-text.gap-21 {
+o-arc.gap-21 {
   --o-gap: 21;
 }
-o-arc.gap-22,
-o-text.gap-22 {
+o-arc.gap-22 {
   --o-gap: 22;
 }
-o-arc.gap-23,
-o-text.gap-23 {
+o-arc.gap-23 {
   --o-gap: 23;
 }
-o-arc.gap-24,
-o-text.gap-24 {
+o-arc.gap-24 {
   --o-gap: 24;
 }
-o-arc.gap-25,
-o-text.gap-25 {
+o-arc.gap-25 {
   --o-gap: 25;
 }
-o-arc.gap-26,
-o-text.gap-26 {
+o-arc.gap-26 {
   --o-gap: 26;
 }
-o-arc.gap-27,
-o-text.gap-27 {
+o-arc.gap-27 {
   --o-gap: 27;
 }
-o-arc.gap-28,
-o-text.gap-28 {
+o-arc.gap-28 {
   --o-gap: 28;
 }
-o-arc.gap-29,
-o-text.gap-29 {
+o-arc.gap-29 {
   --o-gap: 29;
 }
-o-arc.gap-30,
-o-text.gap-30 {
+o-arc.gap-30 {
   --o-gap: 30;
 }
 .orbit.shrink-10,
@@ -6665,361 +6224,361 @@ o-text.gap-30 {
   --o-size-ratio: 2 !important;
 }
 .grow-1\.1x {
-  --o-size-ratio: 2.1 !important;
-}
-.grow-1\.2x {
   --o-size-ratio: 2.2 !important;
 }
-.grow-1\.3x {
-  --o-size-ratio: 2.3 !important;
-}
-.grow-1\.4x {
+.grow-1\.2x {
   --o-size-ratio: 2.4 !important;
 }
-.grow-1\.5x {
-  --o-size-ratio: 2.5 !important;
-}
-.grow-1\.6x {
+.grow-1\.3x {
   --o-size-ratio: 2.6 !important;
 }
-.grow-1\.7x {
-  --o-size-ratio: 2.7 !important;
-}
-.grow-1\.8x {
+.grow-1\.4x {
   --o-size-ratio: 2.8 !important;
 }
+.grow-1\.5x {
+  --o-size-ratio: 3 !important;
+}
+.grow-1\.6x {
+  --o-size-ratio: 3.2 !important;
+}
+.grow-1\.7x {
+  --o-size-ratio: 3.4 !important;
+}
+.grow-1\.8x {
+  --o-size-ratio: 3.6 !important;
+}
 .grow-1\.9x {
-  --o-size-ratio: 2.9 !important;
+  --o-size-ratio: 3.8 !important;
 }
 .grow-2x {
   --o-size-ratio: 4 !important;
 }
 .grow-2\.1x {
-  --o-size-ratio: 4.1 !important;
-}
-.grow-2\.2x {
   --o-size-ratio: 4.2 !important;
 }
-.grow-2\.3x {
-  --o-size-ratio: 4.3 !important;
-}
-.grow-2\.4x {
+.grow-2\.2x {
   --o-size-ratio: 4.4 !important;
 }
-.grow-2\.5x {
-  --o-size-ratio: 4.5 !important;
-}
-.grow-2\.6x {
+.grow-2\.3x {
   --o-size-ratio: 4.6 !important;
 }
-.grow-2\.7x {
-  --o-size-ratio: 4.7 !important;
-}
-.grow-2\.8x {
+.grow-2\.4x {
   --o-size-ratio: 4.8 !important;
 }
+.grow-2\.5x {
+  --o-size-ratio: 5 !important;
+}
+.grow-2\.6x {
+  --o-size-ratio: 5.2 !important;
+}
+.grow-2\.7x {
+  --o-size-ratio: 5.4 !important;
+}
+.grow-2\.8x {
+  --o-size-ratio: 5.6 !important;
+}
 .grow-2\.9x {
-  --o-size-ratio: 4.9 !important;
+  --o-size-ratio: 5.8 !important;
 }
 .grow-3x {
   --o-size-ratio: 6 !important;
 }
 .grow-3\.1x {
-  --o-size-ratio: 6.1 !important;
-}
-.grow-3\.2x {
   --o-size-ratio: 6.2 !important;
 }
-.grow-3\.3x {
-  --o-size-ratio: 6.3 !important;
-}
-.grow-3\.4x {
+.grow-3\.2x {
   --o-size-ratio: 6.4 !important;
 }
-.grow-3\.5x {
-  --o-size-ratio: 6.5 !important;
-}
-.grow-3\.6x {
+.grow-3\.3x {
   --o-size-ratio: 6.6 !important;
 }
-.grow-3\.7x {
-  --o-size-ratio: 6.7 !important;
-}
-.grow-3\.8x {
+.grow-3\.4x {
   --o-size-ratio: 6.8 !important;
 }
+.grow-3\.5x {
+  --o-size-ratio: 7 !important;
+}
+.grow-3\.6x {
+  --o-size-ratio: 7.2 !important;
+}
+.grow-3\.7x {
+  --o-size-ratio: 7.4 !important;
+}
+.grow-3\.8x {
+  --o-size-ratio: 7.6 !important;
+}
 .grow-3\.9x {
-  --o-size-ratio: 6.9 !important;
+  --o-size-ratio: 7.8 !important;
 }
 .grow-4x {
   --o-size-ratio: 8 !important;
 }
 .grow-4\.1x {
-  --o-size-ratio: 8.1 !important;
-}
-.grow-4\.2x {
   --o-size-ratio: 8.2 !important;
 }
-.grow-4\.3x {
-  --o-size-ratio: 8.3 !important;
-}
-.grow-4\.4x {
+.grow-4\.2x {
   --o-size-ratio: 8.4 !important;
 }
-.grow-4\.5x {
-  --o-size-ratio: 8.5 !important;
-}
-.grow-4\.6x {
+.grow-4\.3x {
   --o-size-ratio: 8.6 !important;
 }
-.grow-4\.7x {
-  --o-size-ratio: 8.7 !important;
-}
-.grow-4\.8x {
+.grow-4\.4x {
   --o-size-ratio: 8.8 !important;
 }
+.grow-4\.5x {
+  --o-size-ratio: 9 !important;
+}
+.grow-4\.6x {
+  --o-size-ratio: 9.2 !important;
+}
+.grow-4\.7x {
+  --o-size-ratio: 9.4 !important;
+}
+.grow-4\.8x {
+  --o-size-ratio: 9.6 !important;
+}
 .grow-4\.9x {
-  --o-size-ratio: 8.9 !important;
+  --o-size-ratio: 9.8 !important;
 }
 .grow-5x {
   --o-size-ratio: 10 !important;
 }
 .grow-5\.1x {
-  --o-size-ratio: 10.1 !important;
-}
-.grow-5\.2x {
   --o-size-ratio: 10.2 !important;
 }
-.grow-5\.3x {
-  --o-size-ratio: 10.3 !important;
-}
-.grow-5\.4x {
+.grow-5\.2x {
   --o-size-ratio: 10.4 !important;
 }
-.grow-5\.5x {
-  --o-size-ratio: 10.5 !important;
-}
-.grow-5\.6x {
+.grow-5\.3x {
   --o-size-ratio: 10.6 !important;
 }
-.grow-5\.7x {
-  --o-size-ratio: 10.7 !important;
-}
-.grow-5\.8x {
+.grow-5\.4x {
   --o-size-ratio: 10.8 !important;
 }
+.grow-5\.5x {
+  --o-size-ratio: 11 !important;
+}
+.grow-5\.6x {
+  --o-size-ratio: 11.2 !important;
+}
+.grow-5\.7x {
+  --o-size-ratio: 11.4 !important;
+}
+.grow-5\.8x {
+  --o-size-ratio: 11.6 !important;
+}
 .grow-5\.9x {
-  --o-size-ratio: 10.9 !important;
+  --o-size-ratio: 11.8 !important;
 }
 .grow-6x {
   --o-size-ratio: 12 !important;
 }
 .grow-6\.1x {
-  --o-size-ratio: 12.1 !important;
-}
-.grow-6\.2x {
   --o-size-ratio: 12.2 !important;
 }
-.grow-6\.3x {
-  --o-size-ratio: 12.3 !important;
-}
-.grow-6\.4x {
+.grow-6\.2x {
   --o-size-ratio: 12.4 !important;
 }
-.grow-6\.5x {
-  --o-size-ratio: 12.5 !important;
-}
-.grow-6\.6x {
+.grow-6\.3x {
   --o-size-ratio: 12.6 !important;
 }
-.grow-6\.7x {
-  --o-size-ratio: 12.7 !important;
-}
-.grow-6\.8x {
+.grow-6\.4x {
   --o-size-ratio: 12.8 !important;
 }
+.grow-6\.5x {
+  --o-size-ratio: 13 !important;
+}
+.grow-6\.6x {
+  --o-size-ratio: 13.2 !important;
+}
+.grow-6\.7x {
+  --o-size-ratio: 13.4 !important;
+}
+.grow-6\.8x {
+  --o-size-ratio: 13.6 !important;
+}
 .grow-6\.9x {
-  --o-size-ratio: 12.9 !important;
+  --o-size-ratio: 13.8 !important;
 }
 .grow-7x {
   --o-size-ratio: 14 !important;
 }
 .grow-7\.1x {
-  --o-size-ratio: 14.1 !important;
-}
-.grow-7\.2x {
   --o-size-ratio: 14.2 !important;
 }
-.grow-7\.3x {
-  --o-size-ratio: 14.3 !important;
-}
-.grow-7\.4x {
+.grow-7\.2x {
   --o-size-ratio: 14.4 !important;
 }
-.grow-7\.5x {
-  --o-size-ratio: 14.5 !important;
-}
-.grow-7\.6x {
+.grow-7\.3x {
   --o-size-ratio: 14.6 !important;
 }
-.grow-7\.7x {
-  --o-size-ratio: 14.7 !important;
-}
-.grow-7\.8x {
+.grow-7\.4x {
   --o-size-ratio: 14.8 !important;
 }
+.grow-7\.5x {
+  --o-size-ratio: 15 !important;
+}
+.grow-7\.6x {
+  --o-size-ratio: 15.2 !important;
+}
+.grow-7\.7x {
+  --o-size-ratio: 15.4 !important;
+}
+.grow-7\.8x {
+  --o-size-ratio: 15.6 !important;
+}
 .grow-7\.9x {
-  --o-size-ratio: 14.9 !important;
+  --o-size-ratio: 15.8 !important;
 }
 .grow-8x {
   --o-size-ratio: 16 !important;
 }
 .grow-8\.1x {
-  --o-size-ratio: 16.1 !important;
-}
-.grow-8\.2x {
   --o-size-ratio: 16.2 !important;
 }
-.grow-8\.3x {
-  --o-size-ratio: 16.3 !important;
-}
-.grow-8\.4x {
+.grow-8\.2x {
   --o-size-ratio: 16.4 !important;
 }
-.grow-8\.5x {
-  --o-size-ratio: 16.5 !important;
-}
-.grow-8\.6x {
+.grow-8\.3x {
   --o-size-ratio: 16.6 !important;
 }
-.grow-8\.7x {
-  --o-size-ratio: 16.7 !important;
-}
-.grow-8\.8x {
+.grow-8\.4x {
   --o-size-ratio: 16.8 !important;
 }
+.grow-8\.5x {
+  --o-size-ratio: 17 !important;
+}
+.grow-8\.6x {
+  --o-size-ratio: 17.2 !important;
+}
+.grow-8\.7x {
+  --o-size-ratio: 17.4 !important;
+}
+.grow-8\.8x {
+  --o-size-ratio: 17.6 !important;
+}
 .grow-8\.9x {
-  --o-size-ratio: 16.9 !important;
+  --o-size-ratio: 17.8 !important;
 }
 .grow-9x {
   --o-size-ratio: 18 !important;
 }
 .grow-9\.1x {
-  --o-size-ratio: 18.1 !important;
-}
-.grow-9\.2x {
   --o-size-ratio: 18.2 !important;
 }
-.grow-9\.3x {
-  --o-size-ratio: 18.3 !important;
-}
-.grow-9\.4x {
+.grow-9\.2x {
   --o-size-ratio: 18.4 !important;
 }
-.grow-9\.5x {
-  --o-size-ratio: 18.5 !important;
-}
-.grow-9\.6x {
+.grow-9\.3x {
   --o-size-ratio: 18.6 !important;
 }
-.grow-9\.7x {
-  --o-size-ratio: 18.7 !important;
-}
-.grow-9\.8x {
+.grow-9\.4x {
   --o-size-ratio: 18.8 !important;
 }
+.grow-9\.5x {
+  --o-size-ratio: 19 !important;
+}
+.grow-9\.6x {
+  --o-size-ratio: 19.2 !important;
+}
+.grow-9\.7x {
+  --o-size-ratio: 19.4 !important;
+}
+.grow-9\.8x {
+  --o-size-ratio: 19.6 !important;
+}
 .grow-9\.9x {
-  --o-size-ratio: 18.9 !important;
+  --o-size-ratio: 19.8 !important;
 }
 .grow-10x {
   --o-size-ratio: 20 !important;
 }
 .grow-10\.1x {
-  --o-size-ratio: 20.1 !important;
-}
-.grow-10\.2x {
   --o-size-ratio: 20.2 !important;
 }
-.grow-10\.3x {
-  --o-size-ratio: 20.3 !important;
-}
-.grow-10\.4x {
+.grow-10\.2x {
   --o-size-ratio: 20.4 !important;
 }
-.grow-10\.5x {
-  --o-size-ratio: 20.5 !important;
-}
-.grow-10\.6x {
+.grow-10\.3x {
   --o-size-ratio: 20.6 !important;
 }
-.grow-10\.7x {
-  --o-size-ratio: 20.7 !important;
-}
-.grow-10\.8x {
+.grow-10\.4x {
   --o-size-ratio: 20.8 !important;
 }
+.grow-10\.5x {
+  --o-size-ratio: 21 !important;
+}
+.grow-10\.6x {
+  --o-size-ratio: 21.2 !important;
+}
+.grow-10\.7x {
+  --o-size-ratio: 21.4 !important;
+}
+.grow-10\.8x {
+  --o-size-ratio: 21.6 !important;
+}
 .grow-10\.9x {
-  --o-size-ratio: 20.9 !important;
+  --o-size-ratio: 21.8 !important;
 }
 .grow-11x {
   --o-size-ratio: 22 !important;
 }
 .grow-11\.1x {
-  --o-size-ratio: 22.1 !important;
-}
-.grow-11\.2x {
   --o-size-ratio: 22.2 !important;
 }
-.grow-11\.3x {
-  --o-size-ratio: 22.3 !important;
-}
-.grow-11\.4x {
+.grow-11\.2x {
   --o-size-ratio: 22.4 !important;
 }
-.grow-11\.5x {
-  --o-size-ratio: 22.5 !important;
-}
-.grow-11\.6x {
+.grow-11\.3x {
   --o-size-ratio: 22.6 !important;
 }
-.grow-11\.7x {
-  --o-size-ratio: 22.7 !important;
-}
-.grow-11\.8x {
+.grow-11\.4x {
   --o-size-ratio: 22.8 !important;
 }
+.grow-11\.5x {
+  --o-size-ratio: 23 !important;
+}
+.grow-11\.6x {
+  --o-size-ratio: 23.2 !important;
+}
+.grow-11\.7x {
+  --o-size-ratio: 23.4 !important;
+}
+.grow-11\.8x {
+  --o-size-ratio: 23.6 !important;
+}
 .grow-11\.9x {
-  --o-size-ratio: 22.9 !important;
+  --o-size-ratio: 23.8 !important;
 }
 .grow-12x {
   --o-size-ratio: 24 !important;
 }
 .grow-12\.1x {
-  --o-size-ratio: 24.1 !important;
-}
-.grow-12\.2x {
   --o-size-ratio: 24.2 !important;
 }
-.grow-12\.3x {
-  --o-size-ratio: 24.3 !important;
-}
-.grow-12\.4x {
+.grow-12\.2x {
   --o-size-ratio: 24.4 !important;
 }
-.grow-12\.5x {
-  --o-size-ratio: 24.5 !important;
-}
-.grow-12\.6x {
+.grow-12\.3x {
   --o-size-ratio: 24.6 !important;
 }
-.grow-12\.7x {
-  --o-size-ratio: 24.7 !important;
-}
-.grow-12\.8x {
+.grow-12\.4x {
   --o-size-ratio: 24.8 !important;
 }
+.grow-12\.5x {
+  --o-size-ratio: 25 !important;
+}
+.grow-12\.6x {
+  --o-size-ratio: 25.2 !important;
+}
+.grow-12\.7x {
+  --o-size-ratio: 25.4 !important;
+}
+.grow-12\.8x {
+  --o-size-ratio: 25.6 !important;
+}
 .grow-12\.9x {
-  --o-size-ratio: 24.9 !important;
+  --o-size-ratio: 25.8 !important;
 }
 .inner-orbit {
   --o-aligment: calc( var(--o-radius) / (var(--o-orbit-number) + var(--o-initial-orbit, 0)) * var(--o-size-ratio, 1) ) / 2;
@@ -7051,12 +6610,14 @@ o-text.gap-30 {
   margin-top: 25%;
   --o-angle-composite: 270deg !important;
 }
-.capsule.horizontal {
-  --o-gyro: calc(90deg - ( var(--o-angle) * var(--o-orbit-child-number)));
-  --o-angle-composite: var(--o-gyro);
+.side > .capsule.horizontal {
+  --o-angle-composite: calc(90deg - var(--o-from) - (var(--o-angle)* var(--o-orbit-child-number)));
 }
-.satellite > .capsule.horizontal {
-  --o-gyro: calc(var(--o-angle) * var(--o-orbit-child-number));
+.satellite.spin-lock > .capsule {
+  --o-angle-composite: calc(-90deg + var(--o-from)) !important;
+}
+.satellite.spin-lock > .capsule.flip {
+  --o-angle-composite: calc(90deg + var(--o-from)) !important;
 }
 .satellite > .capsule.turn-left {
   margin-top: unset;
@@ -7064,12 +6625,8 @@ o-text.gap-30 {
 .satellite > .capsule.turn-right {
   margin-top: unset;
 }
-.satellite.sync-rotation {
+.satellite.spin-lock {
   transform: var(--o-transform) rotate(calc(var(--o-angle-composite)));
-}
-o-progress.rounded,
-o-text.rounded {
-  --o-linecap: round;
 }
 .gooey-fx-light,
 .gooey-fx {
@@ -7124,15 +6681,13 @@ o-text.rounded {
 }
 @container oslice not style(--o-ellipse-x: 1) {
   o-arc,
-  o-progress,
-  o-text {
+  o-progress {
     display: none;
   }
 }
 @container oslice not style(--o-ellipse-y: 1) {
   o-arc,
-  o-progress,
-  o-text {
+  o-progress {
     display: none;
   }
 }
@@ -7212,10 +6767,6 @@ o-text.rounded {
   --o-purple: hsl(279, 85%, 65%);
   --o-pink: hsl(348, 100%, 60%);
   --o-gray: hsl(240, 2%, 60%);
-  --o-hue: 70;
-  --o-saturation: 70%;
-  --o-light: 70%;
-  --o-color: hsl(var(--o-hue), var(--o-saturation), var(--o-light));
   --o-color-white: color-mix(in oklab, var(--o-color), white 95%);
   --o-color-lighter: color-mix(in oklab, var(--o-color), white 75%);
   --o-color-light: color-mix(in oklab, var(--o-color), white 30%);
@@ -7257,7 +6808,7 @@ o-text.rounded {
   --o-blue-light: color-mix(in oklab, var(--o-blue), white 30%);
   --o-blue-dark: color-mix(in oklab, var(--o-blue), black 20%);
   --o-blue-darker: color-mix(in oklab, var(--o-blue), black 40%);
-  --o-blue-black: color-mix(in oklab, var(--o-color), black 78%);
+  --o-blue-black: color-mix(in oklab, var(--o-blue), black 78%);
   --o-indigo-white: color-mix(in oklab, var(--o-indigo), white 95%);
   --o-indigo-lighter: color-mix(in oklab, var(--o-indigo), white 75%);
   --o-indigo-light: color-mix(in oklab, var(--o-indigo), white 30%);
@@ -7304,18 +6855,13 @@ o-text.rounded {
   background: currentcolor;
 }
 o-progress {
-  --o-progress-color: currentcolor;
-  --o-hover-progress-color: currentcolor;
-  --o-bg-color: transparent;
+  --o-color: currentcolor;
+  --o-hover-color: unset;
+  --o-background-color: transparent;
 }
 o-arc {
-  --o-arc-color: currentcolor;
-  --o-hover-sector-color: currentcolor;
-}
-o-text {
-  --o-text-color: transparent;
-  --o-hover-label-color: transparent;
-  color: currentColor;
+  --o-color: unset;
+  --o-hover-color: unset;
 }
 .dev-orbit.gravity-spot {
   background: none;
@@ -7342,18 +6888,13 @@ o-text {
   background: currentColor;
 }
 .dev-orbit o-progress {
-  --o-progress-color: currentColor;
-  --o-hover-progress-color: currentColor;
-  --o-bg-color: transparent;
+  --o-color: currentColor;
+  --o-hover-color: unset;
+  --o-background-color: transparent;
 }
 .dev-orbit o-arc {
-  --o-arc-color: currentColor;
-  --o-hover-sector-color: currentColor;
-}
-.dev-orbit o-text {
-  --o-text-color: transparent;
-  --o-hover-label-color: transparent;
-  color: currentcolor;
+  --o-color: currentColor;
+  --o-hover-color: unset;
 }
 .theme-cyan .gravity-spot {
   background: none;
@@ -7376,16 +6917,11 @@ o-text {
   background: var(--o-cyan);
 }
 .theme-cyan o-progress {
-  --o-progress-color: var(--o-cyan);
-  --o-hover-progress-color: var(--o-cyan);
-  --o-bg-color: transparent;
+  --o-color: var(--o-cyan);
+  --o-hover-color: var(--o-cyan);
+  --o-background-color: transparent;
 }
 .theme-cyan o-arc {
-  --o-arc-color: var(--o-cyan);
-  --o-hover-sector-color: var(--o-cyan);
-}
-.theme-cyan o-text {
-  --o-text-color: transparent;
-  --o-hover-label-color: transparent;
-  color: var(--o-cyan);
+  --o-color: var(--o-cyan);
+  --o-hover-color: unset;
 }

@@ -193,19 +193,25 @@ Stacking order follows standard HTML rules. In the example below, the latter `or
 
 export const stacking = `
 <div class="bigbang">
-  <div class="gravity-spot" style="--o-force:300px">
-    <div class="orbit-10"></div>
-    <div class="orbit-10"></div>
+  <div class="gravity-spot perspective" style="--o-force:300px">
+    <div class="orbit-10 red"></div>
+    <div class="orbit-10 cyan"></div>
   </div>
 </div>
 `;
 export const stackingCSS = `
-.orbit-10:first-child {
+.perspective {
+ transform-style: preserve-3d;
+ perspective: 300px;
+ transform: rotateX(45deg) rotateY(45deg)
+}
+.orbit-10.red {
 border-color: var(--o-red);
 border-style: dashed;
-border-width: 3px
+border-width: 3px;
+transform: translateZ(-95px);
 }
-.orbit-10 {
+.orbit-10.cyan {
 border-color: var(--o-cyan);
 opacity: 0.5;
 border-width: 3px;

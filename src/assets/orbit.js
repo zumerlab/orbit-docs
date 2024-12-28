@@ -1,7 +1,7 @@
 
 /*
 * orbit
-* v.0.6.0
+* v.1.0.0
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
@@ -27,14 +27,14 @@
         }
         .progress-bar {
           fill: transparent;
-          stroke: var(--o-progress-color);
+          stroke: var(--o-color);
           transition: stroke 0.3s;
         }
         .progress-bg {
-          stroke: var(--o-bg-color, transparent);
+          stroke: var(--o-background-color, transparent);
         }
         :host(:hover) .progress-bar {
-          stroke: var(--o-hover-progress-color, var(--o-progress-color));
+          stroke: var(--o-hover-color, var(--o-color));
           
         }
       </style>
@@ -57,16 +57,16 @@
     update() {
       const { shape } = this.getAttributes();
       const svg = this.shadowRoot.querySelector("svg");
-      const defs = this.createDefs();
-      if (shape !== "none") {
+      if (shape !== "none" && shape !== "circle") {
+        const defs = this.createDefs();
         defs.appendChild(this.createMarker("head", "end"));
         defs.appendChild(this.createMarker("tail", "start"));
+        svg.querySelector("defs").replaceWith(defs);
       }
       const progressBg = this.shadowRoot.querySelector(".progress-bg");
       const progressBar = this.shadowRoot.querySelector(".progress-bar");
       this.updateArc(progressBg, true);
       this.updateArc(progressBar, false);
-      svg.querySelector("defs").replaceWith(defs);
     }
     createSVGElement() {
       const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -91,7 +91,9 @@
       arc.setAttribute("d", d);
       arc.setAttribute("stroke", full ? progressBgColor : progressBarColor);
       arc.setAttribute("fill", "transparent");
-      if (shape !== "none") {
+      if (shape === "circle")
+        arc.setAttribute("stroke-linecap", "round");
+      if (shape !== "none" && shape !== "circle" && CSS.supports("fill", "context-stroke")) {
         arc.setAttribute("marker-end", "url(#head)");
         arc.setAttribute("marker-start", "url(#tail)");
       }
@@ -235,23 +237,30 @@
        overflow: visible;
        pointer-events: none;
      }
-       svg * {
-          pointer-events: stroke;
-        }
-       .arc {
-          stroke: var(--o-arc-color, var(--o-cyan-light));
-          stroke-width:  calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
-          transition: stroke 0.3s;
-        }
-        
-        :host(:hover) .arc {
-          stroke: var(--o-hover-arc-color, var(--o-arc-color));
-          
-        }
+      svg * {
+        pointer-events: stroke;
+      }
+      .arc {
+        stroke: var(--o-color, transparent);
+        stroke-width:  calc(var(--o-radius) / var(--o-orbit-number) * var(--o-size-ratio, 1));
+        transition: stroke 0.3s;
+      }
+      text {
+        color: var(--o-text-color, currentcolor);
+      }
+      :host(:hover) text {
+        color: var(--o-hover-text-color, var(--o-text-color));
+      }
+      :host(:hover) .arc {
+        stroke: var(--o-hover-color, var(--o-color));
+      }
    </style>
    <svg viewBox="0 0 100 100">
      <defs></defs>
-     <path class="arc" vector-effect="non-scaling-stroke" fill="transparent"></path>
+     <path id="orbitPath" class="arc" vector-effect="non-scaling-stroke" fill="transparent"></path>
+     <text>
+        <textPath href="#orbitPath"  alignment-baseline="middle"></textPath>
+      </text>
    </svg>
  `;
   var OrbitArc = class extends HTMLElement {
@@ -262,38 +271,99 @@
     }
     connectedCallback() {
       this.update();
-      const observer = new MutationObserver((mutations) => {
+      this.observer = new MutationObserver((mutations) => {
+        this.observer.disconnect();
         mutations.forEach((mutation) => {
           this.update();
         });
+        this.observer.observe(this, { attributes: true, childList: true });
       });
-      observer.observe(this, { attributes: true, childList: true });
+      this.observer.observe(this, { attributes: true, childList: true });
     }
     update() {
-      const { shape } = this.getAttributes();
-      const svg = this.shadowRoot.querySelector("svg");
-      const path = this.shadowRoot.querySelector("path");
+      const { shape, realRadius, gap, flip } = this.getAttributes();
+      const path = this.shadowRoot.getElementById("orbitPath");
       const defs = this.shadowRoot.querySelector("defs");
-      if (shape !== "none") {
+      const text = this.shadowRoot.querySelector("text");
+      const textPath = this.shadowRoot.querySelector("textPath");
+      if (shape === "circle")
+        path.setAttribute("stroke-linecap", "round");
+      if (shape !== "none" && shape !== "circle" && CSS.supports("fill", "context-stroke")) {
         defs.innerHTML = "";
         defs.appendChild(this.createMarker("head", "end"));
         defs.appendChild(this.createMarker("tail", "start"));
         path.setAttribute("marker-end", "url(#head)");
         path.setAttribute("marker-start", "url(#tail)");
       }
-      const { realRadius, arcColor, gap } = this.getAttributes();
+      const { length, fontSize, textAnchor, fitRange } = this.getTextAttributes();
       const angle = this.calculateAngle();
-      const { d } = this.calculateArcParameters(angle, realRadius, gap);
+      const { d } = this.calculateArcParameters(angle, realRadius, gap, flip);
       path.setAttribute("d", d);
-      path.setAttribute("stroke", arcColor);
+      if (textAnchor === "start") {
+        textPath.setAttribute("startOffset", "0%");
+        textPath.setAttribute("text-anchor", "start");
+      } else if (textAnchor === "middle") {
+        textPath.setAttribute("startOffset", "50%");
+        textPath.setAttribute("text-anchor", "middle");
+      } else if (textAnchor === "end") {
+        textPath.setAttribute("startOffset", "100%");
+        textPath.setAttribute("text-anchor", "end");
+      }
+      if (fitRange) {
+        textPath.parentElement.setAttribute("textLength", path.getTotalLength());
+      }
+      text.style.fontSize = `calc(${fontSize} * (100 / (${length}) * (12 /  var(--o-orbit-number) ))`;
+      textPath.textContent = this.textContent;
+    }
+    getTextAttributes() {
+      const { length, fontSize, textAnchor, fitRange } = this.getAttributes();
+      return { length, fontSize, textAnchor, fitRange };
     }
     getAttributes() {
-      const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue("r") || 0);
-      const gap = parseFloat(getComputedStyle(this).getPropertyValue("--o-gap") || 1e-3);
+      const orbitRadius = parseFloat(
+        getComputedStyle(this).getPropertyValue("r") || 0
+      );
+      const gap = parseFloat(getComputedStyle(this).getPropertyValue("--o-gap")) || 1e-3;
       const shape = this.getAttribute("shape") || "none";
-      const arcColor = this.getAttribute("arc-color");
-      const rawAngle = getComputedStyle(this).getPropertyValue("--o-angle");
-      const strokeWidth = parseFloat(getComputedStyle(this).getPropertyValue("stroke-width") || 1);
+      const flip = this.hasAttribute("flip") || this.classList.contains("flip");
+      const fitRange = this.hasAttribute("fit-range") || this.classList.contains("fit-range") || false;
+      const length = parseFloat(
+        getComputedStyle(this).getPropertyValue("--o-force")
+      );
+      const textAnchor = this.getAttribute("text-anchor") || "middle";
+      const fontSize = getComputedStyle(this).getPropertyValue("font-size") || getComputedStyle(this).getPropertyValue("--font-size");
+      const value = parseFloat(this.getAttribute("value"));
+      const range = parseFloat(
+        getComputedStyle(this).getPropertyValue("--o-range") || 360
+      );
+      let rawAngle;
+      let arcAngle;
+      if (value) {
+        arcAngle = this.getProgressAngle(range, value);
+        const prevElement = this.previousElementSibling;
+        const stackOffset = prevElement ? parseFloat(
+          getComputedStyle(prevElement).getPropertyValue("--o_stack")
+        ) : 0;
+        this.style.setProperty("--o_stack", stackOffset + arcAngle);
+        if (stackOffset >= 0 && flip) {
+          this.style.setProperty(
+            "--o-angle-composite",
+            parseFloat(stackOffset + arcAngle) + "deg"
+          );
+        }
+        if (stackOffset > 0 && !flip) {
+          this.style.setProperty(
+            "--o-angle-composite",
+            parseFloat(stackOffset) + "deg"
+          );
+        }
+      } else {
+        rawAngle = getComputedStyle(this).getPropertyValue("--o-angle");
+        arcAngle = calcularExpresionCSS(rawAngle);
+      }
+      const strokeWidth = parseFloat(
+        getComputedStyle(this).getPropertyValue("stroke-width") || 1
+      );
       const strokeWithPercentage = strokeWidth / 2 * 100 / orbitRadius / 2;
       let innerOuter = strokeWithPercentage;
       if (this.classList.contains("outer-orbit")) {
@@ -309,35 +379,58 @@
         innerOuter = strokeWithPercentage * 0.75;
       }
       const realRadius = 50 + innerOuter - strokeWithPercentage;
-      const arcAngle = calcularExpresionCSS(rawAngle);
       return {
         orbitRadius,
         strokeWidth,
         realRadius,
-        arcColor,
         gap,
         arcAngle,
-        shape
+        shape,
+        length,
+        fontSize,
+        flip,
+        fitRange,
+        textAnchor
       };
     }
     calculateAngle() {
-      const { arcAngle, gap } = this.getAttributes();
-      return arcAngle - gap;
+      const { arcAngle, gap, flip } = this.getAttributes();
+      let calculation = flip ? arcAngle : arcAngle;
+      return calculation;
     }
-    calculateArcParameters(angle, realRadius) {
+    getProgressAngle(maxAngle, value) {
+      const progress = value;
+      const maxValue = parseFloat(this.getAttribute("max")) || 100;
+      return progress / maxValue * maxAngle;
+    }
+    calculateArcParameters(angle, realRadius, gap, flip) {
       const radiusX = realRadius / 1;
       const radiusY = realRadius / 1;
-      const startX = 50 + radiusX * Math.cos(-Math.PI / 2);
-      const startY = 50 + radiusY * Math.sin(-Math.PI / 2);
-      const endX = 50 + radiusX * Math.cos((angle - 90) * Math.PI / 180);
-      const endY = 50 + radiusY * Math.sin((angle - 90) * Math.PI / 180);
-      const largeArcFlag = angle <= 180 ? 0 : 1;
-      const d = `M ${startX},${startY} A ${radiusX},${radiusY} 0 ${largeArcFlag} 1 ${endX},${endY}`;
-      return { startX, startY, endX, endY, largeArcFlag, d };
+      let startX, startY, endX, endY, largeArcFlag, d;
+      let adjustedGap = gap * 0.5;
+      if (flip) {
+        startX = 50 + radiusX * Math.cos((-90 - adjustedGap) * (Math.PI / 180));
+        startY = 50 + radiusY * Math.sin((-90 - adjustedGap) * (Math.PI / 180));
+        endX = 50 + radiusX * Math.cos((270 - angle + adjustedGap) * Math.PI / 180);
+        endY = 50 + radiusY * Math.sin((270 - angle + adjustedGap) * Math.PI / 180);
+        largeArcFlag = angle <= 180 ? 0 : 1;
+        d = `M ${startX},${startY} A ${radiusX},${radiusY} 0 ${largeArcFlag} 0 ${endX},${endY}`;
+      } else {
+        startX = 50 + radiusX * Math.cos((-90 + adjustedGap) * (Math.PI / 180));
+        startY = 50 + radiusY * Math.sin((-90 + adjustedGap) * (Math.PI / 180));
+        endX = 50 + radiusX * Math.cos((angle - 90 - adjustedGap) * Math.PI / 180);
+        endY = 50 + radiusY * Math.sin((angle - 90 - adjustedGap) * Math.PI / 180);
+        largeArcFlag = angle <= 180 ? 0 : 1;
+        d = `M ${startX},${startY} A ${radiusX},${radiusY} 0 ${largeArcFlag} 1 ${endX},${endY}`;
+      }
+      return { d };
     }
     createMarker(id, position = "end") {
       const { shape } = this.getAttributes();
-      const marker = document.createElementNS("http://www.w3.org/2000/svg", "marker");
+      const marker = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "marker"
+      );
       marker.setAttribute("id", id);
       marker.setAttribute("viewBox", "0 0 10 10");
       position === "start" && shape !== "circle" ? marker.setAttribute("refX", "2") : position === "start" && shape === "circle" ? marker.setAttribute("refX", "5") : marker.setAttribute("refX", "0.1");
@@ -376,174 +469,9 @@
     }
   };
   function calcularExpresionCSS(cssExpression) {
-    const match = cssExpression.match(/calc\(\s*([\d.]+)deg\s*\/\s*\(\s*(\d+)\s*-\s*(\d+)\s*\)\s*\)/);
-    if (match) {
-      const value = parseFloat(match[1]);
-      const divisor = parseInt(match[2]) - parseInt(match[3]);
-      if (!isNaN(value) && !isNaN(divisor) && divisor !== 0) {
-        return value / divisor;
-      }
-    }
-  }
-
-  // src/js/orbit-text.js
-  var OrbitText = class extends HTMLElement {
-    constructor() {
-      super();
-      this.attachShadow({ mode: "open" });
-      const template2 = document.createElement("template");
-      template2.innerHTML = `
-      <svg viewBox="0 0 100 100"  >
-        <path id="orbitPath" fill="none" vector-effect="non-scaling-stroke"></path>
-        <text>
-          <textPath href="#orbitPath"  alignment-baseline="middle"></textPath>
-        </text>
-      </svg>
-      <style>
-       :host {
-          display: inline-block;
-
-        }
-        svg {
-          width: 100%;
-          height: 100%;
-          overflow: visible;
-          pointer-events: none;
-          
-        }
-        svg * {
-          pointer-events: stroke;
-        }
-        
-        path {
-          fill: transparent;
-          stroke: var(--o-text-color);
-          transition: stroke 0.3s;
-        }
-       
-        :host(:hover) path {
-          stroke: var(--o-hover-text-color, var(--o-text-color));
-          
-        }
-      
-        
-      </style>
-    `;
-      this.shadowRoot.appendChild(template2.content.cloneNode(true));
-    }
-    connectedCallback() {
-      this.update();
-      const observer = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          this.update();
-        });
-      });
-      observer.observe(this, { attributes: true, childList: true });
-    }
-    update() {
-      const path = this.shadowRoot.getElementById("orbitPath");
-      const text = this.shadowRoot.querySelector("text");
-      const textPath = this.shadowRoot.querySelector("textPath");
-      const { d, strokeWidth, lineCap } = this.getPathAttributes();
-      path.setAttribute("d", d);
-      path.setAttribute("stroke-width", strokeWidth);
-      path.setAttribute("stroke-linecap", lineCap);
-      const { length, fontSize, textAnchor, fitRange } = this.getTextAttributes();
-      if (textAnchor === "start") {
-        textPath.setAttribute("startOffset", "0%");
-        textPath.setAttribute("text-anchor", "start");
-      } else if (textAnchor === "middle") {
-        textPath.setAttribute("startOffset", "50%");
-        textPath.setAttribute("text-anchor", "middle");
-      } else if (textAnchor === "end") {
-        textPath.setAttribute("startOffset", "100%");
-        textPath.setAttribute("text-anchor", "end");
-      }
-      if (fitRange) {
-        textPath.parentElement.setAttribute("textLength", path.getTotalLength());
-      }
-      text.style.fontSize = `calc(${fontSize} * (100 / (${length}) * (12 /  var(--o-orbit-number) ))`;
-      textPath.textContent = this.textContent;
-    }
-    getPathAttributes() {
-      const { realRadius, gap, textBgColor, flip, lineCap, strokeWidth } = this.getAttributes();
-      const angle = this.calculateAngle();
-      const { d } = this.calculateArcParameters(angle, realRadius, gap, flip);
-      return { d, strokeWidth, textBgColor, lineCap };
-    }
-    getTextAttributes() {
-      const { length, fontSize, textAnchor, fitRange } = this.getAttributes();
-      return { length, fontSize, textAnchor, fitRange };
-    }
-    getAttributes() {
-      const orbitRadius = parseFloat(getComputedStyle(this).getPropertyValue("r") || 0);
-      const flip = this.hasAttribute("flip");
-      const fitRange = this.hasAttribute("fit-range");
-      const lineCap = getComputedStyle(this).getPropertyValue("--o-linecap") || "butt";
-      const gap = parseFloat(getComputedStyle(this).getPropertyValue("--o-gap") || 1e-3);
-      const length = parseFloat(getComputedStyle(this).getPropertyValue("--o-force"));
-      const textAnchor = this.getAttribute("text-anchor") || "middle";
-      const fontSize = getComputedStyle(this).getPropertyValue("font-size") || getComputedStyle(this).getPropertyValue("--font-size");
-      const rawAngle = getComputedStyle(this).getPropertyValue("--o-angle");
-      const strokeWidth = parseFloat(getComputedStyle(this).getPropertyValue("stroke-width") || 1);
-      let strokeWithPercentage = strokeWidth / 2 * 100 / orbitRadius / 2;
-      let innerOuter = strokeWithPercentage;
-      if (this.classList.contains("outer-orbit")) {
-        innerOuter = strokeWithPercentage * 2;
-      }
-      if (this.classList.contains("quarter-outer-orbit")) {
-        innerOuter = strokeWithPercentage * 1.75;
-      }
-      if (this.classList.contains("inner-orbit")) {
-        innerOuter = 0;
-      }
-      if (this.classList.contains("quarter-inner-orbit")) {
-        innerOuter = strokeWithPercentage * 0.75;
-      }
-      const realRadius = 50 + innerOuter - strokeWithPercentage;
-      const textAngle = calcularExpresionCSS2(rawAngle);
-      return {
-        orbitRadius,
-        strokeWidth,
-        realRadius,
-        length,
-        fontSize,
-        gap,
-        textAngle,
-        flip,
-        textAnchor,
-        lineCap,
-        fitRange
-      };
-    }
-    calculateAngle() {
-      const { textAngle, gap } = this.getAttributes();
-      return textAngle - gap;
-    }
-    calculateArcParameters(angle, realRadius, gap, flip) {
-      const radiusX = realRadius / 1;
-      const radiusY = realRadius / 1;
-      let startX, startY, endX, endY, largeArcFlag, d;
-      if (flip) {
-        startX = 50 - gap + radiusX * Math.cos(-Math.PI / 2);
-        startY = 50 + radiusY * Math.sin(-Math.PI / 2);
-        endX = 50 + radiusX * Math.cos((270 - angle) * Math.PI / 180);
-        endY = 50 + radiusY * Math.sin((270 - angle) * Math.PI / 180);
-        largeArcFlag = angle <= 180 ? 0 : 1;
-        d = `M ${startX},${startY} A ${radiusX},${radiusY} 0 ${largeArcFlag} 0 ${endX},${endY}`;
-      } else {
-        startX = 50 + gap + radiusX * Math.cos(-Math.PI / 2);
-        startY = 50 + radiusY * Math.sin(-Math.PI / 2);
-        endX = 50 + radiusX * Math.cos((angle - 90) * Math.PI / 180);
-        endY = 50 + radiusY * Math.sin((angle - 90) * Math.PI / 180);
-        largeArcFlag = angle <= 180 ? 0 : 1;
-        d = `M ${startX},${startY} A ${radiusX},${radiusY} 0 ${largeArcFlag} 1 ${endX},${endY}`;
-      }
-      return { startX, startY, endX, endY, largeArcFlag, d };
-    }
-  };
-  function calcularExpresionCSS2(cssExpression) {
-    const match = cssExpression.match(/calc\(\s*([\d.]+)deg\s*\/\s*\(\s*(\d+)\s*-\s*(\d+)\s*\)\s*\)/);
+    const match = cssExpression.match(
+      /calc\(\s*([\d.]+)deg\s*\/\s*\(\s*(\d+)\s*-\s*(\d+)\s*\)\s*\)/
+    );
     if (match) {
       const value = parseFloat(match[1]);
       const divisor = parseInt(match[2]) - parseInt(match[3]);
@@ -584,6 +512,5 @@
   // src/orbit.js
   customElements.define("o-progress", OrbitProgress);
   customElements.define("o-arc", OrbitArc);
-  customElements.define("o-text", OrbitText);
   window.Orbit = Orbit;
 })();

@@ -1,0 +1,142 @@
+---
+title: Gauges
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
+
+export const gauge1HTML = `
+<div class="bigbang ">
+  <div class="gravity-spot">
+    <div class="orbit-5 range-180 from-270">
+      <o-arc style="--o-text-color: var(--o-red)">very poor</o-arc>
+      <o-arc style="--o-text-color: var(--o-orange)">poor</o-arc>
+      <o-arc style="--o-text-color: var(--o-yellow)">fair</o-arc>
+      <o-arc style="--o-text-color: var(--o-green)">good</o-arc>
+      <o-arc style="--o-text-color: var(--o-green-dark)">excellent</o-arc>
+    </div>
+    <div class="orbit-4  range-180 from-270">
+      <o-arc style="--o-color: var(--o-red)"></o-arc>
+      <o-arc style="--o-color: var(--o-orange)"></o-arc>
+      <o-arc style="--o-color: var(--o-yellow)"></o-arc>
+      <o-arc style="--o-color: var(--o-green)"></o-arc>
+      <o-arc style="--o-color: var(--o-green-dark)"></o-arc>
+    </div>
+    <div class="orbit" style="border: 2px solid black">
+      <div class="vector grow-1.7x outer-orbit" style="height: 5px; background-color: black;"></div>
+    </div>
+  </div>
+</div>`
+
+## 180º gauge
+
+<ZumerPlay name={'gauge1'} hideCode htmlCode={gauge1HTML}   height={'250px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={gauge1HTML} lang="html" wrap />
+  </TabItem>
+  
+</Tabs>
+
+export const gauge2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-6 shrink-70  range-240 from-240">
+      <o-arc>10</o-arc>
+      <o-arc>20</o-arc>
+      <o-arc>30</o-arc>
+      <o-arc>40</o-arc>
+      <o-arc>50</o-arc>
+      <o-arc>60</o-arc>
+      <o-arc>70</o-arc>
+      <o-arc>80</o-arc>
+      <o-arc>90</o-arc>
+      <o-arc>100</o-arc>
+      <o-arc>110</o-arc>
+      <o-arc>120</o-arc>
+      <o-arc>130</o-arc>
+      <o-arc>140</o-arc>
+      <o-arc>150</o-arc>
+    </div>
+    <div class="orbit-4  range-240 from-240">
+      <o-arc class="grow-0.7x" style="--o-color: green"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: green"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: green"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: green"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: green"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: orange"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: orange"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: orange"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: orange"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: orange"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: red"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: red"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: red"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: red"></o-arc>
+      <o-arc class="grow-0.7x" style="--o-color: red"></o-arc>
+    </div>
+    <div class="orbit" style="border: 2px solid black">
+      <div class="vector grow-1.7x outer-orbit" style="height: 5px; background-color: black;"></div>
+    </div>
+  </div>
+</div>`
+
+## 240º gauge
+
+<ZumerPlay name={'gauge2'} hideCode htmlCode={gauge2HTML}  height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={gauge2HTML} lang="html" wrap />
+  </TabItem>
+  
+</Tabs>
+
+export const gauge3HTML = `
+<div class="bigbang" style="background: black">
+  <div class="gravity-spot">
+    <div class="orbit-4  range-90 from-270 fit-range">
+      <div class="vector inner-orbit shrink-40" style="height: 4px; background-color: var(--o-red); "></div>
+      <div class="vector inner-orbit shrink-60" style="height: 2px; background-color: var(--o-red);"></div>
+      <div class="vector inner-orbit shrink-40" style="height: 4px; background-color: white"></div>
+      <div class="vector inner-orbit shrink-60" style="height: 2px;background-color: white"></div>
+      <div class="vector inner-orbit shrink-40" style="height: 4px; background-color: white"></div>
+      <div class="vector inner-orbit shrink-60" style="height: 2px;background-color: white"></div>
+      <div class="vector inner-orbit shrink-40" style="height: 4px; background-color: white"></div>
+      <div class="vector inner-orbit shrink-60" style="height: 2px;background-color: white"></div>
+      <div class="vector inner-orbit shrink-40" style="height: 4px; background-color: white"></div>
+    </div>
+    <div class="orbit-3 shrink-20 range-92 from-269 fit-range">
+      <div class="satellite" style="border:none; color: white">E</div>
+      <div class="satellite" style="border:none;color: white">
+        <div class="capsule">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 512 512"><path fill="white" d="M32 64C32 28.7 60.7 0 96 0L256 0c35.3 0 64 28.7 64 64l0 192 8 0c48.6 0 88 39.4 88 88l0 32c0 13.3 10.7 24 24 24s24-10.7 24-24l0-154c-27.6-7.1-48-32.2-48-62l0-64L384 64c-8.8-8.8-8.8-23.2 0-32s23.2-8.8 32 0l77.3 77.3c12 12 18.7 28.3 18.7 45.3l0 13.5 0 24 0 32 0 152c0 39.8-32.2 72-72 72s-72-32.2-72-72l0-32c0-22.1-17.9-40-40-40l-8 0 0 144c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32L32 64zM96 80l0 96c0 8.8 7.2 16 16 16l128 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16L112 64c-8.8 0-16 7.2-16 16z"/></svg>
+        </div>
+      </div>
+      <div class="satellite" style="border:none;color: white">F</div>
+    </div>
+    <div class="orbit-0">
+      <div class="vector grow-1.7x outer-orbit angle-290" style="height: 5px; background-color: var(--o-red);"></div>
+    </div>
+    <div class="orbit-1 shrink-50" style="border: 2px solid white; background-color: black;"></div>
+  </div>
+</div>`
+
+## Fuel gauge
+
+<ZumerPlay name={'gauge3'} hideCode htmlCode={gauge3HTML}  height={'300px'} />
+
+<Tabs>
+  <TabItem label="HTML" icon="seti:html" >
+    <Code code={gauge3HTML} lang="html" wrap/>
+  </TabItem>
+ 
+</Tabs>
+
+## Show & Tell
+
+Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
+
+

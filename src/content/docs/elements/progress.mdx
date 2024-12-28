@@ -17,7 +17,7 @@ Just one o-progress can be used per orbit.
 ## Look and feel
 
 ### Changing progress colors
-To change o-progress **progress bar** color use CSS custom var `--o-progress-color` and `--o-hover-progress-color` in a `o-progress` style. Use `--o-bg-color` to set a **background bar** color.
+To change o-progress **progress bar** color use CSS custom var `--o-color` and `--o-hover-color` in a `o-progress` style. Use `--o-background-color` to set a **background bar** color.
 
 export const progress = `
 <div class="bigbang">
@@ -29,9 +29,9 @@ export const progress = `
 `;
 export const progressCSS = `
 o-progress.cyan {
---o-progress-color: var(--o-cyan-light);
---o-hover-progress-color: var(--o-cyan);
---o-bg-color: var(--o-cyan-dark);
+--o-color: var(--o-cyan-light);
+--o-hover-color: var(--o-cyan);
+--o-background-color: var(--o-cyan-dark);
 }
 
 o-progress:hover{
@@ -40,14 +40,14 @@ cursor: pointer
 
 `;
 
-<ZumerPlay name={'progress'} hideCode htmlCode={progress} cssCode={progressCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'progress'} hideCode htmlCode={progress} cssCode={progressCSS} theme={'cyan-theme'} height={'300px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={progress} lang="html" />
+    <Code code={progress} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={progressCSS} lang="css" />
+    <Code wrap code={progressCSS} lang="css"  />
   </TabItem>
 </Tabs>
 
@@ -69,13 +69,13 @@ export const progress1 = `
 `;
 export const progress1CSS = `
 o-progress.cyan {
---o-progress-color: var(--o-cyan-light);
---o-hover-progress-color: var(--o-cyan);
---o-bg-color: var(--o-cyan-dark);
+--o-color: var(--o-cyan-light);
+--o-hover-color: var(--o-cyan);
+--o-background-color: var(--o-cyan-dark);
 }
 o-progress.indigo {
---o-progress-color: var(--o-indigo-light);
---o-hover-progress-color: var(--o-indigo);
+--o-color: var(--o-indigo-light);
+--o-hover-color: var(--o-indigo);
 
 }
 o-progress:hover{
@@ -84,14 +84,14 @@ cursor: pointer
 
 `;
 
-<ZumerPlay name={'progress1'} hideCode htmlCode={progress1} cssCode={progress1CSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'progress1'} hideCode htmlCode={progress1} cssCode={progress1CSS} theme={'cyan-theme'} height={'300px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={progress1} lang="html" />
+    <Code code={progress1} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={progress1CSS} lang="css" />
+    <Code wrap code={progress1CSS} lang="css"  />
   </TabItem>
 </Tabs>
 
@@ -100,7 +100,7 @@ cursor: pointer
 `o-progress` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`. 
 
 :::note
-Shapes don't work on Safari browsers.
+Except circle shape, other shapes don't work on Safari browsers.
 :::
 
 
@@ -165,16 +165,16 @@ margin: 5px;
 --o-force: 300px
 }
 o-progress.purple-light {
---o-progress-color: var(--o-purple-light);
---o-hover-progress-color: var(--o-orange)
+--o-color: var(--o-purple-light);
+--o-hover-color: var(--o-orange)
 }
 o-progress.purple {
---o-progress-color: var(--o-purple);
---o-hover-progress-color: var(--o-orange)
+--o-color: var(--o-purple);
+--o-hover-color: var(--o-orange)
 }
 o-progress.purple-dark {
---o-progress-color: var(--o-purple-dark);
---o-hover-progress-color: var(--o-orange)
+--o-color: var(--o-purple-dark);
+--o-hover-color: var(--o-orange)
 }
 o-progress:hover{
 cursor: pointer
@@ -185,14 +185,14 @@ o-progress {
 
 `;
 
-<ZumerPlay name={'progress2'} hideCode htmlCode={progress2} cssCode={progress2CSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'progress2'} hideCode htmlCode={progress2} cssCode={progress2CSS} theme={'cyan-theme'} height={'300px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={progress2} lang="html" />
+    <Code code={progress2} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={progress2CSS} lang="css" />
+    <Code wrap code={progress2CSS} lang="css"  />
   </TabItem>
 </Tabs>
 
@@ -206,34 +206,34 @@ export const shrink = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-1">
-      <o-progress value="10" style="--o-progress-color: var(--o-red)"></o-progress>
+      <o-progress value="10" style="--o-color: var(--o-red)"></o-progress>
     </div>
     <div class="orbit-2">
-      <o-progress value="20" class="shrink-90" style="--o-progress-color: var(--o-orange)"></o-progress>
+      <o-progress value="20" class="shrink-90" style="--o-color: var(--o-orange)"></o-progress>
     </div>
     <div class="orbit-3">  
-      <o-progress value="30" class="shrink-80" style="--o-progress-color: var(--o-yellow)"></o-progress>
+      <o-progress value="30" class="shrink-80" style="--o-color: var(--o-yellow)"></o-progress>
     </div>    
     <div class="orbit-4">  
-      <o-progress value="40" class="shrink-70" style="--o-progress-color: var(--o-color)"></o-progress>
+      <o-progress value="40" class="shrink-70" style="--o-color: var(--o-color)"></o-progress>
     </div>    
     <div class="orbit-5">  
-      <o-progress value="50" class="shrink-60" style="--o-progress-color: var(--o-green)"></o-progress>
+      <o-progress value="50" class="shrink-60" style="--o-color: var(--o-green)"></o-progress>
     </div>    
     <div class="orbit-6">  
-      <o-progress value="60" class="shrink-50" style="--o-progress-color: var(--o-cyan)"></o-progress>
+      <o-progress value="60" class="shrink-50" style="--o-color: var(--o-cyan)"></o-progress>
     </div>    
     <div class="orbit-7">  
-      <o-progress value="70" class="shrink-40" style="--o-progress-color: var(--o-blue)"></o-progress>
+      <o-progress value="70" class="shrink-40" style="--o-color: var(--o-blue)"></o-progress>
     </div>    
     <div class="orbit-8">  
-      <o-progress value="80" class="shrink-30" style="--o-progress-color: var(--o-indigo)"></o-progress>
+      <o-progress value="80" class="shrink-30" style="--o-color: var(--o-indigo)"></o-progress>
     </div>    
     <div class="orbit-9">  
-      <o-progress value="90" class="shrink-20" style="--o-progress-color: var(--o-purple)"></o-progress>
+      <o-progress value="90" class="shrink-20" style="--o-color: var(--o-purple)"></o-progress>
     </div>    
     <div class="orbit-10">  
-      <o-progress value="100" class="shrink-10" style="--o-progress-color: var(--o-pink)"></o-progress>
+      <o-progress value="100" class="shrink-10" style="--o-color: var(--o-pink)"></o-progress>
     </div>    
    
   </div>
@@ -249,14 +249,14 @@ o-progress {
 
 `;
 
-<ZumerPlay name={'shrink'} hideCode htmlCode={shrink} cssCode={shrinkCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'shrink'} hideCode htmlCode={shrink} cssCode={shrinkCSS} theme={'cyan-theme'} height={'300px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={shrink} lang="html" />
+    <Code code={shrink} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code code={shrinkCSS} lang="css" />
+    <Code code={shrinkCSS} lang="css" wrap />
   </TabItem>
 </Tabs>
 
@@ -271,16 +271,16 @@ export const grow = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-8">  
-      <o-progress value="80" class="grow-6x" style="--o-progress-color: var(--o-indigo)"></o-progress>
+      <o-progress value="80" class="grow-6x" style="--o-color: var(--o-indigo)"></o-progress>
     </div> 
     <div class="orbit-7">  
-      <o-progress value="70" class="grow-5x" style="--o-progress-color: var(--o-blue)"></o-progress>
+      <o-progress value="70" class="grow-5x" style="--o-color: var(--o-blue)"></o-progress>
     </div> 
      <div class="orbit-6">  
-      <o-progress value="60" class="grow-4x" style="--o-progress-color: var(--o-cyan)"></o-progress>
+      <o-progress value="60" class="grow-4x" style="--o-color: var(--o-cyan)"></o-progress>
     </div>   
     <div class="orbit-5">  
-      <o-progress value="50" class="grow-2x" style="--o-progress-color: var(--o-purple-light)"></o-progress>
+      <o-progress value="50" class="grow-2x" style="--o-color: var(--o-purple-light)"></o-progress>
     </div>    
   </div>
 </div>
@@ -295,14 +295,14 @@ o-progress {
 }
 `;
 
-<ZumerPlay name={'grow'} hideCode htmlCode={grow} cssCode={growCSS} theme={'cyan-theme'} height={'400px'} />
+<ZumerPlay name={'grow'} hideCode htmlCode={grow} cssCode={growCSS} theme={'cyan-theme'} height={'400px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={grow} lang="html" />
+    <Code code={grow} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code code={growCSS} lang="css" />
+    <Code code={growCSS} lang="css" wrap />
   </TabItem>
 </Tabs>
 
@@ -331,18 +331,18 @@ export const angleCSS = `
 border: 1px dashed var(--o-cyan);
 }
 o-progress {
---o-progress-color: var(--o-purple);
+--o-color: var(--o-purple);
 }
 `;
 
-<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={angle} lang="html" />
+    <Code code={angle} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code code={angleCSS} lang="css" />
+    <Code code={angleCSS} lang="css" wrap />
   </TabItem>
 </Tabs>
 
@@ -391,19 +391,19 @@ margin: 5px;
   border: 1px dashed var(--o-cyan)
 }
 o-progress {
---o-progress-color: var(--o-pink);
+--o-color: var(--o-pink);
 --o-gap: 1; /* This will be added as default soon*/
 }
 `;
 
-<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} wrap />
 
 <Tabs>
   <TabItem label="HTML" icon="seti:html">
-    <Code code={inner} lang="html" />
+    <Code code={inner} lang="html" wrap />
   </TabItem>
   <TabItem label="CSS" icon="seti:css">
-    <Code code={innerCSS} lang="css" />
+    <Code code={innerCSS} lang="css" wrap />
   </TabItem>
 </Tabs>
 
