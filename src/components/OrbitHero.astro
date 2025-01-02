@@ -461,10 +461,10 @@ const { data } = Astro.props.entry;
         <o-arc class="grow-1x control-format" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('format')"></o-arc>
         <o-arc class="grow-1x control-color" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('color')"></o-arc>
       </div>
-      <div class="orbit-4 shrink-10">
-        <o-arc class="shrink-60 active-size" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
-        <o-arc class="shrink-60 active-format" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
-        <o-arc class="shrink-60 active-color" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+      <div class="orbit-4 ">
+        <o-arc class="shrink-60 active-size inner-orbit" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+        <o-arc class="shrink-60 active-format inner-orbit" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
+        <o-arc class="shrink-60 active-color inner-orbit" style="--o-color: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc>
       </div>
       <div class="orbit-3 from-60">
         <div class="satellite " style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;">
@@ -1194,32 +1194,28 @@ function onScroll() {
   function handleClick(button, subcontrol = false) {
    
       if (!subcontrol) {
+      
           let otherButtons = document.querySelectorAll('[class*=option-]')
           let otherButtons1 = document.querySelectorAll('[class*=suboption-]')
-          let otherActive = document.querySelectorAll('[class*=active-]')
+          let otherActive = document.querySelectorAll('[class*=active]')
           let otherActive1 = document.querySelectorAll('[class*=subactive-]')
+        
           let group = [...otherButtons, ...otherButtons1, ...otherActive, ...otherActive1]
           group.forEach(b => {
               b.style.display = 'none'
               b.style.opacity = 0
           })
-  
           let control = document.querySelector(`.option-${button}`)
           let active = document.querySelector(`.active-${button}`)
+         
   
-          if (control.classList.contains('active')) {
-              control.style.display = 'none'
-              control.style.opacity = 0;
-              control.classList.remove('active')
-              active.style.display = 'none'
-              active.style.opacity = 0;
-          } else {
+         
               control.style.display = 'flex'
               control.style.opacity = 1;
-              control.classList.add('active')
+             // control.classList.add('active')
               active.style.display = 'flex'
               active.style.opacity = 1;
-          }
+        
       } else {
           let otherButtons1 = document.querySelectorAll('[class*=suboption-]')
           let otherActive1 = document.querySelectorAll('[class*=subactive-]')
