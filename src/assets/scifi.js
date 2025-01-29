@@ -1,8 +1,28 @@
 const container = document.querySelector('.container-gyro');
 const gyro = document.querySelector('.gyro');
+const sd = document.querySelector('.small-dash')
+const bd = document.querySelector('.big-dash')
 
-// Función común para manejar el cálculo de rotación
+const smallDashs = [];
+const bigDashs = [];
+
+for (let i = 0; i < 57; i++) {
+  smallDashs.push("<div class='vector shrink-40 outer-orbit dashed-small'></div>");
+}
+
+for (let i = 0; i < 18; i++) {
+  bigDashs.push("<div class='vector shrink-40 outer-orbit dashed-big'></div>");
+}
+
+sd.innerHTML = smallDashs.join('');
+bd.innerHTML = bigDashs.join('');
+
+
+
 function handleMove(event) {
+  if (event.type === 'touchmove') {
+    event.preventDefault(); // Prevenir el scroll predeterminado
+  }
   // Obtenemos las dimensiones del contenedor
   const containerRect = container.getBoundingClientRect();
   const containerWidth = containerRect.width;
@@ -42,6 +62,6 @@ function handleMove(event) {
   gyro.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
 
-// Eventos para dispositivos de entrada
+
 container.addEventListener('mousemove', handleMove);
 container.addEventListener('touchmove', handleMove);

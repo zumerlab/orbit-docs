@@ -1,0 +1,82 @@
+---
+title: Integrate Orbit in Svelte
+---
+import MySapp from '/src/components/svelte/app.svelte'
+
+Integrating **Orbit** with **Svelte** is easy. Below, you’ll find step-by-step instructions for **Node.js-based** Svelte projects.
+
+
+## **Node.js-Based integration**
+
+Follow these steps:
+
+### **Install Orbit via npm**
+Install Orbit as a dependency in your project:
+
+```bash
+npm install @zumer/orbit
+```
+
+### **Configure Svelte to recognize Orbit components**
+
+On way is to import the Orbit CSS and JavaScript files in your Svelte application. You can do this in your main entry file (e.g., src/main.js or src/App.svelte):
+
+```javascript
+<script>
+  import { onMount } from 'svelte';
+    onMount(async () => {
+    await import('@zumer/orbit/dist/orbit.js');
+  });
+</script>
+
+<style lang="css">
+ @import '@zumer/orbit/dist/orbit.css'
+</style>
+
+<div class="bigbang">
+	<!-- orbit code... -->
+</div>
+```
+
+## **3. Example: using Orbit in Svelte**
+
+Here’s an example of how to use Orbit in Svelte.
+
+
+```js title="app.svelte"
+<script>
+    import { onMount } from 'svelte';
+        onMount(async () => {
+        await import('@zumer/orbit/dist/orbit.js');
+    });
+</script>
+
+<style lang="css">
+ @import '@zumer/orbit/dist/orbit.css'
+ .satellite {
+	background: var(--o-cyan-light) !important;
+	border: none !important;
+}
+o-arc {
+	--o-fill: var(--o-cyan-light)  !important;
+}
+</style>
+
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit">
+      <div class="satellite grow-1x at-center"></div>
+    </div>
+    <div class="orbit-2 range-180 from-180">
+      <o-arc shape="circle" class="shrink-50"></o-arc>
+    </div>
+    <div class="orbit-3 range-270 ">
+      <o-arc shape="circle" class="shrink-50"></o-arc>
+    </div>
+  </div>
+</div>
+```
+
+Output code:
+
+<MySapp client:load />

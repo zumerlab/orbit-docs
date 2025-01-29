@@ -1,16 +1,15 @@
 ---
-title: ".gravity-spot CSS class"
+title: "Gravity-spot"
 #banner: 
 #  content: |
 #   Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 The `.gravity-spot` CSS class serves as a container for organizing Orbit elements within a radial layout. It is fundamental in every Orbit project, acting as the parent container for all other Orbit elements.
 
-## Gravity-spot extension 
+## Gravity-spot width 
 
 By default, `.gravity-spot` extends 500px, influencing its child elements' dimensions. For instance, `.orbit-12` will have a 500px diameter. To adjust this, directly modify the `--o-force` CSS custom variable either inline or through custom CSS classes. It's important to note that each usage of `.gravity-spot` resets to default values, so modify the `--o-force` property within the `.gravity-spot` class for persistent changes.
 
@@ -18,99 +17,77 @@ By default, `.gravity-spot` extends 500px, influencing its child elements' dimen
 For responsive designs, consider using the optional `Orbit.resize()` JavaScript function, which adjusts `--o-force` dynamically when the parent element of `.gravity-spot` is resized.
 :::
 
-export const ext = `
-<div class="bigbang">
+export const ext = 
+`<div class="bigbang">
   <div class="gravity-spot">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot tiny " style="--o-force:200px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-  
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot tiniest" style="--o-force:100px">
    <div class="orbit"></div>
    <div class="orbit"></div>
    <div class="orbit"></div>
-  
   </div>
 </div>
 `;
-export const extCSS = `
-
-.orbit {
-border-color: var(--o-cyan);
-border-width: 1px;
+export const extCSS = 
+`.orbit {
+  border-color: var(--o-cyan);
+  border-width: 1px;
 }
 .tiny .orbit{
-border-color: var(--o-purple);
+  border-color: var(--o-purple);
 }
 .tiniest .orbit{
-border-color: var(--o-orange);
+  border-color: var(--o-orange);
 }
 `;
 
-<ZumerPlay name={'ext'} hideCode htmlCode={ext} cssCode={extCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'ext'}   htmlCode={ext} cssCode={extCSS} theme={'cyan-theme'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={ext} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={extCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ## Adjust inner radial layout
+
 **`.from-*x`:** Set initial orbit size from 1x to 12x. It acts as initial offset .
 
-export const from = `
-<div class="bigbang">
+export const from = 
+`<div class="bigbang">
   <div class="gravity-spot">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot from-4x">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-  
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
 </div>
 `;
-export const fromCSS = `
-
-.orbit {
-border-color: var(--o-cyan);
-border-width: 1px;
+export const fromCSS = 
+`.orbit {
+  border-color: var(--o-cyan);
+  border-width: 1px;
 }
 .from-4x .orbit{
-border-color: var(--o-purple);
+  border-color: var(--o-purple);
 }
-
 `;
 
-<ZumerPlay name={'from'} hideCode htmlCode={from} cssCode={fromCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={from} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={fromCSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'from'}   htmlCode={from} cssCode={fromCSS} theme={'cyan-theme'} height={'300px'} />
 
 ## Nested structure 
 
 `.gravity-spot` can be nested within `.satellite` elements, allowing for the creation of intricate radial layouts.
 
-export const nestg = `
-<div class="bigbang">
+export const nestg = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit"></div>
     <div class="orbit">
@@ -123,55 +100,42 @@ export const nestg = `
   </div>
 </div>
 `;
-export const nestgCSS = `
-
-.orbit {
-border-color: var(--o-cyan);
-border-width: 1px;
+export const nestgCSS = 
+`.orbit {
+  border-color: var(--o-cyan);
+  border-width: 1px;
 }
 .satellite {
-background-color: var(--o-cyan-light);
-border: none;
+  background-color: var(--o-cyan-light);
+  border: none;
 }
-
 `;
 
-<ZumerPlay name={'nestg'} hideCode htmlCode={nestg} cssCode={nestgCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={nestg} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={nestgCSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-
+<ZumerPlay name={'nestg'}   htmlCode={nestg} cssCode={nestgCSS} theme={'cyan-theme'} height={'300px'} />
 
 
 ## Gravity-spot children aligment.
 `.gravity-spot` place its children element at center. This behavior can be altered using alignment utility classes such as `.at-center` (default), `.at-center-left`, `.at-center-right`, `.at-top`, `.at-top-left`, `.at-top-right`, `.at-bottom`, `.at-bottom-left`, and `.at-bottom-right`.
 
-export const align = `
-<div class="bigbang">
+export const align = 
+`<div class="bigbang">
   <div class="gravity-spot at-center" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-center-left" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-center-right" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-bottom" style="--o-force:300px">
     <div class="orbit"></div>
@@ -180,16 +144,16 @@ export const align = `
     <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-bottom-left" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-bottom-right" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
     <div class="gravity-spot at-top" style="--o-force:300px">
     <div class="orbit"></div>
@@ -198,35 +162,25 @@ export const align = `
     <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-top-left" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
   <div class="gravity-spot at-top-right" style="--o-force:300px">
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
-   <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
+    <div class="orbit"></div>
   </div>
 </div>
 `;
-export const alignCSS = `
-
-.orbit {
-border-color: var(--o-cyan);
-border-width: 1px;
+export const alignCSS = 
+`.orbit {
+  border-color: var(--o-cyan);
+  border-width: 1px;
 }
 `;
 
-<ZumerPlay name={'align'} hideCode htmlCode={align} cssCode={alignCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={align} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={alignCSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'align'}   htmlCode={align} cssCode={alignCSS} theme={'cyan-theme'} height={'300px'} />
 

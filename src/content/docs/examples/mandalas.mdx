@@ -4,92 +4,43 @@ title: Mandalas
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 export const mandala1HTML = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-0">
-      <div class="satellite grow-2x gray-border">
+      <div class="satellite grow-2x">
         <div class="gravity-spot">
           <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
+            <div class="side" v-for="n in 6"></div>
           </div>
         </div>
       </div>
     </div>
     <div class="orbit-2">
-      <div class="satellite grow-2x gray-border"></div>
-      <div class="satellite grow-2x gray-border"></div>
-      <div class="satellite grow-2x gray-border"></div>
-      <div class="satellite grow-2x gray-border"></div>
-      <div class="satellite grow-2x gray-border"></div>
-      <div class="satellite grow-2x gray-border"></div>
+      <div class="satellite grow-2x" v-for="n in 6"></div>
     </div>
   </div>
 </div>`
 
 ## Mandala 1
 
-<ZumerPlay name={'mandala1'} hideCode htmlCode={mandala1HTML}   height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={mandala1HTML} lang="html" wrap />
-  </TabItem>
-  
-</Tabs>
+<ZumerPlay name={'mandala1'}   htmlCode={mandala1HTML} framework="vue"  height={'300px'} />
+>
 
 export const mandala2HTML = `
-<div class="bigbang">
+  <div class="bigbang">
   <div class="gravity-spot">
-    <div class="orbit-0">
-    </div>
     <div class="orbit-3">
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
-      <div class="satellite grow-4x gray-border"></div>
+      <div class="satellite grow-3.5x" v-for="n in 22"></div>
     </div>
-    <div class="orbit-5 gray-border"></div>
   </div>
-</div>`
+</div>
+`
 
 ## Mandala 2
 
-<ZumerPlay name={'mandala2'} hideCode htmlCode={mandala2HTML}   height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={mandala2HTML} lang="html" wrap/>
-  </TabItem>
-  
-</Tabs>
-
-
+<ZumerPlay name={'mandala2'}   htmlCode={mandala2HTML}  framework="vue"  height={'300px'} />
 
 
 export const mandala3HTML = `
@@ -99,10 +50,10 @@ export const mandala3HTML = `
       <div class="satellite at-center spin-lock angle-22">
         <div class="gravity-spot">
           <div class="orbit-4">
-            <div class="satellite box  at-center gray-border grow-3.9x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3.9x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box  at-center gray-border grow-3x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3x"></div>
           </div>
         </div>
       </div>
@@ -111,10 +62,10 @@ export const mandala3HTML = `
       <div class="satellite at-center spin-lock angle-67">
         <div class="gravity-spot">
           <div class="orbit-4">
-            <div class="satellite box  at-center gray-border grow-3.9x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3.9x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box  at-center gray-border grow-3x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3x"></div>
           </div>
         </div>
       </div>
@@ -123,24 +74,24 @@ export const mandala3HTML = `
       <div class="satellite at-center spin-lock angle-45">
         <div class="gravity-spot">
           <div class="orbit-4">
-            <div class="satellite box  at-center gray-border grow-3.9x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3.9x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box  at-center gray-border grow-3x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box  at-center gray-border grow-1.9x" style="background: white;"></div>
+            <div class="satellite box at-center grow-1.9x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box angle-45 spin-lock at-center gray-border grow-1.9x" style="background: white;"></div>
+            <div class="satellite box angle-45 spin-lock at-center grow-1.9x"></div>
           </div>
           <div class="orbit-2">
-            <div class="satellite box angle-45 spin-lock at-center gray-border grow-1x" style="background: white;"></div>
+            <div class="satellite box angle-45 spin-lock at-center grow-1x"></div>
           </div>
           <div class="orbit-1">
-            <div class="satellite box angle-45 spin-lock at-center gray-border" style="background: white;"></div>
+            <div class="satellite box angle-45 spin-lock at-center"></div>
           </div>
-          <div class="orbit-4 shrink-50 gray-border"></div>
+          <div class="orbit-4 shrink-50"></div>
         </div>
       </div>
     </div>
@@ -148,22 +99,22 @@ export const mandala3HTML = `
       <div class="satellite at-center">
         <div class="gravity-spot">
           <div class="orbit-4">
-            <div class="satellite box  at-center gray-border grow-3.9x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3.9x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box  at-center gray-border grow-3x" style="background: white;"></div>
+            <div class="satellite box at-center grow-3x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box  at-center gray-border grow-1.9x" style="background: white;"></div>
+            <div class="satellite box at-center grow-1.9x"></div>
           </div>
           <div class="orbit-3">
-            <div class="satellite box angle-45 spin-lock at-center gray-border grow-1.9x" style="background: white;"></div>
+            <div class="satellite box angle-45 spin-lock at-center grow-1.9x"></div>
           </div>
           <div class="orbit-2">
-            <div class="satellite box angle-45 spin-lock at-center gray-border grow-1x" style="background: white;"></div>
+            <div class="satellite box angle-45 spin-lock at-center grow-1x"></div>
           </div>
           <div class="orbit-1">
-            <div class="satellite box angle-45 spin-lock at-center gray-border" style="background: white;"></div>
+            <div class="satellite box angle-45 spin-lock at-center"></div>
           </div>
         </div>
       </div>
@@ -173,85 +124,13 @@ export const mandala3HTML = `
   
 ## Mandala 3
 
-<ZumerPlay name={'mandala3'} hideCode htmlCode={mandala3HTML}  height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={mandala3HTML} lang="html" />
-  </TabItem>
-  
-</Tabs>
-
-
+<ZumerPlay name={'mandala3'}   htmlCode={mandala3HTML} cssCode={`.satellite {background: white}`} height={'300px'} />
 
 export const mandala4HTML = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-4 from-22">
-      <div class="satellite inner-orbit spin-lock ">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
-        <div class="gravity-spot">
-          <div class="orbit-2">
-            <div class="side"></div>
-            <div class="side"></div>
-            <div class="side"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit spin-lock">
+      <div class="satellite inner-orbit spin-lock" v-for="n in 8">
         <div class="gravity-spot">
           <div class="orbit-2">
             <div class="side"></div>
@@ -262,241 +141,35 @@ export const mandala4HTML = `
       </div>
     </div>
     <div class="orbit-4">
-      <div class="satellite inner-orbit">
+      <div class="satellite inner-orbit"  v-for="n in 8">
         <div class="gravity-spot">
           <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.6x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1.1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.6x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-1.4x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-1x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border grow-0.5x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-50" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="orbit-2 from-22 transparent">
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0 ">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30 " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite quarter-outer-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-            <div class="satellite  at-center spin-lock gray-border shrink-60" style="background-color: white;"></div>
+            <div class="satellite at-center spin-lock grow-1.6x"></div>
+            <div class="satellite at-center spin-lock grow-1.1x"></div>
+            <div class="satellite at-center spin-lock grow-0.6x"></div>
+            <div class="satellite at-center spin-lock "></div>
+            <div class="satellite at-center spin-lock shrink-50"></div>
           </div>
         </div>
       </div>
     </div>
     <div class="orbit-2">
-      <div class="satellite inner-orbit">
+      <div class="satellite inner-orbit"  v-for="n in 8">
         <div class="gravity-spot">
           <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
-          </div>
-        </div>
-      </div>
-      <div class="satellite inner-orbit">
-        <div class="gravity-spot">
-          <div class="orbit-0">
-            <div class="satellite at-center spin-lock gray-border grow-0.3x" style="background-color: white;"></div>
-            <div class="satellite at-center spin-lock gray-border " style="background-color: white;"></div>
-            <div class="satellite  at-center spin-lock gray-border shrink-30" style="background-color: white;"></div>
+            <div class="satellite at-center spin-lock grow-0.3x"></div>
+            <div class="satellite at-center spin-lock "></div>
+            <div class="satellite at-center spin-lock shrink-30"></div>
           </div>
         </div>
       </div>
     </div>
     <div class="orbit-0">
-      <div class="satellite at-center gray-border grow-0.9x" style="background-color: white;"></div>
-      <div class="satellite at-center gray-border grow-0.6x" style="background-color: white;"></div>
-      <div class="satellite at-center gray-border grow-0.3x" style="background-color: white;"></div>
-      <div class="satellite at-center gray-border " style="background-color: white;"></div>
-      <div class="satellite at-center gray-border shrink-30" style="background-color: white;"></div>
+      <div class="satellite at-center grow-0.9x"></div>
+      <div class="satellite at-center grow-0.6x"></div>
+      <div class="satellite at-center grow-0.3x"></div>
+      <div class="satellite at-center "></div>
+      <div class="satellite at-center shrink-30"></div>
     </div>
   </div>
 </div>`
@@ -504,13 +177,7 @@ export const mandala4HTML = `
 
 ## Mandala 4
 
-<ZumerPlay name={'mandala4'} hideCode htmlCode={mandala4HTML}   height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={mandala4HTML} lang="html" wrap />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'mandala4'}   htmlCode={mandala4HTML} cssCode={`.satellite {background: white}`} framework="vue"   height={'300px'} />
 
 ## Show & Tell
 

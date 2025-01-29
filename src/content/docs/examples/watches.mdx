@@ -4,125 +4,100 @@ title: Watch faces
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-export const watch1HTML = `
+## Watch 1
+
+export const watch2HTML = `
 <div class="bigbang">
-  <div class="gravity-spot clock-frame" style="color: slategray; --o-force: 200px">
-    <div class="orbit-11" style="border: 2px solid black;"></div>
+  <div class="gravity-spot clock-frame">  
+    <div class="orbit-11" >
+      <div class="satellite at-center grow-12x ring"></div>
+    </div>
+    <div class="orbit-11 shrink-50 back"></div>
     <!-- big clock ticks -->
-    <div class="orbit-10 white-smoke-spot">
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
+    <div class="orbit-10">
+      <div class="vector inner-orbit" v-for="n in 12"></div>
     </div>
     <div class="orbit-10">
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
+      <div class="vector shrink-50 inner-orbit"  v-for="n in 60"></div>
+    </div>
+    <div class="orbit-10 from-3">
+      <div class="vector shrink-70 inner-orbit" v-for="n in 60"></div>
     </div>
     <!-- big clock hours -->
     <div class="orbit-8">
-      <div class="satellite hours">12</div>
-      <div class="satellite hours">1</div>
-      <div class="satellite hours">2</div>
-      <div class="satellite hours">3</div>
-      <div class="satellite hours">4</div>
-      <div class="satellite hours">5</div>
-      <div class="satellite hours">6</div>
-      <div class="satellite hours">7</div>
-      <div class="satellite hours">8</div>
-      <div class="satellite hours">9</div>
-      <div class="satellite hours">10</div>
-      <div class="satellite hours">11</div>
+      <div class="satellite">12</div>
+      <div class="satellite" v-for="n in 11">{{n}}</div>
+    </div>  
+    <!-- big clock -->
+    <div class="orbit-0 clock">
+      <div class="vector grow-4x outer-orbit angle-45"></div>
+      <div class="vector grow-3x outer-orbit angle-300"></div>
+    </div>
+  </div>
+</div>`
+
+export const watch2CSS = `
+.satellite {
+  border: none
+}
+.clock-frame {
+  color: whitesmoke; 
+  --o-force: 200px
+}
+.ring {
+  background-color:  #373737; 
+  border-radius: 25px;
+}
+.back {
+  background-color: #595959;
+}
+`
+
+<ZumerPlay name={'watch2'}   htmlCode={watch2HTML}  cssCode={watch2CSS} jsCode={`{
+  data () {
+    return {}
+  }
+}`}  framework="vue" height={'300px'} />
+
+
+## Watch 2
+
+export const watch1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot clock-frame">
+    <div class="orbit-11 ring"></div>
+    <!-- big clock ticks -->
+    <div class="orbit-10">
+      <!-- Vue implementation -->
+      <div class="vector inner-orbit" v-for="n in 12"></div>
+    </div>
+    <div class="orbit-10">
+       <!-- Vue implementation -->
+      <div class="vector shrink-50 inner-orbit " v-for="n in 60"></div>
+    </div>
+    <!-- big clock hours -->
+    <div class="orbit-8">
+      <div class="satellite">12</div>
+       <!-- Vue implementation -->
+      <div class="satellite" v-for="n in 11">{{n}}</div>
     </div>
     <!-- center black core -->
-    <div class="orbit-7 black-spot"></div>
+    <div class="orbit-7"></div>
     <div class="orbit-4">
       <!-- brand -->
-      <div class="satellite grow-5x transparent" style="border-color: transparent">
-        <div class="capsule" style="color: rgb(229,229,229);">ORBIT</div>
+      <div class="satellite grow-5x">
+        <div class="capsule brand">ORBIT</div>
       </div>
       <!-- small clocks -->
-      <div class="small-clock satellite transparent">
-        <div class="gravity-spot" style="--o-force: 200px">
-          <div class="orbit-3 shrink-50" style="border: 1px solid black;"></div>
-          <div class="medium orbit-2 shrink-20 " >
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
+      <div class="small-clock satellite">
+        <div class="gravity-spot">
+          <div class="orbit-3 shrink-50"></div>
+          <div class=" orbit-2 shrink-20 " >
+             <!-- Vue implementation -->
+            <div class="vector inner-orbit shrink-70" v-for="n in 6"></div>
           </div>
-          <div class="hours orbit-1" style="font-size: 6px;">
+          <div class="hours orbit-1">
             <div class="satellite">30</div>
             <div class="satellite">05</div>
             <div class="satellite">10</div>
@@ -131,451 +106,174 @@ export const watch1HTML = `
             <div class="satellite">25</div>
           </div>
           <div class="orbit-0">
-            <div class="vector outer-orbit grow-1x angle-0 needle "></div>
-            <div class="satellite at-center shrink-80 needle-center"></div>
+            <div class="vector outer-orbit grow-1x angle-0"></div>
+            <div class="satellite at-center shrink-80"></div>
           </div>
         </div>
       </div>
-      <div class="small-clock satellite transparent">
-        <div class="gravity-spot" style="--o-force: 200px">
-          <div class="orbit-3 shrink-50" style="border: 1px solid black;"></div>
-          <div class="medium orbit-2 shrink-20 ">
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
+      <div class="small-clock satellite">
+        <div class="gravity-spot">
+          <div class="orbit-3 shrink-50"></div>
+          <div class=" orbit-2 shrink-20">
+             <!-- Vue implementation -->
+            <div class="vector inner-orbit shrink-70" v-for="n in 12"></div>
           </div>
-          <div class="hours orbit-1" style="font-size: 6px;">
+          <div class="hours orbit-1">
             <div class="satellite">60</div>
             <div class="satellite">15</div>
             <div class="satellite">30</div>
             <div class="satellite">45</div>
           </div>
           <div class="orbit-0">
-            <div class="vector outer-orbit grow-1x needle xs"></div>
-            <div class="satellite at-center shrink-80 needle-center"></div>
+            <div class="vector outer-orbit grow-1x"></div>
+            <div class="satellite at-center shrink-80"></div>
           </div>
         </div>
       </div>
-      <div class="small-clock satellite transparent">
-        <div class="gravity-spot" style="--o-force: 200px">
-          <div class="orbit-3 shrink-50" style="border: 1px solid black;"></div>
-          <div class="medium orbit-2 shrink-20 ">
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
-            <div class="vector inner-orbit shrink-70"></div>
+      <div class="small-clock satellite">
+        <div class="gravity-spot">
+          <div class="orbit-3 shrink-50"></div>
+          <div class=" orbit-2 shrink-20 ">
+             <!-- Vue implementation -->
+            <div class="vector inner-orbit shrink-70" v-for="n in 12"></div>
           </div>
-          <div class="hours orbit-1" style="font-size: 6px;">
+          <div class="hours orbit-1">
             <div class="satellite">12</div>
             <div class="satellite">3</div>
             <div class="satellite">6</div>
             <div class="satellite">9</div>
           </div>
           <div class="orbit-0">
-            <div class="vector outer-orbit grow-1x angle-0 needle "></div>
-            <div class="satellite at-center shrink-80 needle-center"></div>
+            <div class="vector outer-orbit grow-1x angle-0 "></div>
+            <div class="satellite at-center shrink-80"></div>
           </div>
         </div>
       </div>
     </div>
     <!-- big clock -->
     <div class="orbit-0 clock">
-      <div class="vector grow-4x outer-orbit minute xm angle-45">
-      </div>
-      <div class="vector grow-3x outer-orbit hour xh angle-300">
-      </div>
-      <div class="satellite at-center center">
-      </div>
+      <div class="vector grow-4x outer-orbit angle-45"></div>
+      <div class="vector grow-3x outer-orbit angle-300"></div>
+      <div class="satellite at-center"></div>
     </div>
   </div>
 </div>`
 
 export const watch1CSS = `
 .satellite {
-border: none
+  border: none
+}
+.gravity-spot {
+  --o-force: 200px
+}
+.clock-frame {
+  color: slategray; 
+
+}
+.ring {
+  border: 2px solid black;
+}
+.brand {
+  color: slategray;
+}
+.orbit-3 {
+    border: 1px solid black;
+}
+.small-clock .hours {
+  font-size: 6px;
 }
 `
 
+<ZumerPlay name={'watch1'}   htmlCode={watch1HTML} cssCode={watch1CSS} jsCode={`{
+  data () {
+    return {}
+  }
+}`}   height={'250px'} framework="vue" />
 
-## Watch 1
 
-<ZumerPlay name={'watch1'} hideCode htmlCode={watch1HTML} cssCode={watch1CSS}   height={'250px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={watch1HTML} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css" >
-    <Code code={watch1CSS} lang="css" wrap />
-  </TabItem>
-</Tabs>
-
-export const watch2HTML = `
-<div class="bigbang">
-  <div class="gravity-spot clock-frame" style="color: whitesmoke; --o-force: 200px">  
-    <div class="orbit-11" >
-      <div class="satellite at-center  grow-12x" style="background-color:  #373737; border-radius: 25px;"></div>
-    </div>
-    <div class="orbit-11 shrink-50" style="background-color: #595959;"></div>
-    <!-- big clock ticks -->
-    <div class="orbit-10 white-smoke-spot">
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-    </div>
-    <div class="orbit-10">
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-      <div class="vector shrink-50 inner-orbit medium"></div>
-    </div>
-    <div class="orbit-10 from-3">
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-      <div class="vector shrink-70 inner-orbit medium"></div>
-    </div>
-    <!-- big clock hours -->
-    <div class="orbit-8">
-      <div class="satellite hours">
-        <div class="capsule">12</div>
-      </div>
-      <div class="satellite hours">1</div>
-      <div class="satellite hours">2</div>
-      <div class="satellite hours">3</div>
-      <div class="satellite hours">4</div>
-      <div class="satellite hours">5</div>
-      <div class="satellite hours">6</div>
-      <div class="satellite hours">7</div>
-      <div class="satellite hours">8</div>
-      <div class="satellite hours">9</div>
-      <div class="satellite hours">10</div>
-      <div class="satellite hours">11</div>
-    </div>  
-    <!-- big clock -->
-    <div class="orbit-0 clock">
-      <div class="vector grow-4x outer-orbit minute xm angle-45">
-      </div>
-      <div class="vector grow-3x outer-orbit hour xh angle-300">
-      </div>
-    </div>
-  </div>
-</div>`
-
-export const watch2CSS = `
-.satellite {
-border: none
-}
-`
-
-## Watch 2
-
-<ZumerPlay name={'watch2'} hideCode htmlCode={watch2HTML}  cssCode={watch2CSS} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={watch2HTML} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css" >
-    <Code code={watch2CSS} lang="css" wrap />
-  </TabItem>
-  
-</Tabs>
-
+## Watch 3
 
 export const watch3HTML = `
 <div class="bigbang">
-  <div class="gravity-spot clock-frame" style="color: black; --o-force: 200px">  
+  <div class="gravity-spot clock-frame">  
     <!-- big clock ticks -->
-    <div class="orbit-10 white-smoke-spot">
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
-      <div class="vector inner-orbit big-needle"></div>
+    <div class="orbit-10">
+      <div class="vector inner-orbit" v-for="n in 12"></div>
     </div>
-    <div class="orbit-10"  style="border: 1px solid black">
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
-      <div class="vector shrink-40 inner-orbit medium"></div>
+    <div class="orbit-10 ring">
+      <div class="vector shrink-40 inner-orbit" v-for="n in 60"></div>
     </div>
-    <div class="orbit-10 shrink-70"  style="border: 1px solid black"></div> 
+    <div class="orbit-10 shrink-70 ring"></div> 
     <!-- big clock hours -->
     <div class="orbit-8" >
-      <div class="satellite hours spin-lock "><div class="capsule flip ">XII</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">I</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">II</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">III</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">IV</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">V</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">VI</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">VII</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">VIII</div></div>
-      <div class="satellite hours spin-lock "><div class="capsule flip ">IX</div></div>
-      <div class="satellite hours spin-lock"><div class="capsule flip ">X</div></div>
-      <div class="satellite hours spin-lock"> <div class="capsule flip ">XI</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">XII</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">I</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">II</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">III</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">IV</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">V</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">VI</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">VII</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">VIII</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">IX</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">X</div></div>
+      <div class="satellite hours spin-lock"> <div class="capsule flip">XI</div></div>
     </div>  
     <!-- big clock -->
     <div class="orbit-0 clock">
-      <div class="vector grow-4x outer-orbit minute xm angle-45">
+      <div class="vector grow-4x outer-orbit angle-45">
       </div>
-      <div class="vector grow-3x outer-orbit hour xh angle-300">
+      <div class="vector grow-3x outer-orbit angle-300">
       </div>
     </div>
   </div>
 </div>`
-
-
 
 export const watch3CSS = `
 .satellite {
   border: none
 }
+
+.clock-frame {
+color: black; 
+--o-force: 200px
+}
+
+.ring {
+border: 1px solid black;
+}
 `
 
-## Watch 3
+<ZumerPlay name={'watch3'}   htmlCode={watch3HTML}  cssCode={watch3CSS} jsCode={`{
+  data () {
+    return {}
+  }
+}`} framework="vue" height={'300px'} />
 
-<ZumerPlay name={'watch3'} hideCode htmlCode={watch3HTML}  cssCode={watch3CSS} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={watch3HTML} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css" >
-    <Code code={watch3CSS} lang="css" wrap />
-  </TabItem>
-  
-</Tabs>
-
+## Watch 4
 
 export const watchHTML = ` 
-<div class="bigbang">
-<div class="gravity-spot clock-frame" style="color: slategray; --o-force: 320px">
+<div class="bigbang w4">
+<div class="gravity-spot clock-frame">
   <!-- curved text -->
   <div class="orbit-11 from-270 range-180">
-    <o-arc label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved" >ALARM 7:00AM</o-arc>
-    <o-arc label-color="rgb(163,163,163)" text-anchor="middle" class="demo-curved digital-clock"></o-arc>
+    <o-arc class="demo-curved" >ALARM 7:00AM</o-arc>
+    <o-arc class="demo-curved digital-clock"></o-arc>
   </div>
   <div class="orbit-11 from-160 range-40 ">
-    <o-arc flip   text-anchor="middle" label-color="rgb(163,163,163)" class="demo-curved">500 • 30 • 12</o-arc>
+    <o-arc flip class="demo-curved">500 • 30 • 12</o-arc>
   </div>
   <div class="calendar orbit-12 shrink-80 from-215 range-30">
-    <o-arc flip style="--bg-color: rgb(57,57,57); --o-arc-color: rgb(163,163,163); " text-anchor="middle"
-      class="gap-3 rounded previous grow-0.2x">22</o-arc>
-    <o-arc flip style="color: white;  --o-arc-color: black; " text-anchor="middle" class="current gap-3 rounded grow-0.2x">23</o-arc>
-    <o-arc flip style="--bg-color: rgb(57,57,57); --o-arc-color: rgb(163,163,163); " text-anchor="middle"
-      class="gap-3 rounded next grow-0.2x">24</o-arc>
+    <o-arc flip class="gap-3 rounded previous grow-0.2x">22</o-arc>
+    <o-arc flip class="current gap-3 rounded grow-0.2x">23</o-arc>
+    <o-arc flip class="gap-3 rounded next grow-0.2x">24</o-arc>
   </div>
-  <div class="orbit-12 from-227 range-12 ">
-    <o-arc flip style="color: white;" text-anchor="middle" class="outer-orbit day-name"></o-arc>
+  <div class="orbit-12 from-223 range-15">
+    <o-arc flip class="outer-orbit day-name"></o-arc>
   </div>
   <!-- big clock ticks -->
-  <div class="orbit-10 white-smoke-spot">
+  <div class="orbit-10  white-smoke-spot">
     <div class="vector inner-orbit big-needle"></div>
     <div class="vector inner-orbit big-needle"></div>
     <div class="vector inner-orbit big-needle"></div>
@@ -734,12 +432,12 @@ export const watchHTML = `
   <div class="orbit-7 black-spot"></div>
   <div class="orbit-4">
     <!-- brand -->
-    <div class="satellite grow-5x transparent" style="border-color: transparent">
-      <div class="capsule" style="color: rgb(229,229,229);">ORBIT</div>
+    <div class="satellite grow-5x transparent">
+      <div class="capsule brand">ORBIT</div>
     </div>
     <!-- small clocks -->
     <div class="small-clock satellite transparent">
-      <div class="gravity-spot" style="--o-force: 320px">
+      <div class="gravity-spot">
         <div class="small orbit-2 shrink-20 white-spot">
           <div class="vector shrink-80 inner-orbit"></div>
           <div class="vector shrink-80 inner-orbit"></div>
@@ -795,7 +493,7 @@ export const watchHTML = `
       </div>
     </div>
     <div class="small-clock satellite transparent">
-      <div class="gravity-spot" style="--o-force: 320px">
+      <div class="gravity-spot">
         <div class="small orbit-2 shrink-20 white-spot">
           <div class="vector shrink-80 inner-orbit"></div>
           <div class="vector shrink-80 inner-orbit"></div>
@@ -886,7 +584,7 @@ export const watchHTML = `
       </div>
     </div>
     <div class="small-clock satellite transparent">
-      <div class="gravity-spot" style="--o-force: 320px">
+      <div class="gravity-spot">
         <div class="small orbit-2 shrink-20 white-spot">
           <div class="vector shrink-80 inner-orbit"></div>
           <div class="vector shrink-80 inner-orbit"></div>
@@ -991,111 +689,136 @@ export const watchHTML = `
 </div>
 </div>`;
 
-export const watchCSS = `    .black-spot {
-      background-color: black;
+export const watchCSS = `
+.w4 {
+  .gravity-spot {
+  --o-force: 320px;
+  }
+  .clock-frame {
+  color: slategray;
+  }
+  .black-spot {
+  background-color: black;
+  }
+
+  .white-smoke-spot {
+  background-color: rgb(232, 226, 218);
+  border: 1px inset #0000002b;
+  outline: 2px solid rgb(232 226 218)
+  }
+  .brand {
+    color: rgb(229,229,229);
+  }
+  .white-spot {
+  border: 1px inset #0000002b;
+  background-color: rgb(229, 229, 229);
+  outline: 2px solid rgb(229, 229, 229);
+  }
+
+  .hours {
+  background-color: transparent;
+  border: none;
+  }
+
+  .big-needle {
+  height: 3px;
+  border-radius: 2px;
+  }
+  .mini {
+  background-color: rgb(255, 255, 255);
+  outline: 2px solid rgb(254, 254, 254);
+  }
+
+  .small-clock {
+    .small .vector {
+    height: 1px;
+    border-radius: 2px;
+    background-color: gray;
     }
 
-    .white-smoke-spot {
-      background-color: rgb(232, 226, 218);
-      border: 1px inset #0000002b;
-      outline: 2px solid rgb(232 226 218)
+    .medium .vector {
+    height: 2px;
+    border-radius: 2px;
+    background-color: rgb(0, 0, 0);
     }
 
-    .white-spot {
-      border: 1px inset #0000002b;
-      background-color: rgb(229, 229, 229);
-      outline: 2px solid rgb(229, 229, 229);
+    .hours .satellite {
+    font-size: x-small;
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
     }
 
-    .hours {
-      background-color: transparent;
-      border: none;
+    .needle {
+    background-color: rgb(255, 64, 25);
+    height: 1.5px;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.537))
     }
 
-    .big-needle {
-      height: 3px;
-      border-radius: 2px;
-    }
-    .mini {
-      background-color: rgb(255, 255, 255);
-      outline: 2px solid rgb(254, 254, 254);
+    .needle-center {
+    background-color: rgb(255, 64, 25);
     }
 
-    .small-clock {
-        .small .vector {
-        height: 1px;
-        border-radius: 2px;
-        background-color: gray;
-      }
+  }
 
-      .medium .vector {
-        height: 2px;
-        border-radius: 2px;
-        background-color: rgb(0, 0, 0);
-      }
+  .transparent {
+  background-color: transparent;
+  border-color: transparent
+  }
 
-      .hours .satellite {
-        font-size: x-small;
-        border: none;
-        background-color: transparent;
-        font-weight: 600;
-      }
+  .clock>.center {
+  border: 3px solid rgb(232, 226, 218);
+  background-color: black;
+  }
 
-      .needle {
-        background-color: rgb(255, 64, 25);
-        height: 1.5px;
-        filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.537))
-      }
+  .hour,
+  .minute {
+  filter: drop-shadow(4px 4px 5px black)
+  }
 
-      .needle-center {
-        background-color: rgb(255, 64, 25);
-      }
+  .hours {
+  font-weight: 700 !important;
+  }
 
-    }
+  .component-label   {
+  font-size: 16px;
+  font-weight: 500
+  }
+  .demo-curved {
+  font-size: 15px;
+  font-weight: bold;
+  --o-fill: none
+  }
 
-    .transparent {
-      background-color: transparent;
-    }
+  .calendar {
+  font-size: 15px;
+  font-weight: bold;
+  }
 
-    .clock>.center {
-      border: 3px solid rgb(232, 226, 218);
-      background-color: black;
-    }
+  .invert-color {
+  filter: invert(1);
+  }
 
-    .hour,
-    .minute {
-      filter: drop-shadow(4px 4px 5px black)
-    }
+  .day-name {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white
+  } 
+  
+  .previous, .next {
+    --o-fill: rgb(57,57,57); 
+    color: rgb(163,163,163); 
+  }
 
-    .hours {
-      font-weight: 700 !important;
-    }
+  .current {
+  color: black;
+  }
+}
+` ; 
 
-   .component-label   {
-      font-size: 16px;
-      font-weight: 500
-    }
-    .demo-curved {
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .calendar {
-      font-size: 15px;
-      font-weight: bold;
-    }
-
-    .invert-color {
-      filter: invert(1);
-    }
-
-    .day-name {
-      font-size: 15px;
-      text-transform: uppercase;
-      font-weight: bold;
-    } ` ; 
-
-export const watchJS = `function analogWatch() {
+export const watchJS = `
+function analogWatch() {
     // Get the current time
     const now = new Date()
     // Get the current hour, minute, and second
@@ -1122,16 +845,16 @@ export const watchJS = `function analogWatch() {
     const secondPercentage = (secondAngle / 360) * 100
 
     // Get the hour, minute, and second hand elements
-    const hourHand = document.querySelector('.xh')
-    const minuteHand = document.querySelector('.xm')
-    const secondHand = document.querySelector('.xs')
+    const hourHand = document.querySelector('.w4 .xh')
+    const minuteHand = document.querySelector('.w4 .xm')
+    const secondHand = document.querySelector('.w4 .xs')
 
-    const curvedText = document.querySelector('.digital-clock')
+    const curvedText = document.querySelector('.w4 .digital-clock')
 
-    const current = document.querySelector('.calendar .current ')
-    const previous = document.querySelector('.calendar .previous ')
-    const next = document.querySelector('.calendar .next ')
-    const dayName = document.querySelector('.day-name ')
+    const current = document.querySelector('.w4 .calendar .current ')
+    const previous = document.querySelector('.w4 .calendar .previous ')
+    const next = document.querySelector('.w4 .calendar .next ')
+    const dayName = document.querySelector('.w4 .day-name ')
 
     // Set the transform style of each hand element with angle correction
     hourHand.style.setProperty('--o-angle-composite', hourAngle - 90 + 'deg')
@@ -1150,23 +873,7 @@ export const watchJS = `function analogWatch() {
   // Call the analogWatch function every second
   setInterval(analogWatch, 1000)`;
 
-## Watch 4
-
-<ZumerPlay name={'watch'} hideCode htmlCode={watchHTML}  cssCode={watchCSS} jsCode={watchJS}  height={'450px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={watchHTML} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={watchCSS} lang="css" wrap />
-  </TabItem>
-  <TabItem label="JS" icon="seti:js">
-    <Code code={watchJS} lang="js" wrap />
-  </TabItem>
-</Tabs>
-
-**Codepen**: <a href="https://codepen.io/zircle/pen/NWQZWEK" target="_blank">link</a> 
+<ZumerPlay name={'watch'}   htmlCode={watchHTML}  cssCode={watchCSS} jsCode={watchJS}  height={'450px'} />
 
 
 **Credits**: This example is inspired on <a href="https://amazfitwatchfaces.com/gts/view/5067" target="_blank">Amazfitwatchfaces</a>

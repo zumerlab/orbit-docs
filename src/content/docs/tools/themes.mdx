@@ -1,0 +1,142 @@
+---
+title: "Orbit themes"
+#banner: 
+#  content: |
+#    Documentaton on this page is being updated.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+
+export const htmlCode = `
+<!-- No configuration needed -->
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2">
+      <o-arc class="shrink-10 gap-2"></o-arc>
+      <o-arc class="shrink-10 gap-2"></o-arc>
+    </div>
+    <div class="orbit-4">
+        <div class="satellite">A</div>
+        <div class="satellite">B</div>
+        <div class="satellite">C</div>
+        <div class="satellite">D</div>
+    </div>
+    <div class="orbit-6">
+      <o-progress shape="arrow" value="67"></o-progress>
+    </div>
+    <div class="orbit-8 from-23">
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+    </div>
+    <div class="orbit-8">
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+    </div>
+</div>
+`;
+
+export const htmlCode1 = `
+<div class="bigbang theme-cyan">
+  <div class="gravity-spot">
+    <div class="orbit-2">
+      <o-arc class="shrink-10 gap-2"></o-arc>
+      <o-arc class="shrink-10 gap-2"></o-arc>
+    </div>
+    <div class="orbit-4">
+        <div class="satellite">A</div>
+        <div class="satellite">B</div>
+        <div class="satellite">C</div>
+        <div class="satellite">D</div>
+    </div>
+    <div class="orbit-6">
+      <o-progress shape="arrow" value="67"></o-progress>
+    </div>
+    <div class="orbit-8 from-23">
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+    </div>
+    <div class="orbit-8">
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+    </div>
+</div>
+`;
+
+export const htmlCode2 = `
+<div class="bigbang dev-orbit">
+  <div class="gravity-spot">
+    <div class="orbit-2">
+      <o-arc class="shrink-10 gap-2"></o-arc>
+      <o-arc class="shrink-10 gap-2"></o-arc>
+    </div>
+    <div class="orbit-4">
+        <div class="satellite">A</div>
+        <div class="satellite">B</div>
+        <div class="satellite">C</div>
+        <div class="satellite">D</div>
+    </div>
+    <div class="orbit-6">
+      <o-progress shape="arrow" value="67"></o-progress>
+    </div>
+    <div class="orbit-8 from-23">
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+    </div>
+    <div class="orbit-8">
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+      <div class="vector"></div>
+    </div>
+</div>
+`;
+
+
+## Default theme
+
+<ZumerPlay name={'cyan'}   htmlCode={htmlCode}  height={'400px'} />
+
+
+## Cyan theme
+
+<ZumerPlay name={'default'}   htmlCode={htmlCode1}  theme={'theme-cyan'} height={'400px'} />
+
+
+## Dev helper theme
+
+<ZumerPlay name={'dev'}   htmlCode={htmlCode2}  theme={'dev-orbit'} height={'400px'} />

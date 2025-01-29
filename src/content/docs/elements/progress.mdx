@@ -1,14 +1,13 @@
 ---
 title: "o-progress Custom Element"
-#banner: 
-#  content: |
-#    Documentaton on this page is being updated.
+banner: 
+  content: |
+    This component has been updated!
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-`<o-progress>` is a standard web-component for rendering a radial progress bar. It has two elements: a **progress bar** and a **background bar** that show the max range progress bar can achieve.
+`<o-progress>` is a standard web-component for rendering a radial progress bar. It has two elements: a **progress bar** and a **background bar** that shows the max range progress bar can achieve.
 
 :::note
 Just one o-progress can be used per orbit.
@@ -17,7 +16,13 @@ Just one o-progress can be used per orbit.
 ## Look and feel
 
 ### Changing progress colors
-To change o-progress **progress bar** color use CSS custom var `--o-color` and `--o-hover-color` in a `o-progress` style. Use `--o-background-color` to set a **background bar** color.
+To change o-progress **progress bar** color use CSS custom var `--o-fill` for background, `--o-stroke` for border, and  `--o-stroke-width` for border-width in a `o-arc` style. Use `--o-back-fill` to set a **background bar** color, `--o-back-stroke` for border-color, and   `--o-back-stroke-width` for border-width.
+
+
+:::note
+Breaking-change: 
+Until Orbit v1.0.0, `--o-color` and `--o-hover-color` were the CSS custom vars to change color background of `o-arc` 
+:::
 
 export const progress = `
 <div class="bigbang">
@@ -29,27 +34,20 @@ export const progress = `
 `;
 export const progressCSS = `
 o-progress.cyan {
---o-color: var(--o-cyan-light);
---o-hover-color: var(--o-cyan);
---o-background-color: var(--o-cyan-dark);
+--o-fill: var(--o-cyan-light);
+--o-back-fill: var(--o-cyan-dark);
+}
+o-progress.cyan:hover {
+cursor: pointer;
+--o-fill: var(--o-cyan-lighter);
+--o-back-fill: var(--o-cyan-dark);
 }
 
-o-progress:hover{
-cursor: pointer
-}
 
 `;
 
-<ZumerPlay name={'progress'} hideCode htmlCode={progress} cssCode={progressCSS} theme={'cyan-theme'} height={'300px'} wrap />
+<ZumerPlay name={'progress'}   htmlCode={progress} cssCode={progressCSS} theme={'theme-cyan'} height={'300px'} wrap />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={progress} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={progressCSS} lang="css"  />
-  </TabItem>
-</Tabs>
 
 ### Changing progress attributes
 `o-progress` has special attributes: 
@@ -69,38 +67,30 @@ export const progress1 = `
 `;
 export const progress1CSS = `
 o-progress.cyan {
---o-color: var(--o-cyan-light);
---o-hover-color: var(--o-cyan);
---o-background-color: var(--o-cyan-dark);
+--o-fill: var(--o-cyan-light);
+}
+o-progress.cyan:hover{
+cursor: pointer;
+--o-fill: var(--o-cyan);
 }
 o-progress.indigo {
---o-color: var(--o-indigo-light);
---o-hover-color: var(--o-indigo);
-
+--o-fill: var(--o-indigo-light);
 }
-o-progress:hover{
-cursor: pointer
+o-progress.indigo:hover {
+--o-fill: var(--o-indigo);
 }
 
 `;
 
-<ZumerPlay name={'progress1'} hideCode htmlCode={progress1} cssCode={progress1CSS} theme={'cyan-theme'} height={'300px'} wrap />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={progress1} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={progress1CSS} lang="css"  />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'progress1'}   htmlCode={progress1} cssCode={progress1CSS} theme={'theme-cyan'} height={'300px'} wrap />
 
 ### Changing endings
 
-`o-progress` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`. 
+`o-progress` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `bullet`,  shapes. Default `none`. 
 
 :::note
-Except circle shape, other shapes don't work on Safari browsers.
+Breaking-change: 
+Until Orbit v1.0.0, existed other shapes `slash`, `backslash` and `zigzag`. We are working to make them available again.
 :::
 
 
@@ -127,74 +117,43 @@ export const progress2 = `
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-progress value="60" class="grow-1x purple-light" shape="zigzag"></o-progress>
+        <o-progress value="60" class="grow-1x purple-light" shape="bullet"></o-progress>
       </div>
     </div>
   </div>
 </div>
-<div class="wrapper">
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-3">
-        <o-progress value="60" class="grow-1x purple-light" shape="slash"></o-progress>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-3">
-        <o-progress value="60" class="grow-1x purple-light" shape="backslash"></o-progress>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 `;
 export const progress2CSS = `
 .wrapper {
 border: 1px dotted var(--o-purple);
-height: 100px;
-width: 100px;
+height: 200px;
+width: 150px;
 float: left;
 overflow: hidden;
 margin: 5px;
 }
 .gravity-spot {
---o-force: 300px
+--o-force: 400px
 }
 o-progress.purple-light {
---o-color: var(--o-purple-light);
---o-hover-color: var(--o-orange)
+--o-fill: var(--o-purple-light);
 }
 o-progress.purple {
---o-color: var(--o-purple);
---o-hover-color: var(--o-orange)
+--o-fill: var(--o-purple);
 }
 o-progress.purple-dark {
---o-color: var(--o-purple-dark);
---o-hover-color: var(--o-orange)
+--o-fill: var(--o-purple-dark);
 }
 o-progress:hover{
-cursor: pointer
-}
-o-progress {
---o-gap: 1; /* This will be added as default soon*/
+cursor: pointer;
+--o-fill: var(--o-orange) !important;
 }
 
 `;
 
-<ZumerPlay name={'progress2'} hideCode htmlCode={progress2} cssCode={progress2CSS} theme={'cyan-theme'} height={'300px'} wrap />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={progress2} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={progress2CSS} lang="css"  />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'progress2'}   htmlCode={progress2} cssCode={progress2CSS} theme={'theme-cyan'} height={'300px'} wrap />
 
 
 ## Adjust o-progress size
@@ -206,36 +165,32 @@ export const shrink = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-1">
-      <o-progress value="10" style="--o-color: var(--o-red)"></o-progress>
+      <o-progress value="10" class="shrink-90 red"></o-progress>
     </div>
     <div class="orbit-2">
-      <o-progress value="20" class="shrink-90" style="--o-color: var(--o-orange)"></o-progress>
+      <o-progress value="20" class="shrink-80 orange"></o-progress>
     </div>
     <div class="orbit-3">  
-      <o-progress value="30" class="shrink-80" style="--o-color: var(--o-yellow)"></o-progress>
+      <o-progress value="30" class="shrink-70 yellow"></o-progress>
     </div>    
     <div class="orbit-4">  
-      <o-progress value="40" class="shrink-70" style="--o-color: var(--o-color)"></o-progress>
-    </div>    
+      <o-progress value="40" class="shrink-70 green"></o-progress>
+    </div>        
     <div class="orbit-5">  
-      <o-progress value="50" class="shrink-60" style="--o-color: var(--o-green)"></o-progress>
+      <o-progress value="60" class="shrink-60 cyan"></o-progress>
     </div>    
     <div class="orbit-6">  
-      <o-progress value="60" class="shrink-50" style="--o-color: var(--o-cyan)"></o-progress>
+      <o-progress value="70" class="shrink-50 blue"></o-progress>
     </div>    
     <div class="orbit-7">  
-      <o-progress value="70" class="shrink-40" style="--o-color: var(--o-blue)"></o-progress>
+      <o-progress value="80" class="shrink-40 indigo"></o-progress>
     </div>    
     <div class="orbit-8">  
-      <o-progress value="80" class="shrink-30" style="--o-color: var(--o-indigo)"></o-progress>
+      <o-progress value="90" class="shrink-30 purple"></o-progress>
     </div>    
     <div class="orbit-9">  
-      <o-progress value="90" class="shrink-20" style="--o-color: var(--o-purple)"></o-progress>
+      <o-progress value="100" class="shrink-20 pink"></o-progress>
     </div>    
-    <div class="orbit-10">  
-      <o-progress value="100" class="shrink-10" style="--o-color: var(--o-pink)"></o-progress>
-    </div>    
-   
   </div>
 </div>
 `;
@@ -243,22 +198,36 @@ export const shrinkCSS = `
 .gravity-spot {
   --o-force: 330px;
 }
-o-progress {
---o-gap: 1; /* This will be added as default soon*/
+.red {
+  --o-fill: var(--o-red) !important;
 }
+.orange {
+  --o-fill: var(--o-orange) !important;
+}
+.yellow {
+  --o-fill: var(--o-yellow) !important;
+}
+.blue {
+  --o-fill: var(--o-blue) !important;
+}
+.cyan {
+  --o-fill: var(--o-cyan) !important;
+}
+.indigo {
+  --o-fill: var(--o-indigo) !important;
+}
+.purple {
+  --o-fill: var(--o-purple) !important;
+}
+.pink {
+  --o-fill: var(--o-pink) !important;
+}
+
 
 `;
 
-<ZumerPlay name={'shrink'} hideCode htmlCode={shrink} cssCode={shrinkCSS} theme={'cyan-theme'} height={'300px'} wrap />
+<ZumerPlay name={'shrink'}   htmlCode={shrink} cssCode={shrinkCSS} theme={'theme-cyan'} height={'300px'} wrap />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={shrink} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={shrinkCSS} lang="css" wrap />
-  </TabItem>
-</Tabs>
 
 On opposite way, the CSS class utility `.grow-0x` to `.grow-12x`, allowing vector to expand by a multiple of `.orbit` size. It is possible to use decimal fractions. For example,  `.grow-0.1x`,  `.grow-10.7x`, etc.
 
@@ -271,16 +240,16 @@ export const grow = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-8">  
-      <o-progress value="80" class="grow-6x" style="--o-color: var(--o-indigo)"></o-progress>
+      <o-progress value="80" class="grow-6x indigo"></o-progress>
     </div> 
     <div class="orbit-7">  
-      <o-progress value="70" class="grow-5x" style="--o-color: var(--o-blue)"></o-progress>
+      <o-progress value="70" class="grow-5x blue"></o-progress>
     </div> 
      <div class="orbit-6">  
-      <o-progress value="60" class="grow-4x" style="--o-color: var(--o-cyan)"></o-progress>
+      <o-progress value="60" class="grow-4x cyan"></o-progress>
     </div>   
     <div class="orbit-5">  
-      <o-progress value="50" class="grow-2x" style="--o-color: var(--o-purple-light)"></o-progress>
+      <o-progress value="50" class="grow-2x purple"></o-progress>
     </div>    
   </div>
 </div>
@@ -290,21 +259,22 @@ export const growCSS = `
 .gravity-spot {
 --o-force: 300px;
 }
-o-progress {
---o-gap: 1; /* This will be added as default soon*/
+
+.blue {
+  --o-fill: var(--o-blue) !important;
+}
+.cyan {
+  --o-fill: var(--o-cyan) !important;
+}
+.indigo {
+  --o-fill: var(--o-indigo) !important;
+}
+.purple {
+  --o-fill: var(--o-purple-light) !important;
 }
 `;
 
-<ZumerPlay name={'grow'} hideCode htmlCode={grow} cssCode={growCSS} theme={'cyan-theme'} height={'400px'} wrap />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={grow} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={growCSS} lang="css" wrap />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'grow'}   htmlCode={grow} cssCode={growCSS} theme={'theme-cyan'} height={'400px'} wrap />
 
 ## Adjusting radial layout
 
@@ -331,20 +301,11 @@ export const angleCSS = `
 border: 1px dashed var(--o-cyan);
 }
 o-progress {
---o-color: var(--o-purple);
+--o-fill: var(--o-purple);
 }
 `;
 
-<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} wrap />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={angle} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={angleCSS} lang="css" wrap />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'angle'}   htmlCode={angle} cssCode={angleCSS} theme={'theme-cyan'} height={'300px'} wrap />
 
 ### Relative o-progress orbital position
 
@@ -360,22 +321,22 @@ By default, `o-progress` is positioned in the middle of orbit path. To change th
 
 export const inner = `
 
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-5">
-        <o-progress value="33" class="outer-orbit "></o-progress>
-      </div>  
-      <div class="orbit-4">  
-        <o-progress value="33" class="quarter-outer-orbit"></o-progress>
-      </div>  
-      <div class="orbit-3">  
-        <o-progress value="33" class="quarter-inner-orbit"></o-progress>
-      </div>  
-      <div class="orbit-2">  
-        <o-progress value="33" class="inner-orbit"></o-progress>
-      </div>
-     
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-progress value="33" class="outer-orbit "></o-progress>
+    </div>  
+    <div class="orbit-4">  
+      <o-progress value="33" class="quarter-outer-orbit"></o-progress>
+    </div>  
+    <div class="orbit-3">  
+      <o-progress value="33" class="quarter-inner-orbit"></o-progress>
+    </div>  
+    <div class="orbit-2">  
+      <o-progress value="33" class="inner-orbit"></o-progress>
+    </div>
   </div>
+</div>
 
 `;
 export const innerCSS = `
@@ -388,22 +349,11 @@ overflow: hidden;
 margin: 5px;
 }
 [class*='orbit-'] {
-  border: 1px dashed var(--o-cyan)
+  border: 1px dashed var(--o-cyan) !important
 }
 o-progress {
---o-color: var(--o-pink);
---o-gap: 1; /* This will be added as default soon*/
+--o-fill: var(--o-pink);
 }
 `;
 
-<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} wrap />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={inner} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={innerCSS} lang="css" wrap />
-  </TabItem>
-</Tabs>
-
+<ZumerPlay name={'inner'}   htmlCode={inner} cssCode={innerCSS} theme={'theme-cyan'} height={'300px'} wrap />

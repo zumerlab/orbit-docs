@@ -1,17 +1,16 @@
 ---
-title: ".vector CSS class"
+title: "Vector"
 #banner: 
 #  content: |
 #   Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-`vectors` are perpendicular lines rendered across `orbits`. They resemble minute marks in an analog watch, but can be adapted to create connector lines, for instance. Elements with `.vector` are placed along an `.orbit` or `.orbit-*` path.  By default, up to 60 vectors can be placed in an orbit. 
+`Vectors` are perpendicular lines rendered across `orbits`. They resemble minute marks in an analog watch, but can be adapted to create connector lines, for instance. Elements with `.vector` are placed along an `.orbit` or `.orbit-*` path.  By default, up to 60 vectors can be placed in an orbit. 
 
-export const vector = `
-<div class="bigbang">
+export const vector = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="vector"></div>
@@ -31,50 +30,19 @@ export const vector = `
   </div>
 </div>
 `;
-export const vectorCSS = `
-.satellite {
-background-color: var(--o-indigo);
-border: none;
-}
-.one {
-background-color: var(--o-orange);
-border: none;
-}
-.two {
-background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,249,67,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
-border: none;
-}
-.three {
-background-color: var(--o-blue-lighter);
-border: 2px solid var(--o-blue);
-}
-.four {
-background-color: transparent;
-border: 2px dashed var(--o-indigo);
-}
-.five {
-background-color: var(--o-pink);
-
-}
+export const vectorCSS = 
+`
 `;
 
-<ZumerPlay name={'vector'} hideCode htmlCode={vector} cssCode={vectorCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'vector'}   htmlCode={vector} cssCode={vectorCSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={vector} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={vectorCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ## Look and feel
 
 Vectors can be customized by adding CSS border and background properties. 
 
-export const feel = `
-<div class="bigbang">
+export const feel = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="vector one"></div>
@@ -86,51 +54,38 @@ export const feel = `
   </div>
 </div>
 `;
-export const feelCSS = `
-.satellite {
-background-color: var(--o-indigo);
-border: none;
-}
+export const feelCSS = 
+`
 .one {
-background-color: var(--o-orange);
-border: none;
+  background-color: var(--o-orange) !important;
+  border: none !important;
 }
 .two {
-background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,249,67,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
-border: none;
+  background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgba(52,249,67,1) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%) !important;
+  border: none !important;
 }
 .three {
-background-color: var(--o-blue-lighter);
-border: 2px solid var(--o-blue);
+  background-color: var(--o-blue-lighter) !important;
+  border: 2px solid var(--o-blue) !important;
 }
 .four {
-background-color: transparent;
-border: 2px dashed var(--o-indigo);
+  background-color: transparent !important;
+  border: 2px dashed var(--o-indigo) !important;
 }
 .five {
-background-color: var(--o-pink);
-
+  background-color: var(--o-pink) !important;
 }
 `;
 
-<ZumerPlay name={'feel'} hideCode htmlCode={feel} cssCode={feelCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'feel'}   htmlCode={feel} cssCode={feelCSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={feel} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={feelCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ## Adjust Vector size
 
 Each `.vector` has one orbit space size, but it can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the vectors to shrink by a specified percentage. 
 
-
-export const shrink = `
-<div class="bigbang">
+export const shrink = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="vector"></div>
@@ -147,29 +102,16 @@ export const shrink = `
   </div>
 </div>
 `;
-export const shrinkCSS = `
-.satellite {
-border: none;
-}
+export const shrinkCSS = 
+`
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
-}
-.orbit-5 > .satellite {
-background-color: var(--o-pink)
+  border: 1px dashed var(--o-cyan) !important;
 }
 
 `;
 
-<ZumerPlay name={'shrink'} hideCode htmlCode={shrink} cssCode={shrinkCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'shrink'}   htmlCode={shrink} cssCode={shrinkCSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={shrink} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={shrinkCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 On opposite way, the CSS class utility `.grow-0x` to `.grow-12x`, allowing vector to expand by a multiple of `.orbit` size. It is possible to use decimal fractions. For example,  `.grow-0.1x`,  `.grow-10.7x`, etc.
 
@@ -178,8 +120,8 @@ On opposite way, the CSS class utility `.grow-0x` to `.grow-12x`, allowing vecto
 :::
 
 
-export const grow = `
-<div class="bigbang">
+export const grow = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="vector"></div>
@@ -195,28 +137,15 @@ export const grow = `
   </div>
 </div>
 `;
-export const growCSS = `
-.satellite {
-border: none;
-}
+export const growCSS = 
+`
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
+  border: 1px dashed var(--o-cyan) !important;
 }
-.orbit-5 > .satellite {
-background-color: var(--o-pink)
-}
+
 `;
 
-<ZumerPlay name={'grow'} hideCode htmlCode={grow} cssCode={growCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={grow} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={growCSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'grow'}   htmlCode={grow} cssCode={growCSS} theme={'theme-cyan'} height={'300px'} />
 
 ## Adjusting radial layout
 
@@ -228,8 +157,8 @@ Remember that `.orbit` [properties](/orbit-docs/elements/orbit/#distribution-of-
 
 **`.angle-*`:** Set starting point angle from 0 to 360 degrees, overrriding automatic radial arragement.
 
-export const angle = `
-<div class="bigbang">
+export const angle = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="vector angle-315"></div>
@@ -237,28 +166,16 @@ export const angle = `
   </div>
 </div>
 `;
-export const angleCSS = `
-.satellite {
-border: none;
-}
+export const angleCSS = 
+`
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
+  border: 1px dashed var(--o-cyan) !important;
 }
-.orbit-5 > .vector {
-background-color: var(--o-cyan)
-}
+
 `;
 
-<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'angle'}   htmlCode={angle} cssCode={angleCSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={angle} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={angleCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ### Relative vector orbital position
 
@@ -272,50 +189,23 @@ By default, `.vector` is positioned in the middle of orbit path. To change that,
 
 **`.quarter-outer-orbit`:** To place `.vector` a 25% outer its orbit.
 
-export const inner = `
-
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-5">
-        <div class="vector grow-1x outer-orbit "></div>
-        <div class="vector grow-1x quarter-outer-orbit"></div>
-        <div class="vector grow-1x quarter-inner-orbit"></div>
-        <div class="vector grow-1x inner-orbit"></div>
-      </div>
+export const inner = 
+`<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="vector grow-1x outer-orbit "></div>
+      <div class="vector grow-1x quarter-outer-orbit"></div>
+      <div class="vector grow-1x quarter-inner-orbit"></div>
+      <div class="vector grow-1x inner-orbit"></div>
     </div>
   </div>
-
+</div>
 `;
-export const innerCSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 250px;
-width: 250px;
-float: left;
-overflow: hidden;
-margin: 5px;
-}
-
-
-.satellite {
-border: none;
-background-color: var(--o-pink)
-}
+export const innerCSS = 
+`
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
+  border: 1px dashed var(--o-cyan) !important;
 }
-
 `;
 
-<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={inner} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={innerCSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-
+<ZumerPlay name={'inner'}   htmlCode={inner} cssCode={innerCSS} theme={'theme-cyan'} height={'300px'} />

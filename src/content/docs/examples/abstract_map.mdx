@@ -5,16 +5,29 @@ title: Abstract orbital map
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
-
-export const orbitalCSS = `    body {
+export const orbitalCSS = `
+  body {
       font-family: "Jost", sans-serif;
       font-optical-sizing: auto;
       background-color: rgb(16, 16, 16) !important;
       color: rgba(255, 255, 255, 0.451)
     }
-
+    .dashed {
+      border-style: dashed;
+    }
+    .bold {
+      border-width: 2.5px;
+    }
+    .text {
+      width: 400px; font-size: 5px; flex-direction: column; text-align: center;
+    }
+    .text1 {
+      width: 100px; font-size: 5px; flex-direction: column; text-align: center; color: black;
+    }
+    .plantet {
+     background-color: rgba(255, 255, 255, 0.579);
+    }
     .orbit,
     [class*=orbit-] {
       border: 0.1px solid rgba(255, 255, 255, 0.422)
@@ -29,13 +42,10 @@ export const orbitalCSS = `    body {
       height: 0.1px;
     }
 
-
     .visible {
       background-color: white;
       border: none
     }
-
-
 
     .rotate-orbit {
       animation-name: rotation;
@@ -86,25 +96,25 @@ export const orbitalHTML = `
       <div class="vector grow-3x angle-90"></div>
       <div class="vector grow-4x"></div>
       <div class="vector grow-3x"></div>
-      <div class="vector  grow-1.9x inner-orbit"></div>
+      <div class="vector grow-1.9x inner-orbit"></div>
       <div class="vector grow-3x angle-240"></div>
       <div class="vector grow-5x"></div>
       <div class="vector grow-3x"></div>
     </div>
   </div>
   <div class="gravity-spot" style="--o-force: 90px">
-    <div class="orbit " style="border-style: dashed;"></div>
-    <div class="orbit  rotate-orbit rotate-time-4">
+    <div class="orbit dashed"></div>
+    <div class="orbit rotate-orbit rotate-time-4">
       <div class="satellite visible shrink-50 angle-320"></div>
     </div>
     <div class="orbit rotate-orbit rotate-time-5">
       <div class="satellite visible shrink-50 angle-20"></div>
     </div>
-    <div class="orbit" style="border-style: dashed;"></div>
+    <div class="orbit dashed"></div>
     <div class="orbit rotate-orbit rotate-time-3">
       <div class="satellite visible shrink-50 angle-120"></div>
     </div>
-    <div class="orbit" style="border-style: dashed;"></div>
+    <div class="orbit dashed"></div>
   </div>
   <div class="gravity-spot uncentered  " style="--o-force: 350px">
     <div class="orbit-1 invisible">
@@ -119,7 +129,7 @@ export const orbitalHTML = `
         <div class="gravity-spot uncentered  " style="--o-force: 150px">
           <div class="orbit-10 ">
             <div class="satellite angle-270 invisible rotate-orbit rotate-time-2 invert ">
-              <div class="capsule rotate-orbit rotate-time-2" style="width: 400px; font-size: 5px; flex-direction: column; text-align: center;">
+              <div class="capsule rotate-orbit rotate-time-2 text">
                 Orbit<br>
                 THIRD EXTERNAL ORBITAL PATH<br>
                 MERIDIAN SYSTEM
@@ -143,16 +153,15 @@ export const orbitalHTML = `
     <div class="orbit-12 rotate-orbit rotate-time-3">
       <div class="satellite angle-60">
         <div class="gravity-spot from-2x" style="--o-force: 90px">
-          <div class="orbit-1" style="background-color: rgba(255, 255, 255, 0.579);">
+          <div class="orbit-1 planet">
             <div class="satellite at-center rotate-orbit rotate-time-3 invert">
-              <div class="capsule" style="width: 100px; font-size: 5px; flex-direction: column; text-align: center; color: black;">
+              <div class="capsule text1">
                 PLANET
               </div>
             </div>
           </div>
-
-          <div class="orbit" style="border-style: dashed;"></div>
-          <div class="orbit-4" style="border-style: dashed;"></div>
+          <div class="orbit dashed"></div>
+          <div class="orbit-4 dashed"></div>
           <div class="orbit-5 rotate-orbit rotate-time-3">
             <div class="satellite visible shrink-50 angle-20"></div>
             <div class="satellite visible shrink-50"></div>
@@ -161,11 +170,11 @@ export const orbitalHTML = `
       </div>
       <div class="satellite angle-145">
         <div class="gravity-spot" style="--o-force: 90px">
-          <div class="orbit" style="border-width: 2.5px;"></div>
-          <div class="orbit" style="border-style: dashed;"></div>
-          <div class="orbit" style="border-style: dashed;"></div>
-          <div class="orbit" style="border-style: dashed;"></div>
-          <div class="orbit" style="border-style: dashed;"></div>
+          <div class="orbit bold" style="border-width: 2.5px;"></div>
+          <div class="orbit dashed"></div>
+          <div class="orbit dashed"></div>
+          <div class="orbit dashed"></div>
+          <div class="orbit dashed"></div>
           <div class="orbit rotate-orbit rotate-time-5 invert">
             <div class="satellite visible shrink-50"></div>
             <div class="satellite visible shrink-50"></div>
@@ -177,20 +186,17 @@ export const orbitalHTML = `
       <div class="satellite angle-270">
         <div class="gravity-spot from-6x" style="--o-force: 90px">
           <div class="orbit-12 rotate-orbit rotate-time-4 invert">
-            <div class="satellite visible grow-1x angle-120">
-              
-            </div>
+            <div class="satellite visible grow-1x angle-120"></div>
           </div>
           <div class="orbit-22   rotate-orbit rotate-time-1 invert">
             <div class="satellite angle-90 invisible ">
-              <div class="capsule" style="width: 400px; font-size: 5px; flex-direction: column; text-align: center;">
+              <div class="capsule text">
                 Orbit<br>
                 SECOND EXTERNAL SYSTEM <br>
                 MERIDIAN SYSTEM
               </div>
             </div>
           </div>
-
           <div class="orbit">
             <div class="satellite visible grow-1x angle-120">
               <div class="gravity-spot" style="--o-force: 300px">
@@ -208,18 +214,6 @@ export const orbitalHTML = `
 </div>`;
 
 
-<ZumerPlay name={'dps'} hideCode htmlCode={orbitalHTML}  cssCode={orbitalCSS} height={'600px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={orbitalHTML} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={orbitalCSS} lang="css" />
-  </TabItem>
-  
-</Tabs>
-
-**Codepen**: <a href="https://codepen.io/zircle/pen/eYqwYPB" target="_blank">link</a> 
+<ZumerPlay name={'dps'}   htmlCode={orbitalHTML}  cssCode={orbitalCSS} height={'600px'} />
 
 **Credits**: This example is inspired on <a href="https://pin.it/dP9PlNjFc" target="_blank">Pinterest</a>

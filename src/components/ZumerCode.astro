@@ -1,5 +1,4 @@
 ---
-//import hcode from '/src/examples/layout/orbit.html?raw'
 interface Props {
   name?: string
   htmlCode?: string
@@ -8,392 +7,276 @@ interface Props {
   hideCode?: boolean
   theme?: string
   height?: string
+  framework: 'vanilla' | 'react' | 'vue' | 'svelte'
+  frameTemplate: 'orbit' | 'barebone'
 }
 
-import { Code } from 'astro:components'
-import cssFile from '/src/examples/layout/custom.css?raw'
+import { Tabs, TabItem } from '@astrojs/starlight/components';
 import orbitCode from '../assets/orbit.min.css?raw'
 import orbitJS from '../assets/orbit.min.js?raw'
 
+const { htmlCode = 'No HTML provided', cssCode, jsCode, name = 'zumer', hideCode = false, theme= '', height='300px', framework='vanilla', frameTemplate='orbit'} = Astro.props
 
-
-const { htmlCode = 'No HTML provided', cssCode, jsCode, name = 'zumer', hideCode = false, theme= '', height='300px'} = Astro.props
-
-const hcode = htmlCode
-const csscode = cssCode || cssFile
-const jscode = jsCode || false
-
+let htmlClass = `html-${name}`
+let cssClass = `css-${name}`
+let jsClass = `js-${name}`
 ---
 
-  <div id={name} class="container">
-    <div class="grid columns-reverse">
-      <div class="editor">
-        <!-- <button class="copy">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
-              <path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/>
-            </svg>
-        </button> -->
-        <div class="tabContent">
-          
-         
-            {!hideCode && 
-             <div class="tabPanel active" contenteditable="true">
-              <Code code={hcode} lang="html" wrap></Code>
-             </div>
-            
-            } 
-            {hideCode && 
-              <div class="tabPanel " contenteditable="true">{hcode}</div>
-            }
-
-          </div>
-          <div class="tabPanel" contenteditable="true">
-            <pre><code class="zp language-css">{csscode}</code></pre>
-          </div>
-          <div class="tabPanel" contenteditable="true">
-            <pre><code class="zp language-js">{jscode}</code></pre>
-          </div>
-        </div>
-    </div>
-    <div class="preview">
-        
-        <div class="codeRenderer" style={{height: height}}>
-          <!-- The iframe for rendering code will be inserted here -->
-        </div>
-        {!hideCode && 
-        <div class="options">
-          <div class="toolbar">
-            <div class="buttons">
-              {hcode && <button class="tab active">HTML</button>}
-              {csscode && <button class="tab active">CSS</button>}
-              {jscode && <button class="tab active">JS</button>}
-            </div>
-          </div>
-          
-          <div class="settings">
-            <button class="tab active code">hide code</button>
-          </div>
-         
-        </div>
-         }
+<div id={name} class="container not-content" style={{height: height}}>
+  <div class="preview">
+    <div class="codeRenderer">
+      <!-- The iframe for rendering code will be inserted her e -->
     </div>
   </div>
-  <script is:inline define:vars={{hideCode, theme, name, orbitCode, orbitJS }}>
-/* import hljs from 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/es/highlight.min.js';
-//hljs.highlightAll() */
-window.addEventListener('DOMContentLoaded', (event) => {
- // document.querySelectorAll('pre code.zp').forEach(el => {
-  // then highlight each
-//  hljs.highlightElement(el);
-//}); */
-    // Add event listeners to each tab's content area
-    document.querySelectorAll(`#${name} .tabPanel`).forEach((panel, index) => {
-      panel.addEventListener('input', () => {
-        // Update the iframe when content changes
+</div>
+<Tabs>
+  {!hideCode && htmlCode && 
+  <TabItem label="HTML" icon="seti:html" >
+    <div class:list={[htmlClass, "zeditor", "not-content"]}></div>
+  </TabItem>
+  }
+  {!hideCode && cssCode && 
+    <TabItem label="CSS" icon="seti:css" >
+    <div class:list={[cssClass, "zeditor", "not-content"]}></div>
+  </TabItem>
+  }
+  {!hideCode && (framework !== 'vanilla' || jsCode) &&
+    <TabItem label={framework !== 'vanilla' ? framework : 'Js'}  icon={`seti:${framework === 'vanilla' ? 'javascript' : framework}`} >
+      <div class:list={[jsClass, "zeditor", "not-content"]}></div>
+    </TabItem>
+    }
+  
+</Tabs>
+<script type="module" is:inline define:vars={
+  {htmlCode, 
+  cssCode, 
+  jsCode,
+  framework, 
+  hideCode, 
+  height,
+  theme, 
+  name, 
+  orbitCode, 
+  orbitJS, 
+  htmlClass, 
+  cssClass, 
+  jsClass, 
+  frameTemplate}
+  }>
+  import { createEditor } from "../../node_modules/prism-code-editor/dist/index.js"
+  import { copyButton } from "../../node_modules/prism-code-editor/dist/extensions/copyButton"
+  import { matchBrackets } from "../../node_modules/prism-code-editor/dist/extensions/matchBrackets"
+  import { indentGuides } from "../../node_modules/prism-code-editor/dist/extensions/guides"
+  import { highlightBracketPairs } from "../../node_modules/prism-code-editor/dist/extensions/matchBrackets/highlight"
+  import { matchTags } from "../../node_modules/prism-code-editor/dist/extensions/matchTags"
+  import { defaultCommands } from "../../node_modules/prism-code-editor/dist/extensions/commands"
+  import "../../node_modules/prism-code-editor/dist/themes/github-dark.css"
+  import "../../node_modules/prism-code-editor/dist/copy.css"
+  import "../../node_modules/prism-code-editor/dist/layout.css"
+  import "../../node_modules/prism-code-editor/dist/scrollbar.css"
+  import "../../node_modules/prism-code-editor/dist/prism/languages/markup"
+  import "../../node_modules/prism-code-editor/dist/prism/languages/css"
+  import "../../node_modules/prism-code-editor/dist/prism/languages/javascript"
+
+  let frame = frameworkSnippet (framework)
+   
+  let _HTML = frame && frame.html ? frame.html : htmlCode
+  let _CSS = cssCode
+  let _JS = frame && frame.app ? frame.app : jsCode
+
+  !hideCode && htmlCode && createEditor(
+    `.${htmlClass}`,
+    {
+      language: "html",
+      value: `${_HTML.trim()}`,
+      theme: "github-dark",
+      onUpdate(editedHTML) {
+        _HTML = editedHTML
         updateIframe()
-      })
-    })
-    document.querySelectorAll(`#${name} .buttons > .tab`).forEach((panel, index) => {
-      panel.addEventListener('click', () => {
-        // Update the iframe when content changes
-        showTab(index)
-      })
-    })
+      }
+    },
+    highlightBracketPairs(),
+    matchTags(),
+    defaultCommands(),
+    matchBrackets(),
+    indentGuides(),
+    copyButton(),
+  )
+  
+  !hideCode && cssCode &&
+  createEditor(
+    `.${cssClass}`,
+    {
+      language: "css",
+      value: `${_CSS.trim()}`,
+      theme: "github-dark",
+      onUpdate(editedCSS) {
+        _CSS = editedCSS
+        updateIframe()
+      }
+    },
+    highlightBracketPairs(),
+    matchTags(),
+    defaultCommands(),
+    matchBrackets(),
+    indentGuides(),
+    copyButton(),
+  )
 
-    // Function to show tab content and update iframe
-    function showTab(tabIndex) {
-      // Get all tab buttons and panels
-      const tabs = document.querySelectorAll(`#${name} .tab`)
-      const panels = document.querySelectorAll(`#${name} .tabPanel`)
+  !hideCode && (framework !== 'vanilla' || jsCode) &&
+  createEditor(
+    `.${jsClass}`,
+    {
+      language: "javascript",
+      wordWrap: true,
+      value: `${_JS.trim()}`,
+      theme: "github-dark",
+      onUpdate(editedJS) {
+        _JS = editedJS
+        updateIframe()
+      }
+    },
+    highlightBracketPairs(),
+    matchTags(),
+    defaultCommands(),
+    matchBrackets(),
+    indentGuides(),
+    copyButton(),
+  )
+  
+  function updateIframe() {
+    renderCodeInIframe(_HTML, _CSS, _JS)
+  }
 
-      // Hide all panels
-      panels.forEach((panel) => panel.classList.remove('active'))
+  function frameworkSnippet (framework) {
+    let url, html, app
+    if (framework === 'vue') {
+      url =  `<scr${'ipt'} src="https://unpkg.com/vue@3/dist/vue.global.js"></scr${'ipt'}>`
+      html = 
+`<div id="app">
+  ${htmlCode.trim()}
+</div>`
+      app = 
+`const { createApp } = Vue
 
-      // Show the selected panel
-      panels[tabIndex].classList.add('active')
+const app = createApp(${jsCode ? jsCode.trim() : '{}'}).mount('#app')
 
-      // Deactivate all tabs
-      tabs.forEach((tab) => tab.classList.remove('active'))
+// Treat all tags starting with 'o-' as custom elements
 
-      // Activate the selected tab
-      tabs[tabIndex].classList.add('active')
-
-      // Update the iframe content
-      updateIframe()
-    }
-
-    // Function to update the iframe with current tab content
-    function updateIframe() {
-     
-      // Get the content of all tab panels
-      const htmlCode = document.querySelectorAll(`#${name} .tabPanel`)[0].textContent
-      const cssCode = document.querySelectorAll(`#${name} .tabPanel`)[1].textContent
-      const jsCode = document.querySelectorAll(`#${name} .tabPanel`)[2].textContent
-
-      // Render the code in the iframe
-      renderCodeInIframe(htmlCode, cssCode, jsCode, theme, name)
-    }
-
-    // Function to render code in the iframe
-    function renderCodeInIframe(htmlCode, cssCode, jsCode, theme, name) {
-      const iframeContent = `
-  <html style=" margin: 0 !important; padding: 0 !important">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+app.config.compilerOptions.isCustomElement = (tag) => {
+  return tag.startsWith('o-')
+}
       
-      <style>
-        //@import url('https://unpkg.com/@zumer/orbit@latest/dist/orbit.css');
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-       ${orbitCode}
-       body {
-          font-family: "Noto Sans", sans-serif;
-          font-optical-sizing: auto;
-          font-weight: 500;
-          font-style: normal;
-          font-variation-settings: "wdth" 100;
-          background-color: #fbfafa !important; margin: 0 !important; padding: 0 !important; overflow: hidden
-        }
-       ${cssCode}
-        </style>
-    </head>
-    <body class="${theme}" style="">
-      ${htmlCode}
-      <scr${'ipt'}>
-        ${orbitJS}
-      </scr${'ipt'}>
-      <scr${'ipt'} is:inline>
-        ${jsCode}
-      </scr${'ipt'}>
-    </body>
-  </html>
 `
-      const iframe = document.createElement('iframe')
-      iframe.setAttribute('id', name)
-      iframe.setAttribute('title', name)
-      iframe.setAttribute('srcdoc', iframeContent)
-      iframe.style.width = '100%'
-      iframe.style.border = 'none'
-      iframe.style.margin = '0'
-      iframe.style.padding = '0'
-      iframe.style.height = '100%' // Adjust height as needed
+  }
 
-      // Replace the existing iframe with the updated one
-      const codeRenderer = document.querySelector(`#${name} .codeRenderer`)
-      codeRenderer.innerHTML = ''
-      codeRenderer.appendChild(iframe)
-    }
+  if (framework === 'react') {
+      url =  `<scr${'ipt'} crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></scr${'ipt'}>
+    <scr${'ipt'} crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></scr${'ipt'}>
+    <scr${'ipt'} src="https://unpkg.com/@babel/standalone/babel.min.js"></scr${'ipt'}>
+   `
+      html = 
+`<div id="app"></div>`
+      app = 
+`${jsCode ? jsCode.trim() : 'function App() {return (<div>empty</div>)}'}
 
+// Render the component to the DOM
+const container = document.getElementById('app');
+const root = ReactDOM.createRoot(container);
+root.render(<App />);
+      
+`
+  }
+    return {url, app, html}
+  }
+  
+  function renderCodeInIframe(_HTML, _CSS, _JS) { 
+    const orbit = 
+      `<html style=" margin: 0 !important; padding: 0 !important">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          ${frame && frame.url ? frame.url : ''}
+          <style>
+          ${orbitCode}
+          body {
+            font-family: "Noto Sans", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+            font-variation-settings: "wdth" 100;
+            background-color: #fbfafa !important; 
+            margin: 0 !important; 
+            padding: 0 !important; 
+            overflow: hidden
+          }
+          #app {
+            height: ${height}
+          }
+          .bigbang {
+            box-sizing: border-box;
+          }
+          ${_CSS}
+          </style>
+        </head>
+        <body class="${theme}">
+          ${_HTML}
+          <scr${'ipt'}>
+            ${orbitJS}
+          </scr${'ipt'}>
+          <scr${'ipt'} ${framework === 'react' ? 'type="text/babel"': ''}>
+             ${_JS}
+          </scr${'ipt'}>
+        </body>
+      </html>`
+    const barebone = ` ${_HTML}`
+
+    let iframeContent = frameTemplate === 'orbit' ? orbit : barebone
+
+    const iframe = document.createElement('iframe')
+    iframe.setAttribute('id', name)
+    iframe.setAttribute('title', name)
+    iframe.setAttribute('srcdoc', iframeContent)
+    iframe.style.width = '100%'
+    iframe.style.border = 'none'
+    iframe.style.margin = '0'
+    iframe.style.padding = '0'
+    iframe.style.height = '100%' 
+    const codeRenderer = document.querySelector(`#${name} .codeRenderer`)
+    codeRenderer.innerHTML = ''
+    codeRenderer.appendChild(iframe)
+  }
     // Initially render the code of the active tabs
     updateIframe()
-    // Add event listener to the "show code" button
-   // const showCodeButton = document.querySelector('.code')
-   // const toolbar = document.querySelector('.toolbar > .buttons')
-  //  const activeTabContent = document.querySelector('.tabPanel.active')
-    if (hideCode) {
-      // activeTabContent.classList.remove('active')
-        //toolbar.style.display = 'none'
-      //  showCodeButton.textContent = 'show code'
-    }
-    /* showCodeButton.addEventListener('click', function () {
-      // Toggle the active class on the show code button
-      showCodeButton.classList.toggle('active')
-      if (toolbar.style.display === 'none') {
-        toolbar.style.display = 'block'
-        showTab(0)
-        showCodeButton.textContent = 'hide code'
-      } else {
-        activeTabContent.classList.remove('active')
-        toolbar.style.display = 'none'
-        showCodeButton.textContent = 'show code'
-      }
-    }) */
-
-    // Add event listener to the "copy code" SVG button
-    // const copyCodeButton = document.querySelector('.copy')
-    // const copyicon = copyCodeButton.querySelector('svg path')
-    // const defaulticon = 'M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z'
-
-    /* copyCodeButton.addEventListener('click', function () {
-      // Get the content of the active tab
-      const activeTabContent =
-        document.querySelector('.tabPanel.active').textContent
-
-      // Copy the content to the clipboard
-      navigator.clipboard
-        .writeText(activeTabContent)
-        .then(() => {
-          copyicon.style.fill = "green"
-          copyicon.setAttribute('d', 'm424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z')
-          setTimeout(() => {
-            copyicon.style.fill = "currentColor"
-            copyicon.setAttribute('d', defaulticon)
-          
-          }, 2000);
-        })
-        .catch((error) => {
-          copyicon.style.fill = "red"
-          copyicon.setAttribute('d', 'M480-280q17 0 28.5-11.5T520-320q0-17-11.5-28.5T480-360q-17 0-28.5 11.5T440-320q0 17 11.5 28.5T480-280Zm-40-160h80v-240h-80v240Zm40 360q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z')
-          setTimeout(() => {
-            copyicon.style.fill = "currentColor"
-            copyicon.setAttribute('d', defaulticon)
-          
-          }, 2000);
-          console.error('Unable to copy code: ', error)
-        })
-    }) */
-  })
   </script>
-  <style>
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding: 5px;
+    grid-template-areas: "preview";
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+  }
+  .preview {
+    grid-area: preview;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: transparent
-    }
-    .options,
-    .toolbar,
-    .settings {
-      height: 50px;
-      display: flex;
-      margin-bottom: 0;
-    }
-    .options {
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      flex-direction: column;
-      flex-wrap: wrap;
-      align-content: space-between;
-    }
-    .options button,
-    .toolbar button,
-    .settings button {
-      margin-top: 0 !important;
-      height: 50px;
-    }
-    .tab {
-      padding: 10px 20px;
-      background-color: transparent;
-      border: none;
-      cursor: pointer;
-      color: #abb2bf !important;
-    }
-    .tab:hover,
-    .tab.active:hover {
-      color: #3e4147 !important;
-      border: none;
-      cursor: pointer;
-    }
-    .tab:hover {
-      border-bottom: 4px solid rgba(1, 12, 25, 0.459);
-    }
-    .tab.active:hover {
-      border-bottom: 4px solid rgb(0, 115, 255);
-    }
-
-    .tab.active {
-      background-color: transparent;
-      color: #3e4147 !important;
-      border: none;
-      border-bottom: 4px solid rgb(0, 115, 255);
-    }
-    .tabPanel {
-      display: none;
-      border: none;
-      color: #abb2bf !important;
-      background-color: #111317 !important;
-      margin-top: 0 !important;
-    }
-    .tabPanel.active {
-      display: block;
-      outline: none;
-    }
-   
-    .tabContent pre {
-      border: none !important;
-    }
-    pre code.hljs {
-      padding: 0 !important;
-    }
-    .grid {
-      display: flex;
-    }
-    .preview,
-    .settings,
-    .options {
-      padding: 0 !important;
-      margin: 0 !important;
-      overflow: hidden
-    }
-    .editor {
-      position: relative;
-      max-height: 300px; /* Set the maximum height */
-      flex: 1;
-      width: 100%;
-      font-size: 13px !important;
-    }
-    .editor * {
-      font-size: 13px !important;
-    }
-    .copy {
-      position: absolute;
-      top: 0;
-      right: 0%;
-      padding: 10px 20px;
-      color: #abb2bf !important;
-      background-color: transparent;
-      cursor: pointer;
-      border: none!important;
-    }
-
-    .codeRenderer {
-      width: 100%;
-      flex: 1;
-      padding: 0 !important;
-      margin: 0 !important;
-      background-color: transparent;
-      overflow: hidden;
-    }
-
-
-    .columns {
-      flex-direction: column;
-    }
-    .columns-reverse {
-      flex-direction: column-reverse;
-    }
-    .columns,
-    .columns-reverse {
-      .preview {
-        width: 100%;
-      }
-      .editor {
-        width: 100%;
-      }
-    }
-    /* Use as rows */
-    .rows {
-      flex-direction: row;
-    }
-    .rows-reverse {
-      flex-direction: row-reverse;
-    }
-    .rows,
-    .rows-reverse {
-      flex-direction: row;
-      .preview {
-        width: 50%;
-      }
-      .editor {
-        width: 50%;
-      }
-    }
-    .tabContent {
-      max-height: 250px; /* Set the maximum height */
-      overflow-y: auto; /* Add vertical scrolling */
-      margin-top: 0 !important;
-    }
-  </style>
+    grid-template-areas: "codeRenderer";
+  }
+  .codeRenderer {
+    grid-area: codeRenderer;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .zeditor {
+    max-height: 250px; overflow-y: auto;
+    border-radius: 5px;
+  }
+</style>
+ 

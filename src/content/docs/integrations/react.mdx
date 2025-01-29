@@ -1,0 +1,128 @@
+---
+title: Integrate Orbit with React
+
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+Integrating Orbit with React is simple and can be done in two scenarios: browser-based and Node.js-based projects. Below, you’ll find step-by-step instructions for both.
+
+## 1. Browser-Based integration
+
+If you’re using React directly in the browser, follow these steps:
+
+### Import Orbit files
+Add the Orbit CSS and JavaScript files to your HTML file using a CDN. Include React and Babel for JSX support if needed:
+
+```html
+<head>
+  <!-- React and Babel (for JSX support) -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <!-- Orbit CSS and JS -->
+  <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
+  <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+</head>
+```
+
+### Use Orbit components
+Orbit web-components(`o-arc`, `o-progress`) are automatically recognized in the browser. You can use them directly in your React code:
+
+```html
+<div id="app"></div>
+
+<script type="text/babel">
+  function App() {
+    return (
+      <div className="bigbang">
+        <div className="gravity-spot">
+          <div className="orbit-5">
+            {[...Array(7)].map((_, n) => (
+              <o-arc key={n}>{n + 1} - Hello, Orbit!</o-arc>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Render the component to the DOM
+  const container = document.getElementById('app');
+  const root = ReactDOM.createRoot(container);
+  root.render(<App />);
+</script>
+```
+
+## 2. Node.js-Based integration
+
+If you’re using React in a Node.js environment (e.g., with Create React App or Vite), follow these steps:
+
+### Import Orbit files
+
+Install Orbit via npm
+
+```bash
+npm install @zumer/orbit
+```
+
+### **Configure React to mount Orbit web components**
+
+One way to ensure React recognizes Orbit web components (`o-arc`, `o-progress`) is to include them in a script tag.
+
+```js
+import '@zumer/orbit/dist/orbit.css'
+import orbit from '@zumer/orbit/dist/orbit.js'
+
+export default function App() {
+return (
+   <div>
+      <div class="bigbang">
+      <!--your orbit code ...-->
+      </div>
+      <!--Add orbit components ...-->
+      <script src={orbit}></script>
+   </div>
+  )
+}
+```
+
+## **3. Playground: using Orbit in React**
+
+
+export const react = `function App() {
+  const msg = 'React';
+  return(
+    <div class="bigbang">
+      <div class="gravity-spot">
+        <div class="orbit">
+          <div class="satellite grow-1x at-center">{msg}</div>
+        </div>
+        <div class="orbit-2 range-180 from-180">
+          <o-arc shape="circle" class="shrink-50"></o-arc>
+        </div>
+        <div class="orbit-3 range-270 ">
+          <o-arc shape="circle" class="shrink-50"></o-arc>
+        </div>
+      </div>
+    </div>
+  )
+}
+`;
+
+export const reactCSS = `
+.gravity-spot {
+--o-force: 600px
+}
+.satellite {
+  background: var(--o-cyan-light) !important;
+  border: none !important;
+}
+o-arc {
+  --o-fill: var(--o-cyan-light)  !important;
+}
+`;
+
+<ZumerPlay name={'capsule5'} jsCode={react} cssCode={reactCSS} theme={'theme-cyan'} height={'300px'} framework="react"/>
+

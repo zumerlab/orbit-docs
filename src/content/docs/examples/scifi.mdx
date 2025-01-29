@@ -4,125 +4,98 @@ title: Scifi
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 import scifi from '/src/assets/scifi.js?raw';
 
 export const scifi1HTML = `
-<div class="bigbang container-gyro" style="background: black">
-  <div class="gravity-spot gyro" style="
-  transform-style: preserve-3d;
-  perspective: 300px;">
-    <div class="orbit-6 from-120 range-240" style="transform: translateZ(-15px);">
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
-      <div class="vector shrink-40 outer-orbit dashed-small"></div>
+<div class="bigbang container-gyro">
+  <div class="gravity-spot gyro">
+    <div class="orbit-6 from-120 range-240 small-dash z-15">
+      <!-- small dash elements -->
     </div>
-    <div class="orbit-6" style="transform: translateZ(-35px);">
-      <o-arc value="25" class="from-215 shrink-70 outer-orbit" style="--o-color: var(--o-pink); "></o-arc>
+    <div class="orbit-6 z-35">
+      <o-arc value="25" class="from-215 shrink-70 outer-orbit pink"></o-arc>
     </div>
-    <div class="orbit-5 " >
-      <o-arc value="25" class="from-315 shrink-80 inner-orbit" style="--o-color: var(--o-cyan-light)"></o-arc>
+    <div class="orbit-5">
+      <o-arc value="25" class="from-315 shrink-80 inner-orbit cyan-light"></o-arc>
     </div>
-    <div class="orbit-5  from-48 range-130">
-      <o-arc class=" shrink-40 outer-orbit" style="--o-color: var(--o-cyan-dark); opacity: .6;"></o-arc>
+    <div class="orbit-5 from-48 range-130">
+      <o-arc class=" shrink-40 outer-orbit cyan-dark-transparent"></o-arc>
     </div>
-    <div class="orbit-5 from-180 range-100"  >
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
-      <div class="vector shrink-40 outer-orbit dashed-big"></div>
+    <div class="orbit-5 from-180 range-100 big-dash">
+       <!-- small dash elements -->
     </div>
-    <div class="orbit-4" style="transform: translateZ(-85px);">
-      <o-arc value="40" class="from-10 shrink-40" style="--o-color: var(--o-pink)"></o-arc>
+    <div class="orbit-4 z-85">
+      <o-arc value="40" class="from-10 shrink-40 pink"></o-arc>
     </div>
-    <div class="orbit-6 from-320" style="transform: translateZ(-110px);">
-      <o-arc value="40" class="shrink-40" style="--o-color: var(--o-cyan-light)"></o-arc>
+    <div class="orbit-6 from-320 z-110">
+      <o-arc value="40" class="shrink-40 cyan-light"></o-arc>
     </div>
-    <div class="orbit-6  from-30" style="transform: translateZ(-120px);">
-      <o-arc  class="shrink-60" style="--o-color: var(--o-cyan-light)"></o-arc>
-      <o-arc  class="shrink-60" style="--o-color: transparent"></o-arc>
-      <o-arc  class="shrink-60" style="--o-color: var(--o-cyan-light)"></o-arc>
-      <o-arc  class="shrink-60" style="--o-color: transparent"></o-arc>
+    <div class="orbit-6  from-30 z-120" >
+      <o-arc class="shrink-60 cyan-light"></o-arc>
+      <o-arc class="shrink-60 transparent"></o-arc>
+      <o-arc class="shrink-60 cyan-light"></o-arc>
+      <o-arc class="shrink-60 transparent"></o-arc>
     </div>
-    <div class="orbit-6  from-100" style="transform: translateZ(-155px);">
-      <o-arc value="40" class="shrink-90 inner-orbit" style="--o-color: var(--o-cyan-light)"></o-arc>
+    <div class="orbit-6  from-100 z-155">
+      <o-arc value="40" class="shrink-90 inner-orbit cyan-light"></o-arc>
     </div>
-    <div class="orbit-6 from-185 range-80" style="transform: translateZ(-75px);">
-      <o-arc class="  grow-0.5x" style="--o-color: var(--o-cyan-dark); opacity: .6;"></o-arc>
+    <div class="orbit-6 from-185 range-80 z-75">
+      <o-arc class="grow-0.5x cyan-dark-transparent"></o-arc>
     </div>
-    <div class="orbit-0" style="color:white">ORBIT</div>
+    <div class="orbit-0 white">ORBIT</div>
   </div>
 </div>`
 export const scifi1CSS = `
+.container-gyro {
+  background: black
+}
+.gyro {
+  transform-style: preserve-3d;
+  perspective: 300px;
+}
+.z-15 {
+  transform: translateZ(-15px);
+}
+.z-35 {
+  transform: translateZ(-35px);
+}
+.z-75 {
+  transform: translateZ(-75px);
+}
+.z-85 {
+  transform: translateZ(-85px);
+}
+.z-110 {
+  transform: translateZ(-110px);
+}
+.z-120 {
+  transform: translateZ(-120px);
+}
+.z-155 {
+  transform: translateZ(-155px);
+}
+.cyan {
+  --o-fill: var(--o-cyan)
+}
+.cyan-light {
+  --o-fill: var(--o-cyan-light)
+}
+.cyan-dark-transparent {
+  --o-fill: var(--o-cyan-dark);
+  opacity: 0.6
+}
+.pink {
+  --o-fill: var(--o-pink)
+}
+
+.transparent {
+  --o-fill: none
+}
+
+.white {
+ color: white
+}
+
 .dashed-small {
 opacity: 0.5; 
 height: 3px; 
@@ -139,19 +112,8 @@ background: var(--o-cyan);
 
 ## Scifi hud (interactive)
 
-<ZumerPlay name={'scifi1'} hideCode htmlCode={scifi1HTML}  cssCode={scifi1CSS} jsCode={scifi}  height={'600px'} />
+<ZumerPlay name={'scifi1'}   htmlCode={scifi1HTML}  cssCode={scifi1CSS} jsCode={scifi}  height={'600px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={scifi1HTML} lang="html" wrap />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={scifi1CSS} lang="css" wrap/>
-  </TabItem>
-  <TabItem label="JS" icon="seti:js">
-    <Code code={scifi} lang="js" wrap/>
-  </TabItem>
-</Tabs>
 
 ## Show & Tell
 

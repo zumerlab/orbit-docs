@@ -5,7 +5,6 @@ title: Dashboard
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 export const dashboardCSS = `
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
@@ -70,8 +69,8 @@ export const dashboardCSS = `
     }
 
     o-progress {
-      --o-color: var(--o-cyan);
-      --o-background-color: rgb(65, 71, 71);
+      --o-fill: var(--o-cyan);
+      --o-back-fill: rgb(65, 71, 71);
     }
 `;
 
@@ -85,13 +84,9 @@ export const dashboardHTML = `
             <div class="satellite">
               <div class="capsule">
                 <svg xmlns="http://www.w3.org/2000/svg" height="30px" viewBox="0 -960 960 960" width="30px"
-                  fill="#FFFFFF">
-                  <path
-                    d="M313.33-80q-14.16 0-23.75-9.58-9.58-9.59-9.58-23.75v-664q0-14.17 9.58-23.75 9.59-9.59 23.75-9.59H400V-880h160v69.33h86.67q14.16 0 23.75 9.59 9.58 9.58 9.58 23.75v664q0 14.16-9.58 23.75Q660.83-80 646.67-80H313.33Zm33.34-493.33h266.66V-744H346.67v170.67Z" />
+                  fill="#fff"><path d="M313.33-80q-14.16 0-23.75-9.58-9.58-9.59-9.58-23.75v-664q0-14.17 9.58-23.75 9.59-9.59 23.75-9.59H400V-880h160v69.33h86.67q14.16 0 23.75 9.59 9.58 9.58 9.58 23.75v664q0 14.16-9.58 23.75Q660.83-80 646.67-80H313.33Zm33.34-493.33h266.66V-744H346.67v170.67Z" />
                 </svg>
-                <span>
-                  63%
-                </span>
+                <span>63%</span>
               </div>
             </div>
           </div>
@@ -103,16 +98,12 @@ export const dashboardHTML = `
             <div class="satellite">
               <div class="capsule">
                 <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                  fill="#FFFFFF">
-                  <path d="m280-400 200-200.67L680-400H280Z" />
+                  fill="#fff"><path d="m280-400 200-200.67L680-400H280Z" />
                 </svg>
-                <span>
-                  12º
-                </span>
-                <span> 5º</span>
+                <span>12º</span>
+                <span>5º</span>
                 <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
-                  fill="#FFFFFF">
-                  <path d="M480-360 280-559.33h400L480-360Z" />
+                  fill="#fff"><path d="M480-360 280-559.33h400L480-360Z" />
                 </svg>
               </div>
             </div>
@@ -124,12 +115,9 @@ export const dashboardHTML = `
       <div class="satellite grow-8x at-center main">
         <div class="capsule">
           <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" class="sun">
-            <path
-              d="M440-760v-160h80v160h-80Zm266 110-55-55 112-115 56 57-113 113Zm54 210v-80h160v80H760ZM440-40v-160h80v160h-80ZM254-652 140-763l57-56 113 113-56 54Zm508 512L651-255l54-54 114 110-57 59ZM40-440v-80h160v80H40Zm157 300-56-57 112-112 29 27 29 28-114 114Zm283-100q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-160Z" />
+            <path d="M440-760v-160h80v160h-80Zm266 110-55-55 112-115 56 57-113 113Zm54 210v-80h160v80H760ZM440-40v-160h80v160h-80ZM254-652 140-763l57-56 113 113-56 54Zm508 512L651-255l54-54 114 110-57 59ZM40-440v-80h160v80H40Zm157 300-56-57 112-112 29 27 29 28-114 114Zm283-100q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm0-80q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-160Z" />
           </svg>
-          <span class="place">
-            Constanta | 12º
-          </span>
+          <span class="place">Constanta | 12º</span>
           <span class="time">6:59</span>
           <span>SUN <span class="day">11</span> APR</span>
         </div>
@@ -157,17 +145,8 @@ export const dashboardHTML = `
 </div>` ;
 
 
-<ZumerPlay name={'dps'} hideCode htmlCode={dashboardHTML}  cssCode={dashboardCSS} height={'600px'} />
+<ZumerPlay name={'dps'}   htmlCode={dashboardHTML}  cssCode={dashboardCSS} height={'600px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html" >
-    <Code code={dashboardHTML} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={dashboardCSS} lang="css" />
-  </TabItem>
-  
-</Tabs>
 
 **Codepen**: <a href="https://codepen.io/zircle/pen/eYqwYPB" target="_blank">link</a> 
 

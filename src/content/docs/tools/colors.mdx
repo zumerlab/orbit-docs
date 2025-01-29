@@ -6,108 +6,199 @@ title: "Orbit color palette"
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
+Certainly! Let's make the documentation more reader-friendly while still providing all the necessary details. Here’s a revised version of the Orbit color palette:
+
+---
+
+### Orbit Color Palette
+
+The Orbit color palette offers an extensive range of colors, each with multiple shades from dark to light. This palette is designed to provide designers with flexibility and consistency in their projects.
+
+#### Red shades
+- **--o-red-black**: Deep red mixed with black.
+- **--o-red-darker**: Very dark red.
+- **--o-red-dark**: Dark red.
+- **--o-red**: Standard red.
+- **--o-red-light**: Light red.
+- **--o-red-lighter**: Very light red.
+- **--o-red-white**: Light red mixed with white.
+
+#### Orange shades
+- **--o-orange-black**: Deep orange mixed with black.
+- **--o-orange-darker**: Very dark orange.
+- **--o-orange-dark**: Dark orange.
+- **--o-orange**: Standard orange.
+- **--o-orange-light**: Light orange.
+- **--o-orange-lighter**: Very light orange.
+- **--o-orange-white**: Light orange mixed with white.
+
+#### Yellow shades
+- **--o-yellow-black**: Deep yellow mixed with black.
+- **--o-yellow-darker**: Very dark yellow.
+- **--o-yellow-dark**: Dark yellow.
+- **--o-yellow**: Standard yellow.
+- **--o-yellow-light**: Light yellow.
+- **--o-yellow-lighter**: Very light yellow.
+- **--o-yellow-white**: Light yellow mixed with white.
+
+#### Green shades
+- **--o-green-black**: Deep green mixed with black.
+- **--o-green-darker**: Very dark green.
+- **--o-green-dark**: Dark green.
+- **--o-green**: Standard green.
+- **--o-green-light**: Light green.
+- **--o-green-lighter**: Very light green.
+- **--o-green-white**: Light green mixed with white.
+
+#### Cyan shades
+- **--o-cyan-black**: Deep cyan mixed with black.
+- **--o-cyan-darker**: Very dark cyan.
+- **--o-cyan-dark**: Dark cyan.
+- **--o-cyan**: Standard cyan.
+- **--o-cyan-light**: Light cyan.
+- **--o-cyan-lighter**: Very light cyan.
+- **--o-cyan-white**: Light cyan mixed with white.
+
+#### Blue shades
+- **--o-blue-black**: Deep blue mixed with black.
+- **--o-blue-darker**: Very dark blue.
+- **--o-blue-dark**: Dark blue.
+- **--o-blue**: Standard blue.
+- **--o-blue-light**: Light blue.
+- **--o-blue-lighter**: Very light blue.
+- **--o-blue-white**: Light blue mixed with white.
+
+#### Indigo shades
+- **--o-indigo-black**: Deep indigo mixed with black.
+- **--o-indigo-darker**: Very dark indigo.
+- **--o-indigo-dark**: Dark indigo.
+- **--o-indigo**: Standard indigo.
+- **--o-indigo-light**: Light indigo.
+- **--o-indigo-lighter**: Very light indigo.
+- **--o-indigo-white**: Light indigo mixed with white.
+
+#### Purple shades
+- **--o-purple-black**: Deep purple mixed with black.
+- **--o-purple-darker**: Very dark purple.
+- **--o-purple-dark**: Dark purple.
+- **--o-purple**: Standard purple.
+- **--o-purple-light**: Light purple.
+- **--o-purple-lighter**: Very light purple.
+- **--o-purple-white**: Light purple mixed with white.
+
+#### Pink shades
+- **--o-pink-black**: Deep pink mixed with black.
+- **--o-pink-darker**: Very dark pink.
+- **--o-pink-dark**: Dark pink.
+- **--o-pink**: Standard pink.
+- **--o-pink-light**: Light pink.
+- **--o-pink-lighter**: Very light pink.
+- **--o-pink-white**: Light pink mixed with white.
+
+#### Gray shades
+- **--o-gray-black**: Deep gray mixed with black.
+- **--o-gray-darker**: Very dark gray.
+- **--o-gray-dark**: Dark gray.
+- **--o-gray**: Standard gray.
+- **--o-gray-light**: Light gray.
+- **--o-gray-lighter**: Very light gray.
+- **--o-gray-white**: Light gray mixed with white.
+
+### Usage
+
+Here’s how you can use these variables in your Orbit project:
 
 export const htmlCode = `
 <div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-2" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink-black)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink-black)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray-black)"></o-arc>
     </div>
     <div class="orbit-3" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink-darker)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink-darker)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray-darker)"></o-arc>
     </div>
     <div class="orbit-4" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink-dark)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink-dark)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray-dark)"></o-arc>
     </div>
     <div class="orbit-5" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray)"></o-arc>
     </div>
     <div class="orbit-6" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink-light)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink-light)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray-light)"></o-arc>
     </div>
     <div class="orbit-7" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink-lighter)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink-lighter)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray-lighter)"></o-arc>
     </div>
     <div class="orbit-8" style="border: none">
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-red-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-orange-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-yellow-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-green-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-cyan-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-blue-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-indigo-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-purple-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-pink-white)"></o-arc>
-      <o-arc class="shrink-10 gap-2" style="--o-color: var(--o-gray-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-red-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-orange-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-yellow-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-green-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-cyan-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-blue-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-indigo-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-purple-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-pink-white)"></o-arc>
+      <o-arc class="shrink-10 gap-2" style="--o-fill: var(--o-gray-white)"></o-arc>
     </div>
-  
-    
 </div>
 `;
 export const CSSCode = `css`;
 
-<ZumerPlay name={'color'} hideCode htmlCode={htmlCode}  theme={'cyan-theme'} height={'600px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={htmlCode} lang="html" wrap />
-  </TabItem>
-  
-</Tabs>
+<ZumerPlay name={'color'}   htmlCode={htmlCode}  height={'400px'} />
 

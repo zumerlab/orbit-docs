@@ -1,0 +1,84 @@
+---
+title: Integrate Orbit in Angular
+---
+
+To use Orbit in Angular, follow these simple steps
+
+
+### Node 
+
+#### Import Orbit files
+
+Install Orbit via npm
+
+```bash
+npm install @zumer/orbit
+```
+
+Add Orbit files in your Angular proyect
+
+```js
+import '@zumer/orbit/dist/orbit.css'
+import '@zumer/orbit/dist/orbit.js'
+```
+
+### Configuration
+
+You need to infomr Angular about Orbit componenents, using `CUSTOM_ELEMENTS_SCHEMA `
+
+```js
+card.component
+
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import '@zumer/orbit/dist/orbit.js';
+```
+
+### Usage
+
+```js
+card.component
+
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import '@zumer/orbit/dist/orbit.js';
+
+@Component({
+  selector: 'corp-card',
+  standalone: true,
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  imports: [CommonModule],
+  template: `
+    <div class="corp-card">
+    <div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 range-90 fit-range">
+      <div class="satellite">1</div>
+      <div class="satellite"></div>
+      <div class="satellite">2</div>
+      <div class="satellite"></div>
+      <div class="satellite">3</div>
+    </div>
+    <div class="orbit-5">
+      <o-progress shape="zigzag" value="90"></o-progress>
+    </div>
+    <div class="orbit-6">
+      <o-arc>lapalapa</o-arc>
+      <o-arc>lapalapa</o-arc>
+      <o-arc>lapalapa</o-arc>
+      <o-arc>lapalapa</o-arc>
+    </div>
+</div>
+</div>
+        <ng-content></ng-content>
+    </div>
+  `,
+  styleUrls: ['./card.component.css'],
+})
+export class CardComponent {}
+```
+
+```js
+card.component.css
+@import '@zumer/orbit/dist/orbit.css';
+```

@@ -1,22 +1,26 @@
 ---
 title: "o-arc custom element"
-#banner: 
-# content: |
-#   o-slice name was changed to o-arc 
+banner: 
+ content: |
+   This component has been updated!
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 `<o-arc>` is a standard and vanilla web-component for rendering a radial arcs or pies. By default there are up to 60 arcs elements per orbit. 
 
 ## Look and feel
 
-### Changing arc colors
-To change o-arc color use CSS custom var `--o-color` and `--o-hover-color` in a `o-arc` style.
+### Changing arc border and colors
+To change `o-arc` colors use CSS custom var `--o-fill` for background, `--o-stroke` for border, and  `--o-stroke-width` for border-width in a `o-arc` style.
 
-export const arc = `
-<div class="bigbang">
+:::note
+Breaking-change: 
+Until Orbit v1.0.0, `--o-color` and `--o-hover-color` were the CSS custom vars to change color background of `o-arc` 
+:::
+
+export const arc = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <o-arc class="cyan"></o-arc>
@@ -35,46 +39,39 @@ export const arc = `
   </div>
 </div>
 `;
-export const arcCSS = `
-o-arc.cyan {
---o-color: var(--o-cyan-light);
---o-hover-color: var(--o-cyan)
+export const arcCSS = 
+`o-arc.cyan {
+  --o-fill: var(--o-cyan-light);
+  --o-stroke: var(--o-cyan);
+  --o-stroke-width: 3;
 }
 o-arc.purple {
---o-color: var(--o-purple-light);
---o-hover-color: var(--o-purple)
+  --o-fill: var(--o-purple-light);
 }
 o-arc:hover{
-cursor: pointer
+  cursor: pointer
 }
-o-arc {
---o-gap: 1; /* This will be added as default soon*/
+o-arc.cyan:hover{
+  --o-fill: var(--o-cyan);
 }
-
+o-arc.purple:hover{
+  --o-fill: var(--o-purple);
+}
 `;
 
-<ZumerPlay name={'arc'} hideCode htmlCode={arc} cssCode={arcCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={arc} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={arcCSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'arc'}   htmlCode={arc} cssCode={arcCSS} theme={'theme-cyan'} height={'300px'} />
 
 ### Changing endings
 
-`o-arc` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `slash`, `backslash` and `zigzag` shapes. Default `none`. 
+`o-arc` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `bullet`,  shapes. Default `none`. 
 
 :::note
-Shapes don't work on Safari browsers.
+Breaking-change: 
+Until Orbit v1.0.0, existed other shapes `slash`, `backslash` and `zigzag`. We are working to make them available again.
 :::
 
-
-export const arc1 = `
-<div class="wrapper">
+export const arc1 = 
+`<div class="wrapper">
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
@@ -100,80 +97,48 @@ export const arc1 = `
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="zigzag"></o-arc>
-        <o-arc class="grow-1x purple" shape="zigzag"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="zigzag"></o-arc>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="slash"></o-arc>
-        <o-arc class="grow-1x purple" shape="slash"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="slash"></o-arc>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="wrapper">
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="backslash"></o-arc>
-        <o-arc class="grow-1x purple" shape="backslash"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="backslash"></o-arc>
+        <o-arc class="grow-1x purple-light" shape="bullet"></o-arc>
+        <o-arc class="grow-1x purple" shape="bullet"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="bullet"></o-arc>
       </div>
     </div>
   </div>
 </div>
 
 `;
-export const arc1CSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 100px;
-width: 100px;
-float: left;
-overflow: hidden;
-margin: 5px;
+export const arc1CSS = 
+`.wrapper {
+  border: 1px dotted var(--o-purple);
+  height: 200px;
+  width: 150px;
+  float: left;
+  overflow: hidden;
+  margin: 5px;
 }
 .gravity-spot {
---o-force: 300px
-}
-o-arc.purple-light {
---o-color: var(--o-purple-light);
---o-hover-color: var(--o-orange)
-}
-o-arc.purple {
---o-color: var(--o-purple);
---o-hover-color: var(--o-orange)
-}
-o-arc.purple-dark {
---o-color: var(--o-purple-dark);
---o-hover-color: var(--o-orange)
-}
-o-arc:hover{
-cursor: pointer
+  --o-force: 400px
 }
 o-arc {
---o-gap: 1; /* This will be added as default soon*/
+--o-gap: 0
 }
-
+o-arc.purple-light {
+  --o-fill: var(--o-purple-light);
+}
+o-arc.purple {
+  --o-fill: var(--o-purple);
+  
+}
+o-arc.purple-dark {
+  --o-fill: var(--o-purple-dark);
+ 
+}
+o-arc:hover{
+ cursor: pointer;
+  --o-fill: var(--o-orange) !important;
+}
 `;
 
-<ZumerPlay name={'arc1'} hideCode htmlCode={arc1} cssCode={arc1CSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={arc1} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={arc1CSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'arc1'}   htmlCode={arc1} cssCode={arc1CSS} theme={'theme-cyan'} height={'300px'} />
 
 
 ## Adjust o-arc size
@@ -181,46 +146,27 @@ o-arc {
 Each `o-arc` has one orbit space size, but it can be finely adjusted using the CSS class utility `.shrink-10` to `.shrink-90`, allowing the vectors to shrink by a specified percentage. 
 
 
-export const shrink = `
-<div class="bigbang">
+export const shrink = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
-      <o-arc style="--o-color: var(--o-red)"></o-arc>
-      <o-arc class="shrink-90" style="--o-color: var(--o-orange)"></o-arc>
-      <o-arc class="shrink-80" style="--o-color: var(--o-yellow)"></o-arc>
-      <o-arc class="shrink-70" style="--o-color: var(--o-color)"></o-arc>
-      <o-arc class="shrink-60" style="--o-color: var(--o-green)"></o-arc>
-      <o-arc class="shrink-50" style="--o-color: var(--o-cyan)"></o-arc>
-      <o-arc class="shrink-40" style="--o-color: var(--o-blue)"></o-arc>
-      <o-arc class="shrink-30" style="--o-color: var(--o-indigo)"></o-arc>
-      <o-arc class="shrink-20" style="--o-color: var(--o-purple)"></o-arc>
-      <o-arc class="shrink-10" style="--o-color: var(--o-pink)"></o-arc>
-      
+      <o-arc class="shrink-90" style="--o-fill: var(--o-red)"></o-arc>
+      <o-arc class="shrink-80" style="--o-fill: var(--o-orange)"></o-arc>
+      <o-arc class="shrink-70" style="--o-fill: var(--o-yellow)"></o-arc>
+      <o-arc class="shrink-60" style="--o-fill: var(--o-green)"></o-arc>
+      <o-arc class="shrink-50" style="--o-fill: var(--o-cyan)"></o-arc>
+      <o-arc class="shrink-40" style="--o-fill: var(--o-blue)"></o-arc>
+      <o-arc class="shrink-30" style="--o-fill: var(--o-indigo)"></o-arc>
+      <o-arc class="shrink-20" style="--o-fill: var(--o-purple)"></o-arc>
+      <o-arc class="shrink-10" style="--o-fill: var(--o-pink)"></o-arc>
     </div>
   </div>
 </div>
 `;
-export const shrinkCSS = `
 
-.orbit-5 {
-border: 1px dashed var(--o-cyan);
-}
-o-arc {
---o-gap: 1; /* This will be added as default soon*/
-}
 
-`;
+<ZumerPlay name={'shrink'}   htmlCode={shrink} theme={'theme-cyan'} height={'300px'} />
 
-<ZumerPlay name={'shrink'} hideCode htmlCode={shrink} cssCode={shrinkCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={shrink} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={shrinkCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 On opposite way, the CSS class utility `.grow-0x` to `.grow-12x`, allowing vector to expand by a multiple of `.orbit` size. It is possible to use decimal fractions. For example,  `.grow-0.1x`,  `.grow-10.7x`, etc.
 
@@ -229,52 +175,40 @@ On opposite way, the CSS class utility `.grow-0x` to `.grow-12x`, allowing vecto
 :::
 
 
-export const grow = `
-<div class="bigbang">
+export const grow = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-4">
-      <o-arc class="grow-0.2x" style="--o-color: var(--o-red)"></o-arc>
-      <o-arc class="grow-0.4x" style="--o-color: var(--o-orange)"></o-arc>
-      <o-arc class="grow-0.6x" style="--o-color: var(--o-yellow)"></o-arc>
-      <o-arc class="grow-1.2X" style="--o-color: var(--o-green)"></o-arc>
-      <o-arc class="grow-2x" style="--o-color: var(--o-cyan)"></o-arc>
-      <o-arc class="grow-2.5x" style="--o-color: var(--o-blue)"></o-arc>
-      <o-arc class="grow-3x" style="--o-color: var(--o-indigo)"></o-arc>
-      <o-arc class="grow-4x" style="--o-color: var(--o-purple)"></o-arc>
+      <o-arc class="grow-0.2x" style="--o-fill: var(--o-red)"></o-arc>
+      <o-arc class="grow-0.4x" style="--o-fill: var(--o-orange)"></o-arc>
+      <o-arc class="grow-0.6x" style="--o-fill: var(--o-yellow)"></o-arc>
+      <o-arc class="grow-1.2X" style="--o-fill: var(--o-green)"></o-arc>
+      <o-arc class="grow-2x" style="--o-fill: var(--o-cyan)"></o-arc>
+      <o-arc class="grow-2.5x" style="--o-fill: var(--o-blue)"></o-arc>
+      <o-arc class="grow-3x" style="--o-fill: var(--o-indigo)"></o-arc>
+      <o-arc class="grow-4x" style="--o-fill: var(--o-purple)"></o-arc>
     </div>
   </div>
 </div>
 `;
-export const growCSS = `
-.satellite {
-border: none;
+export const growCSS = 
+`.satellite {
+  border: none;
 }
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
-}
-
-o-arc {
---o-gap: 1; /* This will be added as default soon*/
+  border: 1px dashed var(--o-cyan);
 }
 `;
 
-<ZumerPlay name={'grow'} hideCode htmlCode={grow} cssCode={growCSS} theme={'cyan-theme'} height={'400px'} />
+<ZumerPlay name={'grow'}   htmlCode={grow} cssCode={growCSS} theme={'theme-cyan'} height={'400px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={grow} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={growCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ## Adjust o-arc gaps
 **`.gap-*`:** Set a gap space between `o-arcs` ranging from 0 to 30, 
 
 
-export const grow1 = `
-<div class="bigbang">
+export const grow1 = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-4">
       <o-arc class="gap-0"></o-arc>
@@ -289,30 +223,19 @@ export const grow1 = `
   </div>
 </div>
 `;
-export const grow1CSS = `
-.satellite {
-border: none;
+export const grow1CSS = 
+`.satellite {
+  border: none;
 }
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
+  border: 1px dashed var(--o-cyan);
 }
-
 o-arc {
---o-gap: 1; /* This will be added as default soon*/
---o-color: var(--o-indigo);
+  --o-fill: var(--o-indigo) !important;;
 }
 `;
 
-<ZumerPlay name={'grow1'} hideCode htmlCode={grow1} cssCode={grow1CSS} theme={'cyan-theme'} height={'400px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={grow1} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={grow1CSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'grow1'}   htmlCode={grow1} cssCode={grow1CSS} theme={'theme-cyan'} height={'400px'} />
 
 ## Adjusting radial layout
 
@@ -324,8 +247,8 @@ Remember that `.orbit` [properties](/orbit-docs/elements/orbit/#distribution-of-
 
 **`.angle-*`:** Set starting point angle from 0 to 360 degrees, overrriding automatic radial arragement.
 
-export const angle = `
-<div class="bigbang">
+export const angle = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5 range-90">
       <o-arc class=" angle-115"></o-arc>
@@ -333,26 +256,17 @@ export const angle = `
   </div>
 </div>
 `;
-export const angleCSS = `
-
-.orbit-5 {
-border: 1px dashed var(--o-cyan);
+export const angleCSS = 
+`.orbit-5 {
+  border: 1px dashed var(--o-cyan);
 }
 o-arc {
---o-color: var(--o-purple);
+  --o-fill: var(--o-purple) !important;;
 }
 `;
 
-<ZumerPlay name={'angle'} hideCode htmlCode={angle} cssCode={angleCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'angle'}   htmlCode={angle} cssCode={angleCSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={angle} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={angleCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ### Relative o-arc orbital position
 
@@ -366,54 +280,38 @@ By default, `o-arc` is positioned in the middle of orbit path. To change that, t
 
 **`.quarter-outer-orbit`:** To place `o-arc` a 25% outer its orbit.
 
-export const inner = `
-
-  <div class="bigbang">
-    <div class="gravity-spot">
-      <div class="orbit-3">
-        <o-arc class="outer-orbit "></o-arc>
-        <o-arc class="quarter-outer-orbit"></o-arc>
-        <o-arc class="quarter-inner-orbit"></o-arc>
-        <o-arc class="inner-orbit"></o-arc>
-      </div>
-     
-  </div>
-
+export const inner = 
+`<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-3">
+      <o-arc class="outer-orbit "></o-arc>
+      <o-arc class="quarter-outer-orbit"></o-arc>
+      <o-arc class="quarter-inner-orbit"></o-arc>
+      <o-arc class="inner-orbit"></o-arc>
+    </div>
+</div>
 `;
-export const innerCSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 250px;
-width: 250px;
-float: left;
-overflow: hidden;
-margin: 5px;
+export const innerCSS = 
+`.wrapper {
+  border: 1px dotted var(--o-purple);
+  height: 250px;
+  width: 250px;
+  float: left;
+  overflow: hidden;
+  margin: 5px;
 }
 
 o-arc {
---o-color: var(--o-pink);
---o-gap: 1; /* This will be added as default soon*/
-}
+  --o-fill: var(--o-pink)!important;
+}`;
 
+<ZumerPlay name={'inner'}   htmlCode={inner} cssCode={innerCSS} theme={'theme-cyan'} height={'300px'} />
 
-
-`;
-
-<ZumerPlay name={'inner'} hideCode htmlCode={inner} cssCode={innerCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={inner} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={innerCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ##  Rendering curved text. 
 
-export const otext = `
-<div class="bigbang">
+export const otext = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-4">
       <o-arc>o-arc Custom Element allows</o-arc>
@@ -423,107 +321,85 @@ export const otext = `
 </div>
 `;
 
-export const otextcss = `
-o-arc {
---o-color: transparent !important
+export const otextcss = 
+`o-arc {
+  --o-fill: none !important;
 }
 `;
 
-<ZumerPlay name={'otext'} hideCode htmlCode={otext} hcssCode={otextcss}  theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={otext} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={otextcss} lang="css" />
-  </TabItem>
-</Tabs>
-
+<ZumerPlay name={'otext'}   htmlCode={otext} cssCode={otextcss}  theme={'theme-cyan'} height={'300px'} />
 
 ### Changing text colors
 
 #### Font colors, size and other font properties
 To change o-arc any CSS font properties just added in a `o-arc` style or class.
 
-export const otext1 = `
-<div class="bigbang">
+export const otext1 = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <o-arc class="cyan">This text is cyan and bold</o-arc>
       <o-arc class="purple">This text is purple and capitalized</o-arc>
-      
     </div>
   </div>
 </div>
 `;
-export const otext1CSS = `
+export const otext1CSS = 
+`o-arc {
+  --o-fill: none !important;
+}
 o-arc.cyan {
-color: var(--o-cyan);
-font-weight: bold;
-
+  color: var(--o-cyan);
+  font-weight: bold;
 }
 o-arc.cyan:hover {
-color: var(--o-blue);
-font-weight: bold
+  color: var(--o-blue);
+  font-weight: bold
 }
-
 o-arc.purple {
-color: var(--o-purple);
-text-transform: uppercase;
+  color: var(--o-purple);
+  text-transform: uppercase;
 }
-
-
 `;
 
-<ZumerPlay name={'otext1'} hideCode htmlCode={otext1} cssCode={otext1CSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'otext1'}   htmlCode={otext1} cssCode={otext1CSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={otext1} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={otext1CSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 #### Background colors
-To change o-arc background color use CSS custom var `--o-color` and `-o--hover-text-color` in a `o-arc` style.
+To change o-arc background color use CSS custom var `--o-fill` in a `o-arc` style.
 
-export const slice = `
-<div class="bigbang">
+export const slice = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <o-arc class="cyan">This text is cyan</o-arc>
       <o-arc class="purple">This text is purple</o-arc>
-      
     </div>
   </div>
 </div>
 `;
-export const sliceCSS = `
-o-arc.cyan {
---o-color: var(--o-cyan-light);
---o-hover-color: green
+export const sliceCSS = 
+`o-arc.cyan {
+--o-fill: var(--o-cyan-light);
+color: var(--o-cyan-dark);
 
 }
 o-arc.purple {
---o-color: var(--o-purple-light);
---o-hover-color: white
-}
+--o-fill: var(--o-purple-light);
+color: var(--o-purple-dark);
 
+}
+o-arc.cyan:hover {
+color: var(--o-cyan-darker);
+
+}
+o-arc.purple:hover {
+color: var(--o-purple-darker);
+
+}
 `;
 
-<ZumerPlay name={'slice'} hideCode htmlCode={slice} cssCode={sliceCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={slice} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={sliceCSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'slice'}   htmlCode={slice} cssCode={sliceCSS} theme={'theme-cyan'} height={'300px'} />
 
 ### Changing text justification
 
@@ -531,9 +407,8 @@ o-arc.purple {
 
 `o-arc` has one special attribute: `text-anchor` to arrange its content. You can choose between `start`, `middle`, and `end` values. 
 
-
-export const otext2 = `
-<div class="bigbang">
+export const otext2 = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <o-arc text-anchor="start" class="purple">This text starts at begining</o-arc>
@@ -543,40 +418,31 @@ export const otext2 = `
   </div>
 </div>
 `;
-export const otext2CSS = `
+export const otext2CSS = 
+`o-arc.purple {
+  --o-fill: var(--o-purple-lighter);
 
-o-arc.purple {
---o-color: var(--o-purple-light);
---o-hover-color: var(--o-purple)
 }
 o-arc:hover{
-cursor: pointer
+  cursor: pointer
 }
 o-arc {
---o-gap: 1; /* This will be added as default soon*/
-color: var(--o-purple-dark);
+  color: var(--o-purple-dark);
+  --o-gap: 5;
 }
 `;
 
-<ZumerPlay name={'otext2'} hideCode htmlCode={otext2} cssCode={otext2CSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'otext2'}   htmlCode={otext2} cssCode={otext2CSS} theme={'theme-cyan'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={otext2} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={otext2CSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 #### Use flip attribute
 
 `o-arc` allows upside down its content to using `flip` attribute. Useful to make text more legible. 
 
 
-export const otext6 = `
-<div class="wrapper">
-normal
+export const otext6 = 
+`<div class="wrapper">
+Normal
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-4">
@@ -597,7 +463,7 @@ normal
   </div>
 </div>
 <div class="wrapper">
-with flip atribute
+With flip atribute
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-4">
@@ -618,119 +484,124 @@ with flip atribute
   </div>
 </div>
 `;
-export const otext6CSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 200px;
-width: 200px;
-float: left;
-overflow: hidden;
-margin: 5px;
-color: var(--o-blue-dark);
+export const otext6CSS = 
+`.wrapper {
+  border: 1px dotted var(--o-purple);
+  height: 200px;
+  width: 150px;
+  float: left;
+  overflow: hidden;
+  margin: 5px;
+  color: var(--o-blue-dark);
 }
 .gravity-spot {
---o-force: 400px
+  --o-force: 400px
 }
 o-arc[flip] {
-color: red
+  color: red
 }
-
 o-arc:hover{
-cursor: pointer
+  cursor: pointer
 }
 o-arc {
-color: var(--o-blue-dark);
+  color: var(--o-blue-dark);
+  --o-fill: none !important;
 }
 `;
 
-<ZumerPlay name={'otext6'} hideCode htmlCode={otext6} cssCode={otext6CSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={otext3} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={otext3CSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'otext6'}   htmlCode={otext6} cssCode={otext6CSS} theme={'theme-cyan'} height={'300px'} />
 
 #### Use fit-range attribute
 
 `o-arc` allows distribute its content to fill text-length using `fit-range` attribute.
 
 
-export const otext3 = `
-<div class="bigbang">
+export const otext3 = 
+`<div class="bigbang">
   <div class="gravity-spot">
-    <div class="orbit-5">
+    <div class="orbit-5 range-270">
       <o-arc fit-range class="orange"> This text is along all text path </o-arc>
-      
     </div>
   </div>
 </div>
 `;
-export const otext3CSS = `
+export const otext3CSS = 
+`o-arc.orange {
+  --o-fill: var(--o-orange-light);
+  color: var(--o-orange-dark);
+}
 
-o-arc.orange {
---o-color: var(--o-orange-light);
---o-hover-color: var(--o-orange)
-}
-o-arc:hover{
-cursor: pointer
-}
-o-arc {
-color: var(--o-orange-dark);
+o-arc.orange:hover{
+  cursor: pointer;
+  --o-fill: var(--o-orange);
 }
 `;
 
-<ZumerPlay name={'otext3'} hideCode htmlCode={otext3} cssCode={otext3CSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={otext3} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={otext3CSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'otext3'}   htmlCode={otext3} cssCode={otext3CSS} theme={'theme-cyan'} height={'300px'} />
 
 ## Use o-arc to create charts
 
 To create pie / sunburst or donut charts simple use attribute `value` from 0 to 100 in `o-arc`.
 
-export const chart = `
-<div class="bigbang">
+export const chart = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-3 ">
-      <o-arc class="grow-1x  gap-0 " value="50" style="--o-color: var(--o-red)"></o-arc>
-      <o-arc class="grow-1x gap-0  " value="25" style="--o-color: var(--o-orange);"></o-arc>
-      <o-arc class="grow-1x  gap-0 " value="15" style="--o-color: var(--o-yellow)"></o-arc>
-      <o-arc class="grow-1x  gap-0 " value="5" style="--o-color: var(--o-blue)"></o-arc>
-      <o-arc class="grow-1x  gap-0 " value="5" style="--o-color: var(--o-green)"></o-arc>
+      <o-arc class="grow-1x gap-0 red" value="50"></o-arc>
+      <o-arc class="grow-1x gap-0 orange" value="25"></o-arc>
+      <o-arc class="grow-1x gap-0 yellow" value="15"></o-arc>
+      <o-arc class="grow-1x gap-0 blue" value="5"></o-arc>
+      <o-arc class="grow-1x gap-0 green" value="5"></o-arc>
     </div>
     <div class="orbit-3 ">
-      <div class="satellite angle-90" style="font-size:15px; font-weight: bold;  color: var(--o-red-darker);">50</div>
-      <div class="satellite angle-225" style="font-size:15px; font-weight: bold;  color: var(--o-orange-darker);">25</div>
-      <div class="satellite angle-295" style="font-size:15px; font-weight: bold;  color: var(--o-yellow-darker);">15</div>
-      <div class="satellite angle-333" style="font-size:15px; font-weight: bold;  color: var(--o-blue-darker);">5</div>
-      <div class="satellite angle-350" style="font-size:15px; font-weight: bold;  color: var(--o-green-darker);">5</div>
+      <div class="satellite angle-90">50</div>
+      <div class="satellite angle-225">25</div>
+      <div class="satellite angle-295">15</div>
+      <div class="satellite angle-333">5</div>
+      <div class="satellite angle-350">5</div>
     </div>
   </div>
 </div>
 `
-export const chartCSS = `
-.satellite {
-border: transparent
+export const chartCSS = 
+`.satellite {
+  border: none !important;
+  font-size:15px;
+  font-weight: bold;
+}
+o-arc.red, o-arc.red:hover{
+--o-fill: var(--o-red); 
+--o-stroke-width: 7; 
+--o-stroke: var(--o-red-dark)
+}
+o-arc.orange, o-arc.orange:hover {
+--o-fill: var(--o-orange); 
+}
+o-arc.yellow, o-arc.yellow:hover {
+--o-fill: var(--o-yellow); 
+}
+o-arc.blue, o-arc.blue:hover {
+--o-fill: var(--o-blue); 
+}
+o-arc.green, o-arc.green:hover {
+--o-fill: var(--o-green); 
+}
+.satellite.red {
+color: var(--o-red-darker); 
+}
+.satellite.orange {
+color: var(--o-orange-darker); 
+
+}
+.satellite.yellow {
+color: var(--o-yellow-darker); 
+}
+.satellite.blue {
+color: var(--o-blue-darker); 
+}
+.satellite.green {
+color: var(--o-green-darker); 
 }
 `
 
-<ZumerPlay name={'chart'} hideCode htmlCode={chart} cssCode={chartCSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={chart} lang="html" wrap/>
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code wrap code={chartCSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'chart'}   htmlCode={chart} cssCode={chartCSS} theme={'theme-cyan'} height={'300px'} />

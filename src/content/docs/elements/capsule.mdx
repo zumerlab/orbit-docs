@@ -1,13 +1,11 @@
 ---
-title: ".capsule CSS Class"
+title: "Capsule"
 #banner: 
 #  content: |
 #    Documentaton on this page is being updated.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
-
 
 `.capsule` is a class to put text or another content. Currently, it can be used into `satellites` and `sides`.
 
@@ -23,13 +21,13 @@ Besides that, to stablish `capsule` position following CSS classes can be set:
 
 ## satellites with capsule
 
-export const capsule = `
-<div class="bigbang">
+export const capsule = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="satellite grow-2x rounded-box">
         <div class="capsule">
-          <span style="color:  var(--o-blue); font-size:13px; ">
+          <span class="tags">
             Add html tags
           </span>
         </div>
@@ -47,58 +45,49 @@ export const capsule = `
     </div>
   </div>
 </div>
-
 `;
-export const capsuleCSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 250px;
-width: 250px;
-float: left;
-overflow: hidden;
-margin: 5px;
+export const capsuleCSS = 
+`.wrapper {
+  border: 1px dotted var(--o-purple);
+  height: 250px;
+  width: 250px;
+  float: left;
+  overflow: hidden;
+  margin: 5px;
 }
-
-
 .satellite {
-border: none;
-background-color: var(--o-blue-lighter)
+  border: none;
+  background-color: var(--o-blue-lighter)
 }
 .satellite:last-child {
-background-color: transparent
+  background-color: transparent
 }
 .title {
-width: 150px;
-border: 1px solid var(--o-green);
-color:  var(--o-green-dark);
-background-color: var(--o-green-lighter);
+  width: 150px;
+  border: 1px solid var(--o-green);
+  color:  var(--o-green-dark);
+  background-color: var(--o-green-lighter);
+}
+.tags {
+  color:  var(--o-blue); font-size:13px; 
 }
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
+  border: 1px dashed var(--o-cyan);
 }
-
 `;
 
-<ZumerPlay name={'capsule'} hideCode htmlCode={capsule} cssCode={capsuleCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'capsule'}   htmlCode={capsule} cssCode={capsuleCSS} theme={'cyan-theme'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={capsule} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={capsuleCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 ## Sides with capsule
 
-export const capsule1 = `
-<div class="bigbang">
+export const capsule1 = 
+`<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="side grow-2x rounded-box">
         <div class="capsule flip">
-          <span style="color:  var(--o-blue); font-size:13px; ">
+          <span class="tags">
             Add html tags
           </span>
         </div>
@@ -118,45 +107,34 @@ export const capsule1 = `
 </div>
 
 `;
-export const capsule1CSS = `
-.wrapper {
-border: 1px dotted var(--o-purple);
-height: 250px;
-width: 250px;
-float: left;
-overflow: hidden;
-margin: 5px;
+export const capsule1CSS = 
+`.wrapper {
+  border: 1px dotted var(--o-purple);
+  height: 250px;
+  width: 250px;
+  float: left;
+  overflow: hidden;
+  margin: 5px;
 }
-
-
 .satellite {
-border: none;
-background-color: var(--o-blue-lighter)
+  border: none;
+  background-color: var(--o-blue-lighter)
 }
 .satellite:last-child {
-background-color: transparent
+  background-color: transparent
 }
 .title {
-width: 150px;
-border: 1px solid var(--o-green);
-color:  var(--o-green-dark);
-background-color: var(--o-green-lighter);
+  width: 150px;
+  border: 1px solid var(--o-green);
+  color:  var(--o-green-dark);
+  background-color: var(--o-green-lighter);
+}
+.tags {
+  color:  var(--o-blue); font-size:13px; 
 }
 .orbit-5 {
-border: 1px dashed var(--o-cyan);
+  border: 1px dashed var(--o-cyan);
 }
-
 `;
 
-<ZumerPlay name={'capsule1'} hideCode htmlCode={capsule1} cssCode={capsule1CSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={capsule1} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={capsule1CSS} lang="css" />
-  </TabItem>
-</Tabs>
-
-
+<ZumerPlay name={'capsule1'}   htmlCode={capsule1} cssCode={capsule1CSS} theme={'cyan-theme'} height={'300px'} />

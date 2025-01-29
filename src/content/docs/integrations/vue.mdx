@@ -1,0 +1,131 @@
+---
+title: Integrate Orbit with Vue
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+Integrating **Orbit** with **Vue** is straightforward. Below, you’ll find step-by-step instructions for both **browser-based** and **Node.js-based** Vue projects.
+
+## **1. Browser-Based Integration**
+
+If you’re using Vue directly in the browser, follow these steps:
+
+### **Import Orbit files**
+Add the Orbit CSS and JavaScript files to your HTML file using a CDN:
+
+```html
+<head>
+  <!-- Vue -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <!-- Orbit -->
+  <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
+  <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+</head>
+```
+
+### **Configure Vue to recognize Orbit components**
+Orbit uses custom elements (e.g., `<o-arc>` and `<o-progress>`), which Vue treats as Vue elements by default. To fix this, inform Vue that these elements are custom:
+
+```js
+const { createApp } = Vue;
+
+const app = createApp({
+  // Your Vue app configuration
+}).mount('#app');
+
+// Treat all tags starting with 'o-' as custom elements
+app.config.compilerOptions.isCustomElement = (tag) => {
+  return tag.startsWith('o-');
+};
+```
+
+## **2. Node.js-Based integration**
+
+If you’re using Vue in a Node.js environment (e.g., with Vite or Vue CLI), follow these steps:
+
+### **Install Orbit via npm**
+Install Orbit as a dependency in your project:
+
+```bash
+npm install @zumer/orbit
+```
+
+### **Import Orbit files**
+
+Import the Orbit CSS and JavaScript files in your main entry file (e.g., `main.js` or `main.ts`):
+
+```javascript
+import '@zumer/orbit/dist/orbit.css';
+import '@zumer/orbit/dist/orbit.js';
+
+const { createApp } = Vue;
+
+const app = createApp({
+  // Your Vue app configuration
+}).mount('#app');
+
+```
+
+### **Configure Vue to recognize Orbit components**
+Update your `vue.config.js` (or Vite configuration) to treat Orbit components (`o-arc`, `o-progress`) as custom elements:
+
+```javascript
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+
+export default defineConfig({
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => ['o-arc', 'o-progress'].includes(tag),
+        },
+      },
+    }),
+  ],
+});
+```
+
+## **3. Playground: using Orbit in Vue**
+
+Here’s an example of how to use Orbit in a Vue component. This example creates a radial layout with dynamic content:
+
+export const vueJS = `
+{
+  data () {
+    return {
+      msg: 'Vue'
+    }
+  }
+}
+`;
+
+export const vueCSS = `
+.satellite {
+  background: var(--o-cyan-light) !important;
+  border: none !important;
+}
+o-arc {
+ --o-fill: var(--o-cyan-light)  !important;
+}
+`;
+
+export const vueHTML = 
+`<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit">
+      <div class="satellite grow-1x at-center">{{msg}}</div>
+    </div>
+    <div class="orbit-2 range-180 from-180">
+      <o-arc shape="circle" class="shrink-50"></o-arc>
+    </div>
+    <div class="orbit-3 range-270 ">
+      <o-arc shape="circle" class="shrink-50"></o-arc>
+    </div>
+  </div>
+</div>
+`;
+
+<ZumerPlay name={'capsule2'}  cssCode={vueCSS}  htmlCode={vueHTML}  jsCode={vueJS}  theme={'theme-cyan'} height={'300px'} framework="vue"/>
+
+

@@ -6,7 +6,6 @@ title: "CSS visual aids"
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
-import { Tabs, TabItem, Code } from '@astrojs/starlight/components';
 
 Orbit provides a comprehensive set of rules and visual aids in CSS to assist developers in enhancing user experience. These guidelines ensure adherence to best practices and optimize the utilization of Orbit's features.
 
@@ -34,34 +33,26 @@ Orbit detects and notifies developers if `.gravity-spot` contains invalid direct
 
 export const gs = `
 
-  <div class="bigbang">
-    <div class="gravity-spot">
-        <!-- Orbit detects that gravity-spot > satellite is not valid -->
-        <div class="satellite">
-        </div>
+<div class="bigbang">
+  <div class="gravity-spot">
+    <!-- Orbit detects that gravity-spot > satellite is not valid -->
+    <div class="satellite"></div>
   </div>
+</div>
 
 `;
 export const gsCSS = `
 .gravity-spot {
---o-force: 200px
+  --o-force: 200px
 }
 .satellite {
-border: 1px solid black
+  border: 1px solid black
 }
 
 `;
 
-<ZumerPlay name={'gs'} hideCode htmlCode={gs} cssCode={gsCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'gs'}   htmlCode={gs} cssCode={gsCSS} theme={'cyan-theme'} height={'300px'} />
 
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={gs} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={gsCSS} lang="css" />
-  </TabItem>
-</Tabs>
 
 
 ### Invalid Child elements within `.satellite`
@@ -70,39 +61,30 @@ Similarly, Orbit checks for and alerts developers if `.satellite` includes inval
 
 export const gs1 = `
 
-  <div class="bigbang">
-    <div class="gravity-spot">
-        <div class="orbit-5">
-          <div class="satellite at-center">
-              <!-- Orbit detects that satellite > orbit is not valid -->
-             <div class="orbit-10"></div>
-          </div>
-        </div>
-  </div>
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="satellite at-center">
+        <!-- Orbit detects that satellite > orbit is not valid -->
+        <div class="orbit-10"></div>
+      </div>
+    </div>
+</div>
 
 `;
 export const gs1CSS = `
 .gravity-spot {
---o-force: 200px
+  --o-force: 200px
 }
 .satellite {
-border: 1px solid black
+  border: 1px solid black
 }
 
 `;
 
-<ZumerPlay name={'gs1'} hideCode htmlCode={gs1} cssCode={gs1CSS} theme={'cyan-theme'} height={'300px'} />
-
-<Tabs>
-  <TabItem label="HTML" icon="seti:html">
-    <Code code={gs1} lang="html" />
-  </TabItem>
-  <TabItem label="CSS" icon="seti:css">
-    <Code code={gs1CSS} lang="css" />
-  </TabItem>
-</Tabs>
+<ZumerPlay name={'gs1'}   htmlCode={gs1} cssCode={gs1CSS} theme={'cyan-theme'} height={'300px'} />
 
 
-## Usage Limitation of `o-arc` and `o-progress`
+## Usage limitation of `o-arc` and `o-progress`
 
 For optimal functionality, `o-arc` and `o-progress` should only be applied within circular orbits. As Orbit currently doesn't support elliptical shapes for these web-components, they will be hidden if detected within incompatible orbit shapes.
