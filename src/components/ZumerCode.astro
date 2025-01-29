@@ -151,7 +151,7 @@ let jsClass = `js-${name}`
   function frameworkSnippet (framework) {
     let url, html, app
     if (framework === 'vue') {
-      url =  `<scr${'ipt'} src="https://unpkg.com/vue@3/dist/vue.global.js"></scr${'ipt'}>`
+      url =  `<scr${'ipt'} crossorigin src="https://unpkg.com/vue@3/dist/vue.global.js"></scr${'ipt'}>`
       html = 
 `<div id="app">
   ${htmlCode.trim()}
@@ -173,7 +173,7 @@ app.config.compilerOptions.isCustomElement = (tag) => {
   if (framework === 'react') {
       url =  `<scr${'ipt'} crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></scr${'ipt'}>
     <scr${'ipt'} crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></scr${'ipt'}>
-    <scr${'ipt'} src="https://unpkg.com/@babel/standalone/babel.min.js"></scr${'ipt'}>
+    <scr${'ipt'} crossorigin src="https://unpkg.com/@babel/standalone/babel.min.js"></scr${'ipt'}>
    `
       html = 
 `<div id="app"></div>`
