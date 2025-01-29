@@ -11,9 +11,15 @@ interface Props {
   frameTemplate: 'orbit' | 'barebone'
 }
 
+import "prism-code-editor/themes/github-dark.css"
+import "prism-code-editor/copy-button.css"
+import "prism-code-editor/layout.css"
+import "prism-code-editor/scrollbar.css"
+
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 import orbitCode from '../assets/orbit.min.css?raw'
 import orbitJS from '../assets/orbit.min.js?raw'
+
 
 const { htmlCode = 'No HTML provided', cssCode, jsCode, name = 'zumer', hideCode = false, theme= '', height='300px', framework='vanilla', frameTemplate='orbit'} = Astro.props
 
@@ -47,6 +53,7 @@ let jsClass = `js-${name}`
     }
   
 </Tabs>
+<script></script>
 <script type="module" is:inline define:vars={
   {htmlCode, 
   cssCode, 
@@ -61,22 +68,22 @@ let jsClass = `js-${name}`
   htmlClass, 
   cssClass, 
   jsClass, 
-  frameTemplate}
+  frameTemplate,
+  
+}
   }>
-  import { createEditor } from "../../node_modules/prism-code-editor/dist/index.js"
-  import { copyButton } from "../../node_modules/prism-code-editor/dist/extensions/copyButton"
-  import { matchBrackets } from "../../node_modules/prism-code-editor/dist/extensions/matchBrackets"
-  import { indentGuides } from "../../node_modules/prism-code-editor/dist/extensions/guides"
-  import { highlightBracketPairs } from "../../node_modules/prism-code-editor/dist/extensions/matchBrackets/highlight"
-  import { matchTags } from "../../node_modules/prism-code-editor/dist/extensions/matchTags"
-  import { defaultCommands } from "../../node_modules/prism-code-editor/dist/extensions/commands"
-  import "../../node_modules/prism-code-editor/dist/themes/github-dark.css"
-  import "../../node_modules/prism-code-editor/dist/copy.css"
-  import "../../node_modules/prism-code-editor/dist/layout.css"
-  import "../../node_modules/prism-code-editor/dist/scrollbar.css"
-  import "../../node_modules/prism-code-editor/dist/prism/languages/markup"
-  import "../../node_modules/prism-code-editor/dist/prism/languages/css"
-  import "../../node_modules/prism-code-editor/dist/prism/languages/javascript"
+
+import { createEditor } from "/orbit-docs/prism-code-editor/dist/index.js"
+import { copyButton } from "/orbit-docs/prism-code-editor/dist/extensions/copyButton/index.js"
+import { matchBrackets } from "/orbit-docs/prism-code-editor/dist/extensions/matchBrackets/index.js"
+import { indentGuides } from "/orbit-docs/prism-code-editor/dist/extensions/guides.js"
+import { highlightBracketPairs } from "/orbit-docs/prism-code-editor/dist/extensions/matchBrackets/highlight.js"
+import { matchTags } from "/orbit-docs/prism-code-editor/dist/extensions/matchTags.js"
+import { defaultCommands } from "/orbit-docs/prism-code-editor/dist/extensions/commands.js"
+import "/orbit-docs/prism-code-editor/dist/prism/languages/markup.js"
+import "/orbit-docs/prism-code-editor/dist/prism/languages/css.js"
+import "/orbit-docs/prism-code-editor/dist/prism/languages/javascript.js"
+
 
   let frame = frameworkSnippet (framework)
    
