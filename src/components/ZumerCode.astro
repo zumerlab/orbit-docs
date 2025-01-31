@@ -79,10 +79,13 @@ import { matchBrackets } from "/orbit-docs/prism-code-editor/dist/extensions/mat
 import { indentGuides } from "/orbit-docs/prism-code-editor/dist/extensions/guides.js"
 import { highlightBracketPairs } from "/orbit-docs/prism-code-editor/dist/extensions/matchBrackets/highlight.js"
 import { matchTags } from "/orbit-docs/prism-code-editor/dist/extensions/matchTags.js"
-import { defaultCommands } from "/orbit-docs/prism-code-editor/dist/extensions/commands.js"
+import { defaultCommands, editHistory } from "/orbit-docs/prism-code-editor/dist/extensions/commands.js"
 import "/orbit-docs/prism-code-editor/dist/prism/languages/markup.js"
 import "/orbit-docs/prism-code-editor/dist/prism/languages/css.js"
 import "/orbit-docs/prism-code-editor/dist/prism/languages/javascript.js"
+import "/orbit-docs/prism-code-editor/dist/languages/html.js"
+import "/orbit-docs/prism-code-editor/dist/languages/css.js"
+import "/orbit-docs/prism-code-editor/dist/languages/clike.js"
 
 
   let frame = frameworkSnippet (framework)
@@ -108,6 +111,7 @@ import "/orbit-docs/prism-code-editor/dist/prism/languages/javascript.js"
     matchBrackets(),
     indentGuides(),
     copyButton(),
+    editHistory(),
   )
   
   !hideCode && cssCode &&
@@ -128,6 +132,7 @@ import "/orbit-docs/prism-code-editor/dist/prism/languages/javascript.js"
     matchBrackets(),
     indentGuides(),
     copyButton(),
+    editHistory(),
   )
 
   !hideCode && (framework !== 'vanilla' || jsCode) &&
@@ -135,7 +140,6 @@ import "/orbit-docs/prism-code-editor/dist/prism/languages/javascript.js"
     `.${jsClass}`,
     {
       language: "javascript",
-      wordWrap: true,
       value: `${_JS.trim()}`,
       theme: "github-dark",
       onUpdate(editedJS) {
@@ -149,6 +153,7 @@ import "/orbit-docs/prism-code-editor/dist/prism/languages/javascript.js"
     matchBrackets(),
     indentGuides(),
     copyButton(),
+    editHistory(),
   )
   
   function updateIframe() {
@@ -257,6 +262,10 @@ root.render(<App />);
     updateIframe()
   </script>
 <style>
+  :global(.prism-code-editor) {
+    max-height: 250px;
+    border-radius: 5px;
+  }
   .container {
     display: grid;
     grid-template-columns: 1fr;
@@ -282,7 +291,7 @@ root.render(<App />);
     align-items: center;
   }
   .zeditor {
-    max-height: 250px; overflow-y: auto;
+    max-height: 250px;
     border-radius: 5px;
   }
 </style>
