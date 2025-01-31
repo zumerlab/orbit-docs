@@ -49,7 +49,7 @@
           @click="toggleRestore"
           @mousedown="startLongPress"
           @mouseup="endLongPress"
-          @touchstart.prevent="startLongPress"
+          @touchstart.passive="startLongPress"
           @touchend="endLongPress">
           <div class="capsule">
             <svg height="48px" viewBox="0 -960 960 960" width="48px" fill="white">
