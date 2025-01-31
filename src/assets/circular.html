@@ -42,14 +42,14 @@
         <div
           class="orbit-6 panel"
           ref="time_panel"
-          @mousedown="startDrag" @touchstart.passive="startDrag"
+          @mousedown="startDrag" @touchstart.prevent="startDrag"
         ></div>
         <div class="orbit-0">
           <div class="satellite grow-0.8x control" 
           @click="toggleRestore"
           @mousedown="startLongPress"
           @mouseup="endLongPress"
-          @touchstart.passive="startLongPress"
+          @touchstart.prevent="startLongPress"
           @touchend="endLongPress">
           <div class="capsule">
             <svg height="48px" viewBox="0 -960 960 960" width="48px" fill="white">
