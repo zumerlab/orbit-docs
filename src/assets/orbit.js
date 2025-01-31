@@ -42,7 +42,7 @@
           fill: var(--o-fill);
           stroke: var(--o-stroke);
           stroke-width: var(--o-stroke-width);
-          transition: all 0.3s;
+          transition: fill 0.2s, stroke 0.2s;
           stroke-linejoin: round;
         }
         .progress-bg {
