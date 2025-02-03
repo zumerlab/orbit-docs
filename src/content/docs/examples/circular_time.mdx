@@ -11,8 +11,12 @@ import vue from '/src/assets/circular.js?raw';
 export const CSS = `
 .grid-container {
     display: grid;
-    grid-template-rows: 5% 95%;
+    grid-template-rows: 95% 5%;
     height: 100vh;
+}
+.row-2{
+text-align: center;
+color: gray
 }
 * {
   user-select: none
@@ -44,7 +48,10 @@ background: white; font-size: 13px;
 
 <ZumerPlay name={'scifi1'}  framework="vue" htmlCode={htmlCal}  cssCode={CSS} jsCode={vue}  height={'500px'} />
 
-**Credits:** reference author repo TODO
+**Credits:** 
+
+- Original work: https://github.com/harfyzz/CircularTimer  by [harfyzz](https://github.com/harfyzz)
+- Thanks to [Andriy Tyurnikov](https://github.com/andriytyurnikov) who proposed the challenge 🙌
 
 
 ## Show & Tell
