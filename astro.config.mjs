@@ -135,10 +135,15 @@ export default defineConfig({
   ]
   }, {
     label: 'Examples',
-    items: [{
+    items: [
+    {
+        label: 'Circular time',
+        link: '/examples/circular_time/',
+        badge: 'new',
+    },
+    {
       label: 'Progress bars',
       link: '/examples/progress/',
-    
     },{
       label: 'Charts',
       link: '/examples/charts/',
