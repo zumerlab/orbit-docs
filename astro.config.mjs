@@ -137,7 +137,7 @@ export default defineConfig({
     label: 'Examples',
     items: [
     {
-        label: 'Circular time',
+        label: 'Circular timer',
         link: '/examples/circular_time/',
         badge: 'new',
     },
