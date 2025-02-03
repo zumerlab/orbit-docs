@@ -4,6 +4,7 @@ const isHomepage = Astro.props.slug === '';
 import EditLink from 'virtual:starlight/components/EditLink';
 import LastUpdated from 'virtual:starlight/components/LastUpdated';
 import Pagination from 'virtual:starlight/components/Pagination';
+import { LinkButton } from '@astrojs/starlight/components';
 ---
 
 <footer>
@@ -11,6 +12,16 @@ import Pagination from 'virtual:starlight/components/Pagination';
 	<div class="meta sl-flex">
 		<EditLink {...Astro.props} />
 		<LastUpdated {...Astro.props} />
+	</div>
+	<div class="metaz sl-flex">
+		<LinkButton
+			href="https://github.com/zumerlab/orbit/stargazers"
+			variant="secondary"
+			icon="github"
+			iconPlacement="start">
+			Place your ⭐ in Orbit!
+		</LinkButton>
+
 	</div>
 	<Pagination {...Astro.props} />
     )}
@@ -26,6 +37,17 @@ import Pagination from 'virtual:starlight/components/Pagination';
 		color: var(--sl-color-gray-3);
 	}
 	.meta > :global(p:only-child) {
+		margin-inline-start: auto;
+	}
+	.metaz {
+		gap: 0.75rem 3rem;
+		justify-content: center;
+		
+		margin-block: 3rem 1.5rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	.metaz > :global(p:only-child) {
 		margin-inline-start: auto;
 	}
 </style>
