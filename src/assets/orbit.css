@@ -1,13 +1,13 @@
 
 /*
 * orbit
-* v.1.1.0
+* v.1.2.0
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-63323-uDKMmYzQL1SX/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-26480-lsyT2XJtmvqw/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -6105,68 +6105,152 @@ o-arc.gap-29 {
 o-arc.gap-30 {
   --o-gap: 30;
 }
+.orbit.shrink-0,
+[class*=orbit-].shrink-0 {
+  --o-orbit-ratio: 0;
+}
+.orbit.shrink-5,
+[class*=orbit-].shrink-5 {
+  --o-orbit-ratio: 0.05;
+}
 .orbit.shrink-10,
 [class*=orbit-].shrink-10 {
   --o-orbit-ratio: 0.1;
+}
+.orbit.shrink-15,
+[class*=orbit-].shrink-15 {
+  --o-orbit-ratio: 0.15;
 }
 .orbit.shrink-20,
 [class*=orbit-].shrink-20 {
   --o-orbit-ratio: 0.2;
 }
+.orbit.shrink-25,
+[class*=orbit-].shrink-25 {
+  --o-orbit-ratio: 0.25;
+}
 .orbit.shrink-30,
 [class*=orbit-].shrink-30 {
   --o-orbit-ratio: 0.3;
+}
+.orbit.shrink-35,
+[class*=orbit-].shrink-35 {
+  --o-orbit-ratio: 0.35;
 }
 .orbit.shrink-40,
 [class*=orbit-].shrink-40 {
   --o-orbit-ratio: 0.4;
 }
+.orbit.shrink-45,
+[class*=orbit-].shrink-45 {
+  --o-orbit-ratio: 0.45;
+}
 .orbit.shrink-50,
 [class*=orbit-].shrink-50 {
   --o-orbit-ratio: 0.5;
+}
+.orbit.shrink-55,
+[class*=orbit-].shrink-55 {
+  --o-orbit-ratio: 0.55;
 }
 .orbit.shrink-60,
 [class*=orbit-].shrink-60 {
   --o-orbit-ratio: 0.6;
 }
+.orbit.shrink-65,
+[class*=orbit-].shrink-65 {
+  --o-orbit-ratio: 0.65;
+}
 .orbit.shrink-70,
 [class*=orbit-].shrink-70 {
   --o-orbit-ratio: 0.7;
+}
+.orbit.shrink-75,
+[class*=orbit-].shrink-75 {
+  --o-orbit-ratio: 0.75;
 }
 .orbit.shrink-80,
 [class*=orbit-].shrink-80 {
   --o-orbit-ratio: 0.8;
 }
+.orbit.shrink-85,
+[class*=orbit-].shrink-85 {
+  --o-orbit-ratio: 0.85;
+}
 .orbit.shrink-90,
 [class*=orbit-].shrink-90 {
   --o-orbit-ratio: 0.9;
 }
+.orbit.shrink-95,
+[class*=orbit-].shrink-95 {
+  --o-orbit-ratio: 0.95;
+}
+.orbit.shrink-100,
+[class*=orbit-].shrink-100 {
+  --o-orbit-ratio: 1;
+}
+.shrink-0 {
+  --o-size-ratio: 1 !important;
+}
+.shrink-5 {
+  --o-size-ratio: 0.95 !important;
+}
 .shrink-10 {
   --o-size-ratio: 0.9 !important;
+}
+.shrink-15 {
+  --o-size-ratio: 0.85 !important;
 }
 .shrink-20 {
   --o-size-ratio: 0.8 !important;
 }
+.shrink-25 {
+  --o-size-ratio: 0.75 !important;
+}
 .shrink-30 {
   --o-size-ratio: 0.7 !important;
+}
+.shrink-35 {
+  --o-size-ratio: 0.65 !important;
 }
 .shrink-40 {
   --o-size-ratio: 0.6 !important;
 }
+.shrink-45 {
+  --o-size-ratio: 0.55 !important;
+}
 .shrink-50 {
   --o-size-ratio: 0.5 !important;
+}
+.shrink-55 {
+  --o-size-ratio: 0.45 !important;
 }
 .shrink-60 {
   --o-size-ratio: 0.4 !important;
 }
+.shrink-65 {
+  --o-size-ratio: 0.35 !important;
+}
 .shrink-70 {
   --o-size-ratio: 0.3 !important;
+}
+.shrink-75 {
+  --o-size-ratio: 0.25 !important;
 }
 .shrink-80 {
   --o-size-ratio: 0.2 !important;
 }
+.shrink-85 {
+  --o-size-ratio: 0.15 !important;
+}
 .shrink-90 {
   --o-size-ratio: 0.1 !important;
+}
+.shrink-95 {
+  --o-size-ratio: 0.05 !important;
+}
+.shrink-100 {
+  --o-size-ratio: 0 !important;
 }
 .grow-0\.1x {
   --o-size-ratio: 1.1 !important;
