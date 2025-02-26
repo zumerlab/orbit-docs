@@ -1,7 +1,7 @@
 
 /*
 * orbit
-* v.1.2.0
+* v.1.2.1
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
@@ -42,7 +42,7 @@
           fill: var(--o-fill);
           stroke: var(--o-stroke);
           stroke-width: var(--o-stroke-width);
-          transition: all 0.3s;
+          transition: fill 0.25s, stroke 0.25s;
           stroke-linejoin: round;
         }
         .progress-bg {
@@ -195,7 +195,7 @@
         fill: var(--o-fill);
         stroke: var(--o-stroke);
         stroke-width: var(--o-stroke-width);
-        transition: all 0.3s;
+        transition: fill 0.25s, stroke 0.25s;
         stroke-linejoin: round;
       }
       text {
