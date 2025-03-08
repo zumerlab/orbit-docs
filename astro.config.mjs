@@ -94,7 +94,6 @@ export default defineConfig({
       link: '/elements/arc/'
     }, {
       label: 'o-progress',
-      badge: 'updated',
       link: '/elements/progress/'
     }, {
       label: 'capsule',
@@ -115,13 +114,11 @@ export default defineConfig({
       link: '/tools/colors/'
     },{
       label: 'Themes',
-      badge: 'new',
       link: '/tools/themes/'
     }
   ]
   },{
     label: 'Integrations',
-    badge: 'new',
     items: [{
       label: 'React',
       link: '/integrations/react/',
@@ -139,7 +136,6 @@ export default defineConfig({
     {
         label: 'Circular timer',
         link: '/examples/circular_time/',
-        badge: 'new',
     },
     {
       label: 'Progress bars',

@@ -64,12 +64,9 @@ o-arc.purple:hover{
 
 ### Changing endings
 
-`o-arc` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `bullet`,  shapes. Default `none`. 
+`o-arc` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `bullet`, `rounded`, `slash` and , `backslash` shapes. Default `none`. 
 
-:::note
-Breaking-change: 
-Until Orbit v1.0.0, existed other shapes `slash`, `backslash` and `zigzag`. We are working to make them available again.
-:::
+
 
 export const arc1 = 
 `<div class="wrapper">
@@ -98,14 +95,46 @@ export const arc1 =
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="bullet"></o-arc>
-        <o-arc class="grow-1x purple" shape="bullet"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="bullet"></o-arc>
+        <o-arc class="gap-0 grow-1x purple-light" shape="bullet"></o-arc>
+        <o-arc class="gap-0 grow-1x purple" shape="bullet"></o-arc>
+        <o-arc class="gap-0 grow-1x purple-dark" shape="bullet"></o-arc>
       </div>
     </div>
   </div>
 </div>
-
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1.2x gap-4 purple-light" shape="slash"></o-arc>
+        <o-arc class="grow-1.2x gap-4 purple" shape="slash"></o-arc>
+        <o-arc class="grow-1.2x gap-4 purple-dark" shape="slash"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1.2x gap-4 purple-light" shape="backslash"></o-arc>
+        <o-arc class="grow-1.2x gap-4 purple" shape="backslash"></o-arc>
+        <o-arc class="grow-1.2x gap-4 purple-dark" shape="backslash"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        <o-arc class="grow-1x purple-light" shape="rounded"></o-arc>
+        <o-arc class="grow-1x purple" shape="rounded"></o-arc>
+        <o-arc class="grow-1x purple-dark" shape="rounded"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 export const arc1CSS = 
 `.wrapper {
@@ -120,7 +149,7 @@ export const arc1CSS =
   --o-force: 400px
 }
 o-arc {
---o-gap: 0
+--o-gap: 6
 }
 o-arc.purple-light {
   --o-fill: var(--o-purple-light);
@@ -139,7 +168,7 @@ o-arc:hover{
 }
 `;
 
-<ZumerPlay name={'arc1'}   htmlCode={arc1} cssCode={arc1CSS} theme={'theme-cyan'} height={'300px'} />
+<ZumerPlay name={'arc1'}   htmlCode={arc1} cssCode={arc1CSS} theme={'theme-cyan'} height={'500px'} />
 
 
 ## Adjust o-arc size
