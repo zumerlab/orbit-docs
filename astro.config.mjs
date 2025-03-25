@@ -94,6 +94,7 @@ export default defineConfig({
       link: '/elements/arc/'
     }, {
       label: 'o-progress',
+      badge: 'updated',
       link: '/elements/progress/'
     }, {
       label: 'capsule',

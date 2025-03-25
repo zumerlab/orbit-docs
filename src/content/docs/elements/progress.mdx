@@ -1,8 +1,8 @@
 ---
-title: "o-progress custom element"
-#banner: 
-#  content: |
-#    This component has been updated!
+title: "o-progress web component"
+banner: 
+  content: |
+    This component has been updated! New ending shapes added
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -18,11 +18,6 @@ Just one o-progress can be used per orbit.
 ### Changing progress colors
 To change o-progress **progress bar** color use CSS custom var `--o-fill` for background, `--o-stroke` for border, and  `--o-stroke-width` for border-width in a `o-arc` style. Use `--o-back-fill` to set a **background bar** color, `--o-back-stroke` for border-color, and   `--o-back-stroke-width` for border-width.
 
-
-:::note
-Breaking-change: 
-Until Orbit v1.0.0, `--o-color` and `--o-hover-color` were the CSS custom vars to change color background of `o-arc` 
-:::
 
 export const progress = `
 <div class="bigbang">
@@ -86,12 +81,7 @@ o-progress.indigo:hover {
 
 ### Changing endings
 
-`o-progress` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `bullet`,  shapes. Default `none`. 
-
-:::note
-Breaking-change: 
-Until Orbit v1.0.0, existed other shapes `slash`, `backslash` and `zigzag`. We are working to make them available again.
-:::
+`o-progress` has one special attribute: `shape` to define different endings. You can choose between `circle` (or `circle-a`), `circle-b`, `arrow`, `bullet`, `rounded`, `slash`, `backslash`, `zizag` shapes. Default `none`. 
 
 
 export const progress2 = `
@@ -99,7 +89,8 @@ export const progress2 = `
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-progress value="60" class="grow-1x purple-light" shape="circle"></o-progress>
+        circle
+        <o-progress value="100" class="grow-0.1x purple-light" shape="circle"></o-progress>
       </div>
     </div>
   </div>
@@ -108,7 +99,8 @@ export const progress2 = `
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-progress value="60" class="grow-1x purple-light" shape="arrow"></o-progress>
+        circle-b
+        <o-progress value="100" class="grow-0.1x purple-light" shape="circle-b"></o-progress>
       </div>
     </div>
   </div>
@@ -117,13 +109,62 @@ export const progress2 = `
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-progress value="60" class="grow-1x purple-light" shape="bullet"></o-progress>
+        arrow
+        <o-progress value="60" class="grow-0.1x purple-light" shape="arrow"></o-progress>
       </div>
     </div>
   </div>
 </div>
-
-
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        bullet
+        <o-progress value="60" class="grow-0.1x purple-light" shape="bullet"></o-progress>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        slash
+        <o-progress value="60" class="grow-0.1x purple-light" shape="slash"></o-progress>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        backslash
+        <o-progress value="60" class="grow-0.1x purple-light" shape="backslash"></o-progress>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        zigzag
+        <o-progress value="60" class="grow-0.1x purple-light" shape="zigzag"></o-progress>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        rounded
+        <o-progress value="60" class="grow-0.1x purple-light" shape="rounded"></o-progress>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 export const progress2CSS = `
 .wrapper {
@@ -153,7 +194,7 @@ cursor: pointer;
 
 `;
 
-<ZumerPlay name={'progress2'}   htmlCode={progress2} cssCode={progress2CSS} theme={'theme-cyan'} height={'300px'} wrap />
+<ZumerPlay name={'progress2'}   htmlCode={progress2} cssCode={progress2CSS} theme={'theme-cyan'} height={'500px'} wrap />
 
 
 ## Adjust o-progress size

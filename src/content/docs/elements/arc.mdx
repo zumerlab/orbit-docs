@@ -1,8 +1,8 @@
 ---
-title: "o-arc custom element"
+title: "o-arc web component"
 banner: 
  content: |
-   This component has been updated!
+   This component has been updated! New ending shapes added
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -64,18 +64,17 @@ o-arc.purple:hover{
 
 ### Changing endings
 
-`o-arc` has one special attribute: `shape` to define different endings. Currently, you can choose between `circle`, `arrow`, `bullet`, `rounded`, `slash` and , `backslash` shapes. Default `none`. 
-
-
+`o-arc` has one special attribute: `shape` to define different endings. You can choose between `circle` (or `circle-a`), `circle-b`, `arrow`, `bullet`, `rounded`, `slash`, `backslash`, `zizag` shapes. Default `none`. 
 
 export const arc1 = 
 `<div class="wrapper">
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="circle"></o-arc>
-        <o-arc class="grow-1x purple" shape="circle"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="circle"></o-arc>
+        circle-a
+        <o-arc class="grow-0.1x purple-light" shape="circle"></o-arc>
+        <o-arc class="grow-0.1x purple" shape="circle"></o-arc>
+        <o-arc class="grow-0.1x purple-dark" shape="circle"></o-arc>
       </div>
     </div>
   </div>
@@ -84,9 +83,10 @@ export const arc1 =
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="arrow"></o-arc>
-        <o-arc class="grow-1x purple" shape="arrow"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="arrow"></o-arc>
+        circle-b
+        <o-arc class="grow-0.1x purple-light" shape="circle-b"></o-arc>
+        <o-arc class="grow-0.1x purple" shape="circle-b"></o-arc>
+        <o-arc class="grow-0.1x purple-dark" shape="circle-b"></o-arc>
       </div>
     </div>
   </div>
@@ -95,9 +95,10 @@ export const arc1 =
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="gap-0 grow-1x purple-light" shape="bullet"></o-arc>
-        <o-arc class="gap-0 grow-1x purple" shape="bullet"></o-arc>
-        <o-arc class="gap-0 grow-1x purple-dark" shape="bullet"></o-arc>
+        arrow
+        <o-arc class="grow-0.1x purple-light" shape="arrow"></o-arc>
+        <o-arc class="grow-0.1x purple" shape="arrow"></o-arc>
+        <o-arc class="grow-0.1x purple-dark" shape="arrow"></o-arc>
       </div>
     </div>
   </div>
@@ -106,9 +107,10 @@ export const arc1 =
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1.2x gap-4 purple-light" shape="slash"></o-arc>
-        <o-arc class="grow-1.2x gap-4 purple" shape="slash"></o-arc>
-        <o-arc class="grow-1.2x gap-4 purple-dark" shape="slash"></o-arc>
+        bullet
+        <o-arc class="gap-0 grow-0.1x purple-light" shape="bullet"></o-arc>
+        <o-arc class="gap-0 grow-0.1x purple" shape="bullet"></o-arc>
+        <o-arc class="gap-0 grow-0.1x purple-dark" shape="bullet"></o-arc>
       </div>
     </div>
   </div>
@@ -117,9 +119,10 @@ export const arc1 =
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1.2x gap-4 purple-light" shape="backslash"></o-arc>
-        <o-arc class="grow-1.2x gap-4 purple" shape="backslash"></o-arc>
-        <o-arc class="grow-1.2x gap-4 purple-dark" shape="backslash"></o-arc>
+        slash
+        <o-arc class="grow-0.1x gap-4 purple-light" shape="slash"></o-arc>
+        <o-arc class="grow-0.1x gap-4 purple" shape="slash"></o-arc>
+        <o-arc class="grow-0.1x gap-4 purple-dark" shape="slash"></o-arc>
       </div>
     </div>
   </div>
@@ -128,9 +131,34 @@ export const arc1 =
   <div class="bigbang">
     <div class="gravity-spot">
       <div class="orbit-3">
-        <o-arc class="grow-1x purple-light" shape="rounded"></o-arc>
-        <o-arc class="grow-1x purple" shape="rounded"></o-arc>
-        <o-arc class="grow-1x purple-dark" shape="rounded"></o-arc>
+        backslah
+        <o-arc class="grow-0.1x gap-4 purple-light" shape="backslash"></o-arc>
+        <o-arc class="grow-0.1x gap-4 purple" shape="backslash"></o-arc>
+        <o-arc class="grow-0.1x gap-4 purple-dark" shape="backslash"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        rounded
+        <o-arc class="grow-0.1x purple-light" shape="rounded"></o-arc>
+        <o-arc class="grow-0.1x purple" shape="rounded"></o-arc>
+        <o-arc class="grow-0.1x purple-dark" shape="rounded"></o-arc>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-3">
+        zigzag
+        <o-arc class="grow-0.1x purple-light" shape="zigzag"></o-arc>
+        <o-arc class="grow-0.1x purple" shape="zigzag"></o-arc>
+        <o-arc class="grow-0.1x purple-dark" shape="zigzag"></o-arc>
       </div>
     </div>
   </div>
