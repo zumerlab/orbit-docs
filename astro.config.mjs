@@ -13,6 +13,14 @@ export default defineConfig({
     {
       tag: 'script',
       attrs: {
+        defer: true,
+        src: 'https://cloud.umami.is/script.js',
+        dataWebsiteId: '7ec718e8-f0c5-4abb-8f4f-144f57f61937'        
+      }
+    },
+    {
+      tag: 'script',
+      attrs: {
         async: true,
         src: 'https://www.googletagmanager.com/gtag/js?id=G-XL52CBETDH',
         
