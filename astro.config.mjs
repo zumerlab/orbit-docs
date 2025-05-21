@@ -15,7 +15,7 @@ export default defineConfig({
       attrs: {
         defer: true,
         src: 'https://cloud.umami.is/script.js',
-        dataWebsiteId: '7ec718e8-f0c5-4abb-8f4f-144f57f61937'        
+        "data-website-id": '7ec718e8-f0c5-4abb-8f4f-144f57f61937'        
       }
     },
     {
