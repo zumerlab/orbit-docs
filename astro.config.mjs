@@ -90,11 +90,9 @@ export default defineConfig({
       link: '/elements/side/'
     },{
       label: 'o-arc',
-      badge: 'updated',
       link: '/elements/arc/'
     }, {
       label: 'o-progress',
-      badge: 'updated',
       link: '/elements/progress/'
     }, {
       label: 'capsule',

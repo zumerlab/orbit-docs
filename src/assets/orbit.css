@@ -1,13 +1,13 @@
 
 /*
 * orbit
-* v.1.3.0
+* v.1.4.3
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 **/
 @charset "UTF-8";
 
-/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-18148-TceksHLRLm1a/orbit/src/orbit.css */
+/* ../../../../../var/folders/dl/jfswzzq96_7bqvgnhjs47_8w0000gp/T/tmp-23140-k3CpJPexpehL/orbit/src/orbit.css */
 .gravity-spot * {
   box-sizing: border-box;
   margin: 0;
@@ -1119,6 +1119,7 @@ body > .bigbang {
   --o-direction: 1;
   --o-size-ratio: 1;
   --o-initial-orbit: 0;
+  --o-angle: 0;
   width: 0;
   aspect-ratio: 1;
   position: relative;
