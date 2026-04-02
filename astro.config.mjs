@@ -9,13 +9,28 @@ export default defineConfig({
   base: 'orbit-docs',
   integrations: [starlight({
   head: [
-    // Example: add Fathom analytics script tag.
+    {
+      tag: 'link',
+      attrs: {
+        rel: 'author',
+        type: 'text/plain',
+        href: '/orbit-docs/llms.txt',
+      }
+    },
+    {
+      tag: 'link',
+      attrs: {
+        rel: 'author',
+        type: 'text/plain',
+        href: '/orbit-docs/llms-full.txt',
+      }
+    },
     {
       tag: 'script',
       attrs: {
         defer: true,
         src: 'https://cloud.umami.is/script.js',
-        "data-website-id": '7ec718e8-f0c5-4abb-8f4f-144f57f61937'        
+        "data-website-id": '7ec718e8-f0c5-4abb-8f4f-144f57f61937'
       }
     },
     {

@@ -1,0 +1,1480 @@
+# Orbit CSS Framework — Complete LLM Reference
+
+> Orbit is a CSS framework for building radial and circular user interfaces.
+> It uses CSS trigonometric functions (cos, sin), the :has() selector, and custom properties to position elements on circular orbits — no layout JavaScript needed.
+> Package: @zumer/orbit | Version: 1.4.8 | License: MIT
+> Docs: https://zumerlab.github.io/orbit-docs | Repo: https://github.com/zumerlab/orbit
+
+---
+
+## TABLE OF CONTENTS
+
+1. Installation
+2. Core Concept — How Orbit Works Internally
+3. Mandatory HTML Structure
+4. Structural Elements Reference
+5. CSS Custom Properties Reference
+6. How Angle Auto-Distribution Works (The :has() System)
+7. How Positioning Works (The Trigonometric Transform System)
+8. Orbit Diameter Calculation
+9. Utility Classes Reference
+10. Web Components Reference
+11. Color System
+12. Themes
+13. Responsive Sizing
+14. Validation & Warning System
+15. Nesting (Sub-orbits)
+16. Common Patterns (Copy-Paste Recipes)
+17. Advanced Real-World Examples
+18. Framework Integrations (React, Vue, Svelte, Angular)
+19. Critical Rules & Common LLM Mistakes
+20. Quick Reference Card
+
+---
+
+## 1. INSTALLATION
+
+### CDN (recommended for quick start)
+```html
+<link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
+<script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+```
+
+### npm
+```bash
+npm install @zumer/orbit
+```
+```js
+import '@zumer/orbit/style'  // CSS
+import '@zumer/orbit'         // JS (registers web components + Orbit.resize)
+```
+
+### What the JS file does
+- Registers `<o-arc>` custom element (SVG arc/wedge/sector segments)
+- Registers `<o-progress>` custom element (SVG progress rings)
+- Exposes `window.Orbit` with the `.resize()` method for responsive layouts
+- If you only use CSS classes (no web components, no responsive resize), the JS is optional.
+
+### Alternative CSS Import
+```css
+@import url('https://unpkg.com/@zumer/orbit@latest/dist/orbit.css');
+```
+
+---
+
+## 2. CORE CONCEPT — HOW ORBIT WORKS INTERNALLY
+
+Orbit uses a **solar-system metaphor**:
+- **Big Bang** (.bigbang) = the universe container
+- **Gravity Spot** (.gravity-spot) = the center of gravity, origin point
+- **Orbits** (.orbit-N) = concentric circular rings at increasing radii
+- **Satellites** (.satellite) = items placed on rings
+- **Capsules** (.capsule) = content wrappers that counter-rotate to keep content upright
+- **Gravitational Force** (--o-force) = the base diameter controlling the system size
+
+### How positioning works at a high level:
+1. `.gravity-spot` defines a zero-width center point
+2. `.orbit-N` creates an absolutely-positioned circular container with diameter proportional to N
+3. `.satellite` children are positioned using CSS `cos()` and `sin()` transforms
+4. The framework uses CSS `:has(:nth-child(N of .satellite))` to COUNT children automatically
+5. It divides the range (default 360°) by the count to get the angle between items
+6. Each satellite's position = `from_angle + (angle × child_index)`
+7. `.capsule` applies a counter-rotation so text stays upright regardless of satellite position
+
+### Key insight for LLMs:
+You do NOT need to calculate angles, positions, or transforms manually. Just add satellites to an orbit and they auto-distribute. The framework handles all trigonometry via CSS.
+
+---
+
+## 3. MANDATORY HTML STRUCTURE
+
+Every Orbit layout MUST follow this exact nesting hierarchy:
+
+```
+.bigbang
+  └── .gravity-spot
+        ├── .orbit-N  (ring 1)
+        │     ├── .satellite
+        │     │     └── .capsule  ← user content goes here
+        │     ├── .satellite
+        │     │     └── .capsule
+        │     ├── <o-arc>         ← directly in orbit, NOT in satellite
+        │     ├── <o-progress>    ← directly in orbit, NOT in satellite
+        │     ├── .vector         ← directly in orbit, NOT in satellite
+        │     └── .side           ← directly in orbit, NOT in satellite
+        ├── .orbit-M  (ring 2)
+        │     └── ...
+        └── .gravity-spot  ← nested gravity-spot is allowed for sub-orbits
+```
+
+### Rules:
+- `.bigbang` must contain ONLY `.gravity-spot` children
+- `.gravity-spot` must contain ONLY `.orbit-N`, `.orbit`, or `.gravity-spot` children
+- `.orbit-N` must contain ONLY `.satellite`, `<o-arc>`, `<o-progress>`, `.vector`, or `.side` children
+- `.satellite` must contain ONLY `.capsule` or `.gravity-spot` children
+- `.capsule` contains your actual content (text, images, other HTML)
+- Breaking these rules triggers built-in CSS validation warnings (red dotted borders + warning emoji)
+
+### Minimal valid example:
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-3">
+      <div class="satellite"><div class="capsule">Item 1</div></div>
+      <div class="satellite"><div class="capsule">Item 2</div></div>
+      <div class="satellite"><div class="capsule">Item 3</div></div>
+    </div>
+  </div>
+</div>
+```
+
+This places 3 items evenly spaced (120° apart) on a circular ring at orbit level 3.
+
+---
+
+## 4. STRUCTURAL ELEMENTS REFERENCE
+
+### .bigbang
+- Root container for any Orbit layout
+- CSS: `display: flex; align-items: center; justify-content: center; width: 100%; height: 100%`
+- When direct child of `<body>`: automatically gets `height: 100vh`
+- When child of a wrapper element: takes parent height
+- Default alignment: centered (`.at-center`)
+- Can use alignment classes: `.at-top`, `.at-bottom`, `.at-center-left`, `.at-center-right`, `.at-top-left`, `.at-top-right`, `.at-bottom-left`, `.at-bottom-right`
+- Can be sized with a wrapper: `<div style="width:300px; height:300px"><div class="bigbang">...</div></div>`
+
+### .gravity-spot
+- The center point / origin of the coordinate system
+- Has `width: 0; aspect-ratio: 1; position: relative`
+- Holds all the CSS custom properties with their defaults
+- All orbit calculations reference this element's variables
+- Default size controlled by `--o-force: 500px`
+- Can be nested within `.satellite` for sub-orbits
+- Uses `container-name: gravityspot` for CSS container queries
+- Alignment classes: `.at-center` (default), `.at-top`, `.at-bottom`, `.at-center-left`, `.at-center-right`, etc.
+
+### .orbit-N (where N = 0 to 24)
+- A ring at a specific radius level
+- `.orbit-0` = center point (radius ≈ 0). Used for center content only.
+- `.orbit-1` through `.orbit-12` = standard range (1 = smallest, 12 = 100% of --o-force)
+- `.orbit-13` through `.orbit-24` = extended range (beyond --o-force, 108% to 200%)
+- Invisible by default (transparent border). Customize with CSS border/background.
+- CSS: `position: absolute; border-radius: 50%; pointer-events: none; container-name: orbit`
+- Uses `container-name: orbit` for CSS container queries
+
+**Approximate orbit sizes (relative to --o-force):**
+- orbit-0: 0%, orbit-1: ~8%, orbit-2: ~17%, orbit-3: 25%, orbit-4: ~33%, orbit-5: ~42%
+- orbit-6: 50%, orbit-7: ~58%, orbit-8: ~67%, orbit-9: 75%, orbit-10: ~83%, orbit-11: ~92%, orbit-12: 100%
+- orbit-13 to orbit-24: 108% to 200% (beyond gravity-spot boundary)
+
+### .orbit (without number)
+- Auto-numbered based on DOM order among sibling `.orbit` elements
+- First `.orbit` = orbit-1, second = orbit-2, etc. (up to 24)
+- Can be mixed with numbered orbits, but numbered orbits are usually clearer
+
+### .satellite
+- An item placed on a ring (up to 60 per orbit)
+- Positioned using CSS `transform: translate(cos(...), sin(...))`
+- Size is calculated relative to the orbit: `radius / (orbit_number + initial_orbit) * size_ratio`
+- CSS: `position: absolute; border-radius: 50%; pointer-events: all; container-name: satellite`
+- Default appearance: transparent background, 1px solid currentColor border
+- Auto-distributed evenly around the orbit
+
+### .capsule
+- Content wrapper inside `.satellite` (or `.side`)
+- Applies counter-rotation so content stays upright (readable)
+- CSS: `display: flex; position: absolute; align-items: center; justify-content: center`
+- Put ALL your visible content here: text, icons, images, etc.
+- Initially invisible (no border/background). Customize with CSS.
+- Alignment within satellite: `.top-left`, `.top-center`, `.top-right`, `.center-left`, `.center-right`, `.bottom-left`, `.bottom-center`, `.bottom-right`
+
+### .vector
+- Tick mark / radial line placed on an orbit (up to 60 per orbit)
+- Goes directly inside `.orbit-N` (not inside `.satellite`)
+- Automatically rotated to point outward from center
+- Height: 1px by default. Use CSS height/background to style. Use `!important` for overrides.
+- Multiple vectors are auto-distributed like satellites
+- Container name: `vector`
+
+### .side
+- Chord/tangent element that stretches between points on an orbit (up to 60 per orbit)
+- Goes directly inside `.orbit-N` (not inside `.satellite`)
+- Width calculated using trigonometry: `radius * cos(90deg - angle/2) * 2`
+- Creates polygon shapes when multiple sides are used (e.g., 6 sides = hexagon)
+- Can contain `.capsule` for text content
+- `.side.outer-orbit` variant stretches to the outer edge
+- Container name: `side`
+
+---
+
+## 5. CSS CUSTOM PROPERTIES REFERENCE
+
+All properties are set on `.gravity-spot` by default. They can be overridden on individual `.orbit-N` or child elements.
+
+### Layout Properties
+
+| Property | Default | Type | Description |
+|---|---|---|---|
+| `--o-force` | `500px` | length (px) | Base diameter of the entire system. All ring sizes are fractions of this. MUST be pixels. |
+| `--o-force-ratio` | `1` | number | Multiplier for responsive scaling. Set by `Orbit.resize()`. |
+| `--o-from` | `0deg` | angle | Starting angle offset. 0deg = top (12 o'clock position). |
+| `--o-range` | `360deg` | angle | Total arc span. 360 = full circle, 180 = semicircle, 270 = three-quarter. |
+| `--o-direction` | `1` | 1 or -1 | 1 = clockwise, -1 = counter-clockwise. |
+| `--o-fit-range` | `0` | 0 or 1 | 0 = items can overlap at start/end; 1 = items distributed within range without overlap. |
+| `--o-ellipse-x` | `1` | number | Horizontal compression ratio. >1 compresses width. |
+| `--o-ellipse-y` | `1` | number | Vertical compression ratio. >1 compresses height. |
+| `--o-initial-orbit` | `0` | integer | Offset added to orbit numbering. Effectively increases total orbits and makes orbit-1 start at a larger radius. |
+| `--o-size-ratio` | `1` | number | Multiplier for satellite/element sizes. |
+| `--o-orbit-ratio` | `0` | 0 to 1 | Shrinks spacing between orbits. 0 = normal spacing, 1 = all orbits collapse to same size. |
+| `--o-gap` | `1` | number | Gap between arc segments (for `<o-arc>`). |
+| `--o-aligment` | `0px` | length | Radial offset. Positive = inward (toward center), negative = outward. |
+
+### Auto-calculated Properties (DO NOT set manually unless you know exactly what you're doing)
+
+| Property | Description |
+|---|---|
+| `--o-orbit-number` | Set automatically by `.orbit-N` class or `:nth-child(N of .orbit)`. |
+| `--o-orbit-child-number` | Set automatically per child via `:nth-child`. 0-indexed for satellites/arcs/vectors, starts at -1 for sides. |
+| `--o-angle` | Set automatically by `:has()` counting children. Equals `--o-range / child_count`. |
+| `--o-angle-composite` | Computed final angle for positioning each child element. |
+| `--o-diameter` | Computed diameter of the current orbit after shrink adjustments. |
+| `--o-base-diameter` | Computed raw diameter before shrink: `(initial_orbit + orbit_number) * (force * force_ratio) / (12 + initial_orbit)`. |
+| `--o-prev-diameter` | Diameter of the previous orbit (for shrink calculations). |
+| `--o-radius` | Computed radius (diameter / 2). |
+| `--o-transform` | The computed translate(cos, sin) transform for positioning. |
+
+### Styling Properties (for Web Components)
+
+| Property | Used by | Default | Description |
+|---|---|---|---|
+| `--o-fill` | `<o-arc>`, `<o-progress>` | `var(--o-gray-light)` | Fill color of the shape |
+| `--o-stroke` | `<o-arc>`, `<o-progress>` | `var(--o-fill)` | Stroke color |
+| `--o-stroke-width` | `<o-arc>`, `<o-progress>` | `1` | Stroke width |
+| `--o-back-fill` | `<o-progress>` | `transparent` | Background track fill |
+| `--o-back-stroke` | `<o-progress>` | `none` | Background track stroke |
+| `--o-back-stroke-width` | `<o-progress>` | `1` | Background track stroke width |
+| `--o-color` | `<o-arc>` | `currentcolor` | Text color (for arc text) |
+
+---
+
+## 6. HOW ANGLE AUTO-DISTRIBUTION WORKS (THE :has() SYSTEM)
+
+This is the core magic of Orbit. The CSS uses `:has(:nth-child(N of .satellite))` selectors to count how many children of each type exist in an orbit, then sets `--o-angle` accordingly.
+
+### For satellites:
+```css
+/* If orbit has 1 satellite → angle = range / 1 = 360° */
+.orbit:has(> :nth-child(1 of .satellite)):not(:has(> :nth-child(2 of .satellite))) {
+  --o-angle: calc(var(--o-range) / 1);
+}
+/* If orbit has 2 satellites → angle = range / 2 = 180° */
+.orbit:has(> :nth-child(2 of .satellite)):not(:has(> :nth-child(3 of .satellite))) {
+  --o-angle: calc(var(--o-range) / 2);
+}
+/* ... and so on up to 60 children */
+```
+
+### For vectors:
+Same pattern using `:nth-child(N of .vector)`.
+
+### For sides:
+Same pattern using `:nth-child(N of .side)`.
+
+### For o-arc (without value attribute):
+Uses `:nth-child(N of o-arc:not([value]))` to count only arcs without explicit values.
+
+### Child numbering:
+Each child gets a `--o-orbit-child-number` via `:nth-child`:
+```css
+.satellite:nth-child(1) { --o-orbit-child-number: 0; }
+.satellite:nth-child(2) { --o-orbit-child-number: 1; }
+.satellite:nth-child(3) { --o-orbit-child-number: 2; }
+/* ... up to 60 */
+```
+
+### The final angle for each child:
+```
+angle_composite = (angle × child_number + 270°) × direction
+```
+The `+ 270°` offset is why `from-0` = 12 o'clock (top) instead of 3 o'clock (right, which is CSS default for 0°).
+
+---
+
+## 7. HOW POSITIONING WORKS (THE TRIGONOMETRIC TRANSFORM SYSTEM)
+
+### Satellite positioning:
+```css
+.satellite {
+  --o-angle-composite: (var(--o-angle) * var(--o-orbit-child-number) + 270deg) * var(--o-direction);
+  --o-transform: translate(
+    calc((var(--o-radius) - var(--o-aligment)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite))),
+    calc((var(--o-radius) - var(--o-aligment)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)))
+  );
+  transform: var(--o-transform);
+}
+```
+
+### Vector positioning (includes rotation):
+```css
+.vector {
+  transform: translate(
+    calc((var(--o-radius) - var(--o-aligment)) / var(--o-ellipse-x) * cos(var(--o-from) + var(--o-angle-composite))),
+    calc((var(--o-radius) - var(--o-aligment)) / var(--o-ellipse-y) * sin(var(--o-from) + var(--o-angle-composite)))
+  ) rotate(calc(var(--o-from) + var(--o-angle-composite)));
+}
+```
+
+### Capsule counter-rotation:
+```css
+.capsule {
+  rotate: calc((var(--o-from) + var(--o-angle-composite)) * var(--o-direction) * -1);
+}
+```
+This cancels out the satellite's angular position so content stays upright.
+
+---
+
+## 8. ORBIT DIAMETER CALCULATION
+
+The diameter of each orbit ring is calculated as:
+
+```
+base_diameter = (initial_orbit + orbit_number) × (force × force_ratio) / (12 + initial_orbit)
+```
+
+Where:
+- `initial_orbit` = `--o-initial-orbit` (default 0)
+- `orbit_number` = the N in `.orbit-N`
+- `force` = `--o-force` (default 500px)
+- `force_ratio` = `--o-force-ratio` (default 1)
+
+Then shrinking is applied:
+```
+diameter = base_diameter - ((base_diameter - prev_diameter) × orbit_ratio)
+```
+
+Where `orbit_ratio` is set by `.shrink-N` on the orbit (0 = no shrink, 1 = full shrink to previous orbit size).
+
+---
+
+## 9. UTILITY CLASSES REFERENCE
+
+### Positioning (apply to .orbit-N, .satellite, .bigbang, or .gravity-spot)
+
+| Class | Effect |
+|---|---|
+| `.at-top-left` | Top-left corner |
+| `.at-top` | Top center |
+| `.at-top-right` | Top-right corner |
+| `.at-center-left` | Center-left |
+| `.at-center` | Dead center (used for center content in orbit-0) |
+| `.at-center-right` | Center-right |
+| `.at-bottom-left` | Bottom-left |
+| `.at-bottom` | Bottom center |
+| `.at-bottom-right` | Bottom-right |
+
+### Range & Angle (apply to .orbit-N)
+
+| Class pattern | Values | Effect |
+|---|---|---|
+| `.range-{0-360}` | 0 to 360 (step varies) | Sets `--o-range`. E.g., `.range-180` = semicircle. Available: 0,45,90,135,180,225,270,315,360. |
+| `.from-{0-360}` | 0 to 360 (step varies) | Sets `--o-from`. Starting angle. E.g., `.from-180` = start from bottom. |
+| `.angle-{0-360}` | 0 to 360 | Sets fixed angle for a specific element. Overrides auto-calculation. For regular elements: resets --o-from to 0. For o-arc/o-progress: does NOT reset --o-from. |
+| `.fit-range` | — | Sets `--o-fit-range: 1`. Distributes items across range without overlap at boundaries. |
+| `.ccw` | — | Counter-clockwise direction (`--o-direction: -1`). |
+| `.cw` | — | Clockwise direction (`--o-direction: 1`). Default. |
+
+**Important angle reference:**
+- `from-0` = 12 o'clock (top), items go clockwise
+- `from-90` = 3 o'clock (right)
+- `from-180` = 6 o'clock (bottom)
+- `from-270` = 9 o'clock (left)
+
+### Initial Orbit (apply to .gravity-spot)
+
+| Class | Effect |
+|---|---|
+| `.from-1x` to `.from-12x` | Sets `--o-initial-orbit` to N. Makes orbit-1 start at a larger radius. |
+
+### Orbit Shrink (apply to .orbit-N)
+
+| Class | Effect |
+|---|---|
+| `.shrink-0` to `.shrink-100` (step 5) | On `.orbit-N`: sets `--o-orbit-ratio`. Reduces spacing between this orbit and the previous one. `.shrink-0` = normal, `.shrink-100` = fully collapsed to previous orbit. |
+
+### Element Size (apply to .satellite, .vector, o-arc, o-progress)
+
+| Class | Effect |
+|---|---|
+| `.shrink-0` to `.shrink-100` (step 5) | On elements: sets `--o-size-ratio` to `1 - N/100`. Reduces element size. |
+| `.grow-0.1x` to `.grow-0.9x` | Slightly increase size (multiplier: 1.1x to 1.9x) |
+| `.grow-1x` to `.grow-12x` | Significantly increase size (multiplier: 2x to 24x+) |
+
+**Note:** `.shrink-N` has dual behavior depending on context:
+- On `.orbit-N`: reduces ring spacing (orbit-ratio)
+- On other elements (.satellite, .vector, etc.): reduces element size (size-ratio)
+- Cannot use `.shrink-*` and `.grow-*` together on the same element.
+
+### Gap (apply to `<o-arc>`)
+
+| Class | Effect |
+|---|---|
+| `.gap-0` to `.gap-30` | Sets `--o-gap` on `<o-arc>`. Controls spacing between arc segments. |
+
+### Radial Alignment (apply to .satellite, .vector, or <o-arc>)
+
+| Class | Effect |
+|---|---|
+| `.inner-orbit` | Shifts element inward (toward center) by half its size |
+| `.quarter-inner-orbit` | Shifts slightly inward (by ~27% of its size) |
+| `.quarter-outer-orbit` | Shifts slightly outward (by ~27% of its size) |
+| `.outer-orbit` | Shifts element outward (away from center) by half its size |
+
+### Capsule Modifiers (apply to .capsule)
+
+| Class | Effect |
+|---|---|
+| `.flip` | Rotates capsule content 180° |
+| `.turn-left` | Rotates capsule 90° left |
+| `.turn-right` | Rotates capsule 90° right (270°) |
+| `.horizontal` | Inside `.side > .capsule`: keeps text horizontal |
+
+### Capsule Alignment (apply to .capsule)
+
+| Class | Effect |
+|---|---|
+| `.top-left` | Align content to top-left |
+| `.top-center` | Align content to top-center |
+| `.top-right` | Align content to top-right |
+| `.center-left` | Align content to center-left |
+| `.center-right` | Align content to center-right |
+| `.bottom-left` | Align content to bottom-left |
+| `.bottom-center` | Align content to bottom-center |
+| `.bottom-right` | Align content to bottom-right |
+
+### Satellite Modifiers
+
+| Class | Effect |
+|---|---|
+| `.spin-lock` | Keeps satellite rotation aligned with orbit (gyroscope effect — points toward center) |
+| `.circle` | Forces circular shape (border-radius: 50%) — default |
+| `.box` | Forces square shape (border-radius: 0) |
+| `.rounded-box` | Rounded rectangle shape |
+
+### Special Effects (apply to any container)
+
+| Class | Effect |
+|---|---|
+| `.gooey-fx-light` | Light blob/gooey merge effect between nearby elements (stdDeviation: 2) |
+| `.gooey-fx-medium` | Medium gooey effect (stdDeviation: 5) |
+| `.gooey-fx-max` | Strong gooey effect (stdDeviation: 9) |
+
+**Note:** Gooey effects do NOT work in Safari. They use inline SVG filters with `feGaussianBlur` + `feColorMatrix`.
+
+---
+
+## 10. WEB COMPONENTS REFERENCE
+
+### <o-arc> — Arc / Wedge / Sector
+
+Creates SVG arc segments. Used for: pie charts, donut charts, gauge needles, radial menus, curved text.
+
+**Placement:** Directly inside `.orbit-N`. NEVER inside `.satellite`.
+
+**HTML Attributes:**
+
+| Attribute | Type | Default | Description |
+|---|---|---|---|
+| `value` | 0-100 | (none) | Percentage of the range this arc covers. When set, arcs auto-stack (donut mode). |
+| `shape` | string | `none` | Shape variant. See shape table below. |
+| `flip` | boolean | false | Flips the arc (reverses text direction along path). |
+| `fit-range` | boolean | false | Stretches text to fill the entire arc path via SVG textLength. |
+| `text-anchor` | start\|middle\|end | middle | Text alignment along the arc path. |
+
+**Shape values:**
+
+| Shape | Description |
+|---|---|
+| `none` (default) | Standard flat-edged arc segment |
+| `rounded` | Arc with rounded corners (quadratic Bezier curves at ends) |
+| `circle` / `circle-a` | Arc with circular end caps (both ends rounded outward) |
+| `circle-b` | Arc with more pronounced circular end caps (segment × 1.36) |
+| `bullet` | Arc with one rounded end, one flat end |
+| `arrow` | Arrow/pointer shape (like a gauge needle, uses middle radius for tip) |
+| `slash` | Slanted edge on one side (diagonal from bottom-left to top-right) |
+| `backslash` | Slanted edge on the other side (diagonal from top-left to bottom-right) |
+| `zigzag` | Zigzag pattern on the connecting edges (multiple zig-zag points) |
+
+**CSS Custom Properties:**
+
+| Property | Default | Description |
+|---|---|---|
+| `--o-fill` | `var(--o-gray-light)` | Fill color |
+| `--o-stroke` | `var(--o-fill)` | Stroke color |
+| `--o-stroke-width` | `1` | Stroke width |
+| `--o-color` | `currentcolor` | Text color |
+
+**Text along arc:**
+```html
+<o-arc>This text follows the arc path</o-arc>
+```
+Text renders along the curved SVG path. Font size scales with `--o-force`.
+
+**Colored text on arc (no background):**
+```html
+<o-arc style="--o-fill: none !important; color: var(--o-cyan); font-weight: bold;">
+  Curved text here
+</o-arc>
+```
+
+**Text with background:**
+```html
+<o-arc style="--o-fill: var(--o-purple-light); color: var(--o-purple-dark);">
+  Text on purple arc
+</o-arc>
+```
+
+**Stacking / Donut chart (with value):**
+When multiple `<o-arc>` elements have `value` attributes, they auto-stack end-to-end:
+```html
+<div class="orbit-3">
+  <o-arc value="50" style="--o-fill: var(--o-red);"></o-arc>
+  <o-arc value="30" style="--o-fill: var(--o-blue);"></o-arc>
+  <o-arc value="20" style="--o-fill: var(--o-green);"></o-arc>
+</div>
+```
+Values should sum to 100 (or less) for a complete ring. The framework uses an internal `--o_stack` CSS variable to track cumulative offset.
+
+**Equal segments (without value):**
+Without `value`, arcs auto-divide the range equally (just like satellites):
+```html
+<div class="orbit-3">
+  <o-arc class="gap-4" style="--o-fill: red;"></o-arc>
+  <o-arc class="gap-4" style="--o-fill: blue;"></o-arc>
+  <o-arc class="gap-4" style="--o-fill: green;"></o-arc>
+</div>
+```
+This creates 3 equal segments of 120° each with gaps between them.
+
+**How the SVG works internally:**
+- Uses a 100×100 viewBox centered at (50,50)
+- Arc points calculated with: `x = 50 + radius × cos(angle)`, `y = 50 + radius × sin(angle)`
+- Inner and outer arcs create the ring segment
+- Text path is a separate invisible arc between the two radii
+- MutationObserver watches attributes and children for dynamic updates
+
+---
+
+### <o-progress> — Progress Ring
+
+Creates SVG progress bars along an orbit ring, with a background track and a foreground bar.
+
+**Placement:** Directly inside `.orbit-N`. NEVER inside `.satellite`. Maximum ONE per orbit.
+
+**HTML Attributes:**
+
+| Attribute | Type | Default | Description |
+|---|---|---|---|
+| `value` | number | 0 | Current progress value |
+| `max` | number | 100 | Maximum value |
+| `shape` | string | none | Same shapes as `<o-arc>` |
+
+**CSS Custom Properties:**
+
+| Property | Default | Description |
+|---|---|---|
+| `--o-fill` | `var(--o-gray-light)` | Progress bar fill |
+| `--o-stroke` | `var(--o-fill)` | Progress bar stroke |
+| `--o-stroke-width` | `1` | Progress bar stroke width |
+| `--o-back-fill` | `transparent` | Background track fill |
+| `--o-back-stroke` | `none` | Background track stroke |
+| `--o-back-stroke-width` | `1` | Background track stroke width |
+
+**Updating progress dynamically:**
+```js
+document.querySelector('o-progress').setAttribute('value', 75);
+// The component uses MutationObserver and updates automatically
+```
+
+**How it works internally:**
+- SVG with two `<path>` elements: `.progress-bg` (full background track) and `.progress-bar` (progress arc)
+- Background arc: always shows full range
+- Progress arc angle: `(value / max) × range`
+- Both paths use the same shape generator as `<o-arc>`
+
+---
+
+## 11. COLOR SYSTEM
+
+### Base colors (CSS custom properties on :root)
+
+| Variable | Color |
+|---|---|
+| `--o-red` | hsl(3, 100%, 61%) |
+| `--o-orange` | hsl(36, 100%, 51%) |
+| `--o-yellow` | hsl(49, 100%, 51%) |
+| `--o-green` | hsl(129, 67%, 51%) |
+| `--o-cyan` | hsl(197, 88%, 65%) |
+| `--o-blue` | hsl(210, 100%, 51%) |
+| `--o-indigo` | hsl(240, 73%, 63%) |
+| `--o-purple` | hsl(279, 85%, 65%) |
+| `--o-pink` | hsl(348, 100%, 60%) |
+| `--o-gray` | hsl(240, 2%, 60%) |
+
+### Color variants (available for each base color)
+
+Generated using `color-mix()` in `oklab` color space:
+
+| Variant | Mixing | Example |
+|---|---|---|
+| `-white` | 95% white | `--o-red-white` |
+| `-lighter` | 75% white | `--o-red-lighter` |
+| `-light` | 30% white | `--o-red-light` |
+| `-dark` | 20% black | `--o-red-dark` |
+| `-darker` | 40% black | `--o-red-darker` |
+| `-black` | 78% black | `--o-red-black` |
+
+### Dynamic color (set your own)
+
+Set `--o-color` to any color, then use the auto-generated variants:
+```css
+.my-element {
+  --o-color: #ff6600;
+  background: var(--o-color-light);
+  border-color: var(--o-color-dark);
+}
+```
+
+---
+
+## 12. THEMES
+
+Apply theme classes to `.bigbang`:
+
+### Default theme (no class needed)
+- Orbits: transparent borders
+- Satellites: transparent background, 1px solid currentColor border
+- Vectors/sides: currentColor background
+- Arcs: gray-light fill
+
+### .theme-cyan
+- Satellites: cyan borders
+- Vectors/sides: cyan background
+- Arcs: cyan-light fill, cyan-lighter on hover
+
+### .dev-orbit (debugging)
+- All elements: red dashed borders
+- Arcs: red-lighter fill at 50% opacity
+- Use during development to see all orbit rings and element positions
+- Example: `<div class="bigbang dev-orbit">...</div>`
+
+---
+
+## 13. RESPONSIVE SIZING
+
+### Orbit.resize(selector)
+
+Makes Orbit layouts responsive by recalculating `--o-force-ratio` based on parent container width.
+
+```js
+Orbit.resize('.container');
+```
+
+**How it works internally:**
+```js
+Orbit.resize = (parentElementSelector) => {
+  const parentElement = document.querySelector(parentElementSelector);
+  const resizeObserver = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      const { width } = entry.contentRect;
+      const childElements = parentElement.querySelectorAll(".gravity-spot");
+      childElements.forEach((childElement) => {
+        let forceRatio = width / 500;
+        childElement.style.setProperty("--o-force-ratio", `${forceRatio}`);
+      });
+    }
+  });
+  resizeObserver.observe(parentElement);
+};
+```
+
+- Default `--o-force` is 500px → at 500px container width, ratio = 1
+- At 250px container width → ratio = 0.5 (half size)
+- At 1000px → ratio = 2 (double size)
+- Uses ResizeObserver for live updates on resize
+- Call once per container on page load
+
+**Alternative: manual CSS**
+```css
+.gravity-spot {
+  --o-force: 300px; /* fixed smaller size */
+}
+```
+
+**Resizable container example:**
+```html
+<div class="wrapper" style="width: 280px; height: 200px; resize: both; overflow: auto;">
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <!-- orbits... -->
+    </div>
+  </div>
+</div>
+<script>
+  Orbit.resize('.wrapper');
+</script>
+```
+
+---
+
+## 14. VALIDATION & WARNING SYSTEM
+
+Orbit includes built-in CSS validation that shows visual warnings for common mistakes.
+
+### Browser feature detection:
+
+**:has() selector not supported:**
+- Shows red dotted border on `.bigbang` with message text
+
+**cos()/sin() not supported:**
+- Shows red dotted border on `.bigbang` with message text
+
+### Structure validation:
+
+**Invalid children in .gravity-spot:**
+```css
+/* Warns if non-orbit children are directly in gravity-spot */
+.gravity-spot:has(> *:not(.orbit, [class*=orbit-], .gravity-spot)) {
+  border: 2px dotted red !important;
+  width: var(--o-force) !important;
+}
+```
+Shows a ⚠️ emoji with pulse animation.
+
+**Orbits nested in orbits:**
+```css
+/* Warns if orbit-N is inside another orbit-N */
+.orbit:has(> *:is(.orbit, [class*=orbit-])) {
+  border: 2px dotted #ff5100 !important;
+  opacity: 0.4;
+}
+```
+
+**Invalid children in .satellite:**
+```css
+/* Warns if satellite has children other than .capsule or .gravity-spot */
+.satellite:has(> *:not(.gravity-spot, .capsule)) {
+  border: 2px dotted #ff5100 !important;
+  opacity: 0.4;
+}
+```
+
+**o-arc/o-progress in elliptical layouts:**
+```css
+/* Hides arc/progress when ellipse is active */
+@container oslice not style(--o-ellipse-x: 1) {
+  o-arc, o-progress { display: none; }
+}
+```
+
+---
+
+## 15. NESTING (SUB-ORBITS)
+
+To create nested radial systems (e.g., a planet with moons), create a new `.bigbang > .gravity-spot` inside a `.capsule`:
+
+```html
+<div class="satellite">
+  <div class="capsule">
+    <div class="bigbang">
+      <div class="gravity-spot" style="--o-force: 80px;">
+        <!-- inner orbit system -->
+        <div class="orbit-2">
+          <div class="satellite"><div class="capsule">Moon</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+**Alternative (simpler):** You can also place `.gravity-spot` directly inside `.satellite` (without `.capsule` wrapper):
+```html
+<div class="satellite">
+  <div class="gravity-spot" style="--o-force: 80px;">
+    <div class="orbit-2">
+      <div class="satellite"><div class="capsule">Moon</div></div>
+    </div>
+  </div>
+</div>
+```
+
+**Key:** Set a smaller `--o-force` on the inner `.gravity-spot` to control the sub-system size.
+
+**IMPORTANT:** Never nest `.orbit-N` directly inside another `.orbit-N`. Always use the `.gravity-spot` nesting pattern.
+
+---
+
+## 16. COMMON PATTERNS (COPY-PASTE RECIPES)
+
+### Pattern 1: Simple Progress Ring with Center Label
+
+```html
+<div class="bigbang" style="width: 200px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <o-progress value="72" style="--o-fill: #818cf8; --o-stroke-width: 6; --o-back-stroke: rgba(100,100,100,.3); --o-back-stroke-width: 6;"></o-progress>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-size: 24px; font-weight: 800;">72%</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 2: Donut Chart (Stacked Arcs with Values)
+
+```html
+<div class="bigbang" style="width: 250px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-3">
+      <o-arc value="50" style="--o-fill: #f97316;"></o-arc>
+      <o-arc value="30" style="--o-fill: #eab308;"></o-arc>
+      <o-arc value="20" style="--o-fill: #22c55e;"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">Total</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 3: Radial Menu (Equal Arc Segments with Text)
+
+```html
+<div class="bigbang" style="width: 300px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-5 fit-range range-270 from-225">
+      <o-arc class="gap-6" style="--o-fill: #3b82f6; cursor: pointer;">Home</o-arc>
+      <o-arc class="gap-6" style="--o-fill: #10b981; cursor: pointer;">Edit</o-arc>
+      <o-arc class="gap-6" style="--o-fill: #f59e0b; cursor: pointer;">Save</o-arc>
+      <o-arc class="gap-6" style="--o-fill: #ef4444; cursor: pointer;">Delete</o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">MENU</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 4: Speedometer / Gauge with Needle
+
+```html
+<div class="bigbang" style="width: 300px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <!-- Tick marks -->
+    <div class="orbit-6 range-270 from-225 fit-range">
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+      <div class="vector" style="background: #666; height: 4px;"></div>
+    </div>
+    <!-- Color zones -->
+    <div class="orbit-5 range-270 from-225">
+      <o-arc class="gap-4" style="--o-fill: #22c55e;"></o-arc>
+      <o-arc class="gap-4" style="--o-fill: #eab308;"></o-arc>
+      <o-arc class="gap-4" style="--o-fill: #ef4444;"></o-arc>
+    </div>
+    <!-- Needle -->
+    <div class="orbit-4 range-270 from-225">
+      <o-arc id="needle" value="58" shape="arrow" style="--o-fill: white;"></o-arc>
+    </div>
+    <!-- Center label -->
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-size: 22px; font-weight: 800;">125 km/h</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 5: Semicircle Gauge
+
+```html
+<div class="bigbang" style="width: 200px; aspect-ratio: 2/1;">
+  <div class="gravity-spot">
+    <div class="orbit-4 range-180 from-180">
+      <o-arc value="75" shape="arrow" style="--o-fill: #22c55e;"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">75%</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+Note: `from-180` starts from bottom, making the semicircle open upward. Use `aspect-ratio: 2/1` on .bigbang to clip the bottom half.
+
+### Pattern 6: Multi-Ring Satellites
+
+```html
+<div class="bigbang" style="width: 300px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-2">
+      <div class="satellite"><div class="capsule">A</div></div>
+      <div class="satellite"><div class="capsule">B</div></div>
+      <div class="satellite"><div class="capsule">C</div></div>
+    </div>
+    <div class="orbit-4">
+      <div class="satellite"><div class="capsule">D</div></div>
+      <div class="satellite"><div class="capsule">E</div></div>
+      <div class="satellite"><div class="capsule">F</div></div>
+      <div class="satellite"><div class="capsule">G</div></div>
+      <div class="satellite"><div class="capsule">H</div></div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">Center</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 7: Compass
+
+```html
+<div class="bigbang" style="width: 260px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-5 fit-range">
+      <div class="satellite"><div class="capsule">N</div></div>
+      <div class="satellite"><div class="capsule">E</div></div>
+      <div class="satellite"><div class="capsule">S</div></div>
+      <div class="satellite"><div class="capsule">W</div></div>
+    </div>
+    <div class="orbit-4">
+      <o-arc value="3" shape="arrow" style="--o-fill: #dc2626;"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">000°</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 8: Nested Orbits (Planet with Moon)
+
+```html
+<div class="bigbang" style="width: 340px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="width:40px; height:40px; border-radius:50%; background:gold;"></div>
+      </div>
+    </div>
+    <div class="orbit-4">
+      <div class="satellite" style="border:none;">
+        <div class="capsule">
+          <div class="bigbang">
+            <div class="gravity-spot" style="--o-force: 72px;">
+              <div class="orbit-0">
+                <div class="satellite at-center">
+                  <div class="capsule" style="width:16px; height:16px; border-radius:50%; background:dodgerblue;"></div>
+                </div>
+              </div>
+              <div class="orbit-2">
+                <div class="satellite">
+                  <div class="capsule" style="width:6px; height:6px; border-radius:50%; background:silver;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 9: Radar / Concentric Ring Outlines
+
+```html
+<div class="bigbang" style="width: 280px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-6"><o-arc value="100" style="--o-stroke:rgba(34,211,238,.15); --o-stroke-width:2; --o-fill:transparent;"></o-arc></div>
+    <div class="orbit-4"><o-arc value="100" style="--o-stroke:rgba(34,211,238,.1); --o-stroke-width:2; --o-fill:transparent;"></o-arc></div>
+    <div class="orbit-2"><o-arc value="100" style="--o-stroke:rgba(34,211,238,.08); --o-stroke-width:2; --o-fill:transparent;"></o-arc></div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800; color: #22d3ee;">SCAN</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Pattern 10: Knob Control
+
+```html
+<div class="bigbang" style="width: 180px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <o-arc id="knob" value="65" shape="circle-a" style="--o-stroke: #27272a; --o-stroke-width: 14; --o-fill: #a1a1aa;"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 700;">65%</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Update knob: set value attribute (0-100)
+  document.getElementById('knob').setAttribute('value', 80);
+</script>
+```
+
+### Pattern 11: Polygon (Hexagon with Sides)
+
+```html
+<div class="bigbang" style="width: 250px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+      <div class="side"></div>
+    </div>
+  </div>
+</div>
+```
+6 sides = hexagon, 3 sides = triangle, 8 sides = octagon, etc.
+
+---
+
+## 17. ADVANCED REAL-WORLD EXAMPLES
+
+### Knob with Progress Bar and Tick Marks
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2 knob-background"></div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="gravity-spot">
+          <div class="orbit-2 shrink-50">
+            <div class="satellite shrink-40 led"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-3 shrink-10 from-215 range-290 fit-range marks">
+      <!-- tick marks generated dynamically -->
+    </div>
+    <div class="orbit-3 shrink-60 from-215 range-290">
+      <o-progress value="50" shape="circle" class="shrink-80 outer-orbit"></o-progress>
+    </div>
+  </div>
+</div>
+```
+
+```css
+.satellite { border: none; }
+o-progress { --o-fill: var(--o-green); }
+.knob-background {
+  box-shadow: 0px 0px 0px 5px #404040;
+  background-color: #888;
+  background-image: radial-gradient(circle, rgba(10,10,10,0.5) 0, rgba(10,10,10,0) 24%,
+    rgba(255,255,255,0) 24%, rgba(255,255,255,0) 100%),
+    conic-gradient(/* metallic gradient */);
+}
+.led { background: var(--o-green); box-shadow: 0 0 10px var(--o-green); border-radius: 50%; }
+```
+
+### Gauge with Colored Zones
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-6 from-225 range-270 fit-range">
+      <div class="vector" style="height:8px !important; background: white;"></div>
+      <!-- repeat vectors for tick marks -->
+    </div>
+    <div class="orbit-5 from-225 range-270">
+      <o-arc class="gap-1" style="--o-fill: var(--o-green);"></o-arc>
+      <o-arc class="gap-1" style="--o-fill: var(--o-yellow);"></o-arc>
+      <o-arc class="gap-1" style="--o-fill: var(--o-red);"></o-arc>
+    </div>
+    <div class="orbit-4 from-225 range-270">
+      <o-arc value="40" shape="arrow" style="--o-fill: white;"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule">VALUE</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Circular Timer / Clock
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <!-- Hour markers -->
+    <div class="orbit-6 fit-range">
+      <div class="satellite"><div class="capsule">12</div></div>
+      <div class="satellite"><div class="capsule">1</div></div>
+      <div class="satellite"><div class="capsule">2</div></div>
+      <div class="satellite"><div class="capsule">3</div></div>
+      <div class="satellite"><div class="capsule">4</div></div>
+      <div class="satellite"><div class="capsule">5</div></div>
+      <div class="satellite"><div class="capsule">6</div></div>
+      <div class="satellite"><div class="capsule">7</div></div>
+      <div class="satellite"><div class="capsule">8</div></div>
+      <div class="satellite"><div class="capsule">9</div></div>
+      <div class="satellite"><div class="capsule">10</div></div>
+      <div class="satellite"><div class="capsule">11</div></div>
+    </div>
+    <!-- Minute ticks -->
+    <div class="orbit-5 fit-range">
+      <!-- 60 vectors for minute marks -->
+    </div>
+    <!-- Hour hand -->
+    <div class="orbit-3">
+      <o-arc value="1" shape="arrow" style="--o-fill: white;"></o-arc>
+    </div>
+    <!-- Minute hand -->
+    <div class="orbit-4">
+      <o-arc value="1" shape="arrow" style="--o-fill: #ccc;"></o-arc>
+    </div>
+  </div>
+</div>
+```
+
+### Dashboard with Multiple Gauges
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <!-- Outer progress ring -->
+    <div class="orbit-6">
+      <o-progress value="85" style="--o-fill: var(--o-cyan); --o-back-stroke: rgba(255,255,255,0.1); --o-back-stroke-width: 3; --o-stroke-width: 3;"></o-progress>
+    </div>
+    <!-- Middle progress ring -->
+    <div class="orbit-4">
+      <o-progress value="62" style="--o-fill: var(--o-purple); --o-back-stroke: rgba(255,255,255,0.1); --o-back-stroke-width: 3; --o-stroke-width: 3;"></o-progress>
+    </div>
+    <!-- Inner progress ring -->
+    <div class="orbit-2">
+      <o-progress value="43" style="--o-fill: var(--o-pink); --o-back-stroke: rgba(255,255,255,0.1); --o-back-stroke-width: 3; --o-stroke-width: 3;"></o-progress>
+    </div>
+    <!-- Center label -->
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">STATS</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Chemical Structure (Benzene Ring)
+
+```html
+<div class="bigbang" style="width: 200px; aspect-ratio: 1;">
+  <div class="gravity-spot">
+    <!-- Carbon atoms on hexagonal positions -->
+    <div class="orbit-4 from-30">
+      <div class="satellite shrink-60"><div class="capsule">C</div></div>
+      <div class="satellite shrink-60"><div class="capsule">C</div></div>
+      <div class="satellite shrink-60"><div class="capsule">C</div></div>
+      <div class="satellite shrink-60"><div class="capsule">C</div></div>
+      <div class="satellite shrink-60"><div class="capsule">C</div></div>
+      <div class="satellite shrink-60"><div class="capsule">C</div></div>
+    </div>
+    <!-- Hexagon sides (bonds) -->
+    <div class="orbit-4 from-30">
+      <div class="side" style="background: white;"></div>
+      <div class="side" style="background: white;"></div>
+      <div class="side" style="background: white;"></div>
+      <div class="side" style="background: white;"></div>
+      <div class="side" style="background: white;"></div>
+      <div class="side" style="background: white;"></div>
+    </div>
+    <!-- Inner circle for double bonds -->
+    <div class="orbit-2">
+      <o-arc value="100" style="--o-fill: transparent; --o-stroke: white; --o-stroke-width: 1;"></o-arc>
+    </div>
+  </div>
+</div>
+```
+
+### Calendar (Circular Month View)
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <!-- Day numbers around the circle -->
+    <div class="orbit-6 fit-range">
+      <div class="satellite shrink-50"><div class="capsule">1</div></div>
+      <div class="satellite shrink-50"><div class="capsule">2</div></div>
+      <!-- ... up to 31 -->
+    </div>
+    <!-- Month name at center -->
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule" style="font-weight: 800;">January</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### Mandala Pattern
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <!-- Multiple concentric rings with different element counts -->
+    <div class="orbit-2">
+      <div class="satellite shrink-60"></div>
+      <div class="satellite shrink-60"></div>
+      <div class="satellite shrink-60"></div>
+      <div class="satellite shrink-60"></div>
+    </div>
+    <div class="orbit-4">
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+      <div class="satellite shrink-70"></div>
+    </div>
+    <div class="orbit-6">
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+      <div class="satellite shrink-80"></div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 18. FRAMEWORK INTEGRATIONS
+
+### React
+
+```jsx
+import '@zumer/orbit/dist/orbit.css';
+import '@zumer/orbit/dist/orbit.js';
+
+function App() {
+  return (
+    <div className="bigbang">
+      <div className="gravity-spot">
+        <div className="orbit-4">
+          <div className="satellite"><div className="capsule">A</div></div>
+          <div className="satellite"><div className="capsule">B</div></div>
+          <div className="satellite"><div className="capsule">C</div></div>
+        </div>
+        <div className="orbit-3">
+          <o-arc value="60" style={{"--o-fill": "var(--o-cyan-light)"}}></o-arc>
+          <o-arc value="40" style={{"--o-fill": "var(--o-purple-light)"}}></o-arc>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+Note for React: Web component attributes work directly. Use `className` instead of `class`. CSS custom properties in `style` prop use camelCase object syntax.
+
+### Vue
+
+```vue
+<template>
+  <div class="bigbang">
+    <div class="gravity-spot">
+      <div class="orbit-4">
+        <div class="satellite" v-for="item in items" :key="item">
+          <div class="capsule">{{ item }}</div>
+        </div>
+      </div>
+      <div class="orbit-3">
+        <o-progress :value="progress" style="--o-fill: var(--o-cyan)"></o-progress>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import '@zumer/orbit/dist/orbit.css';
+import '@zumer/orbit/dist/orbit.js';
+import { ref } from 'vue';
+const items = ref(['A', 'B', 'C']);
+const progress = ref(72);
+</script>
+```
+
+Note for Vue: Add `@zumer/orbit` to `compilerOptions.isCustomElement` in your vue config if you get warnings about unknown elements `o-arc` and `o-progress`.
+
+### Svelte
+
+```svelte
+<script>
+  import '@zumer/orbit/dist/orbit.css';
+  import '@zumer/orbit/dist/orbit.js';
+  let progress = 72;
+</script>
+
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <div class="satellite"><div class="capsule">A</div></div>
+      <div class="satellite"><div class="capsule">B</div></div>
+    </div>
+    <div class="orbit-3">
+      <o-progress value={progress} style="--o-fill: var(--o-cyan-light)"></o-progress>
+    </div>
+  </div>
+</div>
+```
+
+### Angular
+
+In `angular.json`, add to `styles` and `scripts`:
+```json
+{
+  "styles": ["node_modules/@zumer/orbit/dist/orbit.css"],
+  "scripts": ["node_modules/@zumer/orbit/dist/orbit.js"]
+}
+```
+
+In your module, add `CUSTOM_ELEMENTS_SCHEMA`:
+```typescript
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
+@NgModule({
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+})
+```
+
+Then use in templates:
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4">
+      <div class="satellite" *ngFor="let item of items">
+        <div class="capsule">{{ item }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+---
+
+## 19. CRITICAL RULES & COMMON LLM MISTAKES
+
+### MUST DO:
+1. Always follow the hierarchy: `.bigbang > .gravity-spot > .orbit-N > .satellite > .capsule`
+2. Put all visible content inside `.capsule`
+3. Place `<o-arc>`, `<o-progress>`, `.vector`, `.side` directly in `.orbit-N`
+4. Include both CSS and JS files (JS needed for web components)
+5. Use `.orbit-0` with `.satellite.at-center` for center content
+6. Use `.fit-range` when you want items evenly spaced without overlap at 0°/360°
+
+### MUST NOT DO:
+1. DO NOT put `<o-arc>` or `<o-progress>` inside `.satellite` — they go directly in `.orbit-N`
+2. DO NOT nest `.orbit-N` inside another `.orbit-N` — create a new `.bigbang > .gravity-spot` inside `.capsule` instead
+3. DO NOT put content directly in `.satellite` — always wrap in `.capsule`
+4. DO NOT put anything other than `.gravity-spot` inside `.bigbang`
+5. DO NOT put anything other than `.orbit-N`, `.orbit`, or `.gravity-spot` inside `.gravity-spot`
+6. DO NOT use `<o-arc>` or `<o-progress>` in elliptical layouts (--o-ellipse-x or --o-ellipse-y ≠ 1) — they will be hidden
+7. DO NOT set `--o-orbit-number`, `--o-orbit-child-number`, or `--o-angle` manually — the CSS :has() system calculates these automatically
+8. DO NOT use `.from-N` (start angle) and `.angle-N` on the same regular element — `.angle-N` resets `--o-from` to 0 (exception: on `<o-arc>`/`<o-progress>`, `.angle-N` does NOT reset `--o-from`)
+9. DO NOT forget that `from-0` means top/12 o'clock, not right/3 o'clock
+10. DO NOT use `transform` on `.satellite` directly — it will override the positioning transform
+11. DO NOT use percentage values for `--o-force` — must be a pixel value (e.g., `500px`)
+12. DO NOT use `.shrink-*` and `.grow-*` together on the same element
+
+### COMMON MISTAKES LLMs MAKE:
+- **Putting text directly in `.satellite`** instead of `.capsule` → text won't be upright
+- **Creating classes that don't exist** (e.g., `.orbit-ring`, `.orbit-item`, `.orbit-center`) → use the exact class names from this reference
+- **Forgetting `.at-center`** on the center satellite → it won't be centered
+- **Using `transform` on `.satellite`** directly → will override the positioning transform. Style the `.capsule` or its children instead.
+- **Nesting orbits inside orbits** → use the nested `.bigbang > .gravity-spot` pattern instead
+- **Using `--o-radius` directly** → it's auto-calculated, don't set it
+- **Placing `<o-arc>` inside `.satellite`** → arc won't render correctly
+- **Using percentage values for `--o-force`** → must be a pixel value
+- **Expecting `.orbit-0` to be a visible ring** → it's just a center point for placing centered content
+- **Forgetting to include the JS file** → `<o-arc>` and `<o-progress>` won't work without it
+- **Setting `value` on `<o-arc>` when wanting equal segments** → omit `value` for equal auto-distribution, use `value` only for donut/pie charts
+
+---
+
+## 20. QUICK REFERENCE CARD
+
+```
+Structure:      .bigbang > .gravity-spot > .orbit-N > .satellite > .capsule
+Center content: .orbit-0 > .satellite.at-center > .capsule
+Arc segments:   .orbit-N > <o-arc value="40" style="--o-fill:red">
+Equal arcs:     .orbit-N > <o-arc class="gap-4"> (no value = auto-divide)
+Arc text:       .orbit-N > <o-arc>text here</o-arc>
+Progress ring:  .orbit-N > <o-progress value="72">
+Tick marks:     .orbit-N > .vector
+Polygon sides:  .orbit-N > .side (6 sides = hexagon)
+Semicircle:     .orbit-N.range-180.from-180
+3/4 circle:     .orbit-N.range-270.from-225
+Even spacing:   .orbit-N.fit-range
+CCW:            .orbit-N.ccw
+Nested:         .capsule > .bigbang > .gravity-spot (new --o-force)
+Responsive:     Orbit.resize('.parent')
+Debug:          .bigbang.dev-orbit
+
+Angles:  from-0=top, from-90=right, from-180=bottom, from-270=left
+Sizing:  .shrink-50 (half size), .grow-2x (triple size)
+Shapes:  .circle, .box, .rounded-box (on .satellite)
+Arc shapes: none, rounded, circle, circle-b, bullet, arrow, slash, backslash, zigzag
+
+Colors: --o-red, --o-orange, --o-yellow, --o-green, --o-cyan,
+        --o-blue, --o-indigo, --o-purple, --o-pink, --o-gray
+        Each with: -white, -lighter, -light, -dark, -darker, -black
+```
+
+---
+
+## END OF REFERENCE
+
+For interactive examples and live demos, visit: https://zumerlab.github.io/orbit-docs
