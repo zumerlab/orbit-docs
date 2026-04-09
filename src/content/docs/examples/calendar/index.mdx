@@ -1,0 +1,151 @@
+---
+title: CSS calendar and time-planner examples
+description: Browse Orbit CSS calendar and time-planner examples — circular year calendars, Chronodex day planners, radial schedules. Built from HTML and CSS primitives.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+Calendars and time planners are a natural fit for radial layouts — time is cyclical, and a circle expresses that more honestly than a grid does. Orbit lets you build year-at-a-glance dials, Chronodex-style day planners, and bullet-journal-inspired schedules out of plain HTML and CSS, which means they can be themed, animated, and updated from JavaScript like any other component.
+
+Below: a circular year calendar worth its own page, plus a Chronodex day-planner example inline as a quick reference.
+
+## Spokes
+
+<CardGrid>
+  <LinkCard
+    title="Circular year calendar"
+    href="/orbit-docs/examples/calendar/circular-year-calendar/"
+    description="A full year on a single dial — months, days, seasons and a centered year label. Best for personal-planner apps, year-in-review dashboards."
+  />
+</CardGrid>
+
+## Quick reference: Chronodex day planner
+
+A Chronodex is a radial day planner where each hour of the day is a wedge, and you fill the wedge to mark how you spent (or plan to spend) that time. It started as a paper-journaling technique and translates beautifully to CSS — every wedge is just a sector of an arc on an orbit.
+
+export const calendar2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot" style="--o-force: 1000px">
+    <div class="orbit-2 from-180 range-90">
+      <o-arc class="inner-orbit inner-sector light shrink-50"></o-arc>
+      <o-arc class="inner-orbit inner-sector lighter shrink-50"></o-arc>
+      <o-arc class="inner-orbit inner-sector white shrink-50"></o-arc>
+    </div>
+    <div class="orbit-2">
+      <o-arc class="outer-orbit sector grow-0.3x"></o-arc>
+      <o-arc class="outer-orbit sector grow-0.9x"></o-arc>
+      <o-arc class="outer-orbit sector grow-1.2x"></o-arc>
+
+      <o-arc class="outer-orbit sector grow-0.3x"></o-arc>
+      <o-arc class="outer-orbit sector grow-0.9x"></o-arc>
+      <o-arc class="outer-orbit sector grow-1.2x"></o-arc>
+
+      <o-arc class="outer-orbit sector grow-0.3x"></o-arc>
+      <o-arc class="outer-orbit sector grow-0.9x"></o-arc>
+      <o-arc class="outer-orbit sector grow-1.2x"></o-arc>
+
+      <o-arc class="outer-orbit sector grow-0.3x"></o-arc>
+      <o-arc class="outer-orbit sector grow-0.9x"></o-arc>
+      <o-arc class="outer-orbit sector grow-1.2x"></o-arc>
+    </div>
+
+    <template v-for="tick in ticks">
+      <div :class="[tick]" class="orbit-4 shrink-80 range-15 fit-range">
+        <div class="vector inner-orbit shrink-90"></div>
+        <div class="vector inner-orbit shrink-80"></div>
+        <div class="vector inner-orbit shrink-90"></div>
+      </div>
+    </template>
+    <template v-for="tick in ticks1">
+      <div :class="[tick]" class="orbit-4 shrink-20 range-15 fit-range">
+        <div class="vector inner-orbit shrink-90"></div>
+        <div class="vector inner-orbit shrink-80"></div>
+        <div class="vector inner-orbit shrink-90"></div>
+      </div>
+    </template>
+    <template v-for="tick in ticks3">
+      <div :class="[tick]" class="orbit-5 shrink-70 range-15 fit-range">
+        <div class="vector inner-orbit shrink-90"></div>
+        <div class="vector inner-orbit shrink-80"></div>
+        <div class="vector inner-orbit shrink-90"></div>
+      </div>
+    </template>
+    
+    <div class="orbit-5 shrink-60 from-270">
+      <o-progress class="shrink-90" value="25"></o-progress>
+    </div>
+    <div class="orbit-5 shrink-70">
+      <div class="satellite shrink-30 point"></div>
+      <div class="satellite shrink-30 point"></div>
+      <div class="satellite shrink-30 point"></div>
+      <div class="satellite shrink-30 point"></div>
+    </div>
+    <div class="orbit-5 shrink-10 ">
+      <div class="satellite text">12pm</div>
+      <div class="satellite text">3pm</div>
+      <div class="satellite text">6pm</div>
+      <div class="satellite text">9pm</div>
+    </div>
+    <div class="orbit-5 shrink-40 from-60">
+      <div class="satellite text">2pm</div>
+      <div class="satellite text">5pm</div>
+      <div class="satellite text">8pm</div>
+      <div class="satellite text">11am</div>
+    </div>
+    <div class="orbit-5 shrink-80 from-30">
+      <div class="satellite text">1pm</div>
+      <div class="satellite text">4pm</div>
+      <div class="satellite text">7pm</div>
+      <div class="satellite text">10am</div>
+    </div>
+  </div>
+</div>
+`
+
+export const chronoVue = `
+{
+  data () {
+    return {
+      ticks: ['from-7',  'from-97', 'from-187', 'from-277'],
+      ticks1: [ 'from-37', 'from-127',  'from-217','from-307'],
+      ticks3: ['from-67', 'from-157', 'from-247', 'from-337']
+    }
+  }
+}
+`
+
+export const cssChrono = `
+o-progress {
+  --o-fill: var(--o-gray-lighter)
+}
+.satellite.point {
+  border: 1.5px solid var(--o-gray-darker); background-color: white;
+}
+.satellite.text {
+  font-size: 10px; color: var(--o-gray-darker);
+  border: none;
+}
+.sector {
+  --o-stroke: var(--o-gray-darker); 
+  --o-gap: -1.5; 
+  --o-stroke-width: 1.5;
+  --o-fill: none;
+}
+.inner-sector {
+  --o-stroke: black; 
+  --o-gap: -1.5; 
+  --o-stroke-width: 1.5;
+}
+.light { --o-fill: var(--o-gray-light); }
+.lighter { --o-fill: var(--o-gray-lighter); }
+.white { --o-fill: var(--o-gray-white); }
+`
+
+<ZumerPlay name={'calendarChronodex'} jsCode={chronoVue} cssCode={cssChrono} htmlCode={calendar2HTML} framework="vue" height={'500px'} />
+
+## Related
+
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/) — for curved sector wedges
+- [`<o-progress>` element reference](/orbit-docs/elements/progress/) — used for the central time-elapsed ring
+- [Use case: fitness and health apps](/orbit-docs/use-cases/fitness-and-health-apps/) — daily activity rings share the same building blocks

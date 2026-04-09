@@ -1,0 +1,58 @@
+---
+title: Fitness and health app UI in CSS — when to use Orbit
+description: Build activity rings, heart-rate gauges and goal-progress indicators for fitness and health apps in pure CSS. When Orbit fits — and when it doesn't.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Fitness and health apps invented the modern visual vocabulary of progress rings — the three concentric circles ("Move, Exercise, Stand") that Apple Watch popularized are now the default way to show daily goal progress in any health-related product. The reason is simple: a ring tells you "how close to done" without any numbers, which is exactly the question you're asking when you glance at your wrist.
+
+Orbit gives you that vocabulary as plain HTML. Stacked progress rings, heart-rate gauges, sleep cycle dials, and step-count satellites are all built from the same handful of primitives, so a single design system can express an entire fitness UI without a chart library.
+
+## When Orbit fits a fitness UI
+
+- **You're building activity-ring goal displays** — daily steps, calories, exercise minutes, hydration, sleep hours.
+- **You need a heart-rate or VO₂ gauge** that updates live during a workout from a BLE sensor.
+- **You're building a workout summary screen** with multiple radial KPIs (distance, pace, average heart rate, calories).
+- **You need accessible health components.** Because Orbit components are real DOM elements, you can wire them to ARIA `role="meter"` and `aria-valuenow` so screen readers announce them properly.
+- **You want to ship a web/PWA version** of a fitness app without doubling the bundle size for charts.
+
+## When Orbit is the wrong tool
+
+- **You're plotting a multi-day trend chart** of weight, sleep, or HRV. Use a real charting library for time series.
+- **You're rendering a workout heatmap or route map.** That's a different visualization category — Leaflet, Mapbox, or a heatmap library.
+
+## Building blocks for fitness apps
+
+<CardGrid>
+  <LinkCard
+    title="Stacked progress rings"
+    href="/orbit-docs/examples/progress/stacked-circular-progress-bars/"
+    description="The Apple Watch-style three-ring goal display — concentric progress arcs, themeable per metric."
+  />
+  <LinkCard
+    title="Gauges"
+    href="/orbit-docs/examples/gauges/"
+    description="Heart rate, pace, VO₂ — anything that's a 'where am I on this scale right now?' display."
+  />
+  <LinkCard
+    title="Watch faces"
+    href="/orbit-docs/examples/watches/"
+    description="If your fitness app has a watch face mode (Wear OS, Tizen, watchOS), the watch examples are a head start."
+  />
+  <LinkCard
+    title="Smartwatch face with complications"
+    href="/orbit-docs/examples/watches/smartwatch-face/"
+    description="The most fitness-watch-like example — sub-dials for steps and heart rate, calendar complication, live time."
+  />
+</CardGrid>
+
+## A typical Orbit fitness screen
+
+A daily activity summary built with Orbit might be: three stacked progress rings filling the top of the screen for Move/Exercise/Stand goals, a heart-rate gauge below them, and a row of small sub-dials for hydration, sleep, and steps. Each ring is a `<o-progress>` element on its own orbit; updating a value is one `setProperty` call from your sensor sync logic. Live data from HealthKit, Health Connect, or a wearable's API drops straight in.
+
+## Related
+
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/) — the parent category — fitness UIs are a specialized dashboard
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/) — for the BLE-sensor side of a fitness app
+- [Examples index](/orbit-docs/examples/) — the full library

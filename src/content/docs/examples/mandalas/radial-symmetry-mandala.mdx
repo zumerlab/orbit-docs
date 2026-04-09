@@ -1,0 +1,97 @@
+---
+title: CSS radial symmetry mandala — 8-fold pattern
+description: Build an 8-fold radial mandala with concentric satellite rings and triangular sides in pure HTML and CSS. Decorative pattern, no SVG required.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+An 8-fold radial mandala is the visual you reach for when you need a decorative geometric pattern with rotational symmetry — backgrounds for hero sections, login screens for meditation apps, decorative dividers between content blocks. The "8-fold" part means the pattern repeats eight times around the center, which is a strong enough symmetry to feel intentional but loose enough to avoid the rigidity of a grid.
+
+This example places eight outer satellites with triangular `side` elements, eight middle satellites with stacked concentric circles, and eight inner satellites with progressively smaller circles around a center stack. The result is a pattern that reads as a single coherent design even though it's composed of three independent rings.
+
+export const mandala4HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 from-22">
+      <div class="satellite inner-orbit spin-lock" v-for="n in 8">
+        <div class="gravity-spot">
+          <div class="orbit-2">
+            <div class="side"></div>
+            <div class="side"></div>
+            <div class="side"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-4">
+      <div class="satellite inner-orbit"  v-for="n in 8">
+        <div class="gravity-spot">
+          <div class="orbit-0">
+            <div class="satellite at-center spin-lock grow-1.6x"></div>
+            <div class="satellite at-center spin-lock grow-1.1x"></div>
+            <div class="satellite at-center spin-lock grow-0.6x"></div>
+            <div class="satellite at-center spin-lock "></div>
+            <div class="satellite at-center spin-lock shrink-50"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-2">
+      <div class="satellite inner-orbit"  v-for="n in 8">
+        <div class="gravity-spot">
+          <div class="orbit-0">
+            <div class="satellite at-center spin-lock grow-0.3x"></div>
+            <div class="satellite at-center spin-lock "></div>
+            <div class="satellite at-center spin-lock shrink-30"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center grow-0.9x"></div>
+      <div class="satellite at-center grow-0.6x"></div>
+      <div class="satellite at-center grow-0.3x"></div>
+      <div class="satellite at-center "></div>
+      <div class="satellite at-center shrink-30"></div>
+    </div>
+  </div>
+</div>`
+
+<ZumerPlay name={'mandalaRadial'} htmlCode={mandala4HTML} cssCode={`.satellite {background: white}`} framework="vue" height={'300px'} />
+
+## How it works
+
+- **`v-for="n in 8"`** is what creates the 8-fold symmetry. Eight identical satellites on the same orbit are auto-distributed at 45° intervals by Orbit, so you don't need to set angles manually. In a vanilla project, write the satellite markup eight times.
+- **Three concentric rings of nested gravity-spots** layer the pattern. The outermost ring (`orbit-4 from-22`) has triangular `side` elements pointing outward. The middle ring has stacked concentric circles at five sizes. The innermost ring (`orbit-2`) has three-circle stacks. Each ring contributes a different visual frequency — the brain reads them as harmonizing because they're all 8-fold.
+- **`from-22`** rotates the outer ring by 22.5° relative to the others, offsetting it so the triangular points sit between the circles of the middle ring instead of on top of them. Without this offset, the pattern would feel cramped.
+- **Center stack at `orbit-0`** with five concentric `at-center` satellites at decreasing sizes (`grow-0.9x`, `grow-0.6x`, ..., `shrink-30`) creates a focal point that anchors the eye and gives the whole pattern a "destination" at the center.
+
+## Customization
+
+**Color the rings by depth** for a gradient effect:
+
+```css
+.orbit-4 .satellite { background: var(--o-purple-light); }
+.orbit-2 .satellite { background: var(--o-purple); }
+.orbit-0 .satellite { background: var(--o-purple-dark); }
+```
+
+**Use it as a background** by setting `position: absolute; opacity: 0.1` and placing it behind a content section.
+
+**Switch to 6-fold symmetry** by changing `v-for="n in 8"` to `v-for="n in 6"` in all three rings — Orbit redistributes everything automatically.
+
+**Animate one ring independently** by adding a CSS rotation to just one orbit:
+
+```css
+.orbit-4 { animation: spin 30s linear infinite; }
+```
+
+## Related
+
+- [Geometric square mandala](/orbit-docs/examples/mandalas/geometric-square-mandala/) — square-based variant
+- [Mandala patterns hub](/orbit-docs/examples/mandalas/) — overview and simpler starter patterns
+- [`side` element reference](/orbit-docs/elements/side/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above gives you the entire pattern.

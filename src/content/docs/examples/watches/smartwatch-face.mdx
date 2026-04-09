@@ -1,0 +1,151 @@
+---
+title: CSS smartwatch face with complications — Orbit example
+description: A live smartwatch face with curved alarm/digital text, date complication and three sub-dials. Pure HTML and CSS — Orbit handles the hand rotation.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+This is what a fully-loaded watch face looks like in Orbit: a main analog clock with hour ticks and labels, three sub-dials with their own micro tick rings and hour markers, a date complication with a sliding three-day window, two pieces of curved text (an alarm reminder and a live digital readout), and a day-of-week label. The hands are PNG images that rotate based on the current time, updated every second from JavaScript.
+
+This example is based on a real smartwatch face design. It's the most complex demo in the Orbit example collection, and it shows what's possible when you commit to building an entire complication-rich watch face out of regular DOM elements instead of SVG.
+
+export const watchHTML = ` 
+<div class="bigbang w4">
+<div class="gravity-spot clock-frame">
+  <div class="orbit-11 from-270 range-180">
+    <o-arc class="demo-curved" >ALARM 7:00AM</o-arc>
+    <o-arc class="demo-curved digital-clock"></o-arc>
+  </div>
+  <div class="orbit-11 from-160 range-40 ">
+    <o-arc flip class="demo-curved">500 • 30 • 12</o-arc>
+  </div>
+  <div class="calendar orbit-12 shrink-80 from-215 range-30">
+    <o-arc flip class="gap-3 rounded previous grow-0.2x">22</o-arc>
+    <o-arc flip class="current gap-3 rounded grow-0.2x">23</o-arc>
+    <o-arc flip class="gap-3 rounded next grow-0.2x">24</o-arc>
+  </div>
+  <div class="orbit-12 from-223 range-15">
+    <o-arc flip class="outer-orbit day-name"></o-arc>
+  </div>
+  <div class="orbit-10 white-smoke-spot">
+    <div class="vector inner-orbit big-needle" v-for="n in 12"></div>
+  </div>
+  <div class="orbit-10">
+    <div class="vector shrink-50 inner-orbit medium" v-for="n in 60"></div>
+  </div>
+  <div class="orbit-10 from-3">
+    <div class="vector shrink-70 inner-orbit medium" v-for="n in 60"></div>
+  </div>
+  <div class="orbit-8">
+    <div class="satellite hours">12</div>
+    <div class="satellite hours" v-for="n in 11">{{n}}</div>
+  </div>
+  <div class="orbit-7 black-spot"></div>
+  <div class="orbit-4">
+    <div class="satellite grow-5x transparent">
+      <div class="capsule brand">ORBIT</div>
+    </div>
+    <div class="small-clock satellite transparent" v-for="n in 3">
+      <!-- sub-dial: see full source for details -->
+    </div>
+  </div>
+  <div class="orbit-0 clock">
+    <div class="vector outer-orbit minute xm">
+      <img src="/orbit-docs/images/minutes.png" width="132">
+    </div>
+    <div class="vector outer-orbit hour xh">
+      <img src="/orbit-docs/images/hours.png" width="78"> 
+    </div>
+    <div class="satellite at-center center"></div>
+  </div>
+</div>
+</div>`;
+
+export const watchCSS = `
+.w4 {
+  .gravity-spot { --o-force: 320px; }
+  .clock-frame { color: slategray; }
+  .black-spot { background-color: black; }
+  .white-smoke-spot {
+    background-color: rgb(232, 226, 218);
+    border: 1px inset #0000002b;
+    outline: 2px solid rgb(232 226 218)
+  }
+  .brand { color: rgb(229,229,229); }
+  .hours { background-color: transparent; border: none; font-weight: 700 !important; }
+  .big-needle { height: 3px; border-radius: 2px; }
+  .transparent { background-color: transparent; border-color: transparent }
+  .clock>.center { border: 3px solid rgb(232, 226, 218); background-color: black; }
+  .hour, .minute { filter: drop-shadow(4px 4px 5px black) }
+  .demo-curved { font-size: 15px; font-weight: bold; --o-fill: none }
+  .calendar { font-size: 15px; font-weight: bold; }
+  .day-name { font-size: 15px; text-transform: uppercase; font-weight: bold; color: white } 
+  .previous, .next { --o-fill: rgb(57,57,57); color: rgb(163,163,163); }
+  .current { color: black; }
+}
+`;
+
+export const watchJS = `
+function analogWatch() {
+  const now = new Date();
+  const hour = now.getHours();
+  const minute = now.getMinutes();
+  const second = now.getSeconds();
+  const today = now.getDate();
+  const pastDate = new Date(); pastDate.setDate(today - 1);
+  const futureDate = new Date(); futureDate.setDate(today + 1);
+  const dayName = now.toLocaleString('en', { weekday: 'short' }).slice(0, 3);
+
+  // Compute hand angles (degrees from 12 o'clock position)
+  const hourAngle = (hour % 12) * 30 + minute / 2;
+  const minuteAngle = minute * 6;
+  const secondAngle = second * 6;
+
+  document.querySelector('.w4 .xh').style.setProperty('--o-angle-composite', hourAngle - 90 + 'deg');
+  document.querySelector('.w4 .xm').style.setProperty('--o-angle-composite', minuteAngle - 90 + 'deg');
+
+  // Update digital readout once per minute
+  if (second === 0 || !document.querySelector('.w4 .digital-clock').innerHTML) {
+    document.querySelector('.w4 .digital-clock').innerHTML = hour + ':' + minute;
+    document.querySelector('.w4 .calendar .current').innerHTML = today;
+    document.querySelector('.w4 .calendar .previous').innerHTML = pastDate.getDate();
+    document.querySelector('.w4 .calendar .next').innerHTML = futureDate.getDate();
+    document.querySelector('.w4 .day-name').innerHTML = dayName;
+  }
+}
+setInterval(analogWatch, 1000);
+`;
+
+<ZumerPlay name={'watchSmart'} htmlCode={watchHTML} cssCode={watchCSS} jsCode={watchJS} height={'500px'} />
+
+## How it works
+
+- **`<o-arc>` for curved text** is what makes the alarm message and digital clock readout follow the bezel curve. Curving text in CSS is famously hard — Orbit's `<o-arc>` element does it natively because the arc is a real DOM element with its own writing path.
+- **Date complication uses three arcs** (`previous`, `current`, `next`) on `orbit-12` constrained to a 30° range with `from-215`. As days pass, the `current` arc text updates and the surrounding two slide visually with it.
+- **Hands as PNG images** instead of plain `vector` divs lets you draw ornate hand shapes (textured, beveled, with shadows) that would be tedious to do in pure CSS. They're still rotated by Orbit — the `--o-angle-composite` CSS variable on the parent `vector` rotates the entire image.
+- **`setProperty('--o-angle-composite', ...)`** is the API for live rotation. Setting a CSS variable on the element triggers a re-paint without any layout thrash, which is why this watch can update at 1Hz without noticeable jank.
+
+## Customization
+
+**Replace the alarm text with weather:**
+
+```js
+document.querySelector('.w4 o-arc.demo-curved').innerHTML = '72°F SUNNY';
+```
+
+**Make the digital readout 24-hour** by removing the `% 12` in the hour calculation.
+
+**Add a step counter** by replacing the "500 • 30 • 12" curved text with a live value from a fitness API.
+
+## Related
+
+- [Minimalist analog clock](/orbit-docs/examples/watches/minimalist-analog-clock/) — base variant without complications
+- [Chronograph watch face](/orbit-docs/examples/watches/chronograph-watch-face/) — sub-dial composition reference
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: fitness and health apps](/orbit-docs/use-cases/fitness-and-health-apps/)
+
+**Credits:** This example is inspired by [Amazfitwatchfaces](https://amazfitwatchfaces.com/gts/view/5067).
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) — note this example references `/orbit-docs/images/minutes.png` and `/orbit-docs/images/hours.png` for the hand graphics. Replace them with your own 132×132 and 78×78 PNGs.

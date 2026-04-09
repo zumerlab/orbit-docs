@@ -1,0 +1,90 @@
+---
+title: Circular progress bar with handle — CSS slider example
+description: A circular progress bar with a draggable-style handle at its tip in pure HTML and CSS. Built for radial sliders and interactive range inputs.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A progress bar with a handle is really a circular slider in disguise. The fill shows the current value; the handle suggests the user can grab it and turn it. Even when the control is read-only, the handle does useful work — it's a sharp endpoint that draws the eye to the exact value the bar is currently at, instead of leaving you to guess where the colored fill ends.
+
+This example places an `<o-progress>` arc and a satellite handle on the same orbit. The handle's angle (`angle-225`) lines up with the end of the 60% fill. To make this interactive, you'd compute the angle from the value and update both at once.
+
+export const progress3HTML = `<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 ">
+      <o-progress value="60" shape="circle" class="shrink-50"></o-progress>
+      <div class="satellite angle-225 handle"></div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="capsule">60</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const progress3CSS = `
+.satellite{
+  border-color: transparent;
+  font-size: 30px; 
+  font-weight: bold; 
+  color: var(--o-cyan-darker)
+}
+o-progress {
+  --o-back-fill: var(--o-cyan-darker); 
+  --o-fill: var(--o-cyan)
+}
+.handle {
+  background: var(--o-cyan);
+}`
+
+<ZumerPlay name={'progressHandle'} htmlCode={progress3HTML} cssCode={progress3CSS} height={'300px'} />
+
+## How it works
+
+- **`<o-progress>` and the handle satellite share the same parent orbit** (`orbit-4`). That's what keeps them visually aligned: when the orbit's radius changes, both move together without you doing math.
+- **`shrink-50` on the progress** thins the ring relative to the parent orbit, leaving room for the handle to sit on the centerline of the ring instead of jutting out.
+- **`angle-225`** points the handle to roughly the 7 o'clock position — that's where 60% of a full circle starting from 0° (the 3 o'clock position) lands. The math: `angle = (value / 100) * 360`, but since `<o-progress>` defaults to starting at 12 o'clock (which is angle `-90` in standard coordinates), you'll need to subtract 90° in your computation.
+- **The handle is a satellite with no border** and a solid background — that's all that's needed to make a circular puck. Add a `box-shadow` to give it depth, or wrap it in a `capsule` for a pill shape.
+
+## Customization
+
+**Make it interactive** with a pointer event listener:
+
+```js
+const orbit = document.querySelector('.orbit-4');
+const handle = document.querySelector('.handle');
+const progress = document.querySelector('o-progress');
+
+orbit.addEventListener('pointermove', (e) => {
+  if (e.buttons !== 1) return;
+  const rect = orbit.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const angle = Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI;
+  const normalized = (angle + 90 + 360) % 360;
+  const value = Math.round((normalized / 360) * 100);
+  handle.className = 'satellite handle angle-' + Math.round(normalized);
+  progress.setAttribute('value', value);
+});
+```
+
+**Make the handle visually grabbable** by adding a ring:
+
+```css
+.handle {
+  background: var(--o-cyan);
+  box-shadow: 0 0 0 3px white, 0 0 0 4px var(--o-cyan-darker);
+}
+```
+
+## Related
+
+- [Solid progress with background](/orbit-docs/examples/progress/circular-progress-with-background/)
+- [Knob with progress bar](/orbit-docs/examples/knobs/knob-with-progress-bar/) — uses a similar handle pattern
+- [`satellite` element reference](/orbit-docs/elements/satellite/)
+- [Use case: audio app UI](/orbit-docs/use-cases/audio-app-ui/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above.

@@ -1,0 +1,87 @@
+---
+title: Dashed circular progress bar in CSS — Orbit example
+description: A segmented dashed circular progress bar in pure HTML and CSS. Ten color-fading dashes around a center value. No SVG, no JavaScript.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A dashed circular progress bar is what you reach for when "progress" is really a count of completed steps, not a continuous percentage. Each dash represents one unit, and the visual gap between them tells the user "this is discrete" — the same way a stepper input feels different from a slider. Onboarding flows, quiz progress, multi-day streaks all benefit from this treatment.
+
+This example builds the bar from ten `<o-arc>` segments, three at full opacity, three lighter, and three lighter still — giving the impression of a fade-out toward the unfilled end. The gap between dashes comes for free from the `gap-10` class.
+
+export const progress1HTML = `<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 ">
+      <o-arc class="gap-10"></o-arc>
+      <o-arc class="gap-10"></o-arc>
+      <o-arc class="gap-10"></o-arc>
+      <o-arc class="gap-10"></o-arc>
+      <o-arc class="gap-10 light"></o-arc>
+      <o-arc class="gap-10 light"></o-arc>
+      <o-arc class="gap-10 light"></o-arc>
+      <o-arc class="gap-10 lighter"></o-arc>
+      <o-arc class="gap-10 lighter"></o-arc>
+      <o-arc class="gap-10 lighter"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="capsule">60</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const progress1CSS = `
+.satellite{
+  border-color: transparent;
+  font-size: 30px; 
+  font-weight: bold; 
+  color: var(--o-blue-darker)
+}
+o-arc { --o-fill: var(--o-blue) !important }
+.light { --o-fill: var(--o-blue-light) !important }
+.lighter { --o-fill: var(--o-blue-lighter) !important }
+`
+
+<ZumerPlay name={'progressDashed'} htmlCode={progress1HTML} cssCode={progress1CSS} height={'300px'} />
+
+## How it works
+
+- **`gap-10` on every arc** is what creates the visible separation between segments. Without it, the ten arcs would touch and look like a single ring with color stops.
+- **Three opacity tiers** (`<o-arc>` plain, `.light`, `.lighter`) simulate a fade-out using three CSS variables — `--o-blue`, `--o-blue-light`, and `--o-blue-lighter` — that ship with Orbit's color palette. To represent a different completion percentage, change how many arcs of each tier you use.
+- **The center label** is a `satellite` at `orbit-0` (center) wrapped in a `capsule` so the text sits flat regardless of the surrounding rotation. The `border-color: transparent` keeps the satellite invisible while letting the number show.
+- **No JavaScript** is needed for static states. To make the bar respond to a value, swap arc classes via JS: each arc represents 10%, so `value=70` means the first 7 arcs are `--o-blue` and the rest are `--o-blue-lighter`.
+
+## Customization
+
+**Make it represent steps instead of percent:**
+
+```html
+<o-arc class="gap-10"></o-arc> <!-- step 1 done -->
+<o-arc class="gap-10"></o-arc> <!-- step 2 done -->
+<o-arc class="gap-10 lighter"></o-arc> <!-- step 3 pending -->
+<!-- ... -->
+```
+
+**Use a different color theme** by replacing `--o-blue` with any other Orbit palette variable (`--o-green`, `--o-purple`, `--o-orange`).
+
+**Add an outer label ring** by stacking another orbit with text satellites:
+
+```html
+<div class="orbit-5">
+  <div class="satellite">Day 1</div>
+  <div class="satellite">Day 2</div>
+  ...
+</div>
+```
+
+## Related
+
+- [Solid progress with background](/orbit-docs/examples/progress/circular-progress-with-background/)
+- [Progress with handle](/orbit-docs/examples/progress/circular-progress-with-handle/)
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: fitness and health apps](/orbit-docs/use-cases/fitness-and-health-apps/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above.

@@ -1,0 +1,58 @@
+---
+title: Sci-fi game UI in CSS — when to use Orbit
+description: Build sci-fi HUDs, holographic overlays and sacred-geometry game UIs with Orbit CSS — radial gauges, mandala backgrounds, curved text, no SVG required.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Sci-fi UIs — the kind you see in Mass Effect menus, Destiny weapon screens, Halo HUDs, or any cyberpunk-themed indie game — lean hard on radial geometry. Concentric rings, rotating outer dials, sacred-geometry mandala backgrounds, curved labels following a bezel, scrolling glyphs around a center point. The aesthetic reads as "advanced technology" because it's the visual opposite of the rectangular grid that ordinary apps use.
+
+Building this with SVG and an animation library works, but it's a lot of XML and a lot of imperative tweens. Orbit gives you the same primitives — rings, satellites, curved text, sub-dials, mandala layers — as plain HTML and CSS. The animations are CSS keyframes, so they're GPU-composited and don't compete with the game's render loop.
+
+## When Orbit fits a game UI
+
+- **You're building a web-based game** (HTML5, Phaser, Pixi, Three.js with a DOM overlay) and need an in-game HUD or menu system.
+- **You're prototyping a console/PC game UI in HTML** before moving it into Unity UI Toolkit, Unreal UMG, or Godot — Orbit's primitives map cleanly to those engines' radial widgets.
+- **You're building marketing pages** for a sci-fi game and want the website to use the same visual language as the game.
+- **You need decorative geometric backgrounds** — sacred-geometry mandala patterns, rotating bezels, glitching outer rings — that don't have to be pixel-perfect because they're behind content.
+
+## When Orbit is the wrong tool
+
+- **You're building the game's main render surface.** Orbit is for HUDs and menus, not for rendering 3D scenes or sprite-rich gameplay.
+- **You need pixel-art aesthetics.** Orbit's strength is smooth vector geometry. Pixel-art games need a dedicated pipeline.
+
+## Building blocks for game UIs
+
+<CardGrid>
+  <LinkCard
+    title="Mandala patterns"
+    href="/orbit-docs/examples/mandalas/"
+    description="Geometric and radial-symmetry mandalas — perfect for menu backgrounds, summoning circles, faction emblems."
+  />
+  <LinkCard
+    title="Watch faces"
+    href="/orbit-docs/examples/watches/"
+    description="The chronograph and smartwatch examples are a one-step transform away from a sci-fi mission timer."
+  />
+  <LinkCard
+    title="Gauges"
+    href="/orbit-docs/examples/gauges/"
+    description="Shield strength, ammo, fuel, energy — every cockpit needs a few of these."
+  />
+  <LinkCard
+    title="Knobs"
+    href="/orbit-docs/examples/knobs/"
+    description="Tuning dials for a hacking minigame, frequency selectors for a comms panel, weapon-mode selectors."
+  />
+</CardGrid>
+
+## A typical Orbit game HUD
+
+A spaceship cockpit overlay built with Orbit might be: a slowly rotating mandala background at 5% opacity, a 240° gauge for shields in the upper left, a 240° gauge for hull integrity in the upper right, a chronograph-style sub-dial cluster in the lower center for weapon cooldowns, and an `<o-arc>` curved text label around the bezel showing the current target's name. Animations are CSS — `@keyframes spin` on the outer ring, `transition` on `--o-progress` for damage flashes — so they cost zero JavaScript per frame.
+
+## Related
+
+- [Use case: audio app UI](/orbit-docs/use-cases/audio-app-ui/) — synth-style knobs translate directly to weapon-tuning UIs
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/) — cockpit gauges and IoT gauges share a vocabulary
+- [Mandala patterns hub](/orbit-docs/examples/mandalas/) — the decorative geometry layer
+- [Examples index](/orbit-docs/examples/) — the full library

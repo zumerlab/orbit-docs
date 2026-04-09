@@ -1,0 +1,46 @@
+---
+title: CSS gauges built with Orbit
+description: Browse Orbit CSS gauge examples — 180° gauges, 240° gauges, fuel gauges and more. Pure HTML and CSS, no SVG, no JavaScript needed.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+A gauge is one of the clearest tests of a radial UI framework: it asks you to draw an arc, place tick marks on it, attach labels, and rotate a needle — all things that traditionally pull you toward SVG or canvas. With Orbit, every part of a gauge is a regular HTML element styled by CSS, which means you can theme it, animate it, and inspect it like the rest of your page.
+
+These three examples cover the most common gauge layouts. Pick the one closest to what you need and adapt it — the markup is short enough to read end-to-end in a minute.
+
+## Examples
+
+<CardGrid>
+  <LinkCard
+    title="180° gauge"
+    href="/orbit-docs/examples/gauges/180-degree-gauge/"
+    description="A classic half-circle dashboard gauge with 5 colored zones and a needle. Best for ratings, scores, and pass/fail indicators."
+  />
+  <LinkCard
+    title="240° gauge"
+    href="/orbit-docs/examples/gauges/240-degree-gauge/"
+    description="A wider three-quarter-circle gauge with numbered tick marks. Best for speedometers, RPM meters, and pressure gauges."
+  />
+  <LinkCard
+    title="Fuel gauge"
+    href="/orbit-docs/examples/gauges/fuel-gauge/"
+    description="A compact 90° fuel gauge with E/F labels and warning ticks on a dark background. Built for car dashboards and instrument panels."
+  />
+</CardGrid>
+
+## Which one should I pick?
+
+| Use case | Recommended | Why |
+| --- | --- | --- |
+| Score / rating display | 180° gauge | Half-circle is the conventional shape readers expect for ratings |
+| Speedometer / RPM | 240° gauge | Wider arc fits more tick marks for granular reading |
+| Compact instrument | Fuel gauge | 90° footprint fits inside a tight dashboard cluster |
+
+All three examples use the `<o-arc>` element for the colored bands and a `vector` for the needle. If you want to understand the underlying primitives first, see the [`<o-arc>` element docs](/orbit-docs/elements/arc/).
+
+## Related
+
+- [Knobs](/orbit-docs/examples/knobs/) — gauges with interactive controls
+- [Circular progress bars](/orbit-docs/examples/progress/) — when you need a number, not a needle
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/) — putting gauges into a real layout

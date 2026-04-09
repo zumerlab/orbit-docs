@@ -1,9 +1,13 @@
 ---
-title: Chemical structure
-
+title: CSS chemical structure diagram — caffeine molecule example
+description: Render a caffeine molecule (purine ring system, methyl groups, double bonds) as a CSS diagram. Pure HTML and CSS — no chemistry library or SVG.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
+
+Chemical structure diagrams are normally drawn with specialised libraries like RDKit or rendered as SVG from SMILES strings. Orbit lets you build them out of plain HTML — useful for chemistry education sites, lab notebook UIs, or any product that needs an editable, themeable molecule diagram without pulling in a 200KB rendering library.
+
+This example draws a caffeine molecule. Caffeine is two fused rings (a six-membered pyrimidinone and a five-membered imidazole) with three methyl groups and two carbonyl oxygens. The trick is treating each ring as a `gravity-spot` with a `side` element on each bond and a `satellite` element on each atom — the polygon geometry is then a matter of choosing the right orbit and angle.
 
 export const chemical1HTML = `
 <div class="bigbang">
@@ -90,17 +94,42 @@ export const chemical1CSS = `
 .transparent {
   background: transparent
 }
-
 `
 
-## Caffeine 
+<ZumerPlay name={'chemicalCaffeine'} htmlCode={chemical1HTML} cssCode={chemical1CSS} height={'300px'} />
 
-<ZumerPlay name={'chemical1'}   htmlCode={chemical1HTML}  cssCode={chemical1CSS} height={'300px'} />
+## How it works
 
+- **Each ring is a `gravity-spot`** with `side` elements distributed around an orbit. Six `side` elements on `orbit-2` = a hexagon (the pyrimidinone). Five `side` elements on a smaller orbit = a pentagon (the imidazole).
+- **`vector` elements with `grow-0.7x`** draw the double bonds — they sit on the same orbit as the ring sides but are positioned at specific `angle-X` values inside the ring, parallel to the bond they double.
+- **`satellite` elements at specific angles** label the nitrogen atoms (`angle-180`, `angle-300`). Methyl groups (`H<sub>3</sub>C`, `CH<sub>3</sub>`) ride on a wider `orbit-4` so they sit just outside the ring.
+- **The two rings are joined** by nesting the second ring inside a `satellite` of the first ring's outer orbit, at `angle-90`. This is how Orbit handles "ring fusion" — every nested level gets its own coordinate system.
+- **`range-180 ccw fit-range`** on the methyl/carbonyl orbit constrains those four substituents to a 180° arc on one side of the molecule, distributed counterclockwise so the labels read in the correct order.
 
+## Customization
+
+**Color the atoms** the way ChemDraw does — black for carbon, blue for nitrogen, red for oxygen:
+
+```css
+.satellite { color: black; }
+.satellite:has(> *:contains("N")) { color: #3050d8; }
+.satellite:has(> *:contains("O")) { color: #d83030; }
+```
+
+**Render a different molecule** by changing the ring sizes (number of `side` elements) and the substituent angles. The same building blocks draw benzene, pyridine, furan, and most other small heterocycles.
+
+**Make it interactive** by adding `:hover` states to each atom — useful for teaching tools where you want students to mouse over an atom and see its properties.
+
+## Related
+
+- [`side` element reference](/orbit-docs/elements/side/) — for ring bonds
+- [`satellite` element reference](/orbit-docs/elements/satellite/) — for atoms and substituents
+- [Geometric square mandala](/orbit-docs/examples/mandalas/geometric-square-mandala/) — uses the same nesting trick to compose ring-on-ring layouts
 
 ## Show & Tell
 
-Join to our [Github Discussion](https://github.com/zumerlab/orbit/discussions/15)  and show off what have you done with Orbit.
+Join our [GitHub Discussion](https://github.com/zumerlab/orbit/discussions/15) and show off what you've built with Orbit.
 
+## Use this in your project
 
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is your full caffeine diagram.

@@ -1,0 +1,80 @@
+---
+title: CSS LED knob — stepped control with light indicators
+description: Build a rotary knob with eleven LED step indicators in pure HTML and CSS. Two-tone metallic body, glowing LEDs, no SVG or JS framework needed.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+When a control has discrete steps — think gain stages, eq presets, or mode selectors — a knob with LEDs is more honest than a knob with a continuous arc. Each LED corresponds to one position. The lit ones tell you where you are; the unlit ones tell you how far you can still go. It's the kind of control you find on a guitar amp or a hardware EQ unit.
+
+This example builds a two-tone metallic knob with a directional indicator vector and eleven LEDs around the rim. Five are lit, six are dark — a snapshot of a control set just below halfway.
+
+import knobcss from '/src/assets/knob.css?raw';
+
+export const knob2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 shrink-90 gradient-1"></div>
+    <div class="orbit-3 shrink-60 gradient-2"></div>
+    <div class="orbit-3 shrink-30">
+      <div class="vector shrink-60 angle-332 indicator"></div>
+    </div>
+    <div class="orbit-4 shrink-60 from-215 range-290 fit-range">
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-on"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+      <div class="satellite shrink-60 outer-orbit led-off"></div>
+    </div>
+  </div>
+</div>`
+
+<ZumerPlay name={'knobLed'} htmlCode={knob2HTML} cssCode={knobcss} height={'300px'} />
+
+## How it works
+
+- **Two stacked metallic disks** (`gradient-1` and `gradient-2`) create the depth. The outer disk has an inset shadow to look like a metal collar; the inner disk has a top-down highlight to look like a brushed face. Both are just `linear-gradient` backgrounds.
+- **The pointing indicator** is a `vector` rotated to `angle-332` (pointing roughly to the 5th LED). To make the knob respond to a value, change this angle dynamically: `angle = 215 + (step / totalSteps) * 290`.
+- **Eleven LED satellites** sit on `orbit-4 shrink-60` with the same `from-215 range-290 fit-range` constraint as the indicator's underlying orbit. `fit-range` is what makes them spread evenly across the 290° span instead of bunching at the start.
+- **`.led-on` vs `.led-off`** are pure CSS classes — no JavaScript controls visibility. To animate, just toggle the class on each satellite as the user changes the value.
+
+## Customization
+
+**Make the knob interactive** by attaching a click handler that updates how many `.led-on` classes are present:
+
+```js
+function setKnobLevel(level) {
+  document.querySelectorAll('.satellite[class*="led-"]').forEach((el, i) => {
+    el.className = el.className.replace(/led-(on|off)/, i < level ? 'led-on' : 'led-off');
+  });
+  document.querySelector('.indicator').className =
+    'vector shrink-60 indicator angle-' + Math.round(215 + (level / 11) * 290);
+}
+```
+
+**Change the LED color** to red for a "danger zone" knob:
+
+```css
+.led-on {
+  background: radial-gradient(circle, white 4%, var(--o-red) 28%, black 82%);
+}
+```
+
+**Reduce to 5 LEDs** for a coarser control by deleting six of the satellite divs.
+
+## Related
+
+- [Knob with progress bar](/orbit-docs/examples/knobs/knob-with-progress-bar/) — continuous-value variant
+- [`satellite` element reference](/orbit-docs/elements/satellite/)
+- [Use case: audio app UI](/orbit-docs/use-cases/audio-app-ui/)
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above.

@@ -1,0 +1,80 @@
+---
+title: Circular progress bar with background — CSS example
+description: A solid CSS circular progress bar with a darker background ring and centered numeric label. Pure HTML and CSS, no SVG, no canvas.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+This is the workhorse circular progress bar — the one you'll use for file uploads, goal completion, "X% of storage used" displays, and basically any situation where you need to show "progress against a known maximum" without dressing it up. The darker background ring is what makes it work: it gives the user a visual sense of the *remaining* portion, not just the completed one.
+
+The example uses a single `<o-progress>` element with `shape="circle"` and a `value` attribute. The background ring color is set via the `--o-back-fill` CSS variable, and the fill color via `--o-fill`. That's the entire styling layer.
+
+export const progress2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 ">
+      <o-progress value="60" shape="circle"></o-progress>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="capsule">60</div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+export const progress2CSS = `
+.satellite{
+  border-color: transparent;
+  font-size: 30px; 
+  font-weight: bold; 
+  color: var(--o-purple-darker)
+}
+o-progress {
+  --o-back-fill: var(--o-purple-darker); 
+  --o-fill: var(--o-purple)
+}`
+
+<ZumerPlay name={'progressBg'} htmlCode={progress2HTML} cssCode={progress2CSS} height={'300px'} />
+
+## How it works
+
+- **`<o-progress value="60" shape="circle">`** does the heavy lifting. The `value` attribute drives the fill, the `shape="circle"` tells it to render as a closed ring (the other option is `shape="arc"` for partial spans), and the styling comes from CSS variables.
+- **`--o-back-fill`** is the unfilled portion of the ring. Setting it to a darker shade of the same hue creates the depth effect — it reads as "progress bar" instead of "decoration".
+- **The center label** is a satellite at `orbit-0` containing a capsule. Capsules force their text to render upright regardless of the satellite's rotation, which matters when you start rotating the parent.
+- **`orbit-4`** sets the ring radius. Smaller orbits (`orbit-2`, `orbit-3`) make the ring tighter; larger ones make it more imposing.
+
+## Customization
+
+**Animate the value with a CSS transition** by setting one on the `<o-progress>` itself — Orbit applies its fill via standard CSS variables, so the transition propagates:
+
+```css
+o-progress {
+  transition: --o-fill 0.4s;
+}
+```
+
+**Make it color-shift based on completion** by toggling a class:
+
+```js
+const pct = value;
+progress.setAttribute('value', pct);
+progress.style.setProperty('--o-fill',
+  pct < 30 ? 'var(--o-red)' :
+  pct < 70 ? 'var(--o-orange)' :
+              'var(--o-green)'
+);
+```
+
+**Use it as a countdown** by binding `value` to `(timeRemaining / totalTime) * 100` and updating it on a timer.
+
+## Related
+
+- [Dashed progress bar](/orbit-docs/examples/progress/dashed-circular-progress-bar/) — segmented variant
+- [Progress with handle](/orbit-docs/examples/progress/circular-progress-with-handle/) — interactive variant
+- [Stacked progress bars](/orbit-docs/examples/progress/stacked-circular-progress-bars/) — multi-metric variant
+- [`<o-progress>` element reference](/orbit-docs/elements/progress/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is the entire component.

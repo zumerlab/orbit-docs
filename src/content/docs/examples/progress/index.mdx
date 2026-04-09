@@ -1,0 +1,51 @@
+---
+title: Circular progress bars built with Orbit CSS
+description: Browse Orbit CSS circular progress bar examples — dashed, solid background, with handle, and stacked variants. Pure HTML and CSS, no SVG required.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+A circular progress bar is the most-requested radial component in any UI library — it's the spinner that becomes a value, the loader that becomes a result, the "you've reached your goal" ring on every fitness app on the planet. Most CSS-only solutions cap out at "draw an SVG circle and animate the stroke-dasharray". Orbit takes a different route: the progress arc is a real DOM element you can theme, label, and stack with anything else.
+
+These four examples cover the most common patterns. All four use the same `<o-progress>` element under the hood — the differences are in styling and composition.
+
+## Examples
+
+<CardGrid>
+  <LinkCard
+    title="Dashed circular progress bar"
+    href="/orbit-docs/examples/progress/dashed-circular-progress-bar/"
+    description="A segmented ring of 10 dashes that fade out as the value increases. Best for progress that should feel discrete and intentional."
+  />
+  <LinkCard
+    title="Circular progress with background"
+    href="/orbit-docs/examples/progress/circular-progress-with-background/"
+    description="A solid filled arc on a darker background ring with a centered numeric label. Best for goal completion and KPI displays."
+  />
+  <LinkCard
+    title="Circular progress with handle"
+    href="/orbit-docs/examples/progress/circular-progress-with-handle/"
+    description="A progress arc with a draggable-looking handle at its tip. Best for sliders, range inputs, and interactive controls."
+  />
+  <LinkCard
+    title="Stacked circular progress bars"
+    href="/orbit-docs/examples/progress/stacked-circular-progress-bars/"
+    description="Three concentric rings on a dark background showing related metrics. Best for fitness, health and dashboard widgets."
+  />
+</CardGrid>
+
+## Which one should I pick?
+
+| Use case | Recommended |
+| --- | --- |
+| File upload / loader | Solid with background |
+| Stepwise progress (X of N) | Dashed |
+| Slider / range input | With handle |
+| Multi-metric dashboard | Stacked |
+
+## Related
+
+- [Gauges](/orbit-docs/examples/gauges/) — when you need a needle instead of a fill
+- [Knobs](/orbit-docs/examples/knobs/) — interactive controls that build on `<o-progress>`
+- [`<o-progress>` element reference](/orbit-docs/elements/progress/)
+- [Use case: fitness and health apps](/orbit-docs/use-cases/fitness-and-health-apps/)

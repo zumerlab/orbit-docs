@@ -1,0 +1,136 @@
+---
+title: CSS chronograph watch face — Orbit example
+description: Build a chronograph watch face with three sub-dials in pure HTML and CSS. Main clock, three complications, brand text, no SVG required.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A chronograph is the watch face where mechanical horology and information design meet: the main dial tells you the time, and three sub-dials track other things — usually elapsed seconds, elapsed minutes, and a 12-hour subcounter. The result is busy in the right way. It says "this watch does work."
+
+This example places the main clock face at the center and three smaller `gravity-spot` sub-clocks inside the main dial, each with its own ring of tick marks and tiny hands. The brand text "ORBIT" sits between them like a real luxury watch logo.
+
+export const watch2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot clock-frame">
+    <div class="orbit-11 ring"></div>
+    <div class="orbit-10">
+      <div class="vector inner-orbit" v-for="n in 12"></div>
+    </div>
+    <div class="orbit-10">
+      <div class="vector shrink-50 inner-orbit " v-for="n in 60"></div>
+    </div>
+    <div class="orbit-8">
+      <div class="satellite">12</div>
+      <div class="satellite" v-for="n in 11">{{n}}</div>
+    </div>
+    <div class="orbit-7"></div>
+    <div class="orbit-4">
+      <div class="satellite grow-5x">
+        <div class="capsule brand">ORBIT</div>
+      </div>
+      <div class="small-clock satellite">
+        <div class="gravity-spot">
+          <div class="orbit-3 shrink-50"></div>
+          <div class=" orbit-2 shrink-20 " >
+            <div class="vector inner-orbit shrink-70" v-for="n in 6"></div>
+          </div>
+          <div class="hours orbit-1">
+            <div class="satellite">30</div>
+            <div class="satellite">05</div>
+            <div class="satellite">10</div>
+            <div class="satellite">15</div>
+            <div class="satellite">20</div>
+            <div class="satellite">25</div>
+          </div>
+          <div class="orbit-0">
+            <div class="vector outer-orbit grow-1x angle-0"></div>
+            <div class="satellite at-center shrink-80"></div>
+          </div>
+        </div>
+      </div>
+      <div class="small-clock satellite">
+        <div class="gravity-spot">
+          <div class="orbit-3 shrink-50"></div>
+          <div class=" orbit-2 shrink-20">
+            <div class="vector inner-orbit shrink-70" v-for="n in 12"></div>
+          </div>
+          <div class="hours orbit-1">
+            <div class="satellite">60</div>
+            <div class="satellite">15</div>
+            <div class="satellite">30</div>
+            <div class="satellite">45</div>
+          </div>
+          <div class="orbit-0">
+            <div class="vector outer-orbit grow-1x"></div>
+            <div class="satellite at-center shrink-80"></div>
+          </div>
+        </div>
+      </div>
+      <div class="small-clock satellite">
+        <div class="gravity-spot">
+          <div class="orbit-3 shrink-50"></div>
+          <div class=" orbit-2 shrink-20 ">
+            <div class="vector inner-orbit shrink-70" v-for="n in 12"></div>
+          </div>
+          <div class="hours orbit-1">
+            <div class="satellite">12</div>
+            <div class="satellite">3</div>
+            <div class="satellite">6</div>
+            <div class="satellite">9</div>
+          </div>
+          <div class="orbit-0">
+            <div class="vector outer-orbit grow-1x angle-0 "></div>
+            <div class="satellite at-center shrink-80"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-0 clock">
+      <div class="vector grow-4x outer-orbit angle-45"></div>
+      <div class="vector grow-3x outer-orbit angle-300"></div>
+      <div class="satellite at-center"></div>
+    </div>
+  </div>
+</div>`
+
+export const watch2CSS = `
+.satellite { border: none }
+.gravity-spot { --o-force: 200px }
+.clock-frame { color: slategray; }
+.ring { border: 2px solid black; }
+.brand { color: slategray; }
+.orbit-3 { border: 1px solid black; }
+.small-clock .hours { font-size: 6px; }
+`
+
+<ZumerPlay name={'watchChrono'} htmlCode={watch2HTML} cssCode={watch2CSS} jsCode={`{ data () { return {} } }`} framework="vue" height={'350px'} />
+
+## How it works
+
+- **Three nested watches inside the main watch.** Each `small-clock` is a complete sub-clock built from its own `gravity-spot` and orbits. Because each one creates a new local origin, the sub-hands rotate around the sub-center, not the watch center.
+- **The three sub-clocks live on `orbit-4`** — they're satellites at the same radius, so Orbit positions them automatically at 0°, 120° and 240° around the dial. No manual angle math.
+- **The brand label** is a fourth satellite on the same `orbit-4`. Its `grow-5x` makes it physically larger so it visually anchors the top of the dial. In a real watch, this is where you'd put your logo or model name.
+- **`--o-force: 200px`** on the gravity-spot sets the base size of the entire watch. Tweaking this is the easiest way to scale the whole composition without re-doing internal proportions.
+
+## Customization
+
+**Make the sub-dials live** by binding each one to a different time source — main hands to current time, sub-clock #1 to elapsed time of a stopwatch, sub-clock #2 to a date complication, sub-clock #3 to a second timezone.
+
+**Restyle as a sport chronograph** with red/yellow accents:
+
+```css
+.small-clock .needle { background: var(--o-red); }
+.brand { color: var(--o-yellow); font-weight: bold; }
+```
+
+**Reduce sub-dial count** by removing one of the three `small-clock` blocks — Orbit will redistribute the remaining two evenly.
+
+## Related
+
+- [Minimalist analog clock](/orbit-docs/examples/watches/minimalist-analog-clock/) — base variant
+- [Smartwatch face](/orbit-docs/examples/watches/smartwatch-face/) — adds curved text and digital complications
+- [`satellite` element reference](/orbit-docs/elements/satellite/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and start from the markup above.

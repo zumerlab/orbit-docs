@@ -1,0 +1,53 @@
+---
+title: CSS watch faces and analog clocks built with Orbit
+description: Browse Orbit CSS watch face examples — minimalist analog, chronograph, Roman numeral, and smartwatch designs. All built in pure HTML and CSS.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+A working analog clock face is one of the toughest CSS-only challenges out there. You need an outer ring, sixty tick marks, twelve hour markers, two or three rotating hands, and ideally one or more sub-dials — and they all have to share a single center and rotate independently. With most CSS approaches, you'd reach for SVG and pile on the JavaScript. With Orbit, every part of a watch face is a regular DOM element on a nested orbit, and the rotation math is handled by the framework.
+
+These four examples cover the styles you'll most often need to build, from a stripped-down analog clock to a feature-loaded smartwatch face.
+
+## Examples
+
+<CardGrid>
+  <LinkCard
+    title="Minimalist analog clock face"
+    href="/orbit-docs/examples/watches/minimalist-analog-clock/"
+    description="A clean analog clock with hour numbers, two layers of tick marks and two hands. The starter project for any clock build."
+  />
+  <LinkCard
+    title="Chronograph watch face"
+    href="/orbit-docs/examples/watches/chronograph-watch-face/"
+    description="A main clock face with three sub-dials for seconds, minutes, and hours. The classic 'racing chronograph' look."
+  />
+  <LinkCard
+    title="Roman numeral clock face"
+    href="/orbit-docs/examples/watches/roman-numeral-clock-face/"
+    description="An elegant analog clock with Roman numerals (XII, I, II...) replacing Arabic numbers. For dressier UIs and luxury branding."
+  />
+  <LinkCard
+    title="Smartwatch face with complications"
+    href="/orbit-docs/examples/watches/smartwatch-face/"
+    description="A feature-rich smartwatch face with curved alarm/digital text, a date complication, three sub-dials and animated hands."
+  />
+</CardGrid>
+
+## Which one should I pick?
+
+| Looking for... | Pick |
+| --- | --- |
+| A starting point for a clock | Minimalist analog |
+| A racing/sport chronograph look | Chronograph |
+| Dressy or formal styling | Roman numeral |
+| A live working watch face with date and alarm | Smartwatch |
+
+All four use the same underlying primitives — `bigbang`, `gravity-spot`, nested orbits, `vector` for tick marks and hands, `satellite` for hour labels. Once you've built one, the others are stylistic variations on the same skeleton.
+
+## Related
+
+- [`vector` element reference](/orbit-docs/elements/vector/)
+- [`satellite` element reference](/orbit-docs/elements/satellite/)
+- [Circular timer](/orbit-docs/examples/circular_time/)
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/)

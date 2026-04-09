@@ -1,0 +1,150 @@
+---
+title: CSS circular year calendar — Orbit example
+description: Build a year-at-a-glance circular calendar with months, days, seasons and a centered year label in pure HTML and CSS. No SVG required.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A circular year calendar shows all twelve months on a single dial — useful as the centerpiece of a personal-planner app, a year-in-review dashboard, or a homepage hero that doubles as a real, glanceable date display. The metaphor is honest: a year is a cycle, and a circle expresses that more naturally than a 12-grid of rectangles.
+
+This example layers four concentric rings (days, months, seasons, and event markers) around a central year label. The day numbers (1–30) ride on the outer ring as `<o-arc>` curved-text elements, the months and seasons sit on inner rings, and `from-X` rotations align each ring so the labels land exactly between the tick marks.
+
+export const calendar1HTML = `
+function useRange(start, end) {
+  return Array.from({ length: end - start + 1 }, (_, index) => start + index);
+}
+
+function App() {
+  const range = useRange(1, 30);
+
+  return (
+    <div className="bigbang">
+      <div className="gravity-spot">
+        <div className="orbit-11 border">
+          {range.map((number) => (
+            <div key={number} className="vector inner-orbit shrink-50"></div>
+          ))}
+        </div>
+        <div className="orbit-10 shrink-20 from-6">
+        {range.map((number) => (
+            <o-arc key={number} className="outer-orbit">{number}</o-arc>
+          ))}
+        </div>
+        <div className="orbit-8 from-355 border"></div>
+        <div className="orbit-7 shrink-70 from-15">
+          <o-arc>Jan</o-arc>
+          <o-arc>Feb</o-arc>
+          <o-arc>Mar</o-arc>
+          <o-arc flip>Apr</o-arc>
+          <o-arc flip>May</o-arc>
+          <o-arc flip>Jun</o-arc>
+          <o-arc flip>Jul</o-arc>
+          <o-arc flip>Aug</o-arc>
+          <o-arc flip>Sep</o-arc>
+          <o-arc>Oct</o-arc>
+          <o-arc>Nov</o-arc>
+          <o-arc>Dic</o-arc>
+        </div>
+        <div className="orbit-8">
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+          <div className="vector shrink-10 inner-orbit"></div>
+        </div>
+        <div className="orbit-5 from-355 border">
+          <div className="vector inner-orbit grow-1x"></div>
+          <div className="vector inner-orbit grow-1x"></div>
+          <div className="vector inner-orbit grow-1x"></div>
+          <div className="vector inner-orbit grow-1x"></div>
+        </div>
+        <div className="orbit-4">
+          <o-arc>Winter</o-arc>
+          <o-arc>Spring</o-arc>
+          <o-arc flip>Summer</o-arc>
+          <o-arc>Autumn</o-arc>
+        </div>
+        <div className="orbit-3  ">
+          <div className="vector outer-orbit grow-2x angle-60 month"></div>
+        </div>
+        <div className="orbit-3 ">
+          <div className="vector outer-orbit grow-3.1x angle-222 day"></div>
+        </div>
+        <div className="orbit-3 border" >
+          <div className="satellite at-center grow-3x transparent">
+            <div className="capsule year" >2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+`
+
+export const calendar1CSS = `
+o-arc {
+--o-fill: none
+}
+.gravity-spot {
+  --o-force: 250px; font-size: 11px;
+}
+.border {
+color: black; background-color: white; filter: drop-shadow(0px 4px 3px gray)
+}
+.year {
+font-weight: bold; font-size: 16px;
+}
+.month, .day {
+height: 5px
+}
+`
+
+<ZumerPlay name={'calendarYear'} cssCode={calendar1CSS} jsCode={calendar1HTML} framework="react" height={'400px'} />
+
+## How it works
+
+- **`useRange(1, 30)` plus `.map`** generates the 30 day-tick `vector` elements and the 30 day-number `<o-arc>` elements without writing them by hand. In a vanilla project, generate them with a server template or a one-off `for` loop.
+- **`<o-arc>` for the month and season labels** is what lets the text follow the curve of its ring. Because each `<o-arc>` is auto-distributed around its parent `orbit-N`, you only need to drop the labels in order — Orbit handles the angles.
+- **`flip` on the bottom-half labels** (Apr–Sep, Summer) keeps them readable. Without `flip`, "Jun" on the bottom of the dial would render upside-down to anyone reading the calendar.
+- **`from-X` ring offsets** (`from-355`, `from-15`, `from-6`) nudge each ring by a few degrees so the day ticks line up with the month boundaries instead of straddling them.
+- **Two `vector` markers** with `angle-60` and `angle-222` highlight the current month and current day. Update them from JavaScript to make the calendar live.
+
+## Customization
+
+**Make it live** by computing the angles from `Date.now()`:
+
+```js
+const now = new Date();
+const monthAngle = now.getMonth() * 30; // 12 months × 30°
+const dayAngle = (now.getDate() - 1) * 12; // ~30 days × 12°
+document.querySelector('.month').style.setProperty('--o-angle-composite', monthAngle + 'deg');
+document.querySelector('.day').style.setProperty('--o-angle-composite', dayAngle + 'deg');
+```
+
+**Color the seasons** to make the dial readable at a glance:
+
+```css
+.orbit-4 o-arc:nth-child(1) { --o-fill: #c8e6f5; } /* Winter */
+.orbit-4 o-arc:nth-child(2) { --o-fill: #d4f5c8; } /* Spring */
+.orbit-4 o-arc:nth-child(3) { --o-fill: #f5e8c8; } /* Summer */
+.orbit-4 o-arc:nth-child(4) { --o-fill: #f5d4c8; } /* Autumn */
+```
+
+**Switch the language** of the month labels — replace "Jan, Feb, Mar..." with the equivalents in your locale. The layout is language-agnostic.
+
+## Related
+
+- [Calendar examples hub](/orbit-docs/examples/calendar/) — including the Chronodex day planner
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Smartwatch face example](/orbit-docs/examples/watches/smartwatch-face/) — uses the same `<o-arc>` text-on-curve pattern
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above gives you the entire calendar dial.

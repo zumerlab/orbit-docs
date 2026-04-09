@@ -1,0 +1,75 @@
+---
+title: CSS pie chart — Orbit example
+description: Build a solid pie chart in pure HTML and CSS with weighted slices. No SVG, no D3, no charting library. Five-slice example, fully copy-paste ready.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A pie chart is what you reach for when the dataset is small (3 to 6 categories), the proportions matter more than the exact values, and there's no need for a center label. The solid wedges give a denser visual than a donut at the same size — useful when you have limited screen real estate and the chart is the focal point of the panel.
+
+This example builds a five-slice pie with the segments grown all the way to the center using `grow-2x`. The values control the slice sizes; Orbit handles the angle math.
+
+export const chart2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+      <div class="orbit-2">
+        <o-arc class="grow-2x gap-0 red" value="10"></o-arc>
+        <o-arc class="grow-2x gap-0 orange" value="35"></o-arc>
+        <o-arc class="grow-2x gap-0 yellow" value="25"></o-arc>
+        <o-arc class="grow-2x gap-0 indigo" value="15"></o-arc>
+        <o-arc class="grow-2x gap-0 green" value="15"></o-arc>
+      </div>
+  </div>
+</div>`
+
+export const chart2CSS = `
+o-arc.red { --o-fill: var(--o-red); }
+o-arc.orange { --o-fill: var(--o-orange); }
+o-arc.yellow { --o-fill: var(--o-yellow); }
+o-arc.indigo { --o-fill: var(--o-indigo); }
+o-arc.green { --o-fill: var(--o-green); }
+`
+
+<ZumerPlay name={'chartPie'} htmlCode={chart2HTML} cssCode={chart2CSS} height={'300px'} />
+
+## How it works
+
+- **`grow-2x`** is what turns this from a donut into a solid pie. Each arc grows inward until it reaches the center, removing the empty middle. Try changing it to `grow-1x` and you'll see it morph back into a donut.
+- **`gap-0`** is essential here — without it, the slices would have visible separators that break the "solid disk" feeling. If you want separators (e.g. to highlight a single slice), put `gap-0` on every arc except the one you want to emphasize.
+- **`<o-arc value="X">`** without explicit angles means Orbit computes the slice sizes automatically based on the relative weights. Five values of 10, 35, 25, 15, 15 sum to 100, so each renders as that exact percentage of the circle.
+- **No labels by default** — pies are usually paired with a separate legend rather than in-slice labels, since slice space is at a premium.
+
+## Customization
+
+**Add an external legend** below the chart with simple HTML:
+
+```html
+<ul class="pie-legend">
+  <li><span class="swatch red"></span> Category A — 10%</li>
+  <li><span class="swatch orange"></span> Category B — 35%</li>
+  <!-- ... -->
+</ul>
+```
+
+**Highlight a single slice** by giving one arc a slightly larger `grow` and a `box-shadow`:
+
+```html
+<o-arc class="grow-2.1x gap-0 orange highlighted" value="35"></o-arc>
+```
+
+```css
+o-arc.highlighted { filter: drop-shadow(0 4px 8px rgba(0,0,0,.3)); }
+```
+
+**Bind to live data** by setting `value` from JavaScript when the dataset changes — Orbit re-normalizes on the next render, so adding or removing slices Just Works.
+
+## Related
+
+- [Donut chart](/orbit-docs/examples/charts/donut-chart/) — center-hole variant
+- [Sunburst chart](/orbit-docs/examples/charts/sunburst-chart/) — hierarchical variant
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is everything you need.

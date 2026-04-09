@@ -1,0 +1,81 @@
+---
+title: CSS fuel gauge example — compact 90° gauge
+description: A pure CSS fuel gauge with E/F labels, warning ticks and a red needle on a black background. HTML and CSS only, no SVG or JavaScript.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A fuel gauge is the most space-constrained gauge in a typical dashboard — it has to fit beside the speedometer without crowding it, but still be readable at a glance from the driver's seat. The traditional design uses about a 90° arc with just two labels (E and F), a row of warning tick marks, and a red needle that wakes you up when it dips below quarter-tank.
+
+This example reproduces that look in pure CSS: the arc is 90° wide, the ticks are alternating red and white `vector` elements, and the dark background sells the "instrument cluster" feel.
+
+export const gauge3HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-4 range-90 from-270 fit-range">
+      <div class="vector inner-orbit shrink-40 red medium"></div>
+      <div class="vector inner-orbit shrink-60 red small"></div>
+      <div class="vector inner-orbit shrink-40 white medium"></div>
+      <div class="vector inner-orbit shrink-60 white small"></div>
+      <div class="vector inner-orbit shrink-40 white medium"></div>
+      <div class="vector inner-orbit shrink-60 white small"></div>
+      <div class="vector inner-orbit shrink-40 white medium"></div>
+      <div class="vector inner-orbit shrink-60 white small"></div>
+      <div class="vector inner-orbit shrink-40 white medium"></div>
+    </div>
+    <div class="orbit-3 shrink-20 range-92 from-269 fit-range">
+      <div class="satellite">E</div>
+      <div class="satellite">
+        <div class="capsule">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 512 512">
+          <path fill="white" d="M32 64C32 28.7 60.7 0 96 0L256 0c35.3 0 64 28.7 64 64l0 192 8 0c48.6 0 88 39.4 88 88l0 32c0 13.3 10.7 24 24 24s24-10.7 24-24l0-154c-27.6-7.1-48-32.2-48-62l0-64L384 64c-8.8-8.8-8.8-23.2 0-32s23.2-8.8 32 0l77.3 77.3c12 12 18.7 28.3 18.7 45.3l0 13.5 0 24 0 32 0 152c0 39.8-32.2 72-72 72s-72-32.2-72-72l0-32c0-22.1-17.9-40-40-40l-8 0 0 144c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32L32 64zM96 80l0 96c0 8.8 7.2 16 16 16l128 0c8.8 0 16-7.2 16-16l0-96c0-8.8-7.2-16-16-16L112 64c-8.8 0-16 7.2-16 16z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="satellite">F</div>
+    </div>
+    <div class="orbit-0">
+      <div class="vector grow-1.7x outer-orbit angle-290 needle"></div>
+    </div>
+    <div class="orbit-1 shrink-50 center"></div>
+  </div>
+</div>`
+
+export const gauge3CSS = `
+.bigbang { background: black }
+.satellite { border: none; color: white }
+.white { background-color: white }
+.red { background-color: red }
+.small { height: 2px; }
+.medium { height: 4px; }
+.center { border: 2px solid white; background-color: black; }
+.needle { height: 5px; background-color: var(--o-red); }
+`
+
+<ZumerPlay name={'gaugeFuel'} htmlCode={gauge3HTML} cssCode={gauge3CSS} height={'300px'} />
+
+## How it works
+
+- **`range-90 from-270 fit-range`** is the key trio. `range-90` constrains the arc to a quarter circle, `from-270` starts it at 9 o'clock, and `fit-range` makes Orbit distribute the children across the full range instead of leaving padding at the ends — important when you only have nine ticks.
+- **Alternating red/white ticks at two heights** are made by alternating `medium` (`height: 4px`) and `small` (`height: 2px`) vectors, with the first one painted red so a glance at the empty side jumps out.
+- **`<satellite>` labels** ride on a slightly larger orbit (`orbit-3 shrink-20`) so the E and F sit just outside the tick row. The middle satellite hosts an inline SVG fuel-pump icon — everything else is CSS.
+- **The needle** is rotated explicitly to `angle-290` (about 1/4 tank). To make it move with real data, set the angle dynamically: `angle = 270 + (level / max) * 90`.
+
+## Customization
+
+**Make it a battery indicator** by changing the SVG inside the middle satellite to a battery icon and recoloring the needle to green when full / red when low via a JS class toggle.
+
+**Add a low-fuel warning light** by placing an extra `<satellite>` on a small inner orbit and toggling its background color when the level drops below threshold.
+
+**Switch to a temperature gauge** by replacing the E/F labels with C/H and reversing the warning color (red on the *high* side instead of the low side).
+
+## Related
+
+- [180° gauge](/orbit-docs/examples/gauges/180-degree-gauge/) — bigger half-circle variant
+- [240° gauge](/orbit-docs/examples/gauges/240-degree-gauge/) — speedometer-style
+- [`vector` element reference](/orbit-docs/elements/vector/)
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and grab the markup above as a starting point.

@@ -1,0 +1,75 @@
+---
+title: CSS mandalas built with Orbit
+description: Browse Orbit CSS mandala examples — geometric, radial-symmetry, hexagonal and overlapping circle patterns. Built entirely from HTML and CSS primitives.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A mandala is a stress-test for any radial UI framework. Real mandalas are built from layered rotational symmetries, nested polygons, and interlocking geometric patterns — exactly the kind of thing that would normally pull you toward SVG or a graphics library. Orbit lets you compose them out of plain `<div>` elements, which means you can theme them with CSS variables, animate them with `transform`, and inspect them in DevTools like any other markup.
+
+Below: two more elaborate mandala spokes worth their own page, plus two simpler patterns inline as quick references.
+
+## Spokes
+
+<CardGrid>
+  <LinkCard
+    title="Geometric square mandala"
+    href="/orbit-docs/examples/mandalas/geometric-square-mandala/"
+    description="A complex mandala built from rotated, nested squares with multiple symmetry layers. Best for meditation apps, sacred geometry illustrations."
+  />
+  <LinkCard
+    title="Radial symmetry mandala"
+    href="/orbit-docs/examples/mandalas/radial-symmetry-mandala/"
+    description="An 8-fold rotational mandala with concentric satellite rings and triangular sides. Best for logo bases, decorative dividers, hero backgrounds."
+  />
+</CardGrid>
+
+## Quick reference patterns
+
+These two simpler patterns are useful as starting points if you want to build your own mandala from scratch.
+
+### Hexagonal flower pattern
+
+A six-sided central polygon surrounded by six satellite circles — the simplest "flower of life"-style mandala you can build.
+
+export const mandala1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-0">
+      <div class="satellite grow-2x">
+        <div class="gravity-spot">
+          <div class="orbit-2">
+            <div class="side" v-for="n in 6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-2">
+      <div class="satellite grow-2x" v-for="n in 6"></div>
+    </div>
+  </div>
+</div>`
+
+<ZumerPlay name={'mandalaHex'} htmlCode={mandala1HTML} framework="vue" height={'300px'} />
+
+### Overlapping circles ring
+
+A ring of 22 large overlapping satellites that produces a moiré-like rosette pattern.
+
+export const mandala2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-3">
+      <div class="satellite grow-3.5x" v-for="n in 22"></div>
+    </div>
+  </div>
+</div>`
+
+<ZumerPlay name={'mandalaRosette'} htmlCode={mandala2HTML} framework="vue" height={'300px'} />
+
+## Related
+
+- [`side` element reference](/orbit-docs/elements/side/) — used heavily in mandala construction
+- [`satellite` element reference](/orbit-docs/elements/satellite/)
+- [Use case: sci-fi game UIs](/orbit-docs/use-cases/sci-fi-game-uis/) — sacred geometry as decoration

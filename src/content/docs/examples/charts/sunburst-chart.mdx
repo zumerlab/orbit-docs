@@ -1,0 +1,85 @@
+---
+title: CSS sunburst chart — Orbit hierarchical example
+description: Build a multi-level sunburst chart in pure HTML and CSS with three nested rings of categories. No SVG, no charting library required.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A sunburst chart is a pie chart that goes deep. Each ring is a level of hierarchy: the inner ring shows the broadest categories, the next ring breaks each of those into subcategories, and the outer ring drills further. It's the right chart when your data is genuinely nested — product catalogs, organizational structures, file system breakdowns — and a flat pie would lose all that structure.
+
+This example builds a three-level sunburst showing market share for phone makers, broken down by product line, broken down again by individual model. Each level is its own orbit.
+
+export const chart3HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2">
+      <o-arc class="grow-1x flip blue" value="55"> Apple</o-arc>
+      <o-arc class="grow-1x flip indigo" value="20">Xiaomi</o-arc>
+      <o-arc class="grow-1x pink" value="25">Samsung</o-arc>
+    </div>
+    <div class="orbit-4 range-198 ">
+      <o-arc class="grow-0.9x blue-light" value="33">Ipad</o-arc>
+      <o-arc class="grow-0.9x blue-light flip" value="37"> Watch</o-arc>
+      <o-arc class="grow-0.9x blue-light flip" value="23">Iphone</o-arc>
+      <o-arc class="grow-0.9x blue-light" value="7"></o-arc>
+    </div>
+    <div class="orbit-6 from-138 range-46">
+      <o-arc class="grow-1x blue-lighter" value="10" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="10" ></o-arc>
+      <o-arc class="grow-1x blue-lighter flip" value="30">15 Pro</o-arc>
+      <o-arc class="grow-1x blue-lighter" value="10" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="5" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="5" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="10" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="5" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="5" ></o-arc>
+      <o-arc class="grow-1x blue-lighter" value="10" ></o-arc>
+    </div>
+  </div>
+</div>`
+
+export const chart3CSS = `
+.orbit-6 { font-size: 8px; }
+.orbit-4 { font-size: 9px; color: white }
+.orbit-2 { font-size: 12px; color: white }
+o-arc.blue-light { --o-fill: var(--o-blue-light); }
+o-arc.blue-lighter { --o-fill: var(--o-blue-lighter); }
+o-arc.blue { --o-fill: var(--o-blue); }
+o-arc.indigo { --o-fill: var(--o-indigo); }
+o-arc.pink { --o-fill: var(--o-pink); }
+`
+
+<ZumerPlay name={'chartSunburst'} htmlCode={chart3HTML} cssCode={chart3CSS} height={'300px'} />
+
+## How it works
+
+- **Three concentric orbits, three levels of hierarchy.** `orbit-2` is the inner ring (top-level brands). `orbit-4` is the middle ring (product lines), and `orbit-6` is the outer ring (individual models). Each orbit is its own loop of `<o-arc>` elements.
+- **`range-X` and `from-X` constrain a sub-orbit to a specific arc** of the parent. The middle ring uses `range-198` because the Apple slice (55%) plus Xiaomi (20%) covers about 198° of the circle — only those subcategories belong on the middle ring. The outer ring uses `from-138 range-46` to drill down only into the iPhone subcategory.
+- **`flip`** on a label-bearing `<o-arc>` flips text upside-down so it remains readable when the arc is on the bottom half of the chart.
+- **Color hierarchy by lightness**, not hue. Inner ring uses solid `--o-blue`; middle ring uses `--o-blue-light`; outer ring uses `--o-blue-lighter`. This visual cue tells the reader "these belong together" without needing a legend.
+
+## Customization
+
+**Drill into a different brand** by changing the `from-X` and `range-X` on the outer rings to cover a different arc segment.
+
+**Make it interactive** by attaching click handlers that re-render the outer rings to drill into the clicked slice:
+
+```js
+arc.addEventListener('click', () => {
+  outerRing.style.setProperty('--from', arc.style.getPropertyValue('--start'));
+  outerRing.style.setProperty('--range', arc.style.getPropertyValue('--span'));
+});
+```
+
+**Use it for org charts** by replacing brands → divisions → teams. The nesting model is identical.
+
+## Related
+
+- [Donut chart](/orbit-docs/examples/charts/donut-chart/) — single-level variant
+- [Pie chart](/orbit-docs/examples/charts/pie-chart/) — solid single-level variant
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and adapt the data values above to your own hierarchy.

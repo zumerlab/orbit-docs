@@ -1,0 +1,78 @@
+---
+title: Stacked circular progress bars — CSS multi-ring example
+description: Three concentric circular progress bars on a black background. Pure HTML and CSS, no SVG. Great for fitness, health and dashboard widgets.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+If you've ever opened the Apple Health app or any modern fitness tracker, you know what stacked progress rings look like: three concentric circles, each tracking a different metric, sharing the same center. The visual is so good because it answers three questions in one glance and gives the user a single point of focus instead of three separate widgets.
+
+This example places three `<o-progress>` rings on three different orbits (`orbit-2`, `orbit-3`, `orbit-4`) — each at a different value, each with its own color. The black background is doing real work: it makes the neon colors pop the way they do on a smartwatch.
+
+export const progress4HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2">
+      <o-progress class="shrink-10 cyan" value="50" shape="circle"></o-progress>
+    </div>
+    <div class="orbit-3">
+      <o-progress class="shrink-10 green" value="60" shape="circle"></o-progress>
+    </div>
+    <div class="orbit-4">
+      <o-progress class="shrink-10 red" value="70" shape="circle"></o-progress>
+    </div>
+  </div>
+</div>`
+
+export const progress4CSS = `
+.bigbang { background: black }
+.satellite { border-color: transparent }
+.cyan { --o-fill: var(--o-cyan); }
+.green { --o-fill: hsl(146.02deg 100% 51%); }
+.red { --o-fill: var(--o-pink); }
+`
+
+<ZumerPlay name={'progressStacked'} htmlCode={progress4HTML} cssCode={progress4CSS} height={'300px'} />
+
+## How it works
+
+- **Three orbits, three rings.** `orbit-2` is the innermost, `orbit-4` the outermost. Each hosts a single `<o-progress>` element. Because they share the same `gravity-spot`, all three rings are perfectly concentric without any positioning math.
+- **`shrink-10` on each progress** thins each ring slightly relative to its orbit so the rings don't touch — the small gap between them is what makes the design feel airy instead of cluttered.
+- **Colors via CSS variables** keep the markup clean. Each ring has a single class (`cyan`, `green`, `red`) that just sets `--o-fill`. Swap any of those three lines and the corresponding ring re-themes instantly.
+- **Black `bigbang` background** is non-negotiable for this look — the contrast against neon fills is what sells the smartwatch aesthetic. A white or transparent background drains the colors.
+
+## Customization
+
+**Bind to real metrics** by setting `value` from JS:
+
+```js
+document.querySelectorAll('o-progress').forEach((ring, i) => {
+  const metrics = [steps, calories, exerciseMinutes];
+  const goals = [10000, 600, 30];
+  ring.setAttribute('value', Math.min(100, (metrics[i] / goals[i]) * 100));
+});
+```
+
+**Add labels in the center** with a satellite at `orbit-0`:
+
+```html
+<div class="orbit-0">
+  <div class="satellite">
+    <div class="capsule">8.2k</div>
+  </div>
+</div>
+```
+
+**Add a fourth ring** by adding another `orbit-X` parent — Orbit handles the spacing automatically.
+
+## Related
+
+- [Solid progress with background](/orbit-docs/examples/progress/circular-progress-with-background/) — single-ring variant
+- [Progress with handle](/orbit-docs/examples/progress/circular-progress-with-handle/) — interactive variant
+- [`<o-progress>` element reference](/orbit-docs/elements/progress/)
+- [Use case: fitness and health apps](/orbit-docs/use-cases/fitness-and-health-apps/)
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and adapt the markup above.

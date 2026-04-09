@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://zumerlab.github.io/orbit-docs/sitemap-index.xml
+
+# LLM documentation
+# See https://llmstxt.org/ for the llms.txt standard
+LLMs-full: https://zumerlab.github.io/orbit-docs/llms-full.txt

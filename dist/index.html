@@ -1,0 +1,450 @@
+<!DOCTYPE html><html lang="en" dir="ltr" data-theme="dark" data-has-hero class="astro-bguv2lll"> <head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Home | Orbit CSS radial UI composer</title><link rel="canonical" href="https://zumerlab.github.io/orbit-docs"/><link rel="sitemap" href="/orbit-docs/sitemap-index.xml"/><link rel="author" type="text/plain" href="/orbit-docs/llms.txt"/><link rel="author" type="text/plain" href="/orbit-docs/llms-full.txt"/><script defer src="https://cloud.umami.is/script.js" data-website-id="7ec718e8-f0c5-4abb-8f4f-144f57f61937"></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-XL52CBETDH"></script><script>window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XL52CBETDH');</script><link rel="shortcut icon" href="/orbit-docs/favicon.svg" type="image/svg+xml"/><meta name="generator" content="Astro v5.1.9"/><meta name="generator" content="Starlight v0.31.1"/><meta property="og:title" content="Home"/><meta property="og:type" content="article"/><meta property="og:url" content="https://zumerlab.github.io/orbit-docs"/><meta property="og:locale" content="en"/><meta property="og:description" content="Get started building an amazing cool UI."/><meta property="og:site_name" content="Orbit CSS radial UI composer"/><meta name="twitter:card" content="summary_large_image"/><meta name="description" content="Get started building an amazing cool UI."/><script>
+	window.StarlightThemeProvider = (() => {
+		const storedTheme =
+			typeof localStorage !== 'undefined' && localStorage.getItem('starlight-theme');
+		const theme =
+			storedTheme ||
+			(window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+		document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
+		return {
+			updatePickers(theme = storedTheme || 'auto') {
+				document.querySelectorAll('starlight-theme-select').forEach((picker) => {
+					const select = picker.querySelector('select');
+					if (select) select.value = theme;
+					/** @type {HTMLTemplateElement | null} */
+					const tmpl = document.querySelector(`#theme-icons`);
+					const newIcon = tmpl && tmpl.content.querySelector('.' + theme);
+					if (newIcon) {
+						const oldIcon = picker.querySelector('svg.label-icon');
+						if (oldIcon) {
+							oldIcon.replaceChildren(...newIcon.cloneNode(true).childNodes);
+						}
+					}
+				});
+			},
+		};
+	})();
+</script><template id="theme-icons"><svg aria-hidden="true" class="light astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M5 12a1 1 0 0 0-1-1H3a1 1 0 0 0 0 2h1a1 1 0 0 0 1-1Zm.64 5-.71.71a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l.71-.71A1 1 0 0 0 5.64 17ZM12 5a1 1 0 0 0 1-1V3a1 1 0 0 0-2 0v1a1 1 0 0 0 1 1Zm5.66 2.34a1 1 0 0 0 .7-.29l.71-.71a1 1 0 1 0-1.41-1.41l-.66.71a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.29Zm-12-.29a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.71-.71a1.004 1.004 0 1 0-1.43 1.41l.73.71ZM21 11h-1a1 1 0 0 0 0 2h1a1 1 0 0 0 0-2Zm-2.64 6A1 1 0 0 0 17 18.36l.71.71a1 1 0 0 0 1.41 0 1 1 0 0 0 0-1.41l-.76-.66ZM12 6.5a5.5 5.5 0 1 0 5.5 5.5A5.51 5.51 0 0 0 12 6.5Zm0 9a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7Zm0 3.5a1 1 0 0 0-1 1v1a1 1 0 0 0 2 0v-1a1 1 0 0 0-1-1Z"/></svg> <svg aria-hidden="true" class="dark astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21.64 13a1 1 0 0 0-1.05-.14 8.049 8.049 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8.59 8.59 0 0 1 .25-2A1 1 0 0 0 8 2.36a10.14 10.14 0 1 0 14 11.69 1 1 0 0 0-.36-1.05Zm-9.5 6.69A8.14 8.14 0 0 1 7.08 5.22v.27a10.15 10.15 0 0 0 10.14 10.14 9.784 9.784 0 0 0 2.1-.22 8.11 8.11 0 0 1-7.18 4.32v-.04Z"/></svg> <svg aria-hidden="true" class="auto astro-c6vsoqas" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="--sl-icon-size: 1em;"><path d="M21 14h-1V7a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v7H3a1 1 0 0 0-1 1v2a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3v-2a1 1 0 0 0-1-1ZM6 7a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7H6V7Zm14 10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-1h16v1Z"/></svg> </template><link rel="stylesheet" href="/orbit-docs/_astro/print.BJ0teN4y.css" media="print"><link rel="stylesheet" href="/orbit-docs/_astro/index.ColEcStE.css">
+<style>:root{--sl-badge-default-border: var(--sl-color-accent);--sl-badge-default-bg: var(--sl-color-accent-low);--sl-badge-default-text: #fff;--sl-badge-note-border: var(--sl-color-blue);--sl-badge-note-bg: var(--sl-color-blue-low);--sl-badge-note-text: #fff;--sl-badge-danger-border: var(--sl-color-red);--sl-badge-danger-bg: var(--sl-color-red-low);--sl-badge-danger-text: #fff;--sl-badge-success-border: var(--sl-color-green);--sl-badge-success-bg: var(--sl-color-green-low);--sl-badge-success-text: #fff;--sl-badge-caution-border: var(--sl-color-orange);--sl-badge-caution-bg: var(--sl-color-orange-low);--sl-badge-caution-text: #fff;--sl-badge-tip-border: var(--sl-color-purple);--sl-badge-tip-bg: var(--sl-color-purple-low);--sl-badge-tip-text: #fff}[data-theme=light]:root{--sl-badge-default-bg: var(--sl-color-accent-high);--sl-badge-note-bg: var(--sl-color-blue-high);--sl-badge-danger-bg: var(--sl-color-red-high);--sl-badge-success-bg: var(--sl-color-green-high);--sl-badge-caution-bg: var(--sl-color-orange-high);--sl-badge-tip-bg: var(--sl-color-purple-high)}.sl-badge:where(.astro-avdet4wd){display:inline-block;border:1px solid var(--sl-color-border-badge);border-radius:.25rem;font-family:var(--sl-font-system-mono);line-height:normal;color:var(--sl-color-text-badge);background-color:var(--sl-color-bg-badge);overflow-wrap:anywhere}.sidebar-content .sl-badge:where(.astro-avdet4wd){line-height:1;font-size:var(--sl-text-xs);padding:.125rem .375rem}.sidebar-content a[aria-current=page]>.sl-badge:where(.astro-avdet4wd){--sl-color-bg-badge: transparent;--sl-color-border-badge: currentColor;color:inherit}.default:where(.astro-avdet4wd){--sl-color-bg-badge: var(--sl-badge-default-bg);--sl-color-border-badge: var(--sl-badge-default-border);--sl-color-text-badge: var(--sl-badge-default-text)}.note:where(.astro-avdet4wd){--sl-color-bg-badge: var(--sl-badge-note-bg);--sl-color-border-badge: var(--sl-badge-note-border);--sl-color-text-badge: var(--sl-badge-note-text)}.danger:where(.astro-avdet4wd){--sl-color-bg-badge: var(--sl-badge-danger-bg);--sl-color-border-badge: var(--sl-badge-danger-border);--sl-color-text-badge: var(--sl-badge-danger-text)}.success:where(.astro-avdet4wd){--sl-color-bg-badge: var(--sl-badge-success-bg);--sl-color-border-badge: var(--sl-badge-success-border);--sl-color-text-badge: var(--sl-badge-success-text)}.tip:where(.astro-avdet4wd){--sl-color-bg-badge: var(--sl-badge-tip-bg);--sl-color-border-badge: var(--sl-badge-tip-border);--sl-color-text-badge: var(--sl-badge-tip-text)}.caution:where(.astro-avdet4wd){--sl-color-bg-badge: var(--sl-badge-caution-bg);--sl-color-border-badge: var(--sl-badge-caution-border);--sl-color-text-badge: var(--sl-badge-caution-text)}.small:where(.astro-avdet4wd){font-size:var(--sl-text-xs);padding:.125rem .25rem}.medium:where(.astro-avdet4wd){font-size:var(--sl-text-sm);padding:.175rem .35rem}.large:where(.astro-avdet4wd){font-size:var(--sl-text-base);padding:.225rem .45rem}.sl-markdown-content :is(h1,h2,h3,h4,h5,h6) .sl-badge:where(.astro-avdet4wd){vertical-align:middle}
+.card-grid:where(.astro-zntqmydn){display:grid;grid-template-columns:100%;gap:1rem}.card-grid:where(.astro-zntqmydn)>*{margin-top:0!important}@media (min-width: 50rem){.card-grid:where(.astro-zntqmydn){grid-template-columns:1fr 1fr;gap:1.5rem}.stagger:where(.astro-zntqmydn){--stagger-height: 5rem;padding-bottom:var(--stagger-height)}.stagger:where(.astro-zntqmydn)>*:nth-child(2n){transform:translateY(var(--stagger-height))}}
+svg:where(.astro-c6vsoqas){color:var(--sl-icon-color);font-size:var(--sl-icon-size, 1em);width:1em;height:1em}
+starlight-tabs:where(.astro-esqgolmp){display:block}.tablist-wrapper:where(.astro-esqgolmp){overflow-x:auto}:where(.astro-esqgolmp)[role=tablist]{display:flex;list-style:none;border-bottom:2px solid var(--sl-color-gray-5);padding:0}.tab:where(.astro-esqgolmp){margin-bottom:-2px}.tab:where(.astro-esqgolmp)>:where(.astro-esqgolmp)[role=tab]{display:flex;align-items:center;gap:.5rem;padding:0 1.25rem;text-decoration:none;border-bottom:2px solid var(--sl-color-gray-5);color:var(--sl-color-gray-3);outline-offset:var(--sl-outline-offset-inside);overflow-wrap:initial}.tab:where(.astro-esqgolmp) :where(.astro-esqgolmp)[role=tab][aria-selected=true]{color:var(--sl-color-white);border-color:var(--sl-color-text-accent);font-weight:600}.tablist-wrapper:where(.astro-esqgolmp)~[role=tabpanel]{margin-top:1rem}
+.sl-link-card:where(.astro-mf7fz2mj){display:grid;grid-template-columns:1fr auto;gap:.5rem;border:1px solid var(--sl-color-gray-5);border-radius:.5rem;padding:1rem;box-shadow:var(--sl-shadow-sm);position:relative}a:where(.astro-mf7fz2mj){text-decoration:none;line-height:var(--sl-line-height-headings)}a:where(.astro-mf7fz2mj):before{content:"";position:absolute;inset:0}.stack:where(.astro-mf7fz2mj){flex-direction:column;gap:.5rem}.title:where(.astro-mf7fz2mj){color:var(--sl-color-white);font-weight:600;font-size:var(--sl-text-lg)}.description:where(.astro-mf7fz2mj){color:var(--sl-color-gray-3);line-height:1.5}.icon:where(.astro-mf7fz2mj){color:var(--sl-color-gray-3)}.sl-link-card:where(.astro-mf7fz2mj):hover{background:var(--sl-color-gray-7, var(--sl-color-gray-6));border-color:var(--sl-color-gray-2)}.sl-link-card:where(.astro-mf7fz2mj):hover .icon:where(.astro-mf7fz2mj){color:var(--sl-color-white)}
+.sl-steps{--bullet-size: calc(var(--sl-line-height) * 1rem);--bullet-margin: .375rem;list-style:none;counter-reset:steps-counter var(--sl-steps-start, 0);padding-inline-start:0}.sl-steps>li{counter-increment:steps-counter;position:relative;padding-inline-start:calc(var(--bullet-size) + 1rem);padding-bottom:1px;min-height:calc(var(--bullet-size) + var(--bullet-margin))}.sl-steps>li+li{margin-top:0}.sl-steps>li:before{content:counter(steps-counter);position:absolute;top:0;inset-inline-start:0;width:var(--bullet-size);height:var(--bullet-size);line-height:var(--bullet-size);font-size:var(--sl-text-xs);font-weight:600;text-align:center;color:var(--sl-color-white);background-color:var(--sl-color-gray-6);border-radius:99rem;box-shadow:inset 0 0 0 1px var(--sl-color-gray-5)}.sl-steps>li:after{--guide-width: 1px;content:"";position:absolute;top:calc(var(--bullet-size) + var(--bullet-margin));bottom:var(--bullet-margin);inset-inline-start:calc((var(--bullet-size) - var(--guide-width)) / 2);width:var(--guide-width);background-color:var(--sl-color-hairline-light)}.sl-steps>li>:first-child{--lh: calc(1em * var(--sl-line-height));--shift-y: calc(.5 * (var(--bullet-size) - var(--lh)));transform:translateY(var(--shift-y));margin-bottom:var(--shift-y)}.sl-steps>li>:first-child:where(h1,h2,h3,h4,h5,h6){--lh: calc(1em * var(--sl-line-height-headings))}@supports (--prop: 1lh){.sl-steps>li>:first-child{--lh: 1lh}}
+.sl-link-button:where(.astro-xwgiixxa){align-items:center;border:1px solid transparent;border-radius:999rem;display:inline-flex;font-size:var(--sl-text-sm);gap:.5em;line-height:1.1875;outline-offset:.25rem;padding:.4375rem 1.125rem;text-decoration:none}.sl-link-button:where(.astro-xwgiixxa).primary{background:var(--sl-color-text-accent);border-color:var(--sl-color-text-accent);color:var(--sl-color-black)}.sl-link-button:where(.astro-xwgiixxa).primary:hover{color:var(--sl-color-black)}.sl-link-button:where(.astro-xwgiixxa).secondary{border-color:inherit;color:var(--sl-color-white)}.sl-link-button:where(.astro-xwgiixxa).minimal{color:var(--sl-color-white);padding-inline:0}.sl-link-button:where(.astro-xwgiixxa) svg{flex-shrink:0}@media (min-width: 50rem){.sl-link-button:where(.astro-xwgiixxa){font-size:var(--sl-text-base);padding:.9375rem 1.25rem}}.sl-markdown-content .sl-link-button:where(.astro-xwgiixxa){margin-inline-end:1rem}.sl-markdown-content .sl-link-button:where(.astro-xwgiixxa):not(:where(p *)){margin-block:1rem}
+</style><script type="module" src="/orbit-docs/_astro/page.7qqag-5g.js"></script></head> <body class="astro-bguv2lll"> <a href="#_top" class="astro-7q3lir66">Skip to content</a>  <div class="page sl-flex astro-nkof6pjv">   <div class="main-frame astro-nkof6pjv">  <script type="module">const a=document.getElementById("starlight__sidebar"),n=a?.querySelector("sl-sidebar-state-persist"),o="sl-sidebar-state",i=()=>{let t=[];const e=n?.dataset.hash||"";try{const s=sessionStorage.getItem(o),r=JSON.parse(s||"{}");Array.isArray(r.open)&&r.hash===e&&(t=r.open)}catch{}return{hash:e,open:t,scroll:a?.scrollTop||0}},c=t=>{try{sessionStorage.setItem(o,JSON.stringify(t))}catch{}},d=()=>c(i()),l=(t,e)=>{const s=i();s.open[e]=t,c(s)};n?.addEventListener("click",t=>{if(!(t.target instanceof Element))return;const e=t.target.closest("summary")?.closest("details");if(!e)return;const s=e.querySelector("sl-sidebar-restore"),r=parseInt(s?.dataset.index||"");isNaN(r)||l(!e.open,r)});addEventListener("visibilitychange",()=>{document.visibilityState==="hidden"&&d()});addEventListener("pageHide",d);</script> <div class="lg:sl-flex astro-67yu43on">  <div class="main-pane astro-67yu43on">  <main data-pagefind-body class="astro-bguv2lll" lang="en" dir="ltr">   <div class="content-panel astro-7nkwcw3z"> <div class="sl-container astro-7nkwcw3z"> <div class="orbitron paused-animations  astro-nvwqjtaf"> <!-- alert --> <section class="o-alert astro-nvwqjtaf" style="margin-top: 50px !important; text-align: center; color: var(--secondary-color);"> <img src="/orbit-docs/favicon.svg" width="24" style="vertical-align: text-top;" class="astro-nvwqjtaf"> Orbit requires some CSS selectors or functions that are not supported.
+<br class="astro-nvwqjtaf">Please, update this browser to use Orbit.
+</section> <!-- logo --> <section class="features logo astro-nvwqjtaf"> <div class="bigbang container-gyro astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:499px; "> <div class="gravity-spot gyro astro-nvwqjtaf" style="
+    perspective: 300px; transform-style: preserve-3d;
+    "> <div class="orbit-15 range-90 from-179 astro-nvwqjtaf"> <o-arc style="--o-fill: var(--primary-color)" class="outer-orbit shrink-80 astro-nvwqjtaf"></o-arc> <div class="satellite logo-ball astro-nvwqjtaf"></div> </div> <div class="orbit-10 range-120 astro-nvwqjtaf"> <o-arc style="--o-fill: none; color: var(--primary-color); font-size: 28px;" class="astro-nvwqjtaf">The CSS radial composer</o-arc> </div> <div class="orbit-10 from-120 range-240 astro-nvwqjtaf" style="transform: translateZ(-15px);"> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> <div class="vector shrink-10 outer-orbit dashed-small astro-nvwqjtaf"></div> </div> <div class="orbit-8 astro-nvwqjtaf" style="transform: translateZ(-35px);"> <o-arc value="25" class="from-215 shrink-70 outer-orbit astro-nvwqjtaf" style="--o-fill: var(--tertiary-color); "></o-arc> </div> <div class="orbit-8  astro-nvwqjtaf"> <o-arc value="25" class="from-315 shrink-80 inner-orbit astro-nvwqjtaf" style="--o-fill: var(--primary-color)"></o-arc> </div> <div class="orbit-8  from-48 range-130 astro-nvwqjtaf"> <o-arc class=" shrink-40 outer-orbit astro-nvwqjtaf" style="--o-fill: var(--primary-color); opacity: .6;"></o-arc> </div> <div class="orbit-6 from-180 range-100 astro-nvwqjtaf"> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> <div class="vector shrink-40 outer-orbit dashed-big astro-nvwqjtaf"></div> </div> <div class="orbit-6 astro-nvwqjtaf" style="transform: translateZ(-45px);"> <o-arc value="40" class="from-10 shrink-40 astro-nvwqjtaf" style="--o-fill: var(--tertiary-color)"></o-arc> </div> <div class="orbit-8 from-320 astro-nvwqjtaf" style="transform: translateZ(-90px);"> <o-arc value="40" class="shrink-40 astro-nvwqjtaf" style="--o-fill: var(--primary-color);"></o-arc> </div> <div class="orbit-8  from-30 astro-nvwqjtaf" style="transform: translateZ(-100px);"> <o-arc class="shrink-60 astro-nvwqjtaf" style="--o-fill: var(--primary-color);"></o-arc> <o-arc class="shrink-60 astro-nvwqjtaf" style="--o-fill: transparent"></o-arc> <o-arc class="shrink-60 astro-nvwqjtaf" style="--o-fill: var(--primary-color);"></o-arc> <o-arc class="shrink-60 astro-nvwqjtaf" style="--o-fill: transparent"></o-arc> </div> <div class="orbit-13  from-100 astro-nvwqjtaf" style="transform: translateZ(-125px);"> <o-arc value="40" class="shrink-90 inner-orbit astro-nvwqjtaf" style="--o-fill: var(--primary-color);"></o-arc> </div> <div class="orbit-7 from-185 range-80 astro-nvwqjtaf" style="transform: translateZ(-55px);"> <o-arc class="  grow-1.5x astro-nvwqjtaf" style="--o-fill: var(--o-cyan-dark); opacity: .6;"></o-arc> </div> <div class="orbit-0 astro-nvwqjtaf" style="font-size: 30px; color:white">ORBIT</div> </div> </div> </section> <!-- CTA --> <section class="features action astro-nvwqjtaf"> <div class="bigbang astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:546px; "> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-10 range-180 from-0  astro-nvwqjtaf"> <o-arc style="--o-fill: var(--primary-color); --o-gap: 0;" class="outer-orbit shrink-80 astro-nvwqjtaf"></o-arc> <div class="satellite action-ball astro-nvwqjtaf"></div> </div> <div class="orbit-6 range-90 from-270 action-sector  astro-nvwqjtaf"> <o-arc shape="circle" style="--o-fill: var(--primary-color); --o-gap: 0;" class="astro-nvwqjtaf"></o-arc> </div> <div class="buttons orbit-0 gooey-fx-max from-0 astro-nvwqjtaf"> <div class="satellite astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-10 astro-nvwqjtaf"> <div class="satellite grow-6x angle-270 astro-nvwqjtaf" style="background: transparent;border: 0px dashed var(--primary-color)"> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-10 github-animation astro-nvwqjtaf"> <div class="github satellite small inner-orbit angle-120 grow-2x  astro-nvwqjtaf" style=""> <div class="capsule button astro-nvwqjtaf"> <a href="https://github.com/zumerlab/orbit" target="_blank" class="astro-nvwqjtaf">GitHub</a> </div> </div> </div> </div> </div> </div> </div> </div> <div class="satellite grow-3x small astro-nvwqjtaf"> <div class="capsule button astro-nvwqjtaf"> <a href="/orbit-docs/introduction" class="astro-nvwqjtaf">Get <br class="astro-nvwqjtaf"> started</a> </div> </div> </div> </div> </div> </section> <!-- TEXT --> <section class="features component-text astro-nvwqjtaf"> <div class="bigbang  astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:499px; "> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-15 range-90 from-270 astro-nvwqjtaf"> <o-arc style="--o-fill: var(--primary-color); --o-gap: 0;" class="outer-orbit shrink-80 astro-nvwqjtaf"></o-arc> <div class="satellite text-ball astro-nvwqjtaf"></div> </div> <div class="orbit-6 astro-nvwqjtaf"> <div class="satellite angle-0 astro-nvwqjtaf"> <div class="capsule astro-nvwqjtaf" style="flex-direction: column; width: 500px; font-size: 20px; color: white; text-align: center;"> <br class="astro-nvwqjtaf"><br class="astro-nvwqjtaf"> <h2 class="astro-nvwqjtaf">Save time and have fun <br class="astro-nvwqjtaf"> building radial UIs!
+</h2><br class="astro-nvwqjtaf"><br class="astro-nvwqjtaf"> <h2 class="astro-nvwqjtaf">Just combine Orbit CSS elements</h2> </div> </div> </div> </div> </div> </section> <!-- 1ST COMPONENT CURVE --> <section class="features components-1 astro-nvwqjtaf" style=""> <div class="bigbang astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:300px; "> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-12 range-175 from-351 astro-nvwqjtaf"> <o-arc style="--o-fill: var(--primary-color)" class="shrink-70 astro-nvwqjtaf"></o-arc> </div> <div class="orbit-12 astro-nvwqjtaf"> <div class="satellite grow-3x orbits  astro-nvwqjtaf" style=""> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit-3 astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="orbit-6 astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="orbit-9 astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="orbit-12 astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> </div> <div class="orbit-4 label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button  astro-nvwqjtaf">
+orbits
+</div> </div> </div> </div> <div class="satellite grow-3x satellites  astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit astro-nvwqjtaf"></div> <div class="orbit-5 astro-nvwqjtaf"> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> </div> <div class="orbit-11 astro-nvwqjtaf"> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> <div class="satellite grow-2x astro-nvwqjtaf" style="border: 1px solid var(--secondary-color)"></div> </div> </div> <div class="orbit-4  label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button astro-nvwqjtaf">
+satellites
+</div> </div> </div> </div> <div class="satellite grow-3x sectors  astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit-4 astro-nvwqjtaf"> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-3x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> </div> <div class="orbit-11 astro-nvwqjtaf" style="--o-color: var(--secondary-color)"> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-3x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> <o-arc class="gap-1 grow-2x astro-nvwqjtaf" style="--o-color: var(--secondary-color)"></o-arc> </div> </div> <div class="orbit-4  label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button astro-nvwqjtaf">
+arcs
+</div> </div> </div> </div> <div class="satellite grow-3x progresss  astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit-7 astro-nvwqjtaf"> <o-progress value="40" class="astro-nvwqjtaf"></o-progress> </div> <div class="orbit-9 astro-nvwqjtaf"> <o-progress value="60" class="astro-nvwqjtaf"></o-progress> </div> <div class="orbit-11 astro-nvwqjtaf"> <o-progress value="80" class="astro-nvwqjtaf"></o-progress> </div> </div> <div class="orbit-4  label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button astro-nvwqjtaf">
+progress
+</div> </div> </div> </div> <div class="satellite grow-3x spokes  astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit-11 astro-nvwqjtaf"> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="vector grow-1x astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> </div> </div> <div class="orbit-4  label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button astro-nvwqjtaf">
+vectors
+</div> </div> </div> </div> <div class="satellite grow-3x segments  astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit-11 astro-nvwqjtaf"> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> </div> <div class="orbit-11 from-90 astro-nvwqjtaf"> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> <div class="side astro-nvwqjtaf" style="background-color: var(--secondary-color)"></div> </div> </div> <div class="orbit-4  label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button astro-nvwqjtaf">
+sides
+</div> </div> </div> </div> <div class="satellite grow-3x curved-text  astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="gravity-spot case astro-nvwqjtaf" style="--o-force: 100px; scale: 0"> <div class="orbit-10 astro-nvwqjtaf"> <o-arc label-color="var(--secondary-color)" fit-range="true" class="component-label astro-nvwqjtaf" style="--o-fill: none">curved texts  -  curved texts - </o-arc> </div> </div> <div class="orbit-4  label astro-nvwqjtaf" style="opacity: 0"> <div class="satellite angle-180 button astro-nvwqjtaf"> <div class="capsule astro-nvwqjtaf" style="width: 150px">curved texts</div> </div> </div> </div> </div> </div> </div> </div> </section> <section class="features components-2 astro-nvwqjtaf" style=""> <div class="bigbang astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:705px; "> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-4 astro-nvwqjtaf"> <div class="satellite angle-90 astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-12 range-164 from-190 astro-nvwqjtaf"> <o-arc style="--o-fill: var(--primary-color)" class="shrink-70 astro-nvwqjtaf"></o-arc> <div class="satellite amazing-ball astro-nvwqjtaf"></div> </div> <div class="orbit-0 astro-nvwqjtaf"> <div class="satellite astro-nvwqjtaf" style="background:transparent; border:none; width: 500px; font-size: 20px; color: white; text-align: center;"> <div class="capsule astro-nvwqjtaf"><h2 class="astro-nvwqjtaf">... to create an amazing UI, <br class="astro-nvwqjtaf">like the example below</h2></div> </div> </div> </div> </div> </div> </div> </div> </section> <section class="features example astro-nvwqjtaf" style=""> <div class="bigbang astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:235px; "> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-0 astro-nvwqjtaf"> <div class="satellite angle-90 astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-11 range-230 from-8 astro-nvwqjtaf"> <o-arc style="--o-fill: var(--primary-color)" class="shrink-70 astro-nvwqjtaf"></o-arc> <div class="satellite lastaction-ball astro-nvwqjtaf"></div> </div> <div class="orbit-11 shrink-80 range-90 from-180 astro-nvwqjtaf"> <o-arc style="--o-color: white; font-size: 18px; --o-fill: none" class="flip astro-nvwqjtaf">* Press buttons!</o-arc> </div> </div> </div> </div> <div class="orbit-14 astro-nvwqjtaf"> <div class="satellite angle-180 astro-nvwqjtaf"> <div class="capsule display-color astro-nvwqjtaf" style="
+            width: 300px;
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            padding: 8px;
+            font-weight: var(--orbit-weight, normal);
+            font-style: var(--orbit-italic, normal);
+            text-decoration: var(--orbit-underline, none);
+            justify-content: var(--orbit-align, center);
+            font-size: var(--orbit-size, medium);
+            ">Piemenu demo text</div> </div> </div> </div> <!-- example --> <div class="gravity-spot menu-example astro-nvwqjtaf" style="--o-force: 600px"> <div class="orbit-6 shrink-10 colors option-color astro-nvwqjtaf" style="pointer-events: all"></div> <div class="orbit-0 astro-nvwqjtaf"> <div class="satellite at-center  astro-nvwqjtaf">MENU</div> </div> <div class="orbit-3 astro-nvwqjtaf"> <o-arc class="grow-1x control-size astro-nvwqjtaf" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('size')"></o-arc> <o-arc class="grow-1x control-format astro-nvwqjtaf" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('format')"></o-arc> <o-arc class="grow-1x control-color astro-nvwqjtaf" style="--o-color: var(--o-gray-light); --o-hover-color: var(--o-gray);" onclick="handleClick('color')"></o-arc> </div> <div class="orbit-4  astro-nvwqjtaf"> <o-arc class="shrink-60 active-size inner-orbit astro-nvwqjtaf" style="--o-fill: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc> <o-arc class="shrink-60 active-format inner-orbit astro-nvwqjtaf" style="--o-fill: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc> <o-arc class="shrink-60 active-color inner-orbit astro-nvwqjtaf" style="--o-fill: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc> </div> <div class="orbit-3 from-60 astro-nvwqjtaf"> <div class="satellite  astro-nvwqjtaf" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M560-160v-520H360v-120h520v120H680v520H560Zm-360 0v-320H80v-120h360v120H320v320H200Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite  astro-nvwqjtaf" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M80 0v-160h800V0H80Zm140-280 210-560h100l210 560h-96l-50-144H368l-52 144h-96Zm176-224h168l-82-232h-4l-82 232Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite  astro-nvwqjtaf" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M346-140 100-386q-10-10-15-22t-5-25q0-13 5-25t15-22l230-229-106-106 62-65 400 400q10 10 14.5 22t4.5 25q0 13-4.5 25T686-386L440-140q-10 10-22 15t-25 5q-13 0-25-5t-22-15Zm47-506L179-432h428L393-646Zm399 526q-36 0-61-25.5T706-208q0-27 13.5-51t30.5-47l42-54 44 54q16 23 30 47t14 51q0 37-26 62.5T792-120Z" class="astro-nvwqjtaf"></path></svg> </div> </div> </div> <div class="orbit-5 shrink-70 range-120 option-size astro-nvwqjtaf"> <o-arc class="outer-orbit grow-1x astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-size', 'larger')"></o-arc> <o-arc class="outer-orbit grow-1x astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-size', 'smaller')"></o-arc> <div class="satellite outer-orbit grow-1x angle-30 astro-nvwqjtaf" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="m40-200 210-560h100l210 560h-96l-51-143H187l-51 143H40Zm176-224h168l-82-232h-4l-82 232Zm504 104v-120H600v-80h120v-120h80v120h120v80H800v120h-80Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite outer-orbit grow-1x angle-90 astro-nvwqjtaf" style="border-color: transparent; color: var(--o-gray-darker); pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="m40-200 210-560h100l210 560h-96l-51-143H187l-51 143H40Zm176-224h168l-82-232h-4l-82 232Zm384-16v-80h320v80H600Z" class="astro-nvwqjtaf"></path></svg> </div> </div> </div> <div class="orbit-5 shrink-70 from-120 range-120 option-format  astro-nvwqjtaf"> <o-arc class="outer-orbit grow-1x subcontrol-align astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleClick('align', true)"></o-arc> <o-arc class="outer-orbit grow-1x subcontrol-underline astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-underline', 'none', 'underline')"></o-arc> <o-arc class="outer-orbit grow-1x subcontrol-italic astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-italic', 'none', 'italic')"></o-arc> <o-arc class="outer-orbit grow-1x subcontrol-bold astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-weight', 'normal', 'bolder')"></o-arc> <div class="satellite spin-lock outer-orbit grow-1x   angle-225 astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M272-200v-560h221q65 0 120 40t55 111q0 51-23 78.5T602-491q25 11 55.5 41t30.5 90q0 89-65 124.5T501-200H272Zm121-112h104q48 0 58.5-24.5T566-372q0-11-10.5-35.5T494-432H393v120Zm0-228h93q33 0 48-17t15-38q0-24-17-39t-44-15h-95v109Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite spin-lock outer-orbit grow-1x  angle-195 astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M200-200v-100h160l120-360H320v-100h400v100H580L460-300h140v100H200Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite spin-lock outer-orbit grow-1x  angle-165 astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M200-120v-80h560v80H200Zm280-160q-101 0-157-63t-56-167v-330h103v336q0 56 28 91t82 35q54 0 82-35t28-91v-336h103v330q0 104-56 167t-157 63Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite spin-lock outer-orbit grow-1x angle-135 astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M120-120v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Z" class="astro-nvwqjtaf"></path></svg> </div> </div> </div> <div class="orbit-6 shrink-20 from-120 range-30 astro-nvwqjtaf"> <o-arc class=" shrink-60 subactive-align astro-nvwqjtaf" style=" --o-fill: var(--o-gray-darker); --o-hover-color: var(--o-gray);"></o-arc> </div> <div class="orbit-7 shrink-80 from-90 range-90 suboption-align astro-nvwqjtaf"> <o-arc class="outer-orbit grow-1x astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-align', 'end')"></o-arc> <o-arc class="outer-orbit grow-1x astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-align', 'center')"></o-arc> <o-arc class="outer-orbit grow-1x astro-nvwqjtaf" style="--o-fill: var(--o-gray-lighter); --o-hover-color: var(--o-gray);" onclick="handleButton('--orbit-align', 'start')"></o-arc> <div class="satellite spin-lock outer-orbit grow-1x angle-165  astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M120-120v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Zm0-160v-80h480v80H120Zm0-160v-80h720v80H120Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite spin-lock outer-orbit grow-1x angle-135 astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M120-120v-80h720v80H120Zm160-160v-80h400v80H280ZM120-440v-80h720v80H120Zm160-160v-80h400v80H280ZM120-760v-80h720v80H120Z" class="astro-nvwqjtaf"></path></svg> </div> </div> <div class="satellite spin-lock outer-orbit grow-1x angle-105 astro-nvwqjtaf" style="pointer-events: none;"> <div class="capsule astro-nvwqjtaf"> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--o-gray-darker)" class="astro-nvwqjtaf"><path d="M120-760v-80h720v80H120Zm240 160v-80h480v80H360ZM120-440v-80h720v80H120Zm240 160v-80h480v80H360ZM120-120v-80h720v80H120Z" class="astro-nvwqjtaf"></path></svg> </div> </div> </div> </div> </div> </section> <section class="features astro-nvwqjtaf" style="    margin-top: 90px !important; overflow: hidden; height: 600px
+"> <div class="bigbang astro-nvwqjtaf" style="height: var(--o-bigbang); --o-bigbang:754px; "> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-8 astro-nvwqjtaf"> <div class="satellite angle-0 astro-nvwqjtaf" style="background:transparent; width:300px; font-size: 16px; color: white; text-align: center;"> <div class="capsule astro-nvwqjtaf"><h2 class="astro-nvwqjtaf">Transform <br class="astro-nvwqjtaf"> your project today!</h2></div> </div> <div class="satellite angle-180 outer-orbit astro-nvwqjtaf" style="background:transparent; width:300px; font-size: 16px; color: white; text-align: center;"> <div class="capsule astro-nvwqjtaf"><br class="astro-nvwqjtaf"><h2 class="astro-nvwqjtaf">Place your ⭐ in Orbit! </h2></div> </div> </div> <div class="gravity-spot astro-nvwqjtaf"> <div class="buttons orbit-0 gooey-fx-max from-0 astro-nvwqjtaf"> <div class="satellite astro-nvwqjtaf"> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-10 color-display astro-nvwqjtaf"> <div class="satellite grow-6x angle-270 astro-nvwqjtaf" style="background: transparent;border: 0px dashed var(--primary-color)"> <div class="gravity-spot astro-nvwqjtaf"> <div class="orbit-10 astro-nvwqjtaf"> <div class="github satellite small inner-orbit github-animatiovn angle-120 grow-2x  astro-nvwqjtaf" style=""> <div class="capsule button astro-nvwqjtaf"> <a href="https://github.com/zumerlab/orbit" target="_blank" class="astro-nvwqjtaf">GitHub</a> </div> </div> </div> </div> </div> </div> </div> </div> <div class="satellite grow-3x small astro-nvwqjtaf"> <div class="capsule button astro-nvwqjtaf"> <a href="/orbit-docs/introduction" class="astro-nvwqjtaf">Get <br class="astro-nvwqjtaf"> started</a> </div> </div> </div> </div> </div> </div> </section> <section class="links astro-nvwqjtaf" style="margin: auto;max-width: 800px; margin-top: 50px !important; height: auto; color: var(--secondary-color);
+  padding: 30px !important; column-count: 3;
+  "> <h2 class="astro-nvwqjtaf">Documentation</h2> <br class="astro-nvwqjtaf"> <h4 class="astro-nvwqjtaf">Getting started</h4> <p class="astro-nvwqjtaf"><a href="/orbit-docs/introduction/" class="astro-nvwqjtaf">About Orbit</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/introduction/installation" class="astro-nvwqjtaf">Installation</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/examples/progress" class="astro-nvwqjtaf">Examples</a></p> <br class="astro-nvwqjtaf"> <h4 class="astro-nvwqjtaf">Elements</h4> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/gravity-spot" class="astro-nvwqjtaf">gravity-spot</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/orbit" class="astro-nvwqjtaf">orbit</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/satellite" class="astro-nvwqjtaf">satellite</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/vector" class="astro-nvwqjtaf">vector</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/side" class="astro-nvwqjtaf">side</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/arc" class="astro-nvwqjtaf">o-arc</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/progress" class="astro-nvwqjtaf">o-progress</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/elements/capsule" class="astro-nvwqjtaf">capsule</a></p> <h4 class="astro-nvwqjtaf">Tools</h4> <p class="astro-nvwqjtaf"><a href="/orbit-docs/tools/support" class="astro-nvwqjtaf">Visual aids</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/tools/orbit-resize" class="astro-nvwqjtaf">Auto resize</a></p> <p class="astro-nvwqjtaf"><a href="/orbit-docs/tools/colors" class="astro-nvwqjtaf">Colors</a></p> <br class="astro-nvwqjtaf"> <h2 class="astro-nvwqjtaf">Community</h2> <p class="astro-nvwqjtaf"><a href="https://github.com/zumerlab/orbit" target="_blank" class="astro-nvwqjtaf">GitHub</a></p> <p class="astro-nvwqjtaf"><a href="https://t.me/ZumlyCommunity" target="_blank" class="astro-nvwqjtaf">Telegram</a></p> </section> <section class="features astro-nvwqjtaf" style="margin-top: 120px !important; text-align: center; color: var(--secondary-color);"> <img src="/orbit-docs/favicon.svg" width="24" style="vertical-align: text-top;" class="astro-nvwqjtaf"> Orbit - Copyright © 2023 - 2025 <a href="https://github.com/zumerlab/" class="astro-nvwqjtaf">ZumerLab</a> <br class="astro-nvwqjtaf"> Released under <a href="https://github.com/zumerlab/orbit/blob/main/LICENSE" class="astro-nvwqjtaf">MIT license</a> - Made by Humans
+</section> </div> <script type="module" src="/orbit-docs/_astro/orbit.min.D-6bnSFM.js"></script>  <script>
+	    const orbitron = document.querySelector('.orbitron');
+      orbitron.style.opacity = 0;
+
+
+// define vars
+const logoBall = document.querySelector('.logo-ball');
+const actionBall = document.querySelector('.action-ball');
+const textBall = document.querySelector('.text-ball');
+const amazingBall = document.querySelector('.amazing-ball');
+const lastactionBall = document.querySelector('.lastaction-ball');
+// components
+const orbits =  document.querySelector('.orbits');
+const orbitsCase =  orbits.querySelector('.case');
+const orbitsLabel =  orbits.querySelector('.label');
+const satellites =  document.querySelector('.satellites');
+const satellitesCase =  satellites.querySelector('.case');
+const satellitesLabel =  satellites.querySelector('.label');
+const sectors =  document.querySelector('.sectors');
+const sectorsCase =  sectors.querySelector('.case');
+const sectorsLabel =  sectors.querySelector('.label');
+const progresss =  document.querySelector('.progresss');
+const progresssCase =  progresss.querySelector('.case');
+const progresssLabel =  progresss.querySelector('.label');
+const curvedText =  document.querySelector('.curved-text');
+const curvedTextCase =  curvedText.querySelector('.case');
+const curvedTextLabel =  curvedText.querySelector('.label');
+const segments =  document.querySelector('.segments');
+const segmentsCase =  segments.querySelector('.case');
+const segmentsLabel =  segments.querySelector('.label');
+const spokes =  document.querySelector('.spokes');
+const spokesCase =  spokes.querySelector('.case');
+const spokesLabel =  spokes.querySelector('.label');
+
+
+ // set default styles
+ logoBall.style.willChange = 'opacity';
+    actionBall.style.willChange = 'opacity';
+   
+    textBall.style.willChange = 'opacity';
+   
+    amazingBall.style.willChange = 'opacity';
+   
+   
+    logoBall.style.opacity = 0;
+    actionBall.style.opacity = 0;
+ 
+    textBall.style.opacity = 0;
+  
+    amazingBall.style.opacity = 1;
+
+    lastactionBall.style.opacity = 1;
+   
+    
+	// Reanudar todas las animaciones cuando el DOM esté completamente cargado
+	window.addEventListener('DOMContentLoaded', (event) => {
+    orbitron.style.opacity = 1;
+    
+
+
+   
+  
+  let ticking = false;
+  
+  const scrollBall = () => {
+    let scroll = document.documentElement.scrollTop;
+    //console.log(scroll)
+   
+   
+    let end = window.innerWidth <= 600 ? 105 : 361
+    let start = 0
+   
+    if (scroll >= start && scroll <= end) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start;
+      const rangeLength = end - start;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = -90 * scrollPercent;
+
+      // Aplica el ángulo y muestra la bola
+      logoBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      logoBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      logoBall.style.opacity = 0;
+    }
+
+    let end1 = window.innerWidth <= 600 ? 200 : 451
+    let start1 = end + 1
+   
+    if (scroll >= start1 && scroll <= end1) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start1;
+      const rangeLength = end1 - start1;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = 180 * scrollPercent - 90;
+
+      // Aplica el ángulo y muestra la bola
+      actionBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      actionBall.style.opacity = 1;
+      orbitron.classList.remove("paused-animations");
+      orbitron.classList.add("run-animations");
+    } else {
+      // Oculta la bola si está fuera de su rango
+      actionBall.style.opacity = 0;
+    }
+
+    let end2 = window.innerWidth <= 600 ? 433 : 934
+    let start2 = end1 + 1
+   
+    if (scroll >= start2 && scroll <= end2) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start2;
+      const rangeLength = end2 - start2;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = -90 * scrollPercent ;
+
+      // Aplica el ángulo y muestra la bola
+      textBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      textBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      textBall.style.opacity = 0;
+    }
+
+    let end3 = window.innerWidth <= 600 ? 1056 : 2075
+    let start3 = window.innerWidth <= 600 ? 807 : 1559
+   
+    if (scroll >= start3 && scroll <= end3) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start3;
+      const rangeLength = end3 - start3;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = -160 * scrollPercent + 70;
+
+      // Aplica el ángulo y muestra la bola
+      amazingBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      amazingBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      amazingBall.style.opacity = 0;
+    }
+
+    let end4 = window.innerWidth <= 600 ? 1375 : 2423
+    let start4 = end3 + 1
+   
+    if (scroll >= start4 && scroll <= end4) {
+      // Calcula el porcentaje dentro del rango de scroll
+      const rangeScroll = scroll - start4;
+      const rangeLength = end4 - start4;
+      const scrollPercent = rangeScroll / rangeLength;
+
+      // Calcula el ángulo para esta bola
+      const degrees = 230 * scrollPercent - 90 ;
+
+      // Aplica el ángulo y muestra la bola
+      lastactionBall.style.setProperty("--o-angle-composite", `${degrees}deg`);
+      lastactionBall.style.opacity = 1;
+    } else {
+      // Oculta la bola si está fuera de su rango
+      lastactionBall.style.opacity = 0;
+    }
+
+let ancho3 = window.innerWidth <= 600 ? 450 : 950
+let checkorbits = false
+if (scroll >= ancho3 ) {
+  textBall.style.opacity = 0
+  if (!checkorbits) {
+    orbitsCase.style.scale = 1;
+    orbitsLabel.style.opacity = 1;
+    
+  }
+  checkorbits = true
+} 
+let ancho4 = window.innerWidth <= 600 ? 550 : 1101
+let checksatellites = false
+if (scroll >= ancho4 ) {
+  if (!checksatellites) {
+    satellitesCase.style.scale = 1;
+    satellitesLabel.style.opacity = 1;
+   curvedTextCase.style.scale = 1;
+   curvedTextLabel.style.opacity = 1;
+   checksatellites = true
+} 
+}
+let checksectors = false
+let ancho5 = window.innerWidth <= 600 ? 650 : 1190
+if (scroll >= ancho5 ) {
+  if (!checksectors) {
+    sectorsCase.style.scale = 1;
+    sectorsLabel.style.opacity = 1;
+    segmentsCase.style.scale = 1;
+   segmentsLabel.style.opacity = 1; 
+  } 
+  checksectors = true
+  
+} 
+
+let checkprogress = false
+var ancho6 = window.innerWidth <= 600 ? 650 : 1300
+if (scroll >= ancho6 ) {
+  if (!checkprogress) {
+    progresssCase.style.scale = 1;
+    progresssLabel.style.opacity = 1;
+    spokesCase.style.scale = 1;
+   spokesLabel.style.opacity = 1;
+  
+  }
+  checkprogress = true
+  
+  } 
+}
+
+
+  window.addEventListener('scroll', onScroll, {passive: true});
+
+function onScroll() {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            scrollBall();
+            ticking = false;
+        });
+
+        ticking = true;
+    }
+}
+	 
+
+	});
+
+</script> <script>
+  function handleClick(button, subcontrol = false) {
+   
+      if (!subcontrol) {
+      
+          let otherButtons = document.querySelectorAll('[class*=option-]')
+          let otherButtons1 = document.querySelectorAll('[class*=suboption-]')
+          let otherActive = document.querySelectorAll('[class*=active]')
+          let otherActive1 = document.querySelectorAll('[class*=subactive-]')
+        
+          let group = [...otherButtons, ...otherButtons1, ...otherActive, ...otherActive1]
+          group.forEach(b => {
+              b.style.display = 'none'
+              b.style.opacity = 0
+          })
+          let control = document.querySelector(`.option-${button}`)
+          let active = document.querySelector(`.active-${button}`)
+         
+  
+         
+              control.style.display = 'flex'
+              control.style.opacity = 1;
+             // control.classList.add('active')
+              active.style.display = 'flex'
+              active.style.opacity = 1;
+        
+      } else {
+          let otherButtons1 = document.querySelectorAll('[class*=suboption-]')
+          let otherActive1 = document.querySelectorAll('[class*=subactive-]')
+          let group = [...otherButtons1, ...otherActive1]
+          group.forEach(b => {
+              b.style.display = 'none'
+              b.style.opacity = 0
+          })
+          let subcontrol = document.querySelector(`.suboption-${button}`)
+          let subactive = document.querySelector(`.subactive-${button}`)
+        if (subcontrol && subactive) {
+              subcontrol.style.display = 'flex'
+              subcontrol.style.opacity = 1;
+              subactive.style.display = 'flex'
+              subactive.style.opacity = 1;
+         }
+      }
+  }
+  
+
+  </script> <script>
+    // Función para manejar la selección de color
+    function handleColorSelection(event) {
+      if (event.type === 'touchmove') {
+      event.preventDefault(); // Prevenir el scroll predeterminado
+    }
+      // Asegurarse de que .option-color esté visible antes de procesar
+      const colorOption = document.querySelector('.option-color');
+      if (!colorOption || colorOption.style.display === 'none') return;
+  
+      // Detectar la posición del mouse o el toque
+let clientX, clientY;
+if (event.type === 'mousemove') {
+  clientX = event.clientX; // Para el mouse
+  clientY = event.clientY;
+} else if (event.type === 'touchmove') {
+  clientX = event.touches[0].clientX; // Para el toque
+  clientY = event.touches[0].clientY;
+}
+
+// Obtener la posición y el tamaño del contenedor .option-color
+const rect = colorOption.getBoundingClientRect();
+const { left, top, width, height } = rect;
+
+// Calcular el centro del contenedor
+const centerX = left + width / 2;
+const centerY = top + height / 2;
+
+// Calcular la posición del mouse/touch respecto al centro
+const x = clientX - centerX;
+const y = clientY - centerY;
+
+// Calcular el ángulo en radianes y convertirlo a grados
+let angle = Math.atan2(y, x) * (180 / Math.PI);
+
+// Normalizar el ángulo para que esté en el rango [0, 360]
+if (angle < 0) {
+  angle += 360;
+}
+
+// El ángulo corresponde directamente al valor de tono (hue)
+const hue = angle;
+
+  
+      // Calcular el color en HSL
+      const hslColor = `hsl(${hue}, 100%, 50%)`;
+  
+      // Actualizar el color de la visualización en .display-color
+      const colorDisplay = document.querySelector('.display-color');
+      if (colorDisplay) {
+        colorDisplay.style.color = hslColor;
+        colorDisplay.style.borderColor = hslColor;
+      }
+    }
+  
+    // Asignar los eventos de movimiento de mouse y toque a .option-color
+    const colorOption = document.querySelector('.option-color');
+    if (colorOption) {
+      // Detectar movimiento del mouse
+      colorOption.addEventListener('mousemove', handleColorSelection);
+  
+      // Detectar movimiento táctil (móviles)
+      colorOption.addEventListener('touchmove', handleColorSelection), { passive: false };
+    }
+  </script> <script>
+  // Función para manejar la selección de color
+  function handleButton(cssVar, value1, value2 = false)  {
+
+    // Asegurarse de que .option-color esté visible antes de procesar
+    const element = document.querySelector('.display-color');
+
+    if (cssVar === '--orbit-weight') handleClick('bold', true)
+    if (cssVar === '--orbit-italic') handleClick('italic', true)
+    if (cssVar === '--orbit-underline') handleClick('underline', true)
+
+    let state = getComputedStyle(element).getPropertyValue(cssVar)
+    if (value2) {
+      if (state === value1) {
+      element.style.setProperty(
+          cssVar,
+          value2
+        )
+    } else {
+      element.style.setProperty(
+          cssVar,
+          value1
+        )
+    }
+    } else {
+      element.style.setProperty(
+          cssVar,
+          value1
+        )
+    }
+    
+  }
+   
+</script> <div class="sl-markdown-content">  </div> <footer class="astro-vxys3i2k">  </footer>  </div> </div>  </main> </div> </div>  </div> </div>  </body></html>

@@ -1,0 +1,52 @@
+---
+title: Audio app UI in CSS — when to use Orbit
+description: Build DAW plugins, synth interfaces and audio mixer apps with radial knobs and meters in pure CSS. When Orbit fits an audio UI and when it doesn't.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Audio software is one of the few categories where the radial knob has never gone out of fashion. Every DAW plugin, every hardware synth, every modular rack uses knobs because they're the most precise interaction for a continuous parameter — you can map a knob to a wide range while keeping fine-grained control near the current value, and your hand remembers the position even with your eyes closed.
+
+Building knobs in pure CSS used to mean wrestling with `transform: rotate()`, custom mouse-drag handlers, and a lot of math. Orbit gives you the knob and gauge primitives as plain HTML elements, with rotation handled by CSS variables, so the only JavaScript you write is the part that maps mouse delta to parameter value.
+
+## When Orbit fits an audio UI
+
+- **You're building a web-based DAW plugin** (Web Audio, AudioWorklet) or a controller surface that runs in the browser.
+- **You're prototyping a synth interface** before commiting to JUCE or another native framework. The HTML version is good enough to user-test the layout and parameter ranges.
+- **You're building a companion app** for a hardware audio device — controllers, audio interfaces, MIDI gear configuration UIs.
+- **You need accessible knobs.** Because Orbit knobs are real DOM elements, you can wire them to ARIA `role="slider"`, `aria-valuenow`, and keyboard arrows out of the box.
+
+## When Orbit is the wrong tool
+
+- **You're rendering a 64-channel mixer** with hundreds of moving meters at audio rates. That's a job for Canvas or WebGL.
+- **You need photoreal skeuomorphic knobs** with custom textures. Render the texture as an image and overlay an Orbit knob for the value.
+
+## Building blocks for audio
+
+<CardGrid>
+  <LinkCard
+    title="Knobs"
+    href="/orbit-docs/examples/knobs/"
+    description="Rotary controls with progress arcs, LED indicators, and centered value displays — the workhorse of any audio UI."
+  />
+  <LinkCard
+    title="Gauges"
+    href="/orbit-docs/examples/gauges/"
+    description="180° / 240° meters for VU, peak, gain reduction, and any input/output level display."
+  />
+  <LinkCard
+    title="Progress rings"
+    href="/orbit-docs/examples/progress/"
+    description="Loading samples, rendering, exporting — and circular envelopes for ADSR visualizations."
+  />
+</CardGrid>
+
+## A typical Orbit audio plugin layout
+
+An EQ plugin built with Orbit might be: four large knobs across the top (low, low-mid, high-mid, high) with their value displays in the middle, two gauges on the right for input/output level, and a circular progress ring around the central bypass button. Each knob is a `bigbang` with a `<o-progress>` arc and a centered `satellite` for the value text. Mouse drag updates one CSS variable; the audio thread reads it back through a parameter binding.
+
+## Related
+
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/) — knobs for synth gear and knobs for thermostats share a vocabulary
+- [Use case: sci-fi game UIs](/orbit-docs/use-cases/sci-fi-game-uis/) — when your audio app leans hard on visual flair
+- [Examples index](/orbit-docs/examples/) — the full library

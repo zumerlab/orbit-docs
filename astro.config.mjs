@@ -156,27 +156,72 @@ export default defineConfig({
     label: 'Examples',
     items: [
     {
-        label: 'Circular timer',
-        link: '/examples/circular_time/',
-    },
-    {
-      label: 'Progress bars',
-      link: '/examples/progress/',
-    },{
-      label: 'Charts',
-      link: '/examples/charts/',
+      label: 'Circular timer',
+      link: '/examples/circular_time/',
     },{
       label: 'Gauges',
-      link: '/examples/gauges/'
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/gauges/' },
+        { label: '180° gauge', link: '/examples/gauges/180-degree-gauge/' },
+        { label: '240° gauge', link: '/examples/gauges/240-degree-gauge/' },
+        { label: 'Fuel gauge', link: '/examples/gauges/fuel-gauge/' },
+      ]
     },{
       label: 'Knobs',
-      link: '/examples/knobs/'
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/knobs/' },
+        { label: 'Knob with progress bar', link: '/examples/knobs/knob-with-progress-bar/' },
+        { label: 'LED knob', link: '/examples/knobs/led-knob/' },
+      ]
+    },{
+      label: 'Progress bars',
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/progress/' },
+        { label: 'Dashed circular progress bar', link: '/examples/progress/dashed-circular-progress-bar/' },
+        { label: 'Circular progress with background', link: '/examples/progress/circular-progress-with-background/' },
+        { label: 'Circular progress with handle', link: '/examples/progress/circular-progress-with-handle/' },
+        { label: 'Stacked circular progress bars', link: '/examples/progress/stacked-circular-progress-bars/' },
+      ]
+    },{
+      label: 'Charts',
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/charts/' },
+        { label: 'Donut chart', link: '/examples/charts/donut-chart/' },
+        { label: 'Pie chart', link: '/examples/charts/pie-chart/' },
+        { label: 'Sunburst chart', link: '/examples/charts/sunburst-chart/' },
+      ]
+    },{
+      label: 'Watch faces',
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/watches/' },
+        { label: 'Minimalist analog clock', link: '/examples/watches/minimalist-analog-clock/' },
+        { label: 'Chronograph watch face', link: '/examples/watches/chronograph-watch-face/' },
+        { label: 'Roman numeral clock face', link: '/examples/watches/roman-numeral-clock-face/' },
+        { label: 'Smartwatch face', link: '/examples/watches/smartwatch-face/' },
+      ]
+    },{
+      label: 'Mandalas',
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/mandalas/' },
+        { label: 'Geometric square mandala', link: '/examples/mandalas/geometric-square-mandala/' },
+        { label: 'Radial symmetry mandala', link: '/examples/mandalas/radial-symmetry-mandala/' },
+      ]
+    },{
+      label: 'Calendars & time planners',
+      collapsed: true,
+      items: [
+        { label: 'Overview', link: '/examples/calendar/' },
+        { label: 'Circular year calendar', link: '/examples/calendar/circular-year-calendar/' },
+      ]
     },{
       label: 'Pie menues',
       link: '/examples/piemenu/'
-    },{
-      label: 'Watch faces',
-      link: '/examples/watches/'
     },{
       label: 'Scifi',
       link: '/examples/scifi/'
@@ -184,17 +229,29 @@ export default defineConfig({
       label: 'Chemical structures',
       link: '/examples/chemical_structures/'
     },{
-      label: 'Calendars & time planners',
-      link: '/examples/calendar/'
-    },{
-      label: 'Mandalas',
-      link: '/examples/mandalas/'
-    },{
       label: 'Dashboards',
       link: '/examples/dashboard/'
     },{
       label: 'Abstract orbital map',
       link: '/examples/abstract_map/'
+    }]
+  }, {
+    label: 'Use cases',
+    items: [{
+      label: 'Dashboards',
+      link: '/use-cases/dashboards/'
+    },{
+      label: 'IoT and hardware UI',
+      link: '/use-cases/iot-and-hardware-ui/'
+    },{
+      label: 'Audio app UI',
+      link: '/use-cases/audio-app-ui/'
+    },{
+      label: 'Fitness and health apps',
+      link: '/use-cases/fitness-and-health-apps/'
+    },{
+      label: 'Sci-fi game UIs',
+      link: '/use-cases/sci-fi-game-uis/'
     }]
   }]
 }),

@@ -1,0 +1,89 @@
+---
+title: CSS donut chart — Orbit example
+description: Build a donut chart in pure HTML and CSS with weighted segments and category labels. No SVG, no D3, no charting library — just Orbit primitives.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A donut chart is a pie chart with the center cut out, and that empty center is the whole point: it gives you a place to put a total, a label, or a context-setting number. A pie chart with "$1.2M total" written on top of one of the slices is unreadable; a donut with "$1.2M" sitting in the empty middle reads instantly.
+
+This example builds a 5-segment donut with values that add up to 100. Orbit handles the angle math for you — you just pass `value="50"` and the arc takes up half the ring. The labels sit on the same orbit as the arcs, positioned by angle.
+
+export const chart1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-3 ">
+      <o-arc class="grow-1x gap-0 red" value="50"></o-arc>
+      <o-arc class="grow-1x gap-0 orange" value="25"></o-arc>
+      <o-arc class="grow-1x gap-0 yellow" value="15"></o-arc>
+      <o-arc class="grow-1x gap-0 blue" value="5"></o-arc>
+      <o-arc class="grow-1x gap-0 green" value="5"></o-arc>
+    </div>
+    <div class="orbit-3 ">
+      <div class="satellite angle-90 red">50</div>
+      <div class="satellite angle-225 orange">25</div>
+      <div class="satellite angle-295 yellow">15</div>
+      <div class="satellite angle-333 blue">5</div>
+      <div class="satellite angle-350 green">5</div>
+    </div>
+  </div>
+</div>`
+
+export const chart1CSS = `
+.satellite {
+  border-color: transparent;
+  font-size: 15px;
+  font-weight: bold; 
+}
+.satellite.red { color: var(--o-red-darker); }
+.satellite.orange { color: var(--o-orange-darker); }
+.satellite.yellow { color: var(--o-yellow-darker); }
+.satellite.blue { color: var(--o-blue-darker); }
+.satellite.green { color: var(--o-green-darker); }
+o-arc.red { --o-fill: var(--o-red); }
+o-arc.orange { --o-fill: var(--o-orange); }
+o-arc.yellow { --o-fill: var(--o-yellow); }
+o-arc.blue { --o-fill: var(--o-blue); }
+o-arc.green { --o-fill: var(--o-green); }
+`
+
+<ZumerPlay name={'chartDonut'} htmlCode={chart1HTML} cssCode={chart1CSS} height={'300px'} />
+
+## How it works
+
+- **`<o-arc value="X">`** is the entire chart engine. When you put multiple `<o-arc>` elements inside an orbit and give each a value, Orbit treats the values as weights and sizes each arc proportionally. The values don't have to sum to 100 — Orbit normalizes them.
+- **`gap-0`** removes the small separation between segments that `<o-arc>` adds by default. For a donut chart you usually want the segments touching; for a pie-with-emphasis you might leave the gap in.
+- **`grow-1x`** sets the arc thickness. Larger values (`grow-2x`, `grow-3x`) thicken the donut ring; the unfilled center grows accordingly. To turn this into a full pie chart, increase `grow` until the center disappears.
+- **Labels are positioned by angle**, not by data binding. Each label satellite has an `angle-X` class that points it to the middle of its corresponding arc. To compute these dynamically: `angle = startAngle + (cumulativeValue + halfThisValue) / totalValue * 360`.
+
+## Customization
+
+**Add a center total** by placing a satellite in the empty middle:
+
+```html
+<div class="orbit-0">
+  <div class="satellite">
+    <div class="capsule">100</div>
+  </div>
+</div>
+```
+
+**Make it a hover-interactive chart** by adding pointer events to each arc:
+
+```css
+o-arc { transition: --o-fill 0.2s; cursor: pointer; }
+o-arc:hover { --o-fill: var(--o-purple); }
+```
+
+**Switch to a 3D donut** by stacking two donuts at slightly different `--o-stroke-width` values and offsetting one with `transform: translateY(-2px)`.
+
+## Related
+
+- [Pie chart](/orbit-docs/examples/charts/pie-chart/) — solid variant
+- [Sunburst chart](/orbit-docs/examples/charts/sunburst-chart/) — hierarchical variant
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is your entire chart.

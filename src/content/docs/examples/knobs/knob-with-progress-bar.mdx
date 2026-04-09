@@ -1,0 +1,99 @@
+---
+title: CSS knob with progress bar — Orbit example
+description: Build a rotary knob with a continuous green progress arc in pure HTML and CSS. Tick marks, textured body, no SVG, no JavaScript needed.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A rotary knob with a built-in progress arc is the standard control on synthesizers, mixing desks and any UI where the user needs to feel like they're turning something. The progress arc serves a real purpose — it answers the question "how much?" without forcing the user to look up at a separate readout.
+
+This example builds the knob body from a textured background, places ten tick marks around it, and overlays an `<o-progress>` arc that visually fills as the value rises. There's no SVG, no canvas, and no JavaScript needed to render any of it — the JS in the third tab is only there to programmatically generate the tick marks for brevity.
+
+export const knob1HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-2 knob-background"></div>
+    <div class="orbit-0">
+      <div class="satellite">
+        <div class="gravity-spot">
+          <div class="orbit-2 shrink-50 ">
+            <div class="satellite shrink-40 led"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-3 shrink-10 from-215 range-290 fit-range marks">
+      <!-- marks: see JS tab -->
+    </div>
+    <div class="orbit-3 shrink-60 from-215 range-290">
+      <o-progress value="50" shape="circle" class="shrink-80 outer-orbit"></o-progress>
+    </div>
+  </div>
+</div>`
+
+export const knob1CSS = `
+.satellite { border: none }
+o-progress { --o-fill: var(--o-green) }
+.knob-background{
+  box-shadow: 0px 0px 0px 5px #404040;
+  background-color: #888;
+  background-image: radial-gradient(circle, rgba(10, 10, 10, 0.5) 0, rgba(10, 10, 10, 0) 24%, rgba(255, 255, 255, 0) 24%, rgba(255, 255, 255, 0) 100%), conic-gradient(rgba(255, 255, 255, 0.3) 0, rgba(255, 255, 255, 0.3) 5%, rgba(255, 255, 255, 0.5) 8%, rgba(255, 255, 255, 0.5) 18%, rgba(255, 255, 255, 0.1) 24%, rgba(255, 255, 255, 0.1) 32%, rgba(255, 255, 255, 0.2) 34%, rgba(255, 255, 255, 0.2) 42%, rgba(255, 255, 255, 0.1) 46%, rgba(255, 255, 255, 0.1) 56%, rgba(255, 255, 255, 0.3) 64%, rgba(255, 255, 255, 0.3) 69%, rgba(255, 255, 255, 0.1) 72%, rgba(255, 255, 255, 0.1) 81%, rgba(255, 255, 255, 0.2) 84%, rgba(255, 255, 255, 0.2) 86%, rgba(255, 255, 255, 0.1) 90%, rgba(255, 255, 255, 0.1) 95%, rgba(255, 255, 255, 0.3) 98%, rgba(255, 255, 255, 0.3) 100%);
+}
+.led {
+  border: none; 
+  background: radial-gradient(circle, rgba(246,246,246,1) 4%, rgb(52, 249, 72) 28%, rgba(0,0,0,1) 82%, rgba(0,0,0,1) 96%);
+  box-shadow: inset 0px 0px 0px 1px var(--o-gray-dark); 
+}`
+
+export const knob1JS = `
+// Just for demo purpose — programmatically generates the tick marks
+const elements = [];
+
+for (let i = 0; i < 10; i++) {
+  elements.push("<div class='vector shrink-70 outer-orbit black'></div>");
+}
+
+document.querySelector('.marks').innerHTML = elements.join('');
+`;
+
+<ZumerPlay name={'knobProgress'} htmlCode={knob1HTML} cssCode={knob1CSS} jsCode={knob1JS} height={'300px'} />
+
+## How it works
+
+- **`from-215 range-290`** is the trick that gives the knob its iconic shape: it sweeps a 290° arc starting at 215° (lower-left), leaving a 70° gap at the bottom — exactly where you'd grip a real knob.
+- **Three concentric orbits** are stacked: `orbit-2` for the textured body, `orbit-3 shrink-10` for the tick marks, and `orbit-3 shrink-60` for the progress arc. Stacking them on the same parent `gravity-spot` keeps everything centered automatically.
+- **The center LED** is a satellite at `orbit-0` (the dead center) with a radial gradient background, so it looks like a glowing indicator. Swap the gradient color and you've got a power LED for any color you want.
+- **`<o-progress value="50" shape="circle">`** is the progress arc itself — bind the `value` attribute to your state and it animates by setting CSS variables under the hood.
+
+## Customization
+
+**Make the knob respond to a real value:**
+
+```html
+<o-progress value="75" shape="circle" class="shrink-80 outer-orbit"></o-progress>
+```
+
+**Change the progress color** to amber for a warning state:
+
+```css
+o-progress { --o-fill: var(--o-orange) }
+```
+
+**Add a pointer indicator** by placing a `vector` on the same orbit as the progress, rotated to the current value:
+
+```html
+<div class="orbit-3 shrink-60">
+  <div class="vector grow-1x outer-orbit angle-200 pointer"></div>
+</div>
+```
+
+## Related
+
+- [LED knob](/orbit-docs/examples/knobs/led-knob/) — discrete-step variant
+- [Circular progress with handle](/orbit-docs/examples/progress/circular-progress-with-handle/) — uses the same `<o-progress>` element
+- [`<o-progress>` element reference](/orbit-docs/elements/progress/)
+- [Use case: audio app UI](/orbit-docs/use-cases/audio-app-ui/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above.

@@ -1,0 +1,129 @@
+---
+title: CSS geometric mandala — nested square pattern
+description: Build a complex geometric mandala from rotated, nested squares in pure HTML and CSS. Sacred geometry pattern with no SVG required.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A geometric square mandala is what happens when you take a single square and ask "what if I rotated copies of it at different angles, then nested smaller squares inside each one?" The result is the kind of pattern that shows up in sacred geometry textbooks and tattoo flash sheets — and it's all built here from `bigbang`, `gravity-spot`, nested orbits, and `satellite` elements with the `box` and `spin-lock` modifiers.
+
+The trick is that every nested level creates its own local coordinate system. When you rotate one of the outer satellites, everything inside it rotates with it — but `spin-lock` lets you cancel that rotation selectively, so you can have a tilted outer frame with upright inner squares.
+
+export const mandala3HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-0">
+      <div class="satellite at-center spin-lock angle-22">
+        <div class="gravity-spot">
+          <div class="orbit-4">
+            <div class="satellite box at-center grow-3.9x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box at-center grow-3x"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center spin-lock angle-67">
+        <div class="gravity-spot">
+          <div class="orbit-4">
+            <div class="satellite box at-center grow-3.9x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box at-center grow-3x"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center spin-lock angle-45">
+        <div class="gravity-spot">
+          <div class="orbit-4">
+            <div class="satellite box at-center grow-3.9x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box at-center grow-3x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box at-center grow-1.9x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box angle-45 spin-lock at-center grow-1.9x"></div>
+          </div>
+          <div class="orbit-2">
+            <div class="satellite box angle-45 spin-lock at-center grow-1x"></div>
+          </div>
+          <div class="orbit-1">
+            <div class="satellite box angle-45 spin-lock at-center"></div>
+          </div>
+          <div class="orbit-4 shrink-50"></div>
+        </div>
+      </div>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="gravity-spot">
+          <div class="orbit-4">
+            <div class="satellite box at-center grow-3.9x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box at-center grow-3x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box at-center grow-1.9x"></div>
+          </div>
+          <div class="orbit-3">
+            <div class="satellite box angle-45 spin-lock at-center grow-1.9x"></div>
+          </div>
+          <div class="orbit-2">
+            <div class="satellite box angle-45 spin-lock at-center grow-1x"></div>
+          </div>
+          <div class="orbit-1">
+            <div class="satellite box angle-45 spin-lock at-center"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>`
+
+<ZumerPlay name={'mandalaSquare'} htmlCode={mandala3HTML} cssCode={`.satellite {background: white}`} height={'300px'} />
+
+## How it works
+
+- **`box` modifier on the satellite** turns it into a square instead of the default circle. That's the core building block of this mandala — every visible shape is a `<satellite class="box">`.
+- **Four overlaid copies of the same nested structure** at angles 0°, 22°, 45° and 67° create the rotational symmetry. Each copy is rotated by `angle-X` on its outer satellite, and `spin-lock` keeps the inner contents from being rotated along with the frame.
+- **Nested orbits with `at-center`** stack the inner squares concentrically. Each `orbit-N` is a different scale, and `grow-3.9x`, `grow-3x`, `grow-1.9x` size them progressively smaller toward the center.
+- **`grow-Nx` controls the size** of each square relative to its orbit. By choosing values that overlap (3.9, 3, 1.9, 1), you get the layered "frame within a frame" effect that gives the mandala its depth.
+
+## Customization
+
+**Add color** by removing the `.satellite {background: white}` override and assigning per-orbit colors:
+
+```css
+.orbit-4 .satellite { background: var(--o-purple); }
+.orbit-3 .satellite { background: var(--o-cyan); }
+.orbit-2 .satellite { background: var(--o-pink); }
+```
+
+**Animate the rotation** for a meditative effect:
+
+```css
+.bigbang .gravity-spot {
+  animation: spin 60s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+```
+
+**Increase the symmetry** from 4-fold to 8-fold by adding four more outer satellites at angles 11°, 33°, 56°, 78°.
+
+## Related
+
+- [Radial symmetry mandala](/orbit-docs/examples/mandalas/radial-symmetry-mandala/) — a different symmetry style
+- [Mandala patterns hub](/orbit-docs/examples/mandalas/) — overview and simpler starter patterns
+- [`satellite` element reference](/orbit-docs/elements/satellite/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above as a starting point.

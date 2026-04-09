@@ -1,0 +1,57 @@
+---
+title: IoT and hardware UI in CSS — when to use Orbit
+description: Why IoT dashboards, smart-home apps and embedded device UIs reach for radial controls — and how Orbit CSS lets you build them as plain HTML.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+IoT and hardware UIs are full of analog metaphors — thermostats, fan-speed dials, fuel level indicators, signal-strength rings, valve position knobs. The reason is that the underlying device is itself analog: temperature is a continuous range, motor RPM has a min and max, a battery is a tank that fills and drains. Showing that as a radial control reads instantly because it matches the user's mental model of the physical thing.
+
+Orbit was built with this in mind. The components — gauges, knobs, progress rings, sub-dials — are exactly the vocabulary of physical control panels, but they're regular DOM elements you can theme with CSS variables and update from any framework or vanilla JavaScript over a WebSocket.
+
+## When Orbit fits an IoT UI
+
+- **You're building a smart-home control surface** (Home Assistant cards, Hubitat dashboards, custom Loxone overlays) and want consistent radial widgets that aren't tied to a single platform's component library.
+- **You're building a companion app for a physical device** — robot vacuums, e-bikes, brewing controllers, 3D printers, anything with a knob or a gauge on the hardware itself.
+- **You're prototyping an embedded device UI** in HTML before moving to native. The same markup later runs in a Tauri or Electron shell on the device.
+- **You're displaying live telemetry** from MQTT, BLE, or WebSocket streams. Update one CSS variable per message — no chart re-render, no canvas reflow.
+
+## When Orbit is the wrong tool
+
+- **You need a richly illustrated, branded control with photorealistic textures.** Render that as an SVG illustration and overlay an Orbit gauge for the live values.
+- **You're targeting low-end embedded browsers** without modern CSS support. Orbit relies on container queries and modern custom properties.
+
+## Building blocks for IoT
+
+<CardGrid>
+  <LinkCard
+    title="Gauges"
+    href="/orbit-docs/examples/gauges/"
+    description="180° / 240° gauges for temperature, pressure, fuel, signal strength — the bread and butter of device readouts."
+  />
+  <LinkCard
+    title="Knobs"
+    href="/orbit-docs/examples/knobs/"
+    description="Rotary controls for setpoints, dimming, volume, and any 'set this value' interaction."
+  />
+  <LinkCard
+    title="Progress rings"
+    href="/orbit-docs/examples/progress/"
+    description="Battery level, fill state, signal strength — anything that's a ratio of current-to-max."
+  />
+  <LinkCard
+    title="Watch faces"
+    href="/orbit-docs/examples/watches/"
+    description="When the device is wearable or has its own clock, the watch-face examples are a head start."
+  />
+</CardGrid>
+
+## A typical Orbit IoT view
+
+A smart-thermostat control screen built with Orbit might be: a 240° temperature gauge filling the upper two-thirds of the screen, a knob underneath for setpoint adjustment, two small progress rings showing humidity and filter life, and a row of mode buttons. Live data arrives over MQTT and updates `--o-progress` or `--o-angle-composite` on the relevant element. No re-render, no library state — the GPU compositor handles the animation.
+
+## Related
+
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/) — when the IoT view is one tile on a larger admin surface
+- [Use case: audio app UI](/orbit-docs/use-cases/audio-app-ui/) — knobs for studio gear are the same vocabulary
+- [Examples index](/orbit-docs/examples/) — the full library

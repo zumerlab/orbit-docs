@@ -1,0 +1,46 @@
+---
+title: CSS-only charts built with Orbit
+description: Browse Orbit CSS chart examples — donut charts, pie charts, sunburst charts. Pure HTML and CSS, no SVG, no D3 or charting library required.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Charts are usually the moment in a project where you reach for a 200KB charting library. For radial charts in particular — pies, donuts, sunbursts — that's overkill: the data shape is simple, the layout is fixed, and the only thing the library is really doing is computing arc paths and labeling them. Orbit removes that step entirely. Each slice is an `<o-arc>` element with a `value` attribute. The arcs auto-size based on their values. There's no SVG, no canvas, and no JavaScript.
+
+These three examples cover the most useful radial chart types.
+
+## Examples
+
+<CardGrid>
+  <LinkCard
+    title="Donut chart"
+    href="/orbit-docs/examples/charts/donut-chart/"
+    description="A 5-slice donut with category labels at each segment. Best for high-level KPI breakdowns and 'where is your time/money going' displays."
+  />
+  <LinkCard
+    title="Pie chart"
+    href="/orbit-docs/examples/charts/pie-chart/"
+    description="A solid 5-slice pie chart with no center hole. Best for proportions where you don't need a center label."
+  />
+  <LinkCard
+    title="Sunburst chart"
+    href="/orbit-docs/examples/charts/sunburst-chart/"
+    description="A multi-level hierarchical sunburst with three rings of increasing detail. Best for nested category breakdowns and drill-down data."
+  />
+</CardGrid>
+
+## Donut vs pie vs sunburst
+
+| Use case | Recommended |
+| --- | --- |
+| Single-level breakdown with a centerable total | Donut |
+| Single-level breakdown, dense layout | Pie |
+| Hierarchical / nested categories | Sunburst |
+
+All three are built from `<o-arc>` elements and weighted with the `value` attribute. Once you understand the donut, the other two are minor variations.
+
+## Related
+
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/)
+- [Gauges](/orbit-docs/examples/gauges/) — when you need a needle on top of an arc

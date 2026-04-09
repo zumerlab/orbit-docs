@@ -1,0 +1,57 @@
+---
+title: Radial dashboards in CSS — when to use Orbit
+description: Why product dashboards reach for radial layouts (KPIs, gauges, donut breakdowns) and how Orbit CSS lets you build them without SVG or chart libraries.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+Most dashboard UIs default to bar charts and tables because that's what every charting library ships with by default. But the moment a dashboard needs to show **a single KPI prominently** ("CPU at 73%"), **a part-of-whole breakdown** ("here's what your time went to last week"), or **a circular progress toward a goal** ("3,400 of 10,000 steps"), a radial component is almost always the right call. The eye reads radial fill as completeness, where it reads bar height as comparison.
+
+The traditional way to build these is to pull in Chart.js, ECharts, or D3 — three libraries that range from 60KB to 250KB and that render to canvas or SVG. Orbit gives you the same primitives (gauges, donut charts, progress rings, sub-dials) as plain HTML elements styled with CSS variables. They're DevTools-inspectable, theme-able, and accessible like any other DOM node.
+
+## When Orbit fits a dashboard
+
+- **You're building a custom design system.** You need the gauge/donut/progress components to inherit your brand tokens, dark mode, and motion language without fighting a chart library's defaults.
+- **You want low JS overhead.** A typical Orbit dashboard component is a few `<div>`s plus a CSS variable update — no library, no canvas, no shadow DOM.
+- **You need accessibility out of the box.** Because the components are real DOM, screen readers can announce them, and users can tab through them like any other element.
+- **You need motion that feels native.** CSS transitions on `--o-progress` or `--o-angle-composite` are GPU-accelerated and frame-perfect.
+
+## When Orbit is the wrong tool
+
+- **You need a multi-series time series.** Use a real charting library — Orbit is for radial single-value or single-breakdown displays.
+- **You're rendering thousands of data points.** Canvas-based libraries handle that better than DOM-based approaches.
+
+## Building blocks for dashboards
+
+<CardGrid>
+  <LinkCard
+    title="Gauges"
+    href="/orbit-docs/examples/gauges/"
+    description="180° / 240° speedometers and fuel gauges — for KPIs, system load, and any 'where am I on this scale?' display."
+  />
+  <LinkCard
+    title="Progress rings"
+    href="/orbit-docs/examples/progress/"
+    description="Circular progress bars with handles, dashes, backgrounds, and stacked variants — for goal tracking and uploads."
+  />
+  <LinkCard
+    title="Donut & pie charts"
+    href="/orbit-docs/examples/charts/"
+    description="Part-of-whole breakdowns rendered from regular DOM elements — themeable like any other component."
+  />
+  <LinkCard
+    title="Knobs"
+    href="/orbit-docs/examples/knobs/"
+    description="Interactive radial controls — useful for filter sliders, time-range pickers, and threshold setters."
+  />
+</CardGrid>
+
+## A typical Orbit dashboard
+
+A monitoring dashboard built with Orbit might pair: a 240° gauge for the headline KPI (CPU, memory, latency), three smaller progress rings for sub-metrics, and a donut chart for a categorical breakdown. Each component is one `<div class="bigbang">` block, and updating values is a single `setProperty('--o-progress', newValue)` call from JavaScript. No re-render, no library state, no chart instance to dispose.
+
+## Related
+
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/) — when the dashboard is talking to a physical device
+- [Use case: fitness and health apps](/orbit-docs/use-cases/fitness-and-health-apps/) — activity rings as a special case of dashboard
+- [Examples index](/orbit-docs/examples/) — the full library

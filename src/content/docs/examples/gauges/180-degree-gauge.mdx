@@ -1,0 +1,96 @@
+---
+title: 180° gauge in CSS — Orbit example
+description: Build a 180-degree half-circle gauge in pure HTML and CSS with five colored zones and a needle. No SVG, no JavaScript. Copy-paste ready.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A 180° gauge is the half-circle meter you see on credit-score widgets, customer-satisfaction dashboards, and "how healthy is this thing?" displays. The shape works because the human eye instantly maps the position of a needle on a horizontal arc to a position on a scale — no legend required.
+
+This example builds the entire gauge with five `<o-arc>` segments, a center pivot, and a single rotated `vector` as the needle. There's no SVG and no JavaScript, so you can theme it with CSS variables and animate the needle with `transform: rotate()` like any other element.
+
+export const gauge1HTML = `
+<div class="bigbang ">
+  <div class="gravity-spot">
+    <div class="orbit-5 range-180 from-270">
+      <o-arc class="text red">very poor</o-arc>
+      <o-arc class="text orange">poor</o-arc>
+      <o-arc class="text yellow">fair</o-arc>
+      <o-arc class="text green">good</o-arc>
+      <o-arc class="text green-dark">excellent</o-arc>
+    </div>
+    <div class="orbit-4  range-180 from-270">
+      <o-arc class="red"></o-arc>
+      <o-arc class="orange"></o-arc>
+      <o-arc class="yellow"></o-arc>
+      <o-arc class="green"></o-arc>
+      <o-arc class="green-dark"></o-arc>
+    </div>
+    <div class="orbit center">
+      <div class="vector grow-1.6x outer-orbit needle"></div>
+    </div>
+  </div>
+</div>`
+
+export const gauge1CSS = `
+.bigbang {
+  margin-top: 50px
+}
+.center {
+  border: 2px solid black
+}
+.needle {
+  height: 5px; 
+  background-color: black;
+}
+.text.red { color: var(--o-red); --o-fill: none; }
+.text.orange { color: var(--o-orange); --o-fill: none; }
+.text.yellow { color: var(--o-yellow); --o-fill: none; }
+.text.green { color: var(--o-green); --o-fill: none; }
+.text.green-dark { color: var(--o-green-dark); --o-fill: none; }
+o-arc.red { --o-fill: var(--o-red); }
+o-arc.orange { --o-fill: var(--o-orange); }
+o-arc.yellow { --o-fill: var(--o-yellow); }
+o-arc.green { --o-fill: var(--o-green); }
+o-arc.green-dark { --o-fill: var(--o-green-dark); }`
+
+<ZumerPlay name={'gauge180'} htmlCode={gauge1HTML} cssCode={gauge1CSS} height={'250px'} />
+
+## How it works
+
+- **`range-180 from-270`** on the outer orbit constrains the arcs to a 180° span starting at the 9 o'clock position (270°). Change `from-270` to `from-180` if you want the gauge to open downward instead of upward.
+- **Two parallel orbits** are used: one for the colored bands (`orbit-4`) and one for the text labels (`orbit-5`). Keeping them on separate orbits means the labels never overlap the colored fill, no matter how thick you make the bands.
+- **The needle** is a single `vector` element rotated with `grow-1.6x` to extend past the orbit radius. To make it point to a value, set `angle-X` where X is computed from your data: `angle = 270 + (value/max) * 180`.
+- **Color zones** are five arcs of equal width (one-fifth of 180° each). All five `<o-arc>` elements share the parent's `range-180`, so Orbit divides the span evenly without you doing the math.
+
+## Customization
+
+**Rotate the needle to a value of 67%:**
+
+```html
+<div class="vector grow-1.6x outer-orbit needle angle-30"></div>
+```
+
+(270° + 0.67 × 180° = 390°, which wraps to 30°.)
+
+**Make the bands thicker** by replacing `orbit-4` with `orbit-3`:
+
+```html
+<div class="orbit-3 range-180 from-270">
+  <o-arc class="red"></o-arc>
+  ...
+</div>
+```
+
+**Reverse the color order** so green is on the left (good for "lower is better" metrics like latency or error rate) by simply reversing the `<o-arc>` elements.
+
+## Related
+
+- [240° gauge](/orbit-docs/examples/gauges/240-degree-gauge/) — same idea with a wider arc
+- [Fuel gauge](/orbit-docs/examples/gauges/fuel-gauge/) — a 90° variant for tight spaces
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: dashboards](/orbit-docs/use-cases/dashboards/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and drop the markup above into any HTML page.

@@ -1,0 +1,99 @@
+---
+title: 240° gauge in CSS — speedometer-style Orbit example
+description: Build a 240-degree speedometer gauge in HTML and CSS with numbered tick marks and a needle. Pure CSS, no SVG, no JS dependency.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A 240° gauge is the shape you'll recognize from car speedometers and tachometers: a wide arc that opens downward, leaving room at the bottom for a center label or pivot. The extra arc length compared to a half-circle gauge gives you space for fifteen or more numbered tick marks — enough resolution for a speedometer where every 10 km/h needs to be readable at a glance.
+
+This example places fifteen numbered `<o-arc>` labels on one orbit, fifteen colored fill arcs (green → orange → red) on a second, and a single needle element on top.
+
+export const gauge2HTML = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-6 shrink-70  range-240 from-240">
+      <o-arc>10</o-arc>
+      <o-arc>20</o-arc>
+      <o-arc>30</o-arc>
+      <o-arc>40</o-arc>
+      <o-arc>50</o-arc>
+      <o-arc>60</o-arc>
+      <o-arc>70</o-arc>
+      <o-arc>80</o-arc>
+      <o-arc>90</o-arc>
+      <o-arc>100</o-arc>
+      <o-arc>110</o-arc>
+      <o-arc>120</o-arc>
+      <o-arc>130</o-arc>
+      <o-arc>140</o-arc>
+      <o-arc>150</o-arc>
+    </div>
+    <div class="orbit-4  range-240 from-240">
+      <o-arc class="grow-0.7x green"></o-arc>
+      <o-arc class="grow-0.7x green"></o-arc>
+      <o-arc class="grow-0.7x green"></o-arc>
+      <o-arc class="grow-0.7x green"></o-arc>
+      <o-arc class="grow-0.7x green"></o-arc>
+      <o-arc class="grow-0.7x orange"></o-arc>
+      <o-arc class="grow-0.7x orange"></o-arc>
+      <o-arc class="grow-0.7x orange"></o-arc>
+      <o-arc class="grow-0.7x orange"></o-arc>
+      <o-arc class="grow-0.7x orange"></o-arc>
+      <o-arc class="grow-0.7x red"></o-arc>
+      <o-arc class="grow-0.7x red"></o-arc>
+      <o-arc class="grow-0.7x red"></o-arc>
+      <o-arc class="grow-0.7x red"></o-arc>
+      <o-arc class="grow-0.7x red"></o-arc>
+    </div>
+    <div class="orbit center">
+      <div class="vector grow-1.7x outer-orbit needle"></div>
+    </div>
+  </div>
+</div>`
+
+export const gauge2CSS = `
+o-arc { --o-gap: 2 }
+.orbit-6 > o-arc { --o-fill: none }
+.green { --o-fill: var(--o-green) }
+.orange { --o-fill: var(--o-orange) }
+.red { --o-fill: var(--o-red) }
+.center { border: 2px solid black }
+.needle { height: 5px; background-color: black; }
+`
+
+<ZumerPlay name={'gauge240'} htmlCode={gauge2HTML} cssCode={gauge2CSS} height={'300px'} />
+
+## How it works
+
+- **`range-240 from-240`** opens a 240° arc starting at the 6 o'clock position. The result is the classic "smile-shaped" gauge with the gap at the bottom.
+- **Two orbits, one for numbers and one for color bands.** The numbers live on `orbit-6 shrink-70` (slightly smaller radius, so they sit inside the band). The colored bands live on `orbit-4` and use `grow-0.7x` to give them visible thickness.
+- **`--o-gap: 2`** adds a tiny separation between adjacent arcs so the tick boundaries are visible. Without it, the arcs blend into one continuous bar.
+- **Color zones in groups of five** create the green/orange/red traffic-light pattern that drivers instinctively read. You can shift the boundary between zones by changing how many arcs of each color you list.
+
+## Customization
+
+**Convert this to a 0–220 km/h speedometer** by changing the `<o-arc>` text content from `10`, `20`, ... to `20`, `40`, ... and adjusting the count.
+
+**Animate the needle** with a CSS transition:
+
+```css
+.needle {
+  transition: transform 0.4s ease-out;
+}
+```
+
+Then update the `angle-X` class with JavaScript when the value changes — Orbit's angle classes work with `style.transform`-equivalent rotations, so the transition applies cleanly.
+
+**Drop the colored zones** entirely if you want a minimalist all-black gauge — just delete the second orbit and the gauge will still read as a speedometer thanks to the numbered ticks.
+
+## Related
+
+- [180° gauge](/orbit-docs/examples/gauges/180-degree-gauge/) — narrower variant for ratings
+- [Fuel gauge](/orbit-docs/examples/gauges/fuel-gauge/) — 90° version for compact dashboards
+- [`<o-arc>` element reference](/orbit-docs/elements/arc/)
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/)
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) to get the `<o-arc>` element and orbit primitives used above.

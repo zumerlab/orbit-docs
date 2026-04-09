@@ -1,0 +1,41 @@
+---
+title: CSS knobs built with Orbit
+description: Browse CSS knob examples built with Orbit — rotary knobs with progress bars and LED indicators. Pure HTML and CSS, no SVG, no JS framework required.
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+A knob is the visual metaphor most people reach for when they need to communicate "set a value between A and B" — it's the rotary control on a guitar amp, the volume dial on a stereo, the brightness wheel on a monitor. Building one in HTML traditionally means SVG paths and a thick layer of JavaScript. With Orbit, the knob body, the indicator markings, the progress fill, and even individual LEDs are all just `<div>` elements you can style with CSS.
+
+These two examples cover the most useful knob variants: one with an analog progress arc, and one with discrete LED steps for stepped controls.
+
+## Examples
+
+<CardGrid>
+  <LinkCard
+    title="Knob with progress bar"
+    href="/orbit-docs/examples/knobs/knob-with-progress-bar/"
+    description="A textured rotary knob with a continuous green progress arc and tick marks. Best for volume, brightness, or any continuous value."
+  />
+  <LinkCard
+    title="LED knob"
+    href="/orbit-docs/examples/knobs/led-knob/"
+    description="A two-tone knob with eleven LED indicators that light up as the value increases. Best for stepped levels and discrete settings."
+  />
+</CardGrid>
+
+## When to use which
+
+| If your value is... | Pick | Why |
+| --- | --- | --- |
+| Continuous (0–100) | Progress-bar knob | The arc gives sub-step resolution |
+| Discrete (1–10, low/med/high) | LED knob | The LEDs map cleanly to whole steps |
+| Mixed | Either, with snapping | Both can be made step-aware in JS |
+
+Both examples are built from the same Orbit primitives — `bigbang`, `gravity-spot`, nested orbits, and `vector` indicators — so once you've built one, the other is a small variation.
+
+## Related
+
+- [Gauges](/orbit-docs/examples/gauges/) — when you need a needle instead of a knob body
+- [Circular progress bars](/orbit-docs/examples/progress/) — the underlying progress primitive used in knob #1
+- [Use case: audio app UI](/orbit-docs/use-cases/audio-app-ui/)

@@ -1,0 +1,80 @@
+---
+title: CSS Roman numeral clock face — Orbit example
+description: Build an analog clock with Roman numerals (XII, I, II...) in pure HTML and CSS. Spin-locked labels, no SVG, dressy aesthetic for formal UIs.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A Roman numeral clock face is the formal version of the analog clock — the one you'd put on a luxury brand homepage, a wedding planner app, or any UI where "Arabic numerals" feels too informal. The numerals (XII, I, II, III...) trade some readability for a sense of tradition and craft.
+
+The trick with Roman numerals on a circle is keeping them upright. By default, satellites rotate to face outward from the center, which would tilt the labels. The `spin-lock` modifier counters that rotation so each numeral stays vertical, and the `flip` capsule keeps the text reading top-to-bottom on the bottom half of the clock.
+
+export const watch3HTML = `
+<div class="bigbang">
+  <div class="gravity-spot clock-frame">  
+    <div class="orbit-10">
+      <div class="vector inner-orbit" v-for="n in 12"></div>
+    </div>
+    <div class="orbit-10 ring">
+      <div class="vector shrink-40 inner-orbit" v-for="n in 60"></div>
+    </div>
+    <div class="orbit-10 shrink-70 ring"></div> 
+    <div class="orbit-8" >
+      <div class="satellite hours spin-lock"><div class="capsule flip">XII</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">I</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">II</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">III</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">IV</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">V</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">VI</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">VII</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">VIII</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">IX</div></div>
+      <div class="satellite hours spin-lock"><div class="capsule flip">X</div></div>
+      <div class="satellite hours spin-lock"> <div class="capsule flip">XI</div></div>
+    </div>  
+    <div class="orbit-0 clock">
+      <div class="vector grow-4x outer-orbit angle-45"></div>
+      <div class="vector grow-3x outer-orbit angle-300"></div>
+    </div>
+  </div>
+</div>`
+
+export const watch3CSS = `
+.satellite { border: none }
+.clock-frame { color: black; --o-force: 200px }
+.ring { border: 1px solid black; }
+`
+
+<ZumerPlay name={'watchRoman'} htmlCode={watch3HTML} cssCode={watch3CSS} jsCode={`{ data () { return {} } }`} framework="vue" height={'300px'} />
+
+## How it works
+
+- **`spin-lock` on each hour satellite** is the key class. By default, satellites rotate to track their orbital angle, which would make the "VI" at the bottom appear upside-down. `spin-lock` cancels that rotation, keeping the numeral upright.
+- **The `<capsule>` wrapper with `flip`** handles the text-rendering direction. Capsules are layout primitives that ride along orbits with their own coordinate system, and `flip` reverses their internal text direction so multi-character numerals like "VIII" remain readable on the bottom half.
+- **Three orbit-10 layers** create the dial structure: a ring of 12 hour ticks, a ring of 60 finer ticks, and an inner blank ring (`shrink-70`) that creates the formal "double bezel" look. This is what distinguishes a luxury watch face from a casual one.
+- **The hands stay numeric-style** — there's no rule that says a Roman-numeral face needs ornate hands. Stripped-down hands actually contrast nicely with the formal numerals.
+
+## Customization
+
+**Use Arabic numerals at 12, 3, 6, 9** for a hybrid "California dial" look — replace eight of the Roman numerals with empty satellites and only label four positions.
+
+**Add a brand label** between the dial and the center, the same way the [chronograph example](/orbit-docs/examples/watches/chronograph-watch-face/) does.
+
+**Make it black-on-gold** for a luxury aesthetic:
+
+```css
+.bigbang { background: #d4af37; }
+.clock-frame { color: black; }
+.satellite, .vector { background: black; }
+```
+
+## Related
+
+- [Minimalist analog clock](/orbit-docs/examples/watches/minimalist-analog-clock/) — Arabic numeral variant
+- [Chronograph watch face](/orbit-docs/examples/watches/chronograph-watch-face/) — complications variant
+- [`satellite` element reference](/orbit-docs/elements/satellite/) — for `spin-lock` details
+
+## Use this in your project
+
+[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is your full clock.

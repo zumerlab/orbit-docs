@@ -1,0 +1,197 @@
+# Orbit CSS Framework
+
+> Orbit is a CSS framework for building radial and circular user interfaces.
+> It uses CSS trigonometric functions (cos, sin), the :has() selector, and CSS custom properties to position elements on circular orbits — no layout JavaScript needed.
+
+## Documentation
+
+- Docs: https://zumerlab.github.io/orbit-docs
+- Repo: https://github.com/zumerlab/orbit
+- npm: @zumer/orbit
+- Version: 1.4.8
+- License: MIT
+
+## Quick Start
+
+CDN:
+```html
+<link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
+<script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+```
+
+npm:
+```bash
+npm install @zumer/orbit
+```
+```js
+import '@zumer/orbit/style'  // CSS
+import '@zumer/orbit'         // JS (registers web components + Orbit.resize)
+```
+
+## What the JS file does
+
+- Registers `<o-arc>` custom element (SVG arc/wedge segments)
+- Registers `<o-progress>` custom element (SVG progress rings)
+- Exposes `window.Orbit` with the `.resize()` method for responsive layouts
+- If you only use CSS classes (no web components, no responsive resize), the JS is optional.
+
+## Core Concept
+
+Orbit uses a solar-system metaphor. Everything revolves around a center point called the **gravity-spot**. Elements are placed on concentric rings (**orbits**) and positioned automatically using CSS trigonometry (cos/sin). The framework auto-distributes children evenly around each orbit using the `:has()` selector to count them.
+
+## Mandatory HTML Structure
+
+```
+.bigbang > .gravity-spot > .orbit-N > .satellite > .capsule
+```
+
+Every Orbit layout MUST follow this exact nesting hierarchy. Skipping or misordering any level will break the layout and trigger CSS validation warnings (red dotted borders).
+
+- `.bigbang` — Root container (flex center, 100% width/height, 100vh when direct child of body)
+- `.gravity-spot` — Center point (0 width, holds all CSS variables, origin of coordinate system)
+- `.orbit-N` — A ring at radius level N (0–24). Higher N = larger radius. Invisible by default.
+- `.satellite` — An item placed on a ring (positioned via cos/sin transforms, up to 60 per orbit)
+- `.capsule` — Content wrapper inside satellite (counter-rotates so content stays upright)
+
+## Additional Elements (placed directly inside .orbit-N, NOT inside .satellite)
+
+- `<o-arc>` — SVG arc/wedge segments (pie slices, gauge needles, text along arcs)
+- `<o-progress>` — SVG progress ring with background track
+- `.vector` — Tick marks / radial lines (up to 60 per orbit)
+- `.side` — Chord/tangent elements that form polygons
+
+## Key CSS Custom Properties (set on .gravity-spot or .orbit-N)
+
+| Property | Default | Purpose |
+|---|---|---|
+| `--o-force` | `500px` | Base diameter of the entire system. MUST be pixels. |
+| `--o-force-ratio` | `1` | Responsive scaling multiplier (set by Orbit.resize()) |
+| `--o-from` | `0deg` | Starting angle. 0deg = 12 o'clock (top). |
+| `--o-range` | `360deg` | Total arc span (180 = semicircle, 270 = three-quarter) |
+| `--o-direction` | `1` | 1 = clockwise, -1 = counter-clockwise |
+| `--o-fit-range` | `0` | 1 = distribute items within range without overlap at boundaries |
+| `--o-size-ratio` | `1` | Multiplier for element sizes |
+| `--o-initial-orbit` | `0` | Offset added to orbit numbering (increases total orbits) |
+| `--o-ellipse-x` | `1` | Horizontal compression (>1 compresses). NOTE: o-arc/o-progress hidden when ≠ 1 |
+| `--o-ellipse-y` | `1` | Vertical compression (>1 compresses). NOTE: o-arc/o-progress hidden when ≠ 1 |
+| `--o-gap` | `1` | Gap between arc segments (for `<o-arc>`) |
+| `--o-orbit-ratio` | `0` | Shrinks spacing between orbits (0=normal, 1=all same size) |
+| `--o-aligment` | `0px` | Radial offset. Positive = inward, negative = outward |
+
+## How Angle Auto-Distribution Works
+
+The framework counts children inside each orbit using CSS `:has(:nth-child(N of .satellite))` and automatically sets `--o-angle = --o-range / N`. Each child is positioned at `angle * child_index`. This means:
+- 4 satellites in a 360deg orbit → each at 90° apart
+- 3 arcs in a 270deg range → each at 90° apart
+- No manual angle calculation needed
+
+## Utility Classes
+
+**Positioning:** `.at-top`, `.at-bottom`, `.at-center`, `.at-top-left`, `.at-top-right`, `.at-bottom-left`, `.at-bottom-right`, `.at-center-left`, `.at-center-right`
+
+**Range/Angle:** `.range-0` to `.range-360`, `.from-0` to `.from-360`, `.angle-0` to `.angle-360`, `.fit-range`, `.ccw`
+
+**Initial orbit:** `.from-1x` to `.from-12x` (on .gravity-spot, sets --o-initial-orbit)
+
+**Sizing:** `.shrink-0` to `.shrink-100` (step 5), `.grow-0.1x` to `.grow-12x`
+
+**Gap:** `.gap-0` to `.gap-30` (on `<o-arc>`)
+
+**Radial alignment:** `.inner-orbit`, `.quarter-inner-orbit`, `.quarter-outer-orbit`, `.outer-orbit`
+
+**Capsule modifiers:** `.flip`, `.turn-left`, `.turn-right`, `.horizontal`
+
+**Satellite shape:** `.circle`, `.box`, `.rounded-box`, `.spin-lock`
+
+**Effects:** `.gooey-fx-light`, `.gooey-fx-medium`, `.gooey-fx-max` (not Safari)
+
+## Web Components
+
+### `<o-arc>` — Arc/Wedge Segment
+Place directly inside `.orbit-N`. NEVER inside `.satellite`.
+- Attributes: `value` (0–100), `shape` (none|rounded|circle|circle-a|circle-b|bullet|arrow|slash|backslash|zigzag), `flip`, `fit-range`, `text-anchor` (start|middle|end)
+- CSS: `--o-fill`, `--o-stroke`, `--o-stroke-width`, `--o-color`
+- Text: `<o-arc>text here</o-arc>` renders text along the arc path
+- Stacking: Multiple `<o-arc>` with `value` attributes auto-stack end-to-end (donut chart). Values should sum to ≤ 100.
+- Without `value`: arcs auto-divide the range equally
+
+### `<o-progress>` — Progress Ring
+Place directly inside `.orbit-N`. NEVER inside `.satellite`. Max one per orbit.
+- Attributes: `value` (number), `max` (default 100), `shape` (same as o-arc)
+- CSS: `--o-fill`, `--o-stroke`, `--o-stroke-width`, `--o-back-fill`, `--o-back-stroke`, `--o-back-stroke-width`
+
+## Color System
+
+10 base colors: `--o-red`, `--o-orange`, `--o-yellow`, `--o-green`, `--o-cyan`, `--o-blue`, `--o-indigo`, `--o-purple`, `--o-pink`, `--o-gray`
+
+Each has 6 variants: `-white`, `-lighter`, `-light`, `-dark`, `-darker`, `-black`
+Example: `--o-red-light`, `--o-cyan-darker`
+
+Dynamic: set `--o-color` on any element and use `--o-color-light`, `--o-color-dark`, etc.
+
+## Themes
+
+- Default: transparent orbits, currentColor borders on satellites
+- `.theme-cyan`: cyan-colored borders and fills
+- `.dev-orbit`: red dashed borders on all elements (debugging)
+
+## Responsive Sizing
+
+```js
+Orbit.resize('.parent-selector');
+```
+Calculates `--o-force-ratio = containerWidth / 500` using ResizeObserver.
+
+## Critical Rules for LLMs
+
+1. ALWAYS follow: `.bigbang > .gravity-spot > .orbit-N > .satellite > .capsule`
+2. Put ALL visible content inside `.capsule`, never directly in `.satellite`
+3. Use `.orbit-0 > .satellite.at-center > .capsule` for center content
+4. `<o-arc>` and `<o-progress>` go directly in `.orbit-N`, NEVER in `.satellite`
+5. `.vector` and `.side` go directly in `.orbit-N`, NEVER in `.satellite`
+6. Multiple `.orbit-N` are siblings inside the same `.gravity-spot`
+7. Do NOT nest `.orbit-N` inside another `.orbit-N`. For nested layouts, create `.bigbang > .gravity-spot` inside a `.capsule`
+8. `--o-force` MUST be a pixel value (e.g., `500px`), never percentage
+9. `.orbit-0` is just a center point (near-zero radius), not a visible ring
+10. `from-0` = top/12 o'clock, NOT right/3 o'clock
+11. `<o-arc>` and `<o-progress>` do NOT work in elliptical layouts
+12. Do NOT use `transform` on `.satellite` — it overrides positioning
+13. Do NOT set `--o-orbit-number`, `--o-orbit-child-number`, or `--o-angle` manually — these are auto-calculated
+14. `.angle-N` resets `--o-from` to 0 — do NOT combine with `.from-N` on the same element (except on `<o-arc>`/`<o-progress>` where `.angle-N` does NOT reset `--o-from`)
+15. Browser requirements: CSS :has(), CSS cos()/sin(), Web Components. No IE/old browser support.
+
+## Nesting Pattern
+
+To create nested radial systems (planet with moons), use a new `.bigbang > .gravity-spot` inside a `.capsule`:
+```html
+<div class="satellite">
+  <div class="capsule">
+    <div class="bigbang">
+      <div class="gravity-spot" style="--o-force: 80px;">
+        <div class="orbit-2">
+          <div class="satellite"><div class="capsule">Moon</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Minimal Valid Example
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-3">
+      <div class="satellite"><div class="capsule">A</div></div>
+      <div class="satellite"><div class="capsule">B</div></div>
+      <div class="satellite"><div class="capsule">C</div></div>
+    </div>
+  </div>
+</div>
+```
+Places 3 items evenly (120° apart) on orbit ring 3.
+
+## Optional: llms-full.txt
+
+For the complete API reference with all patterns, recipes, internal mechanics, and advanced examples, see [llms-full.txt](https://zumerlab.github.io/orbit-docs/llms-full.txt).
