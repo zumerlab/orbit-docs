@@ -2,7 +2,7 @@
 
 > Orbit is a CSS framework for building radial and circular user interfaces.
 > It uses CSS trigonometric functions (cos, sin), the :has() selector, and custom properties to position elements on circular orbits — no layout JavaScript needed.
-> Package: @zumer/orbit | Version: 1.4.8 | License: MIT
+> Package: @zumer/orbit | Version: 1.4.11 | License: MIT
 > Docs: https://zumerlab.github.io/orbit-docs | Repo: https://github.com/zumerlab/orbit
 
 ---

@@ -8,7 +8,7 @@
 - Docs: https://zumerlab.github.io/orbit-docs
 - Repo: https://github.com/zumerlab/orbit
 - npm: @zumer/orbit
-- Version: 1.4.8
+- Version: 1.4.11
 - License: MIT
 
 ## Quick Start
