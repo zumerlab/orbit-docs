@@ -54,6 +54,9 @@ export default defineConfig({
     useStarlightDarkModeSwitch: false
   },
   title: 'Orbit CSS radial UI composer',
+  banner: {
+    content: 'New: <a href="https://zumerlab.com/orbit-kit">orbit-kit</a> — ready-made radial components, one tag each',
+  },
   description: 'Get started building an amazing cool radial UI with Orbit CSS composer',
 
   disable404Route: true,
