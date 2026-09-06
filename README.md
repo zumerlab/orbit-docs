@@ -4,7 +4,7 @@ This repo contains documentation source of Orbit official documentation site. Th
 
 👉 Checkout these links:
 
-- **Orbit doc website:** https://zumerlab.github.io/orbit-docs
+- **Orbit doc website:** https://zumerlab.com/orbit-docs
 - **Orbit code repo:** https://github.com/zumerlab/orbit
 - **Zumerlab repo:** https://github.com/zumerlab
 
