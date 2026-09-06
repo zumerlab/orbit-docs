@@ -1,0 +1,89 @@
+---
+import '../styles/orbit-playground.css';
+
+interface Props {
+  initialRecipe?: 'satellites' | 'arcs' | 'progress';
+}
+const { initialRecipe = 'satellites' } = Astro.props;
+const base = `${import.meta.env.BASE_URL.replace(/\/$/, '')}/`;
+const id = `op-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<orbit-playground id="playground" data-recipe={initialRecipe} data-base={base} aria-labelledby={`${id}-title`}>
+  <div class="op-heading">
+    <div>
+      <h2 id={`${id}-title`}>Playground</h2>
+      <p class="op-intro">Change the controls to see the layout update. Copy or download the HTML.</p>
+    </div>
+    <button class="op-reset" type="button" data-action="reset" aria-label="Reset the current example">↺ <span>Reset</span></button>
+  </div>
+
+  <div class="op-recipe-bar">
+    <div class="op-recipes" aria-label="Choose an example">
+      <button type="button" data-recipe-button="satellites" aria-pressed={initialRecipe === 'satellites'}>Satellites</button>
+      <button type="button" data-recipe-button="arcs" aria-pressed={initialRecipe === 'arcs'}>Arcs</button>
+      <button type="button" data-recipe-button="progress" aria-pressed={initialRecipe === 'progress'}>Progress</button>
+    </div>
+    <div class="op-views" aria-label="Playground view">
+      <button type="button" data-view-button="preview" aria-pressed="true">Preview</button>
+      <button type="button" data-view-button="code" aria-pressed="false">Code</button>
+    </div>
+  </div>
+
+  <div class="op-workspace" data-view="preview">
+    <div class="op-preview-panel">
+      <div class="op-stage">
+        <span class="op-stage-label" aria-hidden="true">Preview</span>
+        <div class="op-preview" data-preview></div>
+        <style data-preview-style is:inline></style>
+        <p class="op-stage-caption" data-stage-caption></p>
+      </div>
+    </div>
+    <div class="op-inspector">
+      <div class="op-controls" data-controls>
+        <div data-controls-for="satellites" hidden={initialRecipe !== 'satellites'}>
+          <div class="op-fields">
+            <label class="op-field" for={`${id}-count`}><span>Satellites <output for={`${id}-count`} data-output="count">8</output></span><input id={`${id}-count`} data-control="count" type="range" min="1" max="80" step="1" value="8" /></label>
+            <label class="op-field" for={`${id}-range`}><span>Spread <output for={`${id}-range`} data-output="range">360°</output></span><input id={`${id}-range`} data-control="range" type="range" min="60" max="360" step="15" value="360" /></label>
+            <label class="op-field" for={`${id}-from`}><span>Rotation <output for={`${id}-from`} data-output="from">0°</output></span><input id={`${id}-from`} data-control="from" type="range" min="0" max="360" step="5" value="0" /></label>
+            <label class="op-field" for={`${id}-size`}><span>Diameter <output for={`${id}-size`} data-output="size">320 px</output></span><input id={`${id}-size`} data-control="size" type="range" min="160" max="400" step="10" value="320" /></label>
+          </div>
+          <p class="op-control-note">More than 24 satellites are shown as dots.</p>
+        </div>
+        <div data-controls-for="arcs" hidden={initialRecipe !== 'arcs'}>
+          <label class="op-field" for={`${id}-arc`}><span><span class="op-swatch op-swatch-blue"></span> Blue segment <output for={`${id}-arc`} data-output="arc">40%</output></span><input id={`${id}-arc`} data-control="arc" type="range" min="0" max="75" step="1" value="40" /></label>
+          <div class="op-control-actions"><button type="button" data-action="zero">Set to zero</button><button type="button" data-action="reorder">Reverse order</button></div>
+          <p class="op-control-note"><span class="op-swatch op-swatch-pink"></span> The pink segment is fixed at 25%.</p>
+        </div>
+        <div data-controls-for="progress" hidden={initialRecipe !== 'progress'}>
+          <div class="op-fields">
+            <label class="op-field" for={`${id}-progress`}><span>Value <output for={`${id}-progress`} data-output="progress">63%</output></span><input id={`${id}-progress`} data-control="progress" type="range" min="0" max="100" step="1" value="63" /></label>
+            <label class="op-field" for={`${id}-shape`}><span>End shape</span><select id={`${id}-shape`} data-control="shape"><option value="rounded">Rounded</option><option value="none">Straight</option><option value="arrow">Arrow</option><option value="circle-a">Circle A</option><option value="circle-b">Circle B</option><option value="slash">Slash</option><option value="zigzag">Zigzag</option></select></label>
+          </div>
+          <p class="op-control-note">At 0%, only the background arc remains.</p>
+        </div>
+      </div>
+      <div class="op-code-panel">
+        <div class="op-code-bar">
+          <div class="op-code-tabs" role="tablist" aria-label="Example source">
+            <button type="button" id={`${id}-html-tab`} role="tab" data-code-tab="html" aria-controls={`${id}-source`} aria-selected="true" tabindex="0">HTML</button>
+            <button type="button" id={`${id}-css-tab`} role="tab" data-code-tab="css" aria-controls={`${id}-source`} aria-selected="false" tabindex="-1">CSS</button>
+            <button type="button" id={`${id}-js-tab`} role="tab" data-code-tab="js" aria-controls={`${id}-source`} aria-selected="false" tabindex="-1">JS</button>
+          </div>
+          <span class="op-code-live">Current example</span>
+        </div>
+        <pre id={`${id}-source`} class="op-source" role="tabpanel" aria-labelledby={`${id}-html-tab`} tabindex="0"><code data-code></code></pre>
+        <p class="op-code-note">Copy or download the complete HTML, with Orbit included.</p>
+      </div>
+    </div>
+  </div>
+  <div class="op-footer">
+    <p class="op-feedback" role="status" aria-live="polite" data-feedback>The exported HTML works offline.</p>
+    <div class="op-export-actions"><button type="button" data-action="download">Download HTML <span aria-hidden="true">↓</span></button><button class="op-copy" type="button" data-action="copy">Copy code <span aria-hidden="true">↗</span></button></div>
+  </div>
+  <noscript><p class="op-no-script">Enable JavaScript to try the live examples and export your composition.</p></noscript>
+</orbit-playground>
+
+<script>
+  import '../scripts/orbit-playground';
+</script>

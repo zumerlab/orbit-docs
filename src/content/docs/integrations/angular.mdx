@@ -18,8 +18,8 @@ npm install @zumer/orbit
 Add Orbit files in your Angular proyect
 
 ```js
-import '@zumer/orbit/dist/orbit.css'
-import '@zumer/orbit/dist/orbit.js'
+import '@zumer/orbit/style'
+import '@zumer/orbit'
 ```
 
 ### Configuration
@@ -31,7 +31,7 @@ card.component
 
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import '@zumer/orbit/dist/orbit.js';
+import '@zumer/orbit';
 ```
 
 ### Usage
@@ -41,7 +41,7 @@ card.component
 
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import '@zumer/orbit/dist/orbit.js';
+import '@zumer/orbit';
 
 @Component({
   selector: 'corp-card',
@@ -80,5 +80,5 @@ export class CardComponent {}
 
 ```js
 card.component.css
-@import '@zumer/orbit/dist/orbit.css';
+@import '@zumer/orbit/style';
 ```

@@ -1,7 +1,15 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "jsx": "preserve",
-    "jsxImportSource": "react"
-  }
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "public",
+    "src/assets/orbit.js",
+    "src/assets/orbit.min.js",
+    "src/assets/orbit.mjs"
+  ]
 }

@@ -6,82 +6,54 @@ import { PackageManagers } from 'starlight-package-managers'
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
-Get ready to explore the innovative approach of radial design with Orbit! This guide will help you quickly get started and install everything you need.
+Load **both the stylesheet and the JavaScript runtime**. CSS controls geometry and presentation; the runtime keeps ring indices, spacing and SVG paths in sync as elements and containers change.
 
-## Installation
+## Use the same build as this site
 
-Orbit comes with just two files: `orbit.css` (or `orbit.min.css`), and `orbit.js` (or `orbit.min.js`).
+The examples use the current Orbit source build. Download the matching files together:
 
-### Getting the Orbit files:
-
-You have three ways to get **Orbit** files: 
-
-#### 1. Download the Orbit files
-
-- Get the **Orbit CSS file**: [orbit.css](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css) or [orbit.min.css (minified)](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.css) 
-
-- Get the **Orbit JS file**: [orbit.js](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js) or [orbit.min.js (minified)](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.js) 
-
-
-#### 2. Use Orbit via CDN (content delivery network)
-
-- For latest version of **Orbit CSS file**: 
-
-  Uncompressed version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.css](https://unpkg.com/@zumer/orbit@latest/dist/orbit.css)
-
-  Minified version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.css](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.css)
-
-- For latest version of **Orbit JS file**: 
-
-  Uncompressed version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.js](https://unpkg.com/@zumer/orbit@latest/dist/orbit.js)
-
-  Minified version: [https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.js](https://unpkg.com/@zumer/orbit@latest/dist/orbit.min.js)
-
-
-#### 3. Install Orbit via a Package Manager
-
-You can also install Orbit using **npm**, **yarn** or **pnpm**:
-
- <PackageManagers pkg="@zumer/orbit" />
-
-### Setting up Orbit in your project:
-
-After install Orbit, follow this simple steps to get Orbit working.
-
-#### Link Orbit files or CDN in your HTML file:
-
-If you have downloaded them just use `<link> tag ` for the CSS file, and `<script> tag` for the JS file within the `<head>` section:
-
-In case you have downloaded the files:
+- [orbit.min.css](/orbit-docs/orbit/orbit.min.css)
+- [orbit.min.js](/orbit-docs/orbit/orbit.min.js)
+- [orbit.mjs — ES module](/orbit-docs/orbit/orbit.mjs)
+- [Build version, source commit and file checksums](/orbit-docs/orbit/manifest.json)
 
 ```html
-<head>
-  <link rel="stylesheet" href="path/to/orbit.css">
-  <script src="path/to/orbit.js"></script>
-</head>
+<link rel="stylesheet" href="./orbit.min.css">
+<script defer src="./orbit.min.js"></script>
 ```
 
-In case you are using CDN:
+The classic script registers `<o-arc>` and `<o-progress>` and exposes `window.Orbit`. With the ES module, load it from your browser entrypoint:
 
-```html
-<head>
-  <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
-  <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
-</head>
+```js
+import { Orbit } from './orbit.mjs';
+
+// After the container mounts; call the returned function when it unmounts.
+const stopResizing = Orbit.resize('#instrument-panel');
 ```
 
-:::tip 
-**Tip for CSS file**: You can use `@import` CSS rule in your `<style> tag` to import the **CSS file**:
+The current module is safe to import during server rendering. Its JavaScript must also run in the browser to activate the rendered markup.
 
-Downloaded file:
-```css
-@import url('path/to/orbit.css');
+## Install the published package
+
+<PackageManagers pkg="@zumer/orbit" />
+
+Load the stylesheet and import the package from your client entrypoint:
+
+```js
+import '@zumer/orbit/style';
+import '@zumer/orbit';
 ```
-Or via CDN:
-```css
-@import url('https://unpkg.com/@zumer/orbit@latest/dist/orbit.css');
-```
+
+:::note[Site build and npm release]
+The source build used here includes the updated layout runtime, ES module exports and observer cleanup. The published npm release currently has the same `1.4.12` version number but predates those changes. Use the matching downloads above to reproduce this site's behavior; the manifest identifies the exact source commit. Publishing a new package release is a separate step.
 :::
+
+You can also load the published edition from a CDN. Pin the version so it changes only when you choose to update:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@1.4.12/dist/orbit.min.css">
+<script defer src="https://unpkg.com/@zumer/orbit@1.4.12/dist/orbit.min.js"></script>
+```
 
 ## 🚀 Try Orbit now!
 
@@ -96,8 +68,8 @@ export const bareboneHTML =
 <html>
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css" />
-    <script crossorigin src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+    <link rel="stylesheet" href="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.css" />
+    <script crossorigin src="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.js"></script>
     <title>Orbit quick start</title>
     <style>
     .satellite {

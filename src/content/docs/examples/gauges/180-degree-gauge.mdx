@@ -1,13 +1,13 @@
 ---
 title: 180° gauge in CSS — Orbit example
-description: Build a 180-degree half-circle gauge in pure HTML and CSS with five colored zones and a needle. No SVG, no JavaScript. Copy-paste ready.
+description: Build a 180-degree half-circle gauge with Orbit, five colored zones and a needle. Theme it with CSS and copy the HTML.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
 A 180° gauge is the half-circle meter you see on credit-score widgets, customer-satisfaction dashboards, and "how healthy is this thing?" displays. The shape works because the human eye instantly maps the position of a needle on a horizontal arc to a position on a scale — no legend required.
 
-This example builds the entire gauge with five `<o-arc>` segments, a center pivot, and a single rotated `vector` as the needle. There's no SVG and no JavaScript, so you can theme it with CSS variables and animate the needle with `transform: rotate()` like any other element.
+This example builds the entire gauge with five `<o-arc>` segments, a center pivot, and a single rotated `vector` as the needle. Orbit generates the SVG arcs and keeps their geometry current. Theme the gauge with CSS variables and animate the needle with `transform: rotate()` like any other element.
 
 export const gauge1HTML = `
 <div class="bigbang ">
@@ -93,4 +93,4 @@ o-arc.green-dark { --o-fill: var(--o-green-dark); }`
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and drop the markup above into any HTML page.
+[Install Orbit](/orbit-docs/introduction/installation/) and drop the markup above into any HTML page.

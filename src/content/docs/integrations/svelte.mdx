@@ -25,12 +25,12 @@ On way is to import the Orbit CSS and JavaScript files in your Svelte applicatio
 <script>
   import { onMount } from 'svelte';
     onMount(async () => {
-    await import('@zumer/orbit/dist/orbit.js');
+    await import('@zumer/orbit');
   });
 </script>
 
 <style lang="css">
- @import '@zumer/orbit/dist/orbit.css'
+ @import '@zumer/orbit/style'
 </style>
 
 <div class="bigbang">
@@ -47,12 +47,12 @@ Here’s an example of how to use Orbit in Svelte.
 <script>
     import { onMount } from 'svelte';
         onMount(async () => {
-        await import('@zumer/orbit/dist/orbit.js');
+        await import('@zumer/orbit');
     });
 </script>
 
 <style lang="css">
- @import '@zumer/orbit/dist/orbit.css'
+ @import '@zumer/orbit/style'
  .satellite {
 	background: var(--o-cyan-light) !important;
 	border: none !important;

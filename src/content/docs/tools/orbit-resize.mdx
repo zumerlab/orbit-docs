@@ -8,7 +8,17 @@ title: "Orbit.resize()"
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
 
-Orbit provides a Orbit JS class with `resize()` method to allow `.gravity-spot` to adapt its size to a parent element. Check the example below.
+`Orbit.resize(selectorOrElement)` adapts `.gravity-spot` layouts to a container's width using `ResizeObserver`. It accepts a CSS selector or an element and returns a cleanup function. Call it after the container mounts, and clean up when the container unmounts.
+
+```js
+const stopResizing = Orbit.resize(document.querySelector('.wrapper'));
+// When removing the container or disposing a component:
+stopResizing();
+```
+
+Calling `resize()` again for the same container replaces its previous observer. The current site's runtime also updates SVG geometry after DOM, ancestor style and size changes. For CSSOM edits or CSS driven by an external control, call `Orbit.refresh(container)` after your change; this synchronously refreshes that subtree.
+
+These APIs describe the [current site build](/orbit-docs/introduction/installation/).
 
 
 export const four = `
@@ -31,7 +41,7 @@ export const fourCSS = `
   resize: both;
   overflow: auto;
 }
-.orbit, [class*='orbit-']{
+.orbit-4{
   border-color: var(--o-cyan)
 }
 .satellite {
@@ -40,10 +50,11 @@ export const fourCSS = `
 }
 `;
 export const fourJS = `
-Orbit.resize('.wrapper')
+const stopResizing = Orbit.resize('.wrapper')
+// Call stopResizing() when this container unmounts.
 `;
 
-<ZumerPlay name={'four'}   htmlCode={four} cssCode={fourCSS} jsCode={fourJS}  theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'four'}   htmlCode={four} cssCode={fourCSS} jsCode={fourJS}  theme={'theme-cyan'} height={'300px'} />
 
 
 

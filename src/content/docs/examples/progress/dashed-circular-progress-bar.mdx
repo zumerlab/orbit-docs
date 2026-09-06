@@ -1,6 +1,6 @@
 ---
 title: Dashed circular progress bar in CSS — Orbit example
-description: A segmented dashed circular progress bar in pure HTML and CSS. Ten color-fading dashes around a center value. No SVG, no JavaScript.
+description: A segmented dashed circular progress bar with Orbit and CSS. Ten color-fading dashes around a center value. Copy the markup and theme the segments.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -50,7 +50,7 @@ o-arc { --o-fill: var(--o-blue) !important }
 - **`gap-10` on every arc** is what creates the visible separation between segments. Without it, the ten arcs would touch and look like a single ring with color stops.
 - **Three opacity tiers** (`<o-arc>` plain, `.light`, `.lighter`) simulate a fade-out using three CSS variables — `--o-blue`, `--o-blue-light`, and `--o-blue-lighter` — that ship with Orbit's color palette. To represent a different completion percentage, change how many arcs of each tier you use.
 - **The center label** is a `satellite` at `orbit-0` (center) wrapped in a `capsule` so the text sits flat regardless of the surrounding rotation. The `border-color: transparent` keeps the satellite invisible while letting the number show.
-- **No JavaScript** is needed for static states. To make the bar respond to a value, swap arc classes via JS: each arc represents 10%, so `value=70` means the first 7 arcs are `--o-blue` and the rest are `--o-blue-lighter`.
+- **No application JavaScript** is needed for a static state beyond loading the Orbit runtime. To make the bar respond to a value, swap arc classes via JS: each arc represents 10%, so `value=70` means the first 7 arcs are `--o-blue` and the rest are `--o-blue-lighter`.
 
 ## Customization
 
@@ -84,4 +84,4 @@ o-arc { --o-fill: var(--o-blue) !important }
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above.
+[Install Orbit](/orbit-docs/introduction/installation/) and copy the markup above.

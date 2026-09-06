@@ -7,7 +7,7 @@ banner:
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
-`<o-arc>` is a standard and vanilla web-component for rendering a radial arcs or pies. By default there are up to 60 arcs elements per orbit. 
+`<o-arc>` is a standard and vanilla web-component for rendering a radial arcs or pies. The JavaScript runtime supports more than 60 arcs per orbit. Omit `value` for equal segments; an explicit `value="0"` produces an empty segment.
 
 ## Look and feel
 
@@ -23,18 +23,18 @@ export const arc =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
-      <o-arc class="cyan"></o-arc>
-      <o-arc class="purple"></o-arc>
-      <o-arc class="cyan"></o-arc>
-      <o-arc class="purple"></o-arc>
-      <o-arc class="cyan"></o-arc>
-      <o-arc class="purple"></o-arc>
-      <o-arc class="cyan"></o-arc>
-      <o-arc class="purple"></o-arc>
-      <o-arc class="cyan"></o-arc>
-      <o-arc class="purple"></o-arc>
-      <o-arc class="cyan"></o-arc>
-      <o-arc class="purple"></o-arc>
+      <o-arc interactive class="cyan"></o-arc>
+      <o-arc interactive class="purple"></o-arc>
+      <o-arc interactive class="cyan"></o-arc>
+      <o-arc interactive class="purple"></o-arc>
+      <o-arc interactive class="cyan"></o-arc>
+      <o-arc interactive class="purple"></o-arc>
+      <o-arc interactive class="cyan"></o-arc>
+      <o-arc interactive class="purple"></o-arc>
+      <o-arc interactive class="cyan"></o-arc>
+      <o-arc interactive class="purple"></o-arc>
+      <o-arc interactive class="cyan"></o-arc>
+      <o-arc interactive class="purple"></o-arc>
     </div>
   </div>
 </div>
@@ -72,9 +72,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         circle-a
-        <o-arc class="grow-0.1x purple-light" shape="circle"></o-arc>
-        <o-arc class="grow-0.1x purple" shape="circle"></o-arc>
-        <o-arc class="grow-0.1x purple-dark" shape="circle"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-light" shape="circle"></o-arc>
+        <o-arc interactive class="grow-0.1x purple" shape="circle"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-dark" shape="circle"></o-arc>
       </div>
     </div>
   </div>
@@ -84,9 +84,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         circle-b
-        <o-arc class="grow-0.1x purple-light" shape="circle-b"></o-arc>
-        <o-arc class="grow-0.1x purple" shape="circle-b"></o-arc>
-        <o-arc class="grow-0.1x purple-dark" shape="circle-b"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-light" shape="circle-b"></o-arc>
+        <o-arc interactive class="grow-0.1x purple" shape="circle-b"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-dark" shape="circle-b"></o-arc>
       </div>
     </div>
   </div>
@@ -96,9 +96,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         arrow
-        <o-arc class="grow-0.1x purple-light" shape="arrow"></o-arc>
-        <o-arc class="grow-0.1x purple" shape="arrow"></o-arc>
-        <o-arc class="grow-0.1x purple-dark" shape="arrow"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-light" shape="arrow"></o-arc>
+        <o-arc interactive class="grow-0.1x purple" shape="arrow"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-dark" shape="arrow"></o-arc>
       </div>
     </div>
   </div>
@@ -108,9 +108,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         bullet
-        <o-arc class="gap-0 grow-0.1x purple-light" shape="bullet"></o-arc>
-        <o-arc class="gap-0 grow-0.1x purple" shape="bullet"></o-arc>
-        <o-arc class="gap-0 grow-0.1x purple-dark" shape="bullet"></o-arc>
+        <o-arc interactive class="gap-0 grow-0.1x purple-light" shape="bullet"></o-arc>
+        <o-arc interactive class="gap-0 grow-0.1x purple" shape="bullet"></o-arc>
+        <o-arc interactive class="gap-0 grow-0.1x purple-dark" shape="bullet"></o-arc>
       </div>
     </div>
   </div>
@@ -120,9 +120,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         slash
-        <o-arc class="grow-0.1x gap-4 purple-light" shape="slash"></o-arc>
-        <o-arc class="grow-0.1x gap-4 purple" shape="slash"></o-arc>
-        <o-arc class="grow-0.1x gap-4 purple-dark" shape="slash"></o-arc>
+        <o-arc interactive class="grow-0.1x gap-4 purple-light" shape="slash"></o-arc>
+        <o-arc interactive class="grow-0.1x gap-4 purple" shape="slash"></o-arc>
+        <o-arc interactive class="grow-0.1x gap-4 purple-dark" shape="slash"></o-arc>
       </div>
     </div>
   </div>
@@ -132,9 +132,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         backslah
-        <o-arc class="grow-0.1x gap-4 purple-light" shape="backslash"></o-arc>
-        <o-arc class="grow-0.1x gap-4 purple" shape="backslash"></o-arc>
-        <o-arc class="grow-0.1x gap-4 purple-dark" shape="backslash"></o-arc>
+        <o-arc interactive class="grow-0.1x gap-4 purple-light" shape="backslash"></o-arc>
+        <o-arc interactive class="grow-0.1x gap-4 purple" shape="backslash"></o-arc>
+        <o-arc interactive class="grow-0.1x gap-4 purple-dark" shape="backslash"></o-arc>
       </div>
     </div>
   </div>
@@ -144,9 +144,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         rounded
-        <o-arc class="grow-0.1x purple-light" shape="rounded"></o-arc>
-        <o-arc class="grow-0.1x purple" shape="rounded"></o-arc>
-        <o-arc class="grow-0.1x purple-dark" shape="rounded"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-light" shape="rounded"></o-arc>
+        <o-arc interactive class="grow-0.1x purple" shape="rounded"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-dark" shape="rounded"></o-arc>
       </div>
     </div>
   </div>
@@ -156,9 +156,9 @@ export const arc1 =
     <div class="gravity-spot">
       <div class="orbit-3">
         zigzag
-        <o-arc class="grow-0.1x purple-light" shape="zigzag"></o-arc>
-        <o-arc class="grow-0.1x purple" shape="zigzag"></o-arc>
-        <o-arc class="grow-0.1x purple-dark" shape="zigzag"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-light" shape="zigzag"></o-arc>
+        <o-arc interactive class="grow-0.1x purple" shape="zigzag"></o-arc>
+        <o-arc interactive class="grow-0.1x purple-dark" shape="zigzag"></o-arc>
       </div>
     </div>
   </div>
@@ -208,15 +208,15 @@ export const shrink =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
-      <o-arc class="shrink-90" style="--o-fill: var(--o-red)"></o-arc>
-      <o-arc class="shrink-80" style="--o-fill: var(--o-orange)"></o-arc>
-      <o-arc class="shrink-70" style="--o-fill: var(--o-yellow)"></o-arc>
-      <o-arc class="shrink-60" style="--o-fill: var(--o-green)"></o-arc>
-      <o-arc class="shrink-50" style="--o-fill: var(--o-cyan)"></o-arc>
-      <o-arc class="shrink-40" style="--o-fill: var(--o-blue)"></o-arc>
-      <o-arc class="shrink-30" style="--o-fill: var(--o-indigo)"></o-arc>
-      <o-arc class="shrink-20" style="--o-fill: var(--o-purple)"></o-arc>
-      <o-arc class="shrink-10" style="--o-fill: var(--o-pink)"></o-arc>
+      <o-arc interactive class="shrink-90" style="--o-fill: var(--o-red)"></o-arc>
+      <o-arc interactive class="shrink-80" style="--o-fill: var(--o-orange)"></o-arc>
+      <o-arc interactive class="shrink-70" style="--o-fill: var(--o-yellow)"></o-arc>
+      <o-arc interactive class="shrink-60" style="--o-fill: var(--o-green)"></o-arc>
+      <o-arc interactive class="shrink-50" style="--o-fill: var(--o-cyan)"></o-arc>
+      <o-arc interactive class="shrink-40" style="--o-fill: var(--o-blue)"></o-arc>
+      <o-arc interactive class="shrink-30" style="--o-fill: var(--o-indigo)"></o-arc>
+      <o-arc interactive class="shrink-20" style="--o-fill: var(--o-purple)"></o-arc>
+      <o-arc interactive class="shrink-10" style="--o-fill: var(--o-pink)"></o-arc>
     </div>
   </div>
 </div>
@@ -237,14 +237,14 @@ export const grow =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-4">
-      <o-arc class="grow-0.2x" style="--o-fill: var(--o-red)"></o-arc>
-      <o-arc class="grow-0.4x" style="--o-fill: var(--o-orange)"></o-arc>
-      <o-arc class="grow-0.6x" style="--o-fill: var(--o-yellow)"></o-arc>
-      <o-arc class="grow-1.2X" style="--o-fill: var(--o-green)"></o-arc>
-      <o-arc class="grow-2x" style="--o-fill: var(--o-cyan)"></o-arc>
-      <o-arc class="grow-2.5x" style="--o-fill: var(--o-blue)"></o-arc>
-      <o-arc class="grow-3x" style="--o-fill: var(--o-indigo)"></o-arc>
-      <o-arc class="grow-4x" style="--o-fill: var(--o-purple)"></o-arc>
+      <o-arc interactive class="grow-0.2x" style="--o-fill: var(--o-red)"></o-arc>
+      <o-arc interactive class="grow-0.4x" style="--o-fill: var(--o-orange)"></o-arc>
+      <o-arc interactive class="grow-0.6x" style="--o-fill: var(--o-yellow)"></o-arc>
+      <o-arc interactive class="grow-1.2X" style="--o-fill: var(--o-green)"></o-arc>
+      <o-arc interactive class="grow-2x" style="--o-fill: var(--o-cyan)"></o-arc>
+      <o-arc interactive class="grow-2.5x" style="--o-fill: var(--o-blue)"></o-arc>
+      <o-arc interactive class="grow-3x" style="--o-fill: var(--o-indigo)"></o-arc>
+      <o-arc interactive class="grow-4x" style="--o-fill: var(--o-purple)"></o-arc>
     </div>
   </div>
 </div>
@@ -269,14 +269,14 @@ export const grow1 =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-4">
-      <o-arc class="gap-0"></o-arc>
-      <o-arc class="gap-2"></o-arc>
-      <o-arc class="gap-3"></o-arc>
-      <o-arc class="gap-4"></o-arc>
-      <o-arc class="gap-5"></o-arc>
-      <o-arc class="gap-6"></o-arc>
-      <o-arc class="gap-7"></o-arc>
-      <o-arc class="gap-30"></o-arc>
+      <o-arc interactive class="gap-0"></o-arc>
+      <o-arc interactive class="gap-2"></o-arc>
+      <o-arc interactive class="gap-3"></o-arc>
+      <o-arc interactive class="gap-4"></o-arc>
+      <o-arc interactive class="gap-5"></o-arc>
+      <o-arc interactive class="gap-6"></o-arc>
+      <o-arc interactive class="gap-7"></o-arc>
+      <o-arc interactive class="gap-30"></o-arc>
     </div>
   </div>
 </div>
@@ -309,7 +309,7 @@ export const angle =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5 range-90">
-      <o-arc class=" angle-115"></o-arc>
+      <o-arc interactive class=" angle-115"></o-arc>
     </div>
   </div>
 </div>
@@ -342,10 +342,10 @@ export const inner =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-3">
-      <o-arc class="outer-orbit "></o-arc>
-      <o-arc class="quarter-outer-orbit"></o-arc>
-      <o-arc class="quarter-inner-orbit"></o-arc>
-      <o-arc class="inner-orbit"></o-arc>
+      <o-arc interactive class="outer-orbit "></o-arc>
+      <o-arc interactive class="quarter-outer-orbit"></o-arc>
+      <o-arc interactive class="quarter-inner-orbit"></o-arc>
+      <o-arc interactive class="inner-orbit"></o-arc>
     </div>
 </div>
 `;
@@ -396,8 +396,8 @@ export const otext1 =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
-      <o-arc class="cyan">This text is cyan and bold</o-arc>
-      <o-arc class="purple">This text is purple and capitalized</o-arc>
+      <o-arc interactive class="cyan">This text is cyan and bold</o-arc>
+      <o-arc interactive class="purple">This text is purple and capitalized</o-arc>
     </div>
   </div>
 </div>
@@ -430,8 +430,8 @@ export const slice =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5">
-      <o-arc class="cyan">This text is cyan</o-arc>
-      <o-arc class="purple">This text is purple</o-arc>
+      <o-arc interactive class="cyan">This text is cyan</o-arc>
+      <o-arc interactive class="purple">This text is purple</o-arc>
     </div>
   </div>
 </div>
@@ -578,7 +578,7 @@ export const otext3 =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-5 range-270">
-      <o-arc fit-range class="orange"> This text is along all text path </o-arc>
+      <o-arc interactive fit-range class="orange"> This text is along all text path </o-arc>
     </div>
   </div>
 </div>
@@ -605,11 +605,11 @@ export const chart =
 `<div class="bigbang">
   <div class="gravity-spot">
     <div class="orbit-3 ">
-      <o-arc class="grow-1x gap-0 red" value="50"></o-arc>
-      <o-arc class="grow-1x gap-0 orange" value="25"></o-arc>
-      <o-arc class="grow-1x gap-0 yellow" value="15"></o-arc>
-      <o-arc class="grow-1x gap-0 blue" value="5"></o-arc>
-      <o-arc class="grow-1x gap-0 green" value="5"></o-arc>
+      <o-arc interactive class="grow-1x gap-0 red" value="50"></o-arc>
+      <o-arc interactive class="grow-1x gap-0 orange" value="25"></o-arc>
+      <o-arc interactive class="grow-1x gap-0 yellow" value="15"></o-arc>
+      <o-arc interactive class="grow-1x gap-0 blue" value="5"></o-arc>
+      <o-arc interactive class="grow-1x gap-0 green" value="5"></o-arc>
     </div>
     <div class="orbit-3 ">
       <div class="satellite angle-90">50</div>
@@ -663,3 +663,13 @@ color: var(--o-green-darker);
 `
 
 <ZumerPlay name={'chart'}   htmlCode={chart} cssCode={chartCSS} theme={'theme-cyan'} height={'300px'} />
+
+## Pointer interaction
+
+`<o-arc>` is decorative by default so it does not intercept nearby controls. Add `interactive` to enable pointer events on its painted SVG:
+
+```html
+<o-arc interactive value="72"></o-arc>
+```
+
+Use an accessible button or provide keyboard behavior and an accessible name when the element acts as a control.

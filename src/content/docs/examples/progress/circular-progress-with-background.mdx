@@ -1,6 +1,6 @@
 ---
 title: Circular progress bar with background — CSS example
-description: A solid CSS circular progress bar with a darker background ring and centered numeric label. Pure HTML and CSS, no SVG, no canvas.
+description: A solid CSS circular progress bar with a darker background ring and centered numeric label. HTML and CSS composition with the Orbit runtime.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -39,7 +39,7 @@ o-progress {
 
 ## How it works
 
-- **`<o-progress value="60" shape="circle">`** does the heavy lifting. The `value` attribute drives the fill, the `shape="circle"` tells it to render as a closed ring (the other option is `shape="arc"` for partial spans), and the styling comes from CSS variables.
+- **`<o-progress value="60" shape="circle">`** does the heavy lifting. The `value` attribute drives the fill, `shape="circle"` gives the segment rounded ends (the parent orbit's `--o-range` controls whether the span is a full circle or a partial arc), and the styling comes from CSS variables.
 - **`--o-back-fill`** is the unfilled portion of the ring. Setting it to a darker shade of the same hue creates the depth effect — it reads as "progress bar" instead of "decoration".
 - **The center label** is a satellite at `orbit-0` containing a capsule. Capsules force their text to render upright regardless of the satellite's rotation, which matters when you start rotating the parent.
 - **`orbit-4`** sets the ring radius. Smaller orbits (`orbit-2`, `orbit-3`) make the ring tighter; larger ones make it more imposing.
@@ -77,4 +77,4 @@ progress.style.setProperty('--o-fill',
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is the entire component.
+[Install Orbit](/orbit-docs/introduction/installation/) and the markup above is the entire component.

@@ -7,7 +7,7 @@ title: "Orbit (class)"
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
-The `.orbit` CSS class, along with variations from `.orbit-0` to `.orbit-24`, defines a circular path around a `.gravity-spot`. Within  `.orbit` element, various **Orbit** elements such as `satellites`, `o-arcs`, `o-progress`, `vectors` and `sides` can be positioned.
+The `.orbit` CSS class, along with explicit integer classes such as `.orbit-0`, `.orbit-6` and `.orbit-24`, defines a circular path around a `.gravity-spot`. Within  `.orbit` element, various **Orbit** elements such as `satellites`, `o-arcs`, `o-progress`, `vectors` and `sides` can be positioned.
 
 ## Look and feel
 
@@ -45,11 +45,11 @@ export const lookCSS =
 
 ## Number of orbits
 
-**Orbit** supports 25 `orbits`. Orbits from **0** to **12** are placed whitin `.gravity-spot` force, while orbits from **13** to **24** extend beyond `.gravity-spot` force boundary. 
+**Orbit** supports automatic `.orbit` numbering and explicit nonnegative integer ring levels. Levels **0** to **12** lie within the base `--o-force` diameter; higher levels extend beyond it. The JavaScript runtime supports more than 24 levels and more than 60 children per type. Those limits apply only to the static CSS fallback.
 
 - `.orbit-0` has not size and it is placed at center of  `.gravity-spot`.
 - Orbits from **0** to **12** are placed within `.gravity-spot` force, that is `500px` by default but can be easily changed using `--o-force` custom CSS var.
-- Orbits from **13** to **24** are situated beyond `.gravity-spot` force.
+- Orbits from **13** onward are situated beyond `.gravity-spot` force.
 
 export const number = 
 `<div class="bigbang">

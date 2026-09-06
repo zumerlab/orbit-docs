@@ -1,11 +1,11 @@
 ---
-title: CSS-only charts built with Orbit
+title: Radial charts built with Orbit
 description: Browse Orbit CSS chart examples — donut charts, pie charts, sunburst charts. Pure HTML and CSS, no SVG, no D3 or charting library required.
 ---
 
 import { LinkCard, CardGrid } from '@astrojs/starlight/components';
 
-Charts are usually the moment in a project where you reach for a 200KB charting library. For radial charts in particular — pies, donuts, sunbursts — that's overkill: the data shape is simple, the layout is fixed, and the only thing the library is really doing is computing arc paths and labeling them. Orbit removes that step entirely. Each slice is an `<o-arc>` element with a `value` attribute. The arcs auto-size based on their values. There's no SVG, no canvas, and no JavaScript.
+Charts are usually the moment in a project where you reach for a 200KB charting library. For radial charts in particular — pies, donuts, sunbursts — that's overkill: the data shape is simple, the layout is fixed, and the only thing the library is really doing is computing arc paths and labeling them. Orbit handles that geometry for you. Each slice is an `<o-arc>` element with a `value` attribute. The arcs auto-size based on their values. You compose the chart with HTML and CSS; the Orbit runtime generates and updates the SVG paths.
 
 These three examples cover the most useful radial chart types.
 

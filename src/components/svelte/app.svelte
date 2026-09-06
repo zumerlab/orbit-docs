@@ -1,13 +1,13 @@
 <script>
+  import '../../assets/orbit.min.css';
   import { onMount } from 'svelte';
     onMount(async () => {
-    await import('../../assets/orbit.min.js');
+    await import('../../assets/orbit.mjs');
   });
   let msg = 'Svelte';
 </script>
 
 <style lang="css">
-  @import 'https://unpkg.com/@zumer/orbit@latest/dist/orbit.css';
   .satellite {
     background: var(--o-cyan-light) !important;
     border: none !important;

@@ -22,8 +22,8 @@ Add the Orbit CSS and JavaScript files to your HTML file using a CDN. Include Re
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <!-- Orbit CSS and JS -->
-  <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
-  <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+  <link rel="stylesheet" href="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.css">
+  <script src="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.js"></script>
 </head>
 ```
 
@@ -69,22 +69,23 @@ npm install @zumer/orbit
 
 ### **Configure React to mount Orbit web components**
 
-One way to ensure React recognizes Orbit web components (`o-arc`, `o-progress`) is to include them in a script tag.
+Load Orbit from the browser entrypoint. For a component that can also render on the server, register it after mounting:
 
-```js
-import '@zumer/orbit/dist/orbit.css'
-import orbit from '@zumer/orbit/dist/orbit.js'
+```jsx
+import { useEffect } from 'react';
+import '@zumer/orbit/style';
 
 export default function App() {
-return (
-   <div>
-      <div class="bigbang">
-      <!--your orbit code ...-->
+  useEffect(() => { void import('@zumer/orbit'); }, []);
+  return (
+    <div className="bigbang">
+      <div className="gravity-spot">
+        <div className="orbit-6">
+          <o-progress value="72"></o-progress>
+        </div>
       </div>
-      <!--Add orbit components ...-->
-      <script src={orbit}></script>
-   </div>
-  )
+    </div>
+  );
 }
 ```
 
@@ -94,15 +95,15 @@ return (
 export const react = `function App() {
   const msg = 'React';
   return(
-    <div class="bigbang">
-      <div class="gravity-spot">
-        <div class="orbit">
-          <div class="satellite grow-1x at-center">{msg}</div>
+    <div className="bigbang">
+      <div className="gravity-spot">
+        <div className="orbit">
+          <div className="satellite grow-1x at-center">{msg}</div>
         </div>
-        <div class="orbit-2 range-180 from-180">
+        <div className="orbit-2 range-180 from-180">
           <o-arc shape="circle" class="shrink-50"></o-arc>
         </div>
-        <div class="orbit-3 range-270 ">
+        <div className="orbit-3 range-270 ">
           <o-arc shape="circle" class="shrink-50"></o-arc>
         </div>
       </div>

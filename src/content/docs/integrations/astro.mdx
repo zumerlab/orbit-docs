@@ -2,24 +2,30 @@
 title: Integrate Orbit in Astro
 ---
 
-To use Orbit in Astro just install Orbit via npm and import files on Astro frontmatter:
-
-### Node 
-
-#### Import Orbit files
-
-Install Orbit via npm
+Install Orbit and import its stylesheet in your Astro component. Put the JavaScript import inside an Astro `<script>` so it runs in the browser, where it registers the custom elements and layout runtime.
 
 ```bash
 npm install @zumer/orbit
 ```
 
-Add Orbit files in your Angular proyect
-
-
-```mdx
+```astro
 ---
-import '@zumer/orbit/dist/orbit.css'
-import '@zumer/orbit/dist/orbit.js'
+import '@zumer/orbit/style';
 ---
+
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-6">
+      <o-progress value="72"></o-progress>
+    </div>
+  </div>
+</div>
+
+<script>
+  import '@zumer/orbit';
+</script>
 ```
+
+Astro renders the HTML on the server and bundles the script for the browser. No framework island or `client:load` directive is needed for Orbit's custom elements.
+
+To use the exact runtime shown on this site before the next npm release, download the [matching CSS and JavaScript files](/orbit-docs/introduction/installation/), place them in your project's `public/orbit` directory, and include them with `<link>` and `<script is:inline src="/orbit/orbit.min.js">`.

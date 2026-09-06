@@ -1,6 +1,6 @@
 ---
 title: CSS pie chart — Orbit example
-description: Build a solid pie chart in pure HTML and CSS with weighted slices. No SVG, no D3, no charting library. Five-slice example, fully copy-paste ready.
+description: Build a solid pie chart with Orbit and CSS with weighted slices. No handwritten SVG or charting library. Five-slice example, fully copy-paste ready.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -36,7 +36,7 @@ o-arc.green { --o-fill: var(--o-green); }
 
 - **`grow-2x`** is what turns this from a donut into a solid pie. Each arc grows inward until it reaches the center, removing the empty middle. Try changing it to `grow-1x` and you'll see it morph back into a donut.
 - **`gap-0`** is essential here — without it, the slices would have visible separators that break the "solid disk" feeling. If you want separators (e.g. to highlight a single slice), put `gap-0` on every arc except the one you want to emphasize.
-- **`<o-arc value="X">`** without explicit angles means Orbit computes the slice sizes automatically based on the relative weights. Five values of 10, 35, 25, 15, 15 sum to 100, so each renders as that exact percentage of the circle.
+- **`<o-arc value="X">`** without explicit angles means Orbit computes the slice sizes automatically as percentages of the parent range. Five values of 10, 35, 25, 15, 15 sum to 100, so each renders as that exact percentage of the circle.
 - **No labels by default** — pies are usually paired with a separate legend rather than in-slice labels, since slice space is at a premium.
 
 ## Customization
@@ -61,7 +61,7 @@ o-arc.green { --o-fill: var(--o-green); }
 o-arc.highlighted { filter: drop-shadow(0 4px 8px rgba(0,0,0,.3)); }
 ```
 
-**Bind to live data** by setting `value` from JavaScript when the dataset changes — Orbit re-normalizes on the next render, so adding or removing slices Just Works.
+**Bind to live data** by setting `value` from JavaScript when the dataset changes — Orbit recomputes the slice paths and their cumulative offsets. Normalize your data to percentages before setting the values.
 
 ## Related
 
@@ -72,4 +72,4 @@ o-arc.highlighted { filter: drop-shadow(0 4px 8px rgba(0,0,0,.3)); }
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is everything you need.
+[Install Orbit](/orbit-docs/introduction/installation/) and the markup above is everything you need.

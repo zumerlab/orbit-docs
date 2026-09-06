@@ -1,6 +1,6 @@
 ---
 title: CSS sunburst chart — Orbit hierarchical example
-description: Build a multi-level sunburst chart in pure HTML and CSS with three nested rings of categories. No SVG, no charting library required.
+description: Build a multi-level sunburst chart with Orbit and CSS with three nested rings of categories. No handwritten SVG or charting library required.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -65,9 +65,11 @@ o-arc.pink { --o-fill: var(--o-pink); }
 **Make it interactive** by attaching click handlers that re-render the outer rings to drill into the clicked slice:
 
 ```js
+// Store each category's start and span in degrees in your application data.
+arc.setAttribute('interactive', '');
 arc.addEventListener('click', () => {
-  outerRing.style.setProperty('--from', arc.style.getPropertyValue('--start'));
-  outerRing.style.setProperty('--range', arc.style.getPropertyValue('--span'));
+  outerRing.style.setProperty('--o-from', `${category.start}deg`);
+  outerRing.style.setProperty('--o-range', `${category.span}deg`);
 });
 ```
 
@@ -82,4 +84,4 @@ arc.addEventListener('click', () => {
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and adapt the data values above to your own hierarchy.
+[Install Orbit](/orbit-docs/introduction/installation/) and adapt the data values above to your own hierarchy.

@@ -18,8 +18,8 @@ Add the Orbit CSS and JavaScript files to your HTML file using a CDN:
   <!-- Vue -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <!-- Orbit -->
-  <link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
-  <script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+  <link rel="stylesheet" href="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.css">
+  <script src="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.js"></script>
 </head>
 ```
 
@@ -31,12 +31,13 @@ const { createApp } = Vue;
 
 const app = createApp({
   // Your Vue app configuration
-}).mount('#app');
+});
 
 // Treat all tags starting with 'o-' as custom elements
 app.config.compilerOptions.isCustomElement = (tag) => {
   return tag.startsWith('o-');
 };
+app.mount('#app');
 ```
 
 ## **2. Node.js-Based integration**
@@ -55,14 +56,13 @@ npm install @zumer/orbit
 Import the Orbit CSS and JavaScript files in your main entry file (e.g., `main.js` or `main.ts`):
 
 ```javascript
-import '@zumer/orbit/dist/orbit.css';
-import '@zumer/orbit/dist/orbit.js';
+import '@zumer/orbit/style';
+import '@zumer/orbit';
 
-const { createApp } = Vue;
+import { createApp } from 'vue';
+import App from './App.vue';
 
-const app = createApp({
-  // Your Vue app configuration
-}).mount('#app');
+createApp(App).mount('#app');
 
 ```
 

@@ -1,6 +1,6 @@
 ---
 title: CSS donut chart — Orbit example
-description: Build a donut chart in pure HTML and CSS with weighted segments and category labels. No SVG, no D3, no charting library — just Orbit primitives.
+description: Build a donut chart with Orbit and CSS with weighted segments and category labels. No handwritten SVG or charting library — just Orbit primitives.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
@@ -51,7 +51,7 @@ o-arc.green { --o-fill: var(--o-green); }
 
 ## How it works
 
-- **`<o-arc value="X">`** is the entire chart engine. When you put multiple `<o-arc>` elements inside an orbit and give each a value, Orbit treats the values as weights and sizes each arc proportionally. The values don't have to sum to 100 — Orbit normalizes them.
+- **`<o-arc value="X">`** is the entire chart engine. When you put multiple `<o-arc>` elements inside an orbit and give each a value, each value represents a percentage of the parent range. Use values that sum to 100 for a complete ring, or less for a partial ring. Normalize raw data to percentages in your application.
 - **`gap-0`** removes the small separation between segments that `<o-arc>` adds by default. For a donut chart you usually want the segments touching; for a pie-with-emphasis you might leave the gap in.
 - **`grow-1x`** sets the arc thickness. Larger values (`grow-2x`, `grow-3x`) thicken the donut ring; the unfilled center grows accordingly. To turn this into a full pie chart, increase `grow` until the center disappears.
 - **Labels are positioned by angle**, not by data binding. Each label satellite has an `angle-X` class that points it to the middle of its corresponding arc. To compute these dynamically: `angle = startAngle + (cumulativeValue + halfThisValue) / totalValue * 360`.
@@ -68,7 +68,11 @@ o-arc.green { --o-fill: var(--o-green); }
 </div>
 ```
 
-**Make it a hover-interactive chart** by adding pointer events to each arc:
+**Make it a hover-interactive chart** by adding the `interactive` attribute to each arc, then styling its hover state:
+
+```html
+<o-arc interactive value="50"></o-arc>
+```
 
 ```css
 o-arc { transition: --o-fill 0.2s; cursor: pointer; }
@@ -86,4 +90,4 @@ o-arc:hover { --o-fill: var(--o-purple); }
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and the markup above is your entire chart.
+[Install Orbit](/orbit-docs/introduction/installation/) and the markup above is your entire chart.

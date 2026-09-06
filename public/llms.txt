@@ -1,22 +1,22 @@
 # Orbit CSS Framework
 
-> Orbit is a CSS framework for building radial and circular user interfaces.
-> It uses CSS trigonometric functions (cos, sin), the :has() selector, and CSS custom properties to position elements on circular orbits — no layout JavaScript needed.
+> Orbit builds radial and circular interfaces with CSS geometry and a small JavaScript runtime.
+> CSS trigonometry and custom properties position elements; JavaScript maintains ring indices, spacing and SVG paths as layouts change.
 
 ## Documentation
 
 - Docs: https://zumerlab.github.io/orbit-docs
 - Repo: https://github.com/zumerlab/orbit
 - npm: @zumer/orbit
-- Version: 1.4.11
+- Version: 1.4.12 (current source build; see /orbit-docs/orbit/manifest.json)
 - License: MIT
 
 ## Quick Start
 
-CDN:
+Matching site build:
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@zumer/orbit@latest/dist/orbit.css">
-<script src="https://unpkg.com/@zumer/orbit@latest/dist/orbit.js"></script>
+<link rel="stylesheet" href="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.css">
+<script src="https://zumerlab.github.io/orbit-docs/orbit/orbit.min.js"></script>
 ```
 
 npm:
@@ -25,19 +25,23 @@ npm install @zumer/orbit
 ```
 ```js
 import '@zumer/orbit/style'  // CSS
-import '@zumer/orbit'         // JS (registers web components + Orbit.resize)
+import '@zumer/orbit'         // Browser entrypoint: registers web components and layout runtime
 ```
 
 ## What the JS file does
 
 - Registers `<o-arc>` custom element (SVG arc/wedge segments)
 - Registers `<o-progress>` custom element (SVG progress rings)
-- Exposes `window.Orbit` with the `.resize()` method for responsive layouts
-- If you only use CSS classes (no web components, no responsive resize), the JS is optional.
+- Maintains ring numbering, child spacing and SVG geometry after DOM, ancestor style and size changes, batched in an animation frame
+- Exposes `window.Orbit.resize(selectorOrElement)`, returning a cleanup function, and `Orbit.refresh(root)` for immediate layout updates
+- The ES module exports `Orbit`, `OrbitArc`, `OrbitProgress` and `registerOrbit`; SSR imports are safe, but the module must also run in the browser
+- A CSS-only fallback can position simple CSS elements (up to 24 levels / 60 children per type); arcs and progress require JavaScript
+
+The site build contains runtime fixes that are not yet in the published npm 1.4.12 package. Use the matching site downloads to reproduce these examples. The manifest records the source commit and SHA-256 hashes; a package version alone does not identify this build.
 
 ## Core Concept
 
-Orbit uses a solar-system metaphor. Everything revolves around a center point called the **gravity-spot**. Elements are placed on concentric rings (**orbits**) and positioned automatically using CSS trigonometry (cos/sin). The framework auto-distributes children evenly around each orbit using the `:has()` selector to count them.
+Orbit uses a solar-system metaphor. Everything revolves around a center point called the **gravity-spot**. Elements are placed on concentric rings (**orbits**) and positioned automatically using CSS trigonometry (cos/sin). The runtime counts children and supplies indices and spacing to CSS. A static `:has()`-based fallback remains for simple CSS-only layouts.
 
 ## Mandatory HTML Structure
 
@@ -45,26 +49,26 @@ Orbit uses a solar-system metaphor. Everything revolves around a center point ca
 .bigbang > .gravity-spot > .orbit-N > .satellite > .capsule
 ```
 
-Every Orbit layout MUST follow this exact nesting hierarchy. Skipping or misordering any level will break the layout and trigger CSS validation warnings (red dotted borders).
+Every Orbit layout MUST follow this exact nesting hierarchy. Skipping or misordering any level will break the layout and trigger CSS validation warnings (red dotted borders) when `dev-orbit` is enabled.
 
 - `.bigbang` — Root container (flex center, 100% width/height, 100vh when direct child of body)
 - `.gravity-spot` — Center point (0 width, holds all CSS variables, origin of coordinate system)
-- `.orbit-N` — A ring at radius level N (0–24). Higher N = larger radius. Invisible by default.
-- `.satellite` — An item placed on a ring (positioned via cos/sin transforms, up to 60 per orbit)
+- `.orbit-N` — A ring at nonnegative integer radius level N. Higher N = larger radius. Invisible by default.
+- `.satellite` — An item placed on a ring (positioned via cos/sin transforms; the runtime supports more than 60 per orbit)
 - `.capsule` — Content wrapper inside satellite (counter-rotates so content stays upright)
 
 ## Additional Elements (placed directly inside .orbit-N, NOT inside .satellite)
 
 - `<o-arc>` — SVG arc/wedge segments (pie slices, gauge needles, text along arcs)
 - `<o-progress>` — SVG progress ring with background track
-- `.vector` — Tick marks / radial lines (up to 60 per orbit)
+- `.vector` — Tick marks / radial lines (the runtime supports more than 60 per orbit)
 - `.side` — Chord/tangent elements that form polygons
 
 ## Key CSS Custom Properties (set on .gravity-spot or .orbit-N)
 
 | Property | Default | Purpose |
 |---|---|---|
-| `--o-force` | `500px` | Base diameter of the entire system. MUST be pixels. |
+| `--o-force` | `500px` | Base diameter of the entire system. Use a CSS length such as px, rem or cqw. |
 | `--o-force-ratio` | `1` | Responsive scaling multiplier (set by Orbit.resize()) |
 | `--o-from` | `0deg` | Starting angle. 0deg = 12 o'clock (top). |
 | `--o-range` | `360deg` | Total arc span (180 = semicircle, 270 = three-quarter) |
@@ -80,7 +84,7 @@ Every Orbit layout MUST follow this exact nesting hierarchy. Skipping or misorde
 
 ## How Angle Auto-Distribution Works
 
-The framework counts children inside each orbit using CSS `:has(:nth-child(N of .satellite))` and automatically sets `--o-angle = --o-range / N`. Each child is positioned at `angle * child_index`. This means:
+The runtime counts children of each type and supplies a default `--o-layout-angle = --o-range / N` (adjusted by `fit-range`), preserving public overrides such as `--o-angle`. Each child is positioned at `angle * child_index`. This means:
 - 4 satellites in a 360deg orbit → each at 90° apart
 - 3 arcs in a 270deg range → each at 90° apart
 - No manual angle calculation needed
@@ -114,6 +118,7 @@ Place directly inside `.orbit-N`. NEVER inside `.satellite`.
 - Text: `<o-arc>text here</o-arc>` renders text along the arc path
 - Stacking: Multiple `<o-arc>` with `value` attributes auto-stack end-to-end (donut chart). Values should sum to ≤ 100.
 - Without `value`: arcs auto-divide the range equally
+- `interactive` opts arc/progress elements into pointer events; they are decorative by default. Supply keyboard behavior and an accessible name for controls.
 
 ### `<o-progress>` — Progress Ring
 Place directly inside `.orbit-N`. NEVER inside `.satellite`. Max one per orbit.
@@ -138,7 +143,8 @@ Dynamic: set `--o-color` on any element and use `--o-color-light`, `--o-color-da
 ## Responsive Sizing
 
 ```js
-Orbit.resize('.parent-selector');
+const stopResizing = Orbit.resize('.parent-selector');
+// Call stopResizing() when the container unmounts.
 ```
 Calculates `--o-force-ratio = containerWidth / 500` using ResizeObserver.
 
@@ -151,14 +157,14 @@ Calculates `--o-force-ratio = containerWidth / 500` using ResizeObserver.
 5. `.vector` and `.side` go directly in `.orbit-N`, NEVER in `.satellite`
 6. Multiple `.orbit-N` are siblings inside the same `.gravity-spot`
 7. Do NOT nest `.orbit-N` inside another `.orbit-N`. For nested layouts, create `.bigbang > .gravity-spot` inside a `.capsule`
-8. `--o-force` MUST be a pixel value (e.g., `500px`), never percentage
+8. Use a CSS length for `--o-force` (e.g., `500px`, `30rem`, or a container-relative length); percentages against the zero-width center are unsuitable
 9. `.orbit-0` is just a center point (near-zero radius), not a visible ring
 10. `from-0` = top/12 o'clock, NOT right/3 o'clock
 11. `<o-arc>` and `<o-progress>` do NOT work in elliptical layouts
 12. Do NOT use `transform` on `.satellite` — it overrides positioning
-13. Do NOT set `--o-orbit-number`, `--o-orbit-child-number`, or `--o-angle` manually — these are auto-calculated
+13. Public properties such as `--o-orbit-number`, `--o-orbit-child-number` and `--o-angle` may override automatic layout. Do not write internal `--o-layout-*`, `--o-arc-start` or `data-orbit-ring` values
 14. `.angle-N` resets `--o-from` to 0 — do NOT combine with `.from-N` on the same element (except on `<o-arc>`/`<o-progress>` where `.angle-N` does NOT reset `--o-from`)
-15. Browser requirements: CSS :has(), CSS cos()/sin(), Web Components. No IE/old browser support.
+15. Browser requirements: CSS cos()/sin(), Web Components, MutationObserver and ResizeObserver. The CSS-only fallback and optional diagnostics additionally require :has().
 
 ## Nesting Pattern
 

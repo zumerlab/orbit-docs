@@ -1,17 +1,16 @@
 ---
-import type { Props } from '../props';
-const isHomepage = Astro.props.slug === '';
-import EditLink from 'virtual:starlight/components/EditLink';
-import LastUpdated from 'virtual:starlight/components/LastUpdated';
-import Pagination from 'virtual:starlight/components/Pagination';
+const isHomepage = Astro.locals.starlightRoute.id === '';
+import EditLink from '@astrojs/starlight/components/EditLink.astro';
+import LastUpdated from '@astrojs/starlight/components/LastUpdated.astro';
+import Pagination from './CustomPagination.astro';
 import { LinkButton } from '@astrojs/starlight/components';
 ---
 
 <footer>
 	{!isHomepage && (
 	<div class="meta sl-flex">
-		<EditLink {...Astro.props} />
-		<LastUpdated {...Astro.props} />
+		<EditLink />
+		<LastUpdated />
 	</div>
 	<div class="metaz sl-flex">
 		<LinkButton
@@ -23,7 +22,7 @@ import { LinkButton } from '@astrojs/starlight/components';
 		</LinkButton>
 
 	</div>
-	<Pagination {...Astro.props} />
+	<Pagination />
     )}
 </footer>
 

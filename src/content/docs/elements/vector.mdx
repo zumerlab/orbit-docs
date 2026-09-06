@@ -7,7 +7,7 @@ title: "Vector"
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
-`Vectors` are perpendicular lines rendered across `orbits`. They resemble minute marks in an analog watch, but can be adapted to create connector lines, for instance. Elements with `.vector` are placed along an `.orbit` or `.orbit-*` path.  By default, up to 60 vectors can be placed in an orbit. 
+`Vectors` are perpendicular lines rendered across `orbits`. They resemble minute marks in an analog watch, but can be adapted to create connector lines, for instance. Elements with `.vector` are placed along an `.orbit` or `.orbit-*` path.  The runtime supports more than 60 vectors per orbit; the 60-item limit applies only to the CSS-only fallback.
 
 export const vector = 
 `<div class="bigbang">

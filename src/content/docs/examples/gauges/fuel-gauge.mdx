@@ -1,13 +1,13 @@
 ---
 title: CSS fuel gauge example — compact 90° gauge
-description: A pure CSS fuel gauge with E/F labels, warning ticks and a red needle on a black background. HTML and CSS only, no SVG or JavaScript.
+description: An Orbit fuel gauge with E/F labels, warning ticks and a red needle on a black background. HTML and CSS styling with the Orbit runtime.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
 A fuel gauge is the most space-constrained gauge in a typical dashboard — it has to fit beside the speedometer without crowding it, but still be readable at a glance from the driver's seat. The traditional design uses about a 90° arc with just two labels (E and F), a row of warning tick marks, and a red needle that wakes you up when it dips below quarter-tank.
 
-This example reproduces that look in pure CSS: the arc is 90° wide, the ticks are alternating red and white `vector` elements, and the dark background sells the "instrument cluster" feel.
+This example reproduces that look with Orbit: the arc is 90° wide, the ticks are alternating red and white `vector` elements, and the dark background sells the "instrument cluster" feel.
 
 export const gauge3HTML = `
 <div class="bigbang">
@@ -78,4 +78,4 @@ export const gauge3CSS = `
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and grab the markup above as a starting point.
+[Install Orbit](/orbit-docs/introduction/installation/) and grab the markup above as a starting point.

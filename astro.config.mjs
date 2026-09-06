@@ -1,12 +1,13 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import react from "@astrojs/react";
 import svelte from '@astrojs/svelte';
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://zumerlab.github.io/orbit-docs',
   base: 'orbit-docs',
+  // Keep HTML-aware whitespace for the existing documentation.
+  compressHTML: true,
   integrations: [starlight({
   head: [
     {
@@ -53,8 +54,8 @@ export default defineConfig({
     themes: ['github-light'],
     useStarlightDarkModeSwitch: false
   },
-  title: 'Orbit CSS radial UI composer',
-  description: 'Get started building an amazing cool radial UI with Orbit CSS composer',
+  title: 'Orbit',
+  description: 'Compose radial interfaces with HTML, CSS, and a lightweight JavaScript runtime. Explore live examples, customize layouts, and copy the code.',
 
   disable404Route: true,
   lastUpdated: true,
@@ -68,10 +69,10 @@ export default defineConfig({
     Footer: './src/components/OrbitFooter.astro',
     Pagination: "./src/components/CustomPagination.astro"
   },
-  social: {
-    github: 'https://github.com/zumerlab/orbit',
-    telegram: 'https://t.me/ZumlyCommunity'
-  },
+  social: [
+    { icon: 'github', label: 'GitHub', href: 'https://github.com/zumerlab/orbit' },
+    { icon: 'telegram', label: 'Telegram', href: 'https://t.me/ZumlyCommunity' }
+  ],
   editLink: {
     baseUrl: 'https://github.com/zumerlab/orbit-docs/edit/main/',
   },
@@ -260,9 +261,6 @@ export default defineConfig({
     }]
   }]
 }),
-react({
-  include: ['**/react/*'],
-}), 
 svelte({
   include: ['**/svelte/*'],
 })]

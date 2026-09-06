@@ -7,17 +7,17 @@ title: "CSS visual aids"
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
-Orbit provides a comprehensive set of rules and visual aids in CSS to assist developers in enhancing user experience. These guidelines ensure adherence to best practices and optimize the utilization of Orbit's features.
+Add `dev-orbit` to a `.bigbang` container to enable visual warnings for invalid structure. Diagnostics are opt-in and use CSS; they do not replace the JavaScript layout runtime.
 
 :::note
-Support and checks are performed with CSS only! Using advance CSS feartures such as `@support`, `:has()` and `@container`
+Visual diagnostics use `@supports`, `:has()` and container queries. Warning animations respect reduced-motion preferences.
 :::
 
 ## Checking browser support 
 
 ### `has()` CSS Rule
 
-Before implementing features reliant on the `has()` CSS rule, it's essential to confirm browser compatibility. Orbit includes checks to verify support for this rule, alerting users if it's unavailable in the targeted browser environment.
+The CSS-only fallback and visual diagnostics use `:has()`. Missing support does not block the JavaScript layout runtime.
 
 ### `cos()` and  `sin()` trigonometric CSS functions
 
@@ -29,11 +29,11 @@ Orbit incorporates visual cues to identify and warn developers of invalid nested
 
 ###  Invalid Child elements within `.gravity-spot`
 
-Orbit detects and notifies developers if `.gravity-spot` contains invalid direct child elements. Only  `.orbit-zoee`, and `.orbit` or `.orbit-*` elements are permissible within `.gravity-spot`.
+Orbit detects and notifies developers if `.gravity-spot` contains invalid direct child elements. Only `.gravity-spot`, `.orbit`, and explicit nonnegative integer ring classes such as `.orbit-4` are permissible within `.gravity-spot`.
 
 export const gs = `
 
-<div class="bigbang">
+<div class="bigbang dev-orbit">
   <div class="gravity-spot">
     <!-- Orbit detects that gravity-spot > satellite is not valid -->
     <div class="satellite"></div>
@@ -51,17 +51,17 @@ export const gsCSS = `
 
 `;
 
-<ZumerPlay name={'gs'}   htmlCode={gs} cssCode={gsCSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'gs'}   htmlCode={gs} cssCode={gsCSS} theme={'theme-cyan'} height={'300px'} />
 
 
 
 ### Invalid Child elements within `.satellite`
-Similarly, Orbit checks for and alerts developers if `.satellite` includes invalid direct child elements. Only `.gravity-spot` elements are permitted within `.satellite`.
+Similarly, Orbit checks for and alerts developers if `.satellite` includes invalid direct child elements. Only `.capsule` and `.gravity-spot` elements are permitted within `.satellite`.
 
 
 export const gs1 = `
 
-<div class="bigbang">
+<div class="bigbang dev-orbit">
   <div class="gravity-spot">
     <div class="orbit-5">
       <div class="satellite at-center">
@@ -69,6 +69,7 @@ export const gs1 = `
         <div class="orbit-10"></div>
       </div>
     </div>
+  </div>
 </div>
 
 `;
@@ -82,7 +83,7 @@ export const gs1CSS = `
 
 `;
 
-<ZumerPlay name={'gs1'}   htmlCode={gs1} cssCode={gs1CSS} theme={'cyan-theme'} height={'300px'} />
+<ZumerPlay name={'gs1'}   htmlCode={gs1} cssCode={gs1CSS} theme={'theme-cyan'} height={'300px'} />
 
 
 ## Usage limitation of `o-arc` and `o-progress`

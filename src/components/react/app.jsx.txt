@@ -1,8 +1,9 @@
-import orbit from '../../assets/orbit.min.js?url'
+import { useEffect } from 'react'
 import  '../../assets/orbit.min.css'
 
 
 export default function MyApp() {
+  useEffect(() => { void import('../../assets/orbit.mjs') }, [])
 return (
    <div>
      <style>{`.bigbang { height: 300px; } `}</style>
@@ -27,7 +28,7 @@ return (
     </div>
     
   </div>
-  <script src={orbit}></script>
+
    </div>
     
   

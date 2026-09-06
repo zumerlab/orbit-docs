@@ -1,13 +1,13 @@
 ---
 title: CSS knob with progress bar — Orbit example
-description: Build a rotary knob with a continuous green progress arc in pure HTML and CSS. Tick marks, textured body, no SVG, no JavaScript needed.
+description: Build a rotary knob with a continuous green progress arc with Orbit. Tick marks, textured body and a CSS-themed progress arc.
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
 
 A rotary knob with a built-in progress arc is the standard control on synthesizers, mixing desks and any UI where the user needs to feel like they're turning something. The progress arc serves a real purpose — it answers the question "how much?" without forcing the user to look up at a separate readout.
 
-This example builds the knob body from a textured background, places ten tick marks around it, and overlays an `<o-progress>` arc that visually fills as the value rises. There's no SVG, no canvas, and no JavaScript needed to render any of it — the JS in the third tab is only there to programmatically generate the tick marks for brevity.
+This example builds the knob body from a textured background, places ten tick marks around it, and overlays an `<o-progress>` arc that visually fills as the value rises. Orbit renders the SVG progress arc and maintains the layout. The extra JavaScript in the third tab generates the tick marks for brevity.
 
 export const knob1HTML = `
 <div class="bigbang">
@@ -96,4 +96,4 @@ o-progress { --o-fill: var(--o-orange) }
 
 ## Use this in your project
 
-[Install Orbit CSS](/orbit-docs/introduction/installation/) and copy the markup above.
+[Install Orbit](/orbit-docs/introduction/installation/) and copy the markup above.
