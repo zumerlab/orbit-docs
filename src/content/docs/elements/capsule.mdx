@@ -6,6 +6,7 @@ title: "Capsule"
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
+import orbitLogo from '/src/assets/light-orbit.svg?url';
 
 `.capsule` is a class to put text or another content. Currently, it can be used into `satellites` and `sides`.
 
@@ -34,7 +35,7 @@ export const capsule =
       </div>
       <div class="satellite grow-2x"> 
         <div class="capsule ">
-          <img src="/orbit-docs/favicon.svg" width="100"/>
+          <img src="${orbitLogo}" width="100" alt="Orbit"/>
         </div>
       </div>
       <div class="satellite spin-lock">
@@ -94,7 +95,7 @@ export const capsule1 =
       </div>
       <div class="side grow-2x"> 
         <div class="capsule horizontal">
-          <img src="/orbit-docs/favicon.svg" width="100"/>
+          <img src="${orbitLogo}" width="100" alt="Orbit"/>
         </div>
       </div>
       <div class="side ">

@@ -19,7 +19,7 @@ Evidence limitation: indexed descriptions were available, but direct screen
 requests returned 410. Their visual layouts were not verified. The user's own
 home and working playground govern the actual visual treatment.
 
-User revision: keep the established layout and colors, use the original docs logo,
+User revision: keep the established layout and colors, use the approved folded orbital logo (2026-09-07),
 and remove decorative numbering, spaced uppercase labels and monospace UI text.
 The [sci-fi example](http://127.0.0.1:4326/orbit-docs/examples/scifi/) supplies the
 separate depth layers. The user's [SnapDOM reference](https://snapdom.dev/showcase/#orbit)
@@ -34,7 +34,7 @@ the satellite control and add pause/resume; no pointer movement is required.
 | User/action | Developer adjusts a live parameter, then copies or downloads the composition. |
 | Hierarchy | Purpose + live branded composition; playground; editable recipes; installation/docs. |
 | Navigation | Visible Playground, Examples, Docs, GitHub; existing docs URLs preserved. |
-| Visual language | Existing #060f16, #3da9fc, #ef4565 and original docs SVG logo; real Orbit geometry; Arial for UI and compositions, monospace only for code; sentence case labels without numbering; thin rules and space around the compositions. |
+| Visual language | Existing #060f16, #3da9fc, #ef4565 and the approved monochrome folded orbital SVG; real Orbit geometry; Arial for UI and compositions, monospace only for code; sentence case labels without numbering; thin rules and space around the compositions. |
 | States | Zero, 80 satellites, reorder, recipe selection, mobile preview/code, copy/export loading/success/failure, reset. |
 | Responsive | Desktop preview beside settings/code; mobile preview/code views, native labelled controls, reachable navigation. |
 | Motion | Layered hero tilts automatically in 3D, with pause/resume and live satellite count. Reduced-motion prevents autoplay. Suspend animation offscreen and in hidden tabs. |
@@ -64,7 +64,9 @@ Validated against the production build on 2026-09-05:
 
 User revision checks:
 
-- The header and hero load the original docs SVG, with its existing color and proportions.
+- The header and hero use the approved white folded orbital SVG on the dark home.
+- Documentation uses its black/white counterpart with the selected theme; the favicon follows the browser color scheme. Example images remain black on their fixed light canvas.
+- The site SVG canvas is fitted to the mark without changing its paths or transparency.
 - UI text and compositions use Arial. Monospace remains only in source code;
   section/tab numbering and promotional slogans were removed.
 - The hero's seven depth layers tilt automatically on an 18-second loop.

@@ -41,7 +41,7 @@
 .hero-art .hero-point { width:25px; height:25px; border-radius:50%; background:#0a2335; border:1px solid #3da9fc; color:#a4d8fc; font:10px Arial,sans-serif; }
 .hero-core { flex-direction:column; white-space:nowrap; gap:5px; }
 .hero-core strong { font:600 22px Arial,sans-serif; }
-.hero-core img { width:44px; height:33px; max-width:none; }
+.hero-core img { width:44px; height:auto; max-width:none; }
 .hero-live-controls { display:flex; align-items:center; gap:14px; width:min(390px,100%); margin:22px auto 0; padding:12px 0; border-block:1px solid var(--home-rule); }
 .hero-live-controls label { display:flex; gap:9px; align-items:center; font-size:12px; white-space:nowrap; }
 .hero-live-controls output { color:var(--home-blue); font-family:Arial,sans-serif; min-width:1.5ch; }

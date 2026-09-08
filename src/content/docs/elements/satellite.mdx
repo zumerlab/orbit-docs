@@ -6,6 +6,7 @@ title: "Satellite"
 ---
 
 import ZumerPlay from '/src/components/ZumerCode.astro';
+import orbitLogo from '/src/assets/light-orbit.svg?url';
 
 Elements with `.satellite` are placed along an `.orbit` or `.orbit-*` path serving as content place and/or to nest `.orbits` using `.gravity-spot`.  The runtime supports more than 60 satellites per orbit; the 60-item limit applies only to the CSS-only fallback.
 
@@ -370,7 +371,7 @@ export const capsule =
       </div>
       <div class="satellite grow-2x"> 
         <div class="capsule ">
-          <img src="/orbit-docs/favicon.svg" width="100"/>
+          <img src="${orbitLogo}" width="100" alt="Orbit"/>
         </div>
       </div>
       <div class="satellite spin-lock">
