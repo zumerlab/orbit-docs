@@ -486,6 +486,7 @@ Creates SVG arc segments. Used for: pie charts, donut charts, gauge needles, rad
 | `shape` | string | `none` | Shape variant. See shape table below. |
 | `flip` | boolean | false | Flips the arc (reverses text direction along path). |
 | `fit-range` | boolean | false | Stretches text to fill the entire arc path via SVG textLength. |
+| `max` | number | 100 | Value that fills the whole range. `value` is relative to it. |
 | `text-anchor` | start\|middle\|end | middle | Text alignment along the arc path. |
 
 **Shape values:**
@@ -575,6 +576,8 @@ Creates SVG progress bars along an orbit ring, with a background track and a for
 | `value` | number | 0 | Current progress value |
 | `max` | number | 100 | Maximum value |
 | `shape` | string | none | Same shapes as `<o-arc>` |
+| `variant` | `stroke` | (none) | Open arcs with round caps instead of filled bands. Color with `--o-stroke` (bar) and `--o-back-stroke` (track); `--o-fill`/`--o-back-fill` are ignored. `shape` does not apply. Widths default to 2 and 1 screen px. |
+| `interactive` | boolean | false | Lets the SVG receive pointer events |
 
 **CSS Custom Properties:**
 
@@ -586,6 +589,7 @@ Creates SVG progress bars along an orbit ring, with a background track and a for
 | `--o-back-fill` | `transparent` | Background track fill |
 | `--o-back-stroke` | `none` | Background track stroke |
 | `--o-back-stroke-width` | `1` | Background track stroke width |
+| `--o-progress` | (none) | Progress value from CSS; overrides the `value` attribute. Not animatable with `transition`. |
 
 **Updating progress dynamically:**
 ```js

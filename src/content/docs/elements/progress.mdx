@@ -13,10 +13,30 @@ import ZumerPlay from '/src/components/ZumerCode.astro';
 Just one o-progress can be used per orbit.
 :::
 
+## Reference
+
+| Attribute | Default | Purpose |
+| --- | --- | --- |
+| `value` | `0` | Progress value, relative to `max`. |
+| `max` | `100` | Value that fills the orbit's range. |
+| `shape` | `none` | Ending shape. See [Changing endings](#changing-endings). |
+| `variant` | — | `stroke` draws open arcs instead of filled bands. See [Stroke variant](#stroke-variant). |
+| `interactive` | — | Lets the SVG receive pointer events. See [Pointer interaction](#pointer-interaction). |
+
+| CSS property | Default | Purpose |
+| --- | --- | --- |
+| `--o-progress` | — | Progress value set from CSS. Overrides `value` when present. |
+| `--o-fill` | `var(--o-gray-light)` | Progress bar fill. Not used by `variant="stroke"`. |
+| `--o-stroke` | `var(--o-fill)` | Progress bar border, or the line color with `variant="stroke"`. |
+| `--o-stroke-width` | `1` | Progress bar border width. |
+| `--o-back-fill` | `transparent` | Background bar fill. Not used by `variant="stroke"`. |
+| `--o-back-stroke` | `none` | Background bar border, or the track color with `variant="stroke"`. |
+| `--o-back-stroke-width` | `1` | Background bar border width. |
+
 ## Look and feel
 
 ### Changing progress colors
-To change o-progress **progress bar** color use CSS custom var `--o-fill` for background, `--o-stroke` for border, and  `--o-stroke-width` for border-width in a `o-arc` style. Use `--o-back-fill` to set a **background bar** color, `--o-back-stroke` for border-color, and   `--o-back-stroke-width` for border-width.
+To change o-progress **progress bar** color use CSS custom var `--o-fill` for background, `--o-stroke` for border, and  `--o-stroke-width` for border-width in an `o-progress` style. Use `--o-back-fill` to set a **background bar** color, `--o-back-stroke` for border-color, and   `--o-back-stroke-width` for border-width.
 
 
 export const progress = `
@@ -79,9 +99,49 @@ o-progress.indigo:hover {
 
 <ZumerPlay name={'progress1'}   htmlCode={progress1} cssCode={progress1CSS} theme={'theme-cyan'} height={'300px'} wrap />
 
+### Setting the value from CSS
+
+`--o-progress` sets the value from CSS and overrides the `value` attribute. Use it when a stylesheet, a class or a parent element owns the state:
+
+export const progressVar = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-5">
+      <o-progress class="cyan"></o-progress>
+    </div>
+  </div>
+</div>
+<button id="toggle">Toggle full</button>
+`;
+export const progressVarCSS = `
+o-progress.cyan {
+  --o-progress: 30;
+  --o-fill: var(--o-cyan-dark);
+  --o-back-fill: var(--o-cyan-lighter);
+}
+.full o-progress.cyan {
+  --o-progress: 90;
+}
+button {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  translate: -50% 0;
+}
+`;
+export const progressVarJS = `
+document.querySelector('#toggle').addEventListener('click', () => {
+  document.querySelector('.bigbang').classList.toggle('full');
+});
+`;
+
+<ZumerPlay name={'progressVar'} htmlCode={progressVar} cssCode={progressVarCSS} jsCode={progressVarJS} theme={'theme-cyan'} height={'300px'} />
+
+Orbit redraws when the element's or an ancestor's `class` or `style` changes. After changes it cannot observe, such as editing a stylesheet rule, call `Orbit.refresh()`. The value is not animated: a CSS `transition` on `--o-progress` jumps straight to the new value.
+
 ### Changing endings
 
-`o-progress` has one special attribute: `shape` to define different endings. You can choose between `circle` (or `circle-a`), `circle-b`, `arrow`, `bullet`, `rounded`, `slash`, `backslash`, `zizag` shapes. Default `none`. 
+`o-progress` has one special attribute: `shape` to define different endings. You can choose between `circle` (or `circle-a`), `circle-b`, `arrow`, `bullet`, `rounded`, `slash`, `backslash` and `zigzag` shapes. Default `none`. 
 
 
 export const progress2 = `
@@ -196,6 +256,55 @@ cursor: pointer;
 
 <ZumerPlay name={'progress2'}   htmlCode={progress2} cssCode={progress2CSS} theme={'theme-cyan'} height={'500px'} wrap />
 
+
+## Stroke variant
+
+By default the progress bar is a filled band. For a thin gauge line, add `variant="stroke"`: both bars become open arcs along the middle of the orbit, with round caps.
+
+- `--o-stroke` colors the progress line and `--o-back-stroke` the track. `--o-fill` and `--o-back-fill` are not used.
+- `--o-stroke-width` defaults to `2` and `--o-back-stroke-width` to `1`, in screen pixels at any size.
+- The track defaults to `var(--o-gray-light)`.
+- `shape` does not apply to this variant.
+- `value` equal to `max` on a 360° range draws a closed circle.
+
+export const strokeVariant = `
+<div class="bigbang">
+  <div class="gravity-spot">
+    <div class="orbit-6">
+      <o-progress variant="stroke" value="72" class="thick"></o-progress>
+    </div>
+    <div class="orbit-5">
+      <o-progress variant="stroke" value="45" class="pink"></o-progress>
+    </div>
+    <div class="orbit-4">
+      <o-progress variant="stroke" value="100"></o-progress>
+    </div>
+    <div class="orbit-3 range-270 from-225">
+      <o-progress variant="stroke" value="60" class="cyan"></o-progress>
+    </div>
+  </div>
+</div>
+`;
+export const strokeVariantCSS = `
+o-progress {
+  --o-stroke: var(--o-purple);
+}
+o-progress.thick {
+  --o-stroke: var(--o-indigo);
+  --o-stroke-width: 8;
+  --o-back-stroke-width: 4;
+}
+o-progress.pink {
+  --o-stroke: var(--o-pink);
+  --o-back-stroke: var(--o-pink-lighter);
+}
+o-progress.cyan {
+  --o-stroke: var(--o-cyan);
+  --o-stroke-width: 4;
+}
+`;
+
+<ZumerPlay name={'strokeVariant'} htmlCode={strokeVariant} cssCode={strokeVariantCSS} height={'320px'} />
 
 ## Adjust o-progress size
 

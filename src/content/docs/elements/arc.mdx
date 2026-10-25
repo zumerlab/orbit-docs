@@ -9,6 +9,26 @@ import ZumerPlay from '/src/components/ZumerCode.astro';
 
 `<o-arc>` is a standard and vanilla web-component for rendering a radial arcs or pies. The JavaScript runtime supports more than 60 arcs per orbit. Omit `value` for equal segments; an explicit `value="0"` produces an empty segment.
 
+## Reference
+
+| Attribute | Default | Purpose |
+| --- | --- | --- |
+| `value` | — | Share of the orbit's range, relative to `max`. Without it, arcs split the range equally. |
+| `max` | `100` | Value that fills the whole range. |
+| `shape` | `none` | Ending shape. See [Changing endings](#changing-endings). |
+| `text-anchor` | `middle` | Text alignment along the arc: `start`, `middle` or `end`. |
+| `flip` | — | Turns the text upside down so it reads left to right at the bottom. |
+| `fit-range` | — | Stretches the text to the whole arc. |
+| `interactive` | — | Lets the SVG receive pointer events. See [Pointer interaction](#pointer-interaction). |
+
+| CSS property | Default | Purpose |
+| --- | --- | --- |
+| `--o-fill` | `var(--o-gray-light)` | Arc fill. Use `transparent` for text-only arcs. |
+| `--o-stroke` | `var(--o-fill)` | Arc border. |
+| `--o-stroke-width` | `1` | Arc border width. |
+| `--o-color` | `currentcolor` | Text color. The CSS `color` property works too. |
+| `--o-gap` | `1` | Space between sibling arcs. `.gap-0` to `.gap-30` set it; inline values can go higher. |
+
 ## Look and feel
 
 ### Changing arc border and colors
@@ -263,6 +283,12 @@ export const growCSS =
 
 ## Adjust o-arc gaps
 **`.gap-*`:** Set a gap space between `o-arcs` ranging from 0 to 30, 
+
+For a wider gap, set `--o-gap` directly. A ring of 3 to 6 segments usually needs `--o-gap: 24` to `60` to read as separate pieces:
+
+```html
+<o-arc style="--o-gap: 40"></o-arc>
+```
 
 
 export const grow1 = 
@@ -600,6 +626,8 @@ o-arc.orange:hover{
 ## Use o-arc to create charts
 
 To create pie / sunburst or donut charts simple use attribute `value` from 0 to 100 in `o-arc`.
+
+To use your own scale, set `max` on each arc: with `max="24"`, `value="6"` takes a quarter of the range. Values are not normalized, so make them add up to `max` for a full ring.
 
 export const chart = 
 `<div class="bigbang">

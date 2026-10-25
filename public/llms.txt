@@ -122,7 +122,8 @@ Place directly inside `.orbit-N`. NEVER inside `.satellite`.
 
 ### `<o-progress>` — Progress Ring
 Place directly inside `.orbit-N`. NEVER inside `.satellite`. Max one per orbit.
-- Attributes: `value` (number), `max` (default 100), `shape` (same as o-arc)
+- Attributes: `value` (number), `max` (default 100), `shape` (same as o-arc), `variant="stroke"` (thin open arcs colored with `--o-stroke` / `--o-back-stroke`), `interactive`
+- `--o-progress` in CSS overrides `value`
 - CSS: `--o-fill`, `--o-stroke`, `--o-stroke-width`, `--o-back-fill`, `--o-back-stroke`, `--o-back-stroke-width`
 
 ## Depth Layers
