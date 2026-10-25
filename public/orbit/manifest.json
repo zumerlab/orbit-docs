@@ -1,11 +1,11 @@
 {
   "package": "@zumer/orbit",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "source": {
     "repository": "https://github.com/zumerlab/orbit",
-    "commit": "4de378e6f135024afe0b50b6249fe4ad2d083420",
+    "commit": "d247fbba18af0eab7b7c7c9305a464556368422f",
     "modified": false,
-    "sha256": "9b4f03d5f4760003f047559dfd593f19e5eec00b859b49dea9d3d33a8272160a"
+    "sha256": "7adaf2b1d4c8b44adc0ff2a46c05ffb4993c5cc8013f7ff4d8177732f6db3c59"
   },
   "files": {
     "orbit.css": {
@@ -18,15 +18,15 @@
     },
     "orbit.js": {
       "bytes": 43705,
-      "sha256": "e1469ee30a2fbf33d1db2bd927d766ba0c8409563c04db61a6b10a51fe1811ea"
+      "sha256": "a901ba1d3ebf0532d4a5a69f0070045ad373003908eedb6424474c355c87f3c1"
     },
     "orbit.min.js": {
       "bytes": 24188,
-      "sha256": "88480e628cca676963ad68c7b8b8959d9526d0c8ecb9ba1f2ad7a9973e476910"
+      "sha256": "1c44230b1d2073d944507939ccba562923be4cce402e6d1429f9b8609b6cc879"
     },
     "orbit.mjs": {
       "bytes": 42149,
-      "sha256": "0b3a29ccbee365b4f77a667cd5888cf550ad5156b068543630b4448cc160f25e"
+      "sha256": "703c0af9f80ff0d12ed3ed3b205c0a8eeee278ccf2d2ad71e7ae3e014789c923"
     }
   }
 }
