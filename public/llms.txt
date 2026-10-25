@@ -125,6 +125,10 @@ Place directly inside `.orbit-N`. NEVER inside `.satellite`. Max one per orbit.
 - Attributes: `value` (number), `max` (default 100), `shape` (same as o-arc)
 - CSS: `--o-fill`, `--o-stroke`, `--o-stroke-width`, `--o-back-fill`, `--o-back-stroke`, `--o-back-stroke-width`
 
+## Depth Layers
+
+Add `depth` to `.gravity-spot` to stack its rings in 3D. `data-depth="1"` (0–8) moves a ring back one step, `.layer-front` marks the active ring, `--o-z` (unitless px) sets depth per ring. Layers keep their apparent size and animate by default. Tune with `--o-depth-step` (-110), `--o-perspective` (900), `--o-depth-grow` (0), `--o-back-opacity` (1). Layers must be direct children of `.depth`; never put `data-depth` on satellites, arcs or progress.
+
 ## Color System
 
 10 base colors: `--o-red`, `--o-orange`, `--o-yellow`, `--o-green`, `--o-cyan`, `--o-blue`, `--o-indigo`, `--o-purple`, `--o-pink`, `--o-gray`

@@ -1283,6 +1283,78 @@ o-progress {
   rotate: calc(var(--o-angle-composite));
 }
 
+/* Depth layers
+   Add .depth to the element that holds the layers (usually .gravity-spot).
+   Each layer is a direct child: a ring or a nested .bigbang / .gravity-spot.
+   --o-z is unitless pixels (negative = farther). By default it is derived
+   from data-depth, and the scale compensates the perspective so a layer
+   keeps its apparent size: scale = (perspective - z) / perspective.
+   --o-depth-grow enlarges each step back (.42 = 1×, 1.42×, 1.84×…) so no two
+   layers share a radius. */
+.depth {
+  --o-perspective: 900;
+  --o-depth-step: -110;
+  perspective: calc(var(--o-perspective) * 1px);
+  transform-style: preserve-3d;
+}
+
+.depth > :is(:is(.orbit, [data-orbit-ring], .orbit-0, .orbit-1, .orbit-2, .orbit-3, .orbit-4, .orbit-5, .orbit-6, .orbit-7, .orbit-8, .orbit-9, .orbit-10, .orbit-11, .orbit-12, .orbit-13, .orbit-14, .orbit-15, .orbit-16, .orbit-17, .orbit-18, .orbit-19, .orbit-20, .orbit-21, .orbit-22, .orbit-23, .orbit-24), [data-depth], .layer-front):not(.satellite, .side, .vector, o-arc, o-progress) {
+  --o-z: calc(var(--o-depth, 0) * var(--o-depth-step));
+  transform: translateZ(calc(var(--o-z) * 1px)) scale(calc((1 + var(--o-depth-grow, 0) * var(--o-depth, 0)) * (1 - var(--o-depth-compensate, 1) * var(--o-z) / var(--o-perspective))));
+  transform-style: preserve-3d;
+  transition: transform var(--o-depth-duration, 0.8s) var(--o-depth-easing, cubic-bezier(0.2, 0.8, 0.2, 1)), opacity var(--o-depth-duration, 0.8s) var(--o-depth-easing, cubic-bezier(0.2, 0.8, 0.2, 1));
+}
+
+[data-depth="0"] {
+  --o-depth: 0;
+}
+
+[data-depth="1"] {
+  --o-depth: 1;
+}
+
+[data-depth="2"] {
+  --o-depth: 2;
+}
+
+[data-depth="3"] {
+  --o-depth: 3;
+}
+
+[data-depth="4"] {
+  --o-depth: 4;
+}
+
+[data-depth="5"] {
+  --o-depth: 5;
+}
+
+[data-depth="6"] {
+  --o-depth: 6;
+}
+
+[data-depth="7"] {
+  --o-depth: 7;
+}
+
+[data-depth="8"] {
+  --o-depth: 8;
+}
+
+/* The active layer: the one that is read and used. */
+.layer-front {
+  --o-depth: 0;
+}
+
+.depth > [data-depth]:not([data-depth="0"], .layer-front) {
+  opacity: var(--o-back-opacity, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .depth > :is(:is(.orbit, [data-orbit-ring], .orbit-0, .orbit-1, .orbit-2, .orbit-3, .orbit-4, .orbit-5, .orbit-6, .orbit-7, .orbit-8, .orbit-9, .orbit-10, .orbit-11, .orbit-12, .orbit-13, .orbit-14, .orbit-15, .orbit-16, .orbit-17, .orbit-18, .orbit-19, .orbit-20, .orbit-21, .orbit-22, .orbit-23, .orbit-24), [data-depth], .layer-front):not(.satellite, .side, .vector, o-arc, o-progress) {
+    transition: none;
+  }
+}
 /* radial elements alignment utilities */
 .at-top-left {
   align-items: flex-start !important;

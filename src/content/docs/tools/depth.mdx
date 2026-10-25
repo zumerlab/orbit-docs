@@ -1,0 +1,94 @@
+---
+title: "Depth layers"
+description: Stack Orbit rings in 3D with .depth, data-depth and .layer-front. Layers keep their apparent size and animate when they move forward or back.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+Add `depth` to a `.gravity-spot` to stack its rings on the z axis. Each direct child is a layer: a ring, or a nested `.bigbang` when a layer needs its own radial layout. The layer in front is the one people read and use; the others wait behind it.
+
+- `data-depth="1"` moves a layer one step back. Values go from `0` to `8`.
+- `.layer-front` marks the active layer and places it at depth 0.
+- `--o-z` sets the position directly, in unitless pixels. Negative values are farther away.
+
+Layers keep their apparent size: the scale compensates for the perspective with `(perspective − z) / perspective`. Depth changes animate by default.
+
+export const depthHTML = `
+<div class="bigbang">
+  <div class="gravity-spot depth">
+    <div class="orbit-4 layer-front" data-depth="0">
+      <o-progress variant="stroke" value="82"></o-progress>
+    </div>
+    <div class="orbit-4" data-depth="1">
+      <o-progress variant="stroke" value="40"></o-progress>
+    </div>
+    <div class="orbit-4" data-depth="2">
+      <o-progress variant="stroke" value="65"></o-progress>
+    </div>
+  </div>
+</div>
+<button id="next">Bring the next layer to front</button>
+`;
+export const depthCSS = `
+.gravity-spot {
+  --o-depth-grow: .42;
+  --o-back-opacity: .45;
+}
+o-progress {
+  --o-stroke: var(--o-cyan);
+  --o-back-stroke: var(--o-gray-light);
+}
+.layer-front o-progress {
+  --o-stroke: var(--o-pink);
+}
+button {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  translate: -50% 0;
+}
+`;
+export const depthJS = `
+const layers = [...document.querySelectorAll('.depth > [data-depth]')];
+let front = 0;
+document.querySelector('#next').addEventListener('click', () => {
+  front = (front + 1) % layers.length;
+  layers.forEach((layer, i) => {
+    const depth = (i - front + layers.length) % layers.length;
+    layer.dataset.depth = depth;
+    layer.classList.toggle('layer-front', depth === 0);
+  });
+});
+`;
+
+<ZumerPlay name={'depthLayers'} htmlCode={depthHTML} cssCode={depthCSS} jsCode={depthJS} height={'340px'} />
+
+## Properties
+
+Set these on the `.depth` element, or on a single layer.
+
+| Property | Default | Purpose |
+| --- | --- | --- |
+| `--o-z` | `depth × step` | Position on the z axis in unitless pixels. Set it on a layer to override `data-depth`. |
+| `--o-depth-step` | `-110` | Distance between depth steps. |
+| `--o-perspective` | `900` | Perspective in unitless pixels. |
+| `--o-depth-grow` | `0` | Extra size per step back. `.42` gives 1×, 1.42×, 1.84×, so no two layers share a radius. |
+| `--o-depth-compensate` | `1` | Set to `0` to let farther layers look smaller. |
+| `--o-back-opacity` | `1` | Opacity of the layers behind the front one. |
+| `--o-depth-duration` | `.8s` | Duration of the depth transition. |
+| `--o-depth-easing` | `cubic-bezier(.2,.8,.2,1)` | Easing of the depth transition. |
+
+The transition is turned off when the user prefers reduced motion.
+
+## Rules
+
+- **Layers are direct children of `.depth`.** An element in between flattens the 3D context.
+- **Rings outside `.depth` are not transformed.** Adding `data-depth` alone does nothing.
+- **Satellites, vectors, sides, `<o-arc>` and `<o-progress>` are never layers.** They keep their own transforms; put them inside a ring and move the ring.
+- **Back layers still receive clicks.** Rings ignore pointer events and satellites accept them, so a click on a back layer's satellite reaches it. Use that to bring a layer forward.
+
+## Related
+
+- [Layered status rings](/orbit-docs/examples/layered-status-rings/) — a full example with alerts
+- [`.orbit` element reference](/orbit-docs/elements/orbit/)
+- [`<o-progress>` element reference](/orbit-docs/elements/progress/)

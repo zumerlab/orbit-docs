@@ -1,6 +1,6 @@
 /*
 * orbit
-* v.1.4.12
+* v.1.5.0
 * Author Juan Martin Muda - Zumerlab
 * License MIT
 */
@@ -655,8 +655,13 @@ var OrbitProgress = class extends OrbitBase {
    */
   calculateStrokeArc(attrs, full) {
     const { realRadius } = attrs;
-    const arcAngle = Math.max(0, Math.min(this.getProgressAngle(attrs, full), 359.999999));
+    const arcAngle = Math.max(0, Math.min(this.getProgressAngle(attrs, full), 360));
     if (!(arcAngle > 0) || !(attrs.orbitRadius > 0)) return "";
+    if (arcAngle >= 359.9) {
+      const top = 50 - realRadius;
+      const bottom = 50 + realRadius;
+      return `M 50,${top} A ${realRadius},${realRadius} 0 1 1 50,${bottom} A ${realRadius},${realRadius} 0 1 1 50,${top}`;
+    }
     const a0 = -90 * (Math.PI / 180);
     const a1 = (-90 + arcAngle) * (Math.PI / 180);
     const x0 = 50 + realRadius * Math.cos(a0);

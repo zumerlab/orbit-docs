@@ -211,6 +211,28 @@ This places 3 items evenly spaced (120° apart) on a circular ring at orbit leve
 
 ---
 
+### .depth (3D layers)
+- Add `depth` to a `.gravity-spot` to stack its direct child rings (or nested `.bigbang` layers) on the z axis
+- `data-depth="0"` to `"8"` on a ring moves it back that many steps; `.layer-front` marks the active ring at depth 0
+- `--o-z` (unitless px, negative = farther) overrides `data-depth` per ring
+- Scale compensates the perspective, so layers keep their apparent size: `scale = (perspective - z) / perspective`
+- Settings on `.depth`: `--o-depth-step` (-110), `--o-perspective` (900), `--o-depth-grow` (0; .42 gives 1x, 1.42x, 1.84x), `--o-depth-compensate` (1), `--o-back-opacity` (1), `--o-depth-duration` (.8s), `--o-depth-easing`
+- Depth changes animate by default (off with prefers-reduced-motion)
+- Layers must be DIRECT children of `.depth`. Satellites, vectors, sides, `<o-arc>` and `<o-progress>` are never layers: move their ring instead
+- Rings outside `.depth` are not transformed
+
+```html
+<div class="bigbang">
+  <div class="gravity-spot depth" style="--o-depth-grow: .42">
+    <div class="orbit-4 layer-front"><o-progress value="82"></o-progress></div>
+    <div class="orbit-4" data-depth="1"><o-progress value="40"></o-progress></div>
+    <div class="orbit-4" data-depth="2"><o-progress value="65"></o-progress></div>
+  </div>
+</div>
+```
+
+---
+
 ## 5. CSS CUSTOM PROPERTIES REFERENCE
 
 All properties are set on `.gravity-spot` by default. They can be overridden on individual `.orbit-N` or child elements.

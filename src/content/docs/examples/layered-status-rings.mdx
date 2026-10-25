@@ -1,0 +1,148 @@
+---
+title: Layered status rings — 3D depth example
+description: One radial object for a whole system. Each channel is a ring on its own depth layer; an alert brings its channel to the front and resolving it sends the channel back. Built with Orbit's .depth layers.
+---
+
+import ZumerPlay from '/src/components/ZumerCode.astro';
+
+A home, a car or a server has several channels that compete for attention: climate, lights, security. Showing them as separate widgets splits the user's focus. Here they share one radial object, stacked in depth: the channel in front is the one you read, the others wait behind it, larger and dimmer. When an alert arrives, its channel moves to the front; when it is resolved, the order returns on its own.
+
+export const layersHTML = `
+<div class="bigbang">
+  <div class="gravity-spot depth">
+    <div class="orbit-4 layer-front" data-depth="0" data-name="Climate" data-value="21.5°">
+      <o-progress variant="stroke" value="82"></o-progress>
+    </div>
+    <div class="orbit-4" data-depth="1" data-name="Lights" data-value="5 of 6 on">
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66"></o-arc>
+    </div>
+    <div class="orbit-4" data-depth="2" data-name="Security" data-value="6 of 6 closed" id="security">
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on" id="window"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+      <o-arc value="16.66" class="on"></o-arc>
+    </div>
+    <div class="orbit-0">
+      <div class="satellite at-center">
+        <div class="capsule face">
+          <small id="name">Climate</small>
+          <strong id="value">21.5°</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<button id="alert">Open a window</button>
+`;
+export const layersCSS = `
+.bigbang { background: #0e1013; }
+.gravity-spot {
+  --o-depth-grow: .42;
+  --o-back-opacity: .4;
+}
+o-progress {
+  --o-stroke: #f2f3f5;
+  --o-back-stroke: #2a2e35;
+}
+o-arc {
+  --o-fill: #2a2e35;
+  --o-gap: 24;
+  --o-size-ratio: .12;
+}
+o-arc.on { --o-fill: #f2f3f5; }
+o-arc.fail { --o-fill: #ff5a4f; }
+
+/* The alert ripple: only on the ring in front. */
+.alert.layer-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid #ff5a4f;
+  animation: ripple .9s ease-out infinite;
+}
+@keyframes ripple {
+  from { scale: 1; opacity: .8; }
+  to { scale: 1.45; opacity: 0; }
+}
+
+.satellite { border: none; }
+.face {
+  display: grid;
+  justify-items: center;
+  color: #f2f3f5;
+  font-family: system-ui;
+  background: none;
+  border: none;
+}
+.face small { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; opacity: .7; }
+.face strong { font-size: 18px; }
+.alert-face strong { color: #ff5a4f; }
+button {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  translate: -50% 0;
+}
+`;
+export const layersJS = `
+const layers = [...document.querySelectorAll('.depth > [data-depth]')];
+const base = [...layers];
+const security = document.querySelector('#security');
+const windowArc = document.querySelector('#window');
+const face = document.querySelector('.face');
+const button = document.querySelector('#alert');
+
+// Order layers front to back and give each its depth.
+function order(list) {
+  list.forEach((layer, depth) => {
+    layer.dataset.depth = depth;
+    layer.classList.toggle('layer-front', depth === 0);
+  });
+  face.querySelector('#name').textContent = list[0].dataset.name;
+  face.querySelector('#value').textContent = list[0].dataset.value;
+}
+
+button.addEventListener('click', () => {
+  const alerting = security.classList.toggle('alert');
+  windowArc.classList.toggle('fail', alerting);
+  windowArc.classList.toggle('on', !alerting);
+  security.dataset.value = alerting ? 'Window open' : '6 of 6 closed';
+  face.classList.toggle('alert-face', alerting);
+  button.textContent = alerting ? 'Close the window' : 'Open a window';
+  // An alert goes in front; resolving it restores the base order.
+  order(alerting ? [security, ...base.filter(l => l !== security)] : base);
+});
+`;
+
+<ZumerPlay name={'layeredStatus'} htmlCode={layersHTML} cssCode={layersCSS} jsCode={layersJS} height={'380px'} />
+
+## How it works
+
+- **`.depth` on the `.gravity-spot`** turns its rings into layers. Each ring gets a `data-depth`, and `.layer-front` marks the one in front.
+- **Same orbit, different sizes.** All three channels use `orbit-4`. `--o-depth-grow: .42` makes each step back 42% larger (1×, 1.42×, 1.84×), so no two rings share a radius, and the perspective compensation keeps those sizes in both flat and 3D views.
+- **Progress or segments.** Climate is a single `<o-progress>`; Lights and Security are six `<o-arc>` segments each, separated with `--o-gap` and thinned with `--o-size-ratio`. Only the failing segment changes color.
+- **Color belongs to the alert.** The ring, the failing segment and the value in the center turn red. Nothing else is painted, so the hierarchy still reads without color.
+- **The ripple** is a pseudo-element on the alerting ring, shown only while that ring is in front.
+- **Order is data.** The script keeps a base order and an alert order and writes `data-depth` from the array. The depth transition is Orbit's default.
+
+## Customization
+
+**Change the spacing in z** with `--o-depth-step` (default `-110`) and the perspective with `--o-perspective` (default `900`).
+
+**Let farther layers look smaller** with `--o-depth-compensate: 0`.
+
+**Hide layers past the third** by setting `opacity: 0` on `[data-depth="3"]` and above, and show a count instead. Three visible layers is the most people can read at a glance.
+
+## Related
+
+- [Depth layers](/orbit-docs/tools/depth/) — properties and rules
+- [Stacked circular progress bars](/orbit-docs/examples/progress/stacked-circular-progress-bars/) — the flat version of several rings
+- [Use case: IoT and hardware UI](/orbit-docs/use-cases/iot-and-hardware-ui/)

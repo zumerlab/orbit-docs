@@ -143,6 +143,10 @@ export default defineConfig({
     },{
       label: 'Themes',
       link: '/tools/themes/'
+    },{
+      label: 'Depth layers',
+      link: '/tools/depth/',
+      badge: { text: 'new', variant: 'tip' }
     }
   ]
   },{
@@ -162,6 +166,9 @@ export default defineConfig({
     label: 'Examples',
     items: [
     {
+      label: 'Layered status rings',
+      link: '/examples/layered-status-rings/',
+    },{
       label: 'Circular timer',
       link: '/examples/circular_time/',
     },{
