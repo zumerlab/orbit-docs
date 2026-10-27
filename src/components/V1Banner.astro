@@ -1,11 +1,14 @@
 ---
 // This site documents Orbit 1.x. Until Orbit 2 is out, every page announces it
 // without a link. On release, link the new site and its migration guide here.
+// The home page has its own, larger announcement (OrbitHero.astro).
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const isHome = Astro.url.pathname.replace(/\/$/, '') === base;
 ---
-<div class="v1-banner">
+{!isHome && <div class="v1-banner">
   <strong>Orbit 2 is on its way</strong>, together with Orbit Kit 2. Lots of changes, and a new site.
   These docs stay here for Orbit 1.x.
-</div>
+</div>}
 
 <style>
   .v1-banner {

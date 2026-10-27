@@ -8,6 +8,8 @@ const docs = (path: string) => `${base}${path}`;
 ---
 
 <div class="orbit-home not-content" id="orbit-home">
+  <!-- Until Orbit 2 is out: an announcement without a link. On release, link the new site here. -->
+  <p class="home-notice"><strong>Orbit 2 is on its way</strong>, together with Orbit Kit 2. Lots of changes, and a new site. These docs stay here for Orbit 1.x.</p>
   <header class="home-header home-width">
     <a class="home-wordmark" href={base} aria-label="Orbit home"><img src={orbitLogo} width="44" height="36" alt=""/><span>Orbit</span></a>
     <nav aria-label="Main navigation"><a href="#playground">Playground</a><a href="#examples">Examples</a><a href={docs('introduction/')}>Docs</a><a href="https://github.com/zumerlab/orbit" class="github-link">GitHub <span aria-hidden="true">↗</span></a></nav>
