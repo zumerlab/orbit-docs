@@ -64,6 +64,7 @@ export default defineConfig({
     dark: './src/assets/dark-orbit.svg'
   },
   components: {
+    Banner: './src/components/V1Banner.astro',
     Hero: './src/components/OrbitHero.astro',
     PageFrame: './src/components/OrbitPageFrame.astro',
     Footer: './src/components/OrbitFooter.astro',

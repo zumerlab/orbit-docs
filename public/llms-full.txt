@@ -42,7 +42,7 @@
 
 ### npm
 ```bash
-npm install @zumer/orbit
+npm install @zumer/orbit@1
 ```
 ```js
 import '@zumer/orbit/style'  // CSS

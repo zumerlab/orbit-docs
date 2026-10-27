@@ -42,6 +42,13 @@ async function sync() {
   const source = resolve(process.env.ORBIT_DIR || join(root, '../orbit'));
   const pkg = JSON.parse(await readFile(join(source, 'package.json'), 'utf8'));
   if (pkg.name !== '@zumer/orbit') throw new Error(`${source} is not an @zumer/orbit checkout.`);
+  // This site documents Orbit 1.x. Orbit 2 lives on its own site, so never copy
+  // a 2.x build here, and only take a checkout of a 1.x branch (main or v1).
+  if (!/^1\./.test(pkg.version)) throw new Error(`${source} is Orbit ${pkg.version}; this site needs 1.x.`);
+  const branch = execFileSync('git', ['rev-parse', '--abbrev-ref', 'HEAD'], { cwd: source, encoding: 'utf8' }).trim();
+  if (!['main', 'v1'].includes(branch) && !process.env.ORBIT_ALLOW_BRANCH) {
+    throw new Error(`${source} is on branch "${branch}". Check out main (Orbit 1.x) first, or set ORBIT_ALLOW_BRANCH=1 if you are sure it is 1.x.`);
+  }
   // Compile source first: never silently copy stale dist files from a checkout.
   execFileSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'compile'], { cwd: source, stdio: 'inherit' });
   const inputs = ['package.json', 'package-lock.json', 'esbuild.config.mjs', ...(await sourceFiles(join(source, 'src'))).map((name) => `src/${name}`)];
