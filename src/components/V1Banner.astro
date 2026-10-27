@@ -1,13 +1,13 @@
 ---
-// This site documents Orbit 1.x. Until Orbit 2 is out, every page announces it
-// without a link. On release, link the new site and its migration guide here.
-// The home page has its own, larger announcement (OrbitHero.astro).
+// This site documents Orbit 1.x. Every page points to Orbit 2 and its
+// migration guide. The home page has its own, larger notice (OrbitHero.astro).
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const isHome = Astro.url.pathname.replace(/\/$/, '') === base;
 ---
 {!isHome && <div class="v1-banner">
-  <strong>Orbit 2 is on its way</strong>, together with Orbit Kit 2. Lots of changes, and a new site.
-  These docs stay here for Orbit 1.x.
+  <strong>Orbit 2 is out</strong>, with Orbit Kit 2 and a new site:
+  <a href="https://zumerlab.com/orbit/">read the Orbit 2 docs</a> or see
+  <a href="https://zumerlab.com/orbit/migrating.html">what changed</a>. These docs stay here for Orbit 1.x.
 </div>}
 
 <style>
@@ -19,4 +19,5 @@ const isHome = Astro.url.pathname.replace(/\/$/, '') === base;
     font-size: var(--sl-text-sm);
   }
   .v1-banner strong { font-weight: 600; }
+  .v1-banner a { color: inherit; font-weight: 600; }
 </style>

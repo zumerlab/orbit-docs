@@ -104,3 +104,4 @@
   background: linear-gradient(90deg, #ef4565, #3da9fc);
 }
 .home-notice strong { font-weight: 700; }
+.home-notice a { color: inherit; font-weight: 600; text-underline-offset: 3px; }
