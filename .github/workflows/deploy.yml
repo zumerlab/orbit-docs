@@ -1,14 +1,13 @@
 name: Deploy to GitHub Pages
 
+# The Orbit 1.x docs are retired. This publishes only site/404.html, which sends
+# every old /orbit-docs/ URL to the current docs at https://zumerlab.com/orbit/.
+
 on:
-  # Trigger the workflow every time you push to the `main` branch
-  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [ main ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
 
-# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -20,11 +19,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v7
-      - name: Install, build, and upload your site
-        uses: withastro/action@v6
+      - name: Upload the static site
+        uses: actions/upload-pages-artifact@v4
         with:
-          node-version: 24
-          build-cmd: npm run check && npm run build
+          path: site
 
   deploy:
     needs: build

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Orbit docs have moved</title>
+<script>
+// The Orbit 1.x docs that lived under /orbit-docs/ are retired. Send visitors to
+// the matching page of the current docs when there is one, otherwise to its home.
+(function () {
+  var path = location.pathname.replace(/^\/orbit-docs/, '').replace(/\/+$/, '');
+  var target = '/orbit/';
+  var m;
+  if ((m = path.match(/^\/examples\/(.+)$/))) {
+    // Category folders kept their index; single examples became .html files.
+    var categories = ['calendar', 'charts', 'gauges', 'knobs', 'mandalas', 'progress', 'watches'];
+    target = '/orbit/examples/' + (categories.indexOf(m[1]) > -1 ? m[1] + '/' : m[1] + '.html');
+  } else if (path === '/examples') {
+    target = '/orbit/examples/';
+  } else if ((m = path.match(/^\/integrations\/([a-z]+)$/))) {
+    target = '/orbit/frameworks/' + m[1] + '.html';
+  } else if (path === '/guide') {
+    target = '/orbit/guide.html';
+  } else if (path === '/introduction/installation') {
+    target = '/orbit/install.html';
+  }
+  location.replace(target);
+})();
+</script>
+<style>
+  body { font: 16px/1.5 system-ui, sans-serif; max-width: 32rem; margin: 20vh auto; padding: 0 16px; color: #1a1a1a; background: #fff; }
+  @media (prefers-color-scheme: dark) { body { color: #eee; background: #111; } a { color: #9cf; } }
+</style>
+</head>
+<body>
+<h1>Orbit docs have moved</h1>
+<p>This page belonged to the Orbit 1.x documentation, which has been retired.</p>
+<p><a href="/orbit/">Go to the current Orbit docs</a></p>
+</body>
+</html>
